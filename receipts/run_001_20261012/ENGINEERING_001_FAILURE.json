@@ -1,0 +1,148 @@
+{
+  "status": "failed",
+  "utc": "2026-10-11T16:44:40.260390+00:00",
+  "pid": 476176,
+  "type": "RuntimeError",
+  "message": "upsample_linear1d_backward_out_cuda does not have a deterministic implementation, but you set 'torch.use_deterministic_algorithms(True)'. You can turn off determinism just for this operation, or you can use the 'warn_only=True' option, if that's acceptable for your application. You can also file an issue at https://github.com/pytorch/pytorch/issues to help us prioritize adding deterministic support for this operation.",
+  "traceback": "Traceback (most recent call last):\n  File \"/home/rylan/projects/ej276d-n01/run_001_20261012/src/n01/train.py\", line 414, in main\n    metrics.append(engine.step(audit=True, verify_replay=True, parameter_audit=stage==\"joint_stochastic\"))\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/rylan/projects/ej276d-n01/run_001_20261012/src/n01/train.py\", line 230, in step\n    exact_two_pass_backward(self.model, batches, gradient,\n  File \"/home/rylan/projects/ej276d-n01/run_001_20261012/src/n01/train.py\", line 76, in exact_two_pass_backward\n    torch.autograd.backward((output[\"waveform\"], penalty),\n  File \"/usr/local/lib/python3.12/dist-packages/torch/autograd/__init__.py\", line 379, in backward\n    _engine_run_backward(\n  File \"/usr/local/lib/python3.12/dist-packages/torch/autograd/graph.py\", line 882, in _engine_run_backward\n    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: upsample_linear1d_backward_out_cuda does not have a deterministic implementation, but you set 'torch.use_deterministic_algorithms(True)'. You can turn off determinism just for this operation, or you can use the 'warn_only=True' option, if that's acceptable for your application. You can also file an issue at https://github.com/pytorch/pytorch/issues to help us prioritize adding deterministic support for this operation.\n",
+  "mode": "engineering",
+  "arm": "engineering",
+  "stage": "mean_response",
+  "completed_updates": 1,
+  "last_completed_metrics": {
+    "utc": "2026-10-11T16:44:40.057057+00:00",
+    "arm": "engineering",
+    "variant": "full",
+    "stage": "baseline",
+    "update": 1,
+    "loss": {
+      "wave": 0.8994603157043457,
+      "QPSD": 1.6447803974151611,
+      "noise": 0.6018184423446655,
+      "regular": 0.000630582349154662,
+      "trend": 0.0,
+      "adv": 0.0
+    },
+    "weighted_total": 4.790845858702825,
+    "response_gradient_preclip_norm": 107.7255859375,
+    "discriminator": null,
+    "population_update": null,
+    "population_theta": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "comparison_weight_range": [
+      1.0,
+      1.0
+    ],
+    "saturation_fraction": 0.006327311197916667,
+    "max_preADC_charge_identity_residual": 9.242606680004428e-15,
+    "condition_support": {
+      "fake_global_rows": 1024,
+      "real_global_rows": 1024,
+      "conditional_bins": [
+        {
+          "bin": 0,
+          "fake_count": 373,
+          "real_count": 134,
+          "supported": true,
+          "status": "used"
+        },
+        {
+          "bin": 1,
+          "fake_count": 109,
+          "real_count": 132,
+          "supported": true,
+          "status": "used"
+        },
+        {
+          "bin": 2,
+          "fake_count": 91,
+          "real_count": 136,
+          "supported": true,
+          "status": "used"
+        },
+        {
+          "bin": 3,
+          "fake_count": 91,
+          "real_count": 112,
+          "supported": true,
+          "status": "used"
+        },
+        {
+          "bin": 4,
+          "fake_count": 81,
+          "real_count": 136,
+          "supported": true,
+          "status": "used"
+        },
+        {
+          "bin": 5,
+          "fake_count": 57,
+          "real_count": 128,
+          "supported": true,
+          "status": "used"
+        },
+        {
+          "bin": 6,
+          "fake_count": 39,
+          "real_count": 121,
+          "supported": true,
+          "status": "used"
+        },
+        {
+          "bin": 7,
+          "fake_count": 183,
+          "real_count": 125,
+          "supported": true,
+          "status": "used"
+        }
+      ],
+      "minimum_conditional_support": 16,
+      "conditional_bins_used": 8,
+      "conditional_bins_total": 8,
+      "conditional_coverage_complete": true,
+      "conditional_rebatch_needed": false,
+      "fake_nonpositive_q_rows": 17,
+      "real_nonpositive_q_rows": 0,
+      "fake_guarded_psd_rows": 0,
+      "real_guarded_psd_rows": 0,
+      "global_term_includes_all_rows": true,
+      "conditional_term": "PSD_empirical_W1",
+      "no_supported_bin_behavior": "global_term_only_with_incomplete_coverage_diagnostic"
+    },
+    "coverage": {
+      "source_unique": 512,
+      "source_total": 6593,
+      "real_unique": 1024,
+      "real_total": 21047,
+      "source_epochs": 0,
+      "real_epochs": 0
+    },
+    "update_seconds": 1.0180429369938793,
+    "elapsed_seconds": 1.0183391989994561,
+    "gpu_allocated_bytes": 210636800,
+    "gpu_reserved_bytes": 352321536,
+    "gpu_peak_reserved_bytes": 352321536,
+    "same_version_reforward_verified": true,
+    "endpoint_gradients": {
+      "norms": {
+        "wave": 12.351636225418291,
+        "QPSD": 997.8395312983713,
+        "noise": 0.0,
+        "adv": 0.0
+      },
+      "cosine": {
+        "wave/QPSD": 0.012166927052011254,
+        "wave/noise": null,
+        "wave/adv": null,
+        "QPSD/noise": null,
+        "QPSD/adv": null,
+        "noise/adv": null
+      },
+      "zero_norm_angle": null,
+      "scope": "canonical-waveform endpoint; excludes direct parameter penalties"
+    }
+  }
+}

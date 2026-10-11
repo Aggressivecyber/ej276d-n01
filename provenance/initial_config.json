@@ -1,0 +1,206 @@
+{
+  "schema_version": 1,
+  "experiment_id": "N01",
+  "title": "物理分解式条件随机 1D U-Net",
+  "status": "initial_specification_created_not_implemented",
+  "authority": {
+    "proposal": "USER_PROPOSAL.md",
+    "proposal_sha256": "a5d4bc756c8f43b833d45dfad36a297f2dfd5caaf750149f81af388633f2a9b1",
+    "protocol_parent": null,
+    "inherits_R79": false,
+    "inherits_assistant_R80_plan": false,
+    "inherits_historical_acceptance": false,
+    "values_status": "user_proposal_initial_settings_not_validated_optima"
+  },
+  "input": {
+    "waveform_length": 480,
+    "shape": ["batch", 1, 480],
+    "encoder_channels": ["peak_normalized_waveform", "first_difference", "normalized_time"],
+    "scalar_conditions": ["log_Qsource_over_Qref", "log_amplitude_over_Aref", "known_detector_condition"],
+    "unrecorded_detector_conditions": "unknown",
+    "ID_filename_row_batch_position_as_feature": false,
+    "amplitude_validity_floor": null,
+    "Qref_Aref": "to_bind_from_legal_TRAIN",
+    "complete_legal_training_coverage": true,
+    "every_step_full_population_required": false,
+    "artificial_energy_gap": false,
+    "preserve_existing_validation_roles": true
+  },
+  "generator": {
+    "encoder_channels": [32, 48, 64, 96, 128],
+    "encoder_lengths": [480, 240, 120, 60, 30],
+    "decoder_channels": [96, 64, 48, 32],
+    "convolution_kernel_size": 5,
+    "group_norm_groups": 8,
+    "activation": "SiLU",
+    "residual_blocks": true,
+    "condition_dim": 128,
+    "condition_modulation": "FiLM",
+    "downsample_antialias": "fixed_smoothing_lowpass",
+    "upsample": "interpolation_then_convolution",
+    "bottleneck_dilations": [1, 2, 4],
+    "mean_charge_head": {
+      "coordinate": "log_Qsource",
+      "shape_condition": "amplitude_free_normalized_shape",
+      "charge_or_amplitude_in_unconstrained_spline_parameter_encoder": false,
+      "monotone_spline_bins": 8,
+      "spline_family": null,
+      "initialization": "identity_or_reviewed_simple_gain_baseline",
+      "inherited_trained_Q_head": false
+    },
+    "joint_random_head": {
+      "latent_dim": 10,
+      "latent_distribution": "standard_normal",
+      "lower_triangular_outputs": 55,
+      "coordinates": ["eta_Q", "eta_time_scale", "shape_coefficient_1_to_8"],
+      "charge_formula": "Qsig = Qbar * exp(eta_Q - sigma_Q_squared/2)",
+      "charge_mean_scope": "pre_electronics_window_signal_charge_untruncated_lognormal_assumption"
+    },
+    "time_response": {
+      "response_filter_length": 65,
+      "causal": true,
+      "shared_by_detector_condition": true,
+      "event_dependent_time_scale": true,
+      "positive_time_scale": true,
+      "absolute_time_shift_enabled": false,
+      "alignment_reference_t0": null
+    },
+    "shape": {
+      "mean_residual_resolution": 480,
+      "stochastic_shape_rank": 8,
+      "stochastic_basis_control_points": 60,
+      "basis_expansion": "smooth_spline",
+      "basis_norm_normalization": true,
+      "weak_basis_correlation_penalty": true
+    },
+    "electronics_noise": {
+      "filter_length": 65,
+      "baseline_offset_and_linear_drift": true,
+      "event_varying_amplitude": true,
+      "fit_source": "legal_REAL_TRAIN_baseline_segments",
+      "full_pulse_or_particle_proxy_conditioning": false,
+      "zero_charge_projection": false,
+      "convolution": "extended_random_sequence_then_valid_crop"
+    },
+    "local_signal_fluctuation": {
+      "smooth_envelope": true,
+      "condition_on_input_and_Qsig": true,
+      "filter_length": null,
+      "zero_window_charge_projection": true
+    },
+    "assembly": {
+      "signal_shape": "v / Q(v)",
+      "preADC": "Qsig * unit_charge_shape + local_signal_fluctuation + electronics_noise",
+      "preADC_charge_identity": "Q(preADC) = Qsig + Q(electronics_noise)",
+      "final_noisy_waveform_projection_to_Qsig": false,
+      "charge_change_via_average_template_addition": false,
+      "invalid_Qv": "record_invalid_generation_and_diagnose_no_hidden_clipping",
+      "observation_operator": "to_bind_common_frozen_digitization_and_preprocessing"
+    }
+  },
+  "population": {
+    "independent_of_response_model": true,
+    "initial_family": "low_degree_smooth_comparison_weights",
+    "allowed_coordinates": ["source_charge", "known_deposition_composition"],
+    "functional_form": null,
+    "bounds": null,
+    "fit_schedule": null,
+    "preserve_original_parents_and_physical_weights": true,
+    "comparison_weights_saved_separately": true,
+    "raw_and_conditionally_comparable_results_separate": true,
+    "legacy_tilt_tables_or_training_streams_reused": false,
+    "reasonable_population_sensitivity": "required_by_user_proposal_cases_to_bind",
+    "instability_interpretation": "response_and_population_not_separately_identified_with_current_information"
+  },
+  "loss": {
+    "standardization": "legal_TRAIN_scales_only",
+    "weights": {"wave": 1.0, "QPSD": 2.0, "noise": 1.0, "adv": 0.1, "regular": 0.01, "trend": 0.1},
+    "exact_distribution_distance": null,
+    "adversarial_loss_family": null,
+    "gradient_norms_and_angles_logged": true,
+    "conditional_comparison_axis": "generated_output_charge_and_REAL_charge_same_definition",
+    "same_raw_Qsource_and_Qreal_assumed_equivalent": false,
+    "random_paired_waveform_MSE": false,
+    "strict_eventwise_PSD_order": false,
+    "forbid_source_groups_from_measured_valley": false,
+    "stochastic_forward_REAL_identity_loss": false,
+    "unbounded_diversity_reward": false,
+    "mixed_parameter_version_distribution_cache": false
+  },
+  "discriminator": {
+    "channels": [32, 64, 128],
+    "heads": ["global", "local"],
+    "spectral_normalization": true,
+    "used_as_final_domain_classifier": false
+  },
+  "sampling": {
+    "source_parents_per_step": 128,
+    "responses_per_parent": 2,
+    "real_waveforms_per_step": 256,
+    "cover_all_legal_training_parents": true,
+    "small_condition_support_handling": "same_parameter_version_larger_distribution_batch_or_joint_microbatches",
+    "minimum_condition_support": null
+  },
+  "optimization": {
+    "generator_lr": 0.0002,
+    "discriminator_lr": 0.0001,
+    "generator_weight_decay": 0.0001,
+    "gradient_clip_norm": 5.0,
+    "discriminator_updates_per_generator_update": 1,
+    "optimizer_family": null,
+    "stages": [
+      {"name": "baseline", "updates": 1000},
+      {"name": "mean_response", "updates": 3000},
+      {"name": "joint_stochastic", "updates": 12000},
+      {"name": "low_learning_rate", "updates": 4000}
+    ],
+    "initial_total_updates": 20000,
+    "low_stage_learning_rate": null,
+    "per_stage_freeze_and_loss_activation": null,
+    "model_selection": "fixed_endpoint_no_heldout_checkpoint_selection",
+    "initialization_count": null,
+    "seeds": null
+  },
+  "numerics": {"network_dtype": "float32", "charge_and_critical_reductions": "float64"},
+  "comparators": [
+    "simple_gain_low_dof_charge_map_shared_filter_time_broadening_correlated_noise",
+    "deterministic_UNet_with_same_electronics_noise",
+    "full_stochastic_UNet"
+  ],
+  "evaluation": {
+    "complete_response": ["voltage", "normalized_waveform", "joint_Q_PSD", "conditional_peak_positions", "conditional_original_peak_widths", "baseline_and_correlated_noise"],
+    "independent_domain_classifier": true,
+    "REAL_REAL_and_common_observation_controls": true,
+    "repeat_parents": 128,
+    "responses_per_repeat_parent": 64,
+    "repeat_statistics": ["Var_Q_given_x", "Var_PSD_given_x", "Cov_Q_PSD_given_x", "relative_time", "waveform_covariance", "noise_statistics"],
+    "source_dependency_test": "fixed_random_variables_change_input_content_then_repeat_response_means",
+    "global_shuffle_marginal_invariance_as_dependency_test": false,
+    "ID_or_storage_order_should_change_response": false,
+    "freeze_response_before_population_change": true,
+    "independent_acquisition_claim": false,
+    "quantitative_acceptance_thresholds": null,
+    "uncertainty_definition": null,
+    "inherited_v5_A_F_thresholds": false,
+    "mandatory_known_response_recovery_pretraining_experiment": false,
+    "inherited_fixed_4000_replay_requirement": false
+  },
+  "operational_safety_only": {
+    "server_CPU_threads": 12,
+    "server_job_tree_RSS_limit_GiB": 48,
+    "server_single_GPU_allocated_and_reserved_limit_GiB": 10,
+    "local_shared_CPU_threads": 4,
+    "local_shared_RSS_limit_GiB": 4,
+    "one_active_scientific_job": true,
+    "new_files_only_on_E_or_D": true,
+    "execution_host": "to_bind_after_live_resource_check"
+  },
+  "current_execution": {
+    "model_implemented": false,
+    "training_updates": 0,
+    "model_forwards": 0,
+    "scientific_array_decodes": 0,
+    "scientific_acceptance_evaluated": false,
+    "active_scientific_jobs": 0
+  }
+}

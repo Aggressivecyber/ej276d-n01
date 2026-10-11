@@ -7,7 +7,7 @@
     "exists": true,
     "bytes": 26858280,
     "scientific_arrays_decoded_this_creation": false,
-    "container_sha256": "not_recomputed_at_creation"
+    "container_sha256": "9e2f2c3c18470f4b2f3374a39590a9c27b18222bd1b22b5d7467e561409ad854"
   },
   "array_roles_from_existing_preparation_code": {
     "source": "legal SOURCE TRAIN waveforms",
@@ -17,7 +17,7 @@
     "source_val": "existing SOURCE validation subset",
     "target_val": "existing REAL validation",
     "source_val_ids": "validation lineage only",
-    "hval": "validation source audit only"
+    "hval": "heldout deposition audit and application of saved TRAIN comparison-weight mapping;not_real_particle_labels"
   },
   "fields_not_adopted_as_N01_training_rules": [
     "lambdas",
@@ -33,8 +33,13 @@
     "REAL_TRAIN_fit": 21047,
     "REAL_internal_val": 599
   },
-  "counts_verification": "read existing metadata; not a fresh scientific array audit",
-  "real_parent_identity_binding": "resolve original identity/QC/role records when implementing loader; do not invent IDs from row position",
+  "counts_verification": "fresh_named_TRAIN_array_inspection_20261011;no_validation_waveform_decode",
+  "real_parent_identity_binding": {
+    "file": "data/PARENT_IDENTITIES.npz",
+    "sha256": "5145ea04d038510c9ca740d997e0cf9d060ed69210a4515e20110d884db7e845",
+    "receipt": "receipts/IDENTITY_BINDING.json",
+    "REAL_train_validation_group_overlap": 0
+  },
   "references": [
     {
       "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R23_ONLINE_STANDARDIZED_CRITIC_001\\DATA_ROLES.json",
@@ -67,5 +72,27 @@
   "inherited_acceptance_documents": [],
   "physical_calibration": "unknown",
   "independent_acquisition_count": 1,
-  "numerical_representation_to_bind": "Confirm waveform unit, sample spacing, integration windows, ADC and common preprocessing directly from data interface; this is not a physical calibration."
+  "numerical_representation_to_bind": {
+    "status": "bound_software_representation",
+    "voltage": "V",
+    "sample_interval_ns": 1,
+    "baseline": [
+      0,
+      100
+    ],
+    "charge": [
+      100,
+      400
+    ],
+    "tail": [
+      150,
+      400
+    ],
+    "source_alignment_half_rise_index": 120,
+    "ADC": "14bit inclusive[-0.5,0.5]V",
+    "physical_calibration": "unknown"
+  },
+  "updated_UTC": "2026-10-11T17:01:13.218323+00:00",
+  "source_count_weights": "uniform_ones;training_key_original_source_weights_means_count_weights",
+  "calibrated_original_physical_weights": "unknown_not_in_selected_training_interface"
 }
