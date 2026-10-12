@@ -1,6 +1,6 @@
 {
   "experiment_id": "N01",
-  "updated_UTC": "2026-10-12T11:55:33.451126+00:00",
+  "updated_UTC": "2026-10-12T12:12:35.463381+00:00",
   "active_scientific_jobs": 0,
   "jobs": [
     {
@@ -259,7 +259,7 @@
     },
     {
       "job_id": "N01_INTEGRATION006_BINDING_FIX01_20261012",
-      "status": "registered",
+      "status": "failed_string_ID_serialization_before_response_forward",
       "registered_UTC": "2026-10-12T11:55:33.451126+00:00",
       "host": "100.82.231.102",
       "pid": null,
@@ -272,7 +272,78 @@
       "protocol": "docs/INTEGRATION_006_PROTOCOL.md",
       "amendment": "docs/INTEGRATION_006_BINDING_FIX01.md",
       "preregistration": "receipts/integration_006_20261012/binding_fix01/PREREGISTRATION.json",
-      "remote_root": "/home/rylan/projects/ej276d-n01/integration_006_20261012_binding_fix01"
+      "remote_root": "/home/rylan/projects/ej276d-n01/integration_006_20261012_binding_fix01",
+      "source_commit": "e1b8ab0cc1609bd21f18a390fd85bd397dc0d889",
+      "started_UTC": "2026-10-12T12:08:14.683974+00:00",
+      "native_exit_code": 1,
+      "ended_UTC": "2026-10-12T12:08:17.686071+00:00",
+      "historical_evaluation_pid": 12568,
+      "historical_supervisor_pid": 12565,
+      "actual_counts": {
+        "REAL_readout_rows": {
+          "TRAIN": 21047
+        },
+        "noise005_forward_attempted": {
+          "TRAIN": {
+            "batches": 1,
+            "events": 128
+          }
+        },
+        "noise005_forward": {
+          "TRAIN": {
+            "batches": 1,
+            "events": 128
+          }
+        },
+        "extension_forward_attempted": {
+          "TRAIN/fast": {
+            "batches": 1,
+            "events": 128
+          },
+          "TRAIN/slow": {
+            "batches": 1,
+            "events": 128
+          },
+          "TRAIN/common_level": {
+            "batches": 1,
+            "events": 128
+          }
+        },
+        "extension_forward": {
+          "TRAIN/fast": {
+            "batches": 1,
+            "events": 128
+          },
+          "TRAIN/slow": {
+            "batches": 1,
+            "events": 128
+          },
+          "TRAIN/common_level": {
+            "batches": 1,
+            "events": 128
+          }
+        }
+      },
+      "noise_updates": 0,
+      "response_updates": 0,
+      "failure_receipt": "receipts/integration_006_20261012/failed_binding_fix01/science/FAILURE.json"
+    },
+    {
+      "job_id": "N01_INTEGRATION006_ID_FIX02_20261012",
+      "status": "registered",
+      "registered_UTC": "2026-10-12T12:12:35.463381+00:00",
+      "host": "100.82.231.102",
+      "pid": null,
+      "supervisor_pid": null,
+      "noise_updates_planned": 0,
+      "response_updates_planned": 0,
+      "classifier_updates_planned": 0,
+      "GMM_fits_planned": 0,
+      "configuration": "integration006_config.json",
+      "protocol": "docs/INTEGRATION_006_PROTOCOL.md",
+      "amendment": "docs/INTEGRATION_006_ID_FIX02.md",
+      "preregistration": "receipts/integration_006_20261012/id_fix02/PREREGISTRATION.json",
+      "remote_root": "/home/rylan/projects/ej276d-n01/integration_006_20261012_id_fix02"
     }
   ]
 }

@@ -316,7 +316,7 @@ def replay_all(cfg,data,obs,curves,out,device,noise,extension,models):
     for split in ('TRAIN','DEV'):
         saved=torch.load(out/'latents'/f'{split}.pt',map_location='cpu',weights_only=False)
         streams=new_streams(saved,{name:cfg['seeds'][split+'_'+name] for name in ('response','noise005','extension')})
-        ds=data[split];parents=np.repeat(np.arange(len(ds['source'])),4)
+        ds=data[split];parents=np.repeat(np.arange(len(ds['source']),dtype=np.int64),4)
         accum={arm:CurveCheck() for arm in models};leakage[split]={}
         for arm in models:leakage[split][arm]=dict(absmax=0.,sum=0.,sum_square=0.,samples=0)
         expected_start=0
@@ -350,7 +350,7 @@ def replay_all(cfg,data,obs,curves,out,device,noise,extension,models):
                 exact(cpu(first['shared_scale']),cpu(scale),'explicit scale')
                 exact(cpu(first['source_parent_row']),parents[:n],'sample original parent rows')
                 exact(cpu(first['source_parent_ids']),ds['source_ids'][parents[:n]],'sample original parent IDs')
-                exact(cpu(first['draw_index']),np.tile(np.arange(4),n//4),'sample draw order')
+                exact(cpu(first['draw_index']),np.tile(np.arange(4,dtype=np.int64),n//4),'sample draw order')
             for arm,model in models.items():
                 pre=split+'_'+arm+'_';old=model(x,noise=rd,adc_ste=False)
                 signal=old['qsig'][:,None]*old['unit_shape']+old['signal_noise']
@@ -522,8 +522,8 @@ def check_observables(obs,cfg,stats,data):
         n=len(source);rows=n*4
         assert len(real)==cfg['evaluation']['train_real_rows' if split=='TRAIN' else 'dev_real_rows']
         exact(obs[split+'_source_parent_ids'],source_ids,split+' source IDs')
-        exact(obs[split+'_source_parent_row'],np.repeat(np.arange(n),4),split+' parent rows')
-        exact(obs[split+'_draw_index'],np.tile(np.arange(4),n),split+' draw indices')
+        exact(obs[split+'_source_parent_row'],np.repeat(np.arange(n,dtype=np.int64),4),split+' parent rows')
+        exact(obs[split+'_draw_index'],np.tile(np.arange(4,dtype=np.int64),n),split+' draw indices')
         close(obs[split+'_source_h'],ds['h'],atol=0,rtol=0,label=split+' original h')
         exact(obs[split+'_REAL_ids'],real_ids,split+' REAL IDs')
         exact(obs[split+'_REAL_groups'],real_groups,split+' REAL groups')
@@ -546,7 +546,7 @@ def check_observables(obs,cfg,stats,data):
             for i in range(5):np.add.at(migrations[i],(fixed,bins[i]),1)
             assert np.array_equal(obs[prefix+'migration'],migrations)
             exact(obs[prefix+'fixed_bin_rows'],np.bincount(fixed,minlength=8),prefix+' bin row support')
-            parents=np.array([len(np.unique(np.repeat(np.arange(n),4)[fixed==b])) for b in range(8)])
+            parents=np.array([len(np.unique(np.repeat(np.arange(n,dtype=np.int64),4)[fixed==b])) for b in range(8)],dtype=np.int64)
             exact(obs[prefix+'fixed_bin_parents'],parents,prefix+' bin parent support')
             close(q-obs[prefix+'pre_adc_Q'],obs[prefix+'ADCcharge_change'],label=prefix+' ADC charge')
             close(obs[prefix+'pre_adc_Q']-obs[prefix+'signal_pre_Q'][None,:]-obs[prefix+'noise_pre_Q'],obs[prefix+'charge_identity_residual'],label=prefix+' assembly Q')

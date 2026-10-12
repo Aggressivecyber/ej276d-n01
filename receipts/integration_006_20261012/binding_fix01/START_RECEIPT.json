@@ -1,0 +1,37 @@
+{
+  "status": "dispatched",
+  "UTC": "2026-10-12T12:08:14.761158+00:00",
+  "source_commit": "e1b8ab0cc1609bd21f18a390fd85bd397dc0d889",
+  "evaluation_pid": 12568,
+  "supervisor_pid": 12565,
+  "timeout_pid": 12567,
+  "source_manifest_sha256": "e8f8f6d5af176e411b24465ef21defe5fe5a5f95a4bb81545d27500f3d3c339b",
+  "training_updates": 0,
+  "launch": {
+    "supervisor_pid": 12565,
+    "child_pid": 12567,
+    "command": [
+      "timeout",
+      "--signal=TERM",
+      "--kill-after=15s",
+      "1800s",
+      "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+      "-B",
+      "-m",
+      "n01.evaluate_integration006",
+      "--container",
+      "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R33_REMOTE_20261009_175239_UTC/inputs/TRAIN_PRIVATE.npz",
+      "--identities",
+      "/home/rylan/projects/ej276d-n01/integration_006_20261012_binding_fix01/data/PARENT_IDENTITIES.npz",
+      "--config",
+      "/home/rylan/projects/ej276d-n01/integration_006_20261012_binding_fix01/integration006_config.json",
+      "--source-manifest",
+      "/home/rylan/projects/ej276d-n01/integration_006_20261012_binding_fix01/INTEGRATION006_BINDING_FIX01_SOURCE_MANIFEST.json",
+      "--out",
+      "/home/rylan/projects/ej276d-n01/integration_006_20261012_binding_fix01/runs/science",
+      "--device",
+      "cuda:0"
+    ],
+    "started_utc": "2026-10-12T12:08:14.683974+00:00"
+  }
+}

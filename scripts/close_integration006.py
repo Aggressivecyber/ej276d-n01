@@ -12,21 +12,24 @@ def write(p,value):p.write_text(json.dumps(value,ensure_ascii=False,indent=2,all
 
 def main():
     assert not (REC/'FINAL_RECEIPT.json').exists(),'Preserve closed006 results'
-    science=RUN/'binding_fix01/runs/science';complete=read(science/'COMPLETE.json');decision=read(science/'DECISION.json')
-    replay=read(RUN/'binding_fix01/runs/verification/REPLAY_VERIFICATION.json');native=read(RUN/'binding_fix01/runs/supervisor/exit_receipt.json')
-    cfg=read(ROOT/'integration006_config.json');tests=read(REC/'binding_fix01/TEST_SUMMARY.json')
+    science=RUN/'id_fix02/runs/science';complete=read(science/'COMPLETE.json');decision=read(science/'DECISION.json')
+    replay=read(RUN/'id_fix02/runs/verification/REPLAY_VERIFICATION.json');native=read(RUN/'id_fix02/runs/supervisor/exit_receipt.json')
+    cfg=read(ROOT/'integration006_config.json');tests=read(REC/'id_fix02/TEST_SUMMARY.json')
     post=read(REC/'POSTFLIGHT.json');visual=read(REC/'VISUAL_QA.json');review=read(REC/'RESULTS_INDEPENDENT_REVIEW.json')
-    start=read(REC/'binding_fix01/START_RECEIPT.json')
+    start=read(REC/'id_fix02/START_RECEIPT.json')
     initial_failure=read(RUN/'runs/science/FAILURE.json');initial_native=read(RUN/'runs/supervisor/exit_receipt.json')
     assert initial_native['exit_code']==1 and initial_failure['actual_counts']=={}
+    binding_failure=read(RUN/'binding_fix01/runs/science/FAILURE.json')
+    assert read(RUN/'binding_fix01/runs/supervisor/exit_receipt.json')['exit_code']==1
+    assert binding_failure['actual_counts']['noise005_forward']['TRAIN']['events']==128
     assert complete['status']=='zero_training_completed' and native['exit_code']==0
     assert complete['updates']==dict(noise=0,response=0,classifier=0,GMM_fits=0)
     assert replay['status']=='passed' and replay['passed'] and replay['complete_sha256']==sha(science/'COMPLETE.json')
-    assert replay['source_manifest_sha256']==sha(ROOT/'INTEGRATION006_BINDING_FIX01_SOURCE_MANIFEST.json')
+    assert replay['source_manifest_sha256']==sha(ROOT/'INTEGRATION006_ID_FIX02_SOURCE_MANIFEST.json')
     assert complete['provenance']['config_sha256']==sha(ROOT/'integration006_config.json')
     assert replay['independent_decision']['outcome']==decision['outcome']==complete['decision_outcome']
     assert not decision['scientific_acceptance'] and decision['response_updates_authorized_here']==0
-    assert tests['status']=='passed' and tests['scientific_updates']==0
+    assert tests['status']=='passed' and tests['new_scientific_updates']==0
     assert review['status']=='passed_for_bounded_delivery' and not review['blockers']
     assert visual['status']=='passed'
     assert not post['active_N01_python'] and not post['GPU_compute_processes']
@@ -43,20 +46,25 @@ def main():
         updates=complete['updates'],cumulative_generator_updates=92000,
         training_update_accounting='77000 original +5000 repair002 +5000 improvement004 +5000 acf005 +0 integration006',
         source_commit=start['source_commit'],native_exit_code=0,actual_counts=complete['actual_counts'],
-        source_manifest_sha256=sha(ROOT/'INTEGRATION006_BINDING_FIX01_SOURCE_MANIFEST.json'),configuration_sha256=sha(ROOT/'integration006_config.json'),
+        source_manifest_sha256=sha(ROOT/'INTEGRATION006_ID_FIX02_SOURCE_MANIFEST.json'),configuration_sha256=sha(ROOT/'integration006_config.json'),
         complete_sha256=sha(science/'COMPLETE.json'),decision=decision,
-        replay_receipt='runs/'+ID+'/binding_fix01/runs/verification/REPLAY_VERIFICATION.json',
-        replay_sha256=sha(RUN/'binding_fix01/runs/verification/REPLAY_VERIFICATION.json'),
+        replay_receipt='runs/'+ID+'/id_fix02/runs/verification/REPLAY_VERIFICATION.json',
+        replay_sha256=sha(RUN/'id_fix02/runs/verification/REPLAY_VERIFICATION.json'),
         engineering_attempts=[dict(attempt='initial',native_exit_code=1,scientific_forward_rows=0,
             failure_sha256=sha(RUN/'runs/science/FAILURE.json'),failure=initial_failure['error']),
-            dict(attempt='binding_fix01',native_exit_code=0,completed_scientific_evaluation=True)],
+            dict(attempt='binding_fix01',native_exit_code=1,actual_counts=binding_failure['actual_counts'],
+                failure_sha256=sha(RUN/'binding_fix01/runs/science/FAILURE.json'),failure=binding_failure['error']),
+            dict(attempt='id_fix02',native_exit_code=0,completed_scientific_evaluation=True)],
         original_scientific_protocol_and_configuration_unchanged=True,
-        all_frozen_inputs_and_generated_waveforms_verified=True,
+        completed_attempt_frozen_inputs_and_generated_waveforms_verified=True,
+        earlier_unsaved_partial_outputs_bitwise_verified=False,
+        prior_repeated_engineering_computation=dict(noise005_forward_rows=128,extension_forward_rows=384,REAL_readout_rows=21047,response_forward_rows=0),
+        all_attempts_actual_counts=dict(initial=initial_failure['actual_counts'],binding_fix01=binding_failure['actual_counts'],id_fix02=complete['actual_counts']),
         independent_acquisition_validations=0,physical_noise_identified=False,response_match_established=False,
         next_response_protocol_allowed=decision['next_response_protocol_allowed'],formal_response_updates=0,
         report='reports/'+ID+'/N01_INTEGRATION006_REPORT.html',
         report_files={p.relative_to(ROOT).as_posix():dict(bytes=p.stat().st_size,sha256=sha(p)) for p in sorted(REPORT.rglob('*')) if p.is_file()},
-        tests_receipt='receipts/'+ID+'/binding_fix01/TEST_SUMMARY.json',tests_sha256=sha(REC/'binding_fix01/TEST_SUMMARY.json'),
+        tests_receipt='receipts/'+ID+'/id_fix02/TEST_SUMMARY.json',tests_sha256=sha(REC/'id_fix02/TEST_SUMMARY.json'),
         independent_review_sha256=sha(REC/'RESULTS_INDEPENDENT_REVIEW.json'),visual_QA_sha256=sha(REC/'VISUAL_QA.json'),
         postflight=post,next_action=next_action)
     write(REC/'FINAL_RECEIPT.json',final)
@@ -71,7 +79,7 @@ def main():
         training_update_accounting=final['training_update_accounting'],next_action=next_action)
     write(ROOT/'PROGRAM.json',program)
     jobs=read(ROOT/'jobs.json');jobs.update(updated_UTC=now,active_scientific_jobs=0)
-    job=next(item for item in jobs['jobs'] if item['job_id']=='N01_INTEGRATION006_BINDING_FIX01_20261012')
+    job=next(item for item in jobs['jobs'] if item['job_id']=='N01_INTEGRATION006_ID_FIX02_20261012')
     job.update(status=status,pid=None,supervisor_pid=None,historical_evaluation_pid=start['evaluation_pid'],
         historical_supervisor_pid=start['supervisor_pid'],ended_UTC=native['ended_utc'],last_verified_UTC=post['UTC'],
         native_exit_code=0,observed_noise_updates=0,response_training_updates=0,classifier_evaluation_updates=0,

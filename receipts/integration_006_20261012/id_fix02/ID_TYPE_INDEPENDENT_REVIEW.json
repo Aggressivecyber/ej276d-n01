@@ -1,0 +1,99 @@
+{
+  "status": "passed_ID_backend_diagnosis",
+  "run_id": "integration_006_20261012",
+  "attempt_id": "id_fix02",
+  "UTC": "2026-10-12T12:17:34.800389+00:00",
+  "reviewer": "/root/n01_repair_review",
+  "cause": "Only first128 identity-metadata field is incorrectly forced through torch.as_tensor; original SOURCE IDs are np.str_ rather than numeric tensors",
+  "allowed_repair": "Preserve original source_parent_ids NumPy slice.copy, retaining dtype/shape/raw bytes and parent-major order; no recast, numeric mapping or neural input",
+  "verifier_compatible": true,
+  "verifier_source_sha256": "c82957f354956f046c324d88653a8e786910b10560962f813a5c436b6e50ced6",
+  "independent_artificial_identity_roundtrip": {
+    "dtype": "<U40",
+    "rows": 12,
+    "parent_draws": 4,
+    "nonASCII_present": true,
+    "torch_save_load_weights_only_false": true,
+    "dtype_shape_raw_bytes_exact": true
+  },
+  "supporting_code": {
+    "original_failure": "src/n01/evaluate_integration006.py:568 in binding_fix01 frozen package",
+    "original_identity_load": "src/n01/data.py:55,109 preserve original NumPy dtype",
+    "current_observables": "split_evaluation stores original source IDs in NPZ",
+    "verifier_identity": "scripts/verify_integration006.py exact() checks shape,dtype,raw byte hash; cpu() supports NumPy Unicode"
+  },
+  "previous_attempt": {
+    "native_exit_code": 1,
+    "failure_sha256": "52f5b37500ae07caab3a0a8da152aee2efa0a35406c0e4d819c918cc509d0948",
+    "supervisor_exit_sha256": "9062d45ead91bc36fab7102c7708eeedcd084bff693c79a1981bb8de85125e56",
+    "console_sha256": "dfc202872ec353453557774d882d99a5b1030f1203dd511698a268e57843c155",
+    "actual_counts": {
+      "REAL_readout_rows": {
+        "TRAIN": 21047
+      },
+      "noise005_forward_attempted": {
+        "TRAIN": {
+          "batches": 1,
+          "events": 128
+        }
+      },
+      "noise005_forward": {
+        "TRAIN": {
+          "batches": 1,
+          "events": 128
+        }
+      },
+      "extension_forward_attempted": {
+        "TRAIN/fast": {
+          "batches": 1,
+          "events": 128
+        },
+        "TRAIN/slow": {
+          "batches": 1,
+          "events": 128
+        },
+        "TRAIN/common_level": {
+          "batches": 1,
+          "events": 128
+        }
+      },
+      "extension_forward": {
+        "TRAIN/fast": {
+          "batches": 1,
+          "events": 128
+        },
+        "TRAIN/slow": {
+          "batches": 1,
+          "events": 128
+        },
+        "TRAIN/common_level": {
+          "batches": 1,
+          "events": 128
+        }
+      }
+    },
+    "updates": {
+      "noise": 0,
+      "response": 0,
+      "classifier": 0,
+      "GMM_fits": 0
+    },
+    "partial_payload_sha256": {},
+    "REAL_TRAIN_readout_rows": 21047,
+    "noise005_successful_forward_rows": 128,
+    "extension_successful_forward_rows": 384,
+    "response_successful_forward_rows": 0,
+    "SOURCE_REAL_TRAIN_DEV_datasets_decoded": true,
+    "not_zero_scientific_computation": true
+  },
+  "repeat_boundary": "Fresh fixed-seed execution repeats previously consumed first128 noise inputs and384 extension rows; count separately. No saved previous partial outputs/latents exist, so prior-output bitwise verification is unavailable",
+  "previous_unsaved_partial_outputs_bitwise_verified": false,
+  "reviewer_activity": {
+    "SOURCE_REAL_datasets_decoded": 0,
+    "real_noise_or_response_forward_rows": 0,
+    "optimizer_steps": 0,
+    "artificial_identity_rows": 12
+  },
+  "amendment_sha256": "4e1f8bdf886a7cd5e50a78279cd3ee3bb40917ace24f293436bf0d37f8ab549d",
+  "preregistration_sha256": "10ab6d5067db7a19307679c84d2397349fadefa065123825b72105e193707dfe"
+}

@@ -34,7 +34,8 @@ def main():
         all_uploaded_server_digests_match=True,assets=assets,raw_or_downsampled_REAL_traces_published=False,
         per_event_REAL_observables_published=False,original_SOURCE_input_waveforms_published=False,
         private_backup_path=backup['private_backup'],archive_members_verified=backup['private_members']+backup['public_members'],
-        initial_startup_failure_preserved=True,scientific_completion_receipt='FINAL_RECEIPT.json',
+        both_startup_failures_preserved=True,prior_partial_noise_forward_rows=128,prior_partial_extension_forward_rows=384,
+        scientific_completion_receipt='FINAL_RECEIPT.json',
         delivery_metadata_may_be_committed_after_scientific_tag=True)
     write(target,r)
     p=read(ROOT/'PROGRAM.json');p.update(updated_UTC=now,integration006_scientific_results_commit=commit,

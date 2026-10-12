@@ -1,0 +1,96 @@
+{
+  "schema_version": "integration006/v1",
+  "run_id": "integration_006_20261012",
+  "engineering_fix": "id_fix02",
+  "UTC": "2026-10-12T12:26:33.8506766Z",
+  "status": "passed",
+  "native_exit_code": 0,
+  "test_count": 16,
+  "unittest_seconds": 5.902,
+  "wall_seconds": 9.767575,
+  "CPU_threads": 2,
+  "device": "cpu",
+  "python": "E:/GAN/runtime_envs/local_cuda_retry_20261007073613_UTC/venv/Scripts/python.exe",
+  "command": "python -B -m unittest discover -s E:/GAN/research/N01/tests -p test_evaluate_integration006.py -v",
+  "working_directory": "E:/GAN",
+  "temporary_directory": "E:/GAN/runtime_tmp/N01_integration006_tests",
+  "PYTHONDONTWRITEBYTECODE": 1,
+  "CLI_help_exit_code": 0,
+  "new_scientific_dataset_decodes_in_this_repair": 0,
+  "new_scientific_model_forwards_in_this_repair": 0,
+  "new_real_checkpoint_decodes_in_this_repair": 0,
+  "noise_updates": 0,
+  "response_updates": 0,
+  "classifier_updates": 0,
+  "GMM_fits": 0,
+  "known_prior_scientific_partial_counts": {
+    "failed_attempt": "binding_fix01",
+    "native_exit_code": 1,
+    "REAL_TRAIN_readout_rows": 21047,
+    "noise005_forward_returned_events": 128,
+    "extension_returned_events_per_hypothesis": 128,
+    "hypotheses": 3,
+    "extension_returned_events_total": 384,
+    "response_forward_returned_events": 0,
+    "updates": 0,
+    "source": "Root recovered immutable failed-run receipt; this history is retained, not described as scientific0"
+  },
+  "source_hashes": {
+    "src/n01/evaluate_integration006.py": "13729569d05f2d2f29372355e11da56bff659dd2c72b9bab8bb6dcdf5d3e282a",
+    "tests/test_evaluate_integration006.py": "c7fcaf99f3922ddb51a13ace0527358e8cc56035bfdd6bc27224a1536896133e",
+    "scripts/verify_integration006.py": "5990b29c1f232329978fe5700b73e9826c346025e465ec76b340213c7e5cced0",
+    "integration006_config.json": "38b7944a2927e5a496717a4d86aae2ee13e5353b9090e34fc40cbf3cabc72ec8",
+    "docs/INTEGRATION_006_PROTOCOL.md": "40ef6b403816b896ed1683e91b406f39ed43cfbdb41467b7ea653a94c9e02d02",
+    "src/n01/extension006.py": "caa2eff66555773d04a72482c8375b5896a241e0a858070a80f689aa3def5040",
+    "scripts/supervise.py": "0223a8912196876f712072f064c9118a999f7e563244947cba7ad729d247a69b",
+    "receipts/integration_006_20261012/OUTPUT_SCHEMA.json": "e75091764a60f608c12670c650173e4b1468de5bd4b747bd3a45966b58a486c6"
+  },
+  "test_log": "receipts/integration_006_20261012/id_fix02/DRIVER_TEST_LOG.txt",
+  "test_log_sha256": "a103afea9bfe33960fbcf179dd48ba7f935903d8df8c943349cf43ac2376e9e6",
+  "snapshot": "provenance/integration006_before_id_fix02",
+  "source_AST_receipt": "receipts/integration_006_20261012/id_fix02/SOURCE_DIFF_RECEIPT.json",
+  "source_AST_receipt_sha256": "983f1ca7907eb3144b658e57f657ae290da2620c92d6bc9b5c287d8bbfe0ea12",
+  "ID_cases": [
+    "Unicode nonASCII preserved U24/U30 SOURCE and U26/U32 REAL",
+    "bytes S24",
+    "numeric int32 SOURCE/int64 REAL"
+  ],
+  "complete_artificial_run": {
+    "TRAIN_SOURCE_parents": 40,
+    "DEV_SOURCE_parents": 32,
+    "TRAIN_REAL_rows": 12,
+    "DEV_REAL_rows": 8,
+    "draws_per_parent": 4,
+    "noise_diagnostic_rows": 8192,
+    "bootstrap_draws_per_split": 25,
+    "fake_response_arms": [
+      "deterministic",
+      "full"
+    ],
+    "real_save_and_reopen_payloads": 11,
+    "COMPLETE_saved_and_reopened": true,
+    "all_payload_set_and_SHA256_verified": true,
+    "all_ID_dtype_values_and_parent_major_order_verified": true,
+    "IDs_h_groups_not_response_inputs": true,
+    "independent_verifier_interop": [
+      "exact Unicode/bytes/numeric IDs",
+      "event observables",
+      "REAL curves",
+      "paired bootstrap",
+      "decision",
+      "all actual/attempted counts"
+    ],
+    "mocked_dependencies": [
+      "bind",
+      "frozen_models with artificial weights/noise",
+      "load_training and load_validation artificial arrays",
+      "Windows RSS reports artificial64MiB; Linux RSS tested separately"
+    ],
+    "scientific_dataset_or_weights_used": false
+  },
+  "preserved_artificial_fixture_failures": [
+    "DRIVER_TEST_LOG_windows_RSS_fixture_failed.txt",
+    "DRIVER_TEST_LOG_windows_index_fixture_failed.txt"
+  ],
+  "scope": "One source expression: original dtype NumPy ID copy instead of torch.as_tensor; all scientific arithmetic/seed/count/decision AST unchanged. Existing14 test methods unchanged; add typed split roundtrip and full artificial driver.run real serialization/COMPLETE/verifier interop. No scientific rerun."
+}

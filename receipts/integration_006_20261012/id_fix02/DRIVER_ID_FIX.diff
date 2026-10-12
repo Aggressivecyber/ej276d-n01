@@ -1,0 +1,11 @@
+--- E:\GAN\research\N01\provenance\integration006_before_id_fix02\evaluate_integration006.py
++++ E:\GAN\research\N01\src\n01\evaluate_integration006.py
+@@ -565,7 +565,7 @@
+                       extended_noise_sha256={h: array_sha(value) for h, value in extended.items()})
+         if start == 0:
+             first = dict(source=cpu(x), source_parent_row=torch.from_numpy(parents[:batch].copy()),
+-                         source_parent_ids=torch.as_tensor(data["source_ids"][parents[:batch]].copy()),
++                         source_parent_ids=data["source_ids"][parents[:batch]].copy(),
+                          draw_index=torch.from_numpy(draws[:batch].copy()), response_latents=cpu(response),
+                          noise005_latents=cpu(baseline), extension_gaussian=cpu(epsilon))
+             latents["first128"] = first

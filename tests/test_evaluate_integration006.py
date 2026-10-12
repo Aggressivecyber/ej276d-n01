@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import copy
 import hashlib
+import importlib.util
 import json
 from pathlib import Path
 import sys
@@ -60,6 +61,39 @@ class FakeResponse:
         pre = signal + electronic
         return dict(qsig=q, unit_shape=shape, signal_noise=local, electronics_noise=electronic,
                     pre_adc=pre, waveform=digitize(pre, ste=adc_ste))
+
+    def state_dict(self):
+        return {"artificial_multiplier": torch.tensor(self.multiplier, dtype=torch.float64)}
+
+
+def artificial_dataset(n, real_rows, split, *, id_kind="U"):
+    source = np.zeros((n, 480), np.float32)
+    source[:, 100:400] = np.linspace(.0007, .004, n)[:, None]
+    levels = np.linspace(.0008, .0045, real_rows)
+    real_pre = np.zeros((real_rows, 480), np.float64)
+    real_pre[:, 100:150] = levels[:, None]
+    real_pre[:, 150:400] = (levels * np.linspace(.65, 1.1, real_rows))[:, None]
+    real = e.array(digitize(torch.from_numpy(real_pre), ste=False))
+    if id_kind == "U":
+        source_ids = np.array([split + "_源父_" + str(i) for i in range(n)], dtype="U" + ("24" if split == "TRAIN" else "30"))
+        real_ids = np.array([split + "_实测原件_" + str(i) for i in range(real_rows)], dtype="U" + ("26" if split == "TRAIN" else "32"))
+    elif id_kind == "S":
+        source_ids = np.array([split + "_parent_" + str(i) for i in range(n)], dtype="S24")
+        real_ids = np.array([split + "_REAL_" + str(i) for i in range(real_rows)], dtype="S24")
+    else:
+        offset = 1000 if split == "TRAIN" else 2000
+        source_ids = np.arange(n, dtype=np.int32) + offset
+        real_ids = np.arange(real_rows, dtype=np.int64) + offset * 10
+    group_offset = 10000 if split == "TRAIN" else 20000
+    return dict(source=source, real=real, source_ids=source_ids, real_ids=real_ids,
+                real_groups=np.arange(real_rows, dtype=np.int64) + group_offset, h=np.linspace(0, 1, n))
+
+
+def independent_verifier():
+    spec = importlib.util.spec_from_file_location("artificial006_verifier", ROOT / "scripts/verify_integration006.py")
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
 
 
 class Integration006Tests(unittest.TestCase):
@@ -289,6 +323,129 @@ class Integration006Tests(unittest.TestCase):
                 np.testing.assert_array_equal(obs[p + "migration"].sum((1, 2)), np.full(5, 160))
                 self.assertEqual(counts["model_forward"]["TRAIN/" + arm], dict(batches=2, events=160))
                 self.assertEqual(counts["model_forward_attempted"]["TRAIN/" + arm], dict(batches=2, events=160))
+
+    def test_ID_dtype_preserved_in_split_torch_roundtrip_and_verifier_exact(self):
+        verifier = independent_verifier()
+        class FakeRuntime:
+            device = torch.device("cpu")
+            def check(self, out=None):
+                pass
+        stats = dict(loss=dict(q_reference=.5, q_floor=1e-5, charge_bin_boundaries=np.linspace(-1, .9, 7).tolist()))
+        model = noise_model()
+        extension = ConditionalExtension006(model, list(HYPOTHESES006))
+        for kind in ("U", "S", "numeric"):
+            with self.subTest(ID_kind=kind), tempfile.TemporaryDirectory(dir=TMP) as folder:
+                data = artificial_dataset(32, 12, "TRAIN", id_kind=kind)
+                models = dict(deterministic=FakeResponse(), full=FakeResponse(1.1))
+                obs, curves, replay, samples = e.split_evaluation("TRAIN", data, configuration(), models, model,
+                    extension, stats, FakeRuntime(), Path(folder), {}, {})
+                expected = data["source_ids"][np.repeat(np.arange(32, dtype=np.int64), 4)].copy()
+                self.assertIsInstance(replay["source_parent_ids"], np.ndarray)
+                verifier.exact(verifier.cpu(replay["source_parent_ids"]), expected, "original typed SOURCE IDs")
+                e.atomic_save(replay, Path(folder) / "typed_replay.pt")
+                e.atomic_save(samples, Path(folder) / "typed_samples.pt")
+                for path, key in (("latents/TRAIN.pt", "first128"), ("typed_replay.pt", None), ("typed_samples.pt", None)):
+                    saved = torch.load(Path(folder) / path, map_location="cpu", weights_only=False)
+                    if key:
+                        saved = saved[key]
+                    self.assertEqual(saved["source_parent_ids"].dtype, data["source_ids"].dtype)
+                    verifier.exact(verifier.cpu(saved["source_parent_ids"]), expected, path + " exact IDs")
+                    np.testing.assert_array_equal(verifier.cpu(saved["source_parent_row"]), np.repeat(np.arange(32), 4))
+                    np.testing.assert_array_equal(verifier.cpu(saved["draw_index"]), np.tile(np.arange(4), 32))
+                changed = expected.copy()
+                changed[0] = "changed" if kind == "U" else b"changed" if kind == "S" else 9999
+                with self.assertRaises(AssertionError):
+                    verifier.exact(changed, expected, "different identity must fail")
+                with self.assertRaises(AssertionError):
+                    verifier.exact(expected.reshape(32, 4), expected, "different identity shape must fail")
+                dtype_changed = expected.astype("U40" if kind == "U" else "S40" if kind == "S" else np.int64)
+                with self.assertRaises(AssertionError):
+                    verifier.exact(dtype_changed, expected, "different identity dtype must fail")
+
+    def test_complete_artificial_driver_run_serialization_reopen_and_verifier_interop(self):
+        cfg = configuration()
+        cfg.update(cpu_threads=2, gpu_memory_limit_GiB=10, job_tree_RSS_limit_GiB=8, wall_limit_s=1800, output_limit_MiB=256)
+        cfg["evaluation"].update(arms=list(e.ARMS), train_source_parents=40, train_real_rows=12,
+                                 dev_source_parents=32, dev_real_rows=8, noise_diagnostic_rows=8192)
+        cfg["seeds"].update(noise_diagnostic005=109, noise_diagnostic_extension=110)
+        data = {"TRAIN": artificial_dataset(40, 12, "TRAIN"), "DEV": artificial_dataset(32, 8, "DEV")}
+        stats = dict(loss=dict(q_reference=.5, q_floor=1e-5, peak_floor=1e-5,
+                               charge_bin_boundaries=np.linspace(-1, .9, 7).tolist()))
+        class IDGuardResponse(FakeResponse):
+            def __init__(self, multiplier):
+                super().__init__(multiplier)
+                self.input_waveforms = []
+            def __call__(self, source, noise, adc_ste=False):
+                if source.dtype != torch.float32 or source.shape[1:] != (480,) or set(noise) != set(e.N01Response.noise_shapes):
+                    raise AssertionError("Only SOURCE voltage and explicit model latents may enter a response")
+                self.input_waveforms.append(e.cpu(source))
+                return super().__call__(source, noise=noise, adc_ste=adc_ste)
+        models = dict(deterministic=IDGuardResponse(1.), full=IDGuardResponse(1.1))
+        noise = noise_model()
+        extension = ConditionalExtension006(noise, list(HYPOTHESES006))
+        snapshots = {"noise005": e.tensor_dict_sha(noise.state_dict())}
+        snapshots.update({arm: e.tensor_dict_sha(model.state_dict()) for arm, model in models.items()})
+        provenance = dict(kind="artificial_end_to_end_no_frozen_data_or_weights", config_sha256="artificial_config")
+        verifier = independent_verifier()
+        with tempfile.TemporaryDirectory(dir=TMP) as folder:
+            out = Path(folder) / "complete_run"
+            with patch.object(e, "bind", return_value=(cfg, provenance)) as binding, \
+                 patch.object(e, "frozen_models", return_value=(models, noise, extension, stats, snapshots)), \
+                 patch.object(e, "load_training", return_value=data["TRAIN"]), \
+                 patch.object(e, "load_validation", return_value=data["DEV"]), \
+                 patch.object(e, "process_tree_RSS", return_value=64 * 1024**2):
+                result = e.run("artificial_config", "artificial_container", "artificial_identities", out,
+                               source_manifest="artificial_manifest", device="cpu")
+            self.assertEqual(binding.call_count, 2)
+            self.assertEqual(result["status"], "zero_training_completed")
+            expected_payloads = {"observables.npz", "curves.npz", "theory.npz", "bootstrap.npz", "replay128.pt", "sample_waveforms.pt",
+                                 "latents/TRAIN.pt", "latents/DEV.pt", "latents/NOISE_DIAGNOSTIC.pt", "SUMMARY.json", "DECISION.json"}
+            self.assertEqual(set(result["payload_sha256"]), expected_payloads)
+            self.assertEqual({file.relative_to(out).as_posix() for file in out.rglob("*") if file.is_file()}, expected_payloads | {"COMPLETE.json"})
+            complete = json.loads((out / "COMPLETE.json").read_text(encoding="utf8"))
+            summary = json.loads((out / "SUMMARY.json").read_text(encoding="utf8"))
+            decision = json.loads((out / "DECISION.json").read_text(encoding="utf8"))
+            self.assertEqual(complete["actual_counts"], summary["actual_counts"])
+            self.assertEqual(complete["updates"], e.UPDATES)
+            self.assertEqual(decision["outcome"], complete["decision_outcome"])
+            self.assertIn(decision["outcome"], ("interface_fail", "sensitivity_detected", "MC_inconclusive", "sensitivity_within_family"))
+            for relative, digest in complete["payload_sha256"].items():
+                self.assertEqual(e.sha256(out / relative), digest)
+            obs, curves, theory, bootstrap = (verifier.read_arrays(out / name) for name in (
+                "observables.npz", "curves.npz", "theory.npz", "bootstrap.npz"))
+            replay = torch.load(out / "replay128.pt", map_location="cpu", weights_only=False)
+            samples = torch.load(out / "sample_waveforms.pt", map_location="cpu", weights_only=False)
+            for split in e.SPLITS:
+                parent = np.repeat(np.arange(len(data[split]["source"]), dtype=np.int64), 4)
+                expected_ids = data[split]["source_ids"][parent[:128]].copy()
+                verifier.exact(obs[split + "_source_parent_ids"], data[split]["source_ids"], split + " original IDs")
+                verifier.exact(obs[split + "_REAL_ids"], data[split]["real_ids"], split + " REAL IDs")
+                latent = torch.load(out / "latents" / (split + ".pt"), map_location="cpu", weights_only=False)
+                for record in (latent["first128"], replay["splits"][split], samples["splits"][split]):
+                    verifier.exact(verifier.cpu(record["source_parent_ids"]), expected_ids, split + " original Unicode first128")
+                    verifier.exact(verifier.cpu(record["source_parent_row"]), parent[:128], split + " first128 row order")
+                    verifier.exact(verifier.cpu(record["draw_index"]), np.tile(np.arange(4, dtype=np.int64), 32), split + " first128 draws")
+                for arm in e.ARMS:
+                    p = split + "_" + arm + "_"
+                    self.assertEqual(obs[p + "Q"].shape, (5, len(parent)))
+                    self.assertEqual(curves[p + "fixed_bin_mean"].shape, (8, 5, 480))
+                    self.assertEqual(replay["splits"][split]["arms"][arm]["expected_views"].shape, (5, 128, 480))
+                    self.assertEqual(samples["splits"][split]["arms"][arm]["noise_pre"].shape, (3, 128, 480))
+                    self.assertEqual(complete["actual_counts"]["model_forward"][split + "/" + arm]["events"], len(parent))
+            for hypothesis in e.HYPOTHESES:
+                self.assertEqual(theory[hypothesis + "_diagnostic_Q"].shape, (8192,))
+            verifier.check_observables(obs, cfg, stats["loss"], data)
+            verifier.check_real_curves(curves, obs, data)
+            verified_bootstrap = verifier.check_bootstrap(bootstrap, obs, cfg)
+            leakage = {split: {arm: dict(absmax=float(obs[split + "_" + arm + "_signal_baseline_max_per_event"].max()))
+                                for arm in e.ARMS} for split in e.SPLITS}
+            engineering = {key: value for key, value in summary["engineering"].items() if isinstance(value, dict) and "passed" in value}
+            independently_decided = verifier.independent_decision(cfg, obs, verified_bootstrap, theory, leakage, engineering)
+            self.assertEqual(decision["outcome"], independently_decided["outcome"])
+            verifier.check_actual_counts(cfg, complete, summary, data)
+            expected_inputs = np.concatenate([data[split]["source"][np.repeat(np.arange(len(data[split]["source"])), 4)] for split in e.SPLITS])
+            for model in models.values():
+                verifier.exact(e.array(torch.cat(model.input_waveforms)), expected_inputs, "No IDs/h/groups in response inputs")
 
     def test_bootstrap_matches_explicit_parent_resampling_and_constant_point3_is_undefined(self):
         cfg = configuration()
