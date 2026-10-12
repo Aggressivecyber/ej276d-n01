@@ -13,7 +13,7 @@ def write(p,value):p.write_text(json.dumps(value,ensure_ascii=False,indent=2,all
 def main():
     assert not (REC/'FINAL_RECEIPT.json').exists(),'Preserve closed006 results'
     science=RUN/'id_fix02/runs/science';complete=read(science/'COMPLETE.json');decision=read(science/'DECISION.json')
-    replay=read(RUN/'id_fix02/runs/verification_numeric_fix01/REPLAY_VERIFICATION.json');native=read(RUN/'id_fix02/runs/supervisor/exit_receipt.json')
+    replay=read(RUN/'id_fix02/runs/verification_adc_fix02/REPLAY_VERIFICATION.json');native=read(RUN/'id_fix02/runs/supervisor/exit_receipt.json')
     cfg=read(ROOT/'integration006_config.json');tests=read(REC/'id_fix02/TEST_SUMMARY.json')
     post=read(REC/'POSTFLIGHT.json');visual=read(REC/'VISUAL_QA.json');review=read(REC/'RESULTS_INDEPENDENT_REVIEW.json')
     start=read(REC/'id_fix02/START_RECEIPT.json')
@@ -26,11 +26,12 @@ def main():
     assert complete['updates']==dict(noise=0,response=0,classifier=0,GMM_fits=0)
     assert replay['status']=='passed' and replay['passed'] and replay['complete_sha256']==sha(science/'COMPLETE.json')
     assert replay['source_manifest_sha256']==sha(ROOT/'INTEGRATION006_ID_FIX02_SOURCE_MANIFEST.json')
-    assert replay['verifier_sha256']==sha(ROOT/'scripts/verify_integration006_numeric_fix01.py')
-    assert read(RUN/'id_fix02/runs/verification_numeric_fix01_supervisor/exit_receipt.json')['exit_code']==0
-    replay_fix=read(REC/'replay_numeric_fix01/BINDING.json')
-    for name,digest in replay_fix['files'].items():assert sha(ROOT/name)==digest,name
+    assert replay['verifier_sha256']==sha(ROOT/'scripts/verify_integration006_adc_fix02.py')
+    assert read(RUN/'id_fix02/runs/verification_adc_fix02_supervisor/exit_receipt.json')['exit_code']==0
+    for fix_name in ('replay_numeric_fix01','replay_adc_fix02'):
+        for name,digest in read(REC/fix_name/'BINDING.json')['files'].items():assert sha(ROOT/name)==digest,name
     assert read(RUN/'id_fix02/runs/verification/REPLAY_VERIFICATION.json')['status']=='failed'
+    assert read(RUN/'id_fix02/runs/verification_numeric_fix01/REPLAY_VERIFICATION.json')['status']=='failed'
     assert complete['provenance']['config_sha256']==sha(ROOT/'integration006_config.json')
     assert replay['independent_decision']['outcome']==decision['outcome']==complete['decision_outcome']
     assert not decision['scientific_acceptance'] and decision['response_updates_authorized_here']==0
@@ -53,12 +54,17 @@ def main():
         source_commit=start['source_commit'],native_exit_code=0,actual_counts=complete['actual_counts'],
         source_manifest_sha256=sha(ROOT/'INTEGRATION006_ID_FIX02_SOURCE_MANIFEST.json'),configuration_sha256=sha(ROOT/'integration006_config.json'),
         complete_sha256=sha(science/'COMPLETE.json'),decision=decision,
-        replay_receipt='runs/'+ID+'/id_fix02/runs/verification_numeric_fix01/REPLAY_VERIFICATION.json',
-        replay_sha256=sha(RUN/'id_fix02/runs/verification_numeric_fix01/REPLAY_VERIFICATION.json'),
+        replay_receipt='runs/'+ID+'/id_fix02/runs/verification_adc_fix02/REPLAY_VERIFICATION.json',
+        replay_sha256=sha(RUN/'id_fix02/runs/verification_adc_fix02/REPLAY_VERIFICATION.json'),
         verification_attempts=[dict(attempt='initial',native_exit_code=1,response_noise_forward_rows=0,
             REAL_readout_rows_recomputed=21646,receipt_sha256=sha(RUN/'id_fix02/runs/verification/REPLAY_VERIFICATION.json')),
-            dict(attempt='numeric_fix01',native_exit_code=0,complete_frozen_input_replay=True,
-                binding_sha256=sha(REC/'replay_numeric_fix01/BINDING.json'))],
+            dict(attempt='numeric_fix01',native_exit_code=1,
+                reconstructed_counts=read(REC/'replay_adc_fix02/PREVIOUS_FAILURE.json')['reconstructed_counts'],
+                count_evidence=read(REC/'replay_adc_fix02/PREVIOUS_FAILURE.json')['count_evidence'],
+                first_batch_generated_waveform_hashes_matched=True,
+                receipt_sha256=sha(RUN/'id_fix02/runs/verification_numeric_fix01/REPLAY_VERIFICATION.json')),
+            dict(attempt='adc_fix02',native_exit_code=0,complete_frozen_input_replay=True,
+                binding_sha256=sha(REC/'replay_adc_fix02/BINDING.json'))],
         engineering_attempts=[dict(attempt='initial',native_exit_code=1,scientific_forward_rows=0,
             failure_sha256=sha(RUN/'runs/science/FAILURE.json'),failure=initial_failure['error']),
             dict(attempt='binding_fix01',native_exit_code=1,actual_counts=binding_failure['actual_counts'],
@@ -92,11 +98,14 @@ def main():
     job.update(status=status,pid=None,supervisor_pid=None,historical_evaluation_pid=start['evaluation_pid'],
         historical_supervisor_pid=start['supervisor_pid'],ended_UTC=native['ended_utc'],last_verified_UTC=post['UTC'],
         native_exit_code=0,observed_noise_updates=0,response_training_updates=0,classifier_evaluation_updates=0,
+        verification_status='passed',verification_supervisor_pid=None,
         actual_counts=complete['actual_counts'],outcome=outcome,report=final['report'],
         completion_receipt=program['integration006_completion_receipt'])
     write(ROOT/'jobs.json',jobs)
     p=ROOT/'README.md';text=p.read_text(encoding='utf8')
-    header=f'**当前主线 006 已完成：{outcome}；新增训练 0 次，当前科学作业 0。** [完整480点与PSD整合报告](reports/{ID}/N01_INTEGRATION006_REPORT.html) · [冻结协议](docs/INTEGRATION_006_PROTOCOL.md) · [完成回执](receipts/{ID}/FINAL_RECEIPT.json)。\n\n'
+    outcome_text=dict(interface_fail='接口检查失败',sensitivity_detected='接口检查通过，但低电荷 PSD 展宽对长程假设敏感',
+        MC_inconclusive='固定预算下稳定性尚不确定',sensitivity_within_family='在三个有限假设内满足稳定性容差')[outcome]
+    header=f'**当前主线 006 已完成：{outcome_text}；新增训练 0 次，当前科学作业 0。** [完整480点与PSD整合报告](reports/{ID}/N01_INTEGRATION006_REPORT.html) · [冻结协议](docs/INTEGRATION_006_PROTOCOL.md) · [完成回执](receipts/{ID}/FINAL_RECEIPT.json)。\n\n'
     assert '当前主线 006 已完成' not in text
     lines=text.splitlines(keepends=True);lines.insert(1,'\n'+header);p.write_text(''.join(lines),encoding='utf8',newline='\n')
     pointer_path=ROOT.parents[1]/'CURRENT_SIM2REAL_PROGRAM.json';pointer=read(pointer_path)

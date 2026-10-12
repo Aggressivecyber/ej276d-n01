@@ -1,0 +1,93 @@
+{
+  "status": "passed_for_registered_replay",
+  "run_id": "integration_006_20261012",
+  "engineering_fix": "replay_adc_fix02",
+  "UTC": "2026-10-12T13:13:00.977485+00:00",
+  "reviewer": "/root/n01_repair_review",
+  "blockers": [],
+  "source_hashes": {
+    "INTEGRATION006_ID_FIX02_SOURCE_MANIFEST.json": "1edf4d3200eff7065a40beea9ac1a4080212900a230a7d4d8994279c8b61e74d",
+    "docs/INTEGRATION_006_PROTOCOL.md": "40ef6b403816b896ed1683e91b406f39ed43cfbdb41467b7ea653a94c9e02d02",
+    "docs/INTEGRATION_006_REPLAY_ADC_FIX02.md": "cf0da3b77a36f9c15f56ed8bb3b2aabdf610e4fdfd165347e1d045e7ef6297d7",
+    "integration006_config.json": "38b7944a2927e5a496717a4d86aae2ee13e5353b9090e34fc40cbf3cabc72ec8",
+    "receipts/integration_006_20261012/failed_replay_numeric_fix01/supervisor/exit_receipt.json": "7335186ba71a5fddc449256d1a12fc350e4ed637c5f8ac66e144d3df2184fc18",
+    "receipts/integration_006_20261012/failed_replay_numeric_fix01/verification/REPLAY_VERIFICATION.json": "b4433c03faa7c571d2cbe2b701778a906d202e67ae8cc70490f89d38927c7c11",
+    "receipts/integration_006_20261012/replay_adc_fix02/ADC_TEST_LOG.txt": "64966bb9e3f84206d79f65ffc2fae7a4437574f3edc7bec9292e9093875c7a32",
+    "receipts/integration_006_20261012/replay_adc_fix02/ADC_TEST_SUMMARY.json": "e29f99fb7b170b6a9dc3c2c7bab427e9f9674055e9bce256ed0431874897dffb",
+    "receipts/integration_006_20261012/replay_adc_fix02/PREVIOUS_FAILURE.json": "26e1859ad1f1ebfce6976db259e9d636bc6014e9277344d84549b79ad7be3232",
+    "receipts/integration_006_20261012/replay_adc_fix02/SAVED_BATCH_DIAGNOSIS.json": "c12d26d85fda815925f2e8b4304af5119f67ac1a6c0d1a19aa3f961d09c179b5",
+    "receipts/integration_006_20261012/replay_adc_fix02/SOURCE_DIFF_RECEIPT.json": "00ae687c442de04e39b5557264de5ed40a984eef8a01101368dd591a45ba3b75",
+    "runs/integration_006_20261012/id_fix02/runs/science/COMPLETE.json": "00ea8272d97801c33dca8aa6550683b62c75b3f2797da705499ff825c32d30c1",
+    "scripts/verify_integration006.py": "5990b29c1f232329978fe5700b73e9826c346025e465ec76b340213c7e5cced0",
+    "scripts/verify_integration006_adc_fix02.py": "b5eb1bb67d242bfeafae57b983f138496db926fd7be75e9a01bb840af5029ad6",
+    "scripts/verify_integration006_numeric_fix01.py": "6de11280961ade7d15b222d5fcc4362938a2503616eb81b1f879bc5caa878ed9",
+    "tests/test_verify_integration006_adc_fix02.py": "e192628ebc485377935ae7c8b51aa90e7356797127748a71948f43e8724d3209"
+  },
+  "scope": "Separate ADC QA representation correction before the registered full frozen-input replay. Science, original5990/numeric6de verifiers and both failed QA attempts remain immutable.",
+  "independent_native_tests": {
+    "tests": 7,
+    "CPU_threads": 2,
+    "native_exit_code": 0,
+    "unittest_seconds": 0.244,
+    "artificial_data_only": true
+  },
+  "source_review": {
+    "original_scientific_manifest_all_66_files_unchanged": true,
+    "previous6de_AST_equal_after_only_removing_ADC_helper_allview_call_restoring_baseline_reference_and_removing_one_receipt_field": true,
+    "theory_numeric_guards_unchanged": true,
+    "exact_waveform_RNG_hashes_and_readout_bootstrap_decision_logic_unchanged": true,
+    "same_device_baseline_reference": "cpu(digitize(prefix,ste=False))[:,0]",
+    "all5views_all480_per_chunk_code_check": true,
+    "integer_code_tolerance": 0,
+    "code_rule": "np.rint((np.clip(pre,-.5,.5)+.5)*16383) equals recovered waveform integer codes",
+    "canonical_voltage_absolute_tolerance": 8.881784197001252e-16,
+    "canonical_voltage_bound": "4*float64epsilon",
+    "no_adaptive_scientific_gate_or_parameter_change": true
+  },
+  "artificial_regressions": [
+    "Equivalent integer code with oneULP voltage difference passes.",
+    "Onecode error rejects at0/99/100/399/400/479.",
+    "Samecode1e-8V,0.1LSB or8eps off-grid values reject including479.",
+    "Nearest-even halfway and saturated endpoints exact.",
+    "Original baseline changed fractions0/.25/1 retained.",
+    "Nonfinite, wrongshape, empty and float32 reject."
+  ],
+  "independent_saved_batch_only_diagnosis": {
+    "TRAIN_DEV_both_arms_first128_checked": true,
+    "all5views_all480_ADC_values_checked": 1228800,
+    "integer_code_mismatches": 0,
+    "max_canonical_voltage_error_V": 1.1102230246251565e-16,
+    "model_forward_rows": 0,
+    "old_cross_backend_float_inequality_false_changed_fraction_mean_TRAIN": 0.096640625,
+    "old_cross_backend_float_inequality_false_changed_fraction_mean_DEV": 0.094921875,
+    "prefix_ADC_codes_exact": true,
+    "signal_prefix_absolute_max_V": 0.0
+  },
+  "preserved_previous_failed_QA": {
+    "native_exit_code": 1,
+    "previous_verifier_sha256": "6de11280961ade7d15b222d5fcc4362938a2503616eb81b1f879bc5caa878ed9",
+    "error": "('TRAIN_deterministic_ baseline ADC change', (128,), (128,), 0.17)",
+    "reconstructed_counts": {
+      "noise005_forward_rows": 128,
+      "extension_forward_rows": 384,
+      "response_forward_rows": 128,
+      "signal_reference_ADC_rows": 128,
+      "candidate_ADC_rows": 384,
+      "REAL_readout_rows_recomputed": 21646,
+      "bootstrap_resamples_recomputed": 2000
+    },
+    "count_evidence": "Reconstructed from immutable failing path and saved first128 diagnostic; failed verifier had no persisted live forward counters",
+    "live_per_forward_counter_receipt_available": false,
+    "new_unique_draws": 0,
+    "training_updates": 0
+  },
+  "original_scientific_outcome": "sensitivity_detected",
+  "response_training_authorized": false,
+  "reviewer_activity": {
+    "original_SOURCE_REAL_container_decodes": 0,
+    "new_scientific_noise_or_response_forward_rows": 0,
+    "fits_or_optimizer_steps": 0,
+    "saved_derived_artifact_read_only": true
+  },
+  "remaining_boundary": "Full registered same-device replay and bounded delivery review remain pending. This numerical representation review cannot change the scientific stopping decision or establish physical noise/independent acquisition validity."
+}

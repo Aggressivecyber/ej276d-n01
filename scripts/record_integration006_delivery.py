@@ -35,6 +35,7 @@ def main():
         per_event_REAL_observables_published=False,original_SOURCE_input_waveforms_published=False,
         private_backup_path=backup['private_backup'],archive_members_verified=backup['private_members']+backup['public_members'],
         both_startup_failures_preserved=True,prior_partial_noise_forward_rows=128,prior_partial_extension_forward_rows=384,
+        failed_verification_attempts_preserved=2,nonzero_failed_QA_response_rows_reconstructed=128,
         scientific_completion_receipt='FINAL_RECEIPT.json',
         delivery_metadata_may_be_committed_after_scientific_tag=True)
     write(target,r)

@@ -1,0 +1,70 @@
+--- E:\GAN\research\N01\scripts\verify_integration006_numeric_fix01.py
++++ E:\GAN\research\N01\scripts\verify_integration006_adc_fix02.py
+@@ -47,6 +47,39 @@
+ def q_np(w):return w[...,100:400].sum(-1)-3*w[...,:100].sum(-1)
+ def tail_np(w):return w[...,150:400].sum(-1)-2.5*w[...,:100].sum(-1)
+ def adc_np(w):return np.rint((np.clip(w,-.5,.5)+.5)*16383)/16383-.5
++
++
++def check_independent_ADC_codes(waveform,pre_adc,*,label):
++    """Exact NumPy nearest-even14-bit codes; canonical float64 representation.
++
++    No voltage is corrected or substituted. A reconstruction difference of
++    at most4 float64 eps accommodates backend representations of the same
++    integer code. The integer-code comparison itself permits zero difference.
++    """
++    wave=np.asarray(waveform);pre=np.asarray(pre_adc)
++    if wave.shape!=pre.shape or wave.ndim!=2 or wave.shape[0]<1 or wave.shape[1]!=480:
++        raise AssertionError((label,'ADC waveform/preADC shape',wave.shape,pre.shape))
++    if wave.dtype.kind!='f' or wave.dtype.itemsize!=8 or pre.dtype.kind!='f' or pre.dtype.itemsize!=8:
++        raise AssertionError((label,'ADC arrays require float64'))
++    if not np.isfinite(wave).all() or not np.isfinite(pre).all():
++        raise AssertionError((label,'nonfinite ADC waveform/preADC'))
++    expected=np.rint((np.clip(pre,-.5,.5)+.5)*16383)
++    actual=np.rint((wave+.5)*16383)
++    if not np.isfinite(actual).all() or np.any(actual<0) or np.any(actual>16383):
++        raise AssertionError((label,'invalid recovered ADC integer code'))
++    expected_codes=expected.astype(np.int64);actual_codes=actual.astype(np.int64)
++    mismatches=int(np.count_nonzero(expected_codes!=actual_codes))
++    if mismatches:
++        raise AssertionError((label,'ADC integer code mismatch',mismatches))
++    canonical=actual_codes.astype(np.float64)/16383-.5
++    error=float(np.max(abs(wave-canonical)))
++    bound=float(4*np.finfo(np.float64).eps)
++    if not np.isfinite(error) or error>bound:
++        raise AssertionError((label,'ADC canonical voltage reconstruction error',error,bound))
++    return dict(samples_checked=int(wave.size),integer_code_mismatches=0,
++                maximum_canonical_voltage_error_V=error,canonical_voltage_absolute_tolerance=bound)
++
++
+ def psd_np(q,tail,floor):return tail/(np.where(q<0,-1.,1.)*np.maximum(abs(q),floor))
+ def bins_np(q,statistics):
+     q=np.asarray(q,dtype=np.float64)
+@@ -430,6 +463,7 @@
+                 assert array_sha(wave)==record['arms'][arm]['output_sha256']
+                 assert np.array_equal(wave[2,:,:100],wave[3,:,:100]) and np.array_equal(wave[2,:,:100],wave[4,:,:100])
+                 for iv,view in enumerate(VIEWS):
++                    check_independent_ADC_codes(wave[iv],pres[iv],label=pre+view+' independent ADC codes')
+                     values=readouts_np(wave[iv],cfg['_stats']['q_floor'])
+                     values['baseline_mean_V']=wave[iv,:,:100].mean(1)
+                     sat=(pres[iv]<-.5)|(pres[iv]>.5)
+@@ -443,7 +477,7 @@
+                 close(obs[pre+'qsig'][start:stop],cpu(old['qsig']),label=pre+' qsig')
+                 maximum=np.max(abs(signal_cpu[:,:100]),axis=1)
+                 close(obs[pre+'signal_baseline_max_per_event'][start:stop],maximum,label=pre+' leakage')
+-                change=np.mean(wave[2,:,:100]!=adc_np(cpu(prefix)[:,0]),axis=1)
++                change=np.mean(wave[2,:,:100]!=cpu(digitize(prefix,ste=False))[:,0],axis=1)
+                 close(obs[pre+'signal_prefix_ADC_change_fraction'][start:stop],change,label=pre+' baseline ADC change')
+                 item=leakage[split][arm];sb=signal_cpu[:,:100]
+                 item['absmax']=max(item['absmax'],float(abs(sb).max()));item['sum']+=float(sb.sum())
+@@ -679,6 +713,10 @@
+                 'all 8192 fixed noise diagnostic draws','explicit first128 report/replay artifacts'],
+             observed_counts=observed_counts,original_execution_counts=actual_counts,replay_counts=counts,noise_diagnostic_replay_counts=diagnostic,
+             signal_leakage=leakage,independent_decision=derived,theory_numeric_checks=theory_numeric_checks,
++            independent_ADC_code_checks=dict(scope='all five views in every split/arm/chunk',integer_code_tolerance=0,
++                canonical_voltage_absolute_tolerance=float(4*np.finfo(np.float64).eps),
++                code_rule='NumPy rint((clipped preADC+0.5)*16383) equals recovered waveform integer codes',
++                baseline_change_reference='original digitize(prefix,ste=False) on the same device'),
+             updates=dict(noise=0,response=0,classifier=0,GMM_fits=0),
+             scope='Frozen-input numerical reproduction; not independent acquisition or physical noise validation'))
+         print(json.dumps(dict(status='passed',receipt=str(receipt),outcome=derived['outcome'])),flush=True)
