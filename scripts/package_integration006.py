@@ -43,12 +43,12 @@ def main():
     private_items.extend(folder_items(RUN/'visual_QA','visual_QA'))
     private=DEST/'n01-integration006-private-full.zip';private_members=archive(private,private_items)
     science=RUN/'id_fix02/runs/science'
-    public_items=folder_items(REPORT,'reports/'+ID)+folder_items(REC,'receipts/'+ID)+folder_items(RUN/'id_fix02/runs/verification','verification')
+    public_items=folder_items(REPORT,'reports/'+ID)+folder_items(REC,'receipts/'+ID)+folder_items(RUN/'id_fix02/runs/verification_numeric_fix01','verification')
     public_items.extend(folder_items(RUN/'visual_QA','visual_QA'))
     # No original REAL/SOURCE input tensors or per-event REAL observable arrays.
     for name in ('curves.npz','theory.npz','bootstrap.npz','sample_waveforms.pt','SUMMARY.json','DECISION.json','COMPLETE.json'):
         public_items.append((science/name,'science/'+name))
-    for name in ('integration006_config.json','INTEGRATION006_SOURCE_MANIFEST.json','INTEGRATION006_BINDING_FIX01_SOURCE_MANIFEST.json','INTEGRATION006_ID_FIX02_SOURCE_MANIFEST.json','docs/INTEGRATION_006_PROTOCOL.md','docs/INTEGRATION_006_BINDING_FIX01.md','docs/INTEGRATION_006_ID_FIX02.md','docs/INTEGRATION_006_ID_FIX02_VERIFIER_ADDENDUM.md'):
+    for name in ('integration006_config.json','INTEGRATION006_SOURCE_MANIFEST.json','INTEGRATION006_BINDING_FIX01_SOURCE_MANIFEST.json','INTEGRATION006_ID_FIX02_SOURCE_MANIFEST.json','docs/INTEGRATION_006_PROTOCOL.md','docs/INTEGRATION_006_BINDING_FIX01.md','docs/INTEGRATION_006_ID_FIX02.md','docs/INTEGRATION_006_ID_FIX02_VERIFIER_ADDENDUM.md','docs/INTEGRATION_006_REPLAY_NUMERIC_FIX01.md'):
         public_items.append((ROOT/name,name))
     refs=ROOT/'provenance/integration006_reference'
     public_items.extend(folder_items(refs,'provenance/integration006_reference'))

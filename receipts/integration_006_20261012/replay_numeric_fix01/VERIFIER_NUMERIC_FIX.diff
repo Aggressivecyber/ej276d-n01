@@ -1,0 +1,87 @@
+--- E:\GAN\research\N01\scripts\verify_integration006.py
++++ E:\GAN\research\N01\scripts\verify_integration006_numeric_fix01.py
+@@ -193,6 +193,63 @@
+             tail_sample_variance=np.diag(cov)[100:],
+             tail400480_variance_mean=np.array(np.diag(cov)[400:480].mean()))
+     return result
++
++
++def theory_A_backward_error(A,independent_kernel,*,label):
++    """Fixed normalized infinity-norm residual of the registered block solve.
++
++    Both saved and independent A use the same independent NumPy kernel, never
++    each matrix's saved/self-consistent kernel. A is dimensionless; the ratio
++    below cancels the voltage-squared normalization of the kernel.
++    """
++    a=np.asarray(A);kernel=np.asarray(independent_kernel)
++    if a.shape!=(380,100) or kernel.shape!=(480,480):
++        raise AssertionError((label,'A/kernel shape',a.shape,kernel.shape))
++    if a.dtype.kind!='f' or a.dtype.itemsize!=8 or kernel.dtype.kind!='f' or kernel.dtype.itemsize!=8:
++        raise AssertionError((label,'A and independent kernel require float64'))
++    if not np.isfinite(a).all() or not np.isfinite(kernel).all():
++        raise AssertionError((label,'nonfinite A or independent kernel'))
++    KBB=kernel[:100,:100];KTB=kernel[100:,:100]
++    residual=a@KBB-KTB
++    denominator=np.linalg.norm(a,ord=np.inf)*np.linalg.norm(KBB,ord=np.inf)+np.linalg.norm(KTB,ord=np.inf)
++    if not np.isfinite(residual).all() or not np.isfinite(denominator) or denominator<=0:
++        raise AssertionError((label,'nonfinite residual or invalid backward-error denominator'))
++    error=float(np.linalg.norm(residual,ord=np.inf)/denominator)
++    bound=64*np.finfo(np.float64).eps
++    if not np.isfinite(error) or error>bound:
++        raise AssertionError((label,'A normalized infinity-norm backward error',error,float(bound)))
++    return error
++
++
++def check_theory_numeric(saved,independent):
++    """Finite theory checks; only dimensionless A gets a64-epsilon floor.
++
++    All other analytical fields keep atol1e-15 and rtol3e-10. There is no
++    covariance, mean, noise, readout, bootstrap, or decision tolerance change.
++    """
++    if set(independent)!=set(HYPOTHESES):
++        raise AssertionError('All three registered theory hypotheses are required')
++    A_floor=64*np.finfo(np.float64).eps
++    diagnostics={}
++    for h,values in independent.items():
++        for key,value in values.items():
++            actual=np.asarray(saved[h+'_'+key]);expected=np.asarray(value)
++            if not np.issubdtype(actual.dtype,np.number) or not np.issubdtype(expected.dtype,np.number):
++                raise AssertionError((h,key,'nonnumeric analytical field'))
++            if not np.isfinite(actual).all() or not np.isfinite(expected).all():
++                raise AssertionError((h,key,'nonfinite analytical field'))
++            close(actual,expected,atol=A_floor if key=='A' else 1e-15,rtol=3e-10,label=h+' analytical '+key)
++        reference_kernel=values['kernel_reference']
++        saved_A=np.asarray(saved[h+'_A']);independent_A=np.asarray(values['A'])
++        saved_error=theory_A_backward_error(saved_A,reference_kernel,label=h+' saved A')
++        independent_error=theory_A_backward_error(independent_A,reference_kernel,label=h+' independent A')
++        np.linalg.cholesky(values['covariance'])
++        diagnostics[h]=dict(A_max_absolute_difference=float(np.max(abs(saved_A-independent_A))),
++                            saved_A_backward_error=saved_error,independent_A_backward_error=independent_error)
++    return dict(float64_epsilon=float(np.finfo(np.float64).eps),A_absolute_floor=float(A_floor),
++                other_theory_absolute_tolerance=1e-15,relative_tolerance=3e-10,
++                A_backward_error_limit=float(A_floor),kernel_for_both_A_checks='independent NumPy registered kernel',
++                hypotheses=diagnostics)
+ 
+ def check_bindings(cfg_path,manifest_path,container,identities,out):
+     cfg=read(cfg_path);manifest=read(manifest_path)
+@@ -589,9 +646,7 @@
+         frozen_states={name:dictionary_sha(model.state_dict()) for name,model in dict(noise005=noise,**models).items()}
+         global_rng=torch.get_rng_state().clone()
+         expected=independent_theory(noise_state,cfg)
+-        for h,values in expected.items():
+-            for key,value in values.items():close(theory[h+'_'+key],value,atol=1e-15,rtol=3e-10,label=h+' analytical '+key)
+-            np.linalg.cholesky(values['covariance'])
++        theory_numeric_checks=check_theory_numeric(theory,expected)
+         verified=check_bootstrap(bootstrap,obs,cfg)
+         counts,leakage,engineering_checks=replay_all(cfg,data,obs,curves,out,args.device,noise,extension,models)
+         diagnostic=replay_noise_diagnostic(cfg,theory,out,args.device,noise,extension)
+@@ -623,7 +678,8 @@
+                 'all CPU random streams and all generated waveform hashes','all population/fixed-bin/parent variance curves',
+                 'all 8192 fixed noise diagnostic draws','explicit first128 report/replay artifacts'],
+             observed_counts=observed_counts,original_execution_counts=actual_counts,replay_counts=counts,noise_diagnostic_replay_counts=diagnostic,
+-            signal_leakage=leakage,independent_decision=derived,updates=dict(noise=0,response=0,classifier=0,GMM_fits=0),
++            signal_leakage=leakage,independent_decision=derived,theory_numeric_checks=theory_numeric_checks,
++            updates=dict(noise=0,response=0,classifier=0,GMM_fits=0),
+             scope='Frozen-input numerical reproduction; not independent acquisition or physical noise validation'))
+         print(json.dumps(dict(status='passed',receipt=str(receipt),outcome=derived['outcome'])),flush=True)
+     except Exception as error:

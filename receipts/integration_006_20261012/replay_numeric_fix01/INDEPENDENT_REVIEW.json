@@ -1,0 +1,94 @@
+{
+  "status": "passed_for_registered_replay",
+  "run_id": "integration_006_20261012",
+  "engineering_fix": "replay_numeric_fix01",
+  "UTC": "2026-10-12T12:49:09.874358+00:00",
+  "reviewer": "/root/n01_repair_review",
+  "blockers": [],
+  "source_hashes": {
+    "INTEGRATION006_ID_FIX02_SOURCE_MANIFEST.json": "1edf4d3200eff7065a40beea9ac1a4080212900a230a7d4d8994279c8b61e74d",
+    "docs/INTEGRATION_006_PROTOCOL.md": "40ef6b403816b896ed1683e91b406f39ed43cfbdb41467b7ea653a94c9e02d02",
+    "docs/INTEGRATION_006_REPLAY_NUMERIC_FIX01.md": "f3e79820aeab4e0b8068493b49520eb5d5d269ef137c8c5c5e30246c0c0b2362",
+    "integration006_config.json": "38b7944a2927e5a496717a4d86aae2ee13e5353b9090e34fc40cbf3cabc72ec8",
+    "receipts/integration_006_20261012/failed_replay_initial/supervisor/exit_receipt.json": "e8d5972876e2fb49db1f0c926d5a8888e2f18d50a5e00028e389a9424ff97957",
+    "receipts/integration_006_20261012/failed_replay_initial/verification/REPLAY_VERIFICATION.json": "07f81a78d02ae561d3972eda9b34d703efe2da97eb39b110e8bc0a1656beed06",
+    "receipts/integration_006_20261012/replay_numeric_fix01/NUMERIC_TEST_LOG.txt": "7b4c7905e562e4709c8d122332be95db4bf89ba2fd0be254c684aede0f6a0de2",
+    "receipts/integration_006_20261012/replay_numeric_fix01/NUMERIC_TEST_SUMMARY.json": "c6ee38ecfc60f160f8dd5ceba19f9e955e05be4d991bcbc2f42498235ca8572e",
+    "receipts/integration_006_20261012/replay_numeric_fix01/ORIGINAL_FAILURE.json": "e1196a86252695031e4515f2fc224ae18fc7a5b51c1a840c6c159ec2950b4132",
+    "receipts/integration_006_20261012/replay_numeric_fix01/SOURCE_DIFF_RECEIPT.json": "34554d37bb3df3d521ae68457033d36282da7a9a78dc8fec1e18aeef18f153af",
+    "runs/integration_006_20261012/id_fix02/runs/science/COMPLETE.json": "00ea8272d97801c33dca8aa6550683b62c75b3f2797da705499ff825c32d30c1",
+    "scripts/verify_integration006.py": "5990b29c1f232329978fe5700b73e9826c346025e465ec76b340213c7e5cced0",
+    "scripts/verify_integration006_numeric_fix01.py": "6de11280961ade7d15b222d5fcc4362938a2503616eb81b1f879bc5caa878ed9",
+    "tests/test_verify_integration006_numeric_fix01.py": "d662c12268c624f0405eef7cbf3c2be11b914e670c380e8bd5cc4106d28f2019"
+  },
+  "scope": "Only separately bound post-completion numerical QA. Original scientific endpoint, source manifest, first failed replay and old verifier stay immutable; full same-device replay remains pending.",
+  "independent_native_tests": {
+    "tests": 7,
+    "CPU_threads": 2,
+    "native_exit_code": 0,
+    "unittest_seconds": 0.571,
+    "artificial_data_only": true
+  },
+  "static_checks": {
+    "original_verifier_unchanged": true,
+    "scientific_manifest_all_66_sources_unchanged": true,
+    "all_previous_functions_except_main_AST_unchanged": true,
+    "AST_equal_after_removing_only_two_helpers_restoring_theory_loop_and_removing_one_receipt_field": true,
+    "A_dimensionless_absolute_floor": 1.4210854715202004e-14,
+    "floor_definition": "64*float64epsilon",
+    "A_relative_tolerance": 3e-10,
+    "other_analytical_fields_absolute_tolerance": 1e-15,
+    "other_analytical_fields_relative_tolerance": 3e-10,
+    "both_A_use_independent_NumPy_registered_kernel": true,
+    "backward_error_formula": "norm_inf(A KBB - KTB)/(norm_inf(A)*norm_inf(KBB)+norm_inf(KTB))",
+    "backward_error_limit": 1.4210854715202004e-14,
+    "finite_float64_shapes_positive_denominator_required": true,
+    "no_adaptive_tolerance_or_change_to_kernel_ridge_random_stream_readouts_bootstrap_scientific_gate_or_update_logic": true
+  },
+  "artificial_regressions": [
+    "Near-zero6eps A passes comparison and backward checks; prior1e-15 floor rejects it.",
+    "Above-floor A perturbation rejected.",
+    "Material difference hidden by original relative tolerance plus self-consistent saved K rejected against independent K.",
+    "Independent A separately checked.",
+    "Nonfinite, shape, float32 and zero denominator rejected.",
+    "Other mean/variance theory fields still reject2e-15 differences at zero."
+  ],
+  "first_failed_replay": {
+    "native_exit_code": 1,
+    "failure_record_sha256": "e1196a86252695031e4515f2fc224ae18fc7a5b51c1a840c6c159ec2950b4132",
+    "datasets_decoded": true,
+    "REAL_readout_rows_recomputed": 21646,
+    "response_and_noise_replay_rows": 0,
+    "original_max_A_difference": 1.3638561223107692e-15,
+    "updates": 0,
+    "preserved": true
+  },
+  "numerical_evidence": {
+    "unit_variance_registered_kernel_only_no_model_forward": true,
+    "kernel_condition_inf": [
+      64.6670787923233,
+      262.6374619314202,
+      336.8392130002704
+    ],
+    "saved_theory_only_no_forward_checked": true,
+    "saved_A_backward_errors": [
+      8.373763541437233e-17,
+      8.52303615459228e-17,
+      1.3489443692458839e-16
+    ],
+    "saved_A_max_differences_current_local_NumPy": [
+      7.808986011120099e-16,
+      2.5352983601401036e-15,
+      1.883042333172824e-15
+    ]
+  },
+  "scientific_outcome_unchanged": "sensitivity_detected",
+  "response_training_authorized": false,
+  "reviewer_activity": {
+    "raw_SOURCE_REAL_numeric_decode": 0,
+    "new_scientific_noise_or_response_forward_rows": 0,
+    "fits_or_optimizer_steps": 0,
+    "read_only_scientific_saved_output_analysis": true
+  },
+  "remaining_boundary": "This review covers the registered frozen-input replay implementation only. It does not certify future replay execution, physical noise or independent-acquisition validity, response match, or response training."
+}
