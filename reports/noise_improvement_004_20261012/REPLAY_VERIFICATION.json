@@ -1,0 +1,146 @@
+{
+  "status": "reopened_and_replayed",
+  "device": "cuda:0",
+  "noise_training_updates_added": 0,
+  "classifier_updates_added": 0,
+  "response_updates_added": 0,
+  "final_checkpoint_sha256": "78e8a534b82ee575ba64cf204869c827786aeab293c8931cc89cf665a1921b99",
+  "replay_payload_sha256": "82a86237760774519590b3422ce308aa1055329a9c2b86a4104fb3a06b26da36",
+  "generator_rows_replayed": 1024,
+  "generator_chunks": [
+    {
+      "chunk": 0,
+      "rows": 256,
+      "pre_ADC_max_abs_error": 0.0,
+      "post_ADC_max_abs_error": 0.0,
+      "pre_ADC_bitwise": true,
+      "post_ADC_bitwise": true
+    },
+    {
+      "chunk": 1,
+      "rows": 256,
+      "pre_ADC_max_abs_error": 0.0,
+      "post_ADC_max_abs_error": 0.0,
+      "pre_ADC_bitwise": true,
+      "post_ADC_bitwise": true
+    },
+    {
+      "chunk": 2,
+      "rows": 256,
+      "pre_ADC_max_abs_error": 0.0,
+      "post_ADC_max_abs_error": 0.0,
+      "pre_ADC_bitwise": true,
+      "post_ADC_bitwise": true
+    },
+    {
+      "chunk": 3,
+      "rows": 256,
+      "pre_ADC_max_abs_error": 0.0,
+      "post_ADC_max_abs_error": 0.0,
+      "pre_ADC_bitwise": true,
+      "post_ADC_bitwise": true
+    }
+  ],
+  "classifier_checkpoints_replayed": 6,
+  "generated_evaluation_population_rows_replayed": 10240,
+  "generated_evaluation_populations_bitwise_equal": true,
+  "classifier_score_rows_replayed": 3072,
+  "classifiers": [
+    {
+      "view": "raw",
+      "case": "generated_REAL",
+      "rows": 512,
+      "max_abs_logit_error": 0.0,
+      "bitwise_equal": true,
+      "saved_score_AUC": 0.4757080078125
+    },
+    {
+      "view": "raw",
+      "case": "REAL_REAL",
+      "rows": 512,
+      "max_abs_logit_error": 0.0,
+      "bitwise_equal": true,
+      "saved_score_AUC": 0.4505157470703125
+    },
+    {
+      "view": "demean",
+      "case": "generated_REAL",
+      "rows": 512,
+      "max_abs_logit_error": 0.0,
+      "bitwise_equal": true,
+      "saved_score_AUC": 0.482177734375
+    },
+    {
+      "view": "demean",
+      "case": "REAL_REAL",
+      "rows": 512,
+      "max_abs_logit_error": 0.0,
+      "bitwise_equal": true,
+      "saved_score_AUC": 0.4530029296875
+    },
+    {
+      "view": "detrend",
+      "case": "generated_REAL",
+      "rows": 512,
+      "max_abs_logit_error": 0.0,
+      "bitwise_equal": true,
+      "saved_score_AUC": 0.4792938232421875
+    },
+    {
+      "view": "detrend",
+      "case": "REAL_REAL",
+      "rows": 512,
+      "max_abs_logit_error": 0.0,
+      "bitwise_equal": true,
+      "saved_score_AUC": 0.4537353515625
+    }
+  ],
+  "unchanged_REAL_REAL_controls": [
+    {
+      "view": "raw",
+      "old_v2_control_bitwise_equal": true
+    },
+    {
+      "view": "demean",
+      "old_v2_control_bitwise_equal": true
+    },
+    {
+      "view": "detrend",
+      "old_v2_control_bitwise_equal": true
+    }
+  ],
+  "all_REAL_TRAIN_rows_visited": 21047,
+  "sampler_total_rows": 2560000,
+  "min_visits": 121,
+  "max_visits": 122,
+  "strict_length_rejections": [
+    0,
+    99,
+    101,
+    480
+  ],
+  "parameter_count": 5151,
+  "parameter_max_abs_change": {
+    "mean_units": 0.009319026261708278,
+    "raw_lower": 0.15077845520568445,
+    "raw_log_scale_std": 0.4300262362621292,
+    "voltage_scale": 0.0,
+    "normalized_diagonal_floor": 0.0
+  },
+  "pre_ADC_covariance_min_eigenvalue_V2": 2.4837240245984876e-08,
+  "noise_gate_passed": false,
+  "failed_checks": [
+    "acf",
+    "negative_control_interval_contains_half"
+  ],
+  "scientific_payload_manifest_entries_verified": 28,
+  "execution_source_files_verified": 28,
+  "execution_source_manifest_sha256": "624d6fe5476bd6d8d3a63b49259a5cb879a5b98f96db2e4bf31ab96cec218a20",
+  "complete_sha256": "a795300b9bc7f60935eeaafbb39f372b776de3e806549d1ef554d6aee5d7e01f",
+  "input_hashes_verified": true,
+  "all_classifier_fit_only_scalers_verified": true,
+  "test_labels_and_groups_verified": true,
+  "AUC_and_all_six_intervals_recomputed": true,
+  "other_gate_metrics": "unchanged_report_bound_by_COMPLETE_manifest",
+  "scientific_acceptance_inferred_from_replay": false
+}

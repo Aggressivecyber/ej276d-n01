@@ -1,8 +1,8 @@
 # N01｜物理分解式条件随机 1D U-Net
 
-**当前执行：noise_improvement_004 已预登记，正在实现与检查 100 点观测基线模型。固定 5000 次噪声更新，旧评价门保持不变，本轮不整合 480 点响应。** 见 [004 协议](docs/NOISE_IMPROVEMENT_004_PROTOCOL.md) 和 `noise_improvement_004_config.json`。实际运行状态以 `PROGRAM.json`、`jobs.json` 和执行回执为准。
+**本轮已完成：noise_improvement_004 实际训练 5000 次，OLS 联合误差由 0.57436 降至 0.14193，通过原阈值；ACF 最大差 0.02185 仍超过 0.015，REAL–REAL 对照区间检查也未通过。噪声总门仍失败，响应训练为 0，当前科学作业为 0。** 见 [改进报告](reports/noise_improvement_004_20261012/README.md)、[004 协议](docs/NOISE_IMPROVEMENT_004_PROTOCOL.md) 和 [完成回执](receipts/noise_improvement_004_20261012/FINAL_RECEIPT.json)。本候选仅支持 100 点观测基线，不支持 480 点响应整合。
 
-**最新诊断完成：21,047 条 TRAIN 原始→处理链逐位重建；128 次 REAL–REAL 全重新拟合完成，65,536 个分数重放逐位一致。本轮噪声/响应训练均为 0，评价分类器 25,600 更新。**
+**前次诊断完成：21,047 条 TRAIN 原始→处理链逐位重建；128 次 REAL–REAL 全重新拟合完成，65,536 个分数重放逐位一致。本轮噪声/响应训练均为 0，评价分类器 25,600 更新。**
 
 来源负相关早于已知处理链，固定取窗平移可复现增强；旧阴性对照判据的条件误报为 9/128，组内置换为 7/128，差异不足以证明后者更优。上一轮失败门不改判。见 [噪声来源与对照校准报告](reports/noise_origin_audit_003_20261012/README.md)、[预登记协议](docs/NOISE_ORIGIN_003_PROTOCOL.md) 和 [本轮 Release](https://github.com/Aggressivecyber/ej276d-n01/releases/tag/n01-noise-origin-003-20261012)。
 
@@ -12,7 +12,7 @@
 
 原 run_001 四组固定终点中文报告见 [完整模型评估与四张科学图](reports/run_001_20261012/README.md)；原交付见 `receipts/run_001_20261012/FINAL_EVALUATION_RECEIPT.json`。它在 2026-10-12 07:00:28（Asia/Singapore）正常退出。当前科学作业为 0。
 
-初始方案依据是用户提供的 [原文](USER_PROPOSAL.md)，后续由用户的噪声与损失审查修订。用户明确要求：**直接创建 N01，按粘贴方案，不继承 R79**。本文第 1 节以下及 `config.json` 保留初始设计；当前修订以 `docs/REPAIR_002_PROTOCOL.md`、`repair_run_config.json` 和 `PROGRAM.json` 为准。原文的建议值不视为已验证最优值。
+初始方案依据是用户提供的 [原文](USER_PROPOSAL.md)，后续由用户的噪声与损失审查修订。用户明确要求：**直接创建 N01，按粘贴方案，不继承 R79**。本文第 1 节以下及 `config.json` 保留初始设计；整体修复协议为 `docs/REPAIR_002_PROTOCOL.md`；最新独立噪声候选为 `docs/NOISE_IMPROVEMENT_004_PROTOCOL.md` 与 `noise_improvement_004_config.json`，完成状态见 `PROGRAM.json`。原文的建议值不视为已验证最优值。
 
 公开仓库：[https://github.com/Aggressivecyber/ej276d-n01](https://github.com/Aggressivecyber/ej276d-n01)。四组模型、检查点、日志及逐事件评估产物见 [固定终点 Release](https://github.com/Aggressivecyber/ej276d-n01/releases/tag/n01-run-001-20261012)；上传范围与 SHA256 见 `PUBLICATION_MANIFEST.json`。
 

@@ -61,6 +61,14 @@ def main():
     cov={k:np.cov(x,rowvar=False)/denom for k,x in [('REAL',real),('v2',prev),('v3',fake)]}
     errors={k:float(np.linalg.norm(cov[k]-cov['REAL'])/np.linalg.norm(cov['REAL'])) for k in ('v2','v3')}
     correlations={k:rho(s['ols_covariance_V2']) for k,s in [('REAL',new['statistics']['REAL']),('v2',old['statistics']['generated']),('v3',new['statistics']['generated'])]}
+    acf={k:np.asarray(s['acf_mean']) for k,s in [('TRAIN',new['statistics']['TRAIN']),('VAL',new['statistics']['REAL']),('v2',old['statistics']['generated']),('v3',new['statistics']['generated'])]}
+    acf_comparisons=[]
+    for label,a,b in [('TRAIN_VAL','TRAIN','VAL'),('v3_VAL','v3','VAL'),('v3_TRAIN','v3','TRAIN'),('v2_VAL','v2','VAL')]:
+        delta=acf[a]-acf[b];worst=int(np.argmax(np.abs(delta)))
+        acf_comparisons.append(dict(comparison=label,worst_lag=worst+1,signed_difference=float(delta[worst]),max_absolute=float(abs(delta[worst]))))
+    write(OUT/'ACF_RESIDUAL_DIAGNOSTIC.json',dict(status='post_endpoint_descriptive_only_no_new_fits',comparisons=acf_comparisons,
+        all_lags=list(range(1,21)),means={k:v.tolist() for k,v in acf.items()},explicit_training_ACF_lags=list(range(1,17)),
+        other_full100_losses_still_indirectly_constrain_longer_lags=True,feature_extension_not_tested=True))
     candidate_failed=[k for k,v in new['checks'].items() if not v and not k.startswith('negative_control_')]
     control_failed=[k for k,v in new['checks'].items() if not v and k.startswith('negative_control_')]
     summary=dict(run_id=ID,status='bounded_noise_candidate_evaluated',noise_training_updates=5000,classifier_evaluation_updates=1200,
@@ -69,7 +77,7 @@ def main():
         mean_slope_correlations=correlations,descriptive_normalized_covariance_errors=errors,
         all_TRAIN_rows_used=21047,validation_rows=599,observed_acquisition_sources=1,independent_acquisition_validations=0,validation_previously_viewed=True,
         model_parameters=5151,supported_samples=100,full480_integration_supported=False,
-        generator_replay_rows=replay['generator_rows_replayed'],classifier_replay_rows=replay['classifier_score_rows_replayed'],
+        generator_replay_rows=replay['generator_rows_replayed'],classifier_replay_rows=replay['classifier_score_rows_replayed'],acf_residual_comparisons=acf_comparisons,
         replay_does_not_establish_scientific_acceptance=True)
     write(OUT/'SUMMARY.json',summary)
     colors=dict(REAL='#CA5334',v2='#9A6BA0',v3='#147CAC')
@@ -104,7 +112,8 @@ def main():
             ax[1,1].plot(r['AUC'],y,'o',color=colors[k],ms=5,label={'REAL':'REAL-REAL control','v2':'v2-REAL','v3':'v3-REAL'}[k] if i==0 else None)
     ax[1,1].axvline(.5,color='#333333',ls='--',lw=1)
     ax[1,1].set(title='Frozen classifier test and control',yticks=[0,1,2],yticklabels=['Detrend','Demean','Raw'],xlabel='AUC; 95% record-group bootstrap')
-    ax[1,1].legend(fontsize=9,loc='best')
+    ax[1,1].set_title('Frozen classifier test and control',pad=34)
+    ax[1,1].legend(fontsize=8,loc='lower center',bbox_to_anchor=(.5,1.01),ncol=3)
     for a in ax.flat:a.grid(alpha=.15)
     save(fig,'02_baseline_distributions')
     fig,ax=plt.subplots(1,2,figsize=(12.8,4.6),constrained_layout=True)
@@ -140,6 +149,7 @@ def main():
 <img src="figures/01_nonstationary_covariance.png" alt="时间标准差、均值斜率协方差及完整协方差差值">
 <h2>分布与阴性对照</h2><p>新模型–REAL 原始基线 AUC 为 {raw['AUC']:.5f}，95% 区间 [{raw['percentile_95_interval'][0]:.5f}, {raw['percentile_95_interval'][1]:.5f}]。REAL–REAL 对照为 {rr['AUC']:.5f} [{rr['percentile_95_interval'][0]:.5f}, {rr['percentile_95_interval'][1]:.5f}]。旧门的“阴性区间包含 0.5”条件仍按原样执行，未改判历史结果。</p>
 <img src="figures/02_baseline_distributions.png" alt="ACF、RMS、频谱与分类器检查">
+<p>固定终点后的描述性定位：v3 最大 ACF 差在滞后 17 点，v2 最大差在 19 点；TRAIN–VAL 本身的最大差为 {acf_comparisons[0]['max_absolute']:.5f}。现有显式 ACF 训练特征覆盖 1–16 点，完整 100 点分布目标仍会间接约束更长延迟。扩展显式延迟特征可作为下一轮候选依据，尚未实施或验证；本轮没有据此重训、改门或选种子。</p>
 <h2>执行与复核</h2><p>噪声训练 5,000 次；评价分类器另计 1,200 次；脉冲训练 0 次。最终模型保存后才读取本轮验证波形。重开并重放 1,024 条生成基线、6 个分类器共 3,072 个分数；重放只证明数值可复现。完整回执见下方链接。</p>
 <img src="figures/03_fixed_training_and_checks.png" alt="固定训练损失和原有结构检查">
 <h2>适用范围</h2><p>结果针对既有采集、筛选、量化和对齐后的观测基线。599 条验证记录来自同一份此前已查看的采集，12 个记录组不构成独立采集。该模型不识别电子学硬件来源，也不能自动外推后续 380 点。高斯全局尺度混合仍限制偏斜、方向相关尾部和多模态；分类器接近随机不等于证明分布完全相同。</p>

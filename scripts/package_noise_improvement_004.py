@@ -42,6 +42,7 @@ def main():
     for folder,label in [(RUN/'runs','runs'),(REPORT,'report'),(REC,'receipts')]:
         items.extend((p,label+'/'+p.relative_to(folder).as_posix()) for p in sorted(folder.rglob('*')) if p.is_file())
     items.extend([(RUN/'EXECUTION_SOURCE.tar.gz','EXECUTION_SOURCE.tar.gz'),(bundle,bundle.name)])
+    items.extend((p,'visual_QA/'+p.name) for p in sorted(RUN.glob('HTML_QA_*.png')))
     private=DEST/'n01-noise-improvement-004-private-full.zip'
     members=archive(private,items)
     public_items=[]
@@ -57,6 +58,7 @@ def main():
             public_items.append((p,'noise_validation/classifiers/'+p.relative_to(science/'noise_validation/classifiers').as_posix()))
     for folder,label in [(REPORT,'report'),(REC,'receipts'),(RUN/'runs/replay','replay')]:
         public_items.extend((p,label+'/'+p.relative_to(folder).as_posix()) for p in sorted(folder.rglob('*')) if p.is_file())
+    public_items.extend((p,'visual_QA/'+p.name) for p in sorted(RUN.glob('HTML_QA_*.png')))
     public_items.extend((science/name,'science/'+name) for name in ['COMPLETE.json','exit_receipt.json','launch.json','status.json'] if (science/name).exists())
     supervisor=RUN/'runs/supervisor'
     public_items.extend((supervisor/name,'supervisor/'+name) for name in ['exit_receipt.json','launch.json','resource_status.json'] if (supervisor/name).exists())

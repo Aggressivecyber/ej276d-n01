@@ -1,0 +1,16 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>N01 噪声改进 004</title><style>body{font-family:"Microsoft YaHei",system-ui,sans-serif;max-width:1100px;margin:32px auto;padding:0 24px;color:#183044;line-height:1.75;background:#f7f9fc}h1{font-size:30px;line-height:1.35}h2{margin-top:32px;font-size:22px}p{font-size:16px}.lead{background:#fff1e8;border-left:5px solid #b66328;padding:16px 20px}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:20px 0}.stats div{padding:18px;background:white;border:1px solid #d8e2ed;border-radius:8px}.stats b{display:block;font-size:25px}table{width:100%;border-collapse:collapse;background:white;font-size:15px}th,td{padding:10px 12px;border:1px solid #d7e1eb;text-align:left}img{width:100%;height:auto;margin-top:16px;background:white}a{color:#086ba0}.links{display:flex;gap:20px;flex-wrap:wrap}@media(max-width:700px){.stats{grid-template-columns:1fr}body{padding:0 12px}table{font-size:12px}th,td{padding:6px}}</style><h1>N01 噪声改进 004</h1>
+<p>固定候选：100 点非平稳协方差 · 2026-10-12 · 对照 v2 原终点</p>
+<div class="lead"><b>候选自身检查：未通过：acf；总噪声门：未通过。</b><br>保留原 REAL–REAL 阴性对照判据。仅支持已观测的 100 点基线；480 点噪声未获验证，本轮脉冲训练为 0。</div>
+<div class="stats"><div><b>5,000</b>实际噪声优化更新</div><div><b>21,047 / 21,047</b>TRAIN 行覆盖</div><div><b>0</b>脉冲响应更新</div></div>
+<h2>改动与结果</h2><p>将平稳 FIR 与独立偏置替换为完整可训练的 100×100 Cholesky 协方差、100 点均值和一个事件尺度。全部 5,151 个参数可训练；尺度满足 E[S²]=1，协方差为 LLᵀ。损失、评价种子和原阈值保持一致，仅使用固定第 5,000 步。</p>
+<table><thead><tr><th>检查</th><th>旧 v2</th><th>新 v3</th><th>原容差</th><th>新结果</th></tr></thead><tbody><tr><td>最大 ACF 差</td><td>0.021871</td><td>0.021852</td><td>≤ 0.015</td><td>未通过</td></tr><tr><td>OLS 联合协方差误差</td><td>0.574359</td><td>0.141929</td><td>≤ 0.20</td><td>通过</td></tr><tr><td>基线均值标准差比</td><td>0.853831</td><td>0.890162</td><td>0.85–1.15</td><td>通过</td></tr><tr><td>斜率标准差比</td><td>0.936983</td><td>1.004837</td><td>0.85–1.15</td><td>通过</td></tr><tr><td>完整 100 点 SWD 比</td><td>0.989586</td><td>1.001886</td><td>≤ 2.0</td><td>通过</td></tr></tbody></table>
+<p>均值—斜率相关系数：REAL -0.6568，v2 -0.0022，v3 -0.6832。完整 100 点协方差描述性误差：v2 0.5013，v3 0.4598。后者是额外诊断，不是新增验收门。</p>
+<img src="figures/01_nonstationary_covariance.png" alt="时间标准差、均值斜率协方差及完整协方差差值">
+<h2>分布与阴性对照</h2><p>新模型–REAL 原始基线 AUC 为 0.47571，95% 区间 [0.42757, 0.52492]。REAL–REAL 对照为 0.45052 [0.40264, 0.49146]。旧门的“阴性区间包含 0.5”条件仍按原样执行，未改判历史结果。</p>
+<img src="figures/02_baseline_distributions.png" alt="ACF、RMS、频谱与分类器检查">
+<p>固定终点后的描述性定位：v3 最大 ACF 差在滞后 17 点，v2 最大差在 19 点；TRAIN–VAL 本身的最大差为 0.01213。现有显式 ACF 训练特征覆盖 1–16 点，完整 100 点分布目标仍会间接约束更长延迟。扩展显式延迟特征可作为下一轮候选依据，尚未实施或验证；本轮没有据此重训、改门或选种子。</p>
+<h2>执行与复核</h2><p>噪声训练 5,000 次；评价分类器另计 1,200 次；脉冲训练 0 次。最终模型保存后才读取本轮验证波形。重开并重放 1,024 条生成基线、6 个分类器共 3,072 个分数；重放只证明数值可复现。完整回执见下方链接。</p>
+<img src="figures/03_fixed_training_and_checks.png" alt="固定训练损失和原有结构检查">
+<h2>适用范围</h2><p>结果针对既有采集、筛选、量化和对齐后的观测基线。599 条验证记录来自同一份此前已查看的采集，12 个记录组不构成独立采集。该模型不识别电子学硬件来源，也不能自动外推后续 380 点。高斯全局尺度混合仍限制偏斜、方向相关尾部和多模态；分类器接近随机不等于证明分布完全相同。</p>
+<p>本轮停止在已登记的噪声候选终点。下一步应根据剩余失败项和实际可用数据另行绑定完整 480 点的噪声模型，不能把短窗拟合直接拼成整段响应。</p>
+<p class="links"><a href="SUMMARY.json">指标摘要</a><a href="NOISE_GATE.json">完整原门结果</a><a href="REPLAY_VERIFICATION.json">重放回执</a><a href="../../docs/NOISE_IMPROVEMENT_004_PROTOCOL.md">预登记协议</a></p></html>
