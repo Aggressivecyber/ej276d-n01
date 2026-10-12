@@ -1,5 +1,7 @@
 # N01｜物理分解式条件随机 1D U-Net
 
+**当前执行：noise_improvement_004 已预登记，正在实现与检查 100 点观测基线模型。固定 5000 次噪声更新，旧评价门保持不变，本轮不整合 480 点响应。** 见 [004 协议](docs/NOISE_IMPROVEMENT_004_PROTOCOL.md) 和 `noise_improvement_004_config.json`。实际运行状态以 `PROGRAM.json`、`jobs.json` 和执行回执为准。
+
 **最新诊断完成：21,047 条 TRAIN 原始→处理链逐位重建；128 次 REAL–REAL 全重新拟合完成，65,536 个分数重放逐位一致。本轮噪声/响应训练均为 0，评价分类器 25,600 更新。**
 
 来源负相关早于已知处理链，固定取窗平移可复现增强；旧阴性对照判据的条件误报为 9/128，组内置换为 7/128，差异不足以证明后者更优。上一轮失败门不改判。见 [噪声来源与对照校准报告](reports/noise_origin_audit_003_20261012/README.md)、[预登记协议](docs/NOISE_ORIGIN_003_PROTOCOL.md) 和 [本轮 Release](https://github.com/Aggressivecyber/ej276d-n01/releases/tag/n01-noise-origin-003-20261012)。
