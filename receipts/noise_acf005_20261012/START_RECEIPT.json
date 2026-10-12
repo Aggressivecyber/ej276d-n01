@@ -1,0 +1,41 @@
+{
+  "status": "native_noise_training_observed",
+  "UTC": "2026-10-12T07:45:04.443114+00:00",
+  "launch": {
+    "supervisor_pid": 644130,
+    "child_pid": 644138,
+    "command": [
+      "timeout",
+      "--signal=TERM",
+      "--kill-after=15s",
+      "1800s",
+      "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+      "-B",
+      "-m",
+      "n01.train_noise_acf005",
+      "--container",
+      "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R33_REMOTE_20261009_175239_UTC/inputs/TRAIN_PRIVATE.npz",
+      "--identities",
+      "/home/rylan/projects/ej276d-n01/noise_acf005_20261012/data/PARENT_IDENTITIES.npz",
+      "--config",
+      "/home/rylan/projects/ej276d-n01/noise_acf005_20261012/noise_acf005_config.json",
+      "--source-manifest",
+      "/home/rylan/projects/ej276d-n01/noise_acf005_20261012/NOISE_ACF005_SOURCE_MANIFEST.json",
+      "--out",
+      "/home/rylan/projects/ej276d-n01/noise_acf005_20261012/runs/science",
+      "--device",
+      "cuda:0"
+    ],
+    "started_utc": "2026-10-12T07:44:21.600960+00:00"
+  },
+  "supervisor_pid": 644130,
+  "training_pid": 644139,
+  "owned_process_tree": [
+    644138,
+    644139
+  ],
+  "observed_update": 1675,
+  "TRAIN_unique": 21047,
+  "source_commit": "ca7459300fdccdc69cf5b0c009b5688f12265aac",
+  "response_training_updates": 0
+}

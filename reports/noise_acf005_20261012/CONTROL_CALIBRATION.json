@@ -1,0 +1,87 @@
+{
+  "status": "measurement_uncertain_single_exposed_acquisition",
+  "exact_score_reproduction": {
+    "raw": {
+      "labels": true,
+      "scores": true,
+      "groups0": true,
+      "groups1": true
+    },
+    "demean": {
+      "labels": true,
+      "scores": true,
+      "groups0": true,
+      "groups1": true
+    },
+    "detrend": {
+      "labels": true,
+      "scores": true,
+      "groups0": true,
+      "groups1": true
+    }
+  },
+  "reference003": {
+    "refits": 128,
+    "method_draws": 255,
+    "legacy_joint_bootstrap_false_positive": {
+      "rejections": 9,
+      "trials": 128,
+      "rate": 0.0703125,
+      "Wilson95": [
+        0.03742976830393997,
+        0.12823480349360633
+      ]
+    },
+    "conditional_permutation_false_positive": {
+      "rejections": 7,
+      "trials": 128,
+      "alpha": 0.05,
+      "rate": 0.0546875,
+      "Wilson95": [
+        0.026740201381346355,
+        0.10858490029974707
+      ]
+    },
+    "scope": "conditional_historical_TRAIN_pseudo_groups;7/128 does not calibrate9999draw_rule"
+  },
+  "current_raw": {
+    "method": "conditional_within_group_equal_quota_test_label_permutation",
+    "permutations": 9999,
+    "observed_AUC": 0.4505157470703125,
+    "statistic": 0.0494842529296875,
+    "statistic_definition": "abs(AUC-.5)",
+    "tail_rule": ">= including ties",
+    "tail_count": 514,
+    "plus_one_p_value": 0.0515,
+    "scores_fixed": true,
+    "test_parent_set_fixed": true,
+    "classifier_refitted": false,
+    "seed": 2026131221,
+    "draws": 9999,
+    "arrays_sha256": {
+      "labels": "186a9d4e9fbe8b8d744a45fc614e676e76738a3643d67114c282f2e38f3af93d",
+      "scores": "98ffb9cd0346fde329f3130bf90f86a8036b881b09a45a5f8461dbfa3dc4b441",
+      "groups": "0e3fd55de1ae192b931a07a978363bf32f7cb76029bb78fbda41848bd465bfc6"
+    },
+    "conditional_tail_fraction_K_over_draws": 0.05140514051405141,
+    "conditional_tail_probability_MC_Wilson95": [
+      0.047246559522626706,
+      0.05590827533790154
+    ],
+    "Wilson_scope": "Monte_Carlo_tail_probability_conditional_on_fixed_scores_parents_groups;not_p_or_acquisitionCI",
+    "interpretation": "descriptive only;p>.05 does not validate measurement or erase legacy control failure",
+    "selected_test_rows_sha256": {
+      "class0": "3fe7789218f4d804015281dcc5289be987345633539428fb6c399804aa440beb",
+      "class1": "e68a91a65d42fd140d1d5167d62b352863c6f41e1779d5ac448fd742e0c62cd9"
+    }
+  },
+  "legacy_raw_point": 0.4505157470703125,
+  "legacy_raw_interval95": [
+    0.40263894352336954,
+    0.4914598382541492
+  ],
+  "legacy_raw_practical_interval_contained": true,
+  "newly_fitted_classifiers": 0,
+  "other_views_conditional_tests": 0,
+  "measurement_certified": false
+}

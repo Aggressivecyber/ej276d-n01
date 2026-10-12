@@ -18,6 +18,7 @@ def main():
     assert not (REC/'FINAL_RECEIPT.json').exists(),'Preserve closed005 receipt'
     science=RUN/'runs/science';now=dt.datetime.now(dt.timezone.utc).isoformat()
     complete=read(science/'COMPLETE.json');replay=read(RUN/'runs/replay/REPLAY_VERIFICATION.json')
+    config=read(ROOT/'noise_acf005_config.json')
     native=read(RUN/'runs/supervisor/exit_receipt.json');post=read(REC/'POSTFLIGHT.json')
     visual=read(REC/'VISUAL_QA.json');summary=read(REPORT/'SUMMARY.json')
     review=read(REC/'RESULTS_INDEPENDENT_REVIEW.json');tests=read(REC/'TEST_SUMMARY.json')
@@ -27,6 +28,8 @@ def main():
     assert complete['response_training_updates']==0 and complete['scientifically_qualified'] is False
     assert replay['complete_sha256']==sha(science/'COMPLETE.json')
     assert replay['execution_source_manifest_sha256']==sha(ROOT/'NOISE_ACF005_SOURCE_MANIFEST.json')
+    assert complete['config_sha256']==sha(ROOT/'noise_acf005_config.json')
+    assert post['train_container_sha256']==config['train_container_sha256']
     for name,digest in complete['files'].items():assert sha(science/name)==digest,name
     for name,digest in complete['source_files'].items():assert sha(ROOT/name)==digest,name
     assert not post['active_N01_python'] and not post['GPU_compute_processes']
@@ -54,7 +57,7 @@ def main():
         scientific_payloads_verified=len(complete['files']),execution_sources_verified=len(complete['source_files']),
         complete_sha256=sha(science/'COMPLETE.json'),final_checkpoint_sha256=complete['final_checkpoint_sha256'],
         config_sha256=complete['config_sha256'],source_manifest_sha256=complete['source_manifest_sha256'],
-        train_container_sha256=complete['train_container_sha256'],train_rows_used=21047,train_total_rows=21047,
+        train_container_sha256=config['train_container_sha256'],train_rows_used=21047,train_total_rows=21047,
         train_total_visits=replay['sampler_total_rows'],min_visits=replay['min_visits'],max_visits=replay['max_visits'],
         TRAIN_match=summary['TRAIN_match'],TRAIN_improved=summary['TRAIN_improved'],
         candidate_checks_passed=summary['candidate_checks_passed'],candidate_failed_checks=summary['candidate_failed_checks'],
