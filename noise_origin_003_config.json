@@ -1,0 +1,140 @@
+{
+  "experiment_id": "noise_origin_audit_003_20261012",
+  "registered_UTC": "2026-10-12T04:17:31.611017+00:00",
+  "training_container": {
+    "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R23_ONLINE_STANDARDIZED_CRITIC_001\\TRAIN_PRIVATE.npz",
+    "sha256": "9e2f2c3c18470f4b2f3374a39590a9c27b18222bd1b22b5d7467e561409ad854"
+  },
+  "identities": {
+    "path": "data/PARENT_IDENTITIES.npz",
+    "sha256": "5145ea04d038510c9ca740d997e0cf9d060ed69210a4515e20110d884db7e845"
+  },
+  "raw_source": {
+    "container": {
+      "path": "/home/rylan/psd_results/EJ276D_AmBe_neutron_waveforms.npz",
+      "bytes": 2983190168,
+      "sha256": "fddb96180541f05196d85eaa40fae0138fc94432fd062931601f4f47cfded123"
+    },
+    "members": [
+      {
+        "name": "waveforms.npy",
+        "compressed_bytes": 2981607371,
+        "uncompressed_bytes": 8000000128,
+        "crc32": "0x27484134",
+        "dtype": "<f8",
+        "shape": [
+          100000,
+          10000
+        ],
+        "row_bytes": 80000
+      },
+      {
+        "name": "time_ns.npy",
+        "compressed_bytes": 24319,
+        "uncompressed_bytes": 80128,
+        "crc32": "0x3a340bf0",
+        "dtype": "<f8",
+        "shape": [
+          10000
+        ],
+        "row_bytes": 80000
+      },
+      {
+        "name": "amplitude_mV.npy",
+        "compressed_bytes": 565464,
+        "uncompressed_bytes": 800128,
+        "crc32": "0x9196a646",
+        "dtype": "<f8",
+        "shape": [
+          100000
+        ],
+        "row_bytes": 8
+      },
+      {
+        "name": "integral_mV_ns.npy",
+        "compressed_bytes": 753110,
+        "uncompressed_bytes": 800128,
+        "crc32": "0xa7990f7",
+        "dtype": "<f8",
+        "shape": [
+          100000
+        ],
+        "row_bytes": 8
+      },
+      {
+        "name": "file_names.npy",
+        "compressed_bytes": 239114,
+        "uncompressed_bytes": 4800128,
+        "crc32": "0xf1060f26",
+        "dtype": "<U12",
+        "shape": [
+          100000
+        ],
+        "row_bytes": 48
+      }
+    ],
+    "memory_limit_bytes": 4294967296,
+    "io_caps": {
+      "hash": 2983190168,
+      "metadata": 262144,
+      "compressed": 2981631690,
+      "inflate": 8000080258,
+      "source_total": 5965084002
+    }
+  },
+  "reference_interface": {
+    "path": "provenance/noise_origin_003_reference/interface_core.py",
+    "sha256": "b1e902a2627dd0017e6a716b681e9b99a01952a9d9139d17e22e76d55f9df8a2"
+  },
+  "origin_audit": {
+    "expected_train_rows": 21047,
+    "expected_train_groups": 422,
+    "baseline_samples": 100,
+    "raw_baseline_samples": 2000,
+    "fixed_window_starts": [
+      0,
+      5,
+      10,
+      15,
+      20
+    ],
+    "bootstrap_resamples": 512,
+    "bootstrap_seed": 2026101259,
+    "save_block_means": true,
+    "baseline_positions_are_pre_pulse_not_proven_noise": true
+  },
+  "rr_calibration": {
+    "repeats": 128,
+    "classifier_updates": 200,
+    "classifier_fit_per_class": 2048,
+    "classifier_test_per_class": 256,
+    "bootstrap_resamples": 1000,
+    "test_label_permutations": 255,
+    "pseudo_test_groups": 12,
+    "min_group_rows": 44,
+    "pseudo_split_seed": 2026101260,
+    "split_seed_base": 2026101261,
+    "classifier_seed_base": 2026102261,
+    "permutation_seed_base": 2026103261,
+    "bootstrap_seed_base": 2026104261,
+    "view": "raw",
+    "significance_alpha": 0.05
+  },
+  "resource": {
+    "cpu_threads": 12,
+    "rss_GiB": 8,
+    "gpu_memory_GiB": 10,
+    "wall_limit_s": 1800,
+    "output_limit_GiB": 1
+  },
+  "training_updates": {
+    "noise": 0,
+    "response": 0,
+    "evaluation_classifier_planned": 25600
+  },
+  "validation_waveform_decode_allowed": false,
+  "modify_old_gate_allowed": false,
+  "remote_root": "/home/rylan/projects/ej276d-n01/noise_origin_audit_003_20261012",
+  "remote_training_container": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R33_REMOTE_20261009_175239_UTC/inputs/TRAIN_PRIVATE.npz",
+  "scientific_interpretation": "conditional_origin_diagnostic_and_null_calibration_not_independent_acquisition_validation"
+}

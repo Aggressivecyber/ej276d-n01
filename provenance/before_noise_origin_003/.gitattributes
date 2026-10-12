@@ -1,0 +1,18 @@
+* text=auto eol=lf
+# Retain the user's original supplied bytes, including newlines.
+USER_PROPOSAL.md -text whitespace=cr-at-eol
+
+# Keep verified implementation and receipt byte hashes stable across checkouts.
+src/** -text whitespace=cr-at-eol
+tests/** -text whitespace=cr-at-eol
+docs/** -text whitespace=cr-at-eol
+receipts/** -text whitespace=cr-at-eol
+provenance/completion_review_before_*/** -text whitespace=cr-at-eol
+
+# Preserve reviewed report and figure byte hashes when publishing.
+reports/** -text whitespace=cr-at-eol
+scripts/** -text whitespace=cr-at-eol
+provenance/before_noise_audit_*/** -text whitespace=cr-at-eol
+provenance/noise_audit_original_classifier/** -text whitespace=cr-at-eol
+provenance/before_noise_repair_*/** -text whitespace=cr-at-eol
+repair_run_config.json -text whitespace=cr-at-eol
