@@ -1,6 +1,6 @@
 # N01｜物理分解式条件随机 1D U-Net
 
-**本轮已完成：noise_improvement_004 实际训练 5000 次，OLS 联合误差由 0.57436 降至 0.14193，通过原阈值；ACF 最大差 0.02185 仍超过 0.015，REAL–REAL 对照区间检查也未通过。噪声总门仍失败，响应训练为 0，当前科学作业为 0。** 见 [改进报告](reports/noise_improvement_004_20261012/README.md)、[004 协议](docs/NOISE_IMPROVEMENT_004_PROTOCOL.md) 和 [完成回执](receipts/noise_improvement_004_20261012/FINAL_RECEIPT.json)。本候选仅支持 100 点观测基线，不支持 480 点响应整合。
+**本轮已完成：noise_improvement_004 实际训练 5000 次，OLS 联合误差由 0.57436 降至 0.14193，通过原阈值；ACF 最大差 0.02185 仍超过 0.015，REAL–REAL 对照区间检查也未通过。噪声总门仍失败，响应训练为 0，当前科学作业为 0。** 见 [改进报告](reports/noise_improvement_004_20261012/README.md)、[004 协议](docs/NOISE_IMPROVEMENT_004_PROTOCOL.md) 和 [完成回执](receipts/noise_improvement_004_20261012/FINAL_RECEIPT.json)。本候选仅支持 100 点观测基线，不支持 480 点响应整合。 权重、日志和复核资料已上传 [004 Release](https://github.com/Aggressivecyber/ej276d-n01/releases/tag/n01-noise-improvement-004-20261012)。
 
 **前次诊断完成：21,047 条 TRAIN 原始→处理链逐位重建；128 次 REAL–REAL 全重新拟合完成，65,536 个分数重放逐位一致。本轮噪声/响应训练均为 0，评价分类器 25,600 更新。**
 
