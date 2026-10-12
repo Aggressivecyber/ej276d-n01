@@ -8,6 +8,10 @@
 
 公开仓库：[https://github.com/Aggressivecyber/ej276d-n01](https://github.com/Aggressivecyber/ej276d-n01)。四组模型、检查点、日志及逐事件评估产物见 [固定终点 Release](https://github.com/Aggressivecyber/ej276d-n01/releases/tag/n01-run-001-20261012)；上传范围与 SHA256 见 `PUBLICATION_MANIFEST.json`。
 
+## 2026-10-12 机制复核
+
+已完成冻结模型分窗口分类器、同随机数斜率干预与固定投影人工盲区复现，见 [新诊断报告与可运行入口](reports/noise_audit_20261012/README.md)。确定性模型条件 Q 方差中位数在关闭随机斜率后下降约 97.7%；归一脉冲域 AUC 仍为 0.982。核心响应模型与原结果未改，本轮响应训练更新为 0；24 个诊断分类器共 4800 更新。下一步独立校准电子学，尚未启动新噪声拟合或波形重训。
+
 ## 1. 目标与依据
 
 在明确的仿真输入定义和探测器条件下，学习事件相关的随机响应模型，使同一仿真事件产生合理的幅度、相对时间、形状与噪声变化，同时区分探测器响应和两批数据的能谱/组成差异。

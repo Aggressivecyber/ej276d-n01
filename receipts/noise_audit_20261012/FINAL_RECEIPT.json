@@ -1,0 +1,499 @@
+{
+  "run_id": "noise_audit_20261012",
+  "status": "diagnostic_step_complete_not_model_repaired",
+  "completed_UTC": "2026-10-12T02:44:13.384657+00:00",
+  "base_commit": "2c501e9de58341c460d8cd491816d015cab5c60b",
+  "response_model_training_updates": 0,
+  "noise_model_training_updates": 0,
+  "diagnostic_classifier_updates": 4800,
+  "actual_forward_rows": 32768,
+  "core_source_unchanged": true,
+  "core_source_hashes": {
+    "src\\n01\\data.py": "2ec3363bc830043af053342b4638f5e6ab55d27303da037f383f4fe630d77bd2",
+    "src\\n01\\evaluate.py": "baaaf0c50c98a15b3c04cddf07ea4c1b5b4503156c50fd78d774cf3fb5baf8bb",
+    "src\\n01\\losses.py": "4371a6d5924f0f664935b5d6eb6715c530f80af39ae276c7dc34ba02c5f4b1a7",
+    "src\\n01\\model.py": "0a0488218d99f351a98e30f2b1525b837b4ad3195c19f2a76ff61ee01298587b",
+    "src\\n01\\train.py": "9cb6b0a9cfad3fd9163eee919de7b2d64ca422513093e204f62a934e25684169",
+    "src\\n01\\__init__.py": "d17d880249fa0f50920dd14c505b15b4de74419849f86296913c31576c31e891"
+  },
+  "tests_passed": {
+    "window_semantics": 3,
+    "slope_algebra_and_pairing": 7,
+    "projection_and_FIR": 3
+  },
+  "classifier_checkpoints_reopened": 24,
+  "old_model_weight_mutation": false,
+  "report": "reports/noise_audit_20261012/N01_NOISE_MECHANISM_REVIEW.html",
+  "source_role": "generated responses from frozen full model",
+  "publication": "local_branch_only_this_turn",
+  "manifest": {
+    "runs/noise_audit_20261012/CLASSIFIER_REOPEN_VERIFICATION.json": {
+      "bytes": 11279,
+      "sha256": "461ee24ed956a222fff88883ef65d36ad621bf46f1ddd7759edae419d57cb816"
+    },
+    "runs/noise_audit_20261012/projection/artificial_counterexample.npz": {
+      "bytes": 1619691,
+      "sha256": "6556be06d8b1c2e1576012bafab1ea5833bf6b558b7ac0dc5425d0881f125c45"
+    },
+    "runs/noise_audit_20261012/projection/independent_direction_banks.pt": {
+      "bytes": 2219647,
+      "sha256": "e274fdd53549f61491ef6b808cbfbadb1304159d47164ce75faccd691a7a6207"
+    },
+    "runs/noise_audit_20261012/projection/PROJECTION_AUDIT.json": {
+      "bytes": 11944,
+      "sha256": "eae291bb1a4d79a858984f276c0859051ad29cce3f8d791b28c865a13364c7e6"
+    },
+    "runs/noise_audit_20261012/windows/PREFIT_RECEIPT.json": {
+      "bytes": 48201,
+      "sha256": "67452c49ab3fde53b1b19770c61bc755fa032f714ec35bc23d519db66cf2db7a"
+    },
+    "runs/noise_audit_20261012/windows/PROGRESS.json": {
+      "bytes": 26213,
+      "sha256": "4236f275edb12290bcf346f992623336bbc583658f5b75a3cbd42fe70ce8aa0f"
+    },
+    "runs/noise_audit_20261012/windows/WINDOW_DIAGNOSTIC_COMPLETE.json": {
+      "bytes": 28600,
+      "sha256": "961374c29ea0ab20bed045e0ec83b4da2844e2f2807b16eb36602328a5986197"
+    },
+    "runs/noise_audit_20261012/windows_stratified_control/PREFIT_RECEIPT.json": {
+      "bytes": 6767,
+      "sha256": "0fee2e1c0db4c5b1de227b65258c5ea8f76d90e6c04a8141bda6e98345292f33"
+    },
+    "runs/noise_audit_20261012/windows_stratified_control/PROGRESS.json": {
+      "bytes": 7173,
+      "sha256": "82a04a660dda3e1717a50f23aae4db33d246e6de94a80ba88f5dc5f7789a1e10"
+    },
+    "runs/noise_audit_20261012/windows_stratified_control/WINDOW_DIAGNOSTIC_COMPLETE.json": {
+      "bytes": 8107,
+      "sha256": "6dccfca210f0eb1ea22cac772d13ed76b7afc58481cae125bc3cde5de9f0d625"
+    },
+    "runs/noise_audit_20261012/slope/inspection/algebra_and_variance.json": {
+      "bytes": 24972,
+      "sha256": "0fbdee4f40cc1fadc15847ec4fa4bf5c865c1e9676d7fcc4acaaf4976df4256a"
+    },
+    "runs/noise_audit_20261012/slope/inspection/binding.json": {
+      "bytes": 4915,
+      "sha256": "9521489826f2125d5cb6bfdd7598f6e5ba757e132196238065efdc14483b1cdd"
+    },
+    "runs/noise_audit_20261012/slope/inspection/COMPLETE.json": {
+      "bytes": 1581,
+      "sha256": "cfed7714af34bc7afba9277adff845ecb0895fb76888e7413693e707bd2beb49"
+    },
+    "runs/noise_audit_20261012/slope/paired_cuda/algebra_and_variance.json": {
+      "bytes": 24972,
+      "sha256": "0fbdee4f40cc1fadc15847ec4fa4bf5c865c1e9676d7fcc4acaaf4976df4256a"
+    },
+    "runs/noise_audit_20261012/slope/paired_cuda/binding.json": {
+      "bytes": 5009,
+      "sha256": "c6d3c23afd894b8e30e8ae34afe263432f28af6d85300f31b69c05e8fb989920"
+    },
+    "runs/noise_audit_20261012/slope/paired_cuda/COMPLETE.json": {
+      "bytes": 1848,
+      "sha256": "ac3c820546cb7af25647f5dc1a826172f593433a1e67be900034376ab39a9267"
+    },
+    "runs/noise_audit_20261012/slope/paired_cuda/CONDITIONAL_PSD_WIDTHS.json": {
+      "bytes": 224235,
+      "sha256": "24799280482e939326dcfeb528b176bce7f6f6e5b896d86ae93adf6568452fae"
+    },
+    "runs/noise_audit_20261012/slope/paired_cuda/noise_inputs.npz": {
+      "bytes": 32145386,
+      "sha256": "99f3449d537e49282078b91e992f51043de2b6a21dc94a36f0daddec371537fc"
+    },
+    "runs/noise_audit_20261012/slope/paired_cuda/report.json": {
+      "bytes": 140968,
+      "sha256": "aa5e21bb1311f13e898bccf5d57f083cdbd39fbc7e035c69873572e06d232d6c"
+    },
+    "runs/noise_audit_20261012/slope/paired_cuda/deterministic/paired_outputs.npz": {
+      "bytes": 78588111,
+      "sha256": "20aaf0bd89b4ebcde682ccb7abeec243e46b88161fbf79281cb2132555632424"
+    },
+    "runs/noise_audit_20261012/slope/paired_cuda/deterministic/per_parent_metrics.npz": {
+      "bytes": 51893,
+      "sha256": "da16dc3ef00386c386485ac1745eb9c3b97867e525e8a58b597cec9a80724d29"
+    },
+    "runs/noise_audit_20261012/slope/paired_cuda/deterministic/progress.json": {
+      "bytes": 203,
+      "sha256": "4f4f8524094bd2ddcc06759a63b41fe6f16194d06eb1392eb49a3283e0d49089"
+    },
+    "runs/noise_audit_20261012/slope/paired_cuda/deterministic/report.json": {
+      "bytes": 47931,
+      "sha256": "6d10693e47c377dc81972530b5e796adc49a56363499921863e7475fec26f61f"
+    },
+    "runs/noise_audit_20261012/slope/paired_cuda/full/paired_outputs.npz": {
+      "bytes": 79502814,
+      "sha256": "e1fe00849bd258adba66f5abedd4bb8bbc93a0049a17bfa5f267aa716fbcc3a0"
+    },
+    "runs/noise_audit_20261012/slope/paired_cuda/full/per_parent_metrics.npz": {
+      "bytes": 52010,
+      "sha256": "8bf29b6702f83cee8d49a21a7eea2e4b4557c47f5d7765dc3cb3ce15d828907f"
+    },
+    "runs/noise_audit_20261012/slope/paired_cuda/full/progress.json": {
+      "bytes": 181,
+      "sha256": "6f66f81d92a9a8a49a10bc252b46a1aa5e96af6256624e55effcf918dabc7b68"
+    },
+    "runs/noise_audit_20261012/slope/paired_cuda/full/report.json": {
+      "bytes": 47878,
+      "sha256": "e58cf899e5a675c8aefad22f8deec0ebaf2ba68764e24bffacf47ddbfdc53a00"
+    },
+    "runs/noise_audit_20261012/windows/baseline_demean/all_SOURCE_REAL/classifier.pt": {
+      "bytes": 24567,
+      "sha256": "069578c6aff11f31da394d30599b48822c4e74abeab0c20f5b9ffc50a81155a9"
+    },
+    "runs/noise_audit_20261012/windows/baseline_demean/all_SOURCE_REAL/predictions_and_splits.npz": {
+      "bytes": 44395,
+      "sha256": "1729085ced4a085ad3b695bb41360fe87177d4b9f4a96286bdcd9b296f6982d0"
+    },
+    "runs/noise_audit_20261012/windows/baseline_demean/all_SOURCE_REAL/result.json": {
+      "bytes": 1200,
+      "sha256": "5b597db864711600d403bec05082323376169cc162b5c7eb85a3d51231efde8f"
+    },
+    "runs/noise_audit_20261012/windows/baseline_demean/matched_REAL_REAL/classifier.pt": {
+      "bytes": 24503,
+      "sha256": "7b0acc65c71e9c84de71e100660269625a7b4515f9a2ec50ea55dc6673f83c71"
+    },
+    "runs/noise_audit_20261012/windows/baseline_demean/matched_REAL_REAL/predictions_and_splits.npz": {
+      "bytes": 5036,
+      "sha256": "9cdd91a7008554b488c91b7612c8cb70d7998b24f8616b7c6db93cacf3f99103"
+    },
+    "runs/noise_audit_20261012/windows/baseline_demean/matched_REAL_REAL/result.json": {
+      "bytes": 1209,
+      "sha256": "2bbfb231e69fde65067f2718b86e679c6bcc66b88060095a6f7e9de3e70cb418"
+    },
+    "runs/noise_audit_20261012/windows/baseline_demean/matched_SOURCE_REAL/classifier.pt": {
+      "bytes": 24567,
+      "sha256": "6e171f151c4b48d8e3e128d4d9d2dabe59ea9e038d8a192708fa62a0e856849f"
+    },
+    "runs/noise_audit_20261012/windows/baseline_demean/matched_SOURCE_REAL/predictions_and_splits.npz": {
+      "bytes": 17059,
+      "sha256": "4e6fcd6bf7d17537f8e67a340e1a9ac15620c1e36449144d344a8a00a3c8417e"
+    },
+    "runs/noise_audit_20261012/windows/baseline_demean/matched_SOURCE_REAL/result.json": {
+      "bytes": 1196,
+      "sha256": "6008cc9b37667e4065b363b67f89e861df7a8d0584f2ea58db5aafcda12378fd"
+    },
+    "runs/noise_audit_20261012/windows/baseline_detrend/all_SOURCE_REAL/classifier.pt": {
+      "bytes": 24503,
+      "sha256": "d296e37f327ca58e47f72f6bca7e8f0bcd155b211d87399cacf6b58d99839dbd"
+    },
+    "runs/noise_audit_20261012/windows/baseline_detrend/all_SOURCE_REAL/predictions_and_splits.npz": {
+      "bytes": 44418,
+      "sha256": "e81e75e83f8c8687f60c6eb15d96f9f72496091056e72da6a2ee71a60661a226"
+    },
+    "runs/noise_audit_20261012/windows/baseline_detrend/all_SOURCE_REAL/result.json": {
+      "bytes": 1200,
+      "sha256": "b310d170cbcd5d89c9877d050bb013167d6c03106fe5b4634b36bc338eae46cb"
+    },
+    "runs/noise_audit_20261012/windows/baseline_detrend/matched_REAL_REAL/classifier.pt": {
+      "bytes": 24503,
+      "sha256": "157213718df1c28ab36c80f39f766cedd4defaf25c06967f477ba1d76d681b62"
+    },
+    "runs/noise_audit_20261012/windows/baseline_detrend/matched_REAL_REAL/predictions_and_splits.npz": {
+      "bytes": 5046,
+      "sha256": "ae03965df6bada79281d899f102d2eae576147c9ec293b278aa0b7e0e6b21a79"
+    },
+    "runs/noise_audit_20261012/windows/baseline_detrend/matched_REAL_REAL/result.json": {
+      "bytes": 1208,
+      "sha256": "87385c3c8936ce201dca8a56f08a82eec1f6deae97e8d19ff773eb59f428ad44"
+    },
+    "runs/noise_audit_20261012/windows/baseline_detrend/matched_SOURCE_REAL/classifier.pt": {
+      "bytes": 24567,
+      "sha256": "802950d7b36b50fac3d392edf16ae796f83f09193087038aac0d9ba3ef3a6fd8"
+    },
+    "runs/noise_audit_20261012/windows/baseline_detrend/matched_SOURCE_REAL/predictions_and_splits.npz": {
+      "bytes": 17055,
+      "sha256": "edfae4933a68de71984d004583d4fff9816c3152a66a8b5bea9aa4574b91cfd6"
+    },
+    "runs/noise_audit_20261012/windows/baseline_detrend/matched_SOURCE_REAL/result.json": {
+      "bytes": 1196,
+      "sha256": "f6383f54dc8f975bad628d55d841077bf33b8e969291c73c901ab816e8dda9e2"
+    },
+    "runs/noise_audit_20261012/windows/baseline_raw/all_SOURCE_REAL/classifier.pt": {
+      "bytes": 24503,
+      "sha256": "f0c1e153f9316668dbecd486ecbeeaebf7ce5b1e74a7a0a166294b4acf5d1af9"
+    },
+    "runs/noise_audit_20261012/windows/baseline_raw/all_SOURCE_REAL/predictions_and_splits.npz": {
+      "bytes": 44437,
+      "sha256": "d3f2ece31e9abd2553215b905fb0fd8f9d0b7f179769b38ace05bdcb6c93e355"
+    },
+    "runs/noise_audit_20261012/windows/baseline_raw/all_SOURCE_REAL/result.json": {
+      "bytes": 1198,
+      "sha256": "704f9bf1a537e3fb44ebbf55a8dae3292d44723811343f40045f333269539b5a"
+    },
+    "runs/noise_audit_20261012/windows/baseline_raw/matched_REAL_REAL/classifier.pt": {
+      "bytes": 24503,
+      "sha256": "44495b6e7625d017fa43dd288e4df90747d8fdb5223dffbe359893c16dfc3af4"
+    },
+    "runs/noise_audit_20261012/windows/baseline_raw/matched_REAL_REAL/predictions_and_splits.npz": {
+      "bytes": 5029,
+      "sha256": "f85734dff9582f54099554c3115598cf48e39c16269c6bde9a562263d43af4ba"
+    },
+    "runs/noise_audit_20261012/windows/baseline_raw/matched_REAL_REAL/result.json": {
+      "bytes": 1204,
+      "sha256": "fca44f4a3c857431305b2c34cf4ac1fa0389b4f26685a1d4bbf56944b001e3c3"
+    },
+    "runs/noise_audit_20261012/windows/baseline_raw/matched_SOURCE_REAL/classifier.pt": {
+      "bytes": 24567,
+      "sha256": "cdb3d8da0b6210a6fe992dd5361cb560b44fe2af9faff6864bc949770568fab8"
+    },
+    "runs/noise_audit_20261012/windows/baseline_raw/matched_SOURCE_REAL/predictions_and_splits.npz": {
+      "bytes": 17046,
+      "sha256": "91f2efb95668089f6af632d30f14db23927e8ebf661fb09bd9166adc9b59a18e"
+    },
+    "runs/noise_audit_20261012/windows/baseline_raw/matched_SOURCE_REAL/result.json": {
+      "bytes": 1190,
+      "sha256": "fefac0a1497adbdb667d63d88b1f0ac533e3285b27d917d3465b243f38cbc199"
+    },
+    "runs/noise_audit_20261012/windows/full/all_SOURCE_REAL/classifier.pt": {
+      "bytes": 75703,
+      "sha256": "323fa9c965eef653fdf391faf561aa735a83e77c6b4b17c0a6c48ba6155f1f95"
+    },
+    "runs/noise_audit_20261012/windows/full/all_SOURCE_REAL/predictions_and_splits.npz": {
+      "bytes": 44474,
+      "sha256": "5cb2d89eae5ad8be02072e842266476cac4996d9720e3ae72b62c89d584179d3"
+    },
+    "runs/noise_audit_20261012/windows/full/all_SOURCE_REAL/result.json": {
+      "bytes": 1204,
+      "sha256": "4c7c67d7e83736bcbfe4d83662104032582e3a783d15993d5ff34b69ce48e7c0"
+    },
+    "runs/noise_audit_20261012/windows/full/matched_REAL_REAL/classifier.pt": {
+      "bytes": 75703,
+      "sha256": "8d0b5da47b6c979afe8f4667e85d91756e18b7c3cacce68a7e33d331394e5bf2"
+    },
+    "runs/noise_audit_20261012/windows/full/matched_REAL_REAL/predictions_and_splits.npz": {
+      "bytes": 5065,
+      "sha256": "c14defa0a4c85176eaf4143909c1d7f51cc156d11768e7d5b65fc1b0a8736299"
+    },
+    "runs/noise_audit_20261012/windows/full/matched_REAL_REAL/result.json": {
+      "bytes": 1211,
+      "sha256": "7389fde526e93fb968a88422c50effe87769689ab41dd5241b7d70143c2a018b"
+    },
+    "runs/noise_audit_20261012/windows/full/matched_SOURCE_REAL/classifier.pt": {
+      "bytes": 75767,
+      "sha256": "09d0bd44f73ea8491ddae306871dc303b9b883cdba2be74339dcc47ef98f77e0"
+    },
+    "runs/noise_audit_20261012/windows/full/matched_SOURCE_REAL/predictions_and_splits.npz": {
+      "bytes": 17099,
+      "sha256": "5625c26980f2d2f61d8db515114b4faf678fdef064738dd95b39185ea7bb4ea6"
+    },
+    "runs/noise_audit_20261012/windows/full/matched_SOURCE_REAL/result.json": {
+      "bytes": 1199,
+      "sha256": "d56207952d4e875ebff78f3b8f65ec9c8d4a1f244394b9dae436f1949378f67b"
+    },
+    "runs/noise_audit_20261012/windows/pulse_demean/all_SOURCE_REAL/classifier.pt": {
+      "bytes": 62327,
+      "sha256": "72eb3116087a86b188c2c2ea369926d44e0dad314a5fa231ac228182900bb41e"
+    },
+    "runs/noise_audit_20261012/windows/pulse_demean/all_SOURCE_REAL/predictions_and_splits.npz": {
+      "bytes": 44448,
+      "sha256": "dfbfd685b0807ba478ed23e3d416ffee98d5e491a860041daa01b2b2b811da7b"
+    },
+    "runs/noise_audit_20261012/windows/pulse_demean/all_SOURCE_REAL/result.json": {
+      "bytes": 1204,
+      "sha256": "7653a375f6ce3aa47701676f34e2b5ba0b9cf62f7de73a5399ea8ebe974d0a72"
+    },
+    "runs/noise_audit_20261012/windows/pulse_demean/matched_REAL_REAL/classifier.pt": {
+      "bytes": 62391,
+      "sha256": "13d9905af0adedb931ddb1eaa77f2ef38a84e80dacd6a4feff83b9a29965838a"
+    },
+    "runs/noise_audit_20261012/windows/pulse_demean/matched_REAL_REAL/predictions_and_splits.npz": {
+      "bytes": 5029,
+      "sha256": "d0d6a5213b584634f0a18104abb7230e42bce8be1e9589bbf639a5c521c960ab"
+    },
+    "runs/noise_audit_20261012/windows/pulse_demean/matched_REAL_REAL/result.json": {
+      "bytes": 1209,
+      "sha256": "03a82f43aa8ad35a4baaef6d50e166f7e295dfc4d494444c323358092d43a389"
+    },
+    "runs/noise_audit_20261012/windows/pulse_demean/matched_SOURCE_REAL/classifier.pt": {
+      "bytes": 62327,
+      "sha256": "87be16d757ed25e49eaeae63dcb87a49ea8d945743b6f56852c8d442f97642d1"
+    },
+    "runs/noise_audit_20261012/windows/pulse_demean/matched_SOURCE_REAL/predictions_and_splits.npz": {
+      "bytes": 17088,
+      "sha256": "483e2475411438b37cd4154430e0a5eb814bd24ab752d35c0e373c3d46e53155"
+    },
+    "runs/noise_audit_20261012/windows/pulse_demean/matched_SOURCE_REAL/result.json": {
+      "bytes": 1196,
+      "sha256": "a1fb2cf39e49d2c8eca63f3d9c88960a2aea5da44a2d7b90cc427de23754e0b4"
+    },
+    "runs/noise_audit_20261012/windows/pulse_shape/all_SOURCE_REAL/classifier.pt": {
+      "bytes": 62455,
+      "sha256": "579d36a077b582083783003d0c09f0929ae45f278c1eacd1606426ccd5afe51d"
+    },
+    "runs/noise_audit_20261012/windows/pulse_shape/all_SOURCE_REAL/predictions_and_splits.npz": {
+      "bytes": 44455,
+      "sha256": "57d6b3207786300ca6cd52f4c2a4a3e581c9fb978ca40cbf8675f622a72e2c35"
+    },
+    "runs/noise_audit_20261012/windows/pulse_shape/all_SOURCE_REAL/result.json": {
+      "bytes": 1205,
+      "sha256": "92de42926f5f335a4f93a8194639af17da04aa11f71e1d840c94102a2cd5884d"
+    },
+    "runs/noise_audit_20261012/windows/pulse_shape/matched_REAL_REAL/classifier.pt": {
+      "bytes": 62455,
+      "sha256": "4e096d4f5337a12b75e19890715f80028d6c021ee8fd902aed68bc23a29f79e7"
+    },
+    "runs/noise_audit_20261012/windows/pulse_shape/matched_REAL_REAL/predictions_and_splits.npz": {
+      "bytes": 5063,
+      "sha256": "34fe8d3bfaf2f2d9451130107b35d4c95111cb7792282568765724078c1eca49"
+    },
+    "runs/noise_audit_20261012/windows/pulse_shape/matched_REAL_REAL/result.json": {
+      "bytes": 1214,
+      "sha256": "36740c5da03f54b2f827ce491020f91c4b90f78e12ce6c0b658fbe59dff85077"
+    },
+    "runs/noise_audit_20261012/windows/pulse_shape/matched_SOURCE_REAL/classifier.pt": {
+      "bytes": 62455,
+      "sha256": "06e96847de9377b475de0015c9568bac477af48590488df517a5e435bd5172fa"
+    },
+    "runs/noise_audit_20261012/windows/pulse_shape/matched_SOURCE_REAL/predictions_and_splits.npz": {
+      "bytes": 17107,
+      "sha256": "77b99e4f96b04a5253bf8e596f3fb13c31972ec33028ff496a107f3c90f79233"
+    },
+    "runs/noise_audit_20261012/windows/pulse_shape/matched_SOURCE_REAL/result.json": {
+      "bytes": 1197,
+      "sha256": "e558054435b9a04ce0f2cd5e5eb28acaedffda1c463d1eb785d80e0d68f9d6fc"
+    },
+    "runs/noise_audit_20261012/windows_stratified_control/baseline_demean/stratified_REAL_REAL/classifier.pt": {
+      "bytes": 24567,
+      "sha256": "79059981b8d26447414201233fcc3279f741e7f124a93468af00edf564eedccf"
+    },
+    "runs/noise_audit_20261012/windows_stratified_control/baseline_demean/stratified_REAL_REAL/predictions_and_splits.npz": {
+      "bytes": 4805,
+      "sha256": "7b026acbb1675e8536e310522793de17d1d42eca4b4f00830e10a4818b227018"
+    },
+    "runs/noise_audit_20261012/windows_stratified_control/baseline_demean/stratified_REAL_REAL/result.json": {
+      "bytes": 958,
+      "sha256": "f8bac1241efff01b38adadf44a61902d5041d88ccd14c6f741d61a4db934e64a"
+    },
+    "runs/noise_audit_20261012/windows_stratified_control/baseline_detrend/stratified_REAL_REAL/classifier.pt": {
+      "bytes": 24503,
+      "sha256": "a036a86c7853adce1adfa3bee3f8e4edd3c9053f3dcaa51da9d6eb66d7217792"
+    },
+    "runs/noise_audit_20261012/windows_stratified_control/baseline_detrend/stratified_REAL_REAL/predictions_and_splits.npz": {
+      "bytes": 4801,
+      "sha256": "e65dff20e53222b61801d4eb17e957640003507356ee5b2a9ec1d3b605b0c81f"
+    },
+    "runs/noise_audit_20261012/windows_stratified_control/baseline_detrend/stratified_REAL_REAL/result.json": {
+      "bytes": 959,
+      "sha256": "7172d46f69644fd57089d3c1932641fb83f0e25be76fa8c6756079da777aaffe"
+    },
+    "runs/noise_audit_20261012/windows_stratified_control/baseline_raw/stratified_REAL_REAL/classifier.pt": {
+      "bytes": 24503,
+      "sha256": "47b971c722a6585f754854c1631884955c55db011dac695cdc5cda702502a27d"
+    },
+    "runs/noise_audit_20261012/windows_stratified_control/baseline_raw/stratified_REAL_REAL/predictions_and_splits.npz": {
+      "bytes": 4801,
+      "sha256": "2b74e18e65008a7647fb894ada98a8fcbaab18f652448edff2067867f2530085"
+    },
+    "runs/noise_audit_20261012/windows_stratified_control/baseline_raw/stratified_REAL_REAL/result.json": {
+      "bytes": 953,
+      "sha256": "dac0cfd1658420fdbfdb849708636c2e831ac03575dfee5a3b5375054e365514"
+    },
+    "runs/noise_audit_20261012/windows_stratified_control/full/stratified_REAL_REAL/classifier.pt": {
+      "bytes": 75703,
+      "sha256": "2f7919c356f3b6133fc4de50690c7aa5b1219933a9ddcca38eca9314c37418bc"
+    },
+    "runs/noise_audit_20261012/windows_stratified_control/full/stratified_REAL_REAL/predictions_and_splits.npz": {
+      "bytes": 4828,
+      "sha256": "c699613e434192c6ce142c91ece24d292eb94ad3bc9c1546ebb681ebadb4a0eb"
+    },
+    "runs/noise_audit_20261012/windows_stratified_control/full/stratified_REAL_REAL/result.json": {
+      "bytes": 959,
+      "sha256": "51d7b8c4b73b6d503c0f6ab8b595c0bc57f3ca4408d3d4e865ffd6b31082a06a"
+    },
+    "runs/noise_audit_20261012/windows_stratified_control/pulse_demean/stratified_REAL_REAL/classifier.pt": {
+      "bytes": 62391,
+      "sha256": "7ceab2a57d9d270287d7c6220d3f93178b2d26316afeea6a6c8af971f018c065"
+    },
+    "runs/noise_audit_20261012/windows_stratified_control/pulse_demean/stratified_REAL_REAL/predictions_and_splits.npz": {
+      "bytes": 4818,
+      "sha256": "a087f0631fd3d05e79047c88087b97fae1f8629e97060b37dc6629932cf364de"
+    },
+    "runs/noise_audit_20261012/windows_stratified_control/pulse_demean/stratified_REAL_REAL/result.json": {
+      "bytes": 959,
+      "sha256": "2b2a5d1a0baa3783414a4f936fa390ddd5db8d7ad52f9431a1adb7632a197b9b"
+    },
+    "runs/noise_audit_20261012/windows_stratified_control/pulse_shape/stratified_REAL_REAL/classifier.pt": {
+      "bytes": 62455,
+      "sha256": "434699aaab1c174957d5a75a38dc2efa838c211fb727f1fb7c58cbc7da8c9b9f"
+    },
+    "runs/noise_audit_20261012/windows_stratified_control/pulse_shape/stratified_REAL_REAL/predictions_and_splits.npz": {
+      "bytes": 4825,
+      "sha256": "8647f4a2f663d21e9c93ee3cdf80e97c2c763bedf8e3d77bc8b022d5d4faf8ef"
+    },
+    "runs/noise_audit_20261012/windows_stratified_control/pulse_shape/stratified_REAL_REAL/result.json": {
+      "bytes": 962,
+      "sha256": "235f72026e7188c25516b19e57b35ee21e65a3ababb6e486f906bd3cd639c09b"
+    },
+    "reports/noise_audit_20261012/CLASSIFIER_REOPEN_VERIFICATION.json": {
+      "bytes": 11279,
+      "sha256": "461ee24ed956a222fff88883ef65d36ad621bf46f1ddd7759edae419d57cb816"
+    },
+    "reports/noise_audit_20261012/CONDITIONAL_PSD_WIDTHS.json": {
+      "bytes": 231161,
+      "sha256": "fa2c08b754f766bf068f1283c655739059908a8923f17809faadbbe8fa770c4a"
+    },
+    "reports/noise_audit_20261012/N01_NOISE_MECHANISM_REVIEW.html": {
+      "bytes": 7568,
+      "sha256": "fe6ddb3d5f753f46403c48bce0b60290cc5acd8ae32f4baed004cdff7a525e0d"
+    },
+    "reports/noise_audit_20261012/PROJECTION_AUDIT.json": {
+      "bytes": 11944,
+      "sha256": "eae291bb1a4d79a858984f276c0859051ad29cce3f8d791b28c865a13364c7e6"
+    },
+    "reports/noise_audit_20261012/README.md": {
+      "bytes": 1951,
+      "sha256": "9b871ce2e3c3fe90ad7047d325aec11ff74f3e41a6d2838df4ea6cca731e110b"
+    },
+    "reports/noise_audit_20261012/REVIEW_SUMMARY.json": {
+      "bytes": 42286,
+      "sha256": "9e7e3c060c354f9e09b163b67a2905e8ef30c4610357e2766efdaa83ed25e227"
+    },
+    "reports/noise_audit_20261012/SLOPE_ALGEBRA.json": {
+      "bytes": 24972,
+      "sha256": "0fbdee4f40cc1fadc15847ec4fa4bf5c865c1e9676d7fcc4acaaf4976df4256a"
+    },
+    "reports/noise_audit_20261012/SLOPE_deterministic.json": {
+      "bytes": 47931,
+      "sha256": "6d10693e47c377dc81972530b5e796adc49a56363499921863e7475fec26f61f"
+    },
+    "reports/noise_audit_20261012/SLOPE_full.json": {
+      "bytes": 47878,
+      "sha256": "e58cf899e5a675c8aefad22f8deec0ebaf2ba68764e24bffacf47ddbfdc53a00"
+    },
+    "reports/noise_audit_20261012/STRATIFIED_CONTROL_COMPLETE.json": {
+      "bytes": 8412,
+      "sha256": "cffeec5a9356b4050eed815002467b3291be9a26f014d4c43e52e1c37730ed50"
+    },
+    "reports/noise_audit_20261012/VISUAL_QA.json": {
+      "bytes": 405,
+      "sha256": "097d8942f30d21bf13373db461cdeb2a99499b16e41c7039436b151e1d91424f"
+    },
+    "reports/noise_audit_20261012/WINDOW_DIAGNOSTIC_COMPLETE.json": {
+      "bytes": 29631,
+      "sha256": "b59be78b146b58689e95898af1a83951250e4e8df166222cdc5438625d9cfb3d"
+    },
+    "reports/noise_audit_20261012/figures/01_window_classifiers.pdf": {
+      "bytes": 31062,
+      "sha256": "1320c9f0bb1725d06a037cf73f785c2b15b25d97393bd74b0091aabeba1c2973"
+    },
+    "reports/noise_audit_20261012/figures/01_window_classifiers.png": {
+      "bytes": 97997,
+      "sha256": "2bb52cffb2ea8b52ddff20584651dcd86b3b0f66ed45750369c7319de2e017af"
+    },
+    "reports/noise_audit_20261012/figures/02_paired_slope_intervention.pdf": {
+      "bytes": 33680,
+      "sha256": "bce0d800709b66a7af3177138f9175c6aa6e1306bb1e46d7f68172640b4c68ef"
+    },
+    "reports/noise_audit_20261012/figures/02_paired_slope_intervention.png": {
+      "bytes": 187444,
+      "sha256": "ca1a3c0402e8efeb6a7609ca3de5c486d27a3b8cc8f115fe18105e24af56921e"
+    },
+    "reports/noise_audit_20261012/figures/03_projection_counterexample.pdf": {
+      "bytes": 35323,
+      "sha256": "2f407d657ec3456fb00c827030e1a6fa21d166e77d79080a40855beb7552ead2"
+    },
+    "reports/noise_audit_20261012/figures/03_projection_counterexample.png": {
+      "bytes": 133619,
+      "sha256": "1af877520e082eed7ed4c4f0010adabd6248f88efa97e01d5689dd35076fb181"
+    }
+  }
+}
