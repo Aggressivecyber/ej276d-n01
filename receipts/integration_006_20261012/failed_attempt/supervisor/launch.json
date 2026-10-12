@@ -1,0 +1,27 @@
+{
+  "supervisor_pid": 8994,
+  "child_pid": 8996,
+  "command": [
+    "timeout",
+    "--signal=TERM",
+    "--kill-after=15s",
+    "1800s",
+    "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+    "-B",
+    "-m",
+    "n01.evaluate_integration006",
+    "--container",
+    "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R33_REMOTE_20261009_175239_UTC/inputs/TRAIN_PRIVATE.npz",
+    "--identities",
+    "/home/rylan/projects/ej276d-n01/integration_006_20261012/data/PARENT_IDENTITIES.npz",
+    "--config",
+    "/home/rylan/projects/ej276d-n01/integration_006_20261012/integration006_config.json",
+    "--source-manifest",
+    "/home/rylan/projects/ej276d-n01/integration_006_20261012/INTEGRATION006_SOURCE_MANIFEST.json",
+    "--out",
+    "/home/rylan/projects/ej276d-n01/integration_006_20261012/runs/science",
+    "--device",
+    "cuda:0"
+  ],
+  "started_utc": "2026-10-12T11:51:08.339430+00:00"
+}

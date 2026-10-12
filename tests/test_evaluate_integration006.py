@@ -108,6 +108,45 @@ class Integration006Tests(unittest.TestCase):
         coordinate = np.where(q >= .01, np.log(np.maximum(q, .01)), np.log(.01) + np.arcsinh((q - .01) / .01))
         np.testing.assert_array_equal(bins, np.searchsorted(stats["charge_bin_boundaries"], coordinate, side="left"))
 
+    def test_exact_metadata_tensor_JSON_scalar_vector_float32_float64(self):
+        tensors = {"float32_scalar": torch.tensor(.3, dtype=torch.float32),
+                   "float64_scalar": torch.tensor(.3, dtype=torch.float64),
+                   "float32_vector": torch.tensor([.1, -.3, -0.], dtype=torch.float32),
+                   "nested": {"float64_vector": torch.tensor([[.1, -.3], [1., -0.]], dtype=torch.float64)},
+                   "integer_scalar": torch.tensor(7), "boolean_vector": torch.tensor([True, False])}
+        native = {"float32_scalar": tensors["float32_scalar"].tolist(),
+                  "float64_scalar": .3, "float32_vector": tensors["float32_vector"].tolist(),
+                  "nested": {"float64_vector": [[.1, -.3], [1., -0.]]},
+                  "integer_scalar": 7, "boolean_vector": [True, False]}
+        # Parse a JSON round trip as the frozen statistics file would be read.
+        native = json.loads(json.dumps(native, allow_nan=False))
+        with patch.object(e, "clean", side_effect=AssertionError("Binding must not use clean")):
+            encoded = e.metadata_json_bytes(tensors)
+            self.assertEqual(encoded, e.metadata_json_bytes(native))
+            self.assertEqual(encoded, e.metadata_json_bytes(dict(reversed(list(native.items())))))
+        self.assertIn(b"-0.0", encoded)
+        self.assertEqual(e.metadata_json_bytes(torch.tensor(-0., dtype=torch.float64)), b"-0.0")
+        self.assertNotEqual(e.metadata_json_bytes(torch.tensor(-0., dtype=torch.float64)), e.metadata_json_bytes(0.))
+
+    def test_exact_metadata_rejects_one_ULP_shape_key_and_nonfinite_changes(self):
+        for dtype in (torch.float32, torch.float64):
+            scalar = torch.tensor(.3, dtype=dtype)
+            changed = torch.nextafter(scalar, torch.tensor(float("inf"), dtype=dtype))
+            expected = e.metadata_json_bytes({"value": scalar.tolist()})
+            self.assertNotEqual(e.metadata_json_bytes({"value": changed}), expected)
+            self.assertNotEqual(e.metadata_json_bytes({"value": scalar[None]}), expected)
+            self.assertNotEqual(e.metadata_json_bytes({"renamed": scalar}), expected)
+        expected = e.metadata_json_bytes({"nested": [[1., 2.], [3., 4.]]})
+        self.assertNotEqual(e.metadata_json_bytes({"nested": torch.tensor([1., 2., 3., 4.], dtype=torch.float64)}), expected)
+        self.assertNotEqual(e.metadata_json_bytes({"nested": [[1., 2.], [3., 4.]], "extra": None}), expected)
+        for value in (float("nan"), float("inf"), -float("inf")):
+            for item in (value, torch.tensor(value, dtype=torch.float32), torch.tensor([value], dtype=torch.float64)):
+                with self.subTest(value=value, metadata_type=type(item).__name__):
+                    with self.assertRaises(ValueError):
+                        e.metadata_json_bytes({"nested": [item]})
+        with self.assertRaisesRegex(ValueError, "keys must be strings"):
+            e.metadata_json_bytes({1: .3})
+
     def test_centered_online_moments_equal_batch_and_empty_bins_undefined(self):
         rng = np.random.default_rng(3)
         x = 100 + rng.normal(size=(17, 5, 480)) * 1e-3

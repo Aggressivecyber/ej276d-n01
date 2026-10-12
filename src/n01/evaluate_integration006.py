@@ -68,6 +68,29 @@ def clean(value):
     return value
 
 
+def metadata_json_bytes(value):
+    """Exact finite JSON metadata; Tensor representation alone is normalized.
+
+    Tensor.tolist keeps the represented float32/float64 values and signed
+    zero. No precision conversion, tolerance, or nonfinite-to-null cleaning
+    is allowed in this binding check. Dict keys, nesting and sequence lengths
+    remain part of the canonical bytes, as do JSON numeric representations.
+    """
+    def convert(item):
+        if isinstance(item, torch.Tensor):
+            return convert(item.detach().cpu().tolist())
+        if isinstance(item, Mapping):
+            require(all(isinstance(key, str) for key in item), "Metadata JSON keys must be strings")
+            return {key: convert(child) for key, child in item.items()}
+        if isinstance(item, (list, tuple)):
+            return [convert(child) for child in item]
+        if item is None or type(item) in (bool, int, float, str):
+            return item
+        raise TypeError("Unsupported JSON metadata type: " + type(item).__name__)
+    return json.dumps(convert(value), ensure_ascii=False, sort_keys=True,
+                      separators=(",", ":"), allow_nan=False).encode("utf8")
+
+
 def cpu(value):
     if isinstance(value, torch.Tensor):
         return value.detach().cpu().clone()
@@ -202,7 +225,8 @@ def frozen_models(cfg, *, root=ROOT, device="cpu"):
         require(state["update"] == 20000 and state["stage"] == "low_learning_rate" and
                 state["arm"] == state["variant"] == arm, "Old response endpoint/arm mismatch")
         require(state["config"] == cfg001 and state["model_statistics"] == stats["model"] and
-                state["loss_statistics"] == stats["loss"], "Frozen001 model/loss statistics mismatch")
+                metadata_json_bytes(state["loss_statistics"]) == metadata_json_bytes(stats["loss"]),
+                "Frozen001 model/loss statistics mismatch")
         model = N01Response(state["model_statistics"], variant=arm)
         model.load_state_dict(state["model"], strict=True)
         model.set_stage(state["stage"])

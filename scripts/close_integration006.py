@@ -12,15 +12,17 @@ def write(p,value):p.write_text(json.dumps(value,ensure_ascii=False,indent=2,all
 
 def main():
     assert not (REC/'FINAL_RECEIPT.json').exists(),'Preserve closed006 results'
-    science=RUN/'runs/science';complete=read(science/'COMPLETE.json');decision=read(science/'DECISION.json')
-    replay=read(RUN/'runs/verification/REPLAY_VERIFICATION.json');native=read(RUN/'runs/supervisor/exit_receipt.json')
-    cfg=read(ROOT/'integration006_config.json');tests=read(REC/'TEST_SUMMARY.json')
+    science=RUN/'binding_fix01/runs/science';complete=read(science/'COMPLETE.json');decision=read(science/'DECISION.json')
+    replay=read(RUN/'binding_fix01/runs/verification/REPLAY_VERIFICATION.json');native=read(RUN/'binding_fix01/runs/supervisor/exit_receipt.json')
+    cfg=read(ROOT/'integration006_config.json');tests=read(REC/'binding_fix01/TEST_SUMMARY.json')
     post=read(REC/'POSTFLIGHT.json');visual=read(REC/'VISUAL_QA.json');review=read(REC/'RESULTS_INDEPENDENT_REVIEW.json')
-    start=read(REC/'START_RECEIPT.json')
+    start=read(REC/'binding_fix01/START_RECEIPT.json')
+    initial_failure=read(RUN/'runs/science/FAILURE.json');initial_native=read(RUN/'runs/supervisor/exit_receipt.json')
+    assert initial_native['exit_code']==1 and initial_failure['actual_counts']=={}
     assert complete['status']=='zero_training_completed' and native['exit_code']==0
     assert complete['updates']==dict(noise=0,response=0,classifier=0,GMM_fits=0)
     assert replay['status']=='passed' and replay['passed'] and replay['complete_sha256']==sha(science/'COMPLETE.json')
-    assert replay['source_manifest_sha256']==sha(ROOT/'INTEGRATION006_SOURCE_MANIFEST.json')
+    assert replay['source_manifest_sha256']==sha(ROOT/'INTEGRATION006_BINDING_FIX01_SOURCE_MANIFEST.json')
     assert complete['provenance']['config_sha256']==sha(ROOT/'integration006_config.json')
     assert replay['independent_decision']['outcome']==decision['outcome']==complete['decision_outcome']
     assert not decision['scientific_acceptance'] and decision['response_updates_authorized_here']==0
@@ -41,16 +43,20 @@ def main():
         updates=complete['updates'],cumulative_generator_updates=92000,
         training_update_accounting='77000 original +5000 repair002 +5000 improvement004 +5000 acf005 +0 integration006',
         source_commit=start['source_commit'],native_exit_code=0,actual_counts=complete['actual_counts'],
-        source_manifest_sha256=sha(ROOT/'INTEGRATION006_SOURCE_MANIFEST.json'),configuration_sha256=sha(ROOT/'integration006_config.json'),
+        source_manifest_sha256=sha(ROOT/'INTEGRATION006_BINDING_FIX01_SOURCE_MANIFEST.json'),configuration_sha256=sha(ROOT/'integration006_config.json'),
         complete_sha256=sha(science/'COMPLETE.json'),decision=decision,
-        replay_receipt='runs/'+ID+'/runs/verification/REPLAY_VERIFICATION.json',
-        replay_sha256=sha(RUN/'runs/verification/REPLAY_VERIFICATION.json'),
+        replay_receipt='runs/'+ID+'/binding_fix01/runs/verification/REPLAY_VERIFICATION.json',
+        replay_sha256=sha(RUN/'binding_fix01/runs/verification/REPLAY_VERIFICATION.json'),
+        engineering_attempts=[dict(attempt='initial',native_exit_code=1,scientific_forward_rows=0,
+            failure_sha256=sha(RUN/'runs/science/FAILURE.json'),failure=initial_failure['error']),
+            dict(attempt='binding_fix01',native_exit_code=0,completed_scientific_evaluation=True)],
+        original_scientific_protocol_and_configuration_unchanged=True,
         all_frozen_inputs_and_generated_waveforms_verified=True,
         independent_acquisition_validations=0,physical_noise_identified=False,response_match_established=False,
         next_response_protocol_allowed=decision['next_response_protocol_allowed'],formal_response_updates=0,
         report='reports/'+ID+'/N01_INTEGRATION006_REPORT.html',
         report_files={p.relative_to(ROOT).as_posix():dict(bytes=p.stat().st_size,sha256=sha(p)) for p in sorted(REPORT.rglob('*')) if p.is_file()},
-        tests_receipt='receipts/'+ID+'/TEST_SUMMARY.json',tests_sha256=sha(REC/'TEST_SUMMARY.json'),
+        tests_receipt='receipts/'+ID+'/binding_fix01/TEST_SUMMARY.json',tests_sha256=sha(REC/'binding_fix01/TEST_SUMMARY.json'),
         independent_review_sha256=sha(REC/'RESULTS_INDEPENDENT_REVIEW.json'),visual_QA_sha256=sha(REC/'VISUAL_QA.json'),
         postflight=post,next_action=next_action)
     write(REC/'FINAL_RECEIPT.json',final)
@@ -65,7 +71,7 @@ def main():
         training_update_accounting=final['training_update_accounting'],next_action=next_action)
     write(ROOT/'PROGRAM.json',program)
     jobs=read(ROOT/'jobs.json');jobs.update(updated_UTC=now,active_scientific_jobs=0)
-    job=next(item for item in jobs['jobs'] if item['job_id']=='N01_INTEGRATION006_20261012')
+    job=next(item for item in jobs['jobs'] if item['job_id']=='N01_INTEGRATION006_BINDING_FIX01_20261012')
     job.update(status=status,pid=None,supervisor_pid=None,historical_evaluation_pid=start['evaluation_pid'],
         historical_supervisor_pid=start['supervisor_pid'],ended_UTC=native['ended_utc'],last_verified_UTC=post['UTC'],
         native_exit_code=0,observed_noise_updates=0,response_training_updates=0,classifier_evaluation_updates=0,
