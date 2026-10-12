@@ -99,6 +99,11 @@ def main():
         historical_supervisor_pid=start['supervisor_pid'],ended_UTC=native['ended_utc'],last_verified_UTC=post['UTC'],
         native_exit_code=0,observed_noise_updates=0,response_training_updates=0,classifier_evaluation_updates=0,
         verification_status='passed',verification_supervisor_pid=None,
+        verification_attempts=job.get('verification_attempts',[])+[dict(attempt='adc_fix02',status='passed',
+            native_exit_code=0,completed_UTC=replay['completed_UTC'],replay_counts=replay['replay_counts'],
+            noise_diagnostic_replay_counts=replay['noise_diagnostic_replay_counts'],
+            verifier_sha256=replay['verifier_sha256'],receipt=final['replay_receipt'],
+            receipt_sha256=final['replay_sha256'],updates=replay['updates'])],
         actual_counts=complete['actual_counts'],outcome=outcome,report=final['report'],
         completion_receipt=program['integration006_completion_receipt'])
     write(ROOT/'jobs.json',jobs)

@@ -1,6 +1,6 @@
 {
   "experiment_id": "N01",
-  "updated_UTC": "2026-10-12T12:56:29.293937+00:00",
+  "updated_UTC": "2026-10-12T13:26:52.636430+00:00",
   "active_scientific_jobs": 0,
   "jobs": [
     {
@@ -330,7 +330,7 @@
     },
     {
       "job_id": "N01_INTEGRATION006_ID_FIX02_20261012",
-      "status": "science_completed_independent_replay_pending",
+      "status": "completed_zero_training_integration006_sensitivity_detected",
       "registered_UTC": "2026-10-12T12:12:35.463381+00:00",
       "host": "100.82.231.102",
       "pid": null,
@@ -685,10 +685,50 @@
           "training_updates": 0,
           "failed_receipt_sha256": "b4433c03faa7c571d2cbe2b701778a906d202e67ae8cc70490f89d38927c7c11",
           "native_receipt_sha256": "7335186ba71a5fddc449256d1a12fc350e4ed637c5f8ac66e144d3df2184fc18"
+        },
+        {
+          "attempt": "adc_fix02",
+          "status": "passed",
+          "native_exit_code": 0,
+          "completed_UTC": "2026-10-12T13:15:01.288979+00:00",
+          "replay_counts": {
+            "response_forward_events": 56840,
+            "noise005_forward_events": 28420,
+            "extension_events": 85260,
+            "regenerated_source_rows": 28420,
+            "checked_view_rows": 284200,
+            "explicit_sample_rows": 512,
+            "random_stream_chunks": 223
+          },
+          "noise_diagnostic_replay_counts": {
+            "noise005_forward_events": 8192,
+            "extension_events": 24576,
+            "noise_hypothesis_rows": 24576,
+            "random_stream_chunks": 64
+          },
+          "verifier_sha256": "b5eb1bb67d242bfeafae57b983f138496db926fd7be75e9a01bb840af5029ad6",
+          "receipt": "runs/integration_006_20261012/id_fix02/runs/verification_adc_fix02/REPLAY_VERIFICATION.json",
+          "receipt_sha256": "97f7fe498ebfaf05c8d4f3f50ab089994eeba54c746eeb07f3d92b347bf9644a",
+          "updates": {
+            "noise": 0,
+            "response": 0,
+            "classifier": 0,
+            "GMM_fits": 0
+          }
         }
       ],
-      "verification_status": "numeric_fix01_failed_ADC_representation",
-      "verification_supervisor_pid": null
+      "verification_status": "passed",
+      "verification_supervisor_pid": null,
+      "historical_evaluation_pid": 17413,
+      "historical_supervisor_pid": 17410,
+      "ended_UTC": "2026-10-12T12:32:52.950815+00:00",
+      "last_verified_UTC": "2026-10-12T13:15:25.030719+00:00",
+      "native_exit_code": 0,
+      "observed_noise_updates": 0,
+      "response_training_updates": 0,
+      "classifier_evaluation_updates": 0,
+      "report": "reports/integration_006_20261012/N01_INTEGRATION006_REPORT.html",
+      "completion_receipt": "receipts/integration_006_20261012/FINAL_RECEIPT.json"
     }
   ]
 }

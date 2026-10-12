@@ -1,5 +1,8 @@
 # N01｜物理分解式条件随机 1D U-Net
 
+**当前主线 006 已完成：接口检查通过，但低电荷 PSD 展宽对长程假设敏感；新增训练 0 次，当前科学作业 0。** [完整480点与PSD整合报告](reports/integration_006_20261012/N01_INTEGRATION006_REPORT.html) · [冻结协议](docs/INTEGRATION_006_PROTOCOL.md) · [完成回执](receipts/integration_006_20261012/FINAL_RECEIPT.json)。
+
+
 **005 已完成：噪声更新 5000 次，响应更新 0；TRAIN ACF 匹配 True，改善 True；候选开发筛查 True，legacy 总门 False。控制测量状态仍不确定。当前科学作业为 0。** 见 [005 报告](reports/noise_acf005_20261012/README.md)、[分离评价回执](reports/noise_acf005_20261012/EVALUATION_RECEIPT.json)、[100/480 支持范围](reports/noise_acf005_20261012/SUPPORT_SCOPE.md) · 权重、日志和复核资料：[005 Release](https://github.com/Aggressivecyber/ej276d-n01/releases/tag/n01-noise-acf005-20261012)。 和 [005 协议](docs/NOISE_ACF005_PROTOCOL.md)。
 
 **前次已完成：noise_improvement_004 实际训练 5000 次，OLS 联合误差由 0.57436 降至 0.14193，通过原阈值；ACF 最大差 0.02185 仍超过 0.015，REAL–REAL 对照区间检查也未通过。噪声总门仍失败，响应训练为 0，当前科学作业为 0。** 见 [改进报告](reports/noise_improvement_004_20261012/README.md)、[004 协议](docs/NOISE_IMPROVEMENT_004_PROTOCOL.md) 和 [完成回执](receipts/noise_improvement_004_20261012/FINAL_RECEIPT.json)。本候选仅支持 100 点观测基线，不支持 480 点响应整合。 权重、日志和复核资料已上传 [004 Release](https://github.com/Aggressivecyber/ej276d-n01/releases/tag/n01-noise-improvement-004-20261012)。
