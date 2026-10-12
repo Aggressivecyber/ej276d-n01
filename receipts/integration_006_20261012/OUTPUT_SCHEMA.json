@@ -1,0 +1,116 @@
+{
+  "schema_version": "integration006/v1",
+  "run_id": "integration_006_20261012",
+  "views": ["signal_only", "legacy", "fast", "slow", "common_level"],
+  "hypotheses": ["fast", "slow", "common_level"],
+  "arms": ["deterministic", "full"],
+  "splits": ["TRAIN", "DEV"],
+  "dimensions": {"TRAIN_N": 6593, "TRAIN_R": 21047, "DEV_N": 512, "DEV_R": 599, "draws": 4, "V": 5, "H": 3, "L": 480, "bins": 8, "bootstrap": 1000, "sample_rows": 128, "noise_diagnostic_rows": 8192},
+  "hash_rules": {"array_sha256": "SHA256 of CPU contiguous native-dtype raw bytes; no shape or dtype header", "tensor_dict_sha256": "SHA256 over sorted keys: key UTF8 bytes + NUL + array_sha256 lowercase ASCII hex + LF for each key", "chunk_output_sha256": "array_sha256 of expected_views[5,B,480] float64", "metric_name_delimiter": "/", "bootstrap_resample_hash": "array_sha256 of rng.integers(0,N,size=N) native int64 indices"},
+  "observables.npz": {
+    "key_pattern": "{S}_{A}_{field}; S=TRAIN/DEV, A=deterministic/full",
+    "view_fields_shape_V_by_4N": ["Q", "tail", "PSD", "PSD_raw", "peak_voltage", "peak_time_ns", "half_rise_ns", "relative_half_rise_ns", "relative_peak_ns", "baseline_mean_V", "baseline_rms_V", "saturation_fraction_per_event", "saturation_samples", "ADCcharge_change", "pre_adc_Q", "noise_pre_Q", "charge_identity_residual", "Q_nonpositive", "PSD_guarded"],
+    "boolean_fields": ["Q_nonpositive", "PSD_guarded"],
+    "int64_fields": ["saturation_samples", "fixed_bins", "rebinned_bins", "migration", "fixed_bin_rows", "fixed_bin_parents"],
+    "nan_permitted_only": ["PSD_raw", "half_rise_ns", "relative_half_rise_ns"],
+    "signal_pre_Q": ["4N"],
+    "signal_baseline_max_per_event": ["4N"],
+    "signal_prefix_ADC_change_fraction": ["4N"],
+    "legacy_assembly_max_abs_per_event": ["4N"],
+    "legacy_charge_identity_residual": ["4N"],
+    "qsig": ["4N"],
+    "fixed_bins": ["4N"],
+    "rebinned_bins": [5, "4N"],
+    "migration": [5, 8, 8],
+    "fixed_bin_rows": [8],
+    "fixed_bin_parents": [8],
+    "identity_keys": {
+      "{S}_source_parent_ids": ["N"],
+      "{S}_source_parent_row": ["4N"],
+      "{S}_draw_index": ["4N"],
+      "{S}_source_h": ["N"],
+      "{S}_source_count_weights": ["N"],
+      "{S}_REAL_ids": ["R"],
+      "{S}_REAL_groups": ["R"],
+      "{S}_REAL_count_weights": ["R"],
+      "{S}_REAL_bins": ["R"]
+    },
+    "REAL_key_pattern": "{S}_REAL_{field}",
+    "REAL_fields_shape_R": ["Q", "tail", "PSD", "PSD_raw", "peak_voltage", "peak_time_ns", "half_rise_ns", "relative_half_rise_ns", "relative_peak_ns", "baseline_mean_V", "baseline_rms_V", "saturation_fraction_per_event", "saturation_samples", "ADCcharge_change", "pre_adc_Q", "Q_nonpositive", "PSD_guarded"]
+  },
+  "curves.npz": {
+    "{S}_{A}_mean": [5, 480],
+    "{S}_{A}_variance": [5, 480],
+    "{S}_{A}_fixed_bin_mean": [8, 5, 480],
+    "{S}_{A}_fixed_bin_variance": [8, 5, 480],
+    "{S}_{A}_mean_within_parent_variance": [5, 480],
+    "{S}_REAL_mean": [480],
+    "{S}_REAL_variance": [480],
+    "{S}_REAL_bin_mean": [8, 480],
+    "{S}_REAL_bin_variance": [8, 480],
+    "variance_ddof": 0,
+    "within_parent_variance_ddof": 1,
+    "empty_bin_values": "NaN with explicit zero support"
+  },
+  "theory.npz": {
+    "key_pattern": "{H}_{field}; H=fast/slow/common_level",
+    "exact_fields": {"mean": [480], "covariance": [480,480], "A": [380,100], "R": [380,380], "cholesky_R": [380,380], "kernel_reference": [480,480], "C100": [100,100], "mean_reference": [], "kernel_variance": [], "eta": [], "scale_mean": [], "scale_second_moment": [], "scale_fourth_moment": [], "mean_Q": [], "variance_Q": [], "mean_tail_charge": [], "variance_tail_charge": [], "covariance_Q_tail": [], "seam_increment_mean": [], "seam_increment_variance": [], "prefix_increment_start": [9], "prefix_increment_variance90_99": [9], "seam_variance_over_prefix_increment_mean": [], "first_tail_last10_prefix_correlation": [10], "tail_sample_variance": [380], "tail400480_variance_mean": []},
+    "empirical_fields": {"diagnostic_mean": [480], "diagnostic_covariance": [480,480], "diagnostic_Q": [8192], "diagnostic_tail": [8192], "diagnostic_seam_increment": [8192], "diagnostic_scale": [8192], "diagnostic_ADC_Q": [8192], "diagnostic_ADC_tail": [8192]},
+    "noise_tail_variance_ratio": []
+  },
+  "bootstrap.npz": {
+    "{S}_metric_names": [22],
+    "{S}_metric_values": [1000,22],
+    "{S}_point_metrics": [22],
+    "{S}_intervals": [22,2],
+    "{S}_seed": [],
+    "{S}_resample_parent_hashes": [1000],
+    "metric_order_per_arm": ["Q_mean_span_over_REAL_sd", "PSD_mean_span_over_REAL_sd", "fixed_bin_0_PSD_sd_ratio", "fixed_bin_1_PSD_sd_ratio", "fixed_bin_2_PSD_sd_ratio", "fixed_bin_3_PSD_sd_ratio", "fixed_bin_4_PSD_sd_ratio", "fixed_bin_5_PSD_sd_ratio", "fixed_bin_6_PSD_sd_ratio", "fixed_bin_7_PSD_sd_ratio", "fixed_bin_max_PSD_sd_ratio"],
+    "arm_order": ["deterministic","full"],
+    "resampling": "np.random.default_rng(seed).integers(0,N,size=N) per draw; TRAIN then DEV independent registered seeds; same SOURCE parent indices for both arms, all four draws and all three hypotheses; no REAL resampling; DEV descriptive only",
+    "normalization": "fixed original REAL TRAIN SD ddof0",
+    "variance_arithmetic": "for each hypothesis/fixed bin, subtract that bin's first original-row PSD; sum centered deviations and squares per parent; variance=sum_square/count-(sum/count)^2; no fit",
+    "zero_width_rule": "all three SD0 gives NaN undefined; positive maximum and minimum0 gives+infinity; extended-real linear quantile preserves+inf; no NaN bootstrap draws omitted",
+    "NaN": "unsupported or undefined fixed-bin ratios explicitly counted; cannot pass decision"
+  },
+  "latents/{S}.pt": {
+    "top_keys": ["schema_version", "split", "seeds", "streams_initial", "streams_final", "chunks", "first128"],
+    "stream_keys": ["response", "noise005", "extension"],
+    "stream_states": "CPU torch uint8 generator state",
+    "chunks": "row_start/row_stop, response_sha256, noise005_sha256, extension_sha256, noise005_prefix_sha256, scale_sha256, extended_noise_sha256 by hypothesis, arms signal_sha256/output_sha256/legacy_pre_sha256",
+    "first128": "source CPU float32[128,480], source_parent_row, source_parent_ids, draw_index, response_latents dict, noise005_latents dict, extension_gaussian CPU float32[128,1,380]"
+  },
+  "latents/NOISE_DIAGNOSTIC.pt": {"top_keys": ["schema_version", "seeds", "streams_initial", "streams_final", "chunks"], "bulk_latents_saved": false},
+  "replay128.pt": {
+    "top_keys": ["schema_version", "views", "hypotheses", "splits"],
+    "split_keys": ["source", "source_parent_row", "source_parent_ids", "draw_index", "response_latents", "noise005_latents", "extension_gaussian", "noise005_pre", "shared_scale", "arms"],
+    "arm_keys": {"signal_pre": [128,480], "legacy_pre": [128,480], "old_electronics_noise": [128,480], "qsig": [128], "expected_views": [5,128,480], "new_pre_adc": [3,128,480], "new_noise_pre": [3,128,480]}
+  },
+  "sample_waveforms.pt": {
+    "top_keys": ["schema_version", "views", "hypotheses", "splits"],
+    "split_keys": ["source_parent_row", "source_parent_ids", "draw_index", "arms"],
+    "arm_keys": {"signal_pre": [128,480], "noise_pre": [3,128,480], "waveform": [5,128,480], "pre_adc": [5,128,480]},
+    "selection": "first128 rows in registered parent-major order; first parent has rows0:4; no REAL waveforms"
+  },
+  "SUMMARY.json": {
+    "top_keys": ["schema_version", "run_id", "status", "provenance", "statistics", "coverage", "engineering", "population", "conditional", "noise_diagnostic", "bootstrap", "actual_counts", "updates", "scope"],
+    "population": "population[S][A][view] or population[S][REAL]; all scalar summaries count/finite/invalid/mean/SD/IQR without mixture fits",
+    "conditional": "conditional[S][A].fixed_bins and .rebinned_bins, eight bins each; counts, parents/support, PSD mean/SD/IQR and Q mean; migrations in npz",
+    "engineering": "prefix_pre_bitwise, prefix_post_bitwise, response_prefix_across_hypotheses_bitwise, stream_pairing, frozen_states, source_coverage, count_weights_only, single_ADC, signal_baseline_limit, algebra_residuals, invalid_new_TRAIN; failures explicit",
+    "actual_counts": "model_forward/noise005_forward/extension_forward/signal_reference_ADC/candidate_ADC by role with successful returned batches/events; matching *_attempted categories count submissions before call; generated_view_rows only after successful readout; REAL_readout_rows; diagnostic_rows",
+    "updates": {"noise": 0, "response": 0, "classifier": 0, "GMM_fits": 0}
+  },
+  "DECISION.json": {
+    "top_keys": ["schema_version", "run_id", "outcome", "engineering_pass", "engineering_failures", "metrics", "thresholds", "support", "noise_tail_variance_ratio", "TRAIN_only", "DEV_descriptive_only", "scientific_acceptance", "next_response_protocol_allowed", "response_updates_authorized_here"],
+    "outcomes": ["interface_fail", "sensitivity_detected", "MC_inconclusive", "sensitivity_within_family"],
+    "scientific_acceptance": false,
+    "response_updates_authorized_here": 0
+  },
+  "COMPLETE.json": {
+    "top_keys": ["schema_version", "run_id", "status", "started_UTC", "completed_UTC", "wall_seconds", "provenance", "payload_sha256", "actual_counts", "updates", "output_bytes", "decision_outcome"],
+    "status": "zero_training_completed",
+    "payload_sha256": "all output payload relative paths except COMPLETE.json; includes SUMMARY/DECISION"
+  },
+  "FAILURE.json": {"top_keys": ["schema_version", "run_id", "status", "started_UTC", "failed_UTC", "error_type", "error", "actual_counts", "updates", "partial_payload_sha256"], "status": "zero_training_failed_no_retry", "existing_outputs_preserved": true},
+  "limits": {"scientific_payload_bytes": 268435456, "full_bulk_480_float64_outputs_saved": false, "REAL_waveforms_saved": false, "source_count_weights": 1, "old_population_weights_used": false, "RSS_limit_bytes": 8589934592, "Linux_RSS_source": "frozen scripts/supervise.py rss_tree(os.getpid()) via cached stdlib importlib load; /proc descendants; no psutil dependency", "Windows_RSS_source": "local artificial-test psutil fallback"}
+}
