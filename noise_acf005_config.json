@@ -1,0 +1,252 @@
+{
+  "run_id": "noise_acf005_20261012",
+  "registered_UTC": "2026-10-12T07:05:42.297435+00:00",
+  "reviewed_commit": "0f914546564e37bd4bdfdb58302d6becbef1f02f",
+  "noise": {
+    "seed": 2026101219,
+    "projection_seed": 2026101220,
+    "updates": 5000,
+    "batch_size": 512,
+    "initial_learning_rate": 0.001,
+    "low_learning_rate": 0.0002,
+    "low_learning_rate_start": 4000,
+    "gradient_clip_norm": 5.0,
+    "classifier_seed": 2026101221,
+    "classifier_updates": 200,
+    "classifier_fit_per_class": 2048,
+    "classifier_test_per_class": 256,
+    "bootstrap_resamples": 1000,
+    "generation_seed": 2026101222,
+    "split_seed": 2026101223,
+    "evaluation_projection_seed": 2026101224,
+    "distance_seed": 2026101225,
+    "distance_partitions": 32,
+    "generated_statistics_rows": 8192,
+    "gate": {
+      "mean_shift_over_REAL_std_max": 0.15,
+      "mean_shift_ADC_steps_max": 1.0,
+      "mean_std_ratio": [
+        0.85,
+        1.15
+      ],
+      "rms_quantile_ratios": [
+        [
+          0.85,
+          1.15
+        ],
+        [
+          0.9,
+          1.1
+        ],
+        [
+          0.85,
+          1.15
+        ]
+      ],
+      "mean_acf_absolute_max": 0.015,
+      "psd_band_fraction_ratios": [
+        0.8,
+        1.25
+      ],
+      "psd_band_fraction_absolute_max": 0.01,
+      "ols_slope_std_ratio": [
+        0.85,
+        1.15
+      ],
+      "ols_covariance_relative_error_max": 0.2,
+      "full100_SWD_ratio_max": 2.0,
+      "classifier_point_interval": [
+        0.4,
+        0.6
+      ],
+      "classifier_CI_containment": [
+        0.35,
+        0.65
+      ],
+      "negative_control_point_interval": [
+        0.4,
+        0.6
+      ]
+    }
+  },
+  "model": {
+    "type": "ObservedBaselineNoiseV3",
+    "length": 100,
+    "covariance_ridge_relative": 1e-06,
+    "normalized_diagonal_floor": 1e-06,
+    "initial_log_scale_std": 0.02,
+    "scale_second_moment": 1,
+    "init_covariance_ddof": 1,
+    "full_mean_and_cholesky_trainable": true
+  },
+  "train_container_sha256": "9e2f2c3c18470f4b2f3374a39590a9c27b18222bd1b22b5d7467e561409ad854",
+  "identities_sha256": "5145ea04d038510c9ca740d997e0cf9d060ed69210a4515e20110d884db7e845",
+  "local_training_container": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R23_ONLINE_STANDARDIZED_CRITIC_001\\TRAIN_PRIVATE.npz",
+  "remote_training_container": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R33_REMOTE_20261009_175239_UTC/inputs/TRAIN_PRIVATE.npz",
+  "remote_root": "/home/rylan/projects/ej276d-n01/noise_acf005_20261012",
+  "references": {
+    "initial004": {
+      "path": "provenance/noise_acf005_reference/initial004.pt",
+      "sha256": "180484375f57b6759fec7b122192cfe4ad60bda1ac00f43ce6a110701e32951d",
+      "source": "runs/noise_improvement_004_20261012/runs/science/noise/initial_state.pt"
+    },
+    "final004": {
+      "path": "provenance/noise_acf005_reference/final004.pt",
+      "sha256": "78e8a534b82ee575ba64cf204869c827786aeab293c8931cc89cf665a1921b99",
+      "source": "runs/noise_improvement_004_20261012/runs/science/noise/final.pt"
+    },
+    "gate004": {
+      "path": "provenance/noise_acf005_reference/gate004.json",
+      "sha256": "c7d4920240bab5829f05ced4a5666562c00d64f1eba42bda2e8f6182e51b1948",
+      "source": "runs/noise_improvement_004_20261012/runs/science/noise_validation/NOISE_GATE.json"
+    },
+    "config004": {
+      "path": "provenance/noise_acf005_reference/config004.json",
+      "sha256": "231fc902df4025e4389ede3abce5d7adec2cf591e8c3f3271c5169b68024ef7e",
+      "source": "noise_improvement_004_config.json"
+    },
+    "calibration003": {
+      "path": "provenance/noise_acf005_reference/calibration003.json",
+      "sha256": "c5d6c88000b5c54c36aeb56be67bf8f7930294304a53f8180a026da2e7a7619b",
+      "source": "runs/noise_origin_audit_003_20261012/continuation_001/runs/science/real_real/RR_CALIBRATION_REPORT.json"
+    },
+    "origin003": {
+      "path": "provenance/noise_acf005_reference/origin003.json",
+      "sha256": "85f08c6b76667cf03a008347128a64bd75c59a9081ace018ac36b0ffe9aca968",
+      "source": "runs/noise_origin_audit_003_20261012/runs/science/origin/ORIGIN_REPORT.json"
+    },
+    "control004_raw": {
+      "path": "provenance/noise_acf005_reference/control004_raw.npz",
+      "sha256": "d9594388c56d1d6f5bd6c8ea3dcdcd1a2210a2f0c2eef5e7a9fd059aac752181",
+      "source": "runs/noise_improvement_004_20261012/runs/science/noise_validation/classifiers/raw/REAL_REAL/predictions.npz"
+    },
+    "control004_demean": {
+      "path": "provenance/noise_acf005_reference/control004_demean.npz",
+      "sha256": "d16c8f2df5c5d83eccac62ba1f598b30eaf4bc8ae1a84148345e7d66e5a42992",
+      "source": "runs/noise_improvement_004_20261012/runs/science/noise_validation/classifiers/demean/REAL_REAL/predictions.npz"
+    },
+    "control004_detrend": {
+      "path": "provenance/noise_acf005_reference/control004_detrend.npz",
+      "sha256": "80561840f7831f22edc8885e489b4b860a93043baa93ff968df32e4897bfa7f0",
+      "source": "runs/noise_improvement_004_20261012/runs/science/noise_validation/classifiers/detrend/REAL_REAL/predictions.npz"
+    }
+  },
+  "source_manifest": "NOISE_ACF005_SOURCE_MANIFEST.json",
+  "acf20": {
+    "lags": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20
+    ],
+    "scale": 0.015,
+    "coefficient": 1.0,
+    "objective": ".5*(mean(e^2)+max(e^2))",
+    "reduction": "eventwise_ratios_then_equal_event_mean",
+    "variance_floor_V2": 3.1047875728746266e-10,
+    "target_role": "all_21047_canonical_REAL_TRAIN",
+    "target_fixed": true
+  },
+  "diagnostics": {
+    "rows": 8192,
+    "chunk_size": 256,
+    "seed": 2026121222,
+    "trajectory_updates": [
+      0,
+      250,
+      500,
+      750,
+      1000,
+      1250,
+      1500,
+      1750,
+      2000,
+      2250,
+      2500,
+      2750,
+      3000,
+      3250,
+      3500,
+      3750,
+      4000,
+      4250,
+      4500,
+      4750,
+      5000
+    ],
+    "fixed_explicit_latents": true,
+    "save_initial_and_004final_and_005final_pre_post_ADC": true,
+    "save_full_covariance_every_trajectory": true,
+    "log_gradient_components_every_update": true,
+    "gradient_order": "unchanged_named_parameters",
+    "angles_degrees": true,
+    "old_vs_acf_angle": true,
+    "old_vs_total_angle": true,
+    "zero_gradient_angle": null,
+    "training_rng_untouched": true
+  },
+  "controls": {
+    "reference_permutations_per_refit": 255,
+    "reference_refits": 128,
+    "current_refits_for_conditional_test": 0,
+    "conditional_primary_view": "raw",
+    "conditional_permutations": 9999,
+    "conditional_seed": 2026131221,
+    "conditional_alpha": 0.05,
+    "conditional_statistic": "abs(AUC-.5)",
+    "tail": ">= including ties",
+    "p_rule": "(tail+1)/(draws+1)",
+    "status_after_valid_implementation": "measurement_uncertain_single_exposed_acquisition",
+    "legacy_classifiers_refit_once": 6,
+    "legacy_classifier_updates": 1200,
+    "RR_score_reproduction_required": true
+  },
+  "uncertainty": {
+    "bootstrap_resamples": 1000,
+    "TRAIN_seed": 2026131222,
+    "development_seed": 2026131223,
+    "resampling": "original_group_clusters_for_REAL_and_independent_generated_events",
+    "outputs": [
+      "marginal95",
+      "simultaneous95_centered_max"
+    ],
+    "acceptance_gate": false
+  },
+  "decision": {
+    "TRAIN_max_ACF_match": 0.015,
+    "improvement": "acf20_loss_strictly_less_and_max_error_no_greater_than_004_on_same_diag_latents",
+    "numerical_tolerance": 0.0,
+    "candidate_checks": "all_ten_unchanged_legacy_checks_except_two_negative_control_checks",
+    "design_check_requires_TRAIN_match_improvement_and_candidate_screen": true,
+    "design_check_only": true,
+    "scientifically_qualified": false
+  },
+  "cpu_threads": 12,
+  "gpu_memory_limit_GiB": 10,
+  "job_tree_RSS_limit_GiB": 8,
+  "wall_limit_s": 1800,
+  "output_limit_MiB": 512,
+  "checkpoint_policy": "unique_final_5000_no_validation_selection",
+  "response_updates": 0,
+  "response_integration_allowed": false,
+  "old_gates_changed": false,
+  "validation_previously_used_for_diagnostics": true,
+  "independent_acquisition_available": false,
+  "one_active_scientific_job": true
+}
