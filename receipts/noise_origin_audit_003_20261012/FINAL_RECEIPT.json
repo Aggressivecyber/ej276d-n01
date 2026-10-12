@@ -1,0 +1,257 @@
+{
+  "status": "noise_origin_audit_and_null_calibration_complete",
+  "completed_UTC": "2026-10-12T04:59:26.136334+00:00",
+  "experiment_id": "noise_origin_audit_003_20261012",
+  "active_scientific_jobs": 0,
+  "noise_training_updates": 0,
+  "response_training_updates": 0,
+  "evaluation_classifier_updates": 25600,
+  "new_generator_training_updates": 0,
+  "cumulative_prior_generator_training_updates": 82000,
+  "full_detector_response_match_established": false,
+  "old_noise_gate_passed": false,
+  "old_noise_gate_modified": false,
+  "configuration_sha256": "14d470a8e66d96a3760c09cd160ea62d33b84d93e5a12dbac8b8b4749d86f0a6",
+  "origin": {
+    "status": "complete",
+    "report_sha256": "85f08c6b76667cf03a008347128a64bd75c59a9081ace018ac36b0ffe9aca968",
+    "rows_completed": 21047,
+    "bitwise_target_equal": true,
+    "noise_training_updates": 0,
+    "response_training_updates": 0,
+    "validation_waveforms_decoded": false,
+    "implementation_sha256": "a6f89c8c7332cc14a05af6d9e181b72457daea34944af155de78089b8857c799"
+  },
+  "real_real": {
+    "status": "fixed128_refit_null_calibration_complete",
+    "repeats": 128,
+    "AUC_mean": 0.4977814555168152,
+    "AUC_std_ddof1": 0.02425312407366682,
+    "legacy_joint_bootstrap_false_positive": {
+      "rejections": 9,
+      "trials": 128,
+      "rate": 0.0703125,
+      "Wilson95": [
+        0.03742976830393997,
+        0.12823480349360633
+      ]
+    },
+    "conditional_permutation_false_positive": {
+      "rejections": 7,
+      "trials": 128,
+      "alpha": 0.05,
+      "rate": 0.0546875,
+      "Wilson95": [
+        0.026740201381346355,
+        0.10858490029974707
+      ]
+    },
+    "evaluation_classifier_updates": 25600,
+    "elapsed_s": 40.78705485298997
+  },
+  "QA": {
+    "passed": true,
+    "classifier_checkpoints_verified": 128,
+    "score_rows_replayed": 65536,
+    "all_exact_score_equality": true,
+    "maximum_absolute_score_error": 0.0,
+    "all_saved_numeric_metrics_verified": true,
+    "updated_models": 0,
+    "numeric_new_fits": 0,
+    "original_VAL_waveforms_decoded": false
+  },
+  "native_exit_codes": {
+    "original_driver": 1,
+    "origin_science": 0,
+    "original_RR_pre_fit_guard": 1,
+    "continuation_driver": 0,
+    "continuation_RR": 0,
+    "replay_supervisor": 0,
+    "replay_script": 0,
+    "report_builder": 0
+  },
+  "original_failure_boundary": "GPU allocator expected explicit device index;0target decodes/0classifier updates;preserved independently",
+  "continuation_changed_scientific_settings": false,
+  "origin_recomputed": false,
+  "tests": {
+    "status": "passed",
+    "verified_UTC": "2026-10-12T04:34:47.3900870Z",
+    "total_tests": 16,
+    "scientific_noise_updates": 0,
+    "scientific_response_updates": 0,
+    "scientific_classifier_updates": 0,
+    "discarded_artificial_classifier_updates_per_RR_test_run": 6,
+    "final_RR_test_runs_recorded": 2,
+    "final_RR_test_run_discarded_updates_total": 12,
+    "suites": [
+      {
+        "suite": "REAL_REAL_null",
+        "tests": 9,
+        "seconds": 1.59,
+        "native_exit_code": 0,
+        "log": "RR_TESTS.log"
+      },
+      {
+        "suite": "noise_origin",
+        "tests": 7,
+        "seconds": 0.607,
+        "native_exit_code": 0,
+        "log": "ORIGIN_TESTS.log"
+      }
+    ],
+    "scopes": [
+      "1000 optimized bootstrap draws versus original tie-aware weighted AUC",
+      "within-group fixed-score conditional permutations and ties",
+      "TRAIN-only role split and scaler isolation",
+      "raw2000/coarse100 coordinate scale",
+      "exact historical ADC cast integer CFD window replay",
+      "nonselected raw bytes never numerically decoded",
+      "single-bit target mismatch fails before completion"
+    ]
+  },
+  "local_artifact_verification": {
+    "path": "receipts\\noise_origin_audit_003_20261012\\LOCAL_ARTIFACT_VERIFICATION.json",
+    "sha256": "ed2193a8f5e1e7739d42faab3a0d2ba86b494aed01da51b88ec44de4a768cdfb",
+    "origin_output_files": 5,
+    "RR_artifact_files": 388,
+    "prior_sources_unchanged": 16
+  },
+  "resource_supervisors": {
+    "original": {
+      "exit_code": 1,
+      "reason": null,
+      "peak_rss_bytes": 664219648,
+      "started_utc": "2026-10-12T04:36:37.179017+00:00",
+      "ended_utc": "2026-10-12T04:37:29.213437+00:00",
+      "supervisor_pid": 608486,
+      "child_pid": 608494
+    },
+    "continuation": {
+      "exit_code": 0,
+      "reason": null,
+      "peak_rss_bytes": 1527611392,
+      "started_utc": "2026-10-12T04:46:35.408294+00:00",
+      "ended_utc": "2026-10-12T04:47:18.457225+00:00",
+      "supervisor_pid": 611076,
+      "child_pid": 611084
+    },
+    "replay": {
+      "exit_code": 0,
+      "reason": null,
+      "peak_rss_bytes": 1137811456,
+      "started_utc": "2026-10-12T04:48:24.380249+00:00",
+      "ended_utc": "2026-10-12T04:48:27.382092+00:00",
+      "supervisor_pid": 611767,
+      "child_pid": 611768
+    }
+  },
+  "visual_QA": {
+    "UTC": "2026-10-12T04:59:26.136334+00:00",
+    "status": "passed",
+    "figures_viewed": 3,
+    "PNG_paths": [
+      "reports\\noise_origin_audit_003_20261012\\figures\\01_pipeline_and_window_position.png",
+      "reports\\noise_origin_audit_003_20261012\\figures\\02_baseline_structure.png",
+      "reports\\noise_origin_audit_003_20261012\\figures\\03_real_real_null_calibration.png"
+    ],
+    "HTML_reopened_in_browser": true,
+    "HTML_title": "N01 噪声来源与对照校准",
+    "images_loaded": 3,
+    "horizontal_overflow": false,
+    "observed_sections": [
+      "heading_and_primary_chain_table",
+      "null_calibration_plot",
+      "final_execution_receipts"
+    ],
+    "semantic_qualifiers_verified": [
+      "mean_slope_correlation_only_small_processing_difference",
+      "raw1ns_ACF_differs_after_block_mean",
+      "earliest_archive_not_native_instrument_proof",
+      "old_gate_not_reinterpreted",
+      "100ns_does_not_identify480ns"
+    ],
+    "report_sha256": "846c1c0cb1672fceae46d4ffa5fbc624094ac02dc8b8435a05bdfaf0f305ecae",
+    "new_scientific_fits": 0,
+    "temporary_browser_tab_closed": true,
+    "temporary_loopback_server_stopped": true,
+    "codex_file_panel_request": "queued;not relied on for verification"
+  },
+  "independent_review": {
+    "UTC": "2026-10-12T04:59:26.136334+00:00",
+    "status": "passed_no_scientific_blockers",
+    "reviewer": "n01_repair_review",
+    "origin_independent_reviewer": "n01_losses",
+    "checked": [
+      "origin21047_bitwise_reconstruction",
+      "six_stage_rho_and512_cluster_bootstrap_intervals",
+      "ADC_CFD_changed12_events",
+      "within_group_covariance_contributions",
+      "RR128_refits25600_updates",
+      "RR_false_positive_counts_and_Wilson_intervals",
+      "all128_checkpoints65536_scores_exact",
+      "prospective_candidate_and100ns_scope"
+    ],
+    "limitations_preserved": [
+      "unknown_archive_creator",
+      "selected_TRAIN_population",
+      "artificial_groups_not_acquisitions",
+      "no superiority_claim_from_two_rejection_difference",
+      "old_gate_remains_failed",
+      "new_candidate_not_fitted"
+    ],
+    "wording_comment_resolved": "Final README line7 explicitly restricts small change to correlation; line24 gives raw vs block1ns ACF; live browser confirms both."
+  },
+  "report": "reports\\noise_origin_audit_003_20261012\\N01_NOISE_ORIGIN_REPORT.html",
+  "report_files": {
+    "reports\\noise_origin_audit_003_20261012\\BUILD_RECEIPT.json": {
+      "bytes": 814,
+      "sha256": "ecdb980569463a79f40dc1a300a6e527e708586add6a73bd52369053b0bea497"
+    },
+    "reports\\noise_origin_audit_003_20261012\\figures\\01_pipeline_and_window_position.pdf": {
+      "bytes": 32635,
+      "sha256": "aca3e7d8663a6451f56653b6098b19f9390adc7e12dde346c270d449f90a7645"
+    },
+    "reports\\noise_origin_audit_003_20261012\\figures\\01_pipeline_and_window_position.png": {
+      "bytes": 158204,
+      "sha256": "b3301e7890978dfb756e88c4445000a1768d697386bd655bc9aac8ebf0027a54"
+    },
+    "reports\\noise_origin_audit_003_20261012\\figures\\02_baseline_structure.pdf": {
+      "bytes": 61076,
+      "sha256": "850f8f840785ab26725bd18a53d8e5968d4618ff86463d6b718065756a990d45"
+    },
+    "reports\\noise_origin_audit_003_20261012\\figures\\02_baseline_structure.png": {
+      "bytes": 397612,
+      "sha256": "28a9a1fb97d165206a4cf593e8fd940969e2360b8576060f41fbe0000c624107"
+    },
+    "reports\\noise_origin_audit_003_20261012\\figures\\03_real_real_null_calibration.pdf": {
+      "bytes": 38461,
+      "sha256": "9988742c8acd0e9320ba160f52b977cb0972fbe7c2003d64e917e14e59ae27f7"
+    },
+    "reports\\noise_origin_audit_003_20261012\\figures\\03_real_real_null_calibration.png": {
+      "bytes": 174314,
+      "sha256": "5a968cd4521d4c4e19eb83390d245ea1fa667f6aaa90909ed2e33cbd7cfdfcbf"
+    },
+    "reports\\noise_origin_audit_003_20261012\\N01_NOISE_ORIGIN_REPORT.html": {
+      "bytes": 8736,
+      "sha256": "846c1c0cb1672fceae46d4ffa5fbc624094ac02dc8b8435a05bdfaf0f305ecae"
+    },
+    "reports\\noise_origin_audit_003_20261012\\README.md": {
+      "bytes": 6635,
+      "sha256": "0fd8d348159af76d4558e527bb19095d69b686b13e4149fda91b89087b270063"
+    },
+    "reports\\noise_origin_audit_003_20261012\\REPORT_DATA.json": {
+      "bytes": 2170,
+      "sha256": "ee744c80de33949ac66a6345d443052b1e0f1f0fcb9913f657a84b8dfa726703"
+    }
+  },
+  "delivery_receipts": "BACKUP_RECEIPT.json and DELIVERY_RECEIPT.json are separate post-packaging receipts",
+  "data_limits": [
+    "earliest_NPZ_creator_unverified",
+    "no_VAL_waveforms_decoded",
+    "artificial_contiguous50_record_groups",
+    "no_independent_acquisition",
+    "baseline_does_not_identify_full480_drift"
+  ],
+  "results_review_receipt": "receipts/noise_origin_audit_003_20261012/RESULTS_INDEPENDENT_REVIEW.json",
+  "pre_execution_review_preserved": true
+}

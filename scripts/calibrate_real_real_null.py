@@ -237,7 +237,7 @@ def run_calibration(config_path,out,device="cuda",container=None,identities=None
     torch.set_num_threads(int(config["resource"]["cpu_threads"]))
     torch.use_deterministic_algorithms(True);torch.backends.cudnn.benchmark=False
     torch.backends.cuda.matmul.allow_tf32=False;torch.backends.cudnn.allow_tf32=False
-    target=torch.device(device)
+    target=torch.device('cuda:0' if device=='cuda' else device)
     if target.type=="cuda":
         if not torch.cuda.is_available():raise RuntimeError("CUDA unavailable")
         budget=float(config["resource"]["gpu_memory_GiB"])*1024**3

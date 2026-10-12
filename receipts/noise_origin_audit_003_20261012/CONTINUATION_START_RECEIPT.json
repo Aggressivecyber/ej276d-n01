@@ -1,0 +1,106 @@
+{
+  "UTC": "2026-10-12T04:47:20.362574+00:00",
+  "remote_start": {
+    "experiment_id": "noise_origin_audit_003_20261012",
+    "status": "running",
+    "phase": "real_real_only",
+    "started_UTC": "2026-10-12T04:46:35.438046+00:00",
+    "pid": 611084,
+    "prior_classifier_updates": 0,
+    "noise_training_updates": 0,
+    "response_training_updates": 0,
+    "origin_recomputed": false,
+    "compatibility_fix": "explicit_same_logical_cuda_index_0"
+  },
+  "supervisor_pid": 611076,
+  "cuda_guard_smoke": {
+    "status": "passed",
+    "UTC": "2026-10-12T04:46:29.465355+00:00",
+    "explicit_logical_device": "cuda:0",
+    "physical_visibility": "CUDA_VISIBLE_DEVICES=0",
+    "GPU": "NVIDIA GeForce RTX 5070",
+    "total_bytes": 12344295424,
+    "memory_fraction": 0.8698283596748762,
+    "finite_forward_rows": 512,
+    "shape": [
+      512
+    ],
+    "classifier_updates": 0,
+    "noise_updates": 0,
+    "response_updates": 0,
+    "scientific_waveforms_decoded": 0
+  },
+  "original_driver_exit": {
+    "experiment_id": "noise_origin_audit_003_20261012",
+    "started_UTC": "2026-10-12T04:36:37.199974+00:00",
+    "pid": 608494,
+    "stage": "failed",
+    "noise_training_updates": 0,
+    "response_training_updates": 0,
+    "classifier_updates_budget": 25600,
+    "stages": [
+      {
+        "stage": "origin",
+        "started_UTC": "2026-10-12T04:36:37.200211+00:00",
+        "command": [
+          "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+          "-B",
+          "/home/rylan/projects/ej276d-n01/noise_origin_audit_003_20261012/scripts/audit_noise_origin.py",
+          "--config",
+          "/home/rylan/projects/ej276d-n01/noise_origin_audit_003_20261012/noise_origin_003_config.json",
+          "--out",
+          "/home/rylan/projects/ej276d-n01/noise_origin_audit_003_20261012/runs/science/origin",
+          "--container",
+          "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R33_REMOTE_20261009_175239_UTC/inputs/TRAIN_PRIVATE.npz",
+          "--identities",
+          "/home/rylan/projects/ej276d-n01/noise_origin_audit_003_20261012/data/PARENT_IDENTITIES.npz"
+        ],
+        "native_exit_code": 0,
+        "timeout": false,
+        "termination_reason": null,
+        "peak_observed_owned_root_bytes": 160748904,
+        "output_monitor_scope": "entire_dedicated_run_root_including_source_inputs_cache_logs",
+        "ended_UTC": "2026-10-12T04:37:26.236487+00:00",
+        "elapsed_s": 49.036290508985985,
+        "report": "runs/science/origin/ORIGIN_REPORT.json",
+        "report_sha256": "85f08c6b76667cf03a008347128a64bd75c59a9081ace018ac36b0ffe9aca968",
+        "scientific_completion_verified": true
+      },
+      {
+        "stage": "real_real",
+        "started_UTC": "2026-10-12T04:37:26.245216+00:00",
+        "command": [
+          "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+          "-B",
+          "/home/rylan/projects/ej276d-n01/noise_origin_audit_003_20261012/scripts/calibrate_real_real_null.py",
+          "--config",
+          "/home/rylan/projects/ej276d-n01/noise_origin_audit_003_20261012/noise_origin_003_config.json",
+          "--out",
+          "/home/rylan/projects/ej276d-n01/noise_origin_audit_003_20261012/runs/science/real_real",
+          "--container",
+          "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R33_REMOTE_20261009_175239_UTC/inputs/TRAIN_PRIVATE.npz",
+          "--identities",
+          "/home/rylan/projects/ej276d-n01/noise_origin_audit_003_20261012/data/PARENT_IDENTITIES.npz",
+          "--device",
+          "cuda"
+        ],
+        "native_exit_code": 1,
+        "timeout": false,
+        "termination_reason": null,
+        "peak_observed_owned_root_bytes": 162599675,
+        "output_monitor_scope": "entire_dedicated_run_root_including_source_inputs_cache_logs",
+        "ended_UTC": "2026-10-12T04:37:28.247073+00:00",
+        "elapsed_s": 2.0018728580034804
+      }
+    ],
+    "updated_UTC": "2026-10-12T04:37:26.245082+00:00",
+    "completed": false,
+    "error": "RuntimeError: real_real failed with code 1",
+    "ended_UTC": "2026-10-12T04:37:28.247329+00:00",
+    "exit_code": 1
+  },
+  "source_package_sha256": "2b13fda62c337c08f48c8eacce3a121e8a99cca093a07c64ccf2e8a69c3bb6ca",
+  "scientific_settings_changed": false,
+  "origin_recomputed": false,
+  "original_evaluation_classifier_updates": 0
+}

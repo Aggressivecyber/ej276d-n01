@@ -82,3 +82,7 @@ TRAIN_POOL_BINDING.npz保存全部合法TRAIN IDs/组与完整role池行号。�
 9项CPU合成测试通过（2.230s）：ID/count-only全组role分配；固定seed双域相等组quota及fit/test隔离；tie平均rank AUC与旧AUC一致；1000次优化joint bootstrap逐次与旧weighted AUC及leave-one-group严格同统计；固定scores/事件集合/每组标签quota的255置换与+1尾规则；ties全部在tail以及人工强分离p小；Wilson边界数值；loader只读target且等价canonical first100；两次3-update人工分类器验证scaler仅fit、参数复现与部分更新计数。
 
 最后一项共6次人工评价分类器更新；科学实测分类器拟合数0，科学noise/response更新0。除了获准的metadata-only身份容量检查，没有读取真实target波形。真实128次重拟合由根登记、核验实现和审阅后统一运行。
+
+## Execution compatibility erratum — 2026-10-12
+
+The first RR process stopped with native exit1 at the CUDA allocator guard, before decoding target or performing any classifier update. Origin had already completed21047 rows with bitwise target reproduction and is not rerun. Explicit `torch.device('cuda:0')` now resolves CLI `--device cuda`, preserving CUDA_VISIBLE_DEVICES=0, the selected GPU and every scientific seed/method/budget. The same device normalization is applied to the replay verifier. Original source/document hashes and files are preserved in `provenance/noise_origin_003_cuda_guard_before_fix/`; its REPAIR_NOTE.md records the failure boundary. Root runs the repaired full128 RR budget from0 only in a separately bound continuation_001, preserving the failed parent receipt. This edit launched no real fitting or replay.
