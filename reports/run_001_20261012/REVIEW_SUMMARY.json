@@ -1,0 +1,471 @@
+{
+  "experiment_id": "N01",
+  "run_id": "run_001_20261012",
+  "review_UTC": "2026-10-12T01:22:10.453546+00:00",
+  "execution_status": "completed_native_exit_0",
+  "scientific_status": "response_match_not_established",
+  "unique_training_updates": 77000,
+  "review_added_training_updates": 0,
+  "review_generated_new_responses": false,
+  "checkpoint_selection": false,
+  "baseline_standalone_evaluation_performed": false,
+  "QPSD_distance_relative_improvement_full_vs_deterministic_percent": 17.09648965642826,
+  "full_AUC": 0.9873951219512195,
+  "full_AUC_95_interval": [
+    0.982760731707317,
+    0.9910823170731707
+  ],
+  "baseline_mean_std_ratio_full_over_REAL_ddof0": 3.8931306866561224,
+  "raw_and_weighted_arm_metrics": [
+    {
+      "arm": "full",
+      "status": "descriptive_completed_endpoint",
+      "checkpoint": "/home/rylan/projects/ej276d-n01/run_001_20261012/runs/train/full/stage_20000.pt",
+      "checkpoint_sha256": "374e33bc4784259cd9315623ba107d81f71f26eeee509a3d517bb2fca7c0c959",
+      "raw_distances": {
+        "wave": 0.10257986932992935,
+        "QPSD": 0.08432590961456299,
+        "noise": 0.3135547637939453,
+        "regular": 0.0,
+        "trend": 0.0
+      },
+      "comparison_weighted_distances": {
+        "wave": 0.1024930402636528,
+        "QPSD": 0.08358428627252579,
+        "noise": 0.31361889839172363,
+        "regular": 0.0,
+        "trend": 0.0
+      },
+      "raw_ROC_AUC": 0.9873951219512195,
+      "comparison_weighted_ROC_AUC": 0.9873099775955398,
+      "classifier_uncertainty": {
+        "method": "separate_SOURCE_parent_and_REAL_original_group_cluster_bootstrap",
+        "resamples": 400,
+        "source_test_parent_groups": 205,
+        "real_test_original_groups": 5,
+        "raw": {
+          "percentile_95_interval": [
+            0.982760731707317,
+            0.9910823170731707
+          ],
+          "bootstrap_SE": 0.002142797488570325,
+          "valid_resamples": 400
+        },
+        "comparison_weighted": {
+          "percentile_95_interval": [
+            0.9826334195629933,
+            0.9910243534698332
+          ],
+          "bootstrap_SE": 0.0021587249230451784,
+          "valid_resamples": 400
+        },
+        "limited_group_count": true,
+        "independent_acquisition_uncertainty": false
+      },
+      "classifier_status": "independent_fixed_budget_classifier_evaluated",
+      "raw_mean_Q": 4.630813864075948,
+      "comparison_weighted_mean_Q": 4.621313133740885,
+      "raw_mean_PSD": 0.24832908043315632,
+      "raw_mean_baseline_RMS_V": 0.0006302698500310958,
+      "saturation_fraction": 0.0,
+      "conditional_bins_used": 8,
+      "repeat_variance_Q": {
+        "rows": 128,
+        "finite_rows": 128,
+        "invalid_rows": 0,
+        "effective_rows": 128.0,
+        "mean": 1.5423569215304425,
+        "std": 1.5367422322259068,
+        "quantile_probabilities": [
+          0.01,
+          0.05,
+          0.25,
+          0.5,
+          0.75,
+          0.95,
+          0.99
+        ],
+        "quantiles": [
+          0.03372348762834025,
+          0.04039692864919744,
+          0.30522288464899483,
+          0.7028194680379173,
+          2.7831040722617524,
+          4.418838442767564,
+          5.620755898330082
+        ],
+        "minimum": 0.03021499963363482,
+        "maximum": 6.178255335329747
+      },
+      "repeat_variance_PSD": {
+        "rows": 128,
+        "finite_rows": 128,
+        "invalid_rows": 0,
+        "effective_rows": 128.0,
+        "mean": 0.0030567685892090007,
+        "std": 0.0029248656134445977,
+        "quantile_probabilities": [
+          0.01,
+          0.05,
+          0.25,
+          0.5,
+          0.75,
+          0.95,
+          0.99
+        ],
+        "quantiles": [
+          0.0003571052784910556,
+          0.0005086388876176955,
+          0.000950156464343268,
+          0.0021886612129608106,
+          0.003751062534736876,
+          0.009090286920435604,
+          0.013454407322447397
+        ],
+        "minimum": 0.0003493158589478842,
+        "maximum": 0.015298000661150358
+      }
+    },
+    {
+      "arm": "deterministic",
+      "status": "descriptive_completed_endpoint",
+      "checkpoint": "/home/rylan/projects/ej276d-n01/run_001_20261012/runs/train/deterministic/stage_20000.pt",
+      "checkpoint_sha256": "5d632013f106ca7362695d0f083ba302d1232cef35798da1df07f6ff12e518f7",
+      "raw_distances": {
+        "wave": 0.10155636817216873,
+        "QPSD": 0.10171572864055634,
+        "noise": 0.3135547637939453,
+        "regular": 0.0,
+        "trend": 0.0
+      },
+      "comparison_weighted_distances": {
+        "wave": 0.10139945149421692,
+        "QPSD": 0.1012796014547348,
+        "noise": 0.31362152099609375,
+        "regular": 0.0,
+        "trend": 0.0
+      },
+      "raw_ROC_AUC": 0.9790292682926829,
+      "comparison_weighted_ROC_AUC": 0.9789437234973958,
+      "classifier_uncertainty": {
+        "method": "separate_SOURCE_parent_and_REAL_original_group_cluster_bootstrap",
+        "resamples": 400,
+        "source_test_parent_groups": 205,
+        "real_test_original_groups": 5,
+        "raw": {
+          "percentile_95_interval": [
+            0.9716331707317073,
+            0.9857031707317073
+          ],
+          "bootstrap_SE": 0.003631520511420072,
+          "valid_resamples": 400
+        },
+        "comparison_weighted": {
+          "percentile_95_interval": [
+            0.9715358474562366,
+            0.9856431727011853
+          ],
+          "bootstrap_SE": 0.003640754274021567,
+          "valid_resamples": 400
+        },
+        "limited_group_count": true,
+        "independent_acquisition_uncertainty": false
+      },
+      "classifier_status": "independent_fixed_budget_classifier_evaluated",
+      "raw_mean_Q": 4.647220120036776,
+      "comparison_weighted_mean_Q": 4.637021341717155,
+      "raw_mean_PSD": 0.24239056081639793,
+      "raw_mean_baseline_RMS_V": 0.0006302698500310958,
+      "saturation_fraction": 0.0,
+      "conditional_bins_used": 8,
+      "repeat_variance_Q": {
+        "rows": 128,
+        "finite_rows": 128,
+        "invalid_rows": 0,
+        "effective_rows": 128.0,
+        "mean": 0.022123694960181434,
+        "std": 0.004037390986349814,
+        "quantile_probabilities": [
+          0.01,
+          0.05,
+          0.25,
+          0.5,
+          0.75,
+          0.95,
+          0.99
+        ],
+        "quantiles": [
+          0.013817487737938826,
+          0.01633377266189852,
+          0.019601842473219982,
+          0.021711586215769484,
+          0.024272160738558996,
+          0.02968397288249624,
+          0.033319793160124365
+        ],
+        "minimum": 0.01370933743419398,
+        "maximum": 0.03822357062484154
+      },
+      "repeat_variance_PSD": {
+        "rows": 128,
+        "finite_rows": 128,
+        "invalid_rows": 0,
+        "effective_rows": 128.0,
+        "mean": 0.002299877235611425,
+        "std": 0.0033807205972460797,
+        "quantile_probabilities": [
+          0.01,
+          0.05,
+          0.25,
+          0.5,
+          0.75,
+          0.95,
+          0.99
+        ],
+        "quantiles": [
+          3.414219491124609e-05,
+          6.726294073286443e-05,
+          0.00028141563794232774,
+          0.0007256163989446678,
+          0.0025055047784483795,
+          0.009005281533064487,
+          0.015806639763596524
+        ],
+        "minimum": 3.331367893432839e-05,
+        "maximum": 0.018197677453216026
+      }
+    },
+    {
+      "arm": "simple",
+      "status": "descriptive_completed_endpoint",
+      "checkpoint": "/home/rylan/projects/ej276d-n01/run_001_20261012/runs/train/simple/stage_20000.pt",
+      "checkpoint_sha256": "c1fe21ab9a0cb0095af1123b58a6544a45364192d131bae4c4b1e9268c88f9dc",
+      "raw_distances": {
+        "wave": 0.3527109622955322,
+        "QPSD": 0.1931161880493164,
+        "noise": 0.3135547637939453,
+        "regular": 0.0,
+        "trend": 0.0
+      },
+      "comparison_weighted_distances": {
+        "wave": 0.37727653980255127,
+        "QPSD": 0.1670571118593216,
+        "noise": 0.31279969215393066,
+        "regular": 0.0,
+        "trend": 0.0
+      },
+      "raw_ROC_AUC": 0.9997317073170732,
+      "comparison_weighted_ROC_AUC": 0.9997566929645514,
+      "classifier_uncertainty": {
+        "method": "separate_SOURCE_parent_and_REAL_original_group_cluster_bootstrap",
+        "resamples": 400,
+        "source_test_parent_groups": 205,
+        "real_test_original_groups": 5,
+        "raw": {
+          "percentile_95_interval": [
+            0.9992824390243903,
+            1.0
+          ],
+          "bootstrap_SE": 0.0002114135206863603,
+          "valid_resamples": 400
+        },
+        "comparison_weighted": {
+          "percentile_95_interval": [
+            0.9993387338328612,
+            0.9999999999999996
+          ],
+          "bootstrap_SE": 0.0001929043613133903,
+          "valid_resamples": 400
+        },
+        "limited_group_count": true,
+        "independent_acquisition_uncertainty": false
+      },
+      "classifier_status": "independent_fixed_budget_classifier_evaluated",
+      "raw_mean_Q": 4.182679567568134,
+      "comparison_weighted_mean_Q": 4.456376791881283,
+      "raw_mean_PSD": 0.2462609039497048,
+      "raw_mean_baseline_RMS_V": 0.0006302698500310958,
+      "saturation_fraction": 3.255208333333333e-05,
+      "conditional_bins_used": 8,
+      "repeat_variance_Q": {
+        "rows": 128,
+        "finite_rows": 128,
+        "invalid_rows": 0,
+        "effective_rows": 128.0,
+        "mean": 1.939330677381525,
+        "std": 2.323709268357987,
+        "quantile_probabilities": [
+          0.01,
+          0.05,
+          0.25,
+          0.5,
+          0.75,
+          0.95,
+          0.99
+        ],
+        "quantiles": [
+          0.14929679396053042,
+          0.18132634752275803,
+          0.27993122994820135,
+          0.4648207218319232,
+          3.10541737730305,
+          7.04486737957066,
+          9.059353665346297
+        ],
+        "minimum": 0.13572197035386313,
+        "maximum": 10.430742486040593
+      },
+      "repeat_variance_PSD": {
+        "rows": 128,
+        "finite_rows": 128,
+        "invalid_rows": 0,
+        "effective_rows": 128.0,
+        "mean": 0.00428255021126258,
+        "std": 0.00409384654549658,
+        "quantile_probabilities": [
+          0.01,
+          0.05,
+          0.25,
+          0.5,
+          0.75,
+          0.95,
+          0.99
+        ],
+        "quantiles": [
+          0.0008844109603974887,
+          0.0010905531618168004,
+          0.0017407891717436351,
+          0.003177114340738748,
+          0.005351922813818137,
+          0.009606778007684492,
+          0.022008488252004507
+        ],
+        "minimum": 0.0006649650853617181,
+        "maximum": 0.03561451572646888
+      }
+    },
+    {
+      "arm": "full_uniform",
+      "status": "descriptive_completed_endpoint",
+      "checkpoint": "/home/rylan/projects/ej276d-n01/run_001_20261012/runs/train/full_uniform/stage_20000.pt",
+      "checkpoint_sha256": "f3de1da8d6d915154480d6a8db99be6706e7d653f5faa7a62f0f26b38fdd5043",
+      "raw_distances": {
+        "wave": 0.10480882972478867,
+        "QPSD": 0.07932987064123154,
+        "noise": 0.3135547637939453,
+        "regular": 0.0,
+        "trend": 0.0
+      },
+      "comparison_weighted_distances": {
+        "wave": 0.10480882972478867,
+        "QPSD": 0.07932987064123154,
+        "noise": 0.3135547637939453,
+        "regular": 0.0,
+        "trend": 0.0
+      },
+      "raw_ROC_AUC": 0.9807853658536585,
+      "comparison_weighted_ROC_AUC": 0.9807853658536585,
+      "classifier_uncertainty": {
+        "method": "separate_SOURCE_parent_and_REAL_original_group_cluster_bootstrap",
+        "resamples": 400,
+        "source_test_parent_groups": 205,
+        "real_test_original_groups": 5,
+        "raw": {
+          "percentile_95_interval": [
+            0.974585,
+            0.9858534146341463
+          ],
+          "bootstrap_SE": 0.0028511437352296653,
+          "valid_resamples": 400
+        },
+        "comparison_weighted": {
+          "percentile_95_interval": [
+            0.974585,
+            0.9858534146341463
+          ],
+          "bootstrap_SE": 0.0028511437352296653,
+          "valid_resamples": 400
+        },
+        "limited_group_count": true,
+        "independent_acquisition_uncertainty": false
+      },
+      "classifier_status": "independent_fixed_budget_classifier_evaluated",
+      "raw_mean_Q": 4.62610796895982,
+      "comparison_weighted_mean_Q": 4.62610796895982,
+      "raw_mean_PSD": 0.2479305716546969,
+      "raw_mean_baseline_RMS_V": 0.0006302698500310958,
+      "saturation_fraction": 0.0,
+      "conditional_bins_used": 8,
+      "repeat_variance_Q": {
+        "rows": 128,
+        "finite_rows": 128,
+        "invalid_rows": 0,
+        "effective_rows": 128.0,
+        "mean": 1.5233023401116885,
+        "std": 1.510521490336791,
+        "quantile_probabilities": [
+          0.01,
+          0.05,
+          0.25,
+          0.5,
+          0.75,
+          0.95,
+          0.99
+        ],
+        "quantiles": [
+          0.02945295982789302,
+          0.040883008975378665,
+          0.32827964556953954,
+          0.6770947880894782,
+          2.69828664212909,
+          4.2980438832724115,
+          5.524461791161659
+        ],
+        "minimum": 0.024987370636924175,
+        "maximum": 5.981117416426668
+      },
+      "repeat_variance_PSD": {
+        "rows": 128,
+        "finite_rows": 128,
+        "invalid_rows": 0,
+        "effective_rows": 128.0,
+        "mean": 0.0030280374463320017,
+        "std": 0.0028874280976011403,
+        "quantile_probabilities": [
+          0.01,
+          0.05,
+          0.25,
+          0.5,
+          0.75,
+          0.95,
+          0.99
+        ],
+        "quantiles": [
+          0.00033497090423851395,
+          0.0004847361204773748,
+          0.001023546058990248,
+          0.002158762840390704,
+          0.0035736320165100075,
+          0.008715511784789744,
+          0.013153327796757729
+        ],
+        "minimum": 0.0003104228747733759,
+        "maximum": 0.014847773902917596
+      }
+    }
+  ],
+  "population_sensitivity_scope": "same_seed_retraining_under_learned_or_uniform_comparison_weights",
+  "frozen_response_cross_population_transfer_validated": false,
+  "independent_acquisition_count": 1,
+  "physical_weights": "unknown",
+  "absolute_calibration": "unknown",
+  "next_priority": "joint_electronics_noise_decomposition_before_any_new_full_training",
+  "next_training_authorized_or_started_by_review": false,
+  "inputs": {
+    "RECOVERY_VERIFICATION.json": "93086433f054478c9849c3c53e56659f540009bbab6d7835876232ea46f26bee",
+    "CHECKPOINT_AND_SPLIT_AUDIT.json": "6358fac7330f645e636ff8b53f661e013a830a6cace324ffced87780c8adea56",
+    "FULL_MODEL_ELECTRONICS_AND_INPUT_DIAGNOSTIC.json": "f709aa5576bd57dad5c91dac344cfeab3b41fea661b2852efe7260857c86d0f7",
+    "INDEPENDENT_REVIEW.md": "39d1a2409dc115fd0f9cfc26a6e374ad36c806d8f912afaab426d7b81d10b88d",
+    "train/ARM_COMPARISON.json": "417aeb1cd1285fab0af244ca32119405c5e3546251fae7348074609853928bb2"
+  }
+}

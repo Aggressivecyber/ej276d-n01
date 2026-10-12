@@ -2,9 +2,11 @@
 
 **状态：N01 已实现；四组固定终点训练与评估完成，共 77000 次独立更新。完整响应匹配尚未得到支持。**
 
-最终中文报告见 [完整模型评估](runs/run_001_20261012/final_review_20261012_0900/N01_COMPLETE_MODEL_REVIEW.html)；可复核交付见 `receipts/run_001_20261012/FINAL_EVALUATION_RECEIPT.json`。2026-10-12 07:00:28（Asia/Singapore）正常退出，当前无科学作业运行。
+最终中文报告见 [完整模型评估与四张科学图](reports/run_001_20261012/README.md)；可复核交付见 `receipts/run_001_20261012/FINAL_EVALUATION_RECEIPT.json`。2026-10-12 07:00:28（Asia/Singapore）正常退出，当前无科学作业运行。
 
 唯一方案依据是用户提供的 [原文](USER_PROPOSAL.md)。用户明确要求：**直接创建 N01，按粘贴方案，不继承 R79**。本文与 `config.json` 提取原文设计；原文的建议值仍是待验证初始设置，不视为已验证最优值。
+
+公开仓库：[https://github.com/Aggressivecyber/ej276d-n01](https://github.com/Aggressivecyber/ej276d-n01)。四组模型、检查点、日志及逐事件评估产物见 [固定终点 Release](https://github.com/Aggressivecyber/ej276d-n01/releases/tag/n01-run-001-20261012)；上传范围与 SHA256 见 `PUBLICATION_MANIFEST.json`。
 
 ## 1. 目标与依据
 

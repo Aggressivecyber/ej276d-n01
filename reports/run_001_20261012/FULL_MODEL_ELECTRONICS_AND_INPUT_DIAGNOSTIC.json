@@ -1,0 +1,119 @@
+{
+  "scope": "post_training_read_only_diagnostic_of_frozen_full_endpoint_arrays",
+  "utc": "2026-10-12T01:12:02.597878+00:00",
+  "baseline_coordinate_mean": -0.7933194154488519,
+  "REAL": {
+    "count": 599,
+    "baseline_mean_std_mV": 0.15345361154673212,
+    "OLS_intercept_std_mV": 0.3706924150468105,
+    "OLS_slope_std_mV": 0.5709629308969925,
+    "OLS_intercept_slope_correlation": 0.9500298305884561,
+    "OLS_intercept_slope_covariance_V2": 2.0107536006119443e-07,
+    "baseline_mean_variance_V2": 2.354801089673536e-08,
+    "variance_if_OLS_covariance_omitted_V2": 3.425819851065638e-07
+  },
+  "full": {
+    "count": 2048,
+    "baseline_mean_std_mV": 0.5970618637110602,
+    "OLS_intercept_std_mV": 0.5747570973388352,
+    "OLS_slope_std_mV": 0.7859161322224473,
+    "OLS_intercept_slope_correlation": 0.5059192042263235,
+    "OLS_intercept_slope_covariance_V2": 2.2852920637380033e-07,
+    "baseline_mean_variance_V2": 3.564828690981247e-07,
+    "variance_if_OLS_covariance_omitted_V2": 7.19076181925031e-07
+  },
+  "learned_latent_offset_std_mV": 0.38085051346570253,
+  "learned_latent_slope_std_mV": 0.5809933063574135,
+  "independent_latent_offset_slope_contribution_to_baseline_mean_std_mV": 0.5979031328186328,
+  "q_floor": 0.0006103888176768602,
+  "source_TRAIN_Q_range": [
+    0.2799965199956205,
+    33.136437495239086
+  ],
+  "input_interventions": {
+    "original": {
+      "source_Q": [
+        0.8614757960895076,
+        0.3302982738678111,
+        3.4877844431903213,
+        26.060104984324425,
+        0.3443263126973761,
+        0.28704078192822635,
+        0.9117763625690714,
+        31.690911705605686
+      ],
+      "generated_Q_min": 0.5778550936946829,
+      "generated_nonpositive_Q": 0,
+      "generated_guarded_PSD": 0,
+      "PSD_min": -0.08563169367832492,
+      "PSD_max": 0.4270666086460693,
+      "nonpositive_Q_parent_and_draw_zero_based": [],
+      "source_Q_outside_frozen_TRAIN_range": 0
+    },
+    "common_normalized_shape_same_Q": {
+      "source_Q": [
+        0.8614757960895078,
+        0.330298273867811,
+        3.4877844431903213,
+        26.060104984324422,
+        0.3443263126973762,
+        0.28704078192822635,
+        0.9117763625690712,
+        31.69091170560569
+      ],
+      "generated_Q_min": 0.5535616187511436,
+      "generated_nonpositive_Q": 0,
+      "generated_guarded_PSD": 0,
+      "PSD_min": -0.10761445783132784,
+      "PSD_max": 0.4270666086460693,
+      "nonpositive_Q_parent_and_draw_zero_based": [],
+      "source_Q_outside_frozen_TRAIN_range": 0
+    },
+    "same_shape_scale_1p2": {
+      "source_Q": [
+        1.033770955307409,
+        0.3963579286413732,
+        4.185341331828385,
+        31.272125981189312,
+        0.41319157523685135,
+        0.34444893831387163,
+        1.0941316350828856,
+        38.029094046726826
+      ],
+      "generated_Q_min": 0.7228834767747057,
+      "generated_nonpositive_Q": 0,
+      "generated_guarded_PSD": 0,
+      "PSD_min": -0.036855697837082424,
+      "PSD_max": 0.4432741715604027,
+      "nonpositive_Q_parent_and_draw_zero_based": [],
+      "source_Q_outside_frozen_TRAIN_range": 1
+    },
+    "same_shape_scale_0p8": {
+      "source_Q": [
+        0.6891806368716062,
+        0.2642386190942489,
+        2.7902275545522577,
+        20.84808398745954,
+        0.2754610501579009,
+        0.22963262554258107,
+        0.7294210900552571,
+        25.352729364484553
+      ],
+      "generated_Q_min": -0.003906488433132682,
+      "generated_nonpositive_Q": 1,
+      "generated_guarded_PSD": 0,
+      "PSD_min": -7.733966745843158,
+      "PSD_max": 48.49218749999054,
+      "nonpositive_Q_parent_and_draw_zero_based": [
+        [
+          5,
+          14
+        ]
+      ],
+      "source_Q_outside_frozen_TRAIN_range": 3
+    }
+  },
+  "interpretation": "Short-window OLS coefficient dispersion includes estimation noise and is correlated in the full-window coordinate. Independent latent marginal sampling loses cancellation; it does not identify true hardware noise coefficients.",
+  "scientific_training_changed": false,
+  "new_response_generated": false
+}
