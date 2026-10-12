@@ -1,0 +1,649 @@
+{
+  "status": "repair_attempt_complete_stopped_at_failed_noise_gate",
+  "completed_UTC": "2026-10-12T03:36:00.407528+00:00",
+  "run_id": "repair_002_20261012",
+  "implementation_complete": true,
+  "noise_gate_passed": false,
+  "noise_training_updates": 5000,
+  "response_training_updates": 0,
+  "classifier_evaluation_updates": 1200,
+  "original_run_training_updates": 77000,
+  "cumulative_scientific_training_updates": 82000,
+  "active_scientific_jobs": 0,
+  "native_exit_code": 0,
+  "failed_checks": [
+    "acf",
+    "ols_joint",
+    "negative_control_interval_contains_half"
+  ],
+  "conditional_response_comparison_executed": false,
+  "executed_source_hashes_unchanged": {
+    "src/n01/data.py": "2ec3363bc830043af053342b4638f5e6ab55d27303da037f383f4fe630d77bd2",
+    "src/n01/electronics_v2.py": "e4a6618edf9dba1c427e1e93342eb3b143e482f471f000003fba96dc48ce4706",
+    "src/n01/evaluate.py": "baaaf0c50c98a15b3c04cddf07ea4c1b5b4503156c50fd78d774cf3fb5baf8bb",
+    "src/n01/losses.py": "4371a6d5924f0f664935b5d6eb6715c530f80af39ae276c7dc34ba02c5f4b1a7",
+    "src/n01/losses_v2.py": "0df69a4e22ec3817e405c53f25ab1b0824bde82cebca0e15008412651d1b136f",
+    "src/n01/model.py": "0a0488218d99f351a98e30f2b1525b837b4ad3195c19f2a76ff61ee01298587b",
+    "src/n01/noise_validation.py": "40660c95ff64368de6a33bf8ebb4f82e060966578f651e2315fb6fe18fb9b886",
+    "src/n01/train.py": "9cb6b0a9cfad3fd9163eee919de7b2d64ca422513093e204f62a934e25684169",
+    "src/n01/train_repair.py": "79895348ee192e8dd9e757f1d16b15d41fc05bd1755badcafaf571822fc27332",
+    "src/n01/__init__.py": "d17d880249fa0f50920dd14c505b15b4de74419849f86296913c31576c31e891",
+    "scripts/supervise.py": "0223a8912196876f712072f064c9118a999f7e563244947cba7ad729d247a69b",
+    "scripts/launch_repair_remote.sh": "3b2289d3cbfe14d856885d0954f36a187fa74a62a51225bc6707895da3bc7d7d",
+    "repair_run_config.json": "14f07f94c150bbeb9c314d099e922231b80b98c965fb5e15ee5dcf666e52e176",
+    "data/PARENT_IDENTITIES.npz": "5145ea04d038510c9ca740d997e0cf9d060ed69210a4515e20110d884db7e845",
+    "docs/REPAIR_002_PROTOCOL.md": "efee63b94dd9e0b3e0755f90096383d3aae866ad5a80b4263bc2890f895a91c7",
+    "receipts/repair_002_20261012/PREREGISTRATION.json": "28d14758f6da0a0bcdd158ad42066db5464fb6a076afe16172b8565ac42b2511"
+  },
+  "scientific_source_package": {
+    "bytes": 74714,
+    "sha256": "c87aecfcb885d8e3b78e79406f03d5c9c1e390608e2e2b2f5456372a86ef5e5e"
+  },
+  "preregistration_unchanged": true,
+  "old_results_modified": false,
+  "tests": {
+    "status": "passed",
+    "native_exit_code": 0,
+    "artificial_tests": 34,
+    "seconds": 5.689,
+    "suites": {
+      "electronics_v2": 10,
+      "losses_v2": 8,
+      "repair_training": 4,
+      "repair_evaluation": 12
+    },
+    "additional_covariance_artificial_checks": 6,
+    "scientific_training_updates_from_tests": 0,
+    "source_of_result": "FINAL_TESTS.log and identifiability/AUDIT_COMPLETE.json"
+  },
+  "independent_review": {
+    "status": "no_unresolved_blocking_findings",
+    "reviewed_UTC": "2026-10-12T03:36:00.407528+00:00",
+    "reviewer": "n01_repair_review",
+    "construction": "n01_model and n01_losses",
+    "verified_final_evaluation_hashes": {
+      "src/n01/evaluate_repair.py": "d03401b7c6d497bffd2172f2204005413d4de9aa9eafac4c743bc5f12b6622c4",
+      "tests/test_repair_evaluation.py": "3350bc3f2bd1196db582683b44eb383331ee868a80765cf7d09a422b82635f38",
+      "docs/REPAIR_EVALUATION.md": "403eacd2a5e8b4b185d01acd863d057b5dacfea8aee000cd7ff4f79f51e16193"
+    },
+    "checks": [
+      "actual failed noise gate blocks response construction",
+      "same-update immutable projection reuse",
+      "independent evaluation projection bank",
+      "TRAIN2048/VAL256 primary matched C2ST",
+      "422 TRAIN / 12 validation original groups",
+      "parent and group isolation",
+      "checkpoint-config-container-identity-passed-gate binding",
+      "full failed-gate statistics retained"
+    ],
+    "unvalidated": [
+      "real pulse endpoints",
+      "independent acquisition generalization",
+      "480-point drift mechanism",
+      "hardware calibration"
+    ]
+  },
+  "checkpoint_reopen": {
+    "status": "reopened_and_verified",
+    "noise_updates": 5000,
+    "response_updates": 0,
+    "distinct_training_projection_contexts": 5000,
+    "all_TRAIN_rows_seen": true,
+    "visits_range": [
+      121,
+      122
+    ],
+    "checkpoint_sha256": "534c79711ffa3e2cde1bd954b6c0130df7b7ee12c9a43454ae374433d9cd4e8c",
+    "electronics_state_sha256": "0f7e42906bfe1c529c7c7e6d8506cc96e02bf9764425c3e18502f27353283d39",
+    "reopened_classifiers": [
+      {
+        "view": "raw",
+        "case": "generated_REAL",
+        "AUC": 0.5311431884765625,
+        "fit_scaler_bitwise_equal": true,
+        "reopened_CPU_vs_saved_CUDA_max_abs_logit_error": 3.5762786865234375e-07
+      },
+      {
+        "view": "raw",
+        "case": "REAL_REAL",
+        "AUC": 0.4505157470703125,
+        "fit_scaler_bitwise_equal": true,
+        "reopened_CPU_vs_saved_CUDA_max_abs_logit_error": 1.1920928955078125e-07
+      },
+      {
+        "view": "demean",
+        "case": "generated_REAL",
+        "AUC": 0.466400146484375,
+        "fit_scaler_bitwise_equal": true,
+        "reopened_CPU_vs_saved_CUDA_max_abs_logit_error": 2.384185791015625e-07
+      },
+      {
+        "view": "demean",
+        "case": "REAL_REAL",
+        "AUC": 0.4530029296875,
+        "fit_scaler_bitwise_equal": true,
+        "reopened_CPU_vs_saved_CUDA_max_abs_logit_error": 1.1920928955078125e-07
+      },
+      {
+        "view": "detrend",
+        "case": "generated_REAL",
+        "AUC": 0.4694976806640625,
+        "fit_scaler_bitwise_equal": true,
+        "reopened_CPU_vs_saved_CUDA_max_abs_logit_error": 1.7881393432617188e-07
+      },
+      {
+        "view": "detrend",
+        "case": "REAL_REAL",
+        "AUC": 0.4537353515625,
+        "fit_scaler_bitwise_equal": true,
+        "reopened_CPU_vs_saved_CUDA_max_abs_logit_error": 1.1920928955078125e-07
+      }
+    ],
+    "classifier_updates_added": 0,
+    "noise_updates_added": 0,
+    "native_exit_code": 0
+  },
+  "same_device_replay": {
+    "status": "bitwise_same_device_replay_passed",
+    "generated_rows": 10240,
+    "baseline_samples": 100,
+    "maximum_absolute_voltage_error": [
+      0.0,
+      0.0
+    ],
+    "electronics_state_sha256": "0f7e42906bfe1c529c7c7e6d8506cc96e02bf9764425c3e18502f27353283d39",
+    "new_training_updates": 0,
+    "device": "NVIDIA GeForce RTX 5070",
+    "torch_version": "2.12.0+cu130"
+  },
+  "visual_QA": {
+    "status": "passed",
+    "reviewed_UTC": "2026-10-12T03:36:00.407528+00:00",
+    "figures_inspected": 3,
+    "observed_HTML_title": "N01 电子学修复与独立验证",
+    "browser_viewport_width": 1280,
+    "document_width": 1265,
+    "browser_images_loaded": 3,
+    "chinese_rendering_verified": true,
+    "no_horizontal_overflow": true,
+    "final_minor_text_revision": "Added explicit preADC-to-ADC covariance subtraction approximation boundary; figure PNGs unchanged.",
+    "relative_links": {
+      "../noise_audit_20261012/N01_NOISE_MECHANISM_REVIEW.html": true,
+      "figures/01_noise_fit_and_observables.png": true,
+      "figures/02_covariance_and_identifiability.png": true,
+      "figures/03_classifier_control_and_stop.png": true,
+      "SUMMARY.json": true,
+      "NOISE_GATE.json": true,
+      "IDENTIFIABILITY_REPORT.json": true,
+      "REOPEN_VERIFICATION.json": true,
+      "REPLAY_VERIFICATION.json": true,
+      "TRAINING_COMPLETE.json": true,
+      "PREREGISTRATION.json": true
+    },
+    "figures": {
+      "01_noise_fit_and_observables.png": {
+        "bytes": 359845,
+        "sha256": "275d8d22b7f8d4a5b2e2c01418c0ed423d0b5f54ae9e8bb084fe661b2a26e24c"
+      },
+      "02_covariance_and_identifiability.png": {
+        "bytes": 168185,
+        "sha256": "914be3d6ce6817a737144aba28198fb6aa8c717e800c0f98bafc96266c0b420f"
+      },
+      "03_classifier_control_and_stop.png": {
+        "bytes": 101588,
+        "sha256": "b9536af6a1120a464360803cdd49e0f1bc21904b557b03c629b15cd90269c262"
+      }
+    }
+  },
+  "artifacts": {
+    ".gitattributes": {
+      "bytes": 813,
+      "sha256": "77576e9bdd6faa33b15fa879d42510db1a99b47da0a21d5339aa90c4ccf6b565"
+    },
+    "docs/ELECTRONICS_V2_IMPLEMENTATION.md": {
+      "bytes": 11481,
+      "sha256": "478359b2cf8b822b5fb7eb3c6d398b1d1d4ff501400ad1e287f81b052e082338"
+    },
+    "docs/LOSS_V2_IMPLEMENTATION.md": {
+      "bytes": 12072,
+      "sha256": "e3353d7b00399ad9ce00513574d2d511047bf11810cab9d9ee183019423d7b62"
+    },
+    "docs/REPAIR_002_PROTOCOL.md": {
+      "bytes": 5074,
+      "sha256": "efee63b94dd9e0b3e0755f90096383d3aae866ad5a80b4263bc2890f895a91c7"
+    },
+    "docs/REPAIR_EVALUATION.md": {
+      "bytes": 9791,
+      "sha256": "403eacd2a5e8b4b185d01acd863d057b5dacfea8aee000cd7ff4f79f51e16193"
+    },
+    "docs/REPAIR_NOISE_IDENTIFIABILITY.md": {
+      "bytes": 10740,
+      "sha256": "18903c0425c6419c1984bfc3536e20d57d7496115f5bea20d85f22cef0786764"
+    },
+    "jobs.json": {
+      "bytes": 4915,
+      "sha256": "68f33814a10bd56b32cd8560ca63cda7bf0de76c754a99b24e27932db6659557"
+    },
+    "PROGRAM.json": {
+      "bytes": 3106,
+      "sha256": "38f3c4fd1bbc39dd1f16421305db64e1418badb6d6f1e35b891884ef97d34dac"
+    },
+    "provenance/before_noise_repair_20261012_025345_UTC/config.json": {
+      "bytes": 10615,
+      "sha256": "2a27e00cb1ec96cc16d63364532721bd8d439e05db051f844345af2c560c2519"
+    },
+    "provenance/before_noise_repair_20261012_025345_UTC/CURRENT_SIM2REAL_PROGRAM.json": {
+      "bytes": 1478,
+      "sha256": "9618519e5349c8b3fa0c72f85c9ec92578d21e5f609e7cb944db9b7805b36da5"
+    },
+    "provenance/before_noise_repair_20261012_025345_UTC/docs/NOISE_REPAIR_SCOPE.md": {
+      "bytes": 2149,
+      "sha256": "642ac2a98470d34dfd77a667b0f510930fb0cf18fcc5a91c76dd5e5265bc04b4"
+    },
+    "provenance/before_noise_repair_20261012_025345_UTC/jobs.json": {
+      "bytes": 3411,
+      "sha256": "33a84af0abf35fbc25278dc9434c7c2ce3e2b8a30b62607619a865e1f11ec898"
+    },
+    "provenance/before_noise_repair_20261012_025345_UTC/PROGRAM.json": {
+      "bytes": 1949,
+      "sha256": "fbeb1e2c99b5a518331d462261341ff4e0a6dcb396d62e82a4f48a540b4be8ff"
+    },
+    "provenance/before_noise_repair_20261012_025345_UTC/README.md": {
+      "bytes": 12974,
+      "sha256": "cd8d4735110e03a81d6a12dc4dbd7924b448bc7615be25669018af6565649c22"
+    },
+    "provenance/before_noise_repair_20261012_025345_UTC/run_config.json": {
+      "bytes": 965,
+      "sha256": "91d366906e003c09f27d770144d50a3ab995a2ee305d85c2d1482dcfc85fa086"
+    },
+    "provenance/before_noise_repair_20261012_025345_UTC/SHA256.json": {
+      "bytes": 1099,
+      "sha256": "87bb736de949bcd3df1fce99330a8c53badb934d10af39a726aecc92dcdc9c27"
+    },
+    "provenance/before_noise_repair_20261012_025345_UTC/src/n01/data.py": {
+      "bytes": 6850,
+      "sha256": "2ec3363bc830043af053342b4638f5e6ab55d27303da037f383f4fe630d77bd2"
+    },
+    "provenance/before_noise_repair_20261012_025345_UTC/src/n01/evaluate.py": {
+      "bytes": 57852,
+      "sha256": "baaaf0c50c98a15b3c04cddf07ea4c1b5b4503156c50fd78d774cf3fb5baf8bb"
+    },
+    "provenance/before_noise_repair_20261012_025345_UTC/src/n01/losses.py": {
+      "bytes": 22993,
+      "sha256": "4371a6d5924f0f664935b5d6eb6715c530f80af39ae276c7dc34ba02c5f4b1a7"
+    },
+    "provenance/before_noise_repair_20261012_025345_UTC/src/n01/model.py": {
+      "bytes": 34459,
+      "sha256": "0a0488218d99f351a98e30f2b1525b837b4ad3195c19f2a76ff61ee01298587b"
+    },
+    "provenance/before_noise_repair_20261012_025345_UTC/src/n01/train.py": {
+      "bytes": 27521,
+      "sha256": "9cb6b0a9cfad3fd9163eee919de7b2d64ca422513093e204f62a934e25684169"
+    },
+    "README.md": {
+      "bytes": 14914,
+      "sha256": "8395e426ad9235d656a57329c87791bad6b489966ee602d9a5518bdc77832855"
+    },
+    "receipts/repair_002_20261012/FINAL_TESTS.log": {
+      "bytes": 5830,
+      "sha256": "623d68354b53303700d807c657a88b83c147385195a3ddc5ec483d8af2bca18b"
+    },
+    "receipts/repair_002_20261012/INDEPENDENT_REVIEW.json": {
+      "bytes": 1104,
+      "sha256": "4173741af4a18705761b8b36719eaa3093ea31dcd47f9a9340c095b188321803"
+    },
+    "receipts/repair_002_20261012/PREFLIGHT.json": {
+      "bytes": 1869,
+      "sha256": "64078ea37cb994a2b860fd704fc270a11a949af7e0ff99ea82f0c2ac93c05d05"
+    },
+    "receipts/repair_002_20261012/PREREGISTRATION.json": {
+      "bytes": 819,
+      "sha256": "28d14758f6da0a0bcdd158ad42066db5464fb6a076afe16172b8565ac42b2511"
+    },
+    "receipts/repair_002_20261012/START_RECEIPT.json": {
+      "bytes": 532,
+      "sha256": "0dabe8c39292df4b67ef054b2fb3ab6078eed9ac3d8ebb464d3bf8af4dabea18"
+    },
+    "receipts/repair_002_20261012/TEST_SUMMARY.json": {
+      "bytes": 391,
+      "sha256": "9c7d31866be67fb739adfbe786d5e55d3aa1403fa59cd70b78dab820ff202d2a"
+    },
+    "repair_run_config.json": {
+      "bytes": 2482,
+      "sha256": "14f07f94c150bbeb9c314d099e922231b80b98c965fb5e15ee5dcf666e52e176"
+    },
+    "reports/repair_002_20261012/figures/01_noise_fit_and_observables.pdf": {
+      "bytes": 104070,
+      "sha256": "29fa9e958bc50ef938aa3a1136a15b75dff399639a288838206ff93048c7d2a1"
+    },
+    "reports/repair_002_20261012/figures/01_noise_fit_and_observables.png": {
+      "bytes": 359845,
+      "sha256": "275d8d22b7f8d4a5b2e2c01418c0ed423d0b5f54ae9e8bb084fe661b2a26e24c"
+    },
+    "reports/repair_002_20261012/figures/02_covariance_and_identifiability.pdf": {
+      "bytes": 31024,
+      "sha256": "927ccb46ed50ed31b59af5c62f223d43d97e03f11977f9228f0a5ce8520fea1b"
+    },
+    "reports/repair_002_20261012/figures/02_covariance_and_identifiability.png": {
+      "bytes": 168185,
+      "sha256": "914be3d6ce6817a737144aba28198fb6aa8c717e800c0f98bafc96266c0b420f"
+    },
+    "reports/repair_002_20261012/figures/03_classifier_control_and_stop.pdf": {
+      "bytes": 29245,
+      "sha256": "b552864efe5f4dfb22ff8be2e26d12fe60355dbcf366860aa9c0e925326ff1fd"
+    },
+    "reports/repair_002_20261012/figures/03_classifier_control_and_stop.png": {
+      "bytes": 101588,
+      "sha256": "b9536af6a1120a464360803cdd49e0f1bc21904b557b03c629b15cd90269c262"
+    },
+    "reports/repair_002_20261012/IDENTIFIABILITY_REPORT.json": {
+      "bytes": 14341,
+      "sha256": "37780785ac634a7330b55746f16825c6664e7e228c6d3c92e44b431df0b99f5c"
+    },
+    "reports/repair_002_20261012/N01_NOISE_REPAIR_REPORT.html": {
+      "bytes": 7912,
+      "sha256": "4795218c13da06f411947360c3017b4dbb20ff8a9334a57f7b6eebb9f37cd43b"
+    },
+    "reports/repair_002_20261012/NOISE_GATE.json": {
+      "bytes": 32675,
+      "sha256": "2aabbe53102aa812a0f7d0eaed0434b70faf8159c03cde9c9885521b271dc20d"
+    },
+    "reports/repair_002_20261012/PREREGISTRATION.json": {
+      "bytes": 819,
+      "sha256": "28d14758f6da0a0bcdd158ad42066db5464fb6a076afe16172b8565ac42b2511"
+    },
+    "reports/repair_002_20261012/README.md": {
+      "bytes": 2273,
+      "sha256": "38cd6afb33035b27f0d1da6cc8041fa1a266374b6ebb7e0a7fa820311212548b"
+    },
+    "reports/repair_002_20261012/REOPEN_VERIFICATION.json": {
+      "bytes": 1818,
+      "sha256": "c1b134c4b8fcb359de420466863bd0caf8ae4af9048820a91224af07c5ebdf5f"
+    },
+    "reports/repair_002_20261012/REPLAY_VERIFICATION.json": {
+      "bytes": 367,
+      "sha256": "78c24097f58343d3a87ca7ebc931106d90d4c68d201ff5e085f56f60478eaa81"
+    },
+    "reports/repair_002_20261012/SUMMARY.json": {
+      "bytes": 1763,
+      "sha256": "e193690a9f64c3d00ae36fb04409b8e6e39d01430c981e72702d1446b8c78678"
+    },
+    "reports/repair_002_20261012/TRAINING_COMPLETE.json": {
+      "bytes": 344,
+      "sha256": "e0849502a07d1f0c777914447202d0902083d38e8d9e1b6663ff7ec63717ff2b"
+    },
+    "reports/repair_002_20261012/VISUAL_QA.json": {
+      "bytes": 1460,
+      "sha256": "5ee2d12929d3b18fbdf0318872d5822e62edf0a59b4bffaf1710ca2502296e1f"
+    },
+    "runs/repair_002_20261012/ENGINEERING_SOURCE_HASHES.json": {
+      "bytes": 1577,
+      "sha256": "a73f400b84bffb33eed6468bb760a05b16ef3c2a661b57e95d199bccfc75f1da"
+    },
+    "runs/repair_002_20261012/executed_source.tar.gz": {
+      "bytes": 74714,
+      "sha256": "c87aecfcb885d8e3b78e79406f03d5c9c1e390608e2e2b2f5456372a86ef5e5e"
+    },
+    "runs/repair_002_20261012/identifiability/AUDIT_COMPLETE.json": {
+      "bytes": 407,
+      "sha256": "18c0881ce3a25d30bba2e1f2a5fd75be34fee4b58dadf51be3b0fe9c683abce8"
+    },
+    "runs/repair_002_20261012/identifiability/COVARIANCE_MATRICES.npz": {
+      "bytes": 559085,
+      "sha256": "d66c54757d8028eac7c7d56467ade7d5d774fe2846c0f8635522e6cb821d520f"
+    },
+    "runs/repair_002_20261012/identifiability/IDENTIFIABILITY_REPORT.json": {
+      "bytes": 14341,
+      "sha256": "37780785ac634a7330b55746f16825c6664e7e228c6d3c92e44b431df0b99f5c"
+    },
+    "runs/repair_002_20261012/NOISE_GATE.json": {
+      "bytes": 32675,
+      "sha256": "2aabbe53102aa812a0f7d0eaed0434b70faf8159c03cde9c9885521b271dc20d"
+    },
+    "runs/repair_002_20261012/PREFLIGHT.json": {
+      "bytes": 1869,
+      "sha256": "64078ea37cb994a2b860fd704fc270a11a949af7e0ff99ea82f0c2ac93c05d05"
+    },
+    "runs/repair_002_20261012/REOPEN_VERIFICATION.json": {
+      "bytes": 1818,
+      "sha256": "c1b134c4b8fcb359de420466863bd0caf8ae4af9048820a91224af07c5ebdf5f"
+    },
+    "runs/repair_002_20261012/repair_002_noise_result.tar.gz": {
+      "bytes": 3603058,
+      "sha256": "3150067b20dc4438e043c07c67b079f2b26abe2a6cae7881bd38ad8a76d64d3d"
+    },
+    "runs/repair_002_20261012/REPLAY_VERIFICATION.json": {
+      "bytes": 367,
+      "sha256": "78c24097f58343d3a87ca7ebc931106d90d4c68d201ff5e085f56f60478eaa81"
+    },
+    "runs/repair_002_20261012/runs/engineering/console.log": {
+      "bytes": 2280,
+      "sha256": "05172d3e78983c5bcc4c31dac9a0b0edb87bde6ae890585d3f504dfe95d85dbe"
+    },
+    "runs/repair_002_20261012/runs/engineering/exit_receipt.json": {
+      "bytes": 226,
+      "sha256": "7614423d67e3e15a6cbdb647b07d6402fab067696e8ccaa12a8207f05f41f0b7"
+    },
+    "runs/repair_002_20261012/runs/engineering/launch.json": {
+      "bytes": 763,
+      "sha256": "633646db9168f9aeb8e92d4b8de0a17c8d95171ea8b475deef28de46d35402b0"
+    },
+    "runs/repair_002_20261012/runs/engineering/noise/ENGINEERING.json": {
+      "bytes": 335,
+      "sha256": "8b5bd1f49aadc3970210ab7299a73d269092da34b8784dc388b20c948e4c31b9"
+    },
+    "runs/repair_002_20261012/runs/engineering/noise/engineering.pt": {
+      "bytes": 745681,
+      "sha256": "1a3e7cbd27f40454c385724164421f8137dae731c727dd1ee81442dbfff87582"
+    },
+    "runs/repair_002_20261012/runs/engineering/noise/fit_statistics.json": {
+      "bytes": 10388,
+      "sha256": "6e48b1d5c71e2927352314e1583103910c7dcb502a9372d63909e7c5a5e914c2"
+    },
+    "runs/repair_002_20261012/runs/engineering/noise/training.jsonl": {
+      "bytes": 2280,
+      "sha256": "05172d3e78983c5bcc4c31dac9a0b0edb87bde6ae890585d3f504dfe95d85dbe"
+    },
+    "runs/repair_002_20261012/runs/engineering/resource_status.json": {
+      "bytes": 192,
+      "sha256": "163d16c9fd19941bcc00984ea933fcf2411d3105d18c984a314ac18e820e487d"
+    },
+    "runs/repair_002_20261012/runs/engineering/run.lock": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "runs/repair_002_20261012/runs/engineering/status.json": {
+      "bytes": 133,
+      "sha256": "04edbdf8137a95484997c5d86321a280bd4a77221208d4376d2e1b23069a1289"
+    },
+    "runs/repair_002_20261012/runs/science/console.log": {
+      "bytes": 156581,
+      "sha256": "99bff500173672580bb782d91ba2339cc15900e3477a20d64e8fb836e15fe745"
+    },
+    "runs/repair_002_20261012/runs/science/exit_receipt.json": {
+      "bytes": 226,
+      "sha256": "745eb29cfade4090a7fecf1825916722e4938b01198e2d14f2b1f3290b50a158"
+    },
+    "runs/repair_002_20261012/runs/science/launch.json": {
+      "bytes": 738,
+      "sha256": "9359ebaedb0983e434e48e1d1b51fe8b43d302ec5ccfae6913f04f1359b9af03"
+    },
+    "runs/repair_002_20261012/runs/science/noise/final.pt": {
+      "bytes": 745351,
+      "sha256": "534c79711ffa3e2cde1bd954b6c0130df7b7ee12c9a43454ae374433d9cd4e8c"
+    },
+    "runs/repair_002_20261012/runs/science/noise/fit_statistics.json": {
+      "bytes": 10388,
+      "sha256": "6e48b1d5c71e2927352314e1583103910c7dcb502a9372d63909e7c5a5e914c2"
+    },
+    "runs/repair_002_20261012/runs/science/noise/latest.pt": {
+      "bytes": 745406,
+      "sha256": "fc70e86f40c2d7636b26aae93a66b2fe2a40307b457711765b6bdcb32de5e583"
+    },
+    "runs/repair_002_20261012/runs/science/noise/training.jsonl": {
+      "bytes": 3820834,
+      "sha256": "18ee6ffc5448b7cc812da7e73dc7237d26e59879f92c5ea12c66fa75473bd6b8"
+    },
+    "runs/repair_002_20261012/runs/science/noise/TRAINING_COMPLETE.json": {
+      "bytes": 344,
+      "sha256": "e0849502a07d1f0c777914447202d0902083d38e8d9e1b6663ff7ec63717ff2b"
+    },
+    "runs/repair_002_20261012/runs/science/noise_validation/baseline_populations.npz": {
+      "bytes": 1368524,
+      "sha256": "37cacad2f58d22bde2ce8041dd9adcd1639e8c9c846240164d04dc3c6dd396e9"
+    },
+    "runs/repair_002_20261012/runs/science/noise_validation/classifiers/demean/generated_REAL/classifier.pt": {
+      "bytes": 24631,
+      "sha256": "ee870b95642621ab2f1aed080c7ed86bb0056555082e21aacf1fe2242e91ead3"
+    },
+    "runs/repair_002_20261012/runs/science/noise_validation/classifiers/demean/generated_REAL/predictions.npz": {
+      "bytes": 4178,
+      "sha256": "52894a778d2621acb397b9f4c122363f0ae362e8c4420c765583cf1d2cd70a51"
+    },
+    "runs/repair_002_20261012/runs/science/noise_validation/classifiers/demean/generated_REAL/result.json": {
+      "bytes": 609,
+      "sha256": "dc37b2458abef8f7044286071b7b9556fa112d29d5a659396872257cb29eac47"
+    },
+    "runs/repair_002_20261012/runs/science/noise_validation/classifiers/demean/REAL_REAL/classifier.pt": {
+      "bytes": 24631,
+      "sha256": "ae78d45b1995fe69ed8709f855758a22e678ae0f598252d4eb99d1e7f66cc1cd"
+    },
+    "runs/repair_002_20261012/runs/science/noise_validation/classifiers/demean/REAL_REAL/predictions.npz": {
+      "bytes": 3776,
+      "sha256": "d16c8f2df5c5d83eccac62ba1f598b30eaf4bc8ae1a84148345e7d66e5a42992"
+    },
+    "runs/repair_002_20261012/runs/science/noise_validation/classifiers/demean/REAL_REAL/result.json": {
+      "bytes": 595,
+      "sha256": "71d64e64d11c8d49afe40e3e62260897c9c7d7af36a11d23adf1e7416b72fdd4"
+    },
+    "runs/repair_002_20261012/runs/science/noise_validation/classifiers/detrend/generated_REAL/classifier.pt": {
+      "bytes": 24631,
+      "sha256": "9404cdc1dc824e9e44d50a85ab28c66708808bab565aa9aa8bd9d0ea460946e8"
+    },
+    "runs/repair_002_20261012/runs/science/noise_validation/classifiers/detrend/generated_REAL/predictions.npz": {
+      "bytes": 4176,
+      "sha256": "b756df9b8ba93bdf1da66023afe015f452728f31bb385001de8cd16a4b6d2ac4"
+    },
+    "runs/repair_002_20261012/runs/science/noise_validation/classifiers/detrend/generated_REAL/result.json": {
+      "bytes": 609,
+      "sha256": "7f90be2f4dab47e2c7d28de1473a8c87f030c0ad2ed1104800ffe39f05f94400"
+    },
+    "runs/repair_002_20261012/runs/science/noise_validation/classifiers/detrend/REAL_REAL/classifier.pt": {
+      "bytes": 24631,
+      "sha256": "37c80ff5f2de714c71d8e534b01cc7114e5327f13ea0d14cdb7b1070786bc111"
+    },
+    "runs/repair_002_20261012/runs/science/noise_validation/classifiers/detrend/REAL_REAL/predictions.npz": {
+      "bytes": 3769,
+      "sha256": "80561840f7831f22edc8885e489b4b860a93043baa93ff968df32e4897bfa7f0"
+    },
+    "runs/repair_002_20261012/runs/science/noise_validation/classifiers/detrend/REAL_REAL/result.json": {
+      "bytes": 599,
+      "sha256": "a81b2cef76886c3d5bb2febaa68afef03e640f23076f749958eee6ac7e10797b"
+    },
+    "runs/repair_002_20261012/runs/science/noise_validation/classifiers/raw/generated_REAL/classifier.pt": {
+      "bytes": 24631,
+      "sha256": "9f21817b4e1f92c212d76f8f8e929d58849111272c6a44d7432ffb64ca70fb31"
+    },
+    "runs/repair_002_20261012/runs/science/noise_validation/classifiers/raw/generated_REAL/predictions.npz": {
+      "bytes": 4184,
+      "sha256": "880656b3f3787b9bdb0df4bf00e3560f2d02939fa6a87ca86983b13a5628b474"
+    },
+    "runs/repair_002_20261012/runs/science/noise_validation/classifiers/raw/generated_REAL/result.json": {
+      "bytes": 609,
+      "sha256": "3c6da87a2f623809924eba47da583f251aa6a58d44185a3950f2e3e7126dffe4"
+    },
+    "runs/repair_002_20261012/runs/science/noise_validation/classifiers/raw/REAL_REAL/classifier.pt": {
+      "bytes": 24631,
+      "sha256": "da76ba6a1eca91d93a00bcb3c30185a17ce1b89764efb0018899743c909cacdf"
+    },
+    "runs/repair_002_20261012/runs/science/noise_validation/classifiers/raw/REAL_REAL/predictions.npz": {
+      "bytes": 3775,
+      "sha256": "d9594388c56d1d6f5bd6c8ea3dcdcd1a2210a2f0c2eef5e7a9fd059aac752181"
+    },
+    "runs/repair_002_20261012/runs/science/noise_validation/classifiers/raw/REAL_REAL/result.json": {
+      "bytes": 601,
+      "sha256": "37d2a0bef65a471eda4ac903339fb1a95a11f15b16810315c88a3713726632f7"
+    },
+    "runs/repair_002_20261012/runs/science/noise_validation/NOISE_GATE.json": {
+      "bytes": 32675,
+      "sha256": "2aabbe53102aa812a0f7d0eaed0434b70faf8159c03cde9c9885521b271dc20d"
+    },
+    "runs/repair_002_20261012/runs/science/resource_status.json": {
+      "bytes": 192,
+      "sha256": "267b643cc896835b43859b3a6dd678859b27dd83adef6269525acbe1294b224b"
+    },
+    "runs/repair_002_20261012/runs/science/run.lock": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "runs/repair_002_20261012/runs/science/status.json": {
+      "bytes": 316,
+      "sha256": "d8002003cf213971083ebb9afd8002e655480c31c43be457581f0907d6be1381"
+    },
+    "scripts/analyze_noise_repair_covariance.py": {
+      "bytes": 23914,
+      "sha256": "d2ace787c3feaf1e998705920ac0421e3b698e617083273e7960446f49e03bc4"
+    },
+    "scripts/build_noise_repair_report.py": {
+      "bytes": 17999,
+      "sha256": "d998a436c110656e2c8f9eecf907e6ab32769747d49acef3bb9ce41951a01789"
+    },
+    "scripts/launch_repair_remote.sh": {
+      "bytes": 1240,
+      "sha256": "3b2289d3cbfe14d856885d0954f36a187fa74a62a51225bc6707895da3bc7d7d"
+    },
+    "scripts/verify_repair_noise_payload.py": {
+      "bytes": 4562,
+      "sha256": "d37739e615940721c6e8ec9cda749c2be6a272ca353d2dbe99abe003cf3a0383"
+    },
+    "src/n01/electronics_v2.py": {
+      "bytes": 15310,
+      "sha256": "e4a6618edf9dba1c427e1e93342eb3b143e482f471f000003fba96dc48ce4706"
+    },
+    "src/n01/evaluate_repair.py": {
+      "bytes": 34507,
+      "sha256": "d03401b7c6d497bffd2172f2204005413d4de9aa9eafac4c743bc5f12b6622c4"
+    },
+    "src/n01/losses_v2.py": {
+      "bytes": 20221,
+      "sha256": "0df69a4e22ec3817e405c53f25ab1b0824bde82cebca0e15008412651d1b136f"
+    },
+    "src/n01/noise_validation.py": {
+      "bytes": 15370,
+      "sha256": "40660c95ff64368de6a33bf8ebb4f82e060966578f651e2315fb6fe18fb9b886"
+    },
+    "src/n01/train_repair.py": {
+      "bytes": 20405,
+      "sha256": "79895348ee192e8dd9e757f1d16b15d41fc05bd1755badcafaf571822fc27332"
+    },
+    "tests/test_electronics_v2.py": {
+      "bytes": 10148,
+      "sha256": "d3824fa8d180e66f3c96bf1adcf1778de4b7d65e4421c7b07d9a1535fa725d5d"
+    },
+    "tests/test_losses_v2.py": {
+      "bytes": 9108,
+      "sha256": "d5c37cc3ece17f0715cb64ffd08693c050d32cf24ce2d8bfcb1ab72594de521c"
+    },
+    "tests/test_repair_evaluation.py": {
+      "bytes": 13314,
+      "sha256": "3350bc3f2bd1196db582683b44eb383331ee868a80765cf7d09a422b82635f38"
+    },
+    "tests/test_repair_training.py": {
+      "bytes": 5333,
+      "sha256": "f350565b9476071a4b9b37267221e8f94161722e9143fcde5e068e8e08e60714"
+    }
+  },
+  "public_release": {
+    "repository": "https://github.com/Aggressivecyber/ej276d-n01",
+    "tag": "n01-repair-002-20261012",
+    "publication_status": "prepared_pending_remote_verification",
+    "raw_TRAIN_waveforms_included": false
+  },
+  "root_pointer_sha256": "fbb52049316f34f141df2ed051b3bcd74f6c74465ee158b8628df976ed245d00",
+  "scientific_limits": [
+    "noise candidate failed",
+    "pulse efficacy not evaluated",
+    "same previously-viewed validation acquisition",
+    "hardware calibration not established"
+  ]
+}

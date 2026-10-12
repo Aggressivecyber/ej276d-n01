@@ -1,16 +1,29 @@
 # N01｜物理分解式条件随机 1D U-Net
 
-**状态：N01 已实现；四组固定终点训练与评估完成，共 77000 次独立更新。完整响应匹配尚未得到支持。**
+**当前状态：电子学与损失 V2 改造已完成；独立噪声训练 5000 次后的预注册门未通过，已按规则停止，新脉冲训练为 0。完整响应匹配尚未得到支持。**
 
-最终中文报告见 [完整模型评估与四张科学图](reports/run_001_20261012/README.md)；可复核交付见 `receipts/run_001_20261012/FINAL_EVALUATION_RECEIPT.json`。2026-10-12 07:00:28（Asia/Singapore）正常退出，当前无科学作业运行。
+最新中文报告见 [电子学修复与独立验证](reports/repair_002_20261012/README.md)，规则见 [repair_002 协议](docs/REPAIR_002_PROTOCOL.md) 与 `repair_run_config.json`。失败项为 ACF、基线均值—斜率联合统计和 REAL–REAL 阴性对照区间。确定性 / 完整随机两臂及独立终点评价代码已实现并测试，但由于噪声门未通过，本轮未运行这两臂。科学计数分别为：旧 run_001 共 77000 更新；本轮噪声 5000、响应 0；本轮 1200 次分类器评价更新另计。
 
-唯一方案依据是用户提供的 [原文](USER_PROPOSAL.md)。用户明确要求：**直接创建 N01，按粘贴方案，不继承 R79**。本文与 `config.json` 提取原文设计；原文的建议值仍是待验证初始设置，不视为已验证最优值。
+原 run_001 四组固定终点中文报告见 [完整模型评估与四张科学图](reports/run_001_20261012/README.md)；原交付见 `receipts/run_001_20261012/FINAL_EVALUATION_RECEIPT.json`。它在 2026-10-12 07:00:28（Asia/Singapore）正常退出。当前科学作业为 0。
+
+初始方案依据是用户提供的 [原文](USER_PROPOSAL.md)，后续由用户的噪声与损失审查修订。用户明确要求：**直接创建 N01，按粘贴方案，不继承 R79**。本文第 1 节以下及 `config.json` 保留初始设计；当前修订以 `docs/REPAIR_002_PROTOCOL.md`、`repair_run_config.json` 和 `PROGRAM.json` 为准。原文的建议值不视为已验证最优值。
 
 公开仓库：[https://github.com/Aggressivecyber/ej276d-n01](https://github.com/Aggressivecyber/ej276d-n01)。四组模型、检查点、日志及逐事件评估产物见 [固定终点 Release](https://github.com/Aggressivecyber/ej276d-n01/releases/tag/n01-run-001-20261012)；上传范围与 SHA256 见 `PUBLICATION_MANIFEST.json`。
 
+本轮噪声权重、逐步日志、分类器、复核结果和完整源码包见 [repair_002 Release](https://github.com/Aggressivecyber/ej276d-n01/releases/tag/n01-repair-002-20261012)，其中明确保留噪声门未通过状态。
+
 ## 2026-10-12 机制复核
 
-已完成冻结模型分窗口分类器、同随机数斜率干预与固定投影人工盲区复现，见 [新诊断报告与可运行入口](reports/noise_audit_20261012/README.md)。确定性模型条件 Q 方差中位数在关闭随机斜率后下降约 97.7%；归一脉冲域 AUC 仍为 0.982。核心响应模型与原结果未改，本轮响应训练更新为 0；24 个诊断分类器共 4800 更新。下一步独立校准电子学，尚未启动新噪声拟合或波形重训。
+已完成冻结模型分窗口分类器、同随机数斜率干预与固定投影人工盲区复现，见 [诊断报告与可运行入口](reports/noise_audit_20261012/README.md)。确定性模型条件 Q 方差中位数在关闭随机斜率后下降约 97.7%；归一脉冲域 AUC 仍为 0.982。核心响应模型与原结果未改，此诊断响应训练更新为 0；24 个诊断分类器共 4800 更新。随后进行的电子学 V2 运行已结束，其未通过结果见上方最新报告。
+
+## repair_002 实现与复现
+
+- [电子学 V2](docs/ELECTRONICS_V2_IMPLEMENTATION.md)：自由 FIR / L2 归一化，不把短窗 OLS 散布直接复制为全窗随机斜率。
+- [分布目标 V2](docs/LOSS_V2_IMPLEMENTATION.md)：每更新刷新投影、双遍共享上下文、独立评价方向、逐坐标和短延迟联合分布。
+- [条件两臂评价](docs/REPAIR_EVALUATION.md)：严格绑定实际通过的噪声门、权重与数据身份，当前没有本轮脉冲终点。
+- [噪声协方差与可辨识性分析](docs/REPAIR_NOISE_IDENTIFIABILITY.md)：冻结 K 的潜在漂移相减非半正定，前 100 点不足以识别 480 点真实漂移。
+
+运行入口为 `python -m n01.train_repair --help`，仅在用户授权并且新的独立噪声门确实通过后执行响应阶段。本轮固定终点、配置、全部失败指标和复核回执均保留，不能更改本次门槛后将同一结果重标为通过。
 
 ## 1. 目标与依据
 

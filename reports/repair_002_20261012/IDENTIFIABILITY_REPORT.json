@@ -1,0 +1,457 @@
+{
+  "schema_version": 1,
+  "status": "read_only_mechanism_analysis_not_a_new_candidate",
+  "new_noise_training_updates": 0,
+  "new_response_training_updates": 0,
+  "execution": {
+    "device": "CPU",
+    "torch_num_threads": 2,
+    "numerical_thread_environment": {
+      "OMP_NUM_THREADS": "2",
+      "MKL_NUM_THREADS": "2",
+      "OPENBLAS_NUM_THREADS": "2",
+      "NUMEXPR_NUM_THREADS": "2"
+    }
+  },
+  "gate_changed": false,
+  "model_changed": false,
+  "gate_passed": false,
+  "frozen_endpoint_update": 5000,
+  "seed": 2026101251,
+  "files": {
+    "checkpoint_sha256": "534c79711ffa3e2cde1bd954b6c0130df7b7ee12c9a43454ae374433d9cd4e8c",
+    "container_sha256": "9e2f2c3c18470f4b2f3374a39590a9c27b18222bd1b22b5d7467e561409ad854",
+    "identities_sha256": "5145ea04d038510c9ca740d997e0cf9d060ed69210a4515e20110d884db7e845",
+    "script_sha256": "d2ace787c3feaf1e998705920ac0421e3b698e617083273e7960446f49e03bc4",
+    "electronics_v2_source_sha256": "e4a6618edf9dba1c427e1e93342eb3b143e482f471f000003fba96dc48ce4706",
+    "data_source_sha256": "2ec3363bc830043af053342b4638f5e6ab55d27303da037f383f4fe630d77bd2"
+  },
+  "provenance": {
+    "statistical_input": "existing canonical REAL TRAIN target[:,:100] only",
+    "TRAIN_rows": 21047,
+    "TRAIN_original_groups": 422,
+    "no_row_deletion": true,
+    "new_VAL_fit": false,
+    "validation_members_read": false,
+    "saved_gate_VAL_descriptive_covariance_reused": true,
+    "fitted_scale_split": "TRAIN"
+  },
+  "self_checks": {
+    "seed": 2026101251,
+    "checks": 6,
+    "status": "passed",
+    "meanings": [
+      "reflection_covariance_zero",
+      "known_joint_latent_recovered",
+      "OLS_residual_cannot_identify_removed_modes",
+      "coordinate_congruence_preserves_PSD",
+      "copied_OLS_variance_double_counts_K",
+      "nonPSD_subtraction_rejected"
+    ]
+  },
+  "OLS_coordinate": {
+    "center": "first100_midpoint",
+    "slope_coordinate": "linspace(-1,1,100)",
+    "mean_operator": "ones100/100",
+    "slope_operator": "t/sum(t^2)",
+    "global480_transform": [
+      [
+        1.0,
+        3.8383838383838382
+      ],
+      [
+        0.0,
+        4.838383838383838
+      ]
+    ],
+    "global480_intercept_mean_slope_distinction": true
+  },
+  "observed_TRAIN": {
+    "covariance_V2": [
+      [
+        2.4500636229660846e-08,
+        -1.4375143729281111e-08
+      ],
+      [
+        -1.4375143729281111e-08,
+        1.8334588030652924e-08
+      ]
+    ],
+    "marginal_SD_V": [
+      0.00015652679077289244,
+      0.00013540527327490952
+    ],
+    "mean_slope_correlation": -0.6782470859869087,
+    "eigenvalues_V2": [
+      6.715578432888597e-09,
+      3.611964582742517e-08
+    ]
+  },
+  "within_between_TRAIN_groups": {
+    "denominator": "both contributions use N-1;sum_equals_total_covariance",
+    "within_covariance_contribution": {
+      "covariance_V2": [
+        [
+          2.403675167915839e-08,
+          -1.4095038719738193e-08
+        ],
+        [
+          -1.4095038719738193e-08,
+          1.7990824160256998e-08
+        ]
+      ],
+      "marginal_SD_V": [
+        0.00015503790400788573,
+        0.000134129877955126
+      ],
+      "mean_slope_correlation": -0.6778020146853515,
+      "eigenvalues_V2": [
+        6.598225967363584e-09,
+        3.54293498720518e-08
+      ]
+    },
+    "between_covariance_contribution": {
+      "covariance_V2": [
+        [
+          4.638845505024585e-10,
+          -2.8010500954292463e-10
+        ],
+        [
+          -2.8010500954292463e-10,
+          3.437638703959215e-10
+        ]
+      ],
+      "marginal_SD_V": [
+        2.153797925763832e-05,
+        1.8540870270726816e-05
+      ],
+      "mean_slope_correlation": -0.7014323739815257,
+      "eigenvalues_V2": [
+        1.173524652135453e-10,
+        6.902959556848347e-10
+      ]
+    },
+    "within_cross_covariance_fraction": 0.9805146289443796,
+    "group_event_count_range": [
+      48,
+      50
+    ]
+  },
+  "observable_point_SD_first_last20_V": [
+    0.0006796730058844327,
+    0.0006363631199280661
+  ],
+  "frozen_stationary_K": {
+    "component": "FIR/logscale only;independent event offset excluded from proposed latent correction",
+    "offset_mean": 1.9880972353215306e-06,
+    "offset_std": 0.00012046068931456725,
+    "rms_arithmetic_mean": 0.000632323234212749,
+    "log_scale_std": 0.038009258075228126,
+    "sigma_squared_mean": 4.004107297265674e-07,
+    "sample_variance_stationary_component": 4.004107297265674e-07,
+    "sample_variance_total": 4.149215073967081e-07,
+    "voltage_scale": 0.0006389425756164607,
+    "covariance_reflection_relative_error": 0.0,
+    "OLS": {
+      "covariance_V2": [
+        [
+          2.1487238228913007e-09,
+          1.4411037234322279e-24
+        ],
+        [
+          1.4411037234322279e-24,
+          1.2076731444737215e-08
+        ]
+      ],
+      "marginal_SD_V": [
+        4.6354329063112334e-05,
+        0.00010989418294312586
+      ],
+      "mean_slope_correlation": 2.8289823404003486e-16,
+      "eigenvalues_V2": [
+        2.1487238228913007e-09,
+        1.2076731444737215e-08
+      ]
+    },
+    "full100_minimum_eigenvalue_V2": 1.713407273898823e-07
+  },
+  "current_model_including_independent_offset": {
+    "covariance_V2": [
+      [
+        1.6659501493032e-08,
+        4.7239767795020565e-24
+      ],
+      [
+        4.7239767795020565e-24,
+        1.2076731444737215e-08
+      ]
+    ],
+    "marginal_SD_V": [
+      0.0001290716912922117,
+      0.00010989418294312586
+    ],
+    "mean_slope_correlation": 3.330443335350935e-16,
+    "eigenvalues_V2": [
+      1.2076731444737215e-08,
+      1.6659501493032e-08
+    ]
+  },
+  "saved_gate_summaries": {
+    "TRAIN": {
+      "covariance_V2": [
+        [
+          2.4500636229660846e-08,
+          -1.4375143729281111e-08
+        ],
+        [
+          -1.4375143729281111e-08,
+          1.833458803065293e-08
+        ]
+      ],
+      "marginal_SD_V": [
+        0.00015652679077289244,
+        0.00013540527327490955
+      ],
+      "mean_slope_correlation": -0.6782470859869086,
+      "eigenvalues_V2": [
+        6.715578432888601e-09,
+        3.611964582742518e-08
+      ]
+    },
+    "REAL": {
+      "covariance_V2": [
+        [
+          2.3548010896735358e-08,
+          -1.1893581608981212e-08
+        ],
+        [
+          -1.1893581608981212e-08,
+          1.392564079463391e-08
+        ]
+      ],
+      "marginal_SD_V": [
+        0.00015345361154673213,
+        0.00011800695231482724
+      ],
+      "mean_slope_correlation": -0.6567921425826125,
+      "eigenvalues_V2": [
+        5.906986209705155e-09,
+        3.156666548166412e-08
+      ]
+    },
+    "generated": {
+      "covariance_V2": [
+        [
+          1.7167151308512454e-08,
+          -3.234968362737778e-11
+        ],
+        [
+          -3.234968362737778e-11,
+          1.2225839582678108e-08
+        ]
+      ],
+      "marginal_SD_V": [
+        0.00013102347617321278,
+        0.00011057051859640575
+      ],
+      "mean_slope_correlation": -0.002232963240694967,
+      "eigenvalues_V2": [
+        1.2225627805474146e-08,
+        1.7167363085716416e-08
+      ]
+    }
+  },
+  "latent_subtraction": {
+    "formula": "Sigma_latent = Cov_TRAIN(mean,slope) - A K_FIR A^T",
+    "independent_latent_noise_assumption": true,
+    "preADC_approximation_to_quantized_TRAIN": true,
+    "covariance_V2": [
+      [
+        2.2351912406769546e-08,
+        -1.4375143729281113e-08
+      ],
+      [
+        -1.4375143729281113e-08,
+        6.257856585915709e-09
+      ]
+    ],
+    "marginal_SD_V": [
+      0.00014950555978547936,
+      7.910661531070401e-05
+    ],
+    "mean_slope_correlation": -1.2154638570823801,
+    "eigenvalues_V2": [
+      -2.169320049816192e-09,
+      3.0779089042501446e-08
+    ],
+    "PSD": false,
+    "required_slope_latent_variance_for_PSD_V2": 9.24505937017296e-09,
+    "actual_subtracted_slope_latent_variance_V2": 6.257856585915709e-09,
+    "maximum_stationary_slope_contribution_at_fixed_mean_noise_V2": 9.089528660479963e-09,
+    "maximum_same_shape_frozen_K_variance_scale": 0.7692600405172939,
+    "corresponding_K_amplitude_scale": 0.8770747063490624,
+    "coordinate_change_cannot_repair_nonPSD": true,
+    "clipping_negative_eigenvalues_is_not_an_exact_match_or_identification": true
+  },
+  "boundary_scale_example": {
+    "purpose": "algebraic_feasibility_bound_only;not_selected_or_deployed",
+    "variance_scale": 0.7692600405172939,
+    "latent": {
+      "covariance_V2": [
+        [
+          2.284770885460301e-08,
+          -1.4375143729281113e-08
+        ],
+        [
+          -1.4375143729281113e-08,
+          9.044441110157897e-09
+        ]
+      ],
+      "marginal_SD_V": [
+        0.0001511545859529343,
+        9.510226658790996e-05
+      ],
+      "mean_slope_correlation": -1.0000000000000002,
+      "eigenvalues_V2": [
+        -1.6543612251060553e-24,
+        3.189214996476091e-08
+      ]
+    },
+    "full100_covariance_relative_error": 0.3488320965415369,
+    "TRAIN_scaled_covariance_relative_error": 0.3558123453160613,
+    "observable_OLS_exact_by_construction": true
+  },
+  "K_estimators": {
+    "OLS_detrended_empirical_K": {
+      "method": "R Cov_TRAIN(y) R^T",
+      "minimum_eigenvalue_V2": -5.29418176719734e-22,
+      "A_K_A_T": [
+        [
+          2.7632901363903723e-25,
+          -3.1040372578696963e-25
+        ],
+        [
+          -4.090141557197631e-25,
+          6.774801887571946e-25
+        ]
+      ],
+      "limitation": "OLS projection erases exactly the noise mean/slope modes needed for subtraction;cannot identify their covariance"
+    },
+    "pooled_stationary_empirical_K": {
+      "method": "zero_padded_autocorrelation;divisor100;across_event_centered",
+      "minimum_eigenvalue_V2": 3.7439748882420696e-07,
+      "OLS": {
+        "covariance_V2": [
+          [
+            1.9251125635783124e-08,
+            1.4475660719677984e-24
+          ],
+          [
+            1.4475660719677984e-24,
+            3.1943625957652625e-08
+          ]
+        ],
+        "marginal_SD_V": [
+          0.00013874842570560259,
+          0.00017872779850278643
+        ],
+        "mean_slope_correlation": 5.83738349047649e-17,
+        "eigenvalues_V2": [
+          1.9251125635783124e-08,
+          3.1943625957652625e-08
+        ]
+      },
+      "limitation": "includes latent offset/drift;finite_window_lag_taper;stationary projection forces mean-slope covariance zero;not a physically identified K"
+    }
+  },
+  "TRAIN_covariance_reflection_relative_error": 0.5109356099470912,
+  "unconstrained_second_moment_family": {
+    "method": "unconstrained_Frobenius_linear_second_moment_least_squares",
+    "neural_training_updates": 0,
+    "fit_split": "TRAIN",
+    "full_matrix_entries": 10000,
+    "design_rank": 68,
+    "parameters": 68,
+    "condition_number": 37.561953591665976,
+    "latent": {
+      "covariance_V2": [
+        [
+          -1.3584805584564575e-08,
+          -1.4375143729280985e-08
+        ],
+        [
+          -1.4375143729280985e-08,
+          -3.385453642598779e-08
+        ]
+      ],
+      "marginal_SD_V": [
+        null,
+        null
+      ],
+      "mean_slope_correlation": null,
+      "eigenvalues_V2": [
+        -4.1308310928062205e-08,
+        -6.131031082490159e-09
+      ]
+    },
+    "K_minimum_finite100_eigenvalue_V2": 2.761688120484544e-07,
+    "stationary_spectral_grid_points": 4097,
+    "stationary_spectral_grid_minimum_V2": 1.0117958135845897e-07,
+    "negative_spectral_grid_is_a_definite_PSD_violation": true,
+    "positive_grid_alone_is_not_an_all_frequency_proof": true,
+    "relative_covariance_Frobenius_error": 0.1797788243321233,
+    "PSD_constraints_imposed": false,
+    "deployed": false,
+    "assumptions": [
+      "exact_linear_population_drift_on_first100",
+      "stationary_residual_and_drift_independence",
+      "finite_FIR65_covariance_support64",
+      "ADC_covariance_is_treated_as_preADC_approximation"
+    ]
+  },
+  "group_bootstrap": {
+    "method": "resample_original_TRAIN_groups_with_all_member_events",
+    "seed": 2026101251,
+    "resamples": 512,
+    "original_groups": 422,
+    "observed_correlation_percentile95": [
+      -0.6915156637251766,
+      -0.6646838874241924
+    ],
+    "frozen_K_latent_min_eigenvalue_percentile95_V2": [
+      -2.4729185248957998e-09,
+      -1.871312049266631e-09
+    ],
+    "frozen_K_latent_PSD_resample_fraction": 0.0,
+    "maximum_frozen_K_variance_scale_percentile95": [
+      0.7377268820224924,
+      0.7999672338879025
+    ],
+    "scope": "conditional_on_this_fitted_K_and_this_acquisition;no_retraining_or_independent_acquisition_uncertainty"
+  },
+  "identifiability": {
+    "identified_observables": [
+      "100point_joint_distribution",
+      "100point_total_OLS_covariance"
+    ],
+    "not_identified": [
+      "stationary_low_frequency_K_vs_drift_without_structural_prior",
+      "independent_latent_drift_noise_decomposition",
+      "480point_drift_extrapolation",
+      "hardware_or_independent_acquisition_equivalence"
+    ],
+    "conditional_formula_valid_if": [
+      "known_preADC_K_on_the_same_window_and_time_basis",
+      "latent_linear_drift_independent_of_stationary_noise",
+      "a_positive_semidefinite_residual_latent_covariance",
+      "jointly_compatible_full100_residual_distribution"
+    ],
+    "missing_evidence": [
+      "noise-only_long_baseline_records_covering_480points_or_longer",
+      "recorded_trigger_and_alignment_selection_mechanism",
+      "independent_acquisition_and_group_effect_characterization",
+      "a_prior_or_measurement_for_drift_persistence_and_K_at_low_frequency"
+    ]
+  },
+  "conclusion": "Stationary scalar covariance gives zero centered OLS mean-slope covariance. Frozen K plus an independent latent linear drift cannot exactly recover TRAIN OLS covariance because the subtraction is nonPSD. More steps of this stationary-offset-only structure do not remove that structural restriction. Future coupled K/drift fitting requires new registered assumptions and validation, not copying OLS SDs."
+}

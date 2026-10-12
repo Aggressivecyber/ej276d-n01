@@ -1,0 +1,55 @@
+{
+  "status": "repair_attempt_complete_stopped_at_failed_noise_gate",
+  "noise_gate_passed": false,
+  "noise_training_updates": 5000,
+  "response_training_updates": 0,
+  "classifier_evaluation_updates": 1200,
+  "implementation_complete": true,
+  "full_response_comparison_executed": false,
+  "physical_calibration_established": false,
+  "failed_checks": [
+    "acf",
+    "ols_joint",
+    "negative_control_interval_contains_half"
+  ],
+  "metrics": {
+    "mean_shift_V": 1.1319717425826303e-05,
+    "mean_shift_over_REAL_std": 0.07376638002670301,
+    "mean_std_ratio": 0.8538311666474623,
+    "rms_quantile_ratios": [
+      0.9929141792630667,
+      1.014523491868516,
+      1.0025069626163923
+    ],
+    "max_mean_acf_difference": 0.021871487234197864,
+    "psd_band_fraction_ratios": [
+      0.9275679399341243,
+      1.0119264288945629,
+      0.9961799922223162,
+      1.0140572395605483,
+      0.9994797876006317
+    ],
+    "psd_band_fraction_absolute_difference": [
+      0.004505806175146877,
+      0.0011787072479293725,
+      0.0006051531471232274,
+      0.004133319100942168,
+      0.0002010670266014425
+    ],
+    "ols_slope_std_ratio": 0.9369830880931315,
+    "ols_covariance_relative_error": 0.5743591929330042,
+    "ols_covariance_scaling": "fixed_TRAIN_marginal_SD_of_centered_time_OLS",
+    "full100_independent_SWD_ratio": 0.989586039249142
+  },
+  "mean_slope_correlations": {
+    "TRAIN": -0.6782470859869086,
+    "REAL": -0.6567921425826125,
+    "generated": -0.002232963240694967
+  },
+  "independent_acquisition_available": false,
+  "validation_previously_used": true,
+  "train_rows": 21047,
+  "validation_rows": 599,
+  "native_exit_code": 0,
+  "noise_elapsed_seconds": 41.9128980430105
+}

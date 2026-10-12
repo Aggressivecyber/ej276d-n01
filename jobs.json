@@ -1,6 +1,6 @@
 {
   "experiment_id": "N01",
-  "updated_UTC": "2026-10-12T02:44:13.384657+00:00",
+  "updated_UTC": "2026-10-12T03:36:00.407528+00:00",
   "active_scientific_jobs": 0,
   "jobs": [
     {
@@ -93,6 +93,40 @@
         "report_render": 0
       },
       "report": "reports/noise_audit_20261012/N01_NOISE_MECHANISM_REVIEW.html"
+    },
+    {
+      "job_id": "N01_REPAIR_002_20261012",
+      "status": "completed_stopped_at_failed_noise_gate",
+      "host": "100.82.231.102",
+      "noise_updates_planned": 5000,
+      "response_updates_conditional": 38000,
+      "noise_training_updates": 5000,
+      "response_training_updates": 0,
+      "protocol": "docs/REPAIR_002_PROTOCOL.md",
+      "configuration": "repair_run_config.json",
+      "preregistration": "receipts/repair_002_20261012/PREREGISTRATION.json",
+      "registered_UTC": "2026-10-12T02:59:48.157759+00:00",
+      "pid": null,
+      "supervisor_pid": null,
+      "started_UTC": "2026-10-12T03:08:34.546745+00:00",
+      "start_receipt": "receipts/repair_002_20261012/START_RECEIPT.json",
+      "remote_root": "/home/rylan/projects/ej276d-n01/repair_002_20261012",
+      "historical_training_pid": 591883,
+      "ended_UTC": "2026-10-12T03:09:21.570390+00:00",
+      "native_exit_code": 0,
+      "noise_gate_status": "development_noise_gate_inconclusive_control",
+      "failed_checks": [
+        "acf",
+        "ols_joint",
+        "negative_control_interval_contains_half"
+      ],
+      "historical_supervisor_pid": 591875,
+      "classifier_evaluation_updates": 1200,
+      "implementation_complete": true,
+      "response_comparison_executed": false,
+      "last_verified_UTC": "2026-10-12T03:36:00.407528+00:00",
+      "report": "reports/repair_002_20261012/N01_NOISE_REPAIR_REPORT.html",
+      "completion_receipt": "receipts/repair_002_20261012/FINAL_RECEIPT.json"
     }
   ]
 }
