@@ -32,10 +32,14 @@ def archive(path,items):
         return len(z.infolist())
 def main():
     if DEST.exists():raise FileExistsError('Preserve existing delivery')
+    evaluation_names=['NOISE_GATE.json','LEGACY_GATE.json','EVALUATION_RECEIPT.json','ACF_PER_LAG.json','ACF_PER_LAG.csv','ACF_UNCERTAINTY.json','CONTROL_CALIBRATION.json','CLASSIFIER_REPLAY.json','RAW_CONTROL_CONDITIONAL.npz','bootstrap_TRAIN.npz','bootstrap_DEVELOPMENT.npz']
+    for name in evaluation_names:
+        assert (RUN/'runs/science/noise_validation'/name).is_file(),name
+    if BACKUP.exists():assert not any(BACKUP.iterdir()),'Preserve existing backup payloads'
     final=json.loads((REC/'FINAL_RECEIPT.json').read_text(encoding='utf8'))
     assert final['noise_training_updates']==5000 and final['response_training_updates']==0
     assert json.loads((REC/'VISUAL_QA.json').read_text(encoding='utf8'))['status']=='passed'
-    DEST.mkdir(parents=True);BACKUP.mkdir(parents=True,exist_ok=False)
+    DEST.mkdir(parents=True);BACKUP.mkdir(parents=True,exist_ok=True)
     commit=subprocess.check_output(['git','-C',str(ROOT),'rev-parse','HEAD'],text=True).strip()
     bundle=DEST/'n01-noise-acf005-source.bundle'
     subprocess.run(['git','-C',str(ROOT),'bundle','create',str(bundle),'HEAD'],check=True)
@@ -55,7 +59,7 @@ def main():
     for name in ['final.pt','initial_state.pt','replay.pt','training.jsonl','fit_statistics.json','TRAINING_COMPLETE.json']:
         p=science/'noise'/name
         if p.exists():public_items.append((p,'noise/'+name))
-    for name in ['NOISE_GATE.json','LEGACY_GATE.json','DESCRIPTIVE_METRICS.json','EVALUATION_RECEIPT.json','ACF_PER_LAG.json','ACF_PER_LAG.csv','ACF_UNCERTAINTY.json','CONTROL_CALIBRATION.json','CLASSIFIER_REPLAY.json','RAW_CONTROL_CONDITIONAL.npz','bootstrap_TRAIN.npz','bootstrap_DEVELOPMENT.npz']:
+    for name in evaluation_names:
         p=science/'noise_validation'/name;public_items.append((p,'noise_validation/'+name))
     # Diagnostic populations are generated-only; TRAIN evidence is aggregate statistics.
     public_items.extend((p,'diagnostics/'+p.name) for p in sorted((science/'diagnostics').glob('*')) if p.is_file())
