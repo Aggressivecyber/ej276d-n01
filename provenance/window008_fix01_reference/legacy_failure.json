@@ -1,0 +1,38 @@
+{
+  "UTC": "2026-10-13T06:23:01.864195+00:00",
+  "status": "failed_or_bounded_stop_preserved",
+  "run_id": "window008_20261013",
+  "error": "InvalidWaveformError('Invalid Window008 shape canonical charge; batch rows=[22]; values=[-0.6842861649644458]')",
+  "traceback": "Traceback (most recent call last):\n  File \"/home/rylan/projects/ej276d-n01/window008_20261013/src/n01/train_window008.py\", line 99, in main\n    metrics=engine.step(audit=audit,verify_replay=update<=cfg['engineering']['waveform_replay_first_steps'] or changed)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/rylan/projects/ej276d-n01/window008_20261013/src/n01/response008.py\", line 241, in step\n    output=self.model.signal_forward(source,response);signal=output['signal_pre']\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/rylan/projects/ej276d-n01/window008_20261013/src/n01/model008.py\", line 215, in signal_forward\n    _positive(shape_q, 1e-6, 'Invalid Window008 shape canonical charge')\n  File \"/home/rylan/projects/ej276d-n01/window008_20261013/src/n01/model008.py\", line 38, in _positive\n    raise InvalidWaveformError(reason, torch.nonzero(invalid, as_tuple=False).flatten(), values[invalid])\nn01.model.InvalidWaveformError: Invalid Window008 shape canonical charge; batch rows=[22]; values=[-0.6842861649644458]\n",
+  "G_updates": 22269,
+  "D_updates": 48807,
+  "completed_arms": [
+    {
+      "arm": "deterministic",
+      "G_updates": 19000,
+      "D_updates": {
+        "fast": 16000,
+        "slow": 16000,
+        "common_level": 16000
+      },
+      "coverage": {
+        "source_unique": 6593,
+        "source_total": 6593,
+        "real_unique": 21047,
+        "real_total": 21047,
+        "source_epochs": 1475,
+        "real_epochs": 924
+      },
+      "final_sha256": "2096523d53b62dbbc6b41d2788a8fba203af89c3cf753133bbbe81ab5c036849",
+      "UTC": "2026-10-13T06:08:56.353785+00:00"
+    }
+  ],
+  "current_arm": "full",
+  "DEV_waveforms_read": false,
+  "C2ST_updates": 0,
+  "noise_updates": 0,
+  "population_updates": 0,
+  "elapsed_seconds": 7060.106489506994,
+  "scientific_status": "response_match_not_established",
+  "evaluation_complete": false
+}

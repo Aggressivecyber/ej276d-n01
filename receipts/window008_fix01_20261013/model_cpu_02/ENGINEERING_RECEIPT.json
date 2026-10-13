@@ -1,0 +1,185 @@
+{
+  "status": "passed_cpu_artificial_semantics_only",
+  "torch_version": "2.12.0+cu130",
+  "device": "cpu",
+  "fixture": "four analytic pulses, no scientific arrays or weights",
+  "scientific_arrays_read": false,
+  "trained_checkpoints_read": false,
+  "DEV_numeric_decodes": 0,
+  "actual_SOURCE_forward_rows": 0,
+  "actual_REAL_forward_rows": 0,
+  "artificial_model_forward_calls_including_expected_failures": 27,
+  "artificial_model_forward_rows_including_expected_failures": 99,
+  "optimizer_updates": 0,
+  "scientific_updates": 0,
+  "GPU_calls": 0,
+  "original_68_files_verified_and_unchanged": true,
+  "source_manifest_sha256": "97b020dc68e41fa1e893e66fdf1091b1bf9500b98281a5dd7e2545ee9ce00929",
+  "model008_sha256": "56a6b41f9d2906c82757f4ca9f91a751ff8531428a7f38714e0a291359cd1b4f",
+  "model008_fix01_sha256": "3bc826a1867f2658ae507ab2be683a6b901b7f481b1efaf005f3cf4953429abc",
+  "script_sha256": "71cdf8b5b01716596541d207d1e89381ac3a7c117728856530ce7d2073ed0ab4",
+  "constructors": {
+    "deterministic": {
+      "state_keys": 178,
+      "named_parameters": 167,
+      "exact_state_and_rng_and_order": true
+    },
+    "simple": {
+      "state_keys": 32,
+      "named_parameters": 19,
+      "exact_state_and_rng_and_order": true
+    },
+    "full": {
+      "state_keys": 195,
+      "named_parameters": 180,
+      "exact_state_and_rng_and_order": true
+    }
+  },
+  "equal_inactive_paths": [
+    {
+      "arm": "deterministic",
+      "stage": "baseline",
+      "old_output_keys": 26,
+      "outputs_bitwise_equal": true,
+      "gradients_bitwise_equal": null,
+      "baseline_has_no_trainable_parameters": true,
+      "implicit_rng_draws": 0
+    },
+    {
+      "arm": "deterministic",
+      "stage": "mean_response",
+      "old_output_keys": 26,
+      "outputs_bitwise_equal": true,
+      "gradients_bitwise_equal": true,
+      "baseline_has_no_trainable_parameters": false,
+      "implicit_rng_draws": 0
+    },
+    {
+      "arm": "deterministic",
+      "stage": "joint_stochastic",
+      "old_output_keys": 26,
+      "outputs_bitwise_equal": true,
+      "gradients_bitwise_equal": true,
+      "baseline_has_no_trainable_parameters": false,
+      "implicit_rng_draws": 0
+    },
+    {
+      "arm": "deterministic",
+      "stage": "low_learning_rate",
+      "old_output_keys": 26,
+      "outputs_bitwise_equal": true,
+      "gradients_bitwise_equal": true,
+      "baseline_has_no_trainable_parameters": false,
+      "implicit_rng_draws": 0
+    },
+    {
+      "arm": "simple",
+      "stage": "baseline",
+      "old_output_keys": 26,
+      "outputs_bitwise_equal": true,
+      "gradients_bitwise_equal": null,
+      "baseline_has_no_trainable_parameters": true,
+      "implicit_rng_draws": 0
+    },
+    {
+      "arm": "simple",
+      "stage": "mean_response",
+      "old_output_keys": 26,
+      "outputs_bitwise_equal": true,
+      "gradients_bitwise_equal": true,
+      "baseline_has_no_trainable_parameters": false,
+      "implicit_rng_draws": 0
+    },
+    {
+      "arm": "simple",
+      "stage": "joint_stochastic",
+      "old_output_keys": 26,
+      "outputs_bitwise_equal": true,
+      "gradients_bitwise_equal": true,
+      "baseline_has_no_trainable_parameters": false,
+      "implicit_rng_draws": 0
+    },
+    {
+      "arm": "simple",
+      "stage": "low_learning_rate",
+      "old_output_keys": 26,
+      "outputs_bitwise_equal": true,
+      "gradients_bitwise_equal": true,
+      "baseline_has_no_trainable_parameters": false,
+      "implicit_rng_draws": 0
+    },
+    {
+      "arm": "full",
+      "stage": "baseline",
+      "old_output_keys": 26,
+      "outputs_bitwise_equal": true,
+      "gradients_bitwise_equal": null,
+      "baseline_has_no_trainable_parameters": true,
+      "implicit_rng_draws": 0
+    },
+    {
+      "arm": "full",
+      "stage": "mean_response",
+      "old_output_keys": 26,
+      "outputs_bitwise_equal": true,
+      "gradients_bitwise_equal": true,
+      "baseline_has_no_trainable_parameters": false,
+      "implicit_rng_draws": 0
+    }
+  ],
+  "full_joint": {
+    "basis_canonical_absmax": 1.5332179970073412e-13,
+    "basis_rms_error": 2.220446049250313e-16,
+    "canonical_charge_identity_absmax": 7.105427357601002e-15,
+    "canonical_local_charge_absmax": 5.551115123125783e-17,
+    "base_vs_final_shape_q_absmax": 1.4210854715202004e-14,
+    "prefix100_exact_zero": true,
+    "explicit_latent_replay_bitwise": true,
+    "final_projected_basis_regularization_verified": true,
+    "branch_gradient_norms": {
+      "shape_encoder": 0.0,
+      "charge_head": 0.11510068966453646,
+      "response_filter": 0.00036482363980500505,
+      "mean_time": 0.010600680126748961,
+      "unet": 0.01738857936318456,
+      "mean_head": 0.0314894060881551,
+      "physical_head": 0.0063710572057713005,
+      "basis_head": 0.005320815879380023,
+      "envelope_head": 0.0002709490284514769,
+      "local_filter": 1.6941141901223084e-06
+    },
+    "required_finite_nonzero_branches": [
+      "charge_head",
+      "mean_time",
+      "response_filter",
+      "mean_head",
+      "physical_head",
+      "basis_head",
+      "envelope_head",
+      "local_filter"
+    ],
+    "shape_encoder_zero_gradient_at_identity_charge_initialization": true
+  },
+  "finite_shape_latent_stress": [
+    {
+      "shape_latent_factor": 100.0,
+      "shape_q": 24.12042472438871,
+      "charge_identity_absmax": 8.881784197001252e-16,
+      "base_shape_q_change": 0.0,
+      "charge_time_latents_unchanged": true
+    },
+    {
+      "shape_latent_factor": 10000.0,
+      "shape_q": 24.12042472439077,
+      "charge_identity_absmax": 1.4210854715202004e-14,
+      "base_shape_q_change": 0.0,
+      "charge_time_latents_unchanged": true
+    }
+  ],
+  "guards": {
+    "nonpositive_base_charge": "Invalid Window008 fix01 base shape canonical charge; batch rows=[0]; values=[-26.997251977696635]",
+    "degenerate_basis": "Nonfinite or degenerate Window008 fix01 stochastic basis; no row deletion",
+    "nonfinite_basis": "Nonfinite or degenerate Window008 fix01 stochastic basis; no row deletion"
+  },
+  "limit": "CPU artificial semantics only; no native CUDA, failed-event or scientific response acceptance."
+}

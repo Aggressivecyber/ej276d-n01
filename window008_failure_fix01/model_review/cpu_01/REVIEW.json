@@ -1,0 +1,332 @@
+{
+  "schema": "n01/window008_failure_fix01/independent_model_review/v1",
+  "classification": "engineering_only",
+  "device": "cpu",
+  "torch_version": "2.12.0+cu130",
+  "counters": {
+    "model_forward_calls": 12,
+    "model_forward_rows": 1569,
+    "successful_forward_calls": 11,
+    "failed_guard_forward_calls": 1,
+    "gradient_comparisons": 4,
+    "gradient_function_calls": 8,
+    "scientific_optimizer_updates": 0,
+    "engineering_optimizer_updates": 0,
+    "new_latent_draws": 0,
+    "new_random_values": 0,
+    "DEV_numeric_decodes": 0,
+    "REAL_waveform_decodes": 0,
+    "GPU_calls": 0
+  },
+  "forward_ledger": [
+    {
+      "label": "fixed_failure_batch_512",
+      "class_name": "N01Response008Fix01",
+      "variant": "full",
+      "stage": "joint_stochastic",
+      "rows": 512,
+      "source": "preserved_failure_TRAIN_context",
+      "new_latent_draws": 0,
+      "status": "returned_all_input_rows"
+    },
+    {
+      "label": "saved_phys_columns_2to9_times_100",
+      "class_name": "N01Response008Fix01",
+      "variant": "full",
+      "stage": "joint_stochastic",
+      "rows": 512,
+      "source": "preserved_failure_TRAIN_context",
+      "new_latent_draws": 0,
+      "status": "returned_all_input_rows"
+    },
+    {
+      "label": "saved_phys_columns_2to9_times_10000",
+      "class_name": "N01Response008Fix01",
+      "variant": "full",
+      "stage": "joint_stochastic",
+      "rows": 512,
+      "source": "preserved_failure_TRAIN_context",
+      "new_latent_draws": 0,
+      "status": "returned_all_input_rows"
+    },
+    {
+      "label": "full_mean_stage3000/original",
+      "class_name": "N01Response008",
+      "variant": "full",
+      "stage": "mean_response",
+      "rows": 4,
+      "source": "preserved_failure_TRAIN_context",
+      "new_latent_draws": 0,
+      "status": "returned_all_input_rows"
+    },
+    {
+      "label": "full_mean_stage3000/fixed",
+      "class_name": "N01Response008Fix01",
+      "variant": "full",
+      "stage": "mean_response",
+      "rows": 4,
+      "source": "preserved_failure_TRAIN_context",
+      "new_latent_draws": 0,
+      "status": "returned_all_input_rows"
+    },
+    {
+      "label": "deterministic_completed/original",
+      "class_name": "N01Response008",
+      "variant": "deterministic",
+      "stage": "low_learning_rate",
+      "rows": 4,
+      "source": "preserved_failure_TRAIN_context",
+      "new_latent_draws": 0,
+      "status": "returned_all_input_rows"
+    },
+    {
+      "label": "deterministic_completed/fixed",
+      "class_name": "N01Response008Fix01",
+      "variant": "deterministic",
+      "stage": "low_learning_rate",
+      "rows": 4,
+      "source": "preserved_failure_TRAIN_context",
+      "new_latent_draws": 0,
+      "status": "returned_all_input_rows"
+    },
+    {
+      "label": "simple_common_initial_mean/original",
+      "class_name": "N01Response008",
+      "variant": "simple",
+      "stage": "mean_response",
+      "rows": 4,
+      "source": "preserved_failure_TRAIN_context",
+      "new_latent_draws": 0,
+      "status": "returned_all_input_rows"
+    },
+    {
+      "label": "simple_common_initial_mean/fixed",
+      "class_name": "N01Response008Fix01",
+      "variant": "simple",
+      "stage": "mean_response",
+      "rows": 4,
+      "source": "preserved_failure_TRAIN_context",
+      "new_latent_draws": 0,
+      "status": "returned_all_input_rows"
+    },
+    {
+      "label": "simple_common_initial_joint/original",
+      "class_name": "N01Response008",
+      "variant": "simple",
+      "stage": "joint_stochastic",
+      "rows": 4,
+      "source": "preserved_failure_TRAIN_context",
+      "new_latent_draws": 0,
+      "status": "returned_all_input_rows"
+    },
+    {
+      "label": "simple_common_initial_joint/fixed",
+      "class_name": "N01Response008Fix01",
+      "variant": "simple",
+      "stage": "joint_stochastic",
+      "rows": 4,
+      "source": "preserved_failure_TRAIN_context",
+      "new_latent_draws": 0,
+      "status": "returned_all_input_rows"
+    },
+    {
+      "label": "artificial_negative_mean_base_guard",
+      "class_name": "N01Response008Fix01",
+      "variant": "full",
+      "stage": "joint_stochastic",
+      "rows": 1,
+      "source": "preserved_failure_TRAIN_context",
+      "new_latent_draws": 0,
+      "status": "guard_raised",
+      "reason": "Invalid Window008 fix01 base shape canonical charge",
+      "invalid_rows": [
+        0
+      ],
+      "invalid_values": [
+        -19.51364966341429
+      ]
+    }
+  ],
+  "input_binding": {
+    "failure_checkpoint_sha256": "1da7c5213795e86f9435cf8600d7db3dbb5886c2773f74b8b93c96e4c80a7767",
+    "failure_context_sha256": "269324a12aba4beff34e98f01e57a9a50110b0de49e851018959dc4c6c51c4c2",
+    "dataset_sha256": "8d43418595f4fa992a9b83735c4bf50863a659584d58888f8f965ec1339a1993",
+    "dataset_arrays_decoded": [
+      "source_carrier384",
+      "source_role",
+      "source_ids"
+    ],
+    "source_carrier_npz_member_rows_decoded": 6593,
+    "selected_response_rows": 512,
+    "distinct_parent_ids": 256,
+    "attempted_original_update": 3270,
+    "microbatch_zero_based": 0
+  },
+  "model_source": {
+    "path": "E:\\GAN\\research\\N01\\src\\n01\\model008_fix01.py",
+    "sha256": "3bc826a1867f2658ae507ab2be683a6b901b7f481b1efaf005f3cf4953429abc",
+    "original_manifest_sha256": "97b020dc68e41fa1e893e66fdf1091b1bf9500b98281a5dd7e2545ee9ce00929"
+  },
+  "fixed_failure_replay": {
+    "returned_rows": 512,
+    "failed_original_row": 22,
+    "base_shape_Q_row22": 41.70833964202177,
+    "shape_Q_row22": 41.70833964202175,
+    "qsig_row22": 7.752995144118847,
+    "canonical_signal_Q_row22": 7.752995144118847,
+    "base_shape_Q_min": 28.50189215393769,
+    "shape_Q_min": 28.50189215393769,
+    "basis_C_absmax": 4.518607710224387e-14,
+    "basis_RMS_squared_error_absmax": 6.661338147750939e-16,
+    "signal_prefix100_absmax": 0.0,
+    "signal_charge_identity_absmax": 3.552713678800501e-15,
+    "local_charge_absmax": 3.191891195797325e-16,
+    "shape_minus_base_Q_absmax": 2.1316282072803006e-14,
+    "original_physical_eta_bitwise_same": true,
+    "original_failed_mean_residual_bitwise_same": true,
+    "original_base_Q_absmax_difference": 1.4210854715202004e-14,
+    "no_model_state_changed": true
+  },
+  "basis_latent_stress": [
+    {
+      "factor": 100.0,
+      "returned_rows": 512,
+      "qsig_bitwise_same": true,
+      "time_scale_bitwise_same": true,
+      "base_shape_Q_bitwise_same": true,
+      "basis_bitwise_same": true,
+      "eta_basis_absmax": 9.447791577423656,
+      "shape_Q_min": 28.501892153937703,
+      "shape_minus_base_Q_absmax": 7.958078640513122e-13,
+      "canonical_charge_identity_absmax": 1.9539925233402755e-14,
+      "signal_prefix100_absmax": 0.0,
+      "interpretation": "Deterministic numerical stress, not a physically plausible latent population or scientific evaluation"
+    },
+    {
+      "factor": 10000.0,
+      "returned_rows": 512,
+      "qsig_bitwise_same": true,
+      "time_scale_bitwise_same": true,
+      "base_shape_Q_bitwise_same": true,
+      "basis_bitwise_same": true,
+      "eta_basis_absmax": 942.3843137186744,
+      "shape_Q_min": 28.501892153937433,
+      "shape_minus_base_Q_absmax": 8.242295734817162e-11,
+      "canonical_charge_identity_absmax": 4.858335955759685e-12,
+      "signal_prefix100_absmax": 0.0,
+      "interpretation": "Deterministic numerical stress, not a physically plausible latent population or scientific evaluation"
+    }
+  ],
+  "unchanged_branch_function_checks": [
+    {
+      "case": "full_mean_stage3000",
+      "source_rows_in_saved_context": [
+        0,
+        1,
+        22,
+        23
+      ],
+      "original_key_count": 26,
+      "all_original_output_tensors_bitwise_equal": true,
+      "gradient_names": 168,
+      "all_input_and_parameter_gradients_bitwise_equal": true,
+      "nonzero_gradient_tensors": 168,
+      "state_keys_and_order_equal": true,
+      "state_tensor_count": 195,
+      "parameter_names_and_order_equal": true,
+      "no_model_state_changed": true
+    },
+    {
+      "case": "deterministic_completed",
+      "source_rows_in_saved_context": [
+        0,
+        1,
+        22,
+        23
+      ],
+      "original_key_count": 26,
+      "all_original_output_tensors_bitwise_equal": true,
+      "gradient_names": 168,
+      "all_input_and_parameter_gradients_bitwise_equal": true,
+      "nonzero_gradient_tensors": 168,
+      "state_keys_and_order_equal": true,
+      "state_tensor_count": 178,
+      "parameter_names_and_order_equal": true,
+      "no_model_state_changed": true
+    },
+    {
+      "case": "simple_common_initial_mean",
+      "source_rows_in_saved_context": [
+        0,
+        1,
+        22,
+        23
+      ],
+      "original_key_count": 26,
+      "all_original_output_tensors_bitwise_equal": true,
+      "gradient_names": 16,
+      "all_input_and_parameter_gradients_bitwise_equal": true,
+      "nonzero_gradient_tensors": 6,
+      "state_keys_and_order_equal": true,
+      "state_tensor_count": 32,
+      "parameter_names_and_order_equal": true,
+      "no_model_state_changed": true
+    },
+    {
+      "case": "simple_common_initial_joint",
+      "source_rows_in_saved_context": [
+        0,
+        1,
+        22,
+        23
+      ],
+      "original_key_count": 26,
+      "all_original_output_tensors_bitwise_equal": true,
+      "gradient_names": 20,
+      "all_input_and_parameter_gradients_bitwise_equal": true,
+      "nonzero_gradient_tensors": 8,
+      "state_keys_and_order_equal": true,
+      "state_tensor_count": 32,
+      "parameter_names_and_order_equal": true,
+      "no_model_state_changed": true
+    }
+  ],
+  "negative_base_guard": {
+    "triggered": true,
+    "invalid_rows": [
+      0
+    ],
+    "values": [
+      -19.51364966341429
+    ],
+    "reason": "Invalid Window008 fix01 base shape canonical charge",
+    "intervention": "Independent model clone only: mean_head weight=0, bias=-20; same saved SOURCE row22 and latents",
+    "preserved_checkpoint_changed": false,
+    "returned_filtered_batch": false
+  },
+  "status": "passed_independent_CPU_engineering_review",
+  "UTC": "2026-10-13T09:54:52.557193+00:00",
+  "frozen_68_hashes_unchanged": true,
+  "reviewed_implementation_hash_unchanged": true,
+  "global_CPU_RNG_bitwise_unchanged": true,
+  "no_new_latent_draws": true,
+  "elapsed_seconds": 5.625,
+  "script_sha256": "5aef61f101e4744f56ba7edd48979b49f9b326204dc438817244f59615d63d2e",
+  "static_review": {
+    "constructor_inherited_without_override": true,
+    "parameter_and_buffer_layout_retained": true,
+    "projection_order": "controls -> cubic expansion -> onset gate -> canonical nullspace projection -> RMS normalization",
+    "regularization_uses_final_projected_normalized_basis": true,
+    "original_total_shape_Q_guard_retained": true,
+    "additional_full_joint_base_Q_guard": true,
+    "no_denominator_clip_or_softplus": true,
+    "no_latent_redraw_or_row_filter": true,
+    "unaffected_paths": "full mean/baseline, all deterministic, all simple",
+    "new_diagnostic_fields": [
+      "base_shape_Q",
+      "shape_Q",
+      "basis_canonical_charge"
+    ]
+  },
+  "scope_limit": "CPU engineering proof on saved TRAIN context and deterministic interventions only; native CUDA and new scientific training remain unperformed by this reviewer."
+}

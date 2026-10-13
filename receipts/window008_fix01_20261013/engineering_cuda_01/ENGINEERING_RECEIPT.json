@@ -1,0 +1,1868 @@
+{
+  "schema": "n01/window008-fix01-cuda-engineering/v1",
+  "status": "passed_native_fix01_engineering_and_historical_failure_inference",
+  "pid": 257155,
+  "parent_pid": 257154,
+  "started_UTC": "2026-10-13T10:23:18.625192+00:00",
+  "source_sha256": {
+    "src/n01/model008_fix01.py": "3bc826a1867f2658ae507ab2be683a6b901b7f481b1efaf005f3cf4953429abc",
+    "src/n01/response008_fix01.py": "fbf365a219051ed6c0a3786a59ea3f4b216772610cd52da10101f35ac9515aef",
+    "scripts/check_window008_fix01_cuda.py": "5307f4273e384b71b759c2e1b9fa57316c69195fdba4285b49944cd12e02dab5",
+    "scripts/check_window008_engine.py": "40b8a50ef6ea5af562e0824e8b1d252841ae9f918a6cbaec145162e68ff13f40",
+    "src/n01/model.py": "0a0488218d99f351a98e30f2b1525b837b4ad3195c19f2a76ff61ee01298587b",
+    "src/n01/model008.py": "56a6b41f9d2906c82757f4ca9f91a751ff8531428a7f38714e0a291359cd1b4f",
+    "src/n01/response008.py": "cf8b14b377530a234b066c2fd958827172abb624e7a959ac9bb26a416ff3b2e7",
+    "src/n01/losses008.py": "68a9330b7e0620f12adbb3dc22a00c632a1b7577d44b92617da7d14979d9ea61",
+    "src/n01/losses008_v2.py": "6932772c4b00fa62383b5ca356f26d0cf81271be531888b474ae6146fa25f3d8",
+    "src/n01/observation008.py": "9f7b6c0a266c420af8c6c155103774bae1ed949cfe05ee6a1f19b75f9254c4ec",
+    "src/n01/electronics_v3.py": "816b12bf4814f23ff4455498ec385df335cdb38827548c969e38ef08b9763926",
+    "src/n01/extension006.py": "caa2eff66555773d04a72482c8375b5896a241e0a858070a80f689aa3def5040",
+    "src/n01/data.py": "2ec3363bc830043af053342b4638f5e6ab55d27303da037f383f4fe630d77bd2",
+    "src/n01/train.py": "9cb6b0a9cfad3fd9163eee919de7b2d64ca422513093e204f62a934e25684169"
+  },
+  "base_config_sha256": "f5500c65f2d17a2fe6964bfc5908dedb68c27b9391cb30bf30c0ba161509d145",
+  "recovery_config_sha256": "1fc57e0daf06f3eadf2a457361a4342c953f265039cec48b9401616c703d6402",
+  "scientific_G_updates": 0,
+  "scientific_D_updates": 0,
+  "engineering_G_updates": 4,
+  "engineering_D_updates": 6,
+  "DEV_numeric_decodes": 0,
+  "actual_REAL_numeric_rows_read": 0,
+  "actual_SOURCE_inference_rows": 1024,
+  "historical_latent_resampling": false,
+  "method_settings_selected": false,
+  "steps": [
+    {
+      "arm": "full",
+      "stage": "mean_response",
+      "seconds": 0.4593421040044632,
+      "peak_GPU_bytes": 2246049792,
+      "metrics": {
+        "utc": "2026-10-13T10:23:20.815262+00:00",
+        "arm": "full",
+        "stage": "mean_response",
+        "G_updates": 1,
+        "D_updates": {
+          "fast": 0,
+          "slow": 0,
+          "common_level": 0
+        },
+        "weighted_total": 2.6228078877493926,
+        "regular_once": 0.0,
+        "trend_once": 0.0,
+        "hypotheses": {
+          "fast": {
+            "components": {
+              "wave": 0.5623247310904915,
+              "QPSD": 0.9006131609531588,
+              "noise": 0.25420948135159194,
+              "adv": 0.0
+            },
+            "wave_subcomponents": {
+              "swd": 0.3615160557612864,
+              "coordinate": 0.7862110029820248,
+              "short_lag": 0.7400558098573682
+            },
+            "conditional_diagnostics": {
+              "fake_global_rows": 1024,
+              "real_global_rows": 1024,
+              "conditional_bins": [
+                {
+                  "bin": 0,
+                  "fake_count": 206,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 1,
+                  "fake_count": 134,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 2,
+                  "fake_count": 155,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 3,
+                  "fake_count": 137,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 4,
+                  "fake_count": 144,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 5,
+                  "fake_count": 98,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 6,
+                  "fake_count": 105,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 7,
+                  "fake_count": 45,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                }
+              ],
+              "minimum_conditional_support": 16,
+              "conditional_bins_used": 8,
+              "conditional_bins_total": 8,
+              "conditional_coverage_complete": true,
+              "conditional_rebatch_needed": false,
+              "fake_nonpositive_q_rows": 0,
+              "real_nonpositive_q_rows": 0,
+              "fake_guarded_psd_rows": 0,
+              "real_guarded_psd_rows": 0,
+              "global_term_includes_all_rows": true,
+              "conditional_term": "mean_PSD",
+              "no_supported_bin_behavior": "global_term_only_with_incomplete_coverage_diagnostic",
+              "projection_context": {
+                "kind": "training",
+                "seed": 2026101387,
+                "update": 1,
+                "fingerprint": "76d5464e3ef31887d11f0cd2499eb2f2815ef1046e90b2a037980592a79b929b"
+              },
+              "loss_version": 2,
+              "standardization_split": "TRAIN"
+            },
+            "engineering": {
+              "nonpositive_Q": 0,
+              "guarded_PSD": 0,
+              "saturation_fraction": 0.0,
+              "charge_identity_max": 2.6020852139652106e-15,
+              "search_edge_rows": 0,
+              "global_peak_outside_search_rows": 0,
+              "signal_Q_crop_change_absmax": 1.7763568394002505e-15
+            }
+          },
+          "slow": {
+            "components": {
+              "wave": 0.563193836256013,
+              "QPSD": 0.9025377511230853,
+              "noise": 0.25420948135159194,
+              "adv": 0.0
+            },
+            "wave_subcomponents": {
+              "swd": 0.3618926414772453,
+              "coordinate": 0.7876435922731062,
+              "short_lag": 0.7413464697964554
+            },
+            "conditional_diagnostics": {
+              "fake_global_rows": 1024,
+              "real_global_rows": 1024,
+              "conditional_bins": [
+                {
+                  "bin": 0,
+                  "fake_count": 205,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 1,
+                  "fake_count": 138,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 2,
+                  "fake_count": 154,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 3,
+                  "fake_count": 132,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 4,
+                  "fake_count": 146,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 5,
+                  "fake_count": 102,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 6,
+                  "fake_count": 103,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 7,
+                  "fake_count": 44,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                }
+              ],
+              "minimum_conditional_support": 16,
+              "conditional_bins_used": 8,
+              "conditional_bins_total": 8,
+              "conditional_coverage_complete": true,
+              "conditional_rebatch_needed": false,
+              "fake_nonpositive_q_rows": 0,
+              "real_nonpositive_q_rows": 0,
+              "fake_guarded_psd_rows": 0,
+              "real_guarded_psd_rows": 0,
+              "global_term_includes_all_rows": true,
+              "conditional_term": "mean_PSD",
+              "no_supported_bin_behavior": "global_term_only_with_incomplete_coverage_diagnostic",
+              "projection_context": {
+                "kind": "training",
+                "seed": 2026101387,
+                "update": 1,
+                "fingerprint": "76d5464e3ef31887d11f0cd2499eb2f2815ef1046e90b2a037980592a79b929b"
+              },
+              "loss_version": 2,
+              "standardization_split": "TRAIN"
+            },
+            "engineering": {
+              "nonpositive_Q": 0,
+              "guarded_PSD": 0,
+              "saturation_fraction": 0.0,
+              "charge_identity_max": 2.0539125955565396e-15,
+              "search_edge_rows": 0,
+              "global_peak_outside_search_rows": 0,
+              "signal_Q_crop_change_absmax": 1.7763568394002505e-15
+            }
+          },
+          "common_level": {
+            "components": {
+              "wave": 0.5647460027602946,
+              "QPSD": 0.9046144124670569,
+              "noise": 0.25420948135159194,
+              "adv": 0.0
+            },
+            "wave_subcomponents": {
+              "swd": 0.3626110969899451,
+              "coordinate": 0.790148494688129,
+              "short_lag": 0.7436133223731595
+            },
+            "conditional_diagnostics": {
+              "fake_global_rows": 1024,
+              "real_global_rows": 1024,
+              "conditional_bins": [
+                {
+                  "bin": 0,
+                  "fake_count": 205,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 1,
+                  "fake_count": 136,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 2,
+                  "fake_count": 157,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 3,
+                  "fake_count": 132,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 4,
+                  "fake_count": 148,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 5,
+                  "fake_count": 97,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 6,
+                  "fake_count": 103,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 7,
+                  "fake_count": 46,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                }
+              ],
+              "minimum_conditional_support": 16,
+              "conditional_bins_used": 8,
+              "conditional_bins_total": 8,
+              "conditional_coverage_complete": true,
+              "conditional_rebatch_needed": false,
+              "fake_nonpositive_q_rows": 0,
+              "real_nonpositive_q_rows": 0,
+              "fake_guarded_psd_rows": 0,
+              "real_guarded_psd_rows": 0,
+              "global_term_includes_all_rows": true,
+              "conditional_term": "mean_PSD",
+              "no_supported_bin_behavior": "global_term_only_with_incomplete_coverage_diagnostic",
+              "projection_context": {
+                "kind": "training",
+                "seed": 2026101387,
+                "update": 1,
+                "fingerprint": "76d5464e3ef31887d11f0cd2499eb2f2815ef1046e90b2a037980592a79b929b"
+              },
+              "loss_version": 2,
+              "standardization_split": "TRAIN"
+            },
+            "engineering": {
+              "nonpositive_Q": 0,
+              "guarded_PSD": 0,
+              "saturation_fraction": 0.0,
+              "charge_identity_max": 2.0886070650760757e-15,
+              "search_edge_rows": 0,
+              "global_peak_outside_search_rows": 0,
+              "signal_Q_crop_change_absmax": 1.7763568394002505e-15
+            }
+          }
+        },
+        "discriminators": {},
+        "G_preclip_gradient_norm": 111.14336395263672,
+        "signal_prefix_absolute_max_V": 0.0,
+        "model_engineering": {
+          "query_outside_carrier": 0,
+          "beyond_extension": 0,
+          "canonical_charge_identity_absmax": 1.7763568394002505e-15,
+          "canonical_local_charge_absmax": 0.0
+        },
+        "projection_context": {
+          "kind": "training",
+          "seed": 2026101387,
+          "update": 1,
+          "fingerprint": "76d5464e3ef31887d11f0cd2499eb2f2815ef1046e90b2a037980592a79b929b"
+        },
+        "same_version_replay_verified": true,
+        "coverage": {
+          "source_unique": 512,
+          "source_total": 1024,
+          "real_unique": 1024,
+          "real_total": 1024,
+          "source_epochs": 0,
+          "real_epochs": 1
+        },
+        "noise_updates": 0,
+        "population_updates": 0,
+        "update_seconds": 0.45881462600664236,
+        "gpu_allocated_bytes": 174916608,
+        "gpu_reserved_bytes": 2246049792,
+        "endpoint_gradients": {
+          "fast": {
+            "norms": {
+              "wave": 0.37849574033646477,
+              "QPSD": 0.6329816708677282,
+              "noise": 0.0,
+              "adv": 0.0
+            },
+            "cosine": {
+              "wave/QPSD": 0.4334540153874676,
+              "wave/noise": null,
+              "wave/adv": null,
+              "QPSD/noise": null,
+              "QPSD/adv": null,
+              "noise/adv": null
+            },
+            "zero_norm_angle": null
+          },
+          "slow": {
+            "norms": {
+              "wave": 0.37856365930195324,
+              "QPSD": 0.6338092554645093,
+              "noise": 0.0,
+              "adv": 0.0
+            },
+            "cosine": {
+              "wave/QPSD": 0.4330111419165264,
+              "wave/noise": null,
+              "wave/adv": null,
+              "QPSD/noise": null,
+              "QPSD/adv": null,
+              "noise/adv": null
+            },
+            "zero_norm_angle": null
+          },
+          "common_level": {
+            "norms": {
+              "wave": 0.37788329912502566,
+              "QPSD": 0.6334015570670654,
+              "noise": 0.0,
+              "adv": 0.0
+            },
+            "cosine": {
+              "wave/QPSD": 0.4339777955426997,
+              "wave/noise": null,
+              "wave/adv": null,
+              "QPSD/noise": null,
+              "QPSD/adv": null,
+              "noise/adv": null
+            },
+            "zero_norm_angle": null
+          }
+        },
+        "gradient_scope": "per-hypothesis weighted waveform endpoints; base regular excluded",
+        "G_branch_postclip_gradient_norms": {
+          "shape_encoder": 0.0,
+          "charge_head": 0.35104393923449856,
+          "response_filter": 0.03797589827763227,
+          "mean_time": 0.4354416690447065,
+          "unet": 0.0,
+          "mean_head": 4.968471785504368
+        },
+        "recovery_run_id": "window008_fix01_20261013",
+        "model_implementation": "n01.model008_fix01.N01Response008Fix01",
+        "inherited_G_updates": 0,
+        "new_G_updates": 1,
+        "new_D_updates": {
+          "fast": 0,
+          "slow": 0,
+          "common_level": 0
+        }
+      }
+    },
+    {
+      "arm": "full",
+      "stage": "joint_stochastic",
+      "seconds": 0.4188373689976288,
+      "peak_GPU_bytes": 2262827008,
+      "metrics": {
+        "utc": "2026-10-13T10:23:21.234457+00:00",
+        "arm": "full",
+        "stage": "joint_stochastic",
+        "G_updates": 2,
+        "D_updates": {
+          "fast": 1,
+          "slow": 1,
+          "common_level": 1
+        },
+        "weighted_total": 2.414583995642869,
+        "regular_once": 0.003498442897359324,
+        "trend_once": 0.0,
+        "hypotheses": {
+          "fast": {
+            "components": {
+              "wave": 0.5387812403256447,
+              "QPSD": 0.8191419128974442,
+              "noise": 0.2470529337152525,
+              "adv": -0.04347141087055206
+            },
+            "wave_subcomponents": {
+              "swd": 0.38682115104801157,
+              "coordinate": 0.7102351667030374,
+              "short_lag": 0.6712474925035183
+            },
+            "conditional_diagnostics": {
+              "fake_global_rows": 1024,
+              "real_global_rows": 1024,
+              "conditional_bins": [
+                {
+                  "bin": 0,
+                  "fake_count": 189,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 1,
+                  "fake_count": 157,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 2,
+                  "fake_count": 126,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 3,
+                  "fake_count": 156,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 4,
+                  "fake_count": 139,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 5,
+                  "fake_count": 119,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 6,
+                  "fake_count": 86,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 7,
+                  "fake_count": 52,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                }
+              ],
+              "minimum_conditional_support": 16,
+              "conditional_bins_used": 8,
+              "conditional_bins_total": 8,
+              "conditional_coverage_complete": true,
+              "conditional_rebatch_needed": false,
+              "fake_nonpositive_q_rows": 0,
+              "real_nonpositive_q_rows": 0,
+              "fake_guarded_psd_rows": 0,
+              "real_guarded_psd_rows": 0,
+              "global_term_includes_all_rows": true,
+              "conditional_term": "PSD_empirical_W1",
+              "no_supported_bin_behavior": "global_term_only_with_incomplete_coverage_diagnostic",
+              "projection_context": {
+                "kind": "training",
+                "seed": 2026101387,
+                "update": 2,
+                "fingerprint": "87ddff21309313fb5532566cd2c696ba6c5e65af8e94405b7a868178b163cbf3"
+              },
+              "loss_version": 2,
+              "standardization_split": "TRAIN"
+            },
+            "engineering": {
+              "nonpositive_Q": 0,
+              "guarded_PSD": 0,
+              "saturation_fraction": 0.0,
+              "charge_identity_max": 3.0461744238152733e-15,
+              "search_edge_rows": 0,
+              "global_peak_outside_search_rows": 0,
+              "signal_Q_crop_change_absmax": 0.003260515102346595
+            }
+          },
+          "slow": {
+            "components": {
+              "wave": 0.5305362777850825,
+              "QPSD": 0.8197519310931172,
+              "noise": 0.2470529337152525,
+              "adv": -0.04381409287452698
+            },
+            "wave_subcomponents": {
+              "swd": 0.3721036937243293,
+              "coordinate": 0.7086876390620485,
+              "short_lag": 0.6692500846296229
+            },
+            "conditional_diagnostics": {
+              "fake_global_rows": 1024,
+              "real_global_rows": 1024,
+              "conditional_bins": [
+                {
+                  "bin": 0,
+                  "fake_count": 188,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 1,
+                  "fake_count": 161,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 2,
+                  "fake_count": 121,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 3,
+                  "fake_count": 157,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 4,
+                  "fake_count": 136,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 5,
+                  "fake_count": 124,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 6,
+                  "fake_count": 86,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 7,
+                  "fake_count": 51,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                }
+              ],
+              "minimum_conditional_support": 16,
+              "conditional_bins_used": 8,
+              "conditional_bins_total": 8,
+              "conditional_coverage_complete": true,
+              "conditional_rebatch_needed": false,
+              "fake_nonpositive_q_rows": 0,
+              "real_nonpositive_q_rows": 0,
+              "fake_guarded_psd_rows": 0,
+              "real_guarded_psd_rows": 0,
+              "global_term_includes_all_rows": true,
+              "conditional_term": "PSD_empirical_W1",
+              "no_supported_bin_behavior": "global_term_only_with_incomplete_coverage_diagnostic",
+              "projection_context": {
+                "kind": "training",
+                "seed": 2026101387,
+                "update": 2,
+                "fingerprint": "87ddff21309313fb5532566cd2c696ba6c5e65af8e94405b7a868178b163cbf3"
+              },
+              "loss_version": 2,
+              "standardization_split": "TRAIN"
+            },
+            "engineering": {
+              "nonpositive_Q": 0,
+              "guarded_PSD": 0,
+              "saturation_fraction": 0.0,
+              "charge_identity_max": 2.851885394505871e-15,
+              "search_edge_rows": 0,
+              "global_peak_outside_search_rows": 0,
+              "signal_Q_crop_change_absmax": 0.003260515102346595
+            }
+          },
+          "common_level": {
+            "components": {
+              "wave": 0.5293622000918826,
+              "QPSD": 0.8195657863777335,
+              "noise": 0.2470529337152525,
+              "adv": -0.04382196068763733
+            },
+            "wave_subcomponents": {
+              "swd": 0.37011285925412213,
+              "coordinate": 0.7082759398657491,
+              "short_lag": 0.668947141993537
+            },
+            "conditional_diagnostics": {
+              "fake_global_rows": 1024,
+              "real_global_rows": 1024,
+              "conditional_bins": [
+                {
+                  "bin": 0,
+                  "fake_count": 189,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 1,
+                  "fake_count": 158,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 2,
+                  "fake_count": 120,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 3,
+                  "fake_count": 160,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 4,
+                  "fake_count": 140,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 5,
+                  "fake_count": 121,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 6,
+                  "fake_count": 84,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 7,
+                  "fake_count": 52,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                }
+              ],
+              "minimum_conditional_support": 16,
+              "conditional_bins_used": 8,
+              "conditional_bins_total": 8,
+              "conditional_coverage_complete": true,
+              "conditional_rebatch_needed": false,
+              "fake_nonpositive_q_rows": 0,
+              "real_nonpositive_q_rows": 0,
+              "fake_guarded_psd_rows": 0,
+              "real_guarded_psd_rows": 0,
+              "global_term_includes_all_rows": true,
+              "conditional_term": "PSD_empirical_W1",
+              "no_supported_bin_behavior": "global_term_only_with_incomplete_coverage_diagnostic",
+              "projection_context": {
+                "kind": "training",
+                "seed": 2026101387,
+                "update": 2,
+                "fingerprint": "87ddff21309313fb5532566cd2c696ba6c5e65af8e94405b7a868178b163cbf3"
+              },
+              "loss_version": 2,
+              "standardization_split": "TRAIN"
+            },
+            "engineering": {
+              "nonpositive_Q": 0,
+              "guarded_PSD": 0,
+              "saturation_fraction": 0.0,
+              "charge_identity_max": 2.84147705365001e-15,
+              "search_edge_rows": 0,
+              "global_peak_outside_search_rows": 0,
+              "signal_Q_crop_change_absmax": 0.003260515102346595
+            }
+          }
+        },
+        "discriminators": {
+          "fast": {
+            "loss": 2.046937942504883,
+            "preclip_gradient_norm": 1.8840759992599487
+          },
+          "slow": {
+            "loss": 2.0474493503570557,
+            "preclip_gradient_norm": 1.8920093774795532
+          },
+          "common_level": {
+            "loss": 2.0473427772521973,
+            "preclip_gradient_norm": 1.8878726959228516
+          }
+        },
+        "G_preclip_gradient_norm": 107.33964538574219,
+        "signal_prefix_absolute_max_V": 0.0,
+        "model_engineering": {
+          "query_outside_carrier": 5280,
+          "beyond_extension": 1829,
+          "canonical_charge_identity_absmax": 1.7763568394002505e-15,
+          "canonical_local_charge_absmax": 1.1275702593849246e-17
+        },
+        "projection_context": {
+          "kind": "training",
+          "seed": 2026101387,
+          "update": 2,
+          "fingerprint": "87ddff21309313fb5532566cd2c696ba6c5e65af8e94405b7a868178b163cbf3"
+        },
+        "same_version_replay_verified": true,
+        "coverage": {
+          "source_unique": 1024,
+          "source_total": 1024,
+          "real_unique": 1024,
+          "real_total": 1024,
+          "source_epochs": 1,
+          "real_epochs": 2
+        },
+        "noise_updates": 0,
+        "population_updates": 0,
+        "update_seconds": 0.4183282629965106,
+        "gpu_allocated_bytes": 195895808,
+        "gpu_reserved_bytes": 2262827008,
+        "endpoint_gradients": {
+          "fast": {
+            "norms": {
+              "wave": 0.6195282644876938,
+              "QPSD": 0.6263464319136022,
+              "noise": 0.0,
+              "adv": 0.003811961239149278
+            },
+            "cosine": {
+              "wave/QPSD": 0.2585627384046549,
+              "wave/noise": null,
+              "wave/adv": -0.05186511027099381,
+              "QPSD/noise": null,
+              "QPSD/adv": -0.18626844938693682,
+              "noise/adv": null
+            },
+            "zero_norm_angle": null
+          },
+          "slow": {
+            "norms": {
+              "wave": 0.6152960653304576,
+              "QPSD": 0.6271235637281823,
+              "noise": 0.0,
+              "adv": 0.003805588399297329
+            },
+            "cosine": {
+              "wave/QPSD": 0.26024697318346507,
+              "wave/noise": null,
+              "wave/adv": -0.05691462408739633,
+              "QPSD/noise": null,
+              "QPSD/adv": -0.18357731506715064,
+              "noise/adv": null
+            },
+            "zero_norm_angle": null
+          },
+          "common_level": {
+            "norms": {
+              "wave": 0.614265257482925,
+              "QPSD": 0.6268088086832143,
+              "noise": 0.0,
+              "adv": 0.003804670735989194
+            },
+            "cosine": {
+              "wave/QPSD": 0.26312964303426395,
+              "wave/noise": null,
+              "wave/adv": -0.05787265169292634,
+              "QPSD/noise": null,
+              "QPSD/adv": -0.18597278945605847,
+              "noise/adv": null
+            },
+            "zero_norm_angle": null
+          }
+        },
+        "gradient_scope": "per-hypothesis weighted waveform endpoints; base regular excluded",
+        "G_branch_postclip_gradient_norms": {
+          "shape_encoder": 0.0011211876533221729,
+          "charge_head": 0.310496146321889,
+          "response_filter": 0.03796908077568214,
+          "mean_time": 0.4337919832843698,
+          "unet": 0.1212396515075924,
+          "mean_head": 4.969595165165786,
+          "physical_head": 0.018401131007308485,
+          "basis_head": 0.02315456849609693,
+          "envelope_head": 0.0390551374495386,
+          "local_filter": 6.914584986526844e-05
+        },
+        "recovery_run_id": "window008_fix01_20261013",
+        "model_implementation": "n01.model008_fix01.N01Response008Fix01",
+        "inherited_G_updates": 0,
+        "new_G_updates": 2,
+        "new_D_updates": {
+          "fast": 1,
+          "slow": 1,
+          "common_level": 1
+        }
+      }
+    },
+    {
+      "arm": "simple",
+      "stage": "mean_response",
+      "seconds": 0.08880706199852284,
+      "peak_GPU_bytes": 354418688,
+      "metrics": {
+        "utc": "2026-10-13T10:23:21.566308+00:00",
+        "arm": "simple",
+        "stage": "mean_response",
+        "G_updates": 1,
+        "D_updates": {
+          "fast": 0,
+          "slow": 0,
+          "common_level": 0
+        },
+        "weighted_total": 2.6228078877493926,
+        "regular_once": 0.0,
+        "trend_once": 0.0,
+        "hypotheses": {
+          "fast": {
+            "components": {
+              "wave": 0.5623247310904915,
+              "QPSD": 0.9006131609531588,
+              "noise": 0.25420948135159194,
+              "adv": 0.0
+            },
+            "wave_subcomponents": {
+              "swd": 0.3615160557612864,
+              "coordinate": 0.7862110029820248,
+              "short_lag": 0.7400558098573682
+            },
+            "conditional_diagnostics": {
+              "fake_global_rows": 1024,
+              "real_global_rows": 1024,
+              "conditional_bins": [
+                {
+                  "bin": 0,
+                  "fake_count": 206,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 1,
+                  "fake_count": 134,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 2,
+                  "fake_count": 155,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 3,
+                  "fake_count": 137,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 4,
+                  "fake_count": 144,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 5,
+                  "fake_count": 98,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 6,
+                  "fake_count": 105,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 7,
+                  "fake_count": 45,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                }
+              ],
+              "minimum_conditional_support": 16,
+              "conditional_bins_used": 8,
+              "conditional_bins_total": 8,
+              "conditional_coverage_complete": true,
+              "conditional_rebatch_needed": false,
+              "fake_nonpositive_q_rows": 0,
+              "real_nonpositive_q_rows": 0,
+              "fake_guarded_psd_rows": 0,
+              "real_guarded_psd_rows": 0,
+              "global_term_includes_all_rows": true,
+              "conditional_term": "mean_PSD",
+              "no_supported_bin_behavior": "global_term_only_with_incomplete_coverage_diagnostic",
+              "projection_context": {
+                "kind": "training",
+                "seed": 2026101387,
+                "update": 1,
+                "fingerprint": "76d5464e3ef31887d11f0cd2499eb2f2815ef1046e90b2a037980592a79b929b"
+              },
+              "loss_version": 2,
+              "standardization_split": "TRAIN"
+            },
+            "engineering": {
+              "nonpositive_Q": 0,
+              "guarded_PSD": 0,
+              "saturation_fraction": 0.0,
+              "charge_identity_max": 2.6020852139652106e-15,
+              "search_edge_rows": 0,
+              "global_peak_outside_search_rows": 0,
+              "signal_Q_crop_change_absmax": 1.7763568394002505e-15
+            }
+          },
+          "slow": {
+            "components": {
+              "wave": 0.563193836256013,
+              "QPSD": 0.9025377511230853,
+              "noise": 0.25420948135159194,
+              "adv": 0.0
+            },
+            "wave_subcomponents": {
+              "swd": 0.3618926414772453,
+              "coordinate": 0.7876435922731062,
+              "short_lag": 0.7413464697964554
+            },
+            "conditional_diagnostics": {
+              "fake_global_rows": 1024,
+              "real_global_rows": 1024,
+              "conditional_bins": [
+                {
+                  "bin": 0,
+                  "fake_count": 205,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 1,
+                  "fake_count": 138,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 2,
+                  "fake_count": 154,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 3,
+                  "fake_count": 132,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 4,
+                  "fake_count": 146,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 5,
+                  "fake_count": 102,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 6,
+                  "fake_count": 103,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 7,
+                  "fake_count": 44,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                }
+              ],
+              "minimum_conditional_support": 16,
+              "conditional_bins_used": 8,
+              "conditional_bins_total": 8,
+              "conditional_coverage_complete": true,
+              "conditional_rebatch_needed": false,
+              "fake_nonpositive_q_rows": 0,
+              "real_nonpositive_q_rows": 0,
+              "fake_guarded_psd_rows": 0,
+              "real_guarded_psd_rows": 0,
+              "global_term_includes_all_rows": true,
+              "conditional_term": "mean_PSD",
+              "no_supported_bin_behavior": "global_term_only_with_incomplete_coverage_diagnostic",
+              "projection_context": {
+                "kind": "training",
+                "seed": 2026101387,
+                "update": 1,
+                "fingerprint": "76d5464e3ef31887d11f0cd2499eb2f2815ef1046e90b2a037980592a79b929b"
+              },
+              "loss_version": 2,
+              "standardization_split": "TRAIN"
+            },
+            "engineering": {
+              "nonpositive_Q": 0,
+              "guarded_PSD": 0,
+              "saturation_fraction": 0.0,
+              "charge_identity_max": 2.0539125955565396e-15,
+              "search_edge_rows": 0,
+              "global_peak_outside_search_rows": 0,
+              "signal_Q_crop_change_absmax": 1.7763568394002505e-15
+            }
+          },
+          "common_level": {
+            "components": {
+              "wave": 0.5647460027602946,
+              "QPSD": 0.9046144124670569,
+              "noise": 0.25420948135159194,
+              "adv": 0.0
+            },
+            "wave_subcomponents": {
+              "swd": 0.3626110969899451,
+              "coordinate": 0.790148494688129,
+              "short_lag": 0.7436133223731595
+            },
+            "conditional_diagnostics": {
+              "fake_global_rows": 1024,
+              "real_global_rows": 1024,
+              "conditional_bins": [
+                {
+                  "bin": 0,
+                  "fake_count": 205,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 1,
+                  "fake_count": 136,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 2,
+                  "fake_count": 157,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 3,
+                  "fake_count": 132,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 4,
+                  "fake_count": 148,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 5,
+                  "fake_count": 97,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 6,
+                  "fake_count": 103,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 7,
+                  "fake_count": 46,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                }
+              ],
+              "minimum_conditional_support": 16,
+              "conditional_bins_used": 8,
+              "conditional_bins_total": 8,
+              "conditional_coverage_complete": true,
+              "conditional_rebatch_needed": false,
+              "fake_nonpositive_q_rows": 0,
+              "real_nonpositive_q_rows": 0,
+              "fake_guarded_psd_rows": 0,
+              "real_guarded_psd_rows": 0,
+              "global_term_includes_all_rows": true,
+              "conditional_term": "mean_PSD",
+              "no_supported_bin_behavior": "global_term_only_with_incomplete_coverage_diagnostic",
+              "projection_context": {
+                "kind": "training",
+                "seed": 2026101387,
+                "update": 1,
+                "fingerprint": "76d5464e3ef31887d11f0cd2499eb2f2815ef1046e90b2a037980592a79b929b"
+              },
+              "loss_version": 2,
+              "standardization_split": "TRAIN"
+            },
+            "engineering": {
+              "nonpositive_Q": 0,
+              "guarded_PSD": 0,
+              "saturation_fraction": 0.0,
+              "charge_identity_max": 2.0886070650760757e-15,
+              "search_edge_rows": 0,
+              "global_peak_outside_search_rows": 0,
+              "signal_Q_crop_change_absmax": 1.7763568394002505e-15
+            }
+          }
+        },
+        "discriminators": {},
+        "G_preclip_gradient_norm": 12.461613655090332,
+        "signal_prefix_absolute_max_V": 0.0,
+        "model_engineering": {
+          "query_outside_carrier": 0,
+          "beyond_extension": 0,
+          "canonical_charge_identity_absmax": 1.7763568394002505e-15,
+          "canonical_local_charge_absmax": 0.0
+        },
+        "projection_context": {
+          "kind": "training",
+          "seed": 2026101387,
+          "update": 1,
+          "fingerprint": "76d5464e3ef31887d11f0cd2499eb2f2815ef1046e90b2a037980592a79b929b"
+        },
+        "same_version_replay_verified": true,
+        "coverage": {
+          "source_unique": 512,
+          "source_total": 1024,
+          "real_unique": 1024,
+          "real_total": 1024,
+          "source_epochs": 0,
+          "real_epochs": 1
+        },
+        "noise_updates": 0,
+        "population_updates": 0,
+        "update_seconds": 0.08839601400541142,
+        "gpu_allocated_bytes": 150177792,
+        "gpu_reserved_bytes": 354418688,
+        "endpoint_gradients": {
+          "fast": {
+            "norms": {
+              "wave": 0.37849574033646477,
+              "QPSD": 0.6329816708677282,
+              "noise": 0.0,
+              "adv": 0.0
+            },
+            "cosine": {
+              "wave/QPSD": 0.4334540153874676,
+              "wave/noise": null,
+              "wave/adv": null,
+              "QPSD/noise": null,
+              "QPSD/adv": null,
+              "noise/adv": null
+            },
+            "zero_norm_angle": null
+          },
+          "slow": {
+            "norms": {
+              "wave": 0.37856365930195324,
+              "QPSD": 0.6338092554645093,
+              "noise": 0.0,
+              "adv": 0.0
+            },
+            "cosine": {
+              "wave/QPSD": 0.4330111419165264,
+              "wave/noise": null,
+              "wave/adv": null,
+              "QPSD/noise": null,
+              "QPSD/adv": null,
+              "noise/adv": null
+            },
+            "zero_norm_angle": null
+          },
+          "common_level": {
+            "norms": {
+              "wave": 0.37788329912502566,
+              "QPSD": 0.6334015570670654,
+              "noise": 0.0,
+              "adv": 0.0
+            },
+            "cosine": {
+              "wave/QPSD": 0.4339777955426997,
+              "wave/noise": null,
+              "wave/adv": null,
+              "QPSD/noise": null,
+              "QPSD/adv": null,
+              "noise/adv": null
+            },
+            "zero_norm_angle": null
+          }
+        },
+        "gradient_scope": "per-hypothesis weighted waveform endpoints; base regular excluded",
+        "G_branch_postclip_gradient_norms": {
+          "shape_encoder": 0.0,
+          "charge_head": 3.130910900351748,
+          "response_filter": 0.3387016323788393,
+          "mean_time": 3.8836423605514785
+        },
+        "recovery_run_id": "window008_fix01_20261013",
+        "model_implementation": "n01.model008_fix01.N01Response008Fix01",
+        "inherited_G_updates": 0,
+        "new_G_updates": 1,
+        "new_D_updates": {
+          "fast": 0,
+          "slow": 0,
+          "common_level": 0
+        }
+      }
+    },
+    {
+      "arm": "simple",
+      "stage": "joint_stochastic",
+      "seconds": 0.21371290399110876,
+      "peak_GPU_bytes": 562036736,
+      "metrics": {
+        "utc": "2026-10-13T10:23:21.780021+00:00",
+        "arm": "simple",
+        "stage": "joint_stochastic",
+        "G_updates": 2,
+        "D_updates": {
+          "fast": 1,
+          "slow": 1,
+          "common_level": 1
+        },
+        "weighted_total": 2.674971916904953,
+        "regular_once": 0.0,
+        "trend_once": 0.0,
+        "hypotheses": {
+          "fast": {
+            "components": {
+              "wave": 0.6283675237923785,
+              "QPSD": 0.8976740157032617,
+              "noise": 0.2470529337152525,
+              "adv": -0.04937213659286499
+            },
+            "wave_subcomponents": {
+              "swd": 0.49496307262794625,
+              "coordinate": 0.7834057064031751,
+              "short_lag": 0.7401382435104462
+            },
+            "conditional_diagnostics": {
+              "fake_global_rows": 1024,
+              "real_global_rows": 1024,
+              "conditional_bins": [
+                {
+                  "bin": 0,
+                  "fake_count": 189,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 1,
+                  "fake_count": 157,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 2,
+                  "fake_count": 126,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 3,
+                  "fake_count": 156,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 4,
+                  "fake_count": 139,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 5,
+                  "fake_count": 119,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 6,
+                  "fake_count": 86,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 7,
+                  "fake_count": 52,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                }
+              ],
+              "minimum_conditional_support": 16,
+              "conditional_bins_used": 8,
+              "conditional_bins_total": 8,
+              "conditional_coverage_complete": true,
+              "conditional_rebatch_needed": false,
+              "fake_nonpositive_q_rows": 0,
+              "real_nonpositive_q_rows": 0,
+              "fake_guarded_psd_rows": 0,
+              "real_guarded_psd_rows": 0,
+              "global_term_includes_all_rows": true,
+              "conditional_term": "PSD_empirical_W1",
+              "no_supported_bin_behavior": "global_term_only_with_incomplete_coverage_diagnostic",
+              "projection_context": {
+                "kind": "training",
+                "seed": 2026101387,
+                "update": 2,
+                "fingerprint": "87ddff21309313fb5532566cd2c696ba6c5e65af8e94405b7a868178b163cbf3"
+              },
+              "loss_version": 2,
+              "standardization_split": "TRAIN"
+            },
+            "engineering": {
+              "nonpositive_Q": 0,
+              "guarded_PSD": 0,
+              "saturation_fraction": 0.0,
+              "charge_identity_max": 2.2343238370581275e-15,
+              "search_edge_rows": 0,
+              "global_peak_outside_search_rows": 0,
+              "signal_Q_crop_change_absmax": 1.7763568394002505e-15
+            }
+          },
+          "slow": {
+            "components": {
+              "wave": 0.6398131117042838,
+              "QPSD": 0.8984834175589486,
+              "noise": 0.2470529337152525,
+              "adv": -0.04980267584323883
+            },
+            "wave_subcomponents": {
+              "swd": 0.5185296334892229,
+              "coordinate": 0.7823720719444349,
+              "short_lag": 0.7398211078942543
+            },
+            "conditional_diagnostics": {
+              "fake_global_rows": 1024,
+              "real_global_rows": 1024,
+              "conditional_bins": [
+                {
+                  "bin": 0,
+                  "fake_count": 188,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 1,
+                  "fake_count": 161,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 2,
+                  "fake_count": 121,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 3,
+                  "fake_count": 157,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 4,
+                  "fake_count": 136,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 5,
+                  "fake_count": 124,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 6,
+                  "fake_count": 86,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 7,
+                  "fake_count": 51,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                }
+              ],
+              "minimum_conditional_support": 16,
+              "conditional_bins_used": 8,
+              "conditional_bins_total": 8,
+              "conditional_coverage_complete": true,
+              "conditional_rebatch_needed": false,
+              "fake_nonpositive_q_rows": 0,
+              "real_nonpositive_q_rows": 0,
+              "fake_guarded_psd_rows": 0,
+              "real_guarded_psd_rows": 0,
+              "global_term_includes_all_rows": true,
+              "conditional_term": "PSD_empirical_W1",
+              "no_supported_bin_behavior": "global_term_only_with_incomplete_coverage_diagnostic",
+              "projection_context": {
+                "kind": "training",
+                "seed": 2026101387,
+                "update": 2,
+                "fingerprint": "87ddff21309313fb5532566cd2c696ba6c5e65af8e94405b7a868178b163cbf3"
+              },
+              "loss_version": 2,
+              "standardization_split": "TRAIN"
+            },
+            "engineering": {
+              "nonpositive_Q": 0,
+              "guarded_PSD": 0,
+              "saturation_fraction": 0.0,
+              "charge_identity_max": 2.4147350785597155e-15,
+              "search_edge_rows": 0,
+              "global_peak_outside_search_rows": 0,
+              "signal_Q_crop_change_absmax": 1.7763568394002505e-15
+            }
+          },
+          "common_level": {
+            "components": {
+              "wave": 0.6415474617737956,
+              "QPSD": 0.8983123839513981,
+              "noise": 0.2470529337152525,
+              "adv": -0.04993300884962082
+            },
+            "wave_subcomponents": {
+              "swd": 0.5210494227975937,
+              "coordinate": 0.7834178562023528,
+              "short_lag": 0.7406731452976422
+            },
+            "conditional_diagnostics": {
+              "fake_global_rows": 1024,
+              "real_global_rows": 1024,
+              "conditional_bins": [
+                {
+                  "bin": 0,
+                  "fake_count": 189,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 1,
+                  "fake_count": 158,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 2,
+                  "fake_count": 120,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 3,
+                  "fake_count": 160,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 4,
+                  "fake_count": 140,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 5,
+                  "fake_count": 121,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 6,
+                  "fake_count": 84,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 7,
+                  "fake_count": 52,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                }
+              ],
+              "minimum_conditional_support": 16,
+              "conditional_bins_used": 8,
+              "conditional_bins_total": 8,
+              "conditional_coverage_complete": true,
+              "conditional_rebatch_needed": false,
+              "fake_nonpositive_q_rows": 0,
+              "real_nonpositive_q_rows": 0,
+              "fake_guarded_psd_rows": 0,
+              "real_guarded_psd_rows": 0,
+              "global_term_includes_all_rows": true,
+              "conditional_term": "PSD_empirical_W1",
+              "no_supported_bin_behavior": "global_term_only_with_incomplete_coverage_diagnostic",
+              "projection_context": {
+                "kind": "training",
+                "seed": 2026101387,
+                "update": 2,
+                "fingerprint": "87ddff21309313fb5532566cd2c696ba6c5e65af8e94405b7a868178b163cbf3"
+              },
+              "loss_version": 2,
+              "standardization_split": "TRAIN"
+            },
+            "engineering": {
+              "nonpositive_Q": 0,
+              "guarded_PSD": 0,
+              "saturation_fraction": 0.0,
+              "charge_identity_max": 3.316791286067655e-15,
+              "search_edge_rows": 0,
+              "global_peak_outside_search_rows": 0,
+              "signal_Q_crop_change_absmax": 1.7763568394002505e-15
+            }
+          }
+        },
+        "discriminators": {
+          "fast": {
+            "loss": 2.0577545166015625,
+            "preclip_gradient_norm": 2.1374194622039795
+          },
+          "slow": {
+            "loss": 2.0584557056427,
+            "preclip_gradient_norm": 2.151088237762451
+          },
+          "common_level": {
+            "loss": 2.0586142539978027,
+            "preclip_gradient_norm": 2.1522910594940186
+          }
+        },
+        "G_preclip_gradient_norm": 11.320635795593262,
+        "signal_prefix_absolute_max_V": 0.0,
+        "model_engineering": {
+          "query_outside_carrier": 5283,
+          "beyond_extension": 1829,
+          "canonical_charge_identity_absmax": 1.7763568394002505e-15,
+          "canonical_local_charge_absmax": 0.0
+        },
+        "projection_context": {
+          "kind": "training",
+          "seed": 2026101387,
+          "update": 2,
+          "fingerprint": "87ddff21309313fb5532566cd2c696ba6c5e65af8e94405b7a868178b163cbf3"
+        },
+        "same_version_replay_verified": true,
+        "coverage": {
+          "source_unique": 1024,
+          "source_total": 1024,
+          "real_unique": 1024,
+          "real_total": 1024,
+          "source_epochs": 1,
+          "real_epochs": 2
+        },
+        "noise_updates": 0,
+        "population_updates": 0,
+        "update_seconds": 0.21321900599286892,
+        "gpu_allocated_bytes": 154197504,
+        "gpu_reserved_bytes": 562036736,
+        "endpoint_gradients": {
+          "fast": {
+            "norms": {
+              "wave": 0.6225367122348325,
+              "QPSD": 0.6324948134295652,
+              "noise": 0.0,
+              "adv": 0.0037840352750114284
+            },
+            "cosine": {
+              "wave/QPSD": 0.26354176984244254,
+              "wave/noise": null,
+              "wave/adv": -0.09376366193865766,
+              "QPSD/noise": null,
+              "QPSD/adv": -0.1990059879636864,
+              "noise/adv": null
+            },
+            "zero_norm_angle": null
+          },
+          "slow": {
+            "norms": {
+              "wave": 0.6279278037690891,
+              "QPSD": 0.6333255705804732,
+              "noise": 0.0,
+              "adv": 0.0037745151287648135
+            },
+            "cosine": {
+              "wave/QPSD": 0.2605114219588563,
+              "wave/noise": null,
+              "wave/adv": -0.09949740340985626,
+              "QPSD/noise": null,
+              "QPSD/adv": -0.1972223252717808,
+              "noise/adv": null
+            },
+            "zero_norm_angle": null
+          },
+          "common_level": {
+            "norms": {
+              "wave": 0.6295002484552031,
+              "QPSD": 0.6329909585257832,
+              "noise": 0.0,
+              "adv": 0.0037699273405663544
+            },
+            "cosine": {
+              "wave/QPSD": 0.26076583754039523,
+              "wave/noise": null,
+              "wave/adv": -0.10301794864747638,
+              "QPSD/noise": null,
+              "QPSD/adv": -0.19781604774744427,
+              "noise/adv": null
+            },
+            "zero_norm_angle": null
+          }
+        },
+        "gradient_scope": "per-hypothesis weighted waveform endpoints; base regular excluded",
+        "G_branch_postclip_gradient_norms": {
+          "shape_encoder": 0.00848633930019471,
+          "charge_head": 2.3284846765241194,
+          "response_filter": 0.3739489285648643,
+          "mean_time": 4.408862276270348,
+          "physical_head": 0.013303527195551728
+        },
+        "recovery_run_id": "window008_fix01_20261013",
+        "model_implementation": "n01.model008_fix01.N01Response008Fix01",
+        "inherited_G_updates": 0,
+        "new_G_updates": 2,
+        "new_D_updates": {
+          "fast": 1,
+          "slow": 1,
+          "common_level": 1
+        }
+      }
+    }
+  ],
+  "model_forwards": {
+    "historical_SOURCE": {
+      "calls_attempted": 2,
+      "rows_attempted": 1024,
+      "calls_completed": 1,
+      "rows_completed": 512
+    },
+    "artificial_SOURCE": {
+      "calls_attempted": 20,
+      "rows_attempted": 8200,
+      "calls_completed": 20,
+      "rows_completed": 8200
+    }
+  },
+  "device": "cuda:0",
+  "GPU": "NVIDIA GeForce RTX 5070",
+  "torch_version": "2.12.0+cu130",
+  "CUDA_build": "13.0",
+  "actual_SOURCE_carrier_rows_decoded": 6593,
+  "failure_case": {
+    "rows": 512,
+    "original_error": {
+      "reason": "Invalid Window008 shape canonical charge",
+      "rows": [
+        22
+      ],
+      "values": [
+        -0.6842861649644458
+      ]
+    },
+    "fixed_row22_Q": 41.70833581223988,
+    "minimum_base_Q": 28.50188917162437,
+    "basis_canonical_absmax": 4.796163466380676e-14,
+    "shape_Q_minus_base_absmax": 1.4210854715202004e-14,
+    "signal_Q_identity_absmax": 3.552713678800501e-15,
+    "prefix100_exact_zero": true,
+    "observation": {
+      "fast": {
+        "rows": 512,
+        "nonpositive_Q": 0,
+        "search_edges": 0
+      },
+      "slow": {
+        "rows": 512,
+        "nonpositive_Q": 0,
+        "search_edges": 0
+      },
+      "common_level": {
+        "rows": 512,
+        "nonpositive_Q": 0,
+        "search_edges": 0
+      }
+    }
+  },
+  "fixture_sha256": "7775b8fdc802003df635a32c3c365a8265a422b9f53c6dab733d7e9713de6d36",
+  "formal_batch": [
+    2,
+    256,
+    2,
+    512
+  ],
+  "artificial_rows": 1024,
+  "direct_vs_two_pass_VJP": {
+    "parameter_gradient_elements": 1486573,
+    "relative_L2_error": 0.0,
+    "max_abs_error": 0.0,
+    "optimizer_steps": 0
+  },
+  "finished_UTC": "2026-10-13T10:23:21.839727+00:00"
+}

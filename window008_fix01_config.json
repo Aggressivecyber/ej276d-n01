@@ -1,0 +1,154 @@
+{
+  "schema": "n01/window008-fix01-config/v1",
+  "run_id": "window008_fix01_20261013",
+  "registered_UTC": "2026-10-13T09:47:45.955728+00:00",
+  "remote_root": "/home/rylan/projects/ej276d-n01/window008_fix01_20261013",
+  "base_configuration": "window008_config.json",
+  "base_configuration_sha256": "f5500c65f2d17a2fe6964bfc5908dedb68c27b9391cb30bf30c0ba161509d145",
+  "legacy_source_manifest": "WINDOW008_SOURCE_MANIFEST.json",
+  "legacy_source_manifest_sha256": "97b020dc68e41fa1e893e66fdf1091b1bf9500b98281a5dd7e2545ee9ce00929",
+  "source_manifest": "WINDOW008_FIX01_SOURCE_MANIFEST.json",
+  "protocol": "docs/WINDOW008_STABILITY_FIX01_PROTOCOL.md",
+  "model_implementation": "n01.model008_fix01.N01Response008Fix01",
+  "model_change": "full joint/low only: gated raw stochastic bases receive the existing canonical-charge projection, then RMS normalization; base guards remain",
+  "effective_observation_samples": 256,
+  "internal_carrier_samples": 384,
+  "reference_inputs": {
+    "common_initial_state": {
+      "path": "provenance/window008_fix01_reference/common_initial_state.pt",
+      "sha256": "ec5430fa4f5a0c0f2b330a7d38d8e210c5dfa93e12ffe911695de16e2a5d2f1a",
+      "bytes": 6164745,
+      "original": "runs/science/common_initial_state.pt"
+    },
+    "full_stage_03000": {
+      "path": "provenance/window008_fix01_reference/full_stage_03000.pt",
+      "sha256": "48a20d256c3d87f2f087aa6a3cc3a2dd9279715c137ad1d5c073dcd22bfaab9c",
+      "bytes": 19542382,
+      "original": "runs/science/train/full/stage_03000.pt"
+    },
+    "full_initial": {
+      "path": "provenance/window008_fix01_reference/full_initial.pt",
+      "sha256": "0c7203b160d9829c70deb3caebc58ad73b03c45e68bb4e173482969f2a4196fc",
+      "bytes": 7575581,
+      "original": "runs/science/train/full/initial.pt"
+    },
+    "deterministic_final": {
+      "path": "provenance/window008_fix01_reference/deterministic_final.pt",
+      "sha256": "2096523d53b62dbbc6b41d2788a8fba203af89c3cf753133bbbe81ab5c036849",
+      "bytes": 21256763,
+      "original": "runs/science/train/deterministic/final.pt"
+    },
+    "deterministic_stage_03000": {
+      "path": "provenance/window008_fix01_reference/deterministic_stage_03000.pt",
+      "sha256": "d069523a2eaa5a9abd738cb431e03ff4be99b9526818fa7c1f8f5c4c649eafe5",
+      "bytes": 19498905,
+      "original": "runs/science/train/deterministic/stage_03000.pt"
+    },
+    "deterministic_training_complete": {
+      "path": "provenance/window008_fix01_reference/deterministic_training_complete.json",
+      "sha256": "b5f32f7a735477e7383d9461440bed99f4beea720a4e50a5a96813e3655fbaa9",
+      "bytes": 443,
+      "original": "runs/science/train/deterministic/TRAINING_COMPLETE.json"
+    },
+    "legacy_failure": {
+      "path": "provenance/window008_fix01_reference/legacy_failure.json",
+      "sha256": "d4d20d8187e40d168e6f1fcf758d14552a833adff337ad2ffcc0076fa0846bf6",
+      "bytes": 2269,
+      "original": "runs/science/FAILURE.json"
+    },
+    "legacy_native_exit": {
+      "path": "provenance/window008_fix01_reference/legacy_native_exit.json",
+      "sha256": "fab9bcefc5dc6e0d8de36079035b2deeb32351480586141e29e40cad710a4c55",
+      "bytes": 226,
+      "original": "runs/supervisor/exit_receipt.json"
+    },
+    "legacy_binding": {
+      "path": "provenance/window008_fix01_reference/legacy_binding.json",
+      "sha256": "296fb23abddc763dd4e9bb38292cd66bd13307d7af169372961e52f7bb2a04d5",
+      "bytes": 719,
+      "original": "runs/science/BINDING.json"
+    },
+    "legacy_training_inputs": {
+      "path": "provenance/window008_fix01_reference/legacy_training_inputs.json",
+      "sha256": "4dd353e0cfff5a363cf90040c80c9d4eb5961f4f5148fc6d2331938be5c99bd0",
+      "bytes": 547,
+      "original": "runs/science/TRAINING_INPUTS.json"
+    },
+    "legacy_failure_checkpoint": {
+      "path": "provenance/window008_fix01_reference/legacy_failure_checkpoint.pt",
+      "sha256": "1da7c5213795e86f9435cf8600d7db3dbb5886c2773f74b8b93c96e4c80a7767",
+      "bytes": 21396331,
+      "original": "runs/science/FAILURE_CHECKPOINT.pt"
+    },
+    "legacy_failure_context": {
+      "path": "provenance/window008_fix01_reference/legacy_failure_context.pt",
+      "sha256": "269324a12aba4beff34e98f01e57a9a50110b0de49e851018959dc4c6c51c4c2",
+      "bytes": 2477085,
+      "original": "runs/science/FAILURE_CONTEXT.pt"
+    },
+    "legacy_launch": {
+      "path": "provenance/window008_fix01_reference/legacy_launch.json",
+      "sha256": "21f927e19ac604951f268e4e72df70b0d069b5412a0efa7412ca03520fb1dd32",
+      "bytes": 1117,
+      "original": "runs/supervisor/launch.json"
+    }
+  },
+  "execution_arms": [
+    "full",
+    "simple"
+  ],
+  "comparison_arms": [
+    "deterministic",
+    "full",
+    "simple"
+  ],
+  "resume": {
+    "arm": "full",
+    "reference": "full_stage_03000",
+    "G_updates": 3000,
+    "D_updates_per_hypothesis": 0,
+    "stage": "mean_response",
+    "next_G_update": 3001,
+    "all_optimizer_sampler_stream_states_imported": true,
+    "first_update_audit": true,
+    "first_update_same_version_replay": true
+  },
+  "fresh_simple": {
+    "common_reference": "common_initial_state",
+    "G_updates": 0,
+    "D_updates_per_hypothesis": 0
+  },
+  "retained_deterministic": {
+    "final_reference": "deterministic_final",
+    "G_updates": 19000,
+    "D_updates_per_hypothesis": 16000,
+    "no_new_updates": true,
+    "source_execution_native_exit_code": 1,
+    "arm_training_complete": true
+  },
+  "updates_per_valid_arm": 19000,
+  "new_execution_G_updates": 35000,
+  "new_execution_D_updates": 96000,
+  "effective_comparison_G_updates": 57000,
+  "effective_comparison_D_updates": 144000,
+  "historical_actual_G_updates_after_success": 57269,
+  "historical_actual_D_updates_after_success": 144807,
+  "discarded_legacy_joint_G_updates": 269,
+  "discarded_legacy_joint_D_updates": 807,
+  "noise_updates": 0,
+  "population_updates": 0,
+  "C2ST_updates": 0,
+  "DEV_waveforms_used_for_training": false,
+  "loss_and_seeds_changed": false,
+  "independent_acquisition_available": false,
+  "cpu_threads": 12,
+  "gpu_memory_limit_GiB": 10,
+  "job_tree_RSS_limit_GiB": 8,
+  "wall_limit_s": 21600,
+  "output_limit_MiB": 3072,
+  "checkpoint_interval": 1000,
+  "status_interval": 25,
+  "one_active_scientific_job": true,
+  "supervision": "owned resource guard only; primary verifies correct startup then schedules one estimated-completion follow-up",
+  "scientific_status": "response_match_not_established"
+}

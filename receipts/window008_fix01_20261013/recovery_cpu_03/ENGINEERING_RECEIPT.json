@@ -1,0 +1,534 @@
+{
+  "schema": "n01/window008-fix01-recovery-QA/v1",
+  "status": "passed_artificial_CPU_recovery_QA",
+  "UTC": "2026-10-13T10:09:52.559622+00:00",
+  "checks": [
+    {
+      "name": "engine_replacement_model_parameter_order_optimizer_exact",
+      "passed": true,
+      "details": {
+        "parameters": 180
+      }
+    },
+    {
+      "name": "full_artificial_mean_update_bitwise_equal_to_legacy",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "fabricated_stage3000_all_state_import_exact",
+      "passed": true,
+      "details": {
+        "model": "6532e9f917788066e17f43f2767aec6d52525f04cc06f4fb5087d3256e7b39cd",
+        "discriminators": "f077cbe83fc71088098a1197e6843811efda1b17ff4b6b121b2fa9b58e2d9157",
+        "g_optimizer": "ccfa67dfee521fa593d2182df4d10a46af5e85518963d046d327a66eef65b324",
+        "d_optimizers": "8784a2d4768f44ccb63b8407298e6f47df9d92920e896b8971bb3ec86204de8d",
+        "source_sampler": "ea246cb8b9e0256c736a8e0e13074e9bd24b46e516cdec37b42c7f1990abd51a",
+        "real_sampler": "9c72bf36d958e338c20a99919fc7797f1c6b361820a448d240d37d3942eeafc2",
+        "streams": "52acd6a662902eef1a6f272e5ee0048a288334b6c8f21671fe41f3cf08290a55"
+      }
+    },
+    {
+      "name": "postload_validation_failure_preserved",
+      "passed": true,
+      "details": {
+        "error_type": "ValueError",
+        "error": "Injected post-load verification failure"
+      }
+    },
+    {
+      "name": "failed_import_after_state_install_has_zero_new_G_D",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "repeat_legacy_import_rejected",
+      "passed": true,
+      "details": {
+        "error_type": "ValueError",
+        "error": "Legacy import is permitted once into a fresh full engine"
+      }
+    },
+    {
+      "name": "unknown_generic_resume_rejected",
+      "passed": true,
+      "details": {
+        "error_type": "ValueError",
+        "error": "No automatic fix01 resume; only import_legacy_full_stage3000 is registered"
+      }
+    },
+    {
+      "name": "first_full_update_wrong_stage_rejected",
+      "passed": true,
+      "details": {
+        "error_type": "ValueError",
+        "error": "First fix01 full update must be joint3001 with audit and exact replay"
+      }
+    },
+    {
+      "name": "first_full_update_missing_audit_rejected",
+      "passed": true,
+      "details": {
+        "error_type": "ValueError",
+        "error": "First fix01 full update must be joint3001 with audit and exact replay"
+      }
+    },
+    {
+      "name": "first_full_update_missing_replay_rejected",
+      "passed": true,
+      "details": {
+        "error_type": "ValueError",
+        "error": "First fix01 full update must be joint3001 with audit and exact replay"
+      }
+    },
+    {
+      "name": "first_resumed_update_3001_projection_replay_and_new_counts",
+      "passed": true,
+      "details": {
+        "G": 3001,
+        "new_G": 1,
+        "D": {
+          "fast": 1,
+          "slow": 1,
+          "common_level": 1
+        },
+        "projection": {
+          "kind": "training",
+          "seed": 2026101387,
+          "update": 3001,
+          "fingerprint": "e4228c75ba283043499987c332091cf8b5d5b48aa7cfd2d23a7340dd7752662a"
+        }
+      }
+    },
+    {
+      "name": "fix01_checkpoint_has_new_schema_and_explicit_lineage",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "driver_failure_saves_actual_counts_checkpoint_and_context",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "fixed_checkpoint_overwrite_rejected",
+      "passed": true,
+      "details": {
+        "error_type": "FileExistsError",
+        "error": "Preserve existing fix01 checkpoint: E:\\GAN\\research\\N01\\receipts\\window008_fix01_20261013\\recovery_cpu_03\\fix01_one_joint.engineering.pt"
+      }
+    },
+    {
+      "name": "nonlatest_overwrite_rejected",
+      "passed": true,
+      "details": {
+        "error_type": "ValueError",
+        "error": "Only latest.pt may be replaced"
+      }
+    },
+    {
+      "name": "fix01_checkpoint_cannot_be_legacy_import",
+      "passed": true,
+      "details": {
+        "error_type": "ValueError",
+        "error": "Legacy schema/arm/config differs"
+      }
+    },
+    {
+      "name": "simple_cannot_import_full",
+      "passed": true,
+      "details": {
+        "error_type": "ValueError",
+        "error": "Legacy import is permitted once into a fresh full engine"
+      }
+    },
+    {
+      "name": "deterministic_cannot_be_retrained",
+      "passed": true,
+      "details": {
+        "error_type": "ValueError",
+        "error": "Fix01 never retrains retained deterministic arm"
+      }
+    },
+    {
+      "name": "fresh_simple_mean_and_joint_bitwise_equal_to_legacy",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "wrong_arm",
+      "passed": true,
+      "details": {
+        "error_type": "ValueError",
+        "error": "Legacy schema/arm/config differs"
+      }
+    },
+    {
+      "name": "wrong_schema",
+      "passed": true,
+      "details": {
+        "error_type": "ValueError",
+        "error": "Legacy schema/arm/config differs"
+      }
+    },
+    {
+      "name": "failure_step3269",
+      "passed": true,
+      "details": {
+        "error_type": "ValueError",
+        "error": "Only the zero-D mean stage3000 is admissible"
+      }
+    },
+    {
+      "name": "wrong_stage",
+      "passed": true,
+      "details": {
+        "error_type": "ValueError",
+        "error": "Only the zero-D mean stage3000 is admissible"
+      }
+    },
+    {
+      "name": "nonzero_D",
+      "passed": true,
+      "details": {
+        "error_type": "ValueError",
+        "error": "Only the zero-D mean stage3000 is admissible"
+      }
+    },
+    {
+      "name": "changed_config",
+      "passed": true,
+      "details": {
+        "error_type": "ValueError",
+        "error": "Legacy schema/arm/config differs"
+      }
+    },
+    {
+      "name": "changed_statistics",
+      "passed": true,
+      "details": {
+        "error_type": "ValueError",
+        "error": "Legacy statistics differ"
+      }
+    },
+    {
+      "name": "changed_common",
+      "passed": true,
+      "details": {
+        "error_type": "ValueError",
+        "error": "Legacy frozen references differ"
+      }
+    },
+    {
+      "name": "changed_initial_D",
+      "passed": true,
+      "details": {
+        "error_type": "ValueError",
+        "error": "Legacy frozen references differ"
+      }
+    },
+    {
+      "name": "changed_noise",
+      "passed": true,
+      "details": {
+        "error_type": "ValueError",
+        "error": "Legacy frozen references differ"
+      }
+    },
+    {
+      "name": "changed_G_optimizer_step",
+      "passed": true,
+      "details": {
+        "error_type": "ValueError",
+        "error": "AdamW step differs: shape_encoder.net.0.weight"
+      }
+    },
+    {
+      "name": "missing_mean_optimizer_slot",
+      "passed": true,
+      "details": {
+        "error_type": "ValueError",
+        "error": "Trained mean parameter is missing its optimizer history: shape_encoder.net.0.weight"
+      }
+    },
+    {
+      "name": "changed_G_optimizer_order",
+      "passed": true,
+      "details": {
+        "error_type": "ValueError",
+        "error": "Value differs: optimizer_param_groups/0/params/0"
+      }
+    },
+    {
+      "name": "changed_G_optimizer_lr",
+      "passed": true,
+      "details": {
+        "error_type": "ValueError",
+        "error": "Value differs: optimizer_param_groups/0/lr"
+      }
+    },
+    {
+      "name": "changed_D_buffer",
+      "passed": true,
+      "details": {
+        "error_type": "ValueError",
+        "error": "Tensor differs: untrained_D_state/fast.center"
+      }
+    },
+    {
+      "name": "wrong_source_population",
+      "passed": true,
+      "details": {
+        "error_type": "ValueError",
+        "error": "Sampler population differs"
+      }
+    },
+    {
+      "name": "wrong_source_position",
+      "passed": true,
+      "details": {
+        "error_type": "ValueError",
+        "error": "Sampler draw position differs"
+      }
+    },
+    {
+      "name": "wrong_source_visits",
+      "passed": true,
+      "details": {
+        "error_type": "ValueError",
+        "error": "Sampler visit counts differ"
+      }
+    },
+    {
+      "name": "wrong_source_order",
+      "passed": true,
+      "details": {
+        "error_type": "ValueError",
+        "error": "Sampler order is not a permutation"
+      }
+    },
+    {
+      "name": "wrong_real_epochs",
+      "passed": true,
+      "details": {
+        "error_type": "ValueError",
+        "error": "Sampler draw position differs"
+      }
+    },
+    {
+      "name": "missing_stream",
+      "passed": true,
+      "details": {
+        "error_type": "ValueError",
+        "error": "Paired stream keys differ"
+      }
+    },
+    {
+      "name": "wrong_stream_dtype",
+      "passed": true,
+      "details": {
+        "error_type": "ValueError",
+        "error": "Paired RNG dtype/shape differs: response"
+      }
+    },
+    {
+      "name": "wrong_last_metrics",
+      "passed": true,
+      "details": {
+        "error_type": "ValueError",
+        "error": "Legacy last metrics differ"
+      }
+    },
+    {
+      "name": "noise_updates",
+      "passed": true,
+      "details": {
+        "error_type": "ValueError",
+        "error": "Legacy noise/population history differs"
+      }
+    },
+    {
+      "name": "unbound_file_hash_rejected",
+      "passed": true,
+      "details": {
+        "error_type": "ValueError",
+        "error": "Registered full stage3000 bytes changed"
+      }
+    },
+    {
+      "name": "legacy_checkpoint_bytes_unchanged",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "path_escape_rejected",
+      "passed": true,
+      "details": {
+        "error_type": "ValueError",
+        "error": "Expected an in-root relative path: ../outside"
+      }
+    },
+    {
+      "name": "absolute_reference_rejected",
+      "passed": true,
+      "details": {
+        "error_type": "ValueError",
+        "error": "Expected an in-root relative path: E:\\GAN\\research\\N01\\receipts\\window008_fix01_20261013\\recovery_cpu_03\\outside"
+      }
+    },
+    {
+      "name": "budget_mismatch_rejected",
+      "passed": true,
+      "details": {
+        "error_type": "ValueError",
+        "error": "Fix01 update budgets differ"
+      }
+    },
+    {
+      "name": "resume_policy_mismatch_rejected",
+      "passed": true,
+      "details": {
+        "error_type": "ValueError",
+        "error": "Fix01 resume policy differs"
+      }
+    },
+    {
+      "name": "new_effective_historical_counts_separated",
+      "passed": true,
+      "details": {
+        "new_execution_G_updates": 35000,
+        "new_execution_D_updates": 96000,
+        "effective_comparison_G_updates": 57000,
+        "effective_comparison_D_updates": 144000,
+        "historical_actual_G_updates": 57269,
+        "historical_actual_D_updates": 144807,
+        "inherited_effective_G_updates": 22000,
+        "inherited_effective_D_updates": 48000,
+        "discarded_legacy_joint_G_updates": 269,
+        "discarded_legacy_joint_D_updates": 807,
+        "legacy_references_validated": true
+      }
+    },
+    {
+      "name": "midstep_partial_D_updates_preserved",
+      "passed": true,
+      "details": {
+        "new_execution_G_updates": 269,
+        "new_execution_D_updates": 808,
+        "effective_comparison_G_updates": 22269,
+        "effective_comparison_D_updates": 48808,
+        "historical_actual_G_updates": 22538,
+        "historical_actual_D_updates": 49615,
+        "inherited_effective_G_updates": 22000,
+        "inherited_effective_D_updates": 48000,
+        "discarded_legacy_joint_G_updates": 269,
+        "discarded_legacy_joint_D_updates": 807,
+        "legacy_references_validated": true
+      }
+    },
+    {
+      "name": "binding_failure_does_not_claim_valid_inherited_endpoints",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "driver_rejects_existing_failed_output",
+      "passed": true,
+      "details": {
+        "error_type": "FileExistsError",
+        "error": "Fresh fix01 output required; failed or prior attempts are never resumed"
+      }
+    },
+    {
+      "name": "driver_binding_failure_saved_and_first_attempt_preserved",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "native_exit1_chain_explicitly_accepted_as_failure_with_retained_arm",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "forged_legacy_exit0",
+      "passed": true,
+      "details": {
+        "error_type": "ValueError",
+        "error": "Original native failure must remain exit1"
+      }
+    },
+    {
+      "name": "legacy_PID_mismatch",
+      "passed": true,
+      "details": {
+        "error_type": "ValueError",
+        "error": "Legacy native PID chain differs: child_pid"
+      }
+    },
+    {
+      "name": "legacy_wrong_module",
+      "passed": true,
+      "details": {
+        "error_type": "ValueError",
+        "error": "Legacy native launch is not the bound Window008 timeout wrapper"
+      }
+    },
+    {
+      "name": "legacy_failure_counts_wrong",
+      "passed": true,
+      "details": {
+        "error_type": "ValueError",
+        "error": "Legacy failure/update accounting differs"
+      }
+    },
+    {
+      "name": "legacy_DEV_read",
+      "passed": true,
+      "details": {
+        "error_type": "ValueError",
+        "error": "Legacy training binding differs"
+      }
+    },
+    {
+      "name": "legacy_chronology_wrong",
+      "passed": true,
+      "details": {
+        "error_type": "ValueError",
+        "error": "Legacy receipt chronology differs"
+      }
+    },
+    {
+      "name": "new_sources_parse",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "source_bytes_unchanged_during_QA",
+      "passed": true,
+      "details": null
+    }
+  ],
+  "artificial_data_only": true,
+  "actual_SCI_DEV_arrays_decoded": 0,
+  "scientific_model_forwards": 0,
+  "scientific_optimizer_updates": 0,
+  "GPU_used": false,
+  "actual_native_training_dispatched": false,
+  "fixture_sha256": "bf83560b4a2412fe51ad9abde3a37092c0f6982b2192c8826d88da0c516af7ad",
+  "noise005_file_sha256": "1e45d3369b85d2f5f635ad44dbeb5a730f6d86864cc3dc9163384fccd48bd417",
+  "common_initial_state_sha256": "415c84aa58cbbcf17bf26e47565fe657d983dceeb22eae5c689d5bb69e6c6775",
+  "scientific_checkpoints_read": 0,
+  "artificial_stage3000_is_fabricated_parser_fixture": true,
+  "engineering_G_updates": 7,
+  "engineering_D_updates": 9,
+  "passed": 63,
+  "total": 63,
+  "source_sha256": {
+    "src\\n01\\model008_fix01.py": "3bc826a1867f2658ae507ab2be683a6b901b7f481b1efaf005f3cf4953429abc",
+    "src\\n01\\response008_fix01.py": "fbf365a219051ed6c0a3786a59ea3f4b216772610cd52da10101f35ac9515aef",
+    "src\\n01\\train_window008_fix01.py": "8202fc07d4220b82b13d0722d62be235733d8e1bf00eff5b52fc5cacc6551d4c",
+    "scripts\\check_window008_fix01_recovery.py": "6955e42440065421bcb057ae4a08754f37383a41c379bc58967914063ec2c580"
+  },
+  "elapsed_seconds": 23.281000000002678,
+  "completed_UTC": "2026-10-13T10:10:15.835617+00:00"
+}

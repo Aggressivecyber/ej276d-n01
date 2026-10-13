@@ -1,0 +1,218 @@
+{
+  "status": "passed_independent_metadata_parser_review",
+  "checks": [
+    {
+      "name": "model_engine_driver_AST",
+      "status": "passed",
+      "result": null
+    },
+    {
+      "name": "actual_registered_plan",
+      "status": "passed",
+      "result": null
+    },
+    {
+      "name": "actual_original_native_failure_chain_wrapper_aware",
+      "status": "passed",
+      "result": {
+        "native_exit_code": 1,
+        "native_supervisor_pid": 194237,
+        "native_child_pid": 194239,
+        "legacy_training_pid": 194240,
+        "original_completed_G_updates": 22269,
+        "original_completed_D_updates": 48807,
+        "native_child_role": "timeout_wrapper",
+        "legacy_trainer_PID_evidence": "original_hash_bound_binding_and_chronology; no trainer_parent_PID_in_old_receipt",
+        "retained_arm_training_complete": true,
+        "old_job_native_success": false,
+        "discarded_full_joint_G_updates": 269,
+        "discarded_full_joint_D_updates": 807
+      }
+    },
+    {
+      "name": "changed_new_budget",
+      "status": "passed",
+      "result": "Fix01 update budgets differ"
+    },
+    {
+      "name": "changed_recovery_step",
+      "status": "passed",
+      "result": "Fix01 resume policy differs"
+    },
+    {
+      "name": "changed_D_resume",
+      "status": "passed",
+      "result": "Fix01 resume policy differs"
+    },
+    {
+      "name": "accidental_det_retraining",
+      "status": "passed",
+      "result": "Fix01 arm plan differs"
+    },
+    {
+      "name": "changed_wall_bound",
+      "status": "passed",
+      "result": "Fix01 wall/job bound differs"
+    },
+    {
+      "name": "forged_native_success",
+      "status": "passed",
+      "result": "Original native failure must remain exit1"
+    },
+    {
+      "name": "wrapper_pid_mismatch",
+      "status": "passed",
+      "result": "Legacy native PID chain differs: child_pid"
+    },
+    {
+      "name": "wrong_legacy_dataset",
+      "status": "passed",
+      "result": "Legacy native command input/output flags differ"
+    },
+    {
+      "name": "wrong_timeout_policy",
+      "status": "passed",
+      "result": "Legacy native launch is not the bound Window008 timeout wrapper"
+    },
+    {
+      "name": "missing_training_pid",
+      "status": "passed",
+      "result": "Legacy trainer PID is missing"
+    },
+    {
+      "name": "wrong_legacy_completed_G",
+      "status": "passed",
+      "result": "Legacy failure/update accounting differs"
+    },
+    {
+      "name": "complete_new_effective_and_actual_counts",
+      "status": "passed",
+      "result": {
+        "new_execution_G_updates": 35000,
+        "new_execution_D_updates": 96000,
+        "effective_comparison_G_updates": 57000,
+        "effective_comparison_D_updates": 144000,
+        "historical_actual_G_updates": 57269,
+        "historical_actual_D_updates": 144807,
+        "inherited_effective_G_updates": 22000,
+        "inherited_effective_D_updates": 48000,
+        "discarded_legacy_joint_G_updates": 269,
+        "discarded_legacy_joint_D_updates": 807,
+        "legacy_references_validated": true
+      }
+    },
+    {
+      "name": "partial_D_update_failure_counts_preserved",
+      "status": "passed",
+      "result": {
+        "new_execution_G_updates": 269,
+        "new_execution_D_updates": 808,
+        "effective_comparison_G_updates": 22269,
+        "effective_comparison_D_updates": 48808,
+        "historical_actual_G_updates": 22538,
+        "historical_actual_D_updates": 49615,
+        "inherited_effective_G_updates": 22000,
+        "inherited_effective_D_updates": 48000,
+        "discarded_legacy_joint_G_updates": 269,
+        "discarded_legacy_joint_D_updates": 807,
+        "legacy_references_validated": true
+      }
+    },
+    {
+      "name": "unverified_history_not_claimed",
+      "status": "passed",
+      "result": null
+    },
+    {
+      "name": "postload_prevalidation_interruption_cannot_count_inherited_G_as_new",
+      "status": "passed",
+      "result": null
+    },
+    {
+      "name": "generic_resume_disabled",
+      "status": "passed",
+      "result": "No automatic fix01 resume; only import_legacy_full_stage3000 is registered"
+    },
+    {
+      "name": "scientific_full_cannot_step_without_validated_import",
+      "status": "passed",
+      "result": "Full fix01 requires the registered legacy import"
+    },
+    {
+      "name": "first_imported_step_requires_joint",
+      "status": "passed",
+      "result": "First fix01 full update must be joint3001 with audit and exact replay"
+    },
+    {
+      "name": "first_imported_step_requires_audit",
+      "status": "passed",
+      "result": "First fix01 full update must be joint3001 with audit and exact replay"
+    },
+    {
+      "name": "first_imported_step_requires_replay",
+      "status": "passed",
+      "result": "First fix01 full update must be joint3001 with audit and exact replay"
+    },
+    {
+      "name": "stage_boundary_index",
+      "status": "passed",
+      "result": {
+        "2999": "mean_response",
+        "3000": "joint_stochastic",
+        "14999": "joint_stochastic",
+        "15000": "low_learning_rate",
+        "18999": "low_learning_rate"
+      }
+    },
+    {
+      "name": "named_mean_optimizer_metadata_valid",
+      "status": "passed",
+      "result": null
+    },
+    {
+      "name": "missing_active_mean_optimizer_slot",
+      "status": "passed",
+      "result": "Trained mean parameter is missing its optimizer history: mean.weight"
+    },
+    {
+      "name": "wrong_mean_optimizer_step",
+      "status": "passed",
+      "result": "AdamW step differs: mean.weight"
+    },
+    {
+      "name": "inactive_stochastic_optimizer_history",
+      "status": "passed",
+      "result": "Inactive stochastic parameter already has optimizer history: physical_head.weight"
+    },
+    {
+      "name": "nonfinite_optimizer_moment",
+      "status": "passed",
+      "result": "AdamW moment dtype/shape/finiteness differs: mean.weight/exp_avg"
+    },
+    {
+      "name": "bound_failure_checkpoint_counters_cannot_resume",
+      "status": "passed",
+      "result": "Only the zero-D mean stage3000 is admissible"
+    }
+  ],
+  "reviewed_sources": {
+    "src/n01/model008_fix01.py": "3bc826a1867f2658ae507ab2be683a6b901b7f481b1efaf005f3cf4953429abc",
+    "src/n01/response008_fix01.py": "fbf365a219051ed6c0a3786a59ea3f4b216772610cd52da10101f35ac9515aef",
+    "src/n01/train_window008_fix01.py": "8202fc07d4220b82b13d0722d62be235733d8e1bf00eff5b52fc5cacc6551d4c",
+    "window008_fix01_config.json": "1fc57e0daf06f3eadf2a457361a4342c953f265039cec48b9401616c703d6402",
+    "scripts/launch_window008_fix01.sh": "25f9134ef8624abcd299d725548729b64e4f96fa81ea1c2e7e184140db9811c0"
+  },
+  "original_68_hashes_unchanged": true,
+  "model_constructors": 0,
+  "model_forwards": 0,
+  "optimizer_updates": 0,
+  "scientific_checkpoint_loads": 0,
+  "scientific_numeric_decodes": 0,
+  "actual_SOURCE_forward_rows": 0,
+  "actual_REAL_forward_rows": 0,
+  "DEV_numeric_decodes": 0,
+  "GPU_calls": 0,
+  "native_jobs_dispatched": 0,
+  "script_sha256": "d4d91489e35e73e4adb5499f6f0fcf7312488639e352ce695a7a37d0a32412ea",
+  "scope": "Static review plus actual JSON metadata and synthetic parser/counter tests only; no migration/model/native execution."
+}

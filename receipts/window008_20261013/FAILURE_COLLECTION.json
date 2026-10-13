@@ -1,0 +1,168 @@
+{
+  "UTC": "2026-10-13T09:35:57.458126+00:00",
+  "status": "stopped_failed_job_archived",
+  "native": {
+    "exit_code": 1,
+    "reason": null,
+    "peak_rss_bytes": 2971467776,
+    "started_utc": "2026-10-13T04:25:21.086087+00:00",
+    "ended_utc": "2026-10-13T06:23:02.680315+00:00",
+    "supervisor_pid": 194237,
+    "child_pid": 194239
+  },
+  "failure": {
+    "UTC": "2026-10-13T06:23:01.864195+00:00",
+    "status": "failed_or_bounded_stop_preserved",
+    "run_id": "window008_20261013",
+    "error": "InvalidWaveformError('Invalid Window008 shape canonical charge; batch rows=[22]; values=[-0.6842861649644458]')",
+    "traceback": "Traceback (most recent call last):\n  File \"/home/rylan/projects/ej276d-n01/window008_20261013/src/n01/train_window008.py\", line 99, in main\n    metrics=engine.step(audit=audit,verify_replay=update<=cfg['engineering']['waveform_replay_first_steps'] or changed)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/rylan/projects/ej276d-n01/window008_20261013/src/n01/response008.py\", line 241, in step\n    output=self.model.signal_forward(source,response);signal=output['signal_pre']\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/rylan/projects/ej276d-n01/window008_20261013/src/n01/model008.py\", line 215, in signal_forward\n    _positive(shape_q, 1e-6, 'Invalid Window008 shape canonical charge')\n  File \"/home/rylan/projects/ej276d-n01/window008_20261013/src/n01/model008.py\", line 38, in _positive\n    raise InvalidWaveformError(reason, torch.nonzero(invalid, as_tuple=False).flatten(), values[invalid])\nn01.model.InvalidWaveformError: Invalid Window008 shape canonical charge; batch rows=[22]; values=[-0.6842861649644458]\n",
+    "G_updates": 22269,
+    "D_updates": 48807,
+    "completed_arms": [
+      {
+        "arm": "deterministic",
+        "G_updates": 19000,
+        "D_updates": {
+          "fast": 16000,
+          "slow": 16000,
+          "common_level": 16000
+        },
+        "coverage": {
+          "source_unique": 6593,
+          "source_total": 6593,
+          "real_unique": 21047,
+          "real_total": 21047,
+          "source_epochs": 1475,
+          "real_epochs": 924
+        },
+        "final_sha256": "2096523d53b62dbbc6b41d2788a8fba203af89c3cf753133bbbe81ab5c036849",
+        "UTC": "2026-10-13T06:08:56.353785+00:00"
+      }
+    ],
+    "current_arm": "full",
+    "DEV_waveforms_read": false,
+    "C2ST_updates": 0,
+    "noise_updates": 0,
+    "population_updates": 0,
+    "elapsed_seconds": 7060.106489506994,
+    "scientific_status": "response_match_not_established",
+    "evaluation_complete": false
+  },
+  "files": {
+    "runs/PREFLIGHT.json": {
+      "bytes": 534,
+      "sha256": "520a1f6385afaf1a5ca37f7d3b6c34bff75e3c31e8053ca09b7f320867b7a0d1"
+    },
+    "runs/REMOTE_START.json": {
+      "bytes": 652,
+      "sha256": "6f5c4ca0dc0fca93d2bc4083a406fd2dac0ab37eb77173433b14ca84b8a4f4f2"
+    },
+    "runs/START_ATTEMPT.json": {
+      "bytes": 259,
+      "sha256": "b9df2a513df7c9d7ba1eddf9cc127d6a2defbf26add7eec6d396cfbc064adbc9"
+    },
+    "runs/science/BINDING.json": {
+      "bytes": 719,
+      "sha256": "296fb23abddc763dd4e9bb38292cd66bd13307d7af169372961e52f7bb2a04d5"
+    },
+    "runs/science/FAILURE.json": {
+      "bytes": 2269,
+      "sha256": "d4d20d8187e40d168e6f1fcf758d14552a833adff337ad2ffcc0076fa0846bf6"
+    },
+    "runs/science/FAILURE_CHECKPOINT.pt": {
+      "bytes": 21396331,
+      "sha256": "1da7c5213795e86f9435cf8600d7db3dbb5886c2773f74b8b93c96e4c80a7767"
+    },
+    "runs/science/FAILURE_CONTEXT.pt": {
+      "bytes": 2477085,
+      "sha256": "269324a12aba4beff34e98f01e57a9a50110b0de49e851018959dc4c6c51c4c2"
+    },
+    "runs/science/TRAINING_INPUTS.json": {
+      "bytes": 547,
+      "sha256": "4dd353e0cfff5a363cf90040c80c9d4eb5961f4f5148fc6d2331938be5c99bd0"
+    },
+    "runs/science/common_initial_state.pt": {
+      "bytes": 6164745,
+      "sha256": "ec5430fa4f5a0c0f2b330a7d38d8e210c5dfa93e12ffe911695de16e2a5d2f1a"
+    },
+    "runs/science/status.json": {
+      "bytes": 2269,
+      "sha256": "d4d20d8187e40d168e6f1fcf758d14552a833adff337ad2ffcc0076fa0846bf6"
+    },
+    "runs/science/train/deterministic/TRAINING_COMPLETE.json": {
+      "bytes": 443,
+      "sha256": "b5f32f7a735477e7383d9461440bed99f4beea720a4e50a5a96813e3655fbaa9"
+    },
+    "runs/science/train/deterministic/final.pt": {
+      "bytes": 21256763,
+      "sha256": "2096523d53b62dbbc6b41d2788a8fba203af89c3cf753133bbbe81ab5c036849"
+    },
+    "runs/science/train/deterministic/initial.pt": {
+      "bytes": 7532300,
+      "sha256": "3bfc27f1c4a516976e88a71072867851da6963291ff0a1bcaa2e6af46ef5ea87"
+    },
+    "runs/science/train/deterministic/latest.pt": {
+      "bytes": 21257611,
+      "sha256": "97feb07b569a1b33498c6dcfa082201514cc9d254032b224ad6ff9c6e5f1801e"
+    },
+    "runs/science/train/deterministic/stage_03000.pt": {
+      "bytes": 19498905,
+      "sha256": "d069523a2eaa5a9abd738cb431e03ff4be99b9526818fa7c1f8f5c4c649eafe5"
+    },
+    "runs/science/train/deterministic/stage_15000.pt": {
+      "bytes": 21261979,
+      "sha256": "1c8ccd2a74068dcb3b7e21faeee0f4d48ae7d45bc92e5eed76694584ad6cc7a5"
+    },
+    "runs/science/train/deterministic/training.jsonl": {
+      "bytes": 136562951,
+      "sha256": "478e3ecac53f1f6ce7a4029803b70c910e8e5744250c87c7918ea993b9687fe1"
+    },
+    "runs/science/train/full/initial.pt": {
+      "bytes": 7575581,
+      "sha256": "0c7203b160d9829c70deb3caebc58ad73b03c45e68bb4e173482969f2a4196fc"
+    },
+    "runs/science/train/full/latest.pt": {
+      "bytes": 19538251,
+      "sha256": "3f8e9ee011e919693aa0c8834856c27f8dc1616b84d5535c6128fa48b1427f75"
+    },
+    "runs/science/train/full/stage_03000.pt": {
+      "bytes": 19542382,
+      "sha256": "48a20d256c3d87f2f087aa6a3cc3a2dd9279715c137ad1d5c073dcd22bfaab9c"
+    },
+    "runs/science/train/full/training.jsonl": {
+      "bytes": 22615265,
+      "sha256": "8def669493432afcc33e4b809c75aa7167c49ba7d382955914088c4a432c7483"
+    },
+    "runs/supervisor/console.log": {
+      "bytes": 375939,
+      "sha256": "7b375a54e10f2438d43f2a278fdb2bf4c4383b769073bcaf945a6e71e9ceb323"
+    },
+    "runs/supervisor/exit_receipt.json": {
+      "bytes": 226,
+      "sha256": "fab9bcefc5dc6e0d8de36079035b2deeb32351480586141e29e40cad710a4c55"
+    },
+    "runs/supervisor/launch.json": {
+      "bytes": 1117,
+      "sha256": "21f927e19ac604951f268e4e72df70b0d069b5412a0efa7412ca03520fb1dd32"
+    },
+    "runs/supervisor/resource_status.json": {
+      "bytes": 204,
+      "sha256": "ea030ccfd553a3d935a88a4e947d1680b91fd43567357041f537e5d6fe680e26"
+    },
+    "runs/supervisor/run.lock": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "archive": "/home/rylan/projects/ej276d-n01/window008_20261013/incoming/failed_job_20261013T093549Z.tar.gz",
+  "archive_bytes": 158777817,
+  "archive_sha256": "945e36be2cdcace1bb43e9e0f33c845d90a879320cc4d2d532dd5a3b1ce102f7",
+  "frozen_training_manifest_sha256": "97b020dc68e41fa1e893e66fdf1091b1bf9500b98281a5dd7e2545ee9ce00929",
+  "GPU_compute_processes": "",
+  "owned_training_processes": [],
+  "DEV_waveforms_decoded": false,
+  "new_training_updates": 0,
+  "local_archive": "E:\\GAN\\research\\N01\\runs\\window008_20261013\\failure_collection_20261013T093549Z\\failed_job_20261013T093549Z.tar.gz",
+  "local_collection_root": "E:\\GAN\\research\\N01\\runs\\window008_20261013",
+  "all_transferred_member_hashes_verified": true
+}

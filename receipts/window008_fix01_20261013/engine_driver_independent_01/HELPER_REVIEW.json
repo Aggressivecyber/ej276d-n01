@@ -1,0 +1,196 @@
+{
+  "status": "passed_independent_monitor_runtime_metadata_review",
+  "reviewed_sources": {
+    "scripts/window008_fix01_runtime.py": "c5be8404c66d92474234d819ee8bfbca2e0f6b06b679c18579a9383681f3bc59",
+    "scripts/monitor_window008_fix01.py": "82a05ce892561af4a7e18e6b4dd29d7ca13aeecc4f4010f73df70c45b97bd2f4",
+    "src/n01/train_window008_fix01.py": "8202fc07d4220b82b13d0722d62be235733d8e1bf00eff5b52fc5cacc6551d4c",
+    "window008_fix01_config.json": "1fc57e0daf06f3eadf2a457361a4342c953f265039cec48b9401616c703d6402"
+  },
+  "checks": [
+    {
+      "name": "actual_original_68_hashes_and_reference_bytes_unchanged",
+      "status": "passed",
+      "result": 68
+    },
+    {
+      "name": "retained_arm_completion_with_failed_original_job",
+      "status": "passed",
+      "result": {
+        "original_job_native_exit_code": 1,
+        "retained_arm_G_updates": 19000,
+        "retained_arm_D_updates": 48000,
+        "retained_final_sha256": "2096523d53b62dbbc6b41d2788a8fba203af89c3cf753133bbbe81ab5c036849",
+        "old_job_native_success": false
+      }
+    },
+    {
+      "name": "reject_original_native_zero",
+      "status": "passed",
+      "result": "Not the registered failed job"
+    },
+    {
+      "name": "reject_changed_original_G",
+      "status": "passed",
+      "result": "Not the registered failed job"
+    },
+    {
+      "name": "reject_changed_original_arm",
+      "status": "passed",
+      "result": "Failed role differs"
+    },
+    {
+      "name": "reject_changed_retained_G",
+      "status": "passed",
+      "result": "Retained deterministic endpoint differs"
+    },
+    {
+      "name": "reject_changed_retained_final_hash",
+      "status": "passed",
+      "result": "Retained deterministic endpoint differs"
+    },
+    {
+      "name": "actual_cumulative_baseline",
+      "status": "passed",
+      "result": {
+        "prior_N01_G_updates": 100000,
+        "failed_original_G_updates": 22269,
+        "cumulative_before_fix01_G_updates": 122269
+      }
+    },
+    {
+      "name": "synthetic_monitor_not_started",
+      "status": "passed",
+      "result": {
+        "status": "window008_fix01_not_started",
+        "new_G_updates": 0,
+        "new_D_updates": 0,
+        "next_action": "Verify correct startup once, then return at the scheduled estimated-completion follow-up.",
+        "global_pointer_stage_matches_program": true,
+        "original_failure_retained": true
+      }
+    },
+    {
+      "name": "synthetic_monitor_dispatched_no_observed_update",
+      "status": "passed",
+      "result": {
+        "status": "window008_fix01_dispatched_pending_scientific_process",
+        "new_G_updates": 0,
+        "new_D_updates": 0,
+        "next_action": "Verify correct startup once, then return at the scheduled estimated-completion follow-up.",
+        "global_pointer_stage_matches_program": true,
+        "original_failure_retained": true
+      }
+    },
+    {
+      "name": "synthetic_monitor_full_first_update",
+      "status": "passed",
+      "result": {
+        "status": "window008_fix01_running",
+        "new_G_updates": 1,
+        "new_D_updates": 3,
+        "next_action": "Verify correct startup once, then return at the scheduled estimated-completion follow-up.",
+        "global_pointer_stage_matches_program": true,
+        "original_failure_retained": true
+      }
+    },
+    {
+      "name": "synthetic_monitor_simple_after_completed_full",
+      "status": "passed",
+      "result": {
+        "status": "window008_fix01_running",
+        "new_G_updates": 16001,
+        "new_D_updates": 48000,
+        "next_action": "Verify correct startup once, then return at the scheduled estimated-completion follow-up.",
+        "global_pointer_stage_matches_program": true,
+        "original_failure_retained": true
+      }
+    },
+    {
+      "name": "synthetic_monitor_failure_after_partial_D_updates",
+      "status": "passed",
+      "result": {
+        "status": "window008_fix01_failed_or_bounded_stop_preserved",
+        "new_G_updates": 269,
+        "new_D_updates": 808,
+        "next_action": "Review preserved fix01 failure before any further execution.",
+        "global_pointer_stage_matches_program": true,
+        "original_failure_retained": true
+      }
+    },
+    {
+      "name": "synthetic_monitor_complete_waiting_for_native",
+      "status": "passed",
+      "result": {
+        "status": "window008_fix01_finished_waiting_native_receipt",
+        "new_G_updates": 35000,
+        "new_D_updates": 96000,
+        "next_action": "Obtain and bind the independent native exit receipt before evaluation.",
+        "global_pointer_stage_matches_program": true,
+        "original_failure_retained": true
+      }
+    },
+    {
+      "name": "synthetic_monitor_complete_with_native_zero",
+      "status": "passed",
+      "result": {
+        "status": "window008_fix01_complete_pending_endpoint_evaluation",
+        "new_G_updates": 35000,
+        "new_D_updates": 96000,
+        "next_action": "Freeze the recovered-endpoint evaluation adapter and evaluate all three bound endpoints.",
+        "global_pointer_stage_matches_program": true,
+        "original_failure_retained": true
+      }
+    },
+    {
+      "name": "synthetic_monitor_native_failure_without_failure_json",
+      "status": "passed",
+      "result": {
+        "status": "window008_fix01_failed_or_bounded_stop_preserved",
+        "new_G_updates": 269,
+        "new_D_updates": 807,
+        "next_action": "Review preserved fix01 failure before any further execution.",
+        "global_pointer_stage_matches_program": true,
+        "original_failure_retained": true
+      }
+    },
+    {
+      "name": "synthetic_monitor_missing_process_after_observed_update",
+      "status": "passed",
+      "result": {
+        "status": "window008_fix01_process_missing_native_receipt_review_required",
+        "new_G_updates": 42,
+        "new_D_updates": 126,
+        "next_action": "Investigate the missing scientific process and native receipt before any restart.",
+        "global_pointer_stage_matches_program": true,
+        "original_failure_retained": true
+      }
+    },
+    {
+      "name": "synthetic_monitor_native_success_missing_completion",
+      "status": "passed",
+      "result": {
+        "status": "window008_fix01_native_success_missing_completion",
+        "new_G_updates": 35000,
+        "new_D_updates": 96000,
+        "next_action": "Investigate native success without TRAINING_COMPLETE before further execution or evaluation.",
+        "global_pointer_stage_matches_program": true,
+        "original_failure_retained": true
+      }
+    }
+  ],
+  "count": 18,
+  "actual_model_forwards": 0,
+  "actual_optimizer_updates": 0,
+  "actual_SOURCE_or_REAL_numeric_decodes": 0,
+  "DEV_numeric_decodes": 0,
+  "checkpoint_torch_loads": 0,
+  "GPU_calls": 0,
+  "remote_calls": 0,
+  "synthetic_monitor_scenarios": 10,
+  "original_68_frozen_hashes_unchanged": true,
+  "review_test_revision": "First isolated run stopped because the test required the literal word review; the helper correctly used Investigate. Prior fixtures remain preserved in helper_fixtures_01. No runtime source was changed by this review.",
+  "limitations": [
+    "Synthetic monitor snapshots exercise reconciliation only; no remote process launched.",
+    "Resource, native CUDA, freeze, stage, and live-start receipts are owned by the parent."
+  ]
+}
