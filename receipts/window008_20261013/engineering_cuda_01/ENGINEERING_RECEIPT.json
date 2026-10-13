@@ -1,0 +1,3049 @@
+{
+  "schema": "window008/synthetic-engineering/v1",
+  "status": "passed_synthetic_engineering_only",
+  "started_UTC": "2026-10-13T04:04:58.679002+00:00",
+  "scope": "Analytic pulse / artificial baseline engineering steps with fixed real005 weights; no scientific training or acceptance claim.",
+  "scientific_data_read": false,
+  "TRAIN_rows_read": 0,
+  "DEV_rows_read": 0,
+  "scientific_updates": 0,
+  "source_sha256": {
+    "src/n01/model.py": "0a0488218d99f351a98e30f2b1525b837b4ad3195c19f2a76ff61ee01298587b",
+    "src/n01/model008.py": "56a6b41f9d2906c82757f4ca9f91a751ff8531428a7f38714e0a291359cd1b4f",
+    "src/n01/response008.py": "cf8b14b377530a234b066c2fd958827172abb624e7a959ac9bb26a416ff3b2e7",
+    "src/n01/observation008.py": "9f7b6c0a266c420af8c6c155103774bae1ed949cfe05ee6a1f19b75f9254c4ec",
+    "src/n01/losses008.py": "68a9330b7e0620f12adbb3dc22a00c632a1b7577d44b92617da7d14979d9ea61",
+    "src/n01/losses008_v2.py": "6932772c4b00fa62383b5ca356f26d0cf81271be531888b474ae6146fa25f3d8",
+    "src/n01/electronics_v3.py": "816b12bf4814f23ff4455498ec385df335cdb38827548c969e38ef08b9763926",
+    "src/n01/extension006.py": "caa2eff66555773d04a72482c8375b5896a241e0a858070a80f689aa3def5040",
+    "src/n01/data.py": "2ec3363bc830043af053342b4638f5e6ab55d27303da037f383f4fe630d77bd2",
+    "src/n01/train.py": "9cb6b0a9cfad3fd9163eee919de7b2d64ca422513093e204f62a934e25684169",
+    "scripts/check_window008_engine.py": "40b8a50ef6ea5af562e0824e8b1d252841ae9f918a6cbaec145162e68ff13f40"
+  },
+  "arms": {
+    "deterministic": {
+      "status": "passed",
+      "engineering_G_updates": 2,
+      "engineering_D_updates": {
+        "fast": 1,
+        "slow": 1,
+        "common_level": 1
+      },
+      "mean_step": {
+        "utc": "2026-10-13T04:05:00.484540+00:00",
+        "arm": "deterministic",
+        "stage": "mean_response",
+        "G_updates": 1,
+        "D_updates": {
+          "fast": 0,
+          "slow": 0,
+          "common_level": 0
+        },
+        "weighted_total": 2.281164044812608,
+        "regular_once": 0.0,
+        "trend_once": 0.0,
+        "hypotheses": {
+          "fast": {
+            "components": {
+              "wave": 0.5252528524829077,
+              "QPSD": 0.6308113672108734,
+              "noise": 0.4760301610984045,
+              "adv": 0.0
+            },
+            "wave_subcomponents": {
+              "swd": 0.41032440939516884,
+              "coordinate": 0.6556928508870921,
+              "short_lag": 0.6246697402542012
+            },
+            "conditional_diagnostics": {
+              "fake_global_rows": 16,
+              "real_global_rows": 16,
+              "conditional_bins": [
+                {
+                  "bin": 0,
+                  "fake_count": 2,
+                  "real_count": 0,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 1,
+                  "fake_count": 0,
+                  "real_count": 3,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 2,
+                  "fake_count": 0,
+                  "real_count": 3,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 3,
+                  "fake_count": 2,
+                  "real_count": 3,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 4,
+                  "fake_count": 3,
+                  "real_count": 2,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 5,
+                  "fake_count": 5,
+                  "real_count": 3,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 6,
+                  "fake_count": 4,
+                  "real_count": 2,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 7,
+                  "fake_count": 0,
+                  "real_count": 0,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                }
+              ],
+              "minimum_conditional_support": 16,
+              "conditional_bins_used": 0,
+              "conditional_bins_total": 8,
+              "conditional_coverage_complete": false,
+              "conditional_rebatch_needed": true,
+              "fake_nonpositive_q_rows": 0,
+              "real_nonpositive_q_rows": 0,
+              "fake_guarded_psd_rows": 0,
+              "real_guarded_psd_rows": 0,
+              "global_term_includes_all_rows": true,
+              "conditional_term": "mean_PSD",
+              "no_supported_bin_behavior": "global_term_only_with_incomplete_coverage_diagnostic",
+              "projection_context": {
+                "kind": "training",
+                "seed": 2026101387,
+                "update": 1,
+                "fingerprint": "76d5464e3ef31887d11f0cd2499eb2f2815ef1046e90b2a037980592a79b929b"
+              },
+              "loss_version": 2,
+              "standardization_split": "TRAIN"
+            },
+            "engineering": {
+              "nonpositive_Q": 0,
+              "guarded_PSD": 0,
+              "saturation_fraction": 0.0,
+              "charge_identity_max": 1.5681900222830336e-15,
+              "search_edge_rows": 0,
+              "global_peak_outside_search_rows": 0,
+              "signal_Q_crop_change_absmax": 8.881784197001252e-16
+            }
+          },
+          "slow": {
+            "components": {
+              "wave": 0.5365538408470895,
+              "QPSD": 0.6378282633171494,
+              "noise": 0.4760301610984045,
+              "adv": 0.0
+            },
+            "wave_subcomponents": {
+              "swd": 0.4145577692346998,
+              "coordinate": 0.6750646853711408,
+              "short_lag": 0.6420351395478174
+            },
+            "conditional_diagnostics": {
+              "fake_global_rows": 16,
+              "real_global_rows": 16,
+              "conditional_bins": [
+                {
+                  "bin": 0,
+                  "fake_count": 2,
+                  "real_count": 0,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 1,
+                  "fake_count": 0,
+                  "real_count": 3,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 2,
+                  "fake_count": 0,
+                  "real_count": 3,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 3,
+                  "fake_count": 2,
+                  "real_count": 3,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 4,
+                  "fake_count": 3,
+                  "real_count": 2,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 5,
+                  "fake_count": 5,
+                  "real_count": 3,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 6,
+                  "fake_count": 4,
+                  "real_count": 2,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 7,
+                  "fake_count": 0,
+                  "real_count": 0,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                }
+              ],
+              "minimum_conditional_support": 16,
+              "conditional_bins_used": 0,
+              "conditional_bins_total": 8,
+              "conditional_coverage_complete": false,
+              "conditional_rebatch_needed": true,
+              "fake_nonpositive_q_rows": 0,
+              "real_nonpositive_q_rows": 0,
+              "fake_guarded_psd_rows": 0,
+              "real_guarded_psd_rows": 0,
+              "global_term_includes_all_rows": true,
+              "conditional_term": "mean_PSD",
+              "no_supported_bin_behavior": "global_term_only_with_incomplete_coverage_diagnostic",
+              "projection_context": {
+                "kind": "training",
+                "seed": 2026101387,
+                "update": 1,
+                "fingerprint": "76d5464e3ef31887d11f0cd2499eb2f2815ef1046e90b2a037980592a79b929b"
+              },
+              "loss_version": 2,
+              "standardization_split": "TRAIN"
+            },
+            "engineering": {
+              "nonpositive_Q": 0,
+              "guarded_PSD": 0,
+              "saturation_fraction": 0.0,
+              "charge_identity_max": 1.7277845820728999e-15,
+              "search_edge_rows": 0,
+              "global_peak_outside_search_rows": 0,
+              "signal_Q_crop_change_absmax": 8.881784197001252e-16
+            }
+          },
+          "common_level": {
+            "components": {
+              "wave": 0.5377394222324161,
+              "QPSD": 0.639288137262076,
+              "noise": 0.4760301610984045,
+              "adv": 0.0
+            },
+            "wave_subcomponents": {
+              "swd": 0.41468927297957503,
+              "coordinate": 0.6774166147311362,
+              "short_lag": 0.6441625282393783
+            },
+            "conditional_diagnostics": {
+              "fake_global_rows": 16,
+              "real_global_rows": 16,
+              "conditional_bins": [
+                {
+                  "bin": 0,
+                  "fake_count": 2,
+                  "real_count": 0,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 1,
+                  "fake_count": 0,
+                  "real_count": 3,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 2,
+                  "fake_count": 0,
+                  "real_count": 3,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 3,
+                  "fake_count": 2,
+                  "real_count": 3,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 4,
+                  "fake_count": 3,
+                  "real_count": 2,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 5,
+                  "fake_count": 5,
+                  "real_count": 3,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 6,
+                  "fake_count": 4,
+                  "real_count": 2,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 7,
+                  "fake_count": 0,
+                  "real_count": 0,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                }
+              ],
+              "minimum_conditional_support": 16,
+              "conditional_bins_used": 0,
+              "conditional_bins_total": 8,
+              "conditional_coverage_complete": false,
+              "conditional_rebatch_needed": true,
+              "fake_nonpositive_q_rows": 0,
+              "real_nonpositive_q_rows": 0,
+              "fake_guarded_psd_rows": 0,
+              "real_guarded_psd_rows": 0,
+              "global_term_includes_all_rows": true,
+              "conditional_term": "mean_PSD",
+              "no_supported_bin_behavior": "global_term_only_with_incomplete_coverage_diagnostic",
+              "projection_context": {
+                "kind": "training",
+                "seed": 2026101387,
+                "update": 1,
+                "fingerprint": "76d5464e3ef31887d11f0cd2499eb2f2815ef1046e90b2a037980592a79b929b"
+              },
+              "loss_version": 2,
+              "standardization_split": "TRAIN"
+            },
+            "engineering": {
+              "nonpositive_Q": 0,
+              "guarded_PSD": 0,
+              "saturation_fraction": 0.0,
+              "charge_identity_max": 1.4502288259166107e-15,
+              "search_edge_rows": 0,
+              "global_peak_outside_search_rows": 0,
+              "signal_Q_crop_change_absmax": 8.881784197001252e-16
+            }
+          }
+        },
+        "discriminators": {},
+        "G_preclip_gradient_norm": 95.66899108886719,
+        "signal_prefix_absolute_max_V": 0.0,
+        "model_engineering": {
+          "query_outside_carrier": 0,
+          "beyond_extension": 0,
+          "canonical_charge_identity_absmax": 8.881784197001252e-16,
+          "canonical_local_charge_absmax": 0.0
+        },
+        "projection_context": {
+          "kind": "training",
+          "seed": 2026101387,
+          "update": 1,
+          "fingerprint": "76d5464e3ef31887d11f0cd2499eb2f2815ef1046e90b2a037980592a79b929b"
+        },
+        "same_version_replay_verified": true,
+        "coverage": {
+          "source_unique": 8,
+          "source_total": 128,
+          "real_unique": 16,
+          "real_total": 128,
+          "source_epochs": 0,
+          "real_epochs": 0
+        },
+        "noise_updates": 0,
+        "population_updates": 0,
+        "update_seconds": 0.6421652310018544,
+        "gpu_allocated_bytes": 102091776,
+        "gpu_reserved_bytes": 134217728,
+        "endpoint_gradients": {
+          "fast": {
+            "norms": {
+              "wave": 2.735058448670447,
+              "QPSD": 2.4969999719647364,
+              "noise": 0.0,
+              "adv": 0.0
+            },
+            "cosine": {
+              "wave/QPSD": 0.35611324642664693,
+              "wave/noise": null,
+              "wave/adv": null,
+              "QPSD/noise": null,
+              "QPSD/adv": null,
+              "noise/adv": null
+            },
+            "zero_norm_angle": null
+          },
+          "slow": {
+            "norms": {
+              "wave": 2.746496840980194,
+              "QPSD": 2.4961737559735613,
+              "noise": 0.0,
+              "adv": 0.0
+            },
+            "cosine": {
+              "wave/QPSD": 0.34952426067839093,
+              "wave/noise": null,
+              "wave/adv": null,
+              "QPSD/noise": null,
+              "QPSD/adv": null,
+              "noise/adv": null
+            },
+            "zero_norm_angle": null
+          },
+          "common_level": {
+            "norms": {
+              "wave": 2.7429061654867914,
+              "QPSD": 2.522983414531441,
+              "noise": 0.0,
+              "adv": 0.0
+            },
+            "cosine": {
+              "wave/QPSD": 0.3548761643999923,
+              "wave/noise": null,
+              "wave/adv": null,
+              "QPSD/noise": null,
+              "QPSD/adv": null,
+              "noise/adv": null
+            },
+            "zero_norm_angle": null
+          }
+        },
+        "gradient_scope": "per-hypothesis weighted waveform endpoints; base regular excluded",
+        "G_branch_postclip_gradient_norms": {
+          "shape_encoder": 0.0,
+          "charge_head": 0.6881433221085157,
+          "response_filter": 0.03131145538229077,
+          "mean_time": 0.4118117928230311,
+          "unet": 0.0,
+          "mean_head": 4.93516825915161
+        }
+      },
+      "checkpoint_restore": {
+        "path": "/home/rylan/projects/ej276d-n01/window008_20261013/runs/engineering_cuda_01/deterministic_after_mean.engineering.pt",
+        "sha256": "e0113f71dfa9b97222fce4a3eb7c69c2fd6762ce1233fefb910d7e72c7cfa956",
+        "model_D_optimizers_samplers_streams_counters_exact": true
+      },
+      "checkpoint_modified_loss_statistics_rejected": "Resume statistics/schema mismatch",
+      "joint_step": {
+        "utc": "2026-10-13T04:05:00.867644+00:00",
+        "arm": "deterministic",
+        "stage": "joint_stochastic",
+        "G_updates": 2,
+        "D_updates": {
+          "fast": 1,
+          "slow": 1,
+          "common_level": 1
+        },
+        "weighted_total": 1.85216939320447,
+        "regular_once": 4.744117140677073e-06,
+        "trend_once": 0.0,
+        "hypotheses": {
+          "fast": {
+            "components": {
+              "wave": 0.4560724023515833,
+              "QPSD": 0.48937896887796223,
+              "noise": 0.4311704985998871,
+              "adv": -0.021459512412548065
+            },
+            "wave_subcomponents": {
+              "swd": 0.5104442801873985,
+              "coordinate": 0.40643674983768685,
+              "short_lag": 0.39696429919384946
+            },
+            "conditional_diagnostics": {
+              "fake_global_rows": 16,
+              "real_global_rows": 16,
+              "conditional_bins": [
+                {
+                  "bin": 0,
+                  "fake_count": 2,
+                  "real_count": 4,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 1,
+                  "fake_count": 2,
+                  "real_count": 3,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 2,
+                  "fake_count": 2,
+                  "real_count": 1,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 3,
+                  "fake_count": 2,
+                  "real_count": 3,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 4,
+                  "fake_count": 0,
+                  "real_count": 2,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 5,
+                  "fake_count": 4,
+                  "real_count": 1,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 6,
+                  "fake_count": 2,
+                  "real_count": 0,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 7,
+                  "fake_count": 2,
+                  "real_count": 2,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                }
+              ],
+              "minimum_conditional_support": 16,
+              "conditional_bins_used": 0,
+              "conditional_bins_total": 8,
+              "conditional_coverage_complete": false,
+              "conditional_rebatch_needed": true,
+              "fake_nonpositive_q_rows": 0,
+              "real_nonpositive_q_rows": 0,
+              "fake_guarded_psd_rows": 0,
+              "real_guarded_psd_rows": 0,
+              "global_term_includes_all_rows": true,
+              "conditional_term": "PSD_empirical_W1",
+              "no_supported_bin_behavior": "global_term_only_with_incomplete_coverage_diagnostic",
+              "projection_context": {
+                "kind": "training",
+                "seed": 2026101387,
+                "update": 2,
+                "fingerprint": "87ddff21309313fb5532566cd2c696ba6c5e65af8e94405b7a868178b163cbf3"
+              },
+              "loss_version": 2,
+              "standardization_split": "TRAIN"
+            },
+            "engineering": {
+              "nonpositive_Q": 0,
+              "guarded_PSD": 0,
+              "saturation_fraction": 0.0,
+              "charge_identity_max": 1.734723475976807e-15,
+              "search_edge_rows": 0,
+              "global_peak_outside_search_rows": 0,
+              "signal_Q_crop_change_absmax": 8.881784197001252e-16
+            }
+          },
+          "slow": {
+            "components": {
+              "wave": 0.4551863056924294,
+              "QPSD": 0.4734965538267447,
+              "noise": 0.4311704985998871,
+              "adv": -0.02164575457572937
+            },
+            "wave_subcomponents": {
+              "swd": 0.5202122316085004,
+              "coordinate": 0.3940162411730226,
+              "short_lag": 0.38630451837969426
+            },
+            "conditional_diagnostics": {
+              "fake_global_rows": 16,
+              "real_global_rows": 16,
+              "conditional_bins": [
+                {
+                  "bin": 0,
+                  "fake_count": 2,
+                  "real_count": 4,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 1,
+                  "fake_count": 2,
+                  "real_count": 3,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 2,
+                  "fake_count": 2,
+                  "real_count": 1,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 3,
+                  "fake_count": 2,
+                  "real_count": 3,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 4,
+                  "fake_count": 0,
+                  "real_count": 2,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 5,
+                  "fake_count": 4,
+                  "real_count": 1,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 6,
+                  "fake_count": 2,
+                  "real_count": 0,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 7,
+                  "fake_count": 2,
+                  "real_count": 2,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                }
+              ],
+              "minimum_conditional_support": 16,
+              "conditional_bins_used": 0,
+              "conditional_bins_total": 8,
+              "conditional_coverage_complete": false,
+              "conditional_rebatch_needed": true,
+              "fake_nonpositive_q_rows": 0,
+              "real_nonpositive_q_rows": 0,
+              "fake_guarded_psd_rows": 0,
+              "real_guarded_psd_rows": 0,
+              "global_term_includes_all_rows": true,
+              "conditional_term": "PSD_empirical_W1",
+              "no_supported_bin_behavior": "global_term_only_with_incomplete_coverage_diagnostic",
+              "projection_context": {
+                "kind": "training",
+                "seed": 2026101387,
+                "update": 2,
+                "fingerprint": "87ddff21309313fb5532566cd2c696ba6c5e65af8e94405b7a868178b163cbf3"
+              },
+              "loss_version": 2,
+              "standardization_split": "TRAIN"
+            },
+            "engineering": {
+              "nonpositive_Q": 0,
+              "guarded_PSD": 0,
+              "saturation_fraction": 0.0,
+              "charge_identity_max": 8.326672684688674e-16,
+              "search_edge_rows": 0,
+              "global_peak_outside_search_rows": 0,
+              "signal_Q_crop_change_absmax": 8.881784197001252e-16
+            }
+          },
+          "common_level": {
+            "components": {
+              "wave": 0.4626611179251705,
+              "QPSD": 0.48491318250619425,
+              "noise": 0.4311704985998871,
+              "adv": -0.021901682019233704
+            },
+            "wave_subcomponents": {
+              "swd": 0.5249445875354093,
+              "coordinate": 0.40516886433164473,
+              "short_lag": 0.3955864322982188
+            },
+            "conditional_diagnostics": {
+              "fake_global_rows": 16,
+              "real_global_rows": 16,
+              "conditional_bins": [
+                {
+                  "bin": 0,
+                  "fake_count": 2,
+                  "real_count": 4,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 1,
+                  "fake_count": 2,
+                  "real_count": 3,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 2,
+                  "fake_count": 2,
+                  "real_count": 1,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 3,
+                  "fake_count": 2,
+                  "real_count": 3,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 4,
+                  "fake_count": 0,
+                  "real_count": 2,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 5,
+                  "fake_count": 4,
+                  "real_count": 1,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 6,
+                  "fake_count": 2,
+                  "real_count": 0,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 7,
+                  "fake_count": 2,
+                  "real_count": 2,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                }
+              ],
+              "minimum_conditional_support": 16,
+              "conditional_bins_used": 0,
+              "conditional_bins_total": 8,
+              "conditional_coverage_complete": false,
+              "conditional_rebatch_needed": true,
+              "fake_nonpositive_q_rows": 0,
+              "real_nonpositive_q_rows": 0,
+              "fake_guarded_psd_rows": 0,
+              "real_guarded_psd_rows": 0,
+              "global_term_includes_all_rows": true,
+              "conditional_term": "PSD_empirical_W1",
+              "no_supported_bin_behavior": "global_term_only_with_incomplete_coverage_diagnostic",
+              "projection_context": {
+                "kind": "training",
+                "seed": 2026101387,
+                "update": 2,
+                "fingerprint": "87ddff21309313fb5532566cd2c696ba6c5e65af8e94405b7a868178b163cbf3"
+              },
+              "loss_version": 2,
+              "standardization_split": "TRAIN"
+            },
+            "engineering": {
+              "nonpositive_Q": 0,
+              "guarded_PSD": 0,
+              "saturation_fraction": 0.0,
+              "charge_identity_max": 7.771561172376096e-16,
+              "search_edge_rows": 0,
+              "global_peak_outside_search_rows": 0,
+              "signal_Q_crop_change_absmax": 8.881784197001252e-16
+            }
+          }
+        },
+        "discriminators": {
+          "fast": {
+            "loss": 2.0020015239715576,
+            "preclip_gradient_norm": 0.8831931352615356
+          },
+          "slow": {
+            "loss": 2.001993417739868,
+            "preclip_gradient_norm": 0.9006845355033875
+          },
+          "common_level": {
+            "loss": 2.0026400089263916,
+            "preclip_gradient_norm": 0.8629012107849121
+          }
+        },
+        "G_preclip_gradient_norm": 43.4129753112793,
+        "signal_prefix_absolute_max_V": 0.0,
+        "model_engineering": {
+          "query_outside_carrier": 0,
+          "beyond_extension": 0,
+          "canonical_charge_identity_absmax": 8.881784197001252e-16,
+          "canonical_local_charge_absmax": 0.0
+        },
+        "projection_context": {
+          "kind": "training",
+          "seed": 2026101387,
+          "update": 2,
+          "fingerprint": "87ddff21309313fb5532566cd2c696ba6c5e65af8e94405b7a868178b163cbf3"
+        },
+        "same_version_replay_verified": true,
+        "coverage": {
+          "source_unique": 16,
+          "source_total": 128,
+          "real_unique": 32,
+          "real_total": 128,
+          "source_epochs": 0,
+          "real_epochs": 0
+        },
+        "noise_updates": 0,
+        "population_updates": 0,
+        "update_seconds": 0.13413169699924765,
+        "gpu_allocated_bytes": 105666560,
+        "gpu_reserved_bytes": 176160768,
+        "endpoint_gradients": {
+          "fast": {
+            "norms": {
+              "wave": 5.12106412156048,
+              "QPSD": 3.474815988332492,
+              "noise": 0.0,
+              "adv": 0.035677877960922734
+            },
+            "cosine": {
+              "wave/QPSD": 0.11039065929066214,
+              "wave/noise": null,
+              "wave/adv": -0.004574046593666392,
+              "QPSD/noise": null,
+              "QPSD/adv": -0.10171364780296922,
+              "noise/adv": null
+            },
+            "zero_norm_angle": null
+          },
+          "slow": {
+            "norms": {
+              "wave": 5.037179152049841,
+              "QPSD": 3.5271160225975327,
+              "noise": 0.0,
+              "adv": 0.0361023689927015
+            },
+            "cosine": {
+              "wave/QPSD": 0.1060162103409151,
+              "wave/noise": null,
+              "wave/adv": -0.015062708934961292,
+              "QPSD/noise": null,
+              "QPSD/adv": -0.12457169220268949,
+              "noise/adv": null
+            },
+            "zero_norm_angle": null
+          },
+          "common_level": {
+            "norms": {
+              "wave": 5.016404757472285,
+              "QPSD": 3.4401457386482464,
+              "noise": 0.0,
+              "adv": 0.0360231771720861
+            },
+            "cosine": {
+              "wave/QPSD": 0.110276903864101,
+              "wave/noise": null,
+              "wave/adv": -0.033814369199589,
+              "QPSD/noise": null,
+              "QPSD/adv": -0.12578024697480553,
+              "noise/adv": null
+            },
+            "zero_norm_angle": null
+          }
+        },
+        "gradient_scope": "per-hypothesis weighted waveform endpoints; base regular excluded",
+        "G_branch_postclip_gradient_norms": {
+          "shape_encoder": 0.005595998536619817,
+          "charge_head": 1.439185095004941,
+          "response_filter": 0.039509976282231414,
+          "mean_time": 0.46668468602014984,
+          "unet": 0.10566409440392716,
+          "mean_head": 4.764261837554218
+        }
+      },
+      "observation_probe": {
+        "hypotheses": {
+          "fast": {
+            "output_shape": [
+              4,
+              256
+            ],
+            "explicit_replay_bitwise_equal": true,
+            "observed_peak_indices": [
+              126,
+              126,
+              126,
+              126
+            ],
+            "Q_observed_decomposition_max_abs_error": 3.642919299551295e-16,
+            "signal_Q_crop_migration": [
+              2.220446049250313e-16,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "raw_noise_Q_at_observed_crop": [
+              0.025655154458973366,
+              -0.044374522926041354,
+              0.014576074300454232,
+              0.014954573278682704
+            ],
+            "ADC_Q_correction": [
+              0.0003886130185925508,
+              4.627386612937408e-05,
+              0.00011109087271039456,
+              -0.00026933212562133143
+            ],
+            "baseline_Q_correction": [
+              0.04062747970457466,
+              -0.017813587255080136,
+              -0.012657022523343926,
+              -0.017501068180428944
+            ]
+          },
+          "slow": {
+            "output_shape": [
+              4,
+              256
+            ],
+            "explicit_replay_bitwise_equal": true,
+            "observed_peak_indices": [
+              126,
+              126,
+              126,
+              126
+            ],
+            "Q_observed_decomposition_max_abs_error": 2.3245294578089215e-16,
+            "signal_Q_crop_migration": [
+              2.220446049250313e-16,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "raw_noise_Q_at_observed_crop": [
+              0.03917913494994027,
+              -0.06397158135705872,
+              0.01359187491439082,
+              0.0065277938062704875
+            ],
+            "ADC_Q_correction": [
+              0.00047630316181908496,
+              -7.222651381587976e-05,
+              0.00017970703225888952,
+              -8.280169184809284e-05
+            ],
+            "baseline_Q_correction": [
+              0.04062747970457466,
+              -0.017813587255080136,
+              -0.012657022523343926,
+              -0.017501068180428944
+            ]
+          },
+          "common_level": {
+            "output_shape": [
+              4,
+              256
+            ],
+            "explicit_replay_bitwise_equal": true,
+            "observed_peak_indices": [
+              126,
+              126,
+              126,
+              126
+            ],
+            "Q_observed_decomposition_max_abs_error": 2.0122792321330962e-16,
+            "signal_Q_crop_migration": [
+              2.220446049250313e-16,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "raw_noise_Q_at_observed_crop": [
+              -0.007782363193955003,
+              -0.025842551417448945,
+              0.02494836418643339,
+              -0.002850724496634148
+            ],
+            "ADC_Q_correction": [
+              -0.00011148759131246228,
+              0.0003142779419843708,
+              -6.666876297382483e-06,
+              0.00044507875474298465
+            ],
+            "baseline_Q_correction": [
+              0.04062747970457466,
+              -0.017813587255080136,
+              -0.012657022523343926,
+              -0.017501068180428944
+            ]
+          }
+        },
+        "signal_prefix100_exact_zero": true,
+        "common_hypothesis_baseline100_bitwise_equal": true,
+        "canonical_signal_Q_max_abs_error": 2.220446049250313e-16,
+        "canonical_local_Q_max_abs_error": 0.0
+      },
+      "two_pass_VJP_vs_direct_graph": {
+        "parameter_gradient_elements": 1477221,
+        "relative_L2_error": 0.0,
+        "max_abs_error": 0.0,
+        "optimizer_steps": 0
+      },
+      "fixed_noise005_state_sha256": "1af54ac1468cd009e8c97ca08f015a0624d32d6c89fe511bfdbba17b8672595a",
+      "final_model_state_sha256": "03c756d99c283cd11ad54943959a42bef31c296c5a646cbc849bd22297a10976",
+      "initial_model_state_sha256": "43543ded28d1b7f7f044859aa2c8c5eb9f34f613ba6084001e543a40517a28cd",
+      "initial_D_state_sha256": "395ce3d9bac0365752b40cc790edc82c27dd47ef341e58a808c8d0f169e1c85f"
+    },
+    "full": {
+      "status": "passed",
+      "engineering_G_updates": 2,
+      "engineering_D_updates": {
+        "fast": 1,
+        "slow": 1,
+        "common_level": 1
+      },
+      "mean_step": {
+        "utc": "2026-10-13T04:05:01.164691+00:00",
+        "arm": "full",
+        "stage": "mean_response",
+        "G_updates": 1,
+        "D_updates": {
+          "fast": 0,
+          "slow": 0,
+          "common_level": 0
+        },
+        "weighted_total": 2.281164044812608,
+        "regular_once": 0.0,
+        "trend_once": 0.0,
+        "hypotheses": {
+          "fast": {
+            "components": {
+              "wave": 0.5252528524829077,
+              "QPSD": 0.6308113672108734,
+              "noise": 0.4760301610984045,
+              "adv": 0.0
+            },
+            "wave_subcomponents": {
+              "swd": 0.41032440939516884,
+              "coordinate": 0.6556928508870921,
+              "short_lag": 0.6246697402542012
+            },
+            "conditional_diagnostics": {
+              "fake_global_rows": 16,
+              "real_global_rows": 16,
+              "conditional_bins": [
+                {
+                  "bin": 0,
+                  "fake_count": 2,
+                  "real_count": 0,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 1,
+                  "fake_count": 0,
+                  "real_count": 3,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 2,
+                  "fake_count": 0,
+                  "real_count": 3,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 3,
+                  "fake_count": 2,
+                  "real_count": 3,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 4,
+                  "fake_count": 3,
+                  "real_count": 2,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 5,
+                  "fake_count": 5,
+                  "real_count": 3,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 6,
+                  "fake_count": 4,
+                  "real_count": 2,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 7,
+                  "fake_count": 0,
+                  "real_count": 0,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                }
+              ],
+              "minimum_conditional_support": 16,
+              "conditional_bins_used": 0,
+              "conditional_bins_total": 8,
+              "conditional_coverage_complete": false,
+              "conditional_rebatch_needed": true,
+              "fake_nonpositive_q_rows": 0,
+              "real_nonpositive_q_rows": 0,
+              "fake_guarded_psd_rows": 0,
+              "real_guarded_psd_rows": 0,
+              "global_term_includes_all_rows": true,
+              "conditional_term": "mean_PSD",
+              "no_supported_bin_behavior": "global_term_only_with_incomplete_coverage_diagnostic",
+              "projection_context": {
+                "kind": "training",
+                "seed": 2026101387,
+                "update": 1,
+                "fingerprint": "76d5464e3ef31887d11f0cd2499eb2f2815ef1046e90b2a037980592a79b929b"
+              },
+              "loss_version": 2,
+              "standardization_split": "TRAIN"
+            },
+            "engineering": {
+              "nonpositive_Q": 0,
+              "guarded_PSD": 0,
+              "saturation_fraction": 0.0,
+              "charge_identity_max": 1.5681900222830336e-15,
+              "search_edge_rows": 0,
+              "global_peak_outside_search_rows": 0,
+              "signal_Q_crop_change_absmax": 8.881784197001252e-16
+            }
+          },
+          "slow": {
+            "components": {
+              "wave": 0.5365538408470895,
+              "QPSD": 0.6378282633171494,
+              "noise": 0.4760301610984045,
+              "adv": 0.0
+            },
+            "wave_subcomponents": {
+              "swd": 0.4145577692346998,
+              "coordinate": 0.6750646853711408,
+              "short_lag": 0.6420351395478174
+            },
+            "conditional_diagnostics": {
+              "fake_global_rows": 16,
+              "real_global_rows": 16,
+              "conditional_bins": [
+                {
+                  "bin": 0,
+                  "fake_count": 2,
+                  "real_count": 0,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 1,
+                  "fake_count": 0,
+                  "real_count": 3,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 2,
+                  "fake_count": 0,
+                  "real_count": 3,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 3,
+                  "fake_count": 2,
+                  "real_count": 3,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 4,
+                  "fake_count": 3,
+                  "real_count": 2,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 5,
+                  "fake_count": 5,
+                  "real_count": 3,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 6,
+                  "fake_count": 4,
+                  "real_count": 2,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 7,
+                  "fake_count": 0,
+                  "real_count": 0,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                }
+              ],
+              "minimum_conditional_support": 16,
+              "conditional_bins_used": 0,
+              "conditional_bins_total": 8,
+              "conditional_coverage_complete": false,
+              "conditional_rebatch_needed": true,
+              "fake_nonpositive_q_rows": 0,
+              "real_nonpositive_q_rows": 0,
+              "fake_guarded_psd_rows": 0,
+              "real_guarded_psd_rows": 0,
+              "global_term_includes_all_rows": true,
+              "conditional_term": "mean_PSD",
+              "no_supported_bin_behavior": "global_term_only_with_incomplete_coverage_diagnostic",
+              "projection_context": {
+                "kind": "training",
+                "seed": 2026101387,
+                "update": 1,
+                "fingerprint": "76d5464e3ef31887d11f0cd2499eb2f2815ef1046e90b2a037980592a79b929b"
+              },
+              "loss_version": 2,
+              "standardization_split": "TRAIN"
+            },
+            "engineering": {
+              "nonpositive_Q": 0,
+              "guarded_PSD": 0,
+              "saturation_fraction": 0.0,
+              "charge_identity_max": 1.7277845820728999e-15,
+              "search_edge_rows": 0,
+              "global_peak_outside_search_rows": 0,
+              "signal_Q_crop_change_absmax": 8.881784197001252e-16
+            }
+          },
+          "common_level": {
+            "components": {
+              "wave": 0.5377394222324161,
+              "QPSD": 0.639288137262076,
+              "noise": 0.4760301610984045,
+              "adv": 0.0
+            },
+            "wave_subcomponents": {
+              "swd": 0.41468927297957503,
+              "coordinate": 0.6774166147311362,
+              "short_lag": 0.6441625282393783
+            },
+            "conditional_diagnostics": {
+              "fake_global_rows": 16,
+              "real_global_rows": 16,
+              "conditional_bins": [
+                {
+                  "bin": 0,
+                  "fake_count": 2,
+                  "real_count": 0,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 1,
+                  "fake_count": 0,
+                  "real_count": 3,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 2,
+                  "fake_count": 0,
+                  "real_count": 3,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 3,
+                  "fake_count": 2,
+                  "real_count": 3,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 4,
+                  "fake_count": 3,
+                  "real_count": 2,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 5,
+                  "fake_count": 5,
+                  "real_count": 3,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 6,
+                  "fake_count": 4,
+                  "real_count": 2,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 7,
+                  "fake_count": 0,
+                  "real_count": 0,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                }
+              ],
+              "minimum_conditional_support": 16,
+              "conditional_bins_used": 0,
+              "conditional_bins_total": 8,
+              "conditional_coverage_complete": false,
+              "conditional_rebatch_needed": true,
+              "fake_nonpositive_q_rows": 0,
+              "real_nonpositive_q_rows": 0,
+              "fake_guarded_psd_rows": 0,
+              "real_guarded_psd_rows": 0,
+              "global_term_includes_all_rows": true,
+              "conditional_term": "mean_PSD",
+              "no_supported_bin_behavior": "global_term_only_with_incomplete_coverage_diagnostic",
+              "projection_context": {
+                "kind": "training",
+                "seed": 2026101387,
+                "update": 1,
+                "fingerprint": "76d5464e3ef31887d11f0cd2499eb2f2815ef1046e90b2a037980592a79b929b"
+              },
+              "loss_version": 2,
+              "standardization_split": "TRAIN"
+            },
+            "engineering": {
+              "nonpositive_Q": 0,
+              "guarded_PSD": 0,
+              "saturation_fraction": 0.0,
+              "charge_identity_max": 1.4502288259166107e-15,
+              "search_edge_rows": 0,
+              "global_peak_outside_search_rows": 0,
+              "signal_Q_crop_change_absmax": 8.881784197001252e-16
+            }
+          }
+        },
+        "discriminators": {},
+        "G_preclip_gradient_norm": 95.66899108886719,
+        "signal_prefix_absolute_max_V": 0.0,
+        "model_engineering": {
+          "query_outside_carrier": 0,
+          "beyond_extension": 0,
+          "canonical_charge_identity_absmax": 8.881784197001252e-16,
+          "canonical_local_charge_absmax": 0.0
+        },
+        "projection_context": {
+          "kind": "training",
+          "seed": 2026101387,
+          "update": 1,
+          "fingerprint": "76d5464e3ef31887d11f0cd2499eb2f2815ef1046e90b2a037980592a79b929b"
+        },
+        "same_version_replay_verified": true,
+        "coverage": {
+          "source_unique": 8,
+          "source_total": 128,
+          "real_unique": 16,
+          "real_total": 128,
+          "source_epochs": 0,
+          "real_epochs": 0
+        },
+        "noise_updates": 0,
+        "population_updates": 0,
+        "update_seconds": 0.09833106199948816,
+        "gpu_allocated_bytes": 102134784,
+        "gpu_reserved_bytes": 134217728,
+        "endpoint_gradients": {
+          "fast": {
+            "norms": {
+              "wave": 2.735058448670447,
+              "QPSD": 2.4969999719647364,
+              "noise": 0.0,
+              "adv": 0.0
+            },
+            "cosine": {
+              "wave/QPSD": 0.35611324642664693,
+              "wave/noise": null,
+              "wave/adv": null,
+              "QPSD/noise": null,
+              "QPSD/adv": null,
+              "noise/adv": null
+            },
+            "zero_norm_angle": null
+          },
+          "slow": {
+            "norms": {
+              "wave": 2.746496840980194,
+              "QPSD": 2.4961737559735613,
+              "noise": 0.0,
+              "adv": 0.0
+            },
+            "cosine": {
+              "wave/QPSD": 0.34952426067839093,
+              "wave/noise": null,
+              "wave/adv": null,
+              "QPSD/noise": null,
+              "QPSD/adv": null,
+              "noise/adv": null
+            },
+            "zero_norm_angle": null
+          },
+          "common_level": {
+            "norms": {
+              "wave": 2.7429061654867914,
+              "QPSD": 2.522983414531441,
+              "noise": 0.0,
+              "adv": 0.0
+            },
+            "cosine": {
+              "wave/QPSD": 0.3548761643999923,
+              "wave/noise": null,
+              "wave/adv": null,
+              "QPSD/noise": null,
+              "QPSD/adv": null,
+              "noise/adv": null
+            },
+            "zero_norm_angle": null
+          }
+        },
+        "gradient_scope": "per-hypothesis weighted waveform endpoints; base regular excluded",
+        "G_branch_postclip_gradient_norms": {
+          "shape_encoder": 0.0,
+          "charge_head": 0.6881433221085157,
+          "response_filter": 0.03131145538229077,
+          "mean_time": 0.4118117928230311,
+          "unet": 0.0,
+          "mean_head": 4.93516825915161
+        }
+      },
+      "checkpoint_restore": {
+        "path": "/home/rylan/projects/ej276d-n01/window008_20261013/runs/engineering_cuda_01/full_after_mean.engineering.pt",
+        "sha256": "3ad65944a97fdf63612c16291f1d3d7ded91cea353d6e9b495a53ca9913c28e1",
+        "model_D_optimizers_samplers_streams_counters_exact": true
+      },
+      "joint_step": {
+        "utc": "2026-10-13T04:05:01.443062+00:00",
+        "arm": "full",
+        "stage": "joint_stochastic",
+        "G_updates": 2,
+        "D_updates": {
+          "fast": 1,
+          "slow": 1,
+          "common_level": 1
+        },
+        "weighted_total": 1.771630375884153,
+        "regular_once": 0.00328021983876897,
+        "trend_once": 0.0,
+        "hypotheses": {
+          "fast": {
+            "components": {
+              "wave": 0.4483291378943084,
+              "QPSD": 0.45921381121990246,
+              "noise": 0.4311704985998871,
+              "adv": -0.019093815237283707
+            },
+            "wave_subcomponents": {
+              "swd": 0.49165538561865363,
+              "coordinate": 0.4077754879446957,
+              "short_lag": 0.40223029239523067
+            },
+            "conditional_diagnostics": {
+              "fake_global_rows": 16,
+              "real_global_rows": 16,
+              "conditional_bins": [
+                {
+                  "bin": 0,
+                  "fake_count": 2,
+                  "real_count": 4,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 1,
+                  "fake_count": 2,
+                  "real_count": 3,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 2,
+                  "fake_count": 2,
+                  "real_count": 1,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 3,
+                  "fake_count": 1,
+                  "real_count": 3,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 4,
+                  "fake_count": 1,
+                  "real_count": 2,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 5,
+                  "fake_count": 3,
+                  "real_count": 1,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 6,
+                  "fake_count": 3,
+                  "real_count": 0,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 7,
+                  "fake_count": 2,
+                  "real_count": 2,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                }
+              ],
+              "minimum_conditional_support": 16,
+              "conditional_bins_used": 0,
+              "conditional_bins_total": 8,
+              "conditional_coverage_complete": false,
+              "conditional_rebatch_needed": true,
+              "fake_nonpositive_q_rows": 0,
+              "real_nonpositive_q_rows": 0,
+              "fake_guarded_psd_rows": 0,
+              "real_guarded_psd_rows": 0,
+              "global_term_includes_all_rows": true,
+              "conditional_term": "PSD_empirical_W1",
+              "no_supported_bin_behavior": "global_term_only_with_incomplete_coverage_diagnostic",
+              "projection_context": {
+                "kind": "training",
+                "seed": 2026101387,
+                "update": 2,
+                "fingerprint": "87ddff21309313fb5532566cd2c696ba6c5e65af8e94405b7a868178b163cbf3"
+              },
+              "loss_version": 2,
+              "standardization_split": "TRAIN"
+            },
+            "engineering": {
+              "nonpositive_Q": 0,
+              "guarded_PSD": 0,
+              "saturation_fraction": 0.0,
+              "charge_identity_max": 1.3860440573054689e-15,
+              "search_edge_rows": 0,
+              "global_peak_outside_search_rows": 0,
+              "signal_Q_crop_change_absmax": 8.881784197001252e-16
+            }
+          },
+          "slow": {
+            "components": {
+              "wave": 0.4382936719541381,
+              "QPSD": 0.43853773833188564,
+              "noise": 0.4311704985998871,
+              "adv": -0.01931641437113285
+            },
+            "wave_subcomponents": {
+              "swd": 0.4793108317257787,
+              "coordinate": 0.39996408651872006,
+              "short_lag": 0.3945889378462748
+            },
+            "conditional_diagnostics": {
+              "fake_global_rows": 16,
+              "real_global_rows": 16,
+              "conditional_bins": [
+                {
+                  "bin": 0,
+                  "fake_count": 2,
+                  "real_count": 4,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 1,
+                  "fake_count": 1,
+                  "real_count": 3,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 2,
+                  "fake_count": 3,
+                  "real_count": 1,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 3,
+                  "fake_count": 2,
+                  "real_count": 3,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 4,
+                  "fake_count": 0,
+                  "real_count": 2,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 5,
+                  "fake_count": 3,
+                  "real_count": 1,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 6,
+                  "fake_count": 3,
+                  "real_count": 0,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 7,
+                  "fake_count": 2,
+                  "real_count": 2,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                }
+              ],
+              "minimum_conditional_support": 16,
+              "conditional_bins_used": 0,
+              "conditional_bins_total": 8,
+              "conditional_coverage_complete": false,
+              "conditional_rebatch_needed": true,
+              "fake_nonpositive_q_rows": 0,
+              "real_nonpositive_q_rows": 0,
+              "fake_guarded_psd_rows": 0,
+              "real_guarded_psd_rows": 0,
+              "global_term_includes_all_rows": true,
+              "conditional_term": "PSD_empirical_W1",
+              "no_supported_bin_behavior": "global_term_only_with_incomplete_coverage_diagnostic",
+              "projection_context": {
+                "kind": "training",
+                "seed": 2026101387,
+                "update": 2,
+                "fingerprint": "87ddff21309313fb5532566cd2c696ba6c5e65af8e94405b7a868178b163cbf3"
+              },
+              "loss_version": 2,
+              "standardization_split": "TRAIN"
+            },
+            "engineering": {
+              "nonpositive_Q": 0,
+              "guarded_PSD": 0,
+              "saturation_fraction": 0.0,
+              "charge_identity_max": 7.494005416219807e-16,
+              "search_edge_rows": 0,
+              "global_peak_outside_search_rows": 0,
+              "signal_Q_crop_change_absmax": 8.881784197001252e-16
+            }
+          },
+          "common_level": {
+            "components": {
+              "wave": 0.4370356762622972,
+              "QPSD": 0.4539428762003463,
+              "noise": 0.4311704985998871,
+              "adv": -0.019250893965363503
+            },
+            "wave_subcomponents": {
+              "swd": 0.4770701241196978,
+              "coordinate": 0.4001039666429951,
+              "short_lag": 0.3938984901667984
+            },
+            "conditional_diagnostics": {
+              "fake_global_rows": 16,
+              "real_global_rows": 16,
+              "conditional_bins": [
+                {
+                  "bin": 0,
+                  "fake_count": 2,
+                  "real_count": 4,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 1,
+                  "fake_count": 1,
+                  "real_count": 3,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 2,
+                  "fake_count": 3,
+                  "real_count": 1,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 3,
+                  "fake_count": 2,
+                  "real_count": 3,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 4,
+                  "fake_count": 0,
+                  "real_count": 2,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 5,
+                  "fake_count": 3,
+                  "real_count": 1,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 6,
+                  "fake_count": 3,
+                  "real_count": 0,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 7,
+                  "fake_count": 2,
+                  "real_count": 2,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                }
+              ],
+              "minimum_conditional_support": 16,
+              "conditional_bins_used": 0,
+              "conditional_bins_total": 8,
+              "conditional_coverage_complete": false,
+              "conditional_rebatch_needed": true,
+              "fake_nonpositive_q_rows": 0,
+              "real_nonpositive_q_rows": 0,
+              "fake_guarded_psd_rows": 0,
+              "real_guarded_psd_rows": 0,
+              "global_term_includes_all_rows": true,
+              "conditional_term": "PSD_empirical_W1",
+              "no_supported_bin_behavior": "global_term_only_with_incomplete_coverage_diagnostic",
+              "projection_context": {
+                "kind": "training",
+                "seed": 2026101387,
+                "update": 2,
+                "fingerprint": "87ddff21309313fb5532566cd2c696ba6c5e65af8e94405b7a868178b163cbf3"
+              },
+              "loss_version": 2,
+              "standardization_split": "TRAIN"
+            },
+            "engineering": {
+              "nonpositive_Q": 0,
+              "guarded_PSD": 0,
+              "saturation_fraction": 0.0,
+              "charge_identity_max": 1.285430095698814e-15,
+              "search_edge_rows": 0,
+              "global_peak_outside_search_rows": 0,
+              "signal_Q_crop_change_absmax": 8.881784197001252e-16
+            }
+          }
+        },
+        "discriminators": {
+          "fast": {
+            "loss": 1.9994113445281982,
+            "preclip_gradient_norm": 1.0661121606826782
+          },
+          "slow": {
+            "loss": 1.999807357788086,
+            "preclip_gradient_norm": 1.0896087884902954
+          },
+          "common_level": {
+            "loss": 1.9997316598892212,
+            "preclip_gradient_norm": 1.0434232950210571
+          }
+        },
+        "G_preclip_gradient_norm": 40.520259857177734,
+        "signal_prefix_absolute_max_V": 0.0,
+        "model_engineering": {
+          "query_outside_carrier": 46,
+          "beyond_extension": 16,
+          "canonical_charge_identity_absmax": 8.881784197001252e-16,
+          "canonical_local_charge_absmax": 5.637851296924623e-18
+        },
+        "projection_context": {
+          "kind": "training",
+          "seed": 2026101387,
+          "update": 2,
+          "fingerprint": "87ddff21309313fb5532566cd2c696ba6c5e65af8e94405b7a868178b163cbf3"
+        },
+        "same_version_replay_verified": true,
+        "coverage": {
+          "source_unique": 16,
+          "source_total": 128,
+          "real_unique": 32,
+          "real_total": 128,
+          "source_epochs": 0,
+          "real_epochs": 0
+        },
+        "noise_updates": 0,
+        "population_updates": 0,
+        "update_seconds": 0.1486758499959251,
+        "gpu_allocated_bytes": 106053632,
+        "gpu_reserved_bytes": 150994944,
+        "endpoint_gradients": {
+          "fast": {
+            "norms": {
+              "wave": 5.226357342927344,
+              "QPSD": 3.5536898180337393,
+              "noise": 0.0,
+              "adv": 0.03389809904377786
+            },
+            "cosine": {
+              "wave/QPSD": 0.10230401176147577,
+              "wave/noise": null,
+              "wave/adv": 0.0127080255574245,
+              "QPSD/noise": null,
+              "QPSD/adv": -0.13434233914687713,
+              "noise/adv": null
+            },
+            "zero_norm_angle": null
+          },
+          "slow": {
+            "norms": {
+              "wave": 5.290725216696615,
+              "QPSD": 3.4835174067121617,
+              "noise": 0.0,
+              "adv": 0.03381355990707311
+            },
+            "cosine": {
+              "wave/QPSD": 0.07942458709221022,
+              "wave/noise": null,
+              "wave/adv": 0.023840060103297943,
+              "QPSD/noise": null,
+              "QPSD/adv": -0.1338423197036992,
+              "noise/adv": null
+            },
+            "zero_norm_angle": null
+          },
+          "common_level": {
+            "norms": {
+              "wave": 5.273706435492111,
+              "QPSD": 3.52867648849009,
+              "noise": 0.0,
+              "adv": 0.0344737053379794
+            },
+            "cosine": {
+              "wave/QPSD": 0.09900853267779665,
+              "wave/noise": null,
+              "wave/adv": 0.025760660255796815,
+              "QPSD/noise": null,
+              "QPSD/adv": -0.1268091245698414,
+              "noise/adv": null
+            },
+            "zero_norm_angle": null
+          }
+        },
+        "gradient_scope": "per-hypothesis weighted waveform endpoints; base regular excluded",
+        "G_branch_postclip_gradient_norms": {
+          "shape_encoder": 0.00499987114737128,
+          "charge_head": 1.2992478866259092,
+          "response_filter": 0.04402707670231962,
+          "mean_time": 0.48986458467261823,
+          "unet": 0.4280676054093466,
+          "mean_head": 4.770186633639917,
+          "physical_head": 0.26005309562865797,
+          "basis_head": 0.23228782432725098,
+          "envelope_head": 0.10255618581580189,
+          "local_filter": 0.0001896481270536294
+        }
+      },
+      "observation_probe": {
+        "hypotheses": {
+          "fast": {
+            "output_shape": [
+              4,
+              256
+            ],
+            "explicit_replay_bitwise_equal": true,
+            "observed_peak_indices": [
+              126,
+              126,
+              126,
+              126
+            ],
+            "Q_observed_decomposition_max_abs_error": 1.3877787807814457e-16,
+            "signal_Q_crop_migration": [
+              0.0,
+              0.0,
+              2.220446049250313e-16,
+              0.0
+            ],
+            "raw_noise_Q_at_observed_crop": [
+              0.025655154458973366,
+              -0.044374522926041354,
+              0.014576074300454232,
+              0.014954573278682704
+            ],
+            "ADC_Q_correction": [
+              -0.00031845276745768073,
+              0.0008836229027252557,
+              0.00020335308350437933,
+              0.0001907855612149854
+            ],
+            "baseline_Q_correction": [
+              0.04062747970457466,
+              -0.017813587255080136,
+              -0.012657022523343926,
+              -0.017501068180428944
+            ]
+          },
+          "slow": {
+            "output_shape": [
+              4,
+              256
+            ],
+            "explicit_replay_bitwise_equal": true,
+            "observed_peak_indices": [
+              126,
+              126,
+              126,
+              126
+            ],
+            "Q_observed_decomposition_max_abs_error": 2.463307335887066e-16,
+            "signal_Q_crop_migration": [
+              0.0,
+              0.0,
+              2.220446049250313e-16,
+              0.0
+            ],
+            "raw_noise_Q_at_observed_crop": [
+              0.03917913494994027,
+              -0.06397158135705872,
+              0.01359187491439082,
+              0.0065277938062704875
+            ],
+            "ADC_Q_correction": [
+              -0.00016972374246414785,
+              -8.942182196752048e-05,
+              -0.0003994584563907478,
+              0.0002552382314532012
+            ],
+            "baseline_Q_correction": [
+              0.04062747970457466,
+              -0.017813587255080136,
+              -0.012657022523343926,
+              -0.017501068180428944
+            ]
+          },
+          "common_level": {
+            "output_shape": [
+              4,
+              256
+            ],
+            "explicit_replay_bitwise_equal": true,
+            "observed_peak_indices": [
+              126,
+              126,
+              126,
+              126
+            ],
+            "Q_observed_decomposition_max_abs_error": 3.608224830031759e-16,
+            "signal_Q_crop_migration": [
+              0.0,
+              0.0,
+              2.220446049250313e-16,
+              0.0
+            ],
+            "raw_noise_Q_at_observed_crop": [
+              -0.007782363193955003,
+              -0.025842551417448945,
+              0.02494836418643339,
+              -0.002850724496634148
+            ],
+            "ADC_Q_correction": [
+              3.5990967385318376e-05,
+              -0.00019122842030903236,
+              -0.00015856019257321825,
+              0.0004168853874378135
+            ],
+            "baseline_Q_correction": [
+              0.04062747970457466,
+              -0.017813587255080136,
+              -0.012657022523343926,
+              -0.017501068180428944
+            ]
+          }
+        },
+        "signal_prefix100_exact_zero": true,
+        "common_hypothesis_baseline100_bitwise_equal": true,
+        "canonical_signal_Q_max_abs_error": 2.220446049250313e-16,
+        "canonical_local_Q_max_abs_error": 1.3010426069826053e-18
+      },
+      "two_pass_VJP_vs_direct_graph": {
+        "parameter_gradient_elements": 1486573,
+        "relative_L2_error": 0.0,
+        "max_abs_error": 0.0,
+        "optimizer_steps": 0
+      },
+      "fixed_noise005_state_sha256": "1af54ac1468cd009e8c97ca08f015a0624d32d6c89fe511bfdbba17b8672595a",
+      "final_model_state_sha256": "8574fa931a422ffa12b256d3cb26d8a3b0e6bce55d6f43799516949c9c2c84c1",
+      "initial_model_state_sha256": "10dbdfb3e2a6bb8ab10cc8401f456254c29f0b165d73c5558d422e1c5366d001",
+      "initial_D_state_sha256": "395ce3d9bac0365752b40cc790edc82c27dd47ef341e58a808c8d0f169e1c85f"
+    },
+    "simple": {
+      "status": "passed",
+      "engineering_G_updates": 2,
+      "engineering_D_updates": {
+        "fast": 1,
+        "slow": 1,
+        "common_level": 1
+      },
+      "mean_step": {
+        "utc": "2026-10-13T04:05:01.673335+00:00",
+        "arm": "simple",
+        "stage": "mean_response",
+        "G_updates": 1,
+        "D_updates": {
+          "fast": 0,
+          "slow": 0,
+          "common_level": 0
+        },
+        "weighted_total": 2.281164044812608,
+        "regular_once": 0.0,
+        "trend_once": 0.0,
+        "hypotheses": {
+          "fast": {
+            "components": {
+              "wave": 0.5252528524829077,
+              "QPSD": 0.6308113672108734,
+              "noise": 0.4760301610984045,
+              "adv": 0.0
+            },
+            "wave_subcomponents": {
+              "swd": 0.41032440939516884,
+              "coordinate": 0.6556928508870921,
+              "short_lag": 0.6246697402542012
+            },
+            "conditional_diagnostics": {
+              "fake_global_rows": 16,
+              "real_global_rows": 16,
+              "conditional_bins": [
+                {
+                  "bin": 0,
+                  "fake_count": 2,
+                  "real_count": 0,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 1,
+                  "fake_count": 0,
+                  "real_count": 3,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 2,
+                  "fake_count": 0,
+                  "real_count": 3,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 3,
+                  "fake_count": 2,
+                  "real_count": 3,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 4,
+                  "fake_count": 3,
+                  "real_count": 2,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 5,
+                  "fake_count": 5,
+                  "real_count": 3,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 6,
+                  "fake_count": 4,
+                  "real_count": 2,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 7,
+                  "fake_count": 0,
+                  "real_count": 0,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                }
+              ],
+              "minimum_conditional_support": 16,
+              "conditional_bins_used": 0,
+              "conditional_bins_total": 8,
+              "conditional_coverage_complete": false,
+              "conditional_rebatch_needed": true,
+              "fake_nonpositive_q_rows": 0,
+              "real_nonpositive_q_rows": 0,
+              "fake_guarded_psd_rows": 0,
+              "real_guarded_psd_rows": 0,
+              "global_term_includes_all_rows": true,
+              "conditional_term": "mean_PSD",
+              "no_supported_bin_behavior": "global_term_only_with_incomplete_coverage_diagnostic",
+              "projection_context": {
+                "kind": "training",
+                "seed": 2026101387,
+                "update": 1,
+                "fingerprint": "76d5464e3ef31887d11f0cd2499eb2f2815ef1046e90b2a037980592a79b929b"
+              },
+              "loss_version": 2,
+              "standardization_split": "TRAIN"
+            },
+            "engineering": {
+              "nonpositive_Q": 0,
+              "guarded_PSD": 0,
+              "saturation_fraction": 0.0,
+              "charge_identity_max": 1.5681900222830336e-15,
+              "search_edge_rows": 0,
+              "global_peak_outside_search_rows": 0,
+              "signal_Q_crop_change_absmax": 8.881784197001252e-16
+            }
+          },
+          "slow": {
+            "components": {
+              "wave": 0.5365538408470895,
+              "QPSD": 0.6378282633171494,
+              "noise": 0.4760301610984045,
+              "adv": 0.0
+            },
+            "wave_subcomponents": {
+              "swd": 0.4145577692346998,
+              "coordinate": 0.6750646853711408,
+              "short_lag": 0.6420351395478174
+            },
+            "conditional_diagnostics": {
+              "fake_global_rows": 16,
+              "real_global_rows": 16,
+              "conditional_bins": [
+                {
+                  "bin": 0,
+                  "fake_count": 2,
+                  "real_count": 0,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 1,
+                  "fake_count": 0,
+                  "real_count": 3,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 2,
+                  "fake_count": 0,
+                  "real_count": 3,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 3,
+                  "fake_count": 2,
+                  "real_count": 3,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 4,
+                  "fake_count": 3,
+                  "real_count": 2,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 5,
+                  "fake_count": 5,
+                  "real_count": 3,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 6,
+                  "fake_count": 4,
+                  "real_count": 2,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 7,
+                  "fake_count": 0,
+                  "real_count": 0,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                }
+              ],
+              "minimum_conditional_support": 16,
+              "conditional_bins_used": 0,
+              "conditional_bins_total": 8,
+              "conditional_coverage_complete": false,
+              "conditional_rebatch_needed": true,
+              "fake_nonpositive_q_rows": 0,
+              "real_nonpositive_q_rows": 0,
+              "fake_guarded_psd_rows": 0,
+              "real_guarded_psd_rows": 0,
+              "global_term_includes_all_rows": true,
+              "conditional_term": "mean_PSD",
+              "no_supported_bin_behavior": "global_term_only_with_incomplete_coverage_diagnostic",
+              "projection_context": {
+                "kind": "training",
+                "seed": 2026101387,
+                "update": 1,
+                "fingerprint": "76d5464e3ef31887d11f0cd2499eb2f2815ef1046e90b2a037980592a79b929b"
+              },
+              "loss_version": 2,
+              "standardization_split": "TRAIN"
+            },
+            "engineering": {
+              "nonpositive_Q": 0,
+              "guarded_PSD": 0,
+              "saturation_fraction": 0.0,
+              "charge_identity_max": 1.7277845820728999e-15,
+              "search_edge_rows": 0,
+              "global_peak_outside_search_rows": 0,
+              "signal_Q_crop_change_absmax": 8.881784197001252e-16
+            }
+          },
+          "common_level": {
+            "components": {
+              "wave": 0.5377394222324161,
+              "QPSD": 0.639288137262076,
+              "noise": 0.4760301610984045,
+              "adv": 0.0
+            },
+            "wave_subcomponents": {
+              "swd": 0.41468927297957503,
+              "coordinate": 0.6774166147311362,
+              "short_lag": 0.6441625282393783
+            },
+            "conditional_diagnostics": {
+              "fake_global_rows": 16,
+              "real_global_rows": 16,
+              "conditional_bins": [
+                {
+                  "bin": 0,
+                  "fake_count": 2,
+                  "real_count": 0,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 1,
+                  "fake_count": 0,
+                  "real_count": 3,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 2,
+                  "fake_count": 0,
+                  "real_count": 3,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 3,
+                  "fake_count": 2,
+                  "real_count": 3,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 4,
+                  "fake_count": 3,
+                  "real_count": 2,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 5,
+                  "fake_count": 5,
+                  "real_count": 3,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 6,
+                  "fake_count": 4,
+                  "real_count": 2,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 7,
+                  "fake_count": 0,
+                  "real_count": 0,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                }
+              ],
+              "minimum_conditional_support": 16,
+              "conditional_bins_used": 0,
+              "conditional_bins_total": 8,
+              "conditional_coverage_complete": false,
+              "conditional_rebatch_needed": true,
+              "fake_nonpositive_q_rows": 0,
+              "real_nonpositive_q_rows": 0,
+              "fake_guarded_psd_rows": 0,
+              "real_guarded_psd_rows": 0,
+              "global_term_includes_all_rows": true,
+              "conditional_term": "mean_PSD",
+              "no_supported_bin_behavior": "global_term_only_with_incomplete_coverage_diagnostic",
+              "projection_context": {
+                "kind": "training",
+                "seed": 2026101387,
+                "update": 1,
+                "fingerprint": "76d5464e3ef31887d11f0cd2499eb2f2815ef1046e90b2a037980592a79b929b"
+              },
+              "loss_version": 2,
+              "standardization_split": "TRAIN"
+            },
+            "engineering": {
+              "nonpositive_Q": 0,
+              "guarded_PSD": 0,
+              "saturation_fraction": 0.0,
+              "charge_identity_max": 1.4502288259166107e-15,
+              "search_edge_rows": 0,
+              "global_peak_outside_search_rows": 0,
+              "signal_Q_crop_change_absmax": 8.881784197001252e-16
+            }
+          }
+        },
+        "discriminators": {},
+        "G_preclip_gradient_norm": 15.356117248535156,
+        "signal_prefix_absolute_max_V": 0.0,
+        "model_engineering": {
+          "query_outside_carrier": 0,
+          "beyond_extension": 0,
+          "canonical_charge_identity_absmax": 8.881784197001252e-16,
+          "canonical_local_charge_absmax": 0.0
+        },
+        "projection_context": {
+          "kind": "training",
+          "seed": 2026101387,
+          "update": 1,
+          "fingerprint": "76d5464e3ef31887d11f0cd2499eb2f2815ef1046e90b2a037980592a79b929b"
+        },
+        "same_version_replay_verified": true,
+        "coverage": {
+          "source_unique": 8,
+          "source_total": 128,
+          "real_unique": 16,
+          "real_total": 128,
+          "source_epochs": 0,
+          "real_epochs": 0
+        },
+        "noise_updates": 0,
+        "population_updates": 0,
+        "update_seconds": 0.056944686999486294,
+        "gpu_allocated_bytes": 78419968,
+        "gpu_reserved_bytes": 100663296,
+        "endpoint_gradients": {
+          "fast": {
+            "norms": {
+              "wave": 2.735058448670447,
+              "QPSD": 2.4969999719647364,
+              "noise": 0.0,
+              "adv": 0.0
+            },
+            "cosine": {
+              "wave/QPSD": 0.35611324642664693,
+              "wave/noise": null,
+              "wave/adv": null,
+              "QPSD/noise": null,
+              "QPSD/adv": null,
+              "noise/adv": null
+            },
+            "zero_norm_angle": null
+          },
+          "slow": {
+            "norms": {
+              "wave": 2.746496840980194,
+              "QPSD": 2.4961737559735613,
+              "noise": 0.0,
+              "adv": 0.0
+            },
+            "cosine": {
+              "wave/QPSD": 0.34952426067839093,
+              "wave/noise": null,
+              "wave/adv": null,
+              "QPSD/noise": null,
+              "QPSD/adv": null,
+              "noise/adv": null
+            },
+            "zero_norm_angle": null
+          },
+          "common_level": {
+            "norms": {
+              "wave": 2.7429061654867914,
+              "QPSD": 2.522983414531441,
+              "noise": 0.0,
+              "adv": 0.0
+            },
+            "cosine": {
+              "wave/QPSD": 0.3548761643999923,
+              "wave/noise": null,
+              "wave/adv": null,
+              "QPSD/noise": null,
+              "QPSD/adv": null,
+              "noise/adv": null
+            },
+            "zero_norm_angle": null
+          }
+        },
+        "gradient_scope": "per-hypothesis weighted waveform endpoints; base regular excluded",
+        "G_branch_postclip_gradient_norms": {
+          "shape_encoder": 0.0,
+          "charge_head": 4.287150064017507,
+          "response_filter": 0.19507114701633171,
+          "mean_time": 2.5655976842940658
+        }
+      },
+      "checkpoint_restore": {
+        "path": "/home/rylan/projects/ej276d-n01/window008_20261013/runs/engineering_cuda_01/simple_after_mean.engineering.pt",
+        "sha256": "2322c0150e0c822ecedad4c3c02448cb136da2eab89ae63d90368d81ac1e5554",
+        "model_D_optimizers_samplers_streams_counters_exact": true
+      },
+      "joint_step": {
+        "utc": "2026-10-13T04:05:01.806186+00:00",
+        "arm": "simple",
+        "stage": "joint_stochastic",
+        "G_updates": 2,
+        "D_updates": {
+          "fast": 1,
+          "slow": 1,
+          "common_level": 1
+        },
+        "weighted_total": 1.9038459659266669,
+        "regular_once": 0.0,
+        "trend_once": 0.0,
+        "hypotheses": {
+          "fast": {
+            "components": {
+              "wave": 0.47708858300933665,
+              "QPSD": 0.5040990597330564,
+              "noise": 0.4311704985998871,
+              "adv": -0.023130696266889572
+            },
+            "wave_subcomponents": {
+              "swd": 0.5206061885564177,
+              "coordinate": 0.43931299105083577,
+              "short_lag": 0.4278289638736753
+            },
+            "conditional_diagnostics": {
+              "fake_global_rows": 16,
+              "real_global_rows": 16,
+              "conditional_bins": [
+                {
+                  "bin": 0,
+                  "fake_count": 2,
+                  "real_count": 4,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 1,
+                  "fake_count": 2,
+                  "real_count": 3,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 2,
+                  "fake_count": 2,
+                  "real_count": 1,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 3,
+                  "fake_count": 1,
+                  "real_count": 3,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 4,
+                  "fake_count": 1,
+                  "real_count": 2,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 5,
+                  "fake_count": 3,
+                  "real_count": 1,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 6,
+                  "fake_count": 3,
+                  "real_count": 0,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 7,
+                  "fake_count": 2,
+                  "real_count": 2,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                }
+              ],
+              "minimum_conditional_support": 16,
+              "conditional_bins_used": 0,
+              "conditional_bins_total": 8,
+              "conditional_coverage_complete": false,
+              "conditional_rebatch_needed": true,
+              "fake_nonpositive_q_rows": 0,
+              "real_nonpositive_q_rows": 0,
+              "fake_guarded_psd_rows": 0,
+              "real_guarded_psd_rows": 0,
+              "global_term_includes_all_rows": true,
+              "conditional_term": "PSD_empirical_W1",
+              "no_supported_bin_behavior": "global_term_only_with_incomplete_coverage_diagnostic",
+              "projection_context": {
+                "kind": "training",
+                "seed": 2026101387,
+                "update": 2,
+                "fingerprint": "87ddff21309313fb5532566cd2c696ba6c5e65af8e94405b7a868178b163cbf3"
+              },
+              "loss_version": 2,
+              "standardization_split": "TRAIN"
+            },
+            "engineering": {
+              "nonpositive_Q": 0,
+              "guarded_PSD": 0,
+              "saturation_fraction": 0.0,
+              "charge_identity_max": 1.762479051592436e-15,
+              "search_edge_rows": 0,
+              "global_peak_outside_search_rows": 0,
+              "signal_Q_crop_change_absmax": 8.881784197001252e-16
+            }
+          },
+          "slow": {
+            "components": {
+              "wave": 0.4745750363579403,
+              "QPSD": 0.48978949868284144,
+              "noise": 0.4311704985998871,
+              "adv": -0.02315494790673256
+            },
+            "wave_subcomponents": {
+              "swd": 0.5301596213580759,
+              "coordinate": 0.42394065769953526,
+              "short_lag": 0.41404024501607395
+            },
+            "conditional_diagnostics": {
+              "fake_global_rows": 16,
+              "real_global_rows": 16,
+              "conditional_bins": [
+                {
+                  "bin": 0,
+                  "fake_count": 2,
+                  "real_count": 4,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 1,
+                  "fake_count": 1,
+                  "real_count": 3,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 2,
+                  "fake_count": 3,
+                  "real_count": 1,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 3,
+                  "fake_count": 2,
+                  "real_count": 3,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 4,
+                  "fake_count": 0,
+                  "real_count": 2,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 5,
+                  "fake_count": 3,
+                  "real_count": 1,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 6,
+                  "fake_count": 3,
+                  "real_count": 0,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 7,
+                  "fake_count": 2,
+                  "real_count": 2,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                }
+              ],
+              "minimum_conditional_support": 16,
+              "conditional_bins_used": 0,
+              "conditional_bins_total": 8,
+              "conditional_coverage_complete": false,
+              "conditional_rebatch_needed": true,
+              "fake_nonpositive_q_rows": 0,
+              "real_nonpositive_q_rows": 0,
+              "fake_guarded_psd_rows": 0,
+              "real_guarded_psd_rows": 0,
+              "global_term_includes_all_rows": true,
+              "conditional_term": "PSD_empirical_W1",
+              "no_supported_bin_behavior": "global_term_only_with_incomplete_coverage_diagnostic",
+              "projection_context": {
+                "kind": "training",
+                "seed": 2026101387,
+                "update": 2,
+                "fingerprint": "87ddff21309313fb5532566cd2c696ba6c5e65af8e94405b7a868178b163cbf3"
+              },
+              "loss_version": 2,
+              "standardization_split": "TRAIN"
+            },
+            "engineering": {
+              "nonpositive_Q": 0,
+              "guarded_PSD": 0,
+              "saturation_fraction": 0.0,
+              "charge_identity_max": 9.43689570931383e-16,
+              "search_edge_rows": 0,
+              "global_peak_outside_search_rows": 0,
+              "signal_Q_crop_change_absmax": 8.881784197001252e-16
+            }
+          },
+          "common_level": {
+            "components": {
+              "wave": 0.4840579278238956,
+              "QPSD": 0.5007704173088732,
+              "noise": 0.4311704985998871,
+              "adv": -0.02384532243013382
+            },
+            "wave_subcomponents": {
+              "swd": 0.5348158420022566,
+              "coordinate": 0.4389336326722423,
+              "short_lag": 0.42766639461882705
+            },
+            "conditional_diagnostics": {
+              "fake_global_rows": 16,
+              "real_global_rows": 16,
+              "conditional_bins": [
+                {
+                  "bin": 0,
+                  "fake_count": 2,
+                  "real_count": 4,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 1,
+                  "fake_count": 1,
+                  "real_count": 3,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 2,
+                  "fake_count": 3,
+                  "real_count": 1,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 3,
+                  "fake_count": 2,
+                  "real_count": 3,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 4,
+                  "fake_count": 0,
+                  "real_count": 2,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 5,
+                  "fake_count": 3,
+                  "real_count": 1,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 6,
+                  "fake_count": 3,
+                  "real_count": 0,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                },
+                {
+                  "bin": 7,
+                  "fake_count": 2,
+                  "real_count": 2,
+                  "supported": false,
+                  "status": "insufficient_current_batch_support"
+                }
+              ],
+              "minimum_conditional_support": 16,
+              "conditional_bins_used": 0,
+              "conditional_bins_total": 8,
+              "conditional_coverage_complete": false,
+              "conditional_rebatch_needed": true,
+              "fake_nonpositive_q_rows": 0,
+              "real_nonpositive_q_rows": 0,
+              "fake_guarded_psd_rows": 0,
+              "real_guarded_psd_rows": 0,
+              "global_term_includes_all_rows": true,
+              "conditional_term": "PSD_empirical_W1",
+              "no_supported_bin_behavior": "global_term_only_with_incomplete_coverage_diagnostic",
+              "projection_context": {
+                "kind": "training",
+                "seed": 2026101387,
+                "update": 2,
+                "fingerprint": "87ddff21309313fb5532566cd2c696ba6c5e65af8e94405b7a868178b163cbf3"
+              },
+              "loss_version": 2,
+              "standardization_split": "TRAIN"
+            },
+            "engineering": {
+              "nonpositive_Q": 0,
+              "guarded_PSD": 0,
+              "saturation_fraction": 0.0,
+              "charge_identity_max": 1.4710455076283324e-15,
+              "search_edge_rows": 0,
+              "global_peak_outside_search_rows": 0,
+              "signal_Q_crop_change_absmax": 8.881784197001252e-16
+            }
+          }
+        },
+        "discriminators": {
+          "fast": {
+            "loss": 2.007866859436035,
+            "preclip_gradient_norm": 0.8359380960464478
+          },
+          "slow": {
+            "loss": 2.0079245567321777,
+            "preclip_gradient_norm": 0.8495715856552124
+          },
+          "common_level": {
+            "loss": 2.008700132369995,
+            "preclip_gradient_norm": 0.8203481435775757
+          }
+        },
+        "G_preclip_gradient_norm": 11.380829811096191,
+        "signal_prefix_absolute_max_V": 0.0,
+        "model_engineering": {
+          "query_outside_carrier": 46,
+          "beyond_extension": 16,
+          "canonical_charge_identity_absmax": 8.881784197001252e-16,
+          "canonical_local_charge_absmax": 0.0
+        },
+        "projection_context": {
+          "kind": "training",
+          "seed": 2026101387,
+          "update": 2,
+          "fingerprint": "87ddff21309313fb5532566cd2c696ba6c5e65af8e94405b7a868178b163cbf3"
+        },
+        "same_version_replay_verified": true,
+        "coverage": {
+          "source_unique": 16,
+          "source_total": 128,
+          "real_unique": 32,
+          "real_total": 128,
+          "source_epochs": 0,
+          "real_epochs": 0
+        },
+        "noise_updates": 0,
+        "population_updates": 0,
+        "update_seconds": 0.0972233279971988,
+        "gpu_allocated_bytes": 81923072,
+        "gpu_reserved_bytes": 106954752,
+        "endpoint_gradients": {
+          "fast": {
+            "norms": {
+              "wave": 5.027836440432037,
+              "QPSD": 3.6056512050345337,
+              "noise": 0.0,
+              "adv": 0.03500769624205378
+            },
+            "cosine": {
+              "wave/QPSD": 0.16322005080996724,
+              "wave/noise": null,
+              "wave/adv": -0.0706895887189783,
+              "QPSD/noise": null,
+              "QPSD/adv": -0.13701866026821494,
+              "noise/adv": null
+            },
+            "zero_norm_angle": null
+          },
+          "slow": {
+            "norms": {
+              "wave": 4.962985009800665,
+              "QPSD": 3.536880587101918,
+              "noise": 0.0,
+              "adv": 0.03540061994874998
+            },
+            "cosine": {
+              "wave/QPSD": 0.15688609623754107,
+              "wave/noise": null,
+              "wave/adv": -0.06927174968285178,
+              "QPSD/noise": null,
+              "QPSD/adv": -0.13635398358522446,
+              "noise/adv": null
+            },
+            "zero_norm_angle": null
+          },
+          "common_level": {
+            "norms": {
+              "wave": 5.031497672815818,
+              "QPSD": 3.565602726443015,
+              "noise": 0.0,
+              "adv": 0.03520645929962664
+            },
+            "cosine": {
+              "wave/QPSD": 0.15844510714759977,
+              "wave/noise": null,
+              "wave/adv": -0.08496990284099962,
+              "QPSD/noise": null,
+              "QPSD/adv": -0.1316964833252292,
+              "noise/adv": null
+            },
+            "zero_norm_angle": null
+          }
+        },
+        "gradient_scope": "per-hypothesis weighted waveform endpoints; base regular excluded",
+        "G_branch_postclip_gradient_norms": {
+          "shape_encoder": 0.016976874713482613,
+          "charge_head": 4.45501206804237,
+          "response_filter": 0.1822302004504232,
+          "mean_time": 2.2619610735636306,
+          "physical_head": 0.0539090630047808
+        }
+      },
+      "observation_probe": {
+        "hypotheses": {
+          "fast": {
+            "output_shape": [
+              4,
+              256
+            ],
+            "explicit_replay_bitwise_equal": true,
+            "observed_peak_indices": [
+              126,
+              126,
+              126,
+              126
+            ],
+            "Q_observed_decomposition_max_abs_error": 3.3306690738754696e-16,
+            "signal_Q_crop_migration": [
+              0.0,
+              2.220446049250313e-16,
+              0.0,
+              -2.220446049250313e-16
+            ],
+            "raw_noise_Q_at_observed_crop": [
+              0.025655154458973366,
+              -0.044374522926041354,
+              0.014576074300454232,
+              0.014954573278682704
+            ],
+            "ADC_Q_correction": [
+              -0.00015844625761236245,
+              5.588208776462374e-06,
+              -7.313456102156758e-05,
+              0.00028578675585923946
+            ],
+            "baseline_Q_correction": [
+              0.04062747970457466,
+              -0.017813587255080136,
+              -0.012657022523343926,
+              -0.017501068180428944
+            ]
+          },
+          "slow": {
+            "output_shape": [
+              4,
+              256
+            ],
+            "explicit_replay_bitwise_equal": true,
+            "observed_peak_indices": [
+              126,
+              126,
+              126,
+              126
+            ],
+            "Q_observed_decomposition_max_abs_error": 3.157196726277789e-16,
+            "signal_Q_crop_migration": [
+              0.0,
+              2.220446049250313e-16,
+              0.0,
+              -2.220446049250313e-16
+            ],
+            "raw_noise_Q_at_observed_crop": [
+              0.03917913494994027,
+              -0.06397158135705872,
+              0.01359187491439082,
+              0.0065277938062704875
+            ],
+            "ADC_Q_correction": [
+              -0.00019283387792179828,
+              9.165592366886389e-06,
+              -0.0002486739285441981,
+              -7.70327462750263e-05
+            ],
+            "baseline_Q_correction": [
+              0.04062747970457466,
+              -0.017813587255080136,
+              -0.012657022523343926,
+              -0.017501068180428944
+            ]
+          },
+          "common_level": {
+            "output_shape": [
+              4,
+              256
+            ],
+            "explicit_replay_bitwise_equal": true,
+            "observed_peak_indices": [
+              126,
+              126,
+              126,
+              126
+            ],
+            "Q_observed_decomposition_max_abs_error": 1.8908485888147197e-16,
+            "signal_Q_crop_migration": [
+              0.0,
+              2.220446049250313e-16,
+              0.0,
+              -2.220446049250313e-16
+            ],
+            "raw_noise_Q_at_observed_crop": [
+              -0.007782363193955003,
+              -0.025842551417448945,
+              0.02494836418643339,
+              -0.002850724496634148
+            ],
+            "ADC_Q_correction": [
+              -4.8158049841666054e-05,
+              -0.00015367988774297057,
+              -0.000251931191797075,
+              -0.0002816188808970608
+            ],
+            "baseline_Q_correction": [
+              0.04062747970457466,
+              -0.017813587255080136,
+              -0.012657022523343926,
+              -0.017501068180428944
+            ]
+          }
+        },
+        "signal_prefix100_exact_zero": true,
+        "common_hypothesis_baseline100_bitwise_equal": true,
+        "canonical_signal_Q_max_abs_error": 4.440892098500626e-16,
+        "canonical_local_Q_max_abs_error": 0.0
+      },
+      "two_pass_VJP_vs_direct_graph": {
+        "parameter_gradient_elements": 3991,
+        "relative_L2_error": 0.0,
+        "max_abs_error": 0.0,
+        "optimizer_steps": 0
+      },
+      "fixed_noise005_state_sha256": "1af54ac1468cd009e8c97ca08f015a0624d32d6c89fe511bfdbba17b8672595a",
+      "final_model_state_sha256": "895779081dddebf6be8d16b2dced178a5e4ec2dd2b1fad46b365180dc2488973",
+      "initial_model_state_sha256": "bcd2c25dcdc2a555f7e6bfd5dd39d8a8d2aa52e9fc50b83c21ed89fd21c5c233",
+      "initial_D_state_sha256": "395ce3d9bac0365752b40cc790edc82c27dd47ef341e58a808c8d0f169e1c85f"
+    }
+  },
+  "device": "cuda:0",
+  "device_name": "NVIDIA GeForce RTX 5070",
+  "torch_version": "2.12.0+cu130",
+  "cuda_version": "13.0",
+  "deterministic_algorithms": true,
+  "config_path": "/home/rylan/projects/ej276d-n01/window008_20261013/window008_config.json",
+  "config_sha256": "f5500c65f2d17a2fe6964bfc5908dedb68c27b9391cb30bf30c0ba161509d145",
+  "fixed_noise005_path": "/home/rylan/projects/ej276d-n01/window008_20261013/provenance/integration006_reference/noise005.pt",
+  "fixed_noise005_sha256": "1e45d3369b85d2f5f635ad44dbeb5a730f6d86864cc3dc9163384fccd48bd417",
+  "fixture_sha256": "d5ca1a2eaf31ee88ddb87e2f32dc9d5ebc56cd7beab96c47ba2e7dc7acece2d3",
+  "artificial_source_rows": 128,
+  "artificial_observed_rows": 128,
+  "engineering_batch": {
+    "microbatches": 2,
+    "parents": 4,
+    "responses_per_parent": 2,
+    "real_rows_per_microbatch": 8
+  },
+  "noise_updates": 0,
+  "population_updates": 0,
+  "optimizer_update_budget": {
+    "G": 6,
+    "D_total": 9
+  },
+  "common_initial_state_sha256": "10dbdfb3e2a6bb8ab10cc8401f456254c29f0b165d73c5558d422e1c5366d001",
+  "active_arm": null,
+  "engineering_G_updates_total": 6,
+  "engineering_D_updates_total": 9,
+  "paired_mean_update_full_deterministic_shared_state_bitwise_equal": true,
+  "completed_UTC": "2026-10-13T04:05:01.857003+00:00",
+  "elapsed_seconds": 3.1775253099986003
+}

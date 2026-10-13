@@ -1,0 +1,51 @@
+{
+  "schema": "n01/window008-loss-review/v1",
+  "status": "passed_after_two_review_fixes",
+  "checks": {
+    "effective256_shape": true,
+    "Q_sums_all256": true,
+    "peak_has_no_second_baseline_subtraction": true,
+    "Q_floor_includes_full_baseline_mean_uncertainty": true,
+    "tail46_signed_PSD_retained": true,
+    "noise_requires_explicit100": true,
+    "projection_dimensions_256_255_254": true,
+    "explicit_repeatable_independent_projection_contexts": true,
+    "constant_noise_does_not_block_response_loss_gradient": true,
+    "population_weight_gradient_retained": true,
+    "base_class_explicit_baseline_API_usable": true,
+    "standalone_baseline_OLS_uses_carrier384": true
+  },
+  "artificial_CPU_check_groups": 12,
+  "model_forwards_on_scientific_data": 0,
+  "scientific_training_updates": 0,
+  "DEV_waveforms_decoded": false,
+  "q_floor_V_ns": 0.0005319378913383611,
+  "view_dimensions": {
+    "voltage": 256,
+    "shape": 256,
+    "difference": 255,
+    "curvature": 254,
+    "difference_smooth_5": 255,
+    "difference_smooth_17": 255
+  },
+  "findings": [
+    {
+      "id": "L008-1",
+      "status": "fixed_by_root_and_retested",
+      "description": "Standalone baseline OLS retained /479 and accepted old480; now /383 and100/384 only"
+    },
+    {
+      "id": "L008-2",
+      "status": "fixed_by_root_and_retested",
+      "description": "Base N01Loss components passed cropped256 to noise feature; now explicit baseline100"
+    }
+  ],
+  "limitations": [
+    "Engine/replay integration reviewed separately once landed",
+    "Artificial CPU checks do not establish scientific response match"
+  ],
+  "reviewed_code_sha256": {
+    "src/n01/losses008.py": "68a9330b7e0620f12adbb3dc22a00c632a1b7577d44b92617da7d14979d9ea61",
+    "src/n01/losses008_v2.py": "6932772c4b00fa62383b5ca356f26d0cf81271be531888b474ae6146fa25f3d8"
+  }
+}

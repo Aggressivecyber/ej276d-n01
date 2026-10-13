@@ -1,0 +1,953 @@
+{
+  "schema": "window008/fullbatch-engineering/v1",
+  "status": "passed_native_fullbatch_capacity_only",
+  "started_UTC": "2026-10-13T04:13:34.142312+00:00",
+  "scope": "Capacity-only formal-batch test on artificial pulses/baseline plus frozen005; never scientific training.",
+  "source_sha256": {
+    "src/n01/model.py": "0a0488218d99f351a98e30f2b1525b837b4ad3195c19f2a76ff61ee01298587b",
+    "src/n01/model008.py": "56a6b41f9d2906c82757f4ca9f91a751ff8531428a7f38714e0a291359cd1b4f",
+    "src/n01/response008.py": "cf8b14b377530a234b066c2fd958827172abb624e7a959ac9bb26a416ff3b2e7",
+    "src/n01/observation008.py": "9f7b6c0a266c420af8c6c155103774bae1ed949cfe05ee6a1f19b75f9254c4ec",
+    "src/n01/losses008.py": "68a9330b7e0620f12adbb3dc22a00c632a1b7577d44b92617da7d14979d9ea61",
+    "src/n01/losses008_v2.py": "6932772c4b00fa62383b5ca356f26d0cf81271be531888b474ae6146fa25f3d8",
+    "src/n01/electronics_v3.py": "816b12bf4814f23ff4455498ec385df335cdb38827548c969e38ef08b9763926",
+    "src/n01/extension006.py": "caa2eff66555773d04a72482c8375b5896a241e0a858070a80f689aa3def5040",
+    "src/n01/data.py": "2ec3363bc830043af053342b4638f5e6ab55d27303da037f383f4fe630d77bd2",
+    "src/n01/train.py": "9cb6b0a9cfad3fd9163eee919de7b2d64ca422513093e204f62a934e25684169",
+    "scripts/check_window008_engine.py": "40b8a50ef6ea5af562e0824e8b1d252841ae9f918a6cbaec145162e68ff13f40",
+    "scripts/benchmark_window008.py": "3d832cf2dacb7a1282b6a1e2dff93b684f3b1c7f3d053001bfecaa6008207100",
+    "scripts/supervise.py": "0223a8912196876f712072f064c9118a999f7e563244947cba7ad729d247a69b"
+  },
+  "TRAIN_rows_read": 0,
+  "DEV_rows_read": 0,
+  "scientific_G_updates": 0,
+  "scientific_D_updates": 0,
+  "engineering_G_updates": 2,
+  "engineering_D_updates_total": 3,
+  "steps": [
+    {
+      "stage": "mean_response",
+      "step_completed": true,
+      "seconds_synchronized": 0.9368324270035373,
+      "gpu_peak_allocated_bytes": 1722449920,
+      "gpu_peak_reserved_bytes": 2239758336,
+      "rss_tree_sampled_peak_bytes": 2808078336,
+      "rss_sampling_interval_seconds": 0.05,
+      "rss_samples": 21,
+      "engineering_G_updates": 1,
+      "engineering_D_updates": {
+        "fast": 0,
+        "slow": 0,
+        "common_level": 0
+      },
+      "engine_metrics": {
+        "utc": "2026-10-13T04:13:36.167539+00:00",
+        "arm": "full",
+        "stage": "mean_response",
+        "G_updates": 1,
+        "D_updates": {
+          "fast": 0,
+          "slow": 0,
+          "common_level": 0
+        },
+        "weighted_total": 2.6228078877493926,
+        "regular_once": 0.0,
+        "trend_once": 0.0,
+        "hypotheses": {
+          "fast": {
+            "components": {
+              "wave": 0.5623247310904915,
+              "QPSD": 0.9006131609531588,
+              "noise": 0.25420948135159194,
+              "adv": 0.0
+            },
+            "wave_subcomponents": {
+              "swd": 0.3615160557612864,
+              "coordinate": 0.7862110029820248,
+              "short_lag": 0.7400558098573682
+            },
+            "conditional_diagnostics": {
+              "fake_global_rows": 1024,
+              "real_global_rows": 1024,
+              "conditional_bins": [
+                {
+                  "bin": 0,
+                  "fake_count": 206,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 1,
+                  "fake_count": 134,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 2,
+                  "fake_count": 155,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 3,
+                  "fake_count": 137,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 4,
+                  "fake_count": 144,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 5,
+                  "fake_count": 98,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 6,
+                  "fake_count": 105,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 7,
+                  "fake_count": 45,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                }
+              ],
+              "minimum_conditional_support": 16,
+              "conditional_bins_used": 8,
+              "conditional_bins_total": 8,
+              "conditional_coverage_complete": true,
+              "conditional_rebatch_needed": false,
+              "fake_nonpositive_q_rows": 0,
+              "real_nonpositive_q_rows": 0,
+              "fake_guarded_psd_rows": 0,
+              "real_guarded_psd_rows": 0,
+              "global_term_includes_all_rows": true,
+              "conditional_term": "mean_PSD",
+              "no_supported_bin_behavior": "global_term_only_with_incomplete_coverage_diagnostic",
+              "projection_context": {
+                "kind": "training",
+                "seed": 2026101387,
+                "update": 1,
+                "fingerprint": "76d5464e3ef31887d11f0cd2499eb2f2815ef1046e90b2a037980592a79b929b"
+              },
+              "loss_version": 2,
+              "standardization_split": "TRAIN"
+            },
+            "engineering": {
+              "nonpositive_Q": 0,
+              "guarded_PSD": 0,
+              "saturation_fraction": 0.0,
+              "charge_identity_max": 2.6020852139652106e-15,
+              "search_edge_rows": 0,
+              "global_peak_outside_search_rows": 0,
+              "signal_Q_crop_change_absmax": 1.7763568394002505e-15
+            }
+          },
+          "slow": {
+            "components": {
+              "wave": 0.563193836256013,
+              "QPSD": 0.9025377511230853,
+              "noise": 0.25420948135159194,
+              "adv": 0.0
+            },
+            "wave_subcomponents": {
+              "swd": 0.3618926414772453,
+              "coordinate": 0.7876435922731062,
+              "short_lag": 0.7413464697964554
+            },
+            "conditional_diagnostics": {
+              "fake_global_rows": 1024,
+              "real_global_rows": 1024,
+              "conditional_bins": [
+                {
+                  "bin": 0,
+                  "fake_count": 205,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 1,
+                  "fake_count": 138,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 2,
+                  "fake_count": 154,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 3,
+                  "fake_count": 132,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 4,
+                  "fake_count": 146,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 5,
+                  "fake_count": 102,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 6,
+                  "fake_count": 103,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 7,
+                  "fake_count": 44,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                }
+              ],
+              "minimum_conditional_support": 16,
+              "conditional_bins_used": 8,
+              "conditional_bins_total": 8,
+              "conditional_coverage_complete": true,
+              "conditional_rebatch_needed": false,
+              "fake_nonpositive_q_rows": 0,
+              "real_nonpositive_q_rows": 0,
+              "fake_guarded_psd_rows": 0,
+              "real_guarded_psd_rows": 0,
+              "global_term_includes_all_rows": true,
+              "conditional_term": "mean_PSD",
+              "no_supported_bin_behavior": "global_term_only_with_incomplete_coverage_diagnostic",
+              "projection_context": {
+                "kind": "training",
+                "seed": 2026101387,
+                "update": 1,
+                "fingerprint": "76d5464e3ef31887d11f0cd2499eb2f2815ef1046e90b2a037980592a79b929b"
+              },
+              "loss_version": 2,
+              "standardization_split": "TRAIN"
+            },
+            "engineering": {
+              "nonpositive_Q": 0,
+              "guarded_PSD": 0,
+              "saturation_fraction": 0.0,
+              "charge_identity_max": 2.0539125955565396e-15,
+              "search_edge_rows": 0,
+              "global_peak_outside_search_rows": 0,
+              "signal_Q_crop_change_absmax": 1.7763568394002505e-15
+            }
+          },
+          "common_level": {
+            "components": {
+              "wave": 0.5647460027602946,
+              "QPSD": 0.9046144124670569,
+              "noise": 0.25420948135159194,
+              "adv": 0.0
+            },
+            "wave_subcomponents": {
+              "swd": 0.3626110969899451,
+              "coordinate": 0.790148494688129,
+              "short_lag": 0.7436133223731595
+            },
+            "conditional_diagnostics": {
+              "fake_global_rows": 1024,
+              "real_global_rows": 1024,
+              "conditional_bins": [
+                {
+                  "bin": 0,
+                  "fake_count": 205,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 1,
+                  "fake_count": 136,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 2,
+                  "fake_count": 157,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 3,
+                  "fake_count": 132,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 4,
+                  "fake_count": 148,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 5,
+                  "fake_count": 97,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 6,
+                  "fake_count": 103,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 7,
+                  "fake_count": 46,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                }
+              ],
+              "minimum_conditional_support": 16,
+              "conditional_bins_used": 8,
+              "conditional_bins_total": 8,
+              "conditional_coverage_complete": true,
+              "conditional_rebatch_needed": false,
+              "fake_nonpositive_q_rows": 0,
+              "real_nonpositive_q_rows": 0,
+              "fake_guarded_psd_rows": 0,
+              "real_guarded_psd_rows": 0,
+              "global_term_includes_all_rows": true,
+              "conditional_term": "mean_PSD",
+              "no_supported_bin_behavior": "global_term_only_with_incomplete_coverage_diagnostic",
+              "projection_context": {
+                "kind": "training",
+                "seed": 2026101387,
+                "update": 1,
+                "fingerprint": "76d5464e3ef31887d11f0cd2499eb2f2815ef1046e90b2a037980592a79b929b"
+              },
+              "loss_version": 2,
+              "standardization_split": "TRAIN"
+            },
+            "engineering": {
+              "nonpositive_Q": 0,
+              "guarded_PSD": 0,
+              "saturation_fraction": 0.0,
+              "charge_identity_max": 2.0886070650760757e-15,
+              "search_edge_rows": 0,
+              "global_peak_outside_search_rows": 0,
+              "signal_Q_crop_change_absmax": 1.7763568394002505e-15
+            }
+          }
+        },
+        "discriminators": {},
+        "G_preclip_gradient_norm": 111.14336395263672,
+        "signal_prefix_absolute_max_V": 0.0,
+        "model_engineering": {
+          "query_outside_carrier": 0,
+          "beyond_extension": 0,
+          "canonical_charge_identity_absmax": 1.7763568394002505e-15,
+          "canonical_local_charge_absmax": 0.0
+        },
+        "projection_context": {
+          "kind": "training",
+          "seed": 2026101387,
+          "update": 1,
+          "fingerprint": "76d5464e3ef31887d11f0cd2499eb2f2815ef1046e90b2a037980592a79b929b"
+        },
+        "same_version_replay_verified": true,
+        "coverage": {
+          "source_unique": 512,
+          "source_total": 1024,
+          "real_unique": 1024,
+          "real_total": 1024,
+          "source_epochs": 0,
+          "real_epochs": 1
+        },
+        "noise_updates": 0,
+        "population_updates": 0,
+        "update_seconds": 0.9364538489971892,
+        "gpu_allocated_bytes": 165719040,
+        "gpu_reserved_bytes": 2239758336,
+        "endpoint_gradients": {
+          "fast": {
+            "norms": {
+              "wave": 0.37849574033646477,
+              "QPSD": 0.6329816708677282,
+              "noise": 0.0,
+              "adv": 0.0
+            },
+            "cosine": {
+              "wave/QPSD": 0.4334540153874676,
+              "wave/noise": null,
+              "wave/adv": null,
+              "QPSD/noise": null,
+              "QPSD/adv": null,
+              "noise/adv": null
+            },
+            "zero_norm_angle": null
+          },
+          "slow": {
+            "norms": {
+              "wave": 0.37856365930195324,
+              "QPSD": 0.6338092554645093,
+              "noise": 0.0,
+              "adv": 0.0
+            },
+            "cosine": {
+              "wave/QPSD": 0.4330111419165264,
+              "wave/noise": null,
+              "wave/adv": null,
+              "QPSD/noise": null,
+              "QPSD/adv": null,
+              "noise/adv": null
+            },
+            "zero_norm_angle": null
+          },
+          "common_level": {
+            "norms": {
+              "wave": 0.37788329912502566,
+              "QPSD": 0.6334015570670654,
+              "noise": 0.0,
+              "adv": 0.0
+            },
+            "cosine": {
+              "wave/QPSD": 0.4339777955426997,
+              "wave/noise": null,
+              "wave/adv": null,
+              "QPSD/noise": null,
+              "QPSD/adv": null,
+              "noise/adv": null
+            },
+            "zero_norm_angle": null
+          }
+        },
+        "gradient_scope": "per-hypothesis weighted waveform endpoints; base regular excluded",
+        "G_branch_postclip_gradient_norms": {
+          "shape_encoder": 0.0,
+          "charge_head": 0.35104393923449856,
+          "response_filter": 0.03797589827763227,
+          "mean_time": 0.4354416690447065,
+          "unet": 0.0,
+          "mean_head": 4.968471785504368
+        }
+      }
+    },
+    {
+      "stage": "joint_stochastic",
+      "step_completed": true,
+      "seconds_synchronized": 0.4165066220011795,
+      "gpu_peak_allocated_bytes": 1767975424,
+      "gpu_peak_reserved_bytes": 2256535552,
+      "rss_tree_sampled_peak_bytes": 2846973952,
+      "rss_sampling_interval_seconds": 0.05,
+      "rss_samples": 11,
+      "engineering_G_updates": 2,
+      "engineering_D_updates": {
+        "fast": 1,
+        "slow": 1,
+        "common_level": 1
+      },
+      "engine_metrics": {
+        "utc": "2026-10-13T04:13:36.585766+00:00",
+        "arm": "full",
+        "stage": "joint_stochastic",
+        "G_updates": 2,
+        "D_updates": {
+          "fast": 1,
+          "slow": 1,
+          "common_level": 1
+        },
+        "weighted_total": 2.421982906946448,
+        "regular_once": 0.0032831388079158086,
+        "trend_once": 0.0,
+        "hypotheses": {
+          "fast": {
+            "components": {
+              "wave": 0.5373623957746965,
+              "QPSD": 0.8235168375679813,
+              "noise": 0.2470529337152525,
+              "adv": -0.04359298571944237
+            },
+            "wave_subcomponents": {
+              "swd": 0.38551725023949307,
+              "coordinate": 0.7083486029098894,
+              "short_lag": 0.6700664797099103
+            },
+            "conditional_diagnostics": {
+              "fake_global_rows": 1024,
+              "real_global_rows": 1024,
+              "conditional_bins": [
+                {
+                  "bin": 0,
+                  "fake_count": 189,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 1,
+                  "fake_count": 157,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 2,
+                  "fake_count": 126,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 3,
+                  "fake_count": 156,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 4,
+                  "fake_count": 139,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 5,
+                  "fake_count": 119,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 6,
+                  "fake_count": 86,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 7,
+                  "fake_count": 52,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                }
+              ],
+              "minimum_conditional_support": 16,
+              "conditional_bins_used": 8,
+              "conditional_bins_total": 8,
+              "conditional_coverage_complete": true,
+              "conditional_rebatch_needed": false,
+              "fake_nonpositive_q_rows": 0,
+              "real_nonpositive_q_rows": 0,
+              "fake_guarded_psd_rows": 0,
+              "real_guarded_psd_rows": 0,
+              "global_term_includes_all_rows": true,
+              "conditional_term": "PSD_empirical_W1",
+              "no_supported_bin_behavior": "global_term_only_with_incomplete_coverage_diagnostic",
+              "projection_context": {
+                "kind": "training",
+                "seed": 2026101387,
+                "update": 2,
+                "fingerprint": "87ddff21309313fb5532566cd2c696ba6c5e65af8e94405b7a868178b163cbf3"
+              },
+              "loss_version": 2,
+              "standardization_split": "TRAIN"
+            },
+            "engineering": {
+              "nonpositive_Q": 0,
+              "guarded_PSD": 0,
+              "saturation_fraction": 0.0,
+              "charge_identity_max": 2.789435349370706e-15,
+              "search_edge_rows": 0,
+              "global_peak_outside_search_rows": 0,
+              "signal_Q_crop_change_absmax": 0.0034842436628892415
+            }
+          },
+          "slow": {
+            "components": {
+              "wave": 0.52913440924631,
+              "QPSD": 0.8240886966859557,
+              "noise": 0.2470529337152525,
+              "adv": -0.04396570473909378
+            },
+            "wave_subcomponents": {
+              "swd": 0.3709265813707343,
+              "coordinate": 0.7067004242521759,
+              "short_lag": 0.6679840499915953
+            },
+            "conditional_diagnostics": {
+              "fake_global_rows": 1024,
+              "real_global_rows": 1024,
+              "conditional_bins": [
+                {
+                  "bin": 0,
+                  "fake_count": 188,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 1,
+                  "fake_count": 161,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 2,
+                  "fake_count": 121,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 3,
+                  "fake_count": 157,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 4,
+                  "fake_count": 136,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 5,
+                  "fake_count": 124,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 6,
+                  "fake_count": 86,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 7,
+                  "fake_count": 51,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                }
+              ],
+              "minimum_conditional_support": 16,
+              "conditional_bins_used": 8,
+              "conditional_bins_total": 8,
+              "conditional_coverage_complete": true,
+              "conditional_rebatch_needed": false,
+              "fake_nonpositive_q_rows": 0,
+              "real_nonpositive_q_rows": 0,
+              "fake_guarded_psd_rows": 0,
+              "real_guarded_psd_rows": 0,
+              "global_term_includes_all_rows": true,
+              "conditional_term": "PSD_empirical_W1",
+              "no_supported_bin_behavior": "global_term_only_with_incomplete_coverage_diagnostic",
+              "projection_context": {
+                "kind": "training",
+                "seed": 2026101387,
+                "update": 2,
+                "fingerprint": "87ddff21309313fb5532566cd2c696ba6c5e65af8e94405b7a868178b163cbf3"
+              },
+              "loss_version": 2,
+              "standardization_split": "TRAIN"
+            },
+            "engineering": {
+              "nonpositive_Q": 0,
+              "guarded_PSD": 0,
+              "saturation_fraction": 0.0,
+              "charge_identity_max": 2.6645352591003757e-15,
+              "search_edge_rows": 0,
+              "global_peak_outside_search_rows": 0,
+              "signal_Q_crop_change_absmax": 0.0034842436628892415
+            }
+          },
+          "common_level": {
+            "components": {
+              "wave": 0.5282037127473134,
+              "QPSD": 0.8239649683414535,
+              "noise": 0.2470529337152525,
+              "adv": -0.04394228383898735
+            },
+            "wave_subcomponents": {
+              "swd": 0.36915315925472403,
+              "coordinate": 0.7065751746506226,
+              "short_lag": 0.6679333578291826
+            },
+            "conditional_diagnostics": {
+              "fake_global_rows": 1024,
+              "real_global_rows": 1024,
+              "conditional_bins": [
+                {
+                  "bin": 0,
+                  "fake_count": 189,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 1,
+                  "fake_count": 158,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 2,
+                  "fake_count": 120,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 3,
+                  "fake_count": 160,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 4,
+                  "fake_count": 140,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 5,
+                  "fake_count": 121,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 6,
+                  "fake_count": 84,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                },
+                {
+                  "bin": 7,
+                  "fake_count": 52,
+                  "real_count": 128,
+                  "supported": true,
+                  "status": "used"
+                }
+              ],
+              "minimum_conditional_support": 16,
+              "conditional_bins_used": 8,
+              "conditional_bins_total": 8,
+              "conditional_coverage_complete": true,
+              "conditional_rebatch_needed": false,
+              "fake_nonpositive_q_rows": 0,
+              "real_nonpositive_q_rows": 0,
+              "fake_guarded_psd_rows": 0,
+              "real_guarded_psd_rows": 0,
+              "global_term_includes_all_rows": true,
+              "conditional_term": "PSD_empirical_W1",
+              "no_supported_bin_behavior": "global_term_only_with_incomplete_coverage_diagnostic",
+              "projection_context": {
+                "kind": "training",
+                "seed": 2026101387,
+                "update": 2,
+                "fingerprint": "87ddff21309313fb5532566cd2c696ba6c5e65af8e94405b7a868178b163cbf3"
+              },
+              "loss_version": 2,
+              "standardization_split": "TRAIN"
+            },
+            "engineering": {
+              "nonpositive_Q": 0,
+              "guarded_PSD": 0,
+              "saturation_fraction": 0.0,
+              "charge_identity_max": 3.191891195797325e-15,
+              "search_edge_rows": 0,
+              "global_peak_outside_search_rows": 0,
+              "signal_Q_crop_change_absmax": 0.0034842436628892415
+            }
+          }
+        },
+        "discriminators": {
+          "fast": {
+            "loss": 2.0471153259277344,
+            "preclip_gradient_norm": 1.8864073753356934
+          },
+          "slow": {
+            "loss": 2.0476555824279785,
+            "preclip_gradient_norm": 1.8947657346725464
+          },
+          "common_level": {
+            "loss": 2.0475292205810547,
+            "preclip_gradient_norm": 1.890576720237732
+          }
+        },
+        "G_preclip_gradient_norm": 108.08406829833984,
+        "signal_prefix_absolute_max_V": 0.0,
+        "model_engineering": {
+          "query_outside_carrier": 5280,
+          "beyond_extension": 1829,
+          "canonical_charge_identity_absmax": 1.7763568394002505e-15,
+          "canonical_local_charge_absmax": 1.1275702593849246e-17
+        },
+        "projection_context": {
+          "kind": "training",
+          "seed": 2026101387,
+          "update": 2,
+          "fingerprint": "87ddff21309313fb5532566cd2c696ba6c5e65af8e94405b7a868178b163cbf3"
+        },
+        "same_version_replay_verified": true,
+        "coverage": {
+          "source_unique": 1024,
+          "source_total": 1024,
+          "real_unique": 1024,
+          "real_total": 1024,
+          "source_epochs": 1,
+          "real_epochs": 2
+        },
+        "noise_updates": 0,
+        "population_updates": 0,
+        "update_seconds": 0.41616773800342344,
+        "gpu_allocated_bytes": 183568896,
+        "gpu_reserved_bytes": 2256535552,
+        "endpoint_gradients": {
+          "fast": {
+            "norms": {
+              "wave": 0.6196825463947867,
+              "QPSD": 0.6267257879357664,
+              "noise": 0.0,
+              "adv": 0.0038080849198400503
+            },
+            "cosine": {
+              "wave/QPSD": 0.26118226105398146,
+              "wave/noise": null,
+              "wave/adv": -0.05341560137458243,
+              "QPSD/noise": null,
+              "QPSD/adv": -0.18724028832902048,
+              "noise/adv": null
+            },
+            "zero_norm_angle": null
+          },
+          "slow": {
+            "norms": {
+              "wave": 0.6148187095632361,
+              "QPSD": 0.6274887160985618,
+              "noise": 0.0,
+              "adv": 0.0038078693360146364
+            },
+            "cosine": {
+              "wave/QPSD": 0.2633050000823012,
+              "wave/noise": null,
+              "wave/adv": -0.05767678021611529,
+              "QPSD/noise": null,
+              "QPSD/adv": -0.18403115077329585,
+              "noise/adv": null
+            },
+            "zero_norm_angle": null
+          },
+          "common_level": {
+            "norms": {
+              "wave": 0.6146683114164724,
+              "QPSD": 0.6272097925407365,
+              "noise": 0.0,
+              "adv": 0.0038067232682545455
+            },
+            "cosine": {
+              "wave/QPSD": 0.26517528718751027,
+              "wave/noise": null,
+              "wave/adv": -0.06113890916752893,
+              "QPSD/noise": null,
+              "QPSD/adv": -0.1866037496073997,
+              "noise/adv": null
+            },
+            "zero_norm_angle": null
+          }
+        },
+        "gradient_scope": "per-hypothesis weighted waveform endpoints; base regular excluded",
+        "G_branch_postclip_gradient_norms": {
+          "shape_encoder": 0.0011073268137954295,
+          "charge_head": 0.30669547247309226,
+          "response_filter": 0.037790306781704815,
+          "mean_time": 0.43235393322238225,
+          "unet": 0.12231746110684456,
+          "mean_head": 4.969668493097293,
+          "physical_head": 0.05516880565765384,
+          "basis_head": 0.02278740288460352,
+          "envelope_head": 0.038051474990312556,
+          "local_filter": 6.73187744274009e-05
+        }
+      }
+    }
+  ],
+  "device": "cuda:0",
+  "device_name": "NVIDIA GeForce RTX 5070",
+  "torch_version": "2.12.0+cu130",
+  "cuda_version": "13.0",
+  "formal_batch": {
+    "microbatches": 2,
+    "source_parents_per_microbatch": 256,
+    "responses_per_parent": 2,
+    "real_rows_per_microbatch": 512,
+    "distribution_rows_per_hypothesis": 1024
+  },
+  "fixture_rows": 1024,
+  "fixture_sha256": "7775b8fdc802003df635a32c3c365a8265a422b9f53c6dab733d7e9713de6d36",
+  "config_path": "/home/rylan/projects/ej276d-n01/window008_20261013/window008_config.json",
+  "config_sha256": "f5500c65f2d17a2fe6964bfc5908dedb68c27b9391cb30bf30c0ba161509d145",
+  "noise005_path": "/home/rylan/projects/ej276d-n01/window008_20261013/provenance/integration006_reference/noise005.pt",
+  "noise005_sha256": "1e45d3369b85d2f5f635ad44dbeb5a730f6d86864cc3dc9163384fccd48bd417",
+  "noise005_state_sha256": "1af54ac1468cd009e8c97ca08f015a0624d32d6c89fe511bfdbba17b8672595a",
+  "common_initial_state_sha256": "be011e763c88f5de817d07da1794aadc2880030a14688349a9b6723e0a86ee8e",
+  "gpu_memory_limit_bytes": 10737418240,
+  "physical_gpu_memory_bytes": 12344295424,
+  "cpu_threads": 12,
+  "deterministic_algorithms": true,
+  "setup_elapsed_seconds": 1.0863409570010845,
+  "method_settings_changed": false,
+  "real_or_source_data_decoded": false,
+  "engineering_D_updates": {
+    "fast": 1,
+    "slow": 1,
+    "common_level": 1
+  },
+  "noise_updates": 0,
+  "population_updates": 0,
+  "hyperparameters_selected": false,
+  "low_rate_stage_tested": false,
+  "completed_UTC": "2026-10-13T04:13:36.589042+00:00",
+  "elapsed_seconds": 2.446869733001222
+}

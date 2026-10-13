@@ -1,0 +1,70 @@
+{
+  "schema": "n01/window008-training-driver-review/v1",
+  "status": "passed_static_and_isolated_control_flow_after_fix",
+  "checked_files_sha256": {
+    "src/n01/train_window008.py": "13bfe66a321c85e688f7dc2812ed9915e020050bbf1c79c81c2c133d27415b0e",
+    "src/n01/response008.py": "cf8b14b377530a234b066c2fd958827172abb624e7a959ac9bb26a416ff3b2e7",
+    "window008_config.json": "f5500c65f2d17a2fe6964bfc5908dedb68c27b9391cb30bf30c0ba161509d145",
+    "docs/WINDOW008_PROTOCOL.md": "027e858eea0650df27444742cef66fee1074d68af8db440b63c051bd4608c3a2",
+    "scripts/launch_window008.sh": "5a789c727c3c51d62e532c819e48fbf9e435411a20fa354e0c19cba001092d37",
+    "scripts/supervise.py": "0223a8912196876f712072f064c9118a999f7e563244947cba7ad729d247a69b"
+  },
+  "checks": {
+    "AST_syntax": true,
+    "launcher_LF": true,
+    "staged_dataset_and_statistics_hash_match": true,
+    "bind_checks_config_and_all_manifest_files": true,
+    "bind_checks_raw_container_identities_and_prepared_statistics": true,
+    "prepared_TRAIN_roles_parent_overlap_checked": true,
+    "all_prepared_parent_group_identities_previously_verified": true,
+    "no_raw_DEV_waveform_decoding": true,
+    "model_receives_voltage_carrier_only": true,
+    "stage_ranges_3000_12000_4000": true,
+    "G_57000_D_144000_arithmetic": true,
+    "optimizer_counts_increment_after_optimizer_step": true,
+    "coverage_and_final_update_counts_checked": true,
+    "initial_stage_final_checkpoints_distinct_from_rolling_latest": true,
+    "independent_failure_context_save_after_checkpoint_failure": true,
+    "failure_totals_do_not_double_count_completed_current_arm": true,
+    "exceptions_reraised_for_nonzero_native_exit": true,
+    "success_explicitly_pending_evaluation": true,
+    "owned_job_tree_RSS8GiB_supervision": true,
+    "timeout_28800s_TERM_then_KILL": true,
+    "driver_GPU10GiB_and_output3GiB_guards": true
+  },
+  "isolated_control_flow_probes": [
+    "19000-phase exact counts and transition boundaries",
+    "failure checkpoint raises but CPU replay context is still attempted",
+    "failure counts avoid completed-current-arm double-counting",
+    "failure reraises original exception"
+  ],
+  "findings": [
+    {
+      "id": "D008-1",
+      "status": "fixed_by_root_and_retested",
+      "description": "Failure checkpoint and replay-context save were in one try; now independently attempted"
+    }
+  ],
+  "current_staged_dataset_sha256": "8d43418595f4fa992a9b83735c4bf50863a659584d58888f8f965ec1339a1993",
+  "current_statistics_sha256": "aadd729364d0b6afac699a9d1774ac8d29fd2bcd10a9fd9f551141ecc2fbc2a0",
+  "stage_G_updates_per_arm": {
+    "mean_response": 3000,
+    "joint_stochastic": 12000,
+    "low_learning_rate": 4000
+  },
+  "D_updates_per_hypothesis_per_arm": 16000,
+  "scientific_data_model_forwards": 0,
+  "scientific_optimizer_updates": 0,
+  "native_training_run_performed": false,
+  "DEV_waveforms_decoded": false,
+  "required_before_scientific_launch": [
+    "Freeze source manifest after final edits",
+    "Verify native CUDA engineering result against frozen artifacts"
+  ],
+  "source_manifest_present_at_review": false,
+  "limitations": [
+    "Static and isolated Python control flow review; no native CUDA execution",
+    "External forced SIGKILL cannot guarantee a last-moment checkpoint",
+    "No response-match conclusion"
+  ]
+}
