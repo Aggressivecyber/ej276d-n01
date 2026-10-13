@@ -1,0 +1,96 @@
+{
+  "schema": "n01/window008-resume01-report-draft-schema-qa/v1",
+  "UTC": "2026-10-13T19:52:22.766565+00:00",
+  "status": "passed_static_and_actual_saved_artifact_schema_checks",
+  "report_builder_sha256": "bec856822f38d23513eae44fe63cfe21350d5cf158ad24baa41ceb881f853396",
+  "checks": [
+    "python_compile",
+    "all_three_native_jobs_and_source_artifact_hashes",
+    "actual_main_replay_13NPZ_815members",
+    "actual_addon_selected_members_and_shapes",
+    "all_flag_and_definition_summary_rows",
+    "effective_three_arm_19000_journal_chain",
+    "bootstrap_CI_axes",
+    "actual_executive_findings"
+  ],
+  "main_replay": {
+    "NPZ_files": 13,
+    "NPZ_members": 815
+  },
+  "bootstrap": {
+    "TRAIN": {
+      "point_shape": [
+        3,
+        8
+      ],
+      "CI_shape": [
+        2,
+        3,
+        8
+      ]
+    },
+    "DEV": {
+      "point_shape": [
+        3,
+        8
+      ],
+      "CI_shape": [
+        2,
+        3,
+        8
+      ]
+    }
+  },
+  "flag_rows": 74,
+  "repeat_blocks": 9,
+  "shape_blocks": 9,
+  "Q_trend_blocks": 9,
+  "journals": {
+    "deterministic": 19000,
+    "full": 19000,
+    "simple": 19000
+  },
+  "actual_shape_strength": {
+    "rows": 32,
+    "defined_rows": 32,
+    "undefined_rows": 0,
+    "mean": 0.00482657720949478,
+    "minimum": 3.0161678248198997e-09,
+    "maximum": 0.02086575896150622,
+    "quantile_levels": [
+      0.05,
+      0.5,
+      0.95
+    ],
+    "quantiles": [
+      3.361822674066132e-09,
+      4.7992283102793806e-09,
+      0.020865758598530827
+    ]
+  },
+  "actual_Q_nodes": [
+    1.0042813714244403,
+    2.1272460693726316,
+    4.740234646713361
+  ],
+  "executive_findings": {
+    "wave_comparison": "TRAIN/DEV三种假设下，完整随机的波形距离均高于两个对照。",
+    "DEV_wave_values": "DEV波形：full 0.5316 / 0.5319 / 0.5314；确定性 0.2229 / 0.2233 / 0.2232。",
+    "QPSD_split_tradeoff": "QPSD相对确定性：TRAIN减少 10.2% / 5.2% / 15.4%；DEV增加 4.61% / 9.65% / 2.05%。",
+    "hypothesis_order": [
+      "fast",
+      "slow",
+      "common_level"
+    ],
+    "wave_comparisons_full_higher": 12,
+    "wave_comparisons_total": 12,
+    "values_source": "SUMMARY.distances and full_vs_reference, per split/hypothesis/reference; no selection or refitting"
+  },
+  "PDF_generation": 0,
+  "PNG_generation": 0,
+  "original_SCI_DEV_waveform_decodes": 0,
+  "new_model_forwards": 0,
+  "optimizer_updates": 0,
+  "PDF_visual_QA": "not_run",
+  "source_artifacts_hash_verified": true
+}
