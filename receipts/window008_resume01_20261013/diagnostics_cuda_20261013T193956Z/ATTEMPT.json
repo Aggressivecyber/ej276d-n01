@@ -1,0 +1,30 @@
+{
+  "command": [
+    "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+    "-B",
+    "scripts/supervise.py",
+    "--output",
+    "/home/rylan/projects/ej276d-n01/window008_resume01_20261013/receipts/window008_resume01_20261013/diagnostics_cuda_20261013T193956Z/supervisor",
+    "--rss-limit-gib",
+    "8",
+    "--",
+    "timeout",
+    "--signal=TERM",
+    "--kill-after=20s",
+    "600s",
+    "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+    "-B",
+    "scripts/check_window008_resume01_diagnostics.py",
+    "--out",
+    "/home/rylan/projects/ej276d-n01/window008_resume01_20261013/receipts/window008_resume01_20261013/diagnostics_cuda_20261013T193956Z/check",
+    "--device",
+    "cuda:0",
+    "--full-shape",
+    "--architecture-128"
+  ],
+  "source_manifest_sha256": "bc4a3a21dfdf9a8e4e6a6a8bdccf03924f5f4ae2ecf77be21cc33d424f84beaa",
+  "addon_source_manifest_sha256": "391814ba108db517d2002b34413989eb46ab1f2d748cd06703d740e615ed0eb6",
+  "scientific_signal_forward_rows": 0,
+  "actual_SOURCE_REAL_DEV_numeric_decodes": 0,
+  "automatic_retry_allowed": false
+}

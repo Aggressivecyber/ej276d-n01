@@ -1,0 +1,245 @@
+{
+  "schema": "n01/window008-resume01-diagnostics-artificial-check/v1",
+  "status": "passed",
+  "native_exit_code": 0,
+  "device": "cuda:0",
+  "full_shape": true,
+  "source_sha256": {
+    "src/n01/diagnose_window008_resume01.py": "063e501b9f701b8fbe4e380fa215818a11437c7090f5ef9764d8897be49777b5",
+    "scripts/check_window008_resume01_diagnostics.py": "9c3a4b89a92eb28d4c85d6df84c95c107e0b4b4fca912ca71c5a2a3827515ce5",
+    "window008_resume01_diagnostics_policy.json": "b46e4e4bef095afcc10dcb42cedf2156218fb8b0558cd04a1c4117a441fd783e"
+  },
+  "semantic_checks": {
+    "selection_exact": true,
+    "donor_tie_original_ID_exact": true,
+    "zero_intervention_strength_retained": true,
+    "canonical_Q_and_same_shape_nodes_exact": true,
+    "temporal_interpolation_known_answer": true,
+    "undefined_time_rows_retained": true,
+    "sample_covariance_pair_counts_verified": true,
+    "narrow_covariance_stable": true,
+    "original005_ACF20_and_bands_reproduced": true,
+    "positive_weights_and_missing_mass_retained": true,
+    "exact_bin_wave_mixture_verified": true,
+    "missing_source_freeze_rejected_before_scientific_forward": true,
+    "paired_generation_common_baseline_and_decomposition": true,
+    "explicit_latent_order_replay_exact": true,
+    "artificial_family_counters": {
+      "tiny_pairs": {
+        "signal_forward_rows": 24,
+        "observation_rows": 72,
+        "noise005_forward_rows": 4,
+        "signal_calls": 6,
+        "observation_calls": 18,
+        "noise005_calls": 1,
+        "per_arm": {
+          "deterministic": 8,
+          "full": 8,
+          "simple": 8
+        },
+        "per_arm_hypothesis": {
+          "deterministic_fast": 8,
+          "deterministic_slow": 8,
+          "deterministic_common_level": 8,
+          "full_fast": 8,
+          "full_slow": 8,
+          "full_common_level": 8,
+          "simple_fast": 8,
+          "simple_slow": 8,
+          "simple_common_level": 8
+        }
+      },
+      "tiny_order_replay": {
+        "signal_forward_rows": 12,
+        "observation_rows": 36,
+        "noise005_forward_rows": 4,
+        "signal_calls": 3,
+        "observation_calls": 9,
+        "noise005_calls": 1,
+        "per_arm": {
+          "deterministic": 4,
+          "full": 4,
+          "simple": 4
+        },
+        "per_arm_hypothesis": {
+          "deterministic_fast": 4,
+          "deterministic_slow": 4,
+          "deterministic_common_level": 4,
+          "full_fast": 4,
+          "full_slow": 4,
+          "full_common_level": 4,
+          "simple_fast": 4,
+          "simple_slow": 4,
+          "simple_common_level": 4
+        }
+      }
+    }
+  },
+  "architecture128": {
+    "rows": 384,
+    "seconds": 0.6113742039997305,
+    "arms": {
+      "deterministic": {
+        "rows": 128,
+        "model_class": "N01Response008",
+        "state_preserved": true,
+        "signal_sha256": "a3d8b769e6628e1eb6982a6d3f6213cbcb5b5096b328e84d075e6206819e3b0e"
+      },
+      "full": {
+        "rows": 128,
+        "model_class": "N01Response008Fix01",
+        "state_preserved": true,
+        "signal_sha256": "bb6138dc03ecc7dc44025f52af8e5fae12874740c922bcc9b218ab3ba3429a32"
+      },
+      "simple": {
+        "rows": 128,
+        "model_class": "N01Response008Fix01",
+        "state_preserved": true,
+        "signal_sha256": "2c8bc39b1ae863f99e16a5507f00dcc337a8c36ee39997e1ca9a498ba81d8e30"
+      }
+    }
+  },
+  "full_shape_readback": {
+    "all_NPZ_allow_pickle_false_readable": true,
+    "NPZ_members": 10476,
+    "full_conditional_wave_covariance_known_answer_absmax": 5.293955920339377e-23,
+    "conditional_Q_PSD_covariance_known_answer": true,
+    "undefined_main_raw_PSD_retained": 54,
+    "full_counters_exact": true,
+    "all_SUMMARY_artifact_hashes_rechecked": true
+  },
+  "actual_artificial_forward_counters": {
+    "repeat": {
+      "signal_forward_rows": 24576,
+      "observation_rows": 73728,
+      "noise005_forward_rows": 8192,
+      "signal_calls": 192,
+      "observation_calls": 576,
+      "noise005_calls": 64,
+      "per_arm": {
+        "deterministic": 8192,
+        "full": 8192,
+        "simple": 8192
+      },
+      "per_arm_hypothesis": {
+        "deterministic_fast": 8192,
+        "deterministic_slow": 8192,
+        "deterministic_common_level": 8192,
+        "full_fast": 8192,
+        "full_slow": 8192,
+        "full_common_level": 8192,
+        "simple_fast": 8192,
+        "simple_slow": 8192,
+        "simple_common_level": 8192
+      }
+    },
+    "shape": {
+      "signal_forward_rows": 1536,
+      "observation_rows": 4608,
+      "noise005_forward_rows": 256,
+      "signal_calls": 12,
+      "observation_calls": 36,
+      "noise005_calls": 2,
+      "per_arm": {
+        "deterministic": 512,
+        "full": 512,
+        "simple": 512
+      },
+      "per_arm_hypothesis": {
+        "deterministic_fast": 512,
+        "deterministic_slow": 512,
+        "deterministic_common_level": 512,
+        "full_fast": 512,
+        "full_slow": 512,
+        "full_common_level": 512,
+        "simple_fast": 512,
+        "simple_slow": 512,
+        "simple_common_level": 512
+      }
+    },
+    "Q_trend": {
+      "signal_forward_rows": 2304,
+      "observation_rows": 6912,
+      "noise005_forward_rows": 256,
+      "signal_calls": 18,
+      "observation_calls": 54,
+      "noise005_calls": 2,
+      "per_arm": {
+        "deterministic": 768,
+        "full": 768,
+        "simple": 768
+      },
+      "per_arm_hypothesis": {
+        "deterministic_fast": 768,
+        "deterministic_slow": 768,
+        "deterministic_common_level": 768,
+        "full_fast": 768,
+        "full_slow": 768,
+        "full_common_level": 768,
+        "simple_fast": 768,
+        "simple_slow": 768,
+        "simple_common_level": 768
+      }
+    },
+    "identity_order_replay": {
+      "signal_forward_rows": 1536,
+      "observation_rows": 4608,
+      "noise005_forward_rows": 512,
+      "signal_calls": 12,
+      "observation_calls": 36,
+      "noise005_calls": 4,
+      "per_arm": {
+        "deterministic": 512,
+        "full": 512,
+        "simple": 512
+      },
+      "per_arm_hypothesis": {
+        "deterministic_fast": 512,
+        "deterministic_slow": 512,
+        "deterministic_common_level": 512,
+        "full_fast": 512,
+        "full_slow": 512,
+        "full_common_level": 512,
+        "simple_fast": 512,
+        "simple_slow": 512,
+        "simple_common_level": 512
+      }
+    }
+  },
+  "scientific_signal_forward_rows": 0,
+  "actual_SOURCE_REAL_DEV_numeric_decodes": 0,
+  "trained_checkpoint_reads": 0,
+  "optimizer_updates": 0,
+  "C2ST_updates": 0,
+  "population_updates": 0,
+  "noise_updates": 0,
+  "scientific_status": "response_match_not_established",
+  "wall_seconds": 29.961865656001464,
+  "preflight": {
+    "available_disk_bytes": 112878399488,
+    "available_RAM_bytes": 62150103040,
+    "minimum_disk_bytes": 8589934592,
+    "minimum_RAM_bytes": 10737418240,
+    "scope": "full resource benchmark"
+  },
+  "sampled_process_tree_peak_RSS_bytes": 3041353728,
+  "RSS_sample_seconds": 0.05,
+  "GPU": {
+    "allocated_peak_bytes": 107591680,
+    "reserved_peak_bytes": 140509184,
+    "allocator_bound": {
+      "requested_GiB": 10.0,
+      "requested_bytes": 10737418240,
+      "CUDA_allocator_limit_applied": true,
+      "physical_GPU_bytes": 12344295424,
+      "allocator_fraction": 0.8698283596748762
+    },
+    "driver_context_not_in_torch_peak": true
+  },
+  "RSS_scope": "single-process OS high water; fixture creates no subprocesses; independent supervisor enforces process tree",
+  "output_bytes_before_receipt": 757644783,
+  "output_GiB": 0.7056116899475455,
+  "full_shape_model": "minimal artificial frozen contract",
+  "actual_architecture128_is_random_initialized": true,
+  "resource_scope": "CPU covariance/storage and artificial generation only. Trained endpoint runtime and driver GPU peak require separately supervised execution."
+}

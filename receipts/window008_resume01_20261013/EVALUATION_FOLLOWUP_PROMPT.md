@@ -1,0 +1,21 @@
+继续本聊天已授权的N01 Window008 256点评价、回放、诊断、中文报告和私有归档。长计算确认正确启动后更新同一个n01单次苏醒并休息，不持续监控，不建重复定时任务，状态无实质变化保持安静。最新用户已撤销关机停训要求，子智能体只用gpt-6.1-sol、reasoning_effort=max；无需再次核查模型设置。新增本地数据、临时、缓存、日志、图和权重都在E/D，C仅已有发现入口。只本地commit，不推送或Release。
+
+先读E:/GAN/research/N01/AGENTS.md、USER_PROPOSAL.md、PROGRAM.json、jobs.json、docs/WINDOW008_RESUME01_EVALUATION_OPERATIONS.md、docs/WINDOW008_RESUME01_EVALUATION.md、docs/WINDOW008_RESUME01_DIAGNOSTICS.md和docs/WINDOW008_RESUME01_EVAL_INDEPENDENT_REVIEW.md，及receipts/window008_resume01_20261013/COMPLETE_COLLECTION.json和最新STATE/启动/快照/工程回执。恢复训练已于2026-10-14 02:10:23本地完成native0，31文件回收到runs/window008_resume01_20261013/runs/science与runs/supervisor，SHA全部通过。不要重训。
+
+三臂各19000G，全6593SOURCE/21047REAL父事件覆盖；有效总57000G/144000D，历史实际57667G/146001D，N01全局157667G。原Window008数值失败native1和fix01用户停机native1保持真实；最新resume01才native0。full从完整periodic6000恢复，首6001审计与同版本回放通过，17共同科学指标精确一致。训练source commit f3490c64aecb2311597913832934bd1a65592bcc，177文件manifest SHA0a3208cd8f05e8dd85cd44fde60e742fd28705eadb3fdae6752dce2f81fd8fb1，resume config SHAb406f4b4a98e12c786248cb6857e84a956abbd0a1677def77a5b0381503ceb0b。
+
+评价适配器与四项诊断已实现并独立审核，不再从头设计。CPU适配器115/115native0；独立审核12/12native0，receipts/window008_resume01_20261013/eval_independent_final01/REVIEW.json SHAd9db132d689d1133834841d147c92310e7b4c0d3e6e60889eb963e476d004da7。评价源码commit198f58f，主清单WINDOW008_RESUME01_EVALUATION_SOURCE_MANIFEST.json SHA bc4a3a21dfdf9a8e4e6a6a8bdccf03924f5f4ae2ecf77be21cc33d424f84beaa，补充清单WINDOW008_RESUME01_DIAGNOSTICS_SOURCE_MANIFEST.json SHA391814ba108db517d2002b34413989eb46ab1f2d748cd06703d740e615ed0eb6。24文件已冻结并安装服务器，原177训练文件不变。旧src/n01/evaluate_window008.py核心SHA75f8988415a181a31a7c2b5890418b1f7685e0d8fb141cdea84f4174af783cc0不改。新版n01.evaluate_window008_resume01显式核三代native和混合端点；det原model008，full/simple为fix01。不得直接调用旧job完成门，也不能绕过门。
+
+SSH rylan@100.82.231.102；根/home/rylan/projects/ej276d-n01/window008_resume01_20261013；Python/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python。一次只有一个科学GPU作业，12CPU/10GiB GPU/8GiB进程树RSS/21600秒/3072MiB输出上限，保护其他任务。实际进程身份和native回执优先，旧PID仅比对，SSH失败不等于训练/评价失败。失败/不明保存现场，不能重复启动状态未知作业，不能根据DEV修改科学设置或扩宽容差强过。
+
+可在本地执行scripts/snapshot_window008_resume01_evaluation.py --kind primary或replay01保存一次快照；用scripts/record_window008_resume01_evaluation_state.py --phase primary或replay01 --snapshot <快照>登记。正常长运行按实际剩余工作/速度调整同一个n01单次苏醒并休息。primary独立native0并严格完成门通过后，服务器运行python -B scripts/start_window008_resume01_evaluation_remote.py --kind replay01。每个目录必须fresh独占，已有输出不能覆盖或自动重跑。
+
+主体SOURCE TRAIN6593父、DEV512父各4次；matchedTRAIN2048/DEV256、1000父bootstrap/min-bin32，三种噪声协方差假设分别报告。primary与同seed replay各85260信号前向/255780臂×假设观测行，replay新增独立抽样0。严格比较全部13份NPZ的所有实际成员、dtype/shape/数值/member SHA、chunk/父事件/随机流与其hash、距离和父bootstrap；旧66成员仅人工fixture，另一人工fixture807成员，实际成员数不可硬编码为66。只用旧声明volatile字段排除，不放宽数值容差。
+
+两个主作业native0后，用scripts/collect_window008_resume01_evaluation.py --kind primary和--kind replay01回收到E盘并逐文件SHA重开。再服务器运行python -B scripts/start_window008_resume01_diagnostics_remote.py --kind primary；它要求primary/replay已通过且GPU空闲。诊断一次快照用scripts/snapshot_window008_resume01_diagnostics.py --kind primary，回收用scripts/collect_window008_resume01_diagnostics.py --kind primary，状态phase diagnostics。
+
+补充诊断已预登记：128父各64重复与完整256×256条件样本协方差；同latent保持Q的32父×8次形状替换；相同形状的TRAIN Q25/Q50/Q75趋势；固定正权重人口敏感性复用主体数值不增加模型前向。主体28416信号/85248观测，身份和顺序重放另1536/4608，总29952/89856；population新前向0，所有G/D/noise/population/C2ST更新0。连续身份重放容差为预登记rtol1e-6、wave atol1e-8、scalar atol1e-6，flags和undefined mask完全一致。人口加权全局波形矩按SOURCE-bin恒权精确合成；缺联合分箱矩，因此output-Q条件加权波形未实现，须如实报告。科学真值重复与独立C2ST均未执行。
+
+报告新草稿scripts/build_window008_resume01_report.py由Sol6.1Max适配10页，原稿已保存receipts/window008_resume01_20261013/report_before。生成前核实际schema和全部哈希，并读PDF技能；恰好一次成功运行mark_artifact_operation_started.mjs --operation-kind create --expected-output-count 1 --output-format pdf，记录exit_code0/operation_kind/create/output_format/pdf/expected_output_count1的marker receipt供脚本--marker-receipt使用。PDF、HTML、EVIDENCE.json等都在E盘；渲染、查看全部页并重开文本后交付。不要把源码/人工检查当作实际评价完成。
+
+复用已回收三代历史及原始证据，不重复科学训练。完整终点、日志、数值、原生回执SHA回收到E盘私有完整归档；D空间许可只做小源备份，至少保留256MiB。训练完成、数值一致、物理响应匹配分别报告。有效观察/损失/交付256点，内部384点；TRAIN与已暴露DEV分开，单次采集，无独立物理标定或逐输入重复实测真值；scientific_status始终response_match_not_established。最终报告/归档/交付完成或用户取消后暂停同一个n01任务。
