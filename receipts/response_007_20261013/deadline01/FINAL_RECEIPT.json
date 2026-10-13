@@ -1,0 +1,192 @@
+{
+  "UTC": "2026-10-13T03:04:49.010539+00:00",
+  "status": "bounded_stage_comparison_complete_reviewed",
+  "scientific_status": "response_match_not_established",
+  "reviewer": "primary_agent_self_review_no_subagents_no_second_party_review",
+  "endpoint": {
+    "per_arm_G": 4000,
+    "mean_stage_G": 3000,
+    "joint_stage_G": 1000,
+    "cumulative_G": 8000,
+    "previously_completed_G": 1,
+    "new_execution_G": 7999,
+    "D": 6000,
+    "noise": 0,
+    "C2ST": 0,
+    "population_weight_updates": 0,
+    "original_endpoint_per_arm_G": 19000,
+    "original_endpoint_reached": false,
+    "remaining_original_G": 30000,
+    "remaining_original_D": 90000
+  },
+  "update_accounting": "Original 77000 + noise repairs 5000 + 5000 + 5000 + response007 cumulative 8000 = 100000 model updates; training D and evaluation C2ST counted separately.",
+  "comparison": {
+    "split": "TRAIN",
+    "equal_arm_endpoint_G": 4000,
+    "matched_rows_per_side": 2048,
+    "hypotheses": [
+      "fast",
+      "slow",
+      "common_level"
+    ],
+    "all_hypothesis_components": {
+      "deterministic": {
+        "fast": {
+          "wave": 0.13452883644720198,
+          "QPSD": 0.09857860723723796,
+          "noise": 0.13690156897996578
+        },
+        "slow": {
+          "wave": 0.13745026423012568,
+          "QPSD": 0.10483618692451324,
+          "noise": 0.13690156897996578
+        },
+        "common_level": {
+          "wave": 0.13830669691951225,
+          "QPSD": 0.10212471630662551,
+          "noise": 0.13690156897996578
+        }
+      },
+      "full": {
+        "fast": {
+          "wave": 0.11240584172061197,
+          "QPSD": 0.06659672826420353,
+          "noise": 0.13690156897996578
+        },
+        "slow": {
+          "wave": 0.11301572432576695,
+          "QPSD": 0.0753495078662658,
+          "noise": 0.13690156897996578
+        },
+        "common_level": {
+          "wave": 0.11125410063071971,
+          "QPSD": 0.0682947305019623,
+          "noise": 0.13690156897996578
+        }
+      }
+    },
+    "worst_hypothesis_components": {
+      "deterministic": {
+        "wave": 0.13830669691951225,
+        "QPSD": 0.10483618692451324,
+        "noise": 0.13690156897996578
+      },
+      "full": {
+        "wave": 0.11301572432576695,
+        "QPSD": 0.0753495078662658,
+        "noise": 0.13690156897996578
+      }
+    },
+    "relative_reduction_full_vs_deterministic": {
+      "wave": 0.18286151832881536,
+      "QPSD": 0.28126432220850583,
+      "noise": 0.0
+    },
+    "reduction_formula": "1 - max_h(distance_full[h]) / max_h(distance_deterministic[h])",
+    "reduction_comparator": "same 4000-G arm endpoints, identical fixed matched selections and projection context",
+    "reduction_not_relative_to": [
+      "REAL_REAL",
+      "integration006",
+      "physical equivalence"
+    ],
+    "worst_hypothesis_can_differ_between_arms": true,
+    "REAL_REAL_components": {
+      "wave": 0.056725936779714756,
+      "QPSD": 0.051200817266591134,
+      "noise": 0.04500664522535385
+    },
+    "full_worst_to_REAL_REAL_ratio": {
+      "wave": 1.992311290770635,
+      "QPSD": 1.4716465847398075,
+      "noise": 3.0418078995775546
+    },
+    "scientific_pass_threshold": null
+  },
+  "low_signal_Q_sensitivity": {
+    "full_PSD_SD_max_over_min": 1.1006007877636355,
+    "parent_bootstrap_95_interval": [
+      1.0892587306235153,
+      1.1128461451660998
+    ],
+    "bootstrap_draws": 1000,
+    "different_arm_bin_parent_populations": true,
+    "use": "within-arm noise-hypothesis sensitivity, not arm superiority"
+  },
+  "data_scope": {
+    "SOURCE_TRAIN_parents": 6593,
+    "generated_draws_per_parent": 4,
+    "REAL_TRAIN_rows": 21047,
+    "all_TRAIN_parents_covered": true,
+    "DEV_waveforms_read": false,
+    "independent_acquisition_available": false,
+    "validated_480_sample_quiet_rows": 0,
+    "quiet_evidence_scope": "traceable archive metadata and saved legal TRAIN origin audit only"
+  },
+  "native": {
+    "science_exit_code": 0,
+    "replay_exit_code": 0,
+    "science_ended_UTC": "2026-10-13T02:41:45.908406+00:00",
+    "science_peak_RSS_bytes": 3089580032,
+    "replay": {
+      "science_exit.json": {
+        "original": "runs/response_007_20261013/deadline01/runs/supervisor/exit_receipt.json",
+        "retained_copy": "receipts/response_007_20261013/deadline01/native/science_exit.json",
+        "sha256": "f4844ee5cd1adeee7a43a743bf8148e1a9dfbe125e079d2a051fe41b15cf520a"
+      },
+      "replay_exit.json": {
+        "original": "runs/response_007_20261013/deadline01/runs/verification_supervisor/exit_receipt.json",
+        "retained_copy": "receipts/response_007_20261013/deadline01/native/replay_exit.json",
+        "sha256": "d7c45483675b4a90fea46db72230c6d5bf49978bd0726929e919ce723cc53ac1"
+      },
+      "REPLAY_VERIFICATION.json": {
+        "original": "runs/response_007_20261013/deadline01/runs/verification_deadline01/REPLAY_VERIFICATION.json",
+        "retained_copy": "receipts/response_007_20261013/deadline01/native/REPLAY_VERIFICATION.json",
+        "sha256": "87e51570cd5370b94596b04da2c12a24561756febb4fc571dfb5b63b5f84cdbc"
+      }
+    },
+    "replay_bitwise_array_members": 213,
+    "replay_generation_chunks": 207,
+    "replay_bootstrap_draws": 1000,
+    "replay_matched_comparisons": 7,
+    "replay_new_training_updates": 0,
+    "replay_new_unique_draws": 0,
+    "replay_DEV_decodes": 0
+  },
+  "verification": {
+    "source_files_verified": 76,
+    "completed_payloads_verified": 22,
+    "shared_mean_stage_state_keys_bitwise_equal": 178,
+    "paired_mean_stage_metric_steps": 3000,
+    "full_random_branch_gradients_nonzero": true,
+    "conditional_values_recomputed": 1152,
+    "visual_QA": "receipts/response_007_20261013/deadline01/VISUAL_QA.json",
+    "final_PDF_sha256": "deef3b4f0b3076e8389e0397895f3f74c09f542d09ff988318574ecba02c1ef8"
+  },
+  "source_commit": "f27521a4f8c7721b46df540eeb3b034b1e35e44d",
+  "source_manifest_sha256": "d15e99bd4bd1ec31994d289a0240523500bd27f09b87b082a5e5c3aaaafba843",
+  "COMPLETE_sha256": "73d5557dc9302c27534ae5e5e93110274f87170292736768276485d44838843c",
+  "scientific_SUMMARY_sha256": "e4abb3169bcbd7fa35adbf892765bb085bb84df10ab397dafa4858f3a833b33f",
+  "report_HTML": "reports/response_007_20261013/deadline01/N01_RESPONSE007_STAGE_REPORT.html",
+  "report_PDF": "reports/response_007_20261013/deadline01/N01_RESPONSE007_STAGE_REPORT.pdf",
+  "next_action": "先核实后续Astra/Max/Fast运行设置；再登记长窗噪声约束与响应差异的最小可判别诊断。当前不追加训练，原007完整末点尚未执行。",
+  "active_scientific_jobs": 0,
+  "published": false,
+  "limits": [
+    "TRAIN-only finite-stage comparison; original fixed endpoint remains incomplete",
+    "Frozen baseline noise unchanged; output-Q conditional widths still differ from REAL",
+    "Long-range noise and independent-acquisition evidence remain unavailable",
+    "Native replay proves reproduction, not physical correctness"
+  ],
+  "implementation_sha256": "7ee052337e4a193ce3ddcc0ee6a7c7085f6b194f2a815a23cd15a95bb73af952",
+  "evidence_sha256": {
+    "receipts/response_007_20261013/deadline01/VISUAL_QA.json": "398a83f80ae904def4765cd38f6b3906750e05073240160b89188842292c6642",
+    "receipts/response_007_20261013/deadline01/POSTFLIGHT_RECEIPT.json": "502cd3ffd2d9d53f615ce010018f4116b26899923306b00c1860bede95b8e18e",
+    "receipts/response_007_20261013/deadline01/ARTIFACT_VERIFICATION.json": "f385810b287e0c56c00c5e5552431a0e1c85af5f129d554ddb0f3b1e37c941b8",
+    "receipts/response_007_20261013/deadline01/PAIRED_MEAN3000_AND_RANDOM_GRADIENTS.json": "1fc37815d9a364ed4ae228e9444e966e501460724d9edd0261dec3d339c64a1d",
+    "receipts/response_007_20261013/deadline01/quiet_evidence/QUIET_EVIDENCE_AUDIT.json": "f89dda83d390df5e6262e123741c43b0a057f1494415c80f289c449a4c977335",
+    "reports/response_007_20261013/deadline01/BUILD_RECEIPT.json": "b63ead4e51bb5a9c0ef574743c2ab8fa204fad7ae78cb39d7b416119ce0c6b13",
+    "docs/RESPONSE_007_PROTOCOL.md": "b69ad8a57e95dd81b2dff31e699d0e0d1b81c04c72701d794988645e94e42886",
+    "docs/RESPONSE_007_DEADLINE01.md": "1798d89368b8292e9e9ab9c7b419b88d97300945706e889b36a4ac81812f6e73",
+    "response007_deadline01_config.json": "816b433eff08a4838c1e481bcba345c585fc508112bd7bd8a0f5e61bc33074ee"
+  }
+}

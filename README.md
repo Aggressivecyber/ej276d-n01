@@ -1,8 +1,8 @@
 # N01｜物理分解式条件随机 1D U-Net
 
-当前推进007：两臂、三种固定长程噪声假设的共同响应训练，已登记、尚未启动。计划38000次G更新；006敏感性与响应匹配未建立的结论保留。见 [007协议](docs/RESPONSE_007_PROTOCOL.md)、PROGRAM.json 和 jobs.json。按用户要求全部由主代理实施及自检。
+**007有限阶段已完成并核验：两臂各4,000 G，累计8,000 G（本执行新增7,999）及6,000训练D；原每臂19,000 G末点尚未完成，响应匹配未建立，当前科学作业0。** [三页报告](reports/response_007_20261013/deadline01/N01_RESPONSE007_STAGE_REPORT.html) · [完成回执](receipts/response_007_20261013/deadline01/FINAL_RECEIPT.json) · [比较口径与下一步](reports/response_007_20261013/deadline01/README.md)。本轮由主代理实施与自检。
 
-**当前主线 006 已完成：接口检查通过，但低电荷 PSD 展宽对长程假设敏感；新增训练 0 次，当前科学作业 0。** [完整480点与PSD整合报告](reports/integration_006_20261012/N01_INTEGRATION006_REPORT.html) · [006 Release](https://github.com/Aggressivecyber/ej276d-n01/releases/tag/n01-integration006-20261012) · [冻结协议](docs/INTEGRATION_006_PROTOCOL.md) · [完成回执](receipts/integration_006_20261012/FINAL_RECEIPT.json)。
+**此前 006 已完成：接口检查通过，但低电荷 PSD 展宽对长程假设敏感；新增训练 0 次，当前科学作业 0。** [完整480点与PSD整合报告](reports/integration_006_20261012/N01_INTEGRATION006_REPORT.html) · [006 Release](https://github.com/Aggressivecyber/ej276d-n01/releases/tag/n01-integration006-20261012) · [冻结协议](docs/INTEGRATION_006_PROTOCOL.md) · [完成回执](receipts/integration_006_20261012/FINAL_RECEIPT.json)。
 
 
 **005 已完成：噪声更新 5000 次，响应更新 0；TRAIN ACF 匹配 True，改善 True；候选开发筛查 True，legacy 总门 False。控制测量状态仍不确定。当前科学作业为 0。** 见 [005 报告](reports/noise_acf005_20261012/README.md)、[分离评价回执](reports/noise_acf005_20261012/EVALUATION_RECEIPT.json)、[100/480 支持范围](reports/noise_acf005_20261012/SUPPORT_SCOPE.md) · 权重、日志和复核资料：[005 Release](https://github.com/Aggressivecyber/ej276d-n01/releases/tag/n01-noise-acf005-20261012)。 和 [005 协议](docs/NOISE_ACF005_PROTOCOL.md)。

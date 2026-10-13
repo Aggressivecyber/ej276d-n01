@@ -6,6 +6,7 @@ import datetime as dt
 import hashlib
 import html
 import json
+import shutil
 ROOT=Path(__file__).resolve().parents[1]
 os.environ['MPLCONFIGDIR']='E:/GAN/runtime_tmp/matplotlib_response007'
 os.environ['TMP']=os.environ['TEMP']='E:/GAN/runtime_tmp'
@@ -43,15 +44,22 @@ def main():
     complete=read(SCI/'COMPLETE.json');summary=read(SCI/'TRAIN_diagnostics/SUMMARY.json')
     verification=read(ROOT/'receipts/response_007_20261013/deadline01/ARTIFACT_VERIFICATION.json')
     assert complete['G_updates']==8000 and verification['status']=='passed'
-    assert not OUT.exists(),'Preserve first report build'
-    (OUT/'figures').mkdir(parents=True)
+    if OUT.exists():
+        backup=ROOT/'runs/response_007_20261013/deadline01/intermediate_backups/report_before_legend_fix'
+        assert not backup.exists(),'Preserve the single reviewed layout revision'
+        for name,digest in read(OUT/'BUILD_RECEIPT.json')['files'].items():assert sha(OUT/name)==digest
+        shutil.copytree(OUT,backup)
+    (OUT/'figures').mkdir(parents=True,exist_ok=True)
     obs=load(SCI/'TRAIN_diagnostics/TRAIN_observables.npz')
     curves=load(SCI/'TRAIN_diagnostics/TRAIN_curves.npz')
     distance=summary['matched_distances'];sens=summary['sensitivity']
+    worst=summary['worst_hypothesis_distances']
+    relative={k:1-worst['full'][k]/worst['deterministic'][k] for k in ['wave','QPSD','noise']}
+    versus_control={k:worst['full'][k]/distance['REAL_REAL']['components'][k] for k in ['wave','QPSD','noise']}
     journals={a:[json.loads(x) for x in (SCI/'train'/a/'training.jsonl').read_text(encoding='utf8').splitlines()] for a in ARMS}
     pdfpath=OUT/'N01_RESPONSE007_STAGE_REPORT.pdf'
     with PdfPages(pdfpath) as pdf:
-        fig=plt.figure(figsize=(12.4,8.8));grid=fig.add_gridspec(2,3,left=.07,right=.97,bottom=.14,top=.88,wspace=.36,hspace=.52)
+        fig=plt.figure(figsize=(12.4,8.8));grid=fig.add_gridspec(2,3,left=.07,right=.97,bottom=.14,top=.84,wspace=.36,hspace=.52)
         fig.suptitle('N01-007：每臂4,000步的TRAIN阶段比较',fontsize=17,y=.966)
         fig.text(.5,.926,'两臂各3,000步平均响应 + 1,000步联合随机；原19,000步/臂末点未完成',ha='center',fontsize=11)
         for j,key in enumerate(['wave','QPSD','noise']):
@@ -63,17 +71,22 @@ def main():
             ax.axhline(rr,color=COLOR['REAL'],ls='--',lw=1.5,label='REAL-REAL')
             ax.set_xticks(positions,[LABEL[a] for a in ARMS]);ax.set_ylabel('固定投影分布距离（越低越接近）')
             ax.set_title({'wave':'480点波形','QPSD':'电荷与PSD','noise':'100点基线'}[key])
-            if j==0:ax.legend(ncol=2,loc='upper right')
+        handles,labels=fig.axes[0].get_legend_handles_labels()
+        fig.legend(handles,labels,loc='upper center',bbox_to_anchor=(.5,.905),ncol=4,frameon=False)
         for i,a in enumerate(ARMS):
             ax=fig.add_subplot(grid[1,i]);point=np.asarray(sens['point'][i][2:],float);ci=np.asarray(sens['percentile_95_interval'][i][2:],float)
             yerr=np.array([point-ci[:,0],ci[:,1]-point]);ax.errorbar(np.arange(1,9),point,yerr=np.maximum(yerr,0),fmt='o-',color=('#057b8b' if i==0 else '#ba6231'),capsize=3)
             ax.axhline(1,color='#777',lw=1,ls=':');ax.set_xticks(np.arange(1,9));ax.set_xlabel('各臂自身固定信号Q箱')
             ax.set_ylabel('三假设PSD SD最大/最小');ax.set_title(LABEL[a]+'：假设敏感性')
         ax=fig.add_subplot(grid[1,2]);ax.axis('off')
-        lines=['实际预算', '累计G 8,000；本执行新增7,999','训练D 6,000；噪声/C2ST 0','',
-            '描述性诊断', '6,593个SOURCE父 × 4次生成','21,047条REAL原人口','距离：两侧各2,048条','95%区间：1,000次父级重采样','',
-            'response_match_not_established']
-        ax.text(0,1,'\n'.join(lines),va='top',fontsize=10.5,linespacing=1.45)
+        lines=['随机臂相对确定性臂（最差假设）',
+            f"wave：{worst['deterministic']['wave']:.4f} -> {worst['full']['wave']:.4f}（-{relative['wave']:.1%}）",
+            f"QPSD：{worst['deterministic']['QPSD']:.4f} -> {worst['full']['QPSD']:.4f}（-{relative['QPSD']:.1%}）",
+            'noise：0.1369，冻结基线无变化','',
+            '累计G 8,000；本执行新增7,999','训练D 6,000；噪声/C2ST 0',
+            '6,593个SOURCE父 × 4次生成','21,047条REAL；距离各2,048条',
+            '95%区间：1,000次父级重采样','', '完整末点 / 物理响应匹配未建立']
+        ax.text(0,1,'\n'.join(lines),va='top',fontsize=9.8,linespacing=1.35)
         foot(fig,'仅TRAIN；未使用DEV选点。两臂自身固定Q箱的父人口可不同，敏感性比值不是臂优劣排名。\nREAL-REAL是同一采集内对照，不代表独立采集验收；无新增科学通过阈值。')
         save(fig,FIGURES[0],pdf)
 
@@ -99,7 +112,10 @@ def main():
                 values=obs[f'{a}_{h}_PSD'];ax.hist(values,bins=np.linspace(0,1,81),weights=np.full(len(values),80/len(values)),histtype='step',lw=1.2,color=COLOR[h],label=LABEL[h])
             ax.set_xlabel('PSD');ax.set_ylabel('密度');ax.set_title(LABEL[a]+'：PSD总体分布')
         outside={a:{h:int(((obs[f'{a}_{h}_PSD']<0)|(obs[f'{a}_{h}_PSD']>1)).sum()) for h in HYP} for a in ARMS}
-        foot(fig,'均值/方差由全部480点生成累积；PSD直方图仅显示[0,1]，范围外计数完整记录于报告JSON。\n当前只有1个已确认采集；100点基线约定不证明480点长程噪声，脉冲尾部未重标为静默。')
+        outside['REAL']=int(((obs['REAL_PSD']<0)|(obs['REAL_PSD']>1)).sum())
+        foot(fig,f"PSD图只显示[0,1]；范围外计数：REAL={outside['REAL']}，确定性[快/慢/恒定]="+
+            '/'.join(str(outside['deterministic'][h]) for h in HYP)+'，随机='+
+            '/'.join(str(outside['full'][h]) for h in HYP)+'。\n所有事件均计入统计；100点基线不能验证480点长程噪声，仍只有1个已确认采集。')
         save(fig,FIGURES[1],pdf)
 
         fig,axes=plt.subplots(2,2,figsize=(12.4,8.8));fig.subplots_adjust(left=.08,right=.97,bottom=.14,top=.88,wspace=.3,hspace=.48)
@@ -135,6 +151,7 @@ def main():
     doc=f'''<!doctype html><html lang="zh-CN"><meta charset="utf-8"><title>N01 007 有限阶段报告</title>
 <style>body{{font-family:Microsoft YaHei,sans-serif;max-width:1160px;margin:36px auto;color:#203344;line-height:1.65;padding:0 24px}}h1{{color:#164f77}}.lead{{background:#eaf2f7;padding:18px 22px;border-left:5px solid #166185}}table{{border-collapse:collapse;width:100%}}td,th{{padding:10px;border-bottom:1px solid #c9d8e4;text-align:left}}img{{width:100%;height:auto}}figure{{margin:30px 0}}a{{color:#17639a}}</style>
 <h1>N01-007：有限阶段比较已完成</h1><p class="lead">两臂各4,000步，累计8,000 G（本执行新增7,999）与6,000训练D；原每臂19,000步末点尚未完成。科学状态仍为 <b>response_match_not_established</b>。</p>
+<p><b>本轮实际收益：</b>完整随机臂在三种假设下的wave和QPSD距离均低于确定性臂；最差假设距离分别降低{relative['wave']:.1%}和{relative['QPSD']:.1%}。完整随机臂的最差wave/QPSD/noise距离仍约为同采集内REAL-REAL对照的{versus_control['wave']:.2f}/{versus_control['QPSD']:.2f}/{versus_control['noise']:.2f}倍。基线噪声固定，未在本轮改善。低Q固定信号箱的PSD宽度假设比为{sens['point'][1][2]:.4f}，父级95%区间[{sens['percentile_95_interval'][1][2][0]:.4f}, {sens['percentile_95_interval'][1][2][1]:.4f}]，不能称长程假设影响已消除。</p>
 <p>模型在fast、slow、common_level三种冻结长程噪声假设下训练，逐假设计算损失后等权平均。TRAIN诊断包含6,593个SOURCE父各4次生成和原21,047条REAL；等样本距离使用每侧2,048条及同采集内REAL-REAL对照。没有DEV评价、C2ST或新公开发布。</p>
 <p><a href="N01_RESPONSE007_STAGE_REPORT.pdf">打开三页PDF图表</a> · <a href="SUMMARY.json">结构化结果</a> · <a href="../../../receipts/response_007_20261013/deadline01/ARTIFACT_VERIFICATION.json">产物核验</a> · <a href="../../../receipts/response_007_20261013/deadline01/quiet_evidence/QUIET_EVIDENCE.md">长静默证据</a></p>
 <h2>等样本分布距离</h2><table><tr><th>响应</th><th>噪声假设</th><th>wave</th><th>QPSD</th><th>noise</th></tr>{body}</table>
@@ -147,10 +164,16 @@ def main():
         original_endpoint_reached=False,scientific_status='response_match_not_established',
         matched_distances=distance,worst_hypothesis_distances=summary['worst_hypothesis_distances'],sensitivity=sens,
         engineering=summary['engineering'],PSD_outside_display_0_to_1=outside,
+        interpretation=dict(full_vs_deterministic_worst_distance_relative_reduction=relative,
+            full_worst_distance_over_REAL_REAL_control=versus_control,
+            all_three_hypotheses_wave_and_QPSD_lower=all(distance['full'][h]['components'][k]<distance['deterministic'][h]['components'][k] for h in HYP for k in ['wave','QPSD']),
+            all_fixed_signal_bins_have_registered_support=all(all(sens['support'][a]['supported']) for a in ARMS),
+            scientific_equivalence_established=False,conditional_widths_not_uniformly_matched=True,
+            next_action='Preserve full as a candidate. Resume the remaining fixed endpoint only in a later execution window with unchanged protocol; obtain long-quiet and independent-acquisition evidence before physical response claims.'),
         scientific_summary_sha256=sha(SCI/'TRAIN_diagnostics/SUMMARY.json'),complete_sha256=sha(SCI/'COMPLETE.json'),
         verification_sha256=sha(ROOT/'receipts/response_007_20261013/deadline01/ARTIFACT_VERIFICATION.json'))
     (OUT/'SUMMARY.json').write_text(json.dumps(exported,indent=2,ensure_ascii=False)+'\n',encoding='utf8')
-    files={p.relative_to(OUT).as_posix():sha(p) for p in sorted(OUT.rglob('*')) if p.is_file()}
+    files={p.relative_to(OUT).as_posix():sha(p) for p in sorted(OUT.rglob('*')) if p.is_file() and p.name!='BUILD_RECEIPT.json'}
     (OUT/'BUILD_RECEIPT.json').write_text(json.dumps(dict(UTC=dt.datetime.now(dt.timezone.utc).isoformat(),files=files,
         report_pages=3,source_data_role='saved TRAIN outputs only',new_model_calls=0,new_training_updates=0,
         visual_QA='pending_rendered_inspection',implementation_sha256=sha(Path(__file__))),indent=2)+'\n',encoding='utf8')

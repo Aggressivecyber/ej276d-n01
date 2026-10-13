@@ -1,0 +1,67 @@
+{
+  "UTC": "2026-10-13T03:04:48.898431+00:00",
+  "status": "default_configuration_and_support_verified_current_turn_unverified",
+  "current_thread_id": "01a12bad-8839-7522-89a5-f028b107d7ff",
+  "configuration_file": "C:\\Users\\10629\\.codex\\config.toml",
+  "selected_configuration": {
+    "model": {
+      "value": "gpt-6-astra",
+      "line": 1
+    },
+    "model_reasoning_effort": {
+      "value": "max",
+      "line": 2
+    },
+    "service_tier": {
+      "value": "priority",
+      "line": 9
+    }
+  },
+  "model_cache_file": "C:\\Users\\10629\\.codex\\models_cache.json",
+  "model_cache_fetched_at": "2026-10-13T03:02:49.884708100Z",
+  "model_metadata": {
+    "slug": "gpt-6-astra",
+    "reasoning_efforts": [
+      "low",
+      "medium",
+      "high",
+      "xhigh",
+      "max",
+      "ultra"
+    ],
+    "service_tiers": [
+      {
+        "id": "priority",
+        "name": "Fast",
+        "description": "2x speed, increased usage"
+      }
+    ]
+  },
+  "actual_current_turn": {
+    "model": null,
+    "reasoning_effort": null,
+    "service_tier": null
+  },
+  "current_turn_verified": false,
+  "read_thread_exposes_model_reasoning_service_tier": false,
+  "supported_message_tool_model_and_thinking_overrides_exist": true,
+  "supported_message_tool_service_tier_argument": false,
+  "docs": [
+    {
+      "url": "https://learn.chatgpt.com/docs/config-file/config-reference",
+      "finding": "service_tier is the preferred tier for new turns; fast maps to priority; does not prove the active turn changed"
+    },
+    {
+      "url": "https://developers.openai.com/api/docs/models/gpt-6-astra",
+      "finding": "The model supports max reasoning"
+    },
+    {
+      "url": "https://developers.openai.com/api/docs/guides/fast-mode",
+      "finding": "API response service_tier identifies actual processing tier; no response-level tier receipt available here"
+    }
+  ],
+  "source_scope": "Only selected public configuration keys, model metadata and supported task metadata were inspected. No raw session storage or safety settings were inspected or changed.",
+  "settings_changed": false,
+  "new_scientific_calculation_started": false,
+  "decision": "Finish preservation only in this active turn. Later research awaits a new turn configured as requested; do not claim this active turn has switched."
+}

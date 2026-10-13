@@ -88,7 +88,8 @@ print(json.dumps(dict(UTC=dt.datetime.now(dt.timezone.utc).isoformat(),files=fil
             resume=files.get('science/RESUME_VERIFICATION.json'),observed_G_updates=g,
             first_snapshot_sha256=hashlib.sha256(path.read_bytes()).hexdigest(),first_snapshot=path.relative_to(ROOT).as_posix()))
     print(json.dumps(dict(UTC=snap['UTC'],status=state,arm=status.get('arm'),stage=status.get('stage'),
-        G_updates=g,D_updates=d,weighted_total=status.get('weighted_total'),update_seconds=status.get('update_seconds'),
+        G_updates=g,total_G_updates=g,arm_G_updates=status.get('G_updates') if status.get('arm') else None,
+        D_updates=d,weighted_total=status.get('weighted_total'),update_seconds=status.get('update_seconds'),
         coverage=status.get('coverage'),elapsed_seconds=status.get('elapsed_seconds'),GPU=snap['GPU'],
         resource=files.get('supervisor/resource_status.json'),native=native),ensure_ascii=False))
 

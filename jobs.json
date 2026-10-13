@@ -1,6 +1,6 @@
 {
   "experiment_id": "N01",
-  "updated_UTC": "2026-10-13T01:45:50.031725+00:00",
+  "updated_UTC": "2026-10-13T03:04:49.010539+00:00",
   "active_scientific_jobs": 0,
   "jobs": [
     {
@@ -779,11 +779,11 @@
     },
     {
       "job_id": "N01_RESPONSE007_DEADLINE01_20261013",
-      "status": "response007_deadline01_running",
+      "status": "bounded_stage_comparison_complete_reviewed",
       "registered_UTC": "2026-10-13T01:45:50.031725+00:00",
       "host": "100.82.231.102",
-      "pid": 161143,
-      "supervisor_pid": 161134,
+      "pid": null,
+      "supervisor_pid": null,
       "previous_G_updates": 1,
       "new_execution_G_updates_planned": 7999,
       "cumulative_G_updates_planned": 8000,
@@ -800,13 +800,57 @@
       "started_UTC": "2026-10-13T01:48:21.874417+00:00",
       "historical_training_pid": 161143,
       "historical_supervisor_pid": 161134,
-      "observed_cumulative_G_updates": 1775,
-      "observed_new_execution_G_updates": 1774,
-      "observed_D_updates": 0,
+      "observed_cumulative_G_updates": 8000,
+      "observed_new_execution_G_updates": 7999,
+      "observed_D_updates": 6000,
       "C2ST_updates": 0,
       "noise_updates": 0,
-      "last_verified_UTC": "2026-10-13T01:58:58.071795+00:00",
-      "live_snapshot": "runs/response_007_20261013/deadline01/live/20261013T015858Z.json"
+      "last_verified_UTC": "2026-10-13T02:54:58.202614+00:00",
+      "live_snapshot": "runs/response_007_20261013/deadline01/live/20261013T025458Z.json",
+      "ended_UTC": "2026-10-13T02:41:45.908406+00:00",
+      "native_exit_code": 0,
+      "original_endpoint_reached": false,
+      "completion_receipt": "receipts/response_007_20261013/deadline01/FINAL_RECEIPT.json",
+      "report": "reports/response_007_20261013/deadline01/N01_RESPONSE007_STAGE_REPORT.html",
+      "scientific_status": "response_match_not_established"
+    },
+    {
+      "job_id": "N01_RESPONSE007_DEADLINE01_REPLAY",
+      "status": "completed_engineering_replay",
+      "host": "100.82.231.102",
+      "pid": null,
+      "supervisor_pid": null,
+      "scientific_job": false,
+      "historical_supervisor_pid": 173681,
+      "started_UTC": "2026-10-13T02:43:06.364791+00:00",
+      "ended_UTC": "2026-10-13T02:43:20.374552+00:00",
+      "native_exit_code": 0,
+      "new_training_updates": 0,
+      "new_unique_random_draws": 0,
+      "DEV_decodes": 0,
+      "engineering_forward_counts": {
+        "noise005": {
+          "attempted_rows": 26372,
+          "completed_rows": 26372,
+          "calls": 207
+        },
+        "extension_all_hypotheses": {
+          "attempted_rows": 79116,
+          "completed_rows": 79116,
+          "calls": 621
+        },
+        "response/deterministic": {
+          "attempted_rows": 26372,
+          "completed_rows": 26372,
+          "calls": 207
+        },
+        "response/full": {
+          "attempted_rows": 26372,
+          "completed_rows": 26372,
+          "calls": 207
+        }
+      },
+      "receipt": "runs/response_007_20261013/deadline01/runs/verification_deadline01/REPLAY_VERIFICATION.json"
     }
   ]
 }
