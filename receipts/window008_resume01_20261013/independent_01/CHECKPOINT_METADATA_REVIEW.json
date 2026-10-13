@@ -1,0 +1,1668 @@
+{
+  "schema": "n01/window008-resume01-independent-metadata/v1",
+  "UTC": "2026-10-13T15:32:26.590530+00:00",
+  "status": "passed",
+  "checkpoint": {
+    "path": "runs/window008_fix01_20261013/runs/science/train/full/latest.pt",
+    "sha256": "921ec4c58387a5ad53fdf55ade10169930536106141e9070f5e4a8df60ab6c58",
+    "keys": [
+      "D_updates",
+      "G_updates",
+      "arm",
+      "automatic_resume_allowed",
+      "checkpoint_purpose",
+      "common_initial_state_sha256",
+      "config",
+      "d_optimizers",
+      "discriminators",
+      "engineering_fixture",
+      "failure_may_be_mid_step",
+      "g_optimizer",
+      "initial_D_sha256",
+      "initial_state_sha256",
+      "last_metrics",
+      "lineage",
+      "model",
+      "model_implementation",
+      "new_D_updates",
+      "new_G_updates",
+      "noise005_state_sha256",
+      "noise_updates",
+      "parameter_signature",
+      "population_learning",
+      "real_sampler",
+      "recovery",
+      "saved_UTC",
+      "schema",
+      "source_sampler",
+      "stage",
+      "statistics",
+      "statistics_sha256",
+      "streams"
+    ],
+    "bytes": 21404363
+  },
+  "checks": {
+    "schema": true,
+    "arm": true,
+    "config_exact": true,
+    "purpose_periodic": true,
+    "not_midstep": true,
+    "engineering_false": true,
+    "automatic_resume_disallowed": true,
+    "G_6000": true,
+    "D_each_3000": true,
+    "joint_stage": true,
+    "last_metrics_G": true,
+    "last_metrics_D": true,
+    "last_metrics_stage": true,
+    "statistics_hash": true,
+    "new_G": true,
+    "new_D": true,
+    "old_full_import": true,
+    "noise_zero": true,
+    "population_zero": true,
+    "model_implementation": true,
+    "pause_hash_matches": true,
+    "signature_matches_model": true,
+    "G_hyperparameters": true,
+    "D_hyperparameters": true,
+    "all_model_tensors_finite": true,
+    "all_D_tensors_finite": true,
+    "streams_exact_keys": true,
+    "streams_dtype_shape_roundtrip": true,
+    "history_after_success": true,
+    "effective_endpoint": true
+  },
+  "G_optimizer": {
+    "parameters": 180,
+    "step_histogram": {
+      "6000.0": 167,
+      "3000.0": 13
+    },
+    "param_group": {
+      "lr": 0.0002,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0.0001,
+      "amsgrad": false,
+      "maximize": false,
+      "foreach": null,
+      "capturable": false,
+      "differentiable": false,
+      "fused": null,
+      "decoupled_weight_decay": true
+    },
+    "checks": {
+      "keys": true,
+      "one_group": true,
+      "exact_positional_ids": true,
+      "every_parameter_has_slot": true,
+      "named_slots": true
+    },
+    "named_slots": [
+      {
+        "name": "shape_encoder.net.0.weight",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "shape_encoder.net.0.bias",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "shape_encoder.net.1.weight",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "shape_encoder.net.1.bias",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "shape_encoder.net.3.weight",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "shape_encoder.net.3.bias",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "shape_encoder.net.4.weight",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "shape_encoder.net.4.bias",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "charge_head.parameters_from_shape.weight",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "charge_head.parameters_from_shape.bias",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "response_filter.raw",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "mean_time.0.weight",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "mean_time.0.bias",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "mean_time.2.weight",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "mean_time.2.bias",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.condition.0.weight",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.condition.0.bias",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.condition.2.weight",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.condition.2.bias",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.encoder.0.first.weight",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.encoder.0.first.bias",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.encoder.0.norm1.weight",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.encoder.0.norm1.bias",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.encoder.0.film.weight",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.encoder.0.film.bias",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.encoder.0.second.weight",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.encoder.0.second.bias",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.encoder.0.norm2.weight",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.encoder.0.norm2.bias",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.encoder.0.skip.weight",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.encoder.0.skip.bias",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.encoder.1.first.weight",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.encoder.1.first.bias",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.encoder.1.norm1.weight",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.encoder.1.norm1.bias",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.encoder.1.film.weight",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.encoder.1.film.bias",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.encoder.1.second.weight",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.encoder.1.second.bias",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.encoder.1.norm2.weight",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.encoder.1.norm2.bias",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.encoder.1.skip.weight",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.encoder.1.skip.bias",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.encoder.2.first.weight",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.encoder.2.first.bias",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.encoder.2.norm1.weight",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.encoder.2.norm1.bias",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.encoder.2.film.weight",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.encoder.2.film.bias",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.encoder.2.second.weight",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.encoder.2.second.bias",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.encoder.2.norm2.weight",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.encoder.2.norm2.bias",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.encoder.2.skip.weight",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.encoder.2.skip.bias",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.encoder.3.first.weight",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.encoder.3.first.bias",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.encoder.3.norm1.weight",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.encoder.3.norm1.bias",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.encoder.3.film.weight",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.encoder.3.film.bias",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.encoder.3.second.weight",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.encoder.3.second.bias",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.encoder.3.norm2.weight",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.encoder.3.norm2.bias",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.encoder.3.skip.weight",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.encoder.3.skip.bias",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.encoder.4.first.weight",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.encoder.4.first.bias",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.encoder.4.norm1.weight",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.encoder.4.norm1.bias",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.encoder.4.film.weight",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.encoder.4.film.bias",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.encoder.4.second.weight",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.encoder.4.second.bias",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.encoder.4.norm2.weight",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.encoder.4.norm2.bias",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.encoder.4.skip.weight",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.encoder.4.skip.bias",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.bottleneck.0.first.weight",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.bottleneck.0.first.bias",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.bottleneck.0.norm1.weight",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.bottleneck.0.norm1.bias",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.bottleneck.0.film.weight",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.bottleneck.0.film.bias",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.bottleneck.0.second.weight",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.bottleneck.0.second.bias",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.bottleneck.0.norm2.weight",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.bottleneck.0.norm2.bias",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.bottleneck.1.first.weight",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.bottleneck.1.first.bias",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.bottleneck.1.norm1.weight",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.bottleneck.1.norm1.bias",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.bottleneck.1.film.weight",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.bottleneck.1.film.bias",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.bottleneck.1.second.weight",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.bottleneck.1.second.bias",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.bottleneck.1.norm2.weight",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.bottleneck.1.norm2.bias",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.bottleneck.2.first.weight",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.bottleneck.2.first.bias",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.bottleneck.2.norm1.weight",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.bottleneck.2.norm1.bias",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.bottleneck.2.film.weight",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.bottleneck.2.film.bias",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.bottleneck.2.second.weight",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.bottleneck.2.second.bias",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.bottleneck.2.norm2.weight",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.bottleneck.2.norm2.bias",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.up_convs.0.weight",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.up_convs.0.bias",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.up_convs.1.weight",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.up_convs.1.bias",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.up_convs.2.weight",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.up_convs.2.bias",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.up_convs.3.weight",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.up_convs.3.bias",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.decoder.0.first.weight",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.decoder.0.first.bias",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.decoder.0.norm1.weight",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.decoder.0.norm1.bias",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.decoder.0.film.weight",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.decoder.0.film.bias",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.decoder.0.second.weight",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.decoder.0.second.bias",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.decoder.0.norm2.weight",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.decoder.0.norm2.bias",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.decoder.0.skip.weight",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.decoder.0.skip.bias",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.decoder.1.first.weight",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.decoder.1.first.bias",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.decoder.1.norm1.weight",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.decoder.1.norm1.bias",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.decoder.1.film.weight",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.decoder.1.film.bias",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.decoder.1.second.weight",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.decoder.1.second.bias",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.decoder.1.norm2.weight",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.decoder.1.norm2.bias",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.decoder.1.skip.weight",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.decoder.1.skip.bias",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.decoder.2.first.weight",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.decoder.2.first.bias",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.decoder.2.norm1.weight",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.decoder.2.norm1.bias",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.decoder.2.film.weight",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.decoder.2.film.bias",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.decoder.2.second.weight",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.decoder.2.second.bias",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.decoder.2.norm2.weight",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.decoder.2.norm2.bias",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.decoder.2.skip.weight",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.decoder.2.skip.bias",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.decoder.3.first.weight",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.decoder.3.first.bias",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.decoder.3.norm1.weight",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.decoder.3.norm1.bias",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.decoder.3.film.weight",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.decoder.3.film.bias",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.decoder.3.second.weight",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.decoder.3.second.bias",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.decoder.3.norm2.weight",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.decoder.3.norm2.bias",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.decoder.3.skip.weight",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "unet.decoder.3.skip.bias",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "mean_head.weight",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "mean_head.bias",
+        "expected_step": 6000,
+        "actual_step": 6000.0,
+        "passed": true
+      },
+      {
+        "name": "physical_head.base.0.weight",
+        "expected_step": 3000,
+        "actual_step": 3000.0,
+        "passed": true
+      },
+      {
+        "name": "physical_head.base.0.bias",
+        "expected_step": 3000,
+        "actual_step": 3000.0,
+        "passed": true
+      },
+      {
+        "name": "physical_head.base.2.weight",
+        "expected_step": 3000,
+        "actual_step": 3000.0,
+        "passed": true
+      },
+      {
+        "name": "physical_head.base.2.bias",
+        "expected_step": 3000,
+        "actual_step": 3000.0,
+        "passed": true
+      },
+      {
+        "name": "physical_head.refinement.0.weight",
+        "expected_step": 3000,
+        "actual_step": 3000.0,
+        "passed": true
+      },
+      {
+        "name": "physical_head.refinement.0.bias",
+        "expected_step": 3000,
+        "actual_step": 3000.0,
+        "passed": true
+      },
+      {
+        "name": "physical_head.refinement.2.weight",
+        "expected_step": 3000,
+        "actual_step": 3000.0,
+        "passed": true
+      },
+      {
+        "name": "physical_head.refinement.2.bias",
+        "expected_step": 3000,
+        "actual_step": 3000.0,
+        "passed": true
+      },
+      {
+        "name": "basis_head.weight",
+        "expected_step": 3000,
+        "actual_step": 3000.0,
+        "passed": true
+      },
+      {
+        "name": "basis_head.bias",
+        "expected_step": 3000,
+        "actual_step": 3000.0,
+        "passed": true
+      },
+      {
+        "name": "envelope_head.weight",
+        "expected_step": 3000,
+        "actual_step": 3000.0,
+        "passed": true
+      },
+      {
+        "name": "envelope_head.bias",
+        "expected_step": 3000,
+        "actual_step": 3000.0,
+        "passed": true
+      },
+      {
+        "name": "local_filter.raw",
+        "expected_step": 3000,
+        "actual_step": 3000.0,
+        "passed": true
+      }
+    ],
+    "passed": true
+  },
+  "D_optimizers": {
+    "fast": {
+      "parameters": 10,
+      "step_histogram": {
+        "3000.0": 10
+      },
+      "param_group": {
+        "lr": 0.0001,
+        "betas": [
+          0.9,
+          0.999
+        ],
+        "eps": 1e-08,
+        "weight_decay": 0.0,
+        "amsgrad": false,
+        "maximize": false,
+        "foreach": null,
+        "capturable": false,
+        "differentiable": false,
+        "fused": null,
+        "decoupled_weight_decay": true
+      },
+      "checks": {
+        "keys": true,
+        "one_group": true,
+        "exact_positional_ids": true,
+        "every_parameter_has_slot": true,
+        "named_slots": true
+      },
+      "named_slots": [
+        {
+          "name": "body.0.bias",
+          "expected_step": 3000,
+          "actual_step": 3000.0,
+          "passed": true
+        },
+        {
+          "name": "body.0.weight_orig",
+          "expected_step": 3000,
+          "actual_step": 3000.0,
+          "passed": true
+        },
+        {
+          "name": "body.2.bias",
+          "expected_step": 3000,
+          "actual_step": 3000.0,
+          "passed": true
+        },
+        {
+          "name": "body.2.weight_orig",
+          "expected_step": 3000,
+          "actual_step": 3000.0,
+          "passed": true
+        },
+        {
+          "name": "body.4.bias",
+          "expected_step": 3000,
+          "actual_step": 3000.0,
+          "passed": true
+        },
+        {
+          "name": "body.4.weight_orig",
+          "expected_step": 3000,
+          "actual_step": 3000.0,
+          "passed": true
+        },
+        {
+          "name": "global_head.bias",
+          "expected_step": 3000,
+          "actual_step": 3000.0,
+          "passed": true
+        },
+        {
+          "name": "global_head.weight_orig",
+          "expected_step": 3000,
+          "actual_step": 3000.0,
+          "passed": true
+        },
+        {
+          "name": "local_head.bias",
+          "expected_step": 3000,
+          "actual_step": 3000.0,
+          "passed": true
+        },
+        {
+          "name": "local_head.weight_orig",
+          "expected_step": 3000,
+          "actual_step": 3000.0,
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    "slow": {
+      "parameters": 10,
+      "step_histogram": {
+        "3000.0": 10
+      },
+      "param_group": {
+        "lr": 0.0001,
+        "betas": [
+          0.9,
+          0.999
+        ],
+        "eps": 1e-08,
+        "weight_decay": 0.0,
+        "amsgrad": false,
+        "maximize": false,
+        "foreach": null,
+        "capturable": false,
+        "differentiable": false,
+        "fused": null,
+        "decoupled_weight_decay": true
+      },
+      "checks": {
+        "keys": true,
+        "one_group": true,
+        "exact_positional_ids": true,
+        "every_parameter_has_slot": true,
+        "named_slots": true
+      },
+      "named_slots": [
+        {
+          "name": "body.0.bias",
+          "expected_step": 3000,
+          "actual_step": 3000.0,
+          "passed": true
+        },
+        {
+          "name": "body.0.weight_orig",
+          "expected_step": 3000,
+          "actual_step": 3000.0,
+          "passed": true
+        },
+        {
+          "name": "body.2.bias",
+          "expected_step": 3000,
+          "actual_step": 3000.0,
+          "passed": true
+        },
+        {
+          "name": "body.2.weight_orig",
+          "expected_step": 3000,
+          "actual_step": 3000.0,
+          "passed": true
+        },
+        {
+          "name": "body.4.bias",
+          "expected_step": 3000,
+          "actual_step": 3000.0,
+          "passed": true
+        },
+        {
+          "name": "body.4.weight_orig",
+          "expected_step": 3000,
+          "actual_step": 3000.0,
+          "passed": true
+        },
+        {
+          "name": "global_head.bias",
+          "expected_step": 3000,
+          "actual_step": 3000.0,
+          "passed": true
+        },
+        {
+          "name": "global_head.weight_orig",
+          "expected_step": 3000,
+          "actual_step": 3000.0,
+          "passed": true
+        },
+        {
+          "name": "local_head.bias",
+          "expected_step": 3000,
+          "actual_step": 3000.0,
+          "passed": true
+        },
+        {
+          "name": "local_head.weight_orig",
+          "expected_step": 3000,
+          "actual_step": 3000.0,
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    "common_level": {
+      "parameters": 10,
+      "step_histogram": {
+        "3000.0": 10
+      },
+      "param_group": {
+        "lr": 0.0001,
+        "betas": [
+          0.9,
+          0.999
+        ],
+        "eps": 1e-08,
+        "weight_decay": 0.0,
+        "amsgrad": false,
+        "maximize": false,
+        "foreach": null,
+        "capturable": false,
+        "differentiable": false,
+        "fused": null,
+        "decoupled_weight_decay": true
+      },
+      "checks": {
+        "keys": true,
+        "one_group": true,
+        "exact_positional_ids": true,
+        "every_parameter_has_slot": true,
+        "named_slots": true
+      },
+      "named_slots": [
+        {
+          "name": "body.0.bias",
+          "expected_step": 3000,
+          "actual_step": 3000.0,
+          "passed": true
+        },
+        {
+          "name": "body.0.weight_orig",
+          "expected_step": 3000,
+          "actual_step": 3000.0,
+          "passed": true
+        },
+        {
+          "name": "body.2.bias",
+          "expected_step": 3000,
+          "actual_step": 3000.0,
+          "passed": true
+        },
+        {
+          "name": "body.2.weight_orig",
+          "expected_step": 3000,
+          "actual_step": 3000.0,
+          "passed": true
+        },
+        {
+          "name": "body.4.bias",
+          "expected_step": 3000,
+          "actual_step": 3000.0,
+          "passed": true
+        },
+        {
+          "name": "body.4.weight_orig",
+          "expected_step": 3000,
+          "actual_step": 3000.0,
+          "passed": true
+        },
+        {
+          "name": "global_head.bias",
+          "expected_step": 3000,
+          "actual_step": 3000.0,
+          "passed": true
+        },
+        {
+          "name": "global_head.weight_orig",
+          "expected_step": 3000,
+          "actual_step": 3000.0,
+          "passed": true
+        },
+        {
+          "name": "local_head.bias",
+          "expected_step": 3000,
+          "actual_step": 3000.0,
+          "passed": true
+        },
+        {
+          "name": "local_head.weight_orig",
+          "expected_step": 3000,
+          "actual_step": 3000.0,
+          "passed": true
+        }
+      ],
+      "passed": true
+    }
+  },
+  "source_sampler": {
+    "expected_draws": 3072000,
+    "actual_draws": 3072000,
+    "expected_epochs": 465,
+    "expected_position": 6255,
+    "actual_epochs": 465,
+    "actual_position": 6255,
+    "unique": 6593,
+    "checks": {
+      "keys": true,
+      "population": true,
+      "order_shape": true,
+      "order_is_permutation": true,
+      "visits_dtype": true,
+      "visits_shape": true,
+      "draws": true,
+      "epoch_position": true,
+      "visits_exact": true,
+      "rng_PCG64": true,
+      "rng_roundtrip": true
+    },
+    "passed": true
+  },
+  "real_sampler": {
+    "expected_draws": 6144000,
+    "actual_draws": 6144000,
+    "expected_epochs": 291,
+    "expected_position": 19323,
+    "actual_epochs": 291,
+    "actual_position": 19323,
+    "unique": 21047,
+    "checks": {
+      "keys": true,
+      "population": true,
+      "order_shape": true,
+      "order_is_permutation": true,
+      "visits_dtype": true,
+      "visits_shape": true,
+      "draws": true,
+      "epoch_position": true,
+      "visits_exact": true,
+      "rng_PCG64": true,
+      "rng_roundtrip": true
+    },
+    "passed": true
+  },
+  "streams": {
+    "response": {
+      "shape": [
+        5056
+      ],
+      "dtype": "torch.uint8",
+      "device": "cpu",
+      "finite": true,
+      "sha256": "bcca2fcba02874769c3719f4331e4e615e5e8cd57ff9124e6997b8e0685be112",
+      "roundtrip": true
+    },
+    "noise005": {
+      "shape": [
+        5056
+      ],
+      "dtype": "torch.uint8",
+      "device": "cpu",
+      "finite": true,
+      "sha256": "8184c5ca415dc2c85a5ff5a8d7580c537ed76816ee4c00ec8f291194eedd1f9e",
+      "roundtrip": true
+    },
+    "extension": {
+      "shape": [
+        5056
+      ],
+      "dtype": "torch.uint8",
+      "device": "cpu",
+      "finite": true,
+      "sha256": "dd8d2811b85973dfbec57e77a8f2d21eb135332140c73be84f1d0a377e23c73a",
+      "roundtrip": true
+    }
+  },
+  "projection_context": {
+    "kind": "training",
+    "seed": 2026101387,
+    "update": 6000,
+    "fingerprint": "370a5b1657886ff0654d78ae0742cdfcb7ccf4c184989d565a82dd4c9ee75d17"
+  },
+  "recovery": {
+    "run_id": "window008_fix01_20261013",
+    "config_sha256": "1fc57e0daf06f3eadf2a457361a4342c953f265039cec48b9401616c703d6402",
+    "source_manifest_sha256": "2a28ecca10b3815ac7af0387eab19072ff92df0f90f196cac79a86f20a1f0180",
+    "base_configuration_sha256": "f5500c65f2d17a2fe6964bfc5908dedb68c27b9391cb30bf30c0ba161509d145",
+    "base_source_manifest_sha256": "97b020dc68e41fa1e893e66fdf1091b1bf9500b98281a5dd7e2545ee9ce00929"
+  },
+  "lineage": {
+    "origin": "stage3000_recovery",
+    "base_run_id": "window008_20261013",
+    "source_checkpoint_sha256": "48a20d256c3d87f2f087aa6a3cc3a2dd9279715c137ad1d5c073dcd22bfaab9c",
+    "inherited_G_updates": 3000,
+    "inherited_D_updates": {
+      "fast": 0,
+      "slow": 0,
+      "common_level": 0
+    }
+  },
+  "history": {
+    "original_G": 22269,
+    "original_D": 48807,
+    "fix01_G": 3398,
+    "fix01_D": 10194,
+    "resume01_new_G": 32000,
+    "resume01_new_D": 87000,
+    "after_success_G": 57667,
+    "after_success_D": 146001,
+    "effective_G": 57000,
+    "effective_D": 144000,
+    "discarded_original_G": 269,
+    "discarded_original_D": 807,
+    "discarded_fix01_G": 398,
+    "discarded_fix01_D": 1194
+  },
+  "original_native_exit": {
+    "exit_code": 1,
+    "reason": null,
+    "peak_rss_bytes": 2971467776,
+    "started_utc": "2026-10-13T04:25:21.086087+00:00",
+    "ended_utc": "2026-10-13T06:23:02.680315+00:00",
+    "supervisor_pid": 194237,
+    "child_pid": 194239
+  },
+  "fix01_native_exit": {
+    "exit_code": 1,
+    "reason": null,
+    "peak_rss_bytes": 2989182976,
+    "started_utc": "2026-10-13T10:30:17.321176+00:00",
+    "ended_utc": "2026-10-13T10:50:43.334276+00:00",
+    "supervisor_pid": 258729,
+    "child_pid": 258731
+  },
+  "stop_checkpoint": {
+    "sha256": "f4e6d6a30586159a7fcecc8ee34d3fa0a439f218151cb443d3007538c9beb6cd",
+    "G_updates": 6398,
+    "D_updates": {
+      "fast": 3398,
+      "slow": 3398,
+      "common_level": 3398
+    },
+    "purpose": "failure",
+    "failure_may_be_mid_step": true,
+    "source_sampler": {
+      "expected_draws": 3275776,
+      "actual_draws": 3276288,
+      "expected_epochs": 496,
+      "expected_position": 5648,
+      "actual_epochs": 496,
+      "actual_position": 6160,
+      "unique": 6593,
+      "checks": {
+        "keys": true,
+        "population": true,
+        "order_shape": true,
+        "order_is_permutation": true,
+        "visits_dtype": true,
+        "visits_shape": true,
+        "draws": false,
+        "epoch_position": false,
+        "visits_exact": false,
+        "rng_PCG64": true,
+        "rng_roundtrip": true
+      },
+      "passed": false
+    },
+    "real_sampler": {
+      "expected_draws": 6551552,
+      "actual_draws": 6552576,
+      "expected_epochs": 311,
+      "expected_position": 5935,
+      "actual_epochs": 311,
+      "actual_position": 6959,
+      "unique": 21047,
+      "checks": {
+        "keys": true,
+        "population": true,
+        "order_shape": true,
+        "order_is_permutation": true,
+        "visits_dtype": true,
+        "visits_shape": true,
+        "draws": false,
+        "epoch_position": false,
+        "visits_exact": false,
+        "rng_PCG64": true,
+        "rng_roundtrip": true
+      },
+      "passed": false
+    },
+    "admissible": false
+  },
+  "no_scientific_model_construction": true,
+  "scientific_model_forwards": 0,
+  "optimizer_updates": 0,
+  "DEV_numeric_decodes": 0,
+  "GPU_calls": 0,
+  "new_scientific_jobs": 0
+}

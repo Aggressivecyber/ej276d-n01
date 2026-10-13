@@ -1,0 +1,73 @@
+{
+  "schema": "n01/window008-fix01-failure/v1",
+  "UTC": "2026-10-13T10:50:42.692594+00:00",
+  "status": "fix01_failed_or_bounded_stop_preserved",
+  "run_id": "window008_fix01_20261013",
+  "error": "TimeoutError('Owned fix01 process received termination signal 15')",
+  "traceback": "Traceback (most recent call last):\n  File \"/home/rylan/projects/ej276d-n01/window008_fix01_20261013/src/n01/train_window008_fix01.py\", line 433, in main\n    metrics = engine.step(audit=audit, verify_replay=replay)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/rylan/projects/ej276d-n01/window008_fix01_20261013/src/n01/response008_fix01.py\", line 305, in step\n    result = super().step(audit=audit, verify_replay=verify_replay)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/rylan/projects/ej276d-n01/window008_fix01_20261013/src/n01/response008.py\", line 283, in step\n    value.backward();norm=torch.nn.utils.clip_grad_norm_(d.parameters(),cfg['loss']['clip_norm'],error_if_nonfinite=True)\n    ^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/dist-packages/torch/_tensor.py\", line 631, in backward\n    torch.autograd.backward(\n  File \"/usr/local/lib/python3.12/dist-packages/torch/autograd/__init__.py\", line 379, in backward\n    _engine_run_backward(\n  File \"/usr/local/lib/python3.12/dist-packages/torch/autograd/graph.py\", line 882, in _engine_run_backward\n    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/rylan/projects/ej276d-n01/window008_fix01_20261013/src/n01/train_window008_fix01.py\", line 366, in stop\n    raise TimeoutError('Owned fix01 process received termination signal ' + str(signum))\nTimeoutError: Owned fix01 process received termination signal 15\n",
+  "new_execution_G_updates": 3398,
+  "new_execution_D_updates": 10194,
+  "effective_comparison_G_updates": 25398,
+  "effective_comparison_D_updates": 58194,
+  "historical_actual_G_updates": 25667,
+  "historical_actual_D_updates": 59001,
+  "inherited_effective_G_updates": 22000,
+  "inherited_effective_D_updates": 48000,
+  "discarded_legacy_joint_G_updates": 269,
+  "discarded_legacy_joint_D_updates": 807,
+  "legacy_references_validated": true,
+  "completed_arms": [
+    {
+      "arm": "deterministic",
+      "origin": "retained_original_endpoint",
+      "G_updates": 19000,
+      "D_updates": {
+        "fast": 16000,
+        "slow": 16000,
+        "common_level": 16000
+      },
+      "inherited_G_updates": 19000,
+      "new_G_updates": 0,
+      "new_D_updates": {
+        "fast": 0,
+        "slow": 0,
+        "common_level": 0
+      },
+      "coverage": {
+        "source_unique": 6593,
+        "source_total": 6593,
+        "real_unique": 21047,
+        "real_total": 21047,
+        "source_epochs": 1475,
+        "real_epochs": 924
+      },
+      "checkpoint_schema": "response008/v1",
+      "stage": "low_learning_rate",
+      "model_implementation": "n01.model008.N01Response008",
+      "endpoint_path": "provenance/window008_fix01_reference/deterministic_final.pt",
+      "final_sha256": "2096523d53b62dbbc6b41d2788a8fba203af89c3cf753133bbbe81ab5c036849",
+      "state_sha256": "529f9a67594ac5232b932d7af246a934f1f5e01c62e7502fc3a50736cf5644c7",
+      "legacy_arm_completion_sha256": "b5f32f7a735477e7383d9461440bed99f4beea720a4e50a5a96813e3655fbaa9",
+      "source_job_native_exit_code": 1,
+      "arm_training_complete": true,
+      "common_initial_state_sha256": "b5e598c9251bf3fbf1408d9fc4382474a798817882f1d31276cecfc50a8b5f06",
+      "noise005_state_sha256": "1af54ac1468cd009e8c97ca08f015a0624d32d6c89fe511bfdbba17b8672595a"
+    }
+  ],
+  "current_arm": "full",
+  "current_G_updates": 6398,
+  "current_D_updates": {
+    "fast": 3398,
+    "slow": 3398,
+    "common_level": 3398
+  },
+  "checkpoint_may_be_mid_step": true,
+  "automatic_resume_allowed": false,
+  "DEV_waveforms_read": false,
+  "C2ST_updates": 0,
+  "noise_updates": 0,
+  "population_updates": 0,
+  "elapsed_seconds": 1224.7159824460105,
+  "scientific_status": "response_match_not_established",
+  "evaluation_complete": false
+}

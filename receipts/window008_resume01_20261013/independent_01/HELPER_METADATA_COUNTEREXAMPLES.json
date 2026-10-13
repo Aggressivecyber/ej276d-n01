@@ -1,0 +1,228 @@
+{
+  "schema": "n01/window008-resume01-independent-helper-counterexamples/v1",
+  "UTC": "2026-10-13T15:59:24.213327+00:00",
+  "files_sha256": {
+    "scripts/window008_resume01_runtime.py": "39ffdbb51d216c55ae9a21ece9554b0f3e4c22c45391acdec4aaeb0845d8d5b1",
+    "scripts/monitor_window008_resume01.py": "702b5adcc80f282090151810b86cee99d1ee06b7622be74483e58982d7617f86"
+  },
+  "config_sha256": "b406f4b4a98e12c786248cb6857e84a956abbd0a1677def77a5b0381503ceb0b",
+  "status": "passed",
+  "cases": [
+    {
+      "case": "actual26refs_transitive_runtime_input_validation",
+      "passed": true,
+      "fixture": false
+    },
+    {
+      "case": "local_and_remote_stop_same_JSON",
+      "passed": true,
+      "fixture": false
+    },
+    {
+      "case": "distinct_raw_serialization_hashes",
+      "passed": true,
+      "fixture": false
+    },
+    {
+      "case": "pause_stop_exact_raw_hash",
+      "passed": true,
+      "fixture": false
+    },
+    {
+      "case": "pause_collection_exact_raw_hash",
+      "passed": true,
+      "fixture": false
+    },
+    {
+      "case": "collection_remote_stop_exact_raw_hash",
+      "passed": true,
+      "fixture": false
+    },
+    {
+      "case": "collection_native_matches",
+      "passed": true,
+      "fixture": false
+    },
+    {
+      "case": "collection_failure_matches",
+      "passed": true,
+      "fixture": false
+    },
+    {
+      "case": "budget_wrong_new_G",
+      "passed": true,
+      "rejected": true,
+      "fixture": true,
+      "rejection": "Resume count differs: new_execution_G_updates"
+    },
+    {
+      "case": "budget_wrong_new_D",
+      "passed": true,
+      "rejected": true,
+      "fixture": true,
+      "rejection": "Resume count differs: new_execution_D_updates"
+    },
+    {
+      "case": "history_omits_discarded_user_stop",
+      "passed": true,
+      "rejected": true,
+      "fixture": true,
+      "rejection": "Resume count differs: historical_actual_G_updates_after_success"
+    },
+    {
+      "case": "wrong_execution_arm_order",
+      "passed": true,
+      "rejected": true,
+      "fixture": true,
+      "rejection": "Resume arms differ"
+    },
+    {
+      "case": "pause_role_not_user_stop",
+      "passed": true,
+      "rejected": true,
+      "fixture": true,
+      "rejection": "User-stop provenance differs"
+    },
+    {
+      "case": "pause_points_to_wrong_raw_stop",
+      "passed": true,
+      "rejected": true,
+      "fixture": true,
+      "rejection": "Local/remote stop serialization or pause receipt chain differs"
+    },
+    {
+      "case": "pause_collection_hash_wrong",
+      "passed": true,
+      "rejected": true,
+      "fixture": true,
+      "rejection": "Local/remote stop serialization or pause receipt chain differs"
+    },
+    {
+      "case": "local_remote_stop_JSON_differs",
+      "passed": true,
+      "rejected": true,
+      "fixture": true,
+      "rejection": "Local/remote stop serialization or pause receipt chain differs"
+    },
+    {
+      "case": "owned_process_still_present",
+      "passed": true,
+      "rejected": true,
+      "fixture": true,
+      "rejection": "User-stop provenance differs"
+    },
+    {
+      "case": "trainer_absence_not_verified",
+      "passed": true,
+      "rejected": true,
+      "fixture": true,
+      "rejection": "User-stop provenance differs"
+    },
+    {
+      "case": "native_stop_exit_zero",
+      "passed": true,
+      "rejected": true,
+      "fixture": true,
+      "rejection": "Parent stop/native/accounting differs"
+    },
+    {
+      "case": "failure_count_chain_wrong",
+      "passed": true,
+      "rejected": true,
+      "fixture": true,
+      "rejection": "Parent stop/native/accounting differs"
+    },
+    {
+      "case": "boundary_anchor_hash_wrong",
+      "passed": true,
+      "rejected": true,
+      "fixture": true,
+      "rejection": "Pause/boundary differs"
+    },
+    {
+      "case": "monitor_not_started",
+      "passed": true,
+      "fixture": true,
+      "actual_state": "window008_resume01_not_started",
+      "expected_state": "window008_resume01_not_started"
+    },
+    {
+      "case": "monitor_dispatched_no_process",
+      "passed": true,
+      "fixture": true,
+      "actual_state": "window008_resume01_dispatched_pending_scientific_process",
+      "expected_state": "window008_resume01_dispatched_pending_scientific_process"
+    },
+    {
+      "case": "monitor_active_import_no_update",
+      "passed": true,
+      "fixture": true,
+      "actual_state": "window008_resume01_dispatched_pending_first_observed_update",
+      "expected_state": "window008_resume01_dispatched_pending_first_observed_update"
+    },
+    {
+      "case": "monitor_first_scientific_update",
+      "passed": true,
+      "fixture": true,
+      "actual_state": "window008_resume01_running",
+      "expected_state": "window008_resume01_running"
+    },
+    {
+      "case": "monitor_missing_process_after_update",
+      "passed": true,
+      "fixture": true,
+      "actual_state": "window008_resume01_process_missing_native_receipt_review_required",
+      "expected_state": "window008_resume01_process_missing_native_receipt_review_required"
+    },
+    {
+      "case": "monitor_complete_waiting_native",
+      "passed": true,
+      "fixture": true,
+      "actual_state": "window008_resume01_finished_waiting_native_receipt",
+      "expected_state": "window008_resume01_finished_waiting_native_receipt"
+    },
+    {
+      "case": "monitor_complete_with_native_zero",
+      "passed": true,
+      "fixture": true,
+      "actual_state": "window008_resume01_complete_pending_endpoint_evaluation",
+      "expected_state": "window008_resume01_complete_pending_endpoint_evaluation"
+    },
+    {
+      "case": "monitor_native_zero_missing_complete",
+      "passed": true,
+      "fixture": true,
+      "actual_state": "window008_resume01_native_success_missing_completion",
+      "expected_state": "window008_resume01_native_success_missing_completion"
+    },
+    {
+      "case": "monitor_native_failure_without_failure_doc",
+      "passed": true,
+      "fixture": true,
+      "actual_state": "window008_resume01_failed_or_bounded_stop_preserved",
+      "expected_state": "window008_resume01_failed_or_bounded_stop_preserved"
+    },
+    {
+      "case": "monitor_failure_after_partial_D",
+      "passed": true,
+      "fixture": true,
+      "actual_state": "window008_resume01_failed_or_bounded_stop_preserved",
+      "expected_state": "window008_resume01_failed_or_bounded_stop_preserved"
+    },
+    {
+      "case": "monitor_complete_but_native_nonzero",
+      "passed": true,
+      "fixture": true,
+      "actual_state": "window008_resume01_failed_or_bounded_stop_preserved",
+      "expected_state": "window008_resume01_failed_or_bounded_stop_preserved"
+    }
+  ],
+  "source_reference_count": 26,
+  "scientific_model_forwards": 0,
+  "optimizer_updates": 0,
+  "DEV_numeric_decodes": 0,
+  "GPU_calls": 0,
+  "SSH_calls": 0,
+  "project_state_writes": 0,
+  "scope": "Actual input chain validation plus in-memory malformed JSON and monitor state AST fixtures."
+}

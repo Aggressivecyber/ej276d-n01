@@ -1,0 +1,266 @@
+{
+  "schema": "n01/window008-resume01-independent-engine-counterexamples/v1",
+  "UTC": "2026-10-13T15:37:48.043048+00:00",
+  "source_sha256": "efcd7b473fdcbb3ecb69c736b5f2862d7e5769c60752f9c3912a235d5e8f32f1",
+  "status": "passed",
+  "cases": [
+    {
+      "case": "actual_full6000_positive_metadata_control",
+      "passed": true,
+      "rejected": false
+    },
+    {
+      "case": "failure_purpose",
+      "passed": true,
+      "rejected": true,
+      "rejection": "Only a complete periodic checkpoint is admissible; failure/mid-step purpose rejected"
+    },
+    {
+      "case": "mid_step_flag",
+      "passed": true,
+      "rejected": true,
+      "rejection": "Only a complete periodic checkpoint is admissible; failure/mid-step purpose rejected"
+    },
+    {
+      "case": "automatic_resume_true",
+      "passed": true,
+      "rejected": true,
+      "rejection": "Only a complete periodic checkpoint is admissible; failure/mid-step purpose rejected"
+    },
+    {
+      "case": "wrong_schema",
+      "passed": true,
+      "rejected": true,
+      "rejection": "Fix01 import schema/arm/config differs"
+    },
+    {
+      "case": "wrong_arm",
+      "passed": true,
+      "rejected": true,
+      "rejection": "Fix01 import schema/arm/config differs"
+    },
+    {
+      "case": "artificial_role_mismatch",
+      "passed": true,
+      "rejected": true,
+      "rejection": "Scientific/artificial checkpoint role differs"
+    },
+    {
+      "case": "wrong_config_seed",
+      "passed": true,
+      "rejected": true,
+      "rejection": "Fix01 import schema/arm/config differs"
+    },
+    {
+      "case": "wrong_fix01_identity",
+      "passed": true,
+      "rejected": true,
+      "rejection": "Fix01 recovery identity differs"
+    },
+    {
+      "case": "wrong_model_implementation",
+      "passed": true,
+      "rejected": true,
+      "rejection": "Fix01 model identity/signature differs"
+    },
+    {
+      "case": "wrong_signature_dtype",
+      "passed": true,
+      "rejected": true,
+      "rejection": "Fix01 model identity/signature differs"
+    },
+    {
+      "case": "G_6398_is_not_boundary",
+      "passed": true,
+      "rejected": true,
+      "rejection": "Only full G6000/D3000 complete-cycle counters are admissible"
+    },
+    {
+      "case": "D_partial_hypothesis",
+      "passed": true,
+      "rejected": true,
+      "rejection": "Only full G6000/D3000 complete-cycle counters are admissible"
+    },
+    {
+      "case": "wrong_new_counters",
+      "passed": true,
+      "rejected": true,
+      "rejection": "Fix01 executed-new counters differ"
+    },
+    {
+      "case": "wrong_parent_lineage",
+      "passed": true,
+      "rejected": true,
+      "rejection": "Fix01 parent lineage differs"
+    },
+    {
+      "case": "noise_update_present",
+      "passed": true,
+      "rejected": true,
+      "rejection": "Fix01 noise/population history differs"
+    },
+    {
+      "case": "population_update_present",
+      "passed": true,
+      "rejected": true,
+      "rejection": "Fix01 noise/population history differs"
+    },
+    {
+      "case": "statistics_mutated",
+      "passed": true,
+      "rejected": true,
+      "rejection": "Fix01 statistics differ"
+    },
+    {
+      "case": "frozen_initializer_mutated",
+      "passed": true,
+      "rejected": true,
+      "rejection": "Fix01 frozen references differ"
+    },
+    {
+      "case": "G_step_uniform_6000_on_stochastic",
+      "passed": true,
+      "rejected": true,
+      "rejection": "Named AdamW phase step differs: physical_head.base.0.weight"
+    },
+    {
+      "case": "G_step_uniform_3000_on_shared",
+      "passed": true,
+      "rejected": true,
+      "rejection": "Named AdamW phase step differs: shape_encoder.net.0.weight"
+    },
+    {
+      "case": "G_missing_slot",
+      "passed": true,
+      "rejected": true,
+      "rejection": "Missing named AdamW history: shape_encoder.net.0.weight"
+    },
+    {
+      "case": "G_positional_ID_reorder",
+      "passed": true,
+      "rejected": true,
+      "rejection": "Value differs: optimizer_param_groups/0/params/0"
+    },
+    {
+      "case": "G_hyperparameter_changed",
+      "passed": true,
+      "rejected": true,
+      "rejection": "Value differs: optimizer_param_groups/0/lr"
+    },
+    {
+      "case": "G_nonfinite_moment",
+      "passed": true,
+      "rejected": true,
+      "rejection": "AdamW moment dtype/shape/finiteness differs: shape_encoder.net.0.weight/exp_avg"
+    },
+    {
+      "case": "G_negative_second_moment",
+      "passed": true,
+      "rejected": true,
+      "rejection": "Negative AdamW second moment: shape_encoder.net.0.weight"
+    },
+    {
+      "case": "G_wrong_moment_dtype",
+      "passed": true,
+      "rejected": true,
+      "rejection": "AdamW moment dtype/shape/finiteness differs: shape_encoder.net.0.weight/exp_avg"
+    },
+    {
+      "case": "D_wrong_step",
+      "passed": true,
+      "rejected": true,
+      "rejection": "Named AdamW phase step differs: body.0.bias"
+    },
+    {
+      "case": "D_missing_slot",
+      "passed": true,
+      "rejected": true,
+      "rejection": "Missing named AdamW history: body.0.bias"
+    },
+    {
+      "case": "D_hypothesis_missing",
+      "passed": true,
+      "rejected": true,
+      "rejection": "Fix01 D optimizer hypotheses differ"
+    },
+    {
+      "case": "SOURCE_sampler_stale_position",
+      "passed": true,
+      "rejected": true,
+      "rejection": "Sampler draw position differs"
+    },
+    {
+      "case": "REAL_sampler_visit_missing",
+      "passed": true,
+      "rejected": true,
+      "rejection": "Sampler visit counts differ"
+    },
+    {
+      "case": "SOURCE_order_not_permutation",
+      "passed": true,
+      "rejected": true,
+      "rejection": "Sampler order is not a permutation"
+    },
+    {
+      "case": "paired_stream_missing",
+      "passed": true,
+      "rejected": true,
+      "rejection": "Paired stream keys differ"
+    },
+    {
+      "case": "paired_stream_bad_dtype",
+      "passed": true,
+      "rejected": true,
+      "rejection": "Paired RNG dtype/shape differs: response"
+    },
+    {
+      "case": "paired_stream_bad_shape",
+      "passed": true,
+      "rejected": true,
+      "rejection": "Paired RNG dtype/shape differs: noise005"
+    },
+    {
+      "case": "last_metric_counter_mismatch",
+      "passed": true,
+      "rejected": true,
+      "rejection": "Fix01 last completed metrics/counters differ"
+    },
+    {
+      "case": "projection_update_mismatch",
+      "passed": true,
+      "rejected": true,
+      "rejection": "Fix01 completed projection update differs"
+    },
+    {
+      "case": "recursive_CPU_optimizer_clone_and_bytes",
+      "passed": true,
+      "rejected": false
+    },
+    {
+      "case": "signed_zero_tensor_bytes_differ",
+      "passed": true,
+      "rejected": true
+    },
+    {
+      "case": "generic_restore_prohibited",
+      "passed": true,
+      "rejected": true,
+      "rejection": "No generic/automatic resume01 restore; only the registered fix01 periodic6000 import"
+    },
+    {
+      "case": "old_stage3000_import_prohibited",
+      "passed": true,
+      "rejected": true,
+      "rejection": "Resume01 rejects the old stage3000 import; only fix01 periodic6000 is registered"
+    }
+  ],
+  "positive_actual_checkpoint_metadata": true,
+  "scientific_model_construction": false,
+  "scientific_model_forwards": 0,
+  "optimizer_objects_created": 0,
+  "optimizer_updates": 0,
+  "DEV_numeric_decodes": 0,
+  "GPU_calls": 0,
+  "new_scientific_jobs": 0,
+  "scope": "Pure _validate_import_state and CPU tree utilities with metadata doubles; native engine import and execution are separate."
+}

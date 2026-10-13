@@ -1,0 +1,483 @@
+{
+  "schema": "n01/window008-resume01-artificial-CPU-QA-summary/v1",
+  "UTC": "2026-10-13T15:49:32.375185+00:00",
+  "status": "passed_artificial_CPU_QA_native_scientific_import_requires_target_platform",
+  "checks_passed": 57,
+  "checks_total": 57,
+  "checks": [
+    {
+      "name": "original_68_and_fix01_114_frozen_source_hashes_match",
+      "passed": true,
+      "details": {
+        "unique_files": 114
+      }
+    },
+    {
+      "name": "artificial_all_models_named_moments_samplers_streams_import_bitwise",
+      "passed": true,
+      "details": {
+        "model": "6532e9f917788066e17f43f2767aec6d52525f04cc06f4fb5087d3256e7b39cd",
+        "discriminators": "f077cbe83fc71088098a1197e6843811efda1b17ff4b6b121b2fa9b58e2d9157",
+        "g_optimizer": "90846dee16a6ef49e325b82b628fd4d78778ba57981af2fbd42fed091de3b08b",
+        "d_optimizers": "ca0e0a5468f69aa12fc221c759b22acc9bd34534e12873a5ddb185ca9a5b3724",
+        "source_sampler": "abed9cc38e36a2e050a159593383b9bbe1a6e454955112b1b50b150f1a1a07c3",
+        "real_sampler": "d9714d30209f4bc5d0219926aab3b53498ff17fbfe6a6f8fbfba3772e87b5faa",
+        "streams": "fb52558df6204494a7beccdd6dfe9c9b5485b789e03657b6b4ffd298795859cc"
+      }
+    },
+    {
+      "name": "artificial_import_retains_mixed_6000_and_3000_G_steps",
+      "passed": true,
+      "details": {
+        "6000": 167,
+        "3000": 13
+      }
+    },
+    {
+      "name": "full_requires_explicit_import",
+      "passed": true,
+      "details": {
+        "error_type": "ValueError",
+        "error": "Full resume01 requires the registered fix01 periodic6000 import"
+      }
+    },
+    {
+      "name": "generic_restore_rejected",
+      "passed": true,
+      "details": {
+        "error_type": "ValueError",
+        "error": "No generic/automatic resume01 restore; only the registered fix01 periodic6000 import"
+      }
+    },
+    {
+      "name": "legacy3000_entry_rejected",
+      "passed": true,
+      "details": {
+        "error_type": "ValueError",
+        "error": "Resume01 rejects the old stage3000 import; only fix01 periodic6000 is registered"
+      }
+    },
+    {
+      "name": "repeat_import_rejected",
+      "passed": true,
+      "details": {
+        "error_type": "ValueError",
+        "error": "Fix01 periodic6000 import is permitted once into a fresh full engine"
+      }
+    },
+    {
+      "name": "simple_cannot_import_full",
+      "passed": true,
+      "details": {
+        "error_type": "ValueError",
+        "error": "Fix01 periodic6000 import is permitted once into a fresh full engine"
+      }
+    },
+    {
+      "name": "first6001_requires_audit",
+      "passed": true,
+      "details": {
+        "error_type": "ValueError",
+        "error": "First resume01 full update must be joint6001 with audit and exact replay"
+      }
+    },
+    {
+      "name": "first6001_requires_replay",
+      "passed": true,
+      "details": {
+        "error_type": "ValueError",
+        "error": "First resume01 full update must be joint6001 with audit and exact replay"
+      }
+    },
+    {
+      "name": "first6001_requires_joint_stage",
+      "passed": true,
+      "details": {
+        "error_type": "ValueError",
+        "error": "First resume01 full update must be joint6001 with audit and exact replay"
+      }
+    },
+    {
+      "name": "artificial_next6001_draw_and_projection_match_continuation",
+      "passed": true,
+      "details": {
+        "projection": {
+          "kind": "training",
+          "seed": 2026101387,
+          "update": 6001,
+          "fingerprint": "16b5d9898768d511a40736be814956842fbeb60c3f25f01a655f2c2e86215070"
+        },
+        "source_draw_sha256": "c7f4fae368ac1bec31398bb4f32880dce08c899ebc78ee38f9ad7d23b58eaeef",
+        "same_version_replay_verified": true,
+        "gradient_audit_present": true
+      }
+    },
+    {
+      "name": "next6001_named_mean6001_joint3001_D3001_steps",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "G_and_all_three_D_optimizer_native_roundtrip_bitwise",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "resume01_distinct_schema_identity_recursive_optimizer_checkpoint_exact",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "checkpoint_overwrite_rejected",
+      "passed": true,
+      "details": {
+        "error_type": "FileExistsError",
+        "error": "Preserve existing resume01 checkpoint: E:\\GAN\\research\\N01\\receipts\\window008_resume01_20261013\\engine_cpu_01\\resume01_after_artificial6001.pt"
+      }
+    },
+    {
+      "name": "nonlatest_overwrite_rejected",
+      "passed": true,
+      "details": {
+        "error_type": "ValueError",
+        "error": "Only latest.pt may be replaced"
+      }
+    },
+    {
+      "name": "midstep_cannot_masquerade_as_periodic",
+      "passed": true,
+      "details": {
+        "error_type": "ValueError",
+        "error": "Incomplete/failed update cannot be saved as a complete periodic checkpoint"
+      }
+    },
+    {
+      "name": "forensic_failure_role_is_explicit_and_nonresumable",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "fresh_simple_fix01_mean_and_joint_execute_from_common",
+      "passed": true,
+      "details": {
+        "model_implementation": "n01.model008_fix01.N01Response008Fix01",
+        "G_updates": 2,
+        "D_updates": {
+          "fast": 1,
+          "slow": 1,
+          "common_level": 1
+        }
+      }
+    },
+    {
+      "name": "wrong_purpose",
+      "passed": true,
+      "details": {
+        "error_type": "ValueError",
+        "error": "Only a complete periodic checkpoint is admissible; failure/mid-step purpose rejected"
+      }
+    },
+    {
+      "name": "midstep_marker",
+      "passed": true,
+      "details": {
+        "error_type": "ValueError",
+        "error": "Only a complete periodic checkpoint is admissible; failure/mid-step purpose rejected"
+      }
+    },
+    {
+      "name": "automatic_resume",
+      "passed": true,
+      "details": {
+        "error_type": "ValueError",
+        "error": "Only a complete periodic checkpoint is admissible; failure/mid-step purpose rejected"
+      }
+    },
+    {
+      "name": "wrong_schema",
+      "passed": true,
+      "details": {
+        "error_type": "ValueError",
+        "error": "Fix01 import schema/arm/config differs"
+      }
+    },
+    {
+      "name": "wrong_arm",
+      "passed": true,
+      "details": {
+        "error_type": "ValueError",
+        "error": "Fix01 import schema/arm/config differs"
+      }
+    },
+    {
+      "name": "wrong_seed",
+      "passed": true,
+      "details": {
+        "error_type": "ValueError",
+        "error": "Fix01 import schema/arm/config differs"
+      }
+    },
+    {
+      "name": "wrong_statistic",
+      "passed": true,
+      "details": {
+        "error_type": "ValueError",
+        "error": "Fix01 statistics differ"
+      }
+    },
+    {
+      "name": "wrong_fix01_identity",
+      "passed": true,
+      "details": {
+        "error_type": "ValueError",
+        "error": "Fix01 recovery identity differs"
+      }
+    },
+    {
+      "name": "wrong_model_identity",
+      "passed": true,
+      "details": {
+        "error_type": "ValueError",
+        "error": "Fix01 model identity/signature differs"
+      }
+    },
+    {
+      "name": "wrong_G_count",
+      "passed": true,
+      "details": {
+        "error_type": "ValueError",
+        "error": "Only full G6000/D3000 complete-cycle counters are admissible"
+      }
+    },
+    {
+      "name": "partial_D_count",
+      "passed": true,
+      "details": {
+        "error_type": "ValueError",
+        "error": "Only full G6000/D3000 complete-cycle counters are admissible"
+      }
+    },
+    {
+      "name": "wrong_new_G_count",
+      "passed": true,
+      "details": {
+        "error_type": "ValueError",
+        "error": "Fix01 executed-new counters differ"
+      }
+    },
+    {
+      "name": "wrong_parent_lineage",
+      "passed": true,
+      "details": {
+        "error_type": "ValueError",
+        "error": "Fix01 parent lineage differs"
+      }
+    },
+    {
+      "name": "wrong_last_metrics",
+      "passed": true,
+      "details": {
+        "error_type": "ValueError",
+        "error": "Fix01 last completed metrics/counters differ"
+      }
+    },
+    {
+      "name": "wrong_projection_count",
+      "passed": true,
+      "details": {
+        "error_type": "ValueError",
+        "error": "Fix01 completed projection update differs"
+      }
+    },
+    {
+      "name": "uniform_G_step6000_rejected",
+      "passed": true,
+      "details": {
+        "error_type": "ValueError",
+        "error": "Named AdamW phase step differs: physical_head.base.0.weight"
+      }
+    },
+    {
+      "name": "wrong_mean_step",
+      "passed": true,
+      "details": {
+        "error_type": "ValueError",
+        "error": "Named AdamW phase step differs: shape_encoder.net.0.weight"
+      }
+    },
+    {
+      "name": "missing_joint_history",
+      "passed": true,
+      "details": {
+        "error_type": "ValueError",
+        "error": "Missing named AdamW history: physical_head.base.0.weight"
+      }
+    },
+    {
+      "name": "missing_mean_history",
+      "passed": true,
+      "details": {
+        "error_type": "ValueError",
+        "error": "Missing named AdamW history: shape_encoder.net.0.weight"
+      }
+    },
+    {
+      "name": "changed_G_optimizer_lr",
+      "passed": true,
+      "details": {
+        "error_type": "ValueError",
+        "error": "Value differs: optimizer_param_groups/0/lr"
+      }
+    },
+    {
+      "name": "changed_G_optimizer_order",
+      "passed": true,
+      "details": {
+        "error_type": "ValueError",
+        "error": "Value differs: optimizer_param_groups/0/params/0"
+      }
+    },
+    {
+      "name": "wrong_D_step",
+      "passed": true,
+      "details": {
+        "error_type": "ValueError",
+        "error": "Named AdamW phase step differs: body.0.bias"
+      }
+    },
+    {
+      "name": "negative_second_moment",
+      "passed": true,
+      "details": {
+        "error_type": "ValueError",
+        "error": "Negative AdamW second moment: shape_encoder.net.0.weight"
+      }
+    },
+    {
+      "name": "nonfinite_first_moment",
+      "passed": true,
+      "details": {
+        "error_type": "ValueError",
+        "error": "AdamW moment dtype/shape/finiteness differs: shape_encoder.net.0.weight/exp_avg"
+      }
+    },
+    {
+      "name": "wrong_source_n",
+      "passed": true,
+      "details": {
+        "error_type": "ValueError",
+        "error": "Sampler population differs"
+      }
+    },
+    {
+      "name": "wrong_source_position",
+      "passed": true,
+      "details": {
+        "error_type": "ValueError",
+        "error": "Sampler draw position differs"
+      }
+    },
+    {
+      "name": "wrong_source_visits",
+      "passed": true,
+      "details": {
+        "error_type": "ValueError",
+        "error": "Sampler visit counts differ"
+      }
+    },
+    {
+      "name": "wrong_source_permutation",
+      "passed": true,
+      "details": {
+        "error_type": "ValueError",
+        "error": "Sampler order is not a permutation"
+      }
+    },
+    {
+      "name": "wrong_real_epochs",
+      "passed": true,
+      "details": {
+        "error_type": "ValueError",
+        "error": "Sampler draw position differs"
+      }
+    },
+    {
+      "name": "missing_stream",
+      "passed": true,
+      "details": {
+        "error_type": "ValueError",
+        "error": "Paired stream keys differ"
+      }
+    },
+    {
+      "name": "wrong_stream_dtype",
+      "passed": true,
+      "details": {
+        "error_type": "ValueError",
+        "error": "Paired RNG dtype/shape differs: response"
+      }
+    },
+    {
+      "name": "wrong_noise_reference",
+      "passed": true,
+      "details": {
+        "error_type": "ValueError",
+        "error": "Fix01 frozen references differ"
+      }
+    },
+    {
+      "name": "noise_refit_history",
+      "passed": true,
+      "details": {
+        "error_type": "ValueError",
+        "error": "Fix01 noise/population history differs"
+      }
+    },
+    {
+      "name": "unlabelled_artificial_parser",
+      "passed": true,
+      "details": {
+        "error_type": "ValueError",
+        "error": "Engineering import requires a labelled artificial parser fixture"
+      }
+    },
+    {
+      "name": "wrong_engineering_file_hash",
+      "passed": true,
+      "details": {
+        "error_type": "ValueError",
+        "error": "Registered fix01 periodic6000 bytes changed"
+      }
+    },
+    {
+      "name": "wrong_resume01_identity_run",
+      "passed": true,
+      "details": {
+        "error_type": "ValueError",
+        "error": "Resume01 identity keys/run differ"
+      }
+    },
+    {
+      "name": "bitwise_comparison_detects_signed_zero",
+      "passed": true,
+      "details": {
+        "error_type": "ValueError",
+        "error": "Tensor bytes differ: signed_zero"
+      }
+    }
+  ],
+  "engineering_G_updates": 4,
+  "engineering_D_updates": 6,
+  "original_combined_QA_receipt_sha256": "251cb8de0e483c9d41bdb0073f8539d29f86c9cd8374f59ca0385074269da405",
+  "native_diagnostic_sha256": "e443ed763f4beab48c4af000daf8fa91dae3804f8050be059e1dc3c6ccb83f0e",
+  "full_formal_batch_export_receipt_sha256": "30723d485b28ea9de63bf847a70f5f191e60b4aa64cb0d0bc1c9dd9612416dae",
+  "source_engine_sha256": "efcd7b473fdcbb3ecb69c736b5f2862d7e5769c60752f9c3912a235d5e8f32f1",
+  "source_engine_unchanged_since_QA": true,
+  "source_script_sha256": "df786224386d8ba9af14fdbe4196b7ad65104bf67b0f2f6dc7778f714fc3ee46",
+  "source_script_followup_change": "Artificial native fixture bundle construction helpers only; zero added optimizer steps.",
+  "scientific_model_forwards": 0,
+  "scientific_optimizer_updates": 0,
+  "actual_SOURCE_REAL_DEV_numeric_arrays_decoded": 0,
+  "scientific_sampler_or_paired_stream_draws": 0,
+  "GPU_used": false
+}
