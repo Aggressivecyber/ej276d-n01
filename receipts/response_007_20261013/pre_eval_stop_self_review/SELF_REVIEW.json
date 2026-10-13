@@ -1,0 +1,43 @@
+{
+  "UTC": "2026-10-13T01:31:08.922181+00:00",
+  "status": "passed_primary_agent_self_review_for_bounded_execution",
+  "review_mode": "same_primary_agent_no_independent_reviewer",
+  "user_requested_no_subagents": true,
+  "historical_files_verified": 66,
+  "historical_source_manifest_sha256": "1edf4d3200eff7065a40beea9ac1a4080212900a230a7d4d8994279c8b61e74d",
+  "config_sha256": "c85f3277ca31dd17a88da1435f0cdf9b41ab46a59d399d21399bf356a56b64f4",
+  "protocol_sha256": "b69ad8a57e95dd81b2dff31e699d0e0d1b81c04c72701d794988645e94e42886",
+  "source_hashes": {
+    "src/n01/response007.py": "884081b5b777c0c6be282c575c2ffbf91ba44fae21d371d8b4e922abb96ee298",
+    "src/n01/train_response007.py": "901d0c7cc98fc591f218312237da58865d796ff2fb848dc912e212a4e6cbe0e2",
+    "src/n01/evaluate_response007.py": "742be92d483401b9b0424157d0d3cd6df4549e978f320f2304e0c56fe8c5c3fb",
+    "tests/test_response007.py": "e1c83a8c60ff4f15dd285f1b8f90f23043ebf127491267c43fe67be48ca5a084",
+    "scripts/launch_response007.sh": "cfc9037398996c71cd6b7a878192bf4f2df3f9a45c31a925abf8c3df43556874",
+    "docs/RESPONSE_007_IMPLEMENTATION.md": "5e94b0013a3eee75b0006c5b054f32019c313e2bcafd0da2a49b1f90713fe96f"
+  },
+  "test_receipt_sha256": "1b68cf33f0d94533871514f7ae4e4e3228e60dec509a72bac79db82deeb94921",
+  "checks": {
+    "no_old_response_warm_start": true,
+    "shared_common_initial_state": true,
+    "three_separate_losses": true,
+    "independent_D_states": true,
+    "one_G_step_per_update": true,
+    "regular_counted_once": true,
+    "candidate_STE_masks_retained": true,
+    "noise005_frozen": true,
+    "raw_data_roles_preserved": true,
+    "count_weights_fixed": true,
+    "no_hypothesis_input": true,
+    "no_scenario_or_checkpoint_selection": true,
+    "no_scientific_acceptance_threshold_added": true,
+    "new_signal_heads_receive_gradient": true,
+    "failure_contexts_and_counts_preserved": true,
+    "native_capacity_test_passed": true
+  },
+  "limitations": [
+    "Not an independent second-model review",
+    "Artificial engineering tests are not response validation",
+    "Full budget and scientific endpoint results remain unexecuted at this receipt"
+  ],
+  "blockers": []
+}

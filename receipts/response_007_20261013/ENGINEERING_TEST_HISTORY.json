@@ -1,0 +1,116 @@
+{
+  "recorded_UTC": "2026-10-13T01:32:33.901467+00:00",
+  "scientific_data_decoded_in_any_attempt": false,
+  "attempts": [
+    {
+      "stage": "initial_training_core",
+      "tests": 4,
+      "native_exit_code": 0
+    },
+    {
+      "stage": "evaluation_added",
+      "tests": 5,
+      "native_exit_code": 1,
+      "error": "NumPy readout received Tensor-valued artificial statistics"
+    },
+    {
+      "stage": "JSON_roundtrip",
+      "tests": 5,
+      "native_exit_code": 1,
+      "error": "Historical loss API clone requires tensor center/scale"
+    },
+    {
+      "stage": "tensor_binding_repaired",
+      "tests": 5,
+      "native_exit_code": 1,
+      "error": "Permutation test exceeded inappropriate float64-scale bound for float32 convolution"
+    },
+    {
+      "stage": "float32_numerical_bound_registered",
+      "tests": 5,
+      "native_exit_code": 0
+    },
+    {
+      "stage": "final_self_review",
+      "tests": 7,
+      "native_exit_code": 0
+    }
+  ],
+  "artificial_capacity": {
+    "UTC": "2026-10-13T01:27:43.126165+00:00",
+    "status": "artificial_capacity_test_passed",
+    "rows_are_fabricated": true,
+    "scientific_data_decoded": false,
+    "artificial_G_updates": 6,
+    "artificial_D_updates": 12,
+    "scientific_G_updates": 0,
+    "full_distribution_rows_per_hypothesis": 1024,
+    "results": [
+      {
+        "stage": "mean_response",
+        "stage_step": 1,
+        "seconds": 1.3364116570010083,
+        "gpu_peak_allocated_bytes": 1184102400,
+        "gpu_peak_reserved_bytes": 1514143744,
+        "G_preclip_gradient_norm": 114.61566925048828,
+        "signal_prefix_absolute_max_V": 0.0
+      },
+      {
+        "stage": "mean_response",
+        "stage_step": 2,
+        "seconds": 0.34757184400223196,
+        "gpu_peak_allocated_bytes": 1195967488,
+        "gpu_peak_reserved_bytes": 1524629504,
+        "G_preclip_gradient_norm": 286.7242736816406,
+        "signal_prefix_absolute_max_V": 0.0
+      },
+      {
+        "stage": "joint_stochastic",
+        "stage_step": 1,
+        "seconds": 0.6476311029982753,
+        "gpu_peak_allocated_bytes": 1218306560,
+        "gpu_peak_reserved_bytes": 1755316224,
+        "G_preclip_gradient_norm": 46.42545700073242,
+        "signal_prefix_absolute_max_V": 0.0
+      },
+      {
+        "stage": "joint_stochastic",
+        "stage_step": 2,
+        "seconds": 0.5244853120020707,
+        "gpu_peak_allocated_bytes": 1218388480,
+        "gpu_peak_reserved_bytes": 1755316224,
+        "G_preclip_gradient_norm": 28.377941131591797,
+        "signal_prefix_absolute_max_V": 0.0
+      },
+      {
+        "stage": "low_learning_rate",
+        "stage_step": 1,
+        "seconds": 0.625475605003885,
+        "gpu_peak_allocated_bytes": 1218388480,
+        "gpu_peak_reserved_bytes": 1755316224,
+        "G_preclip_gradient_norm": 19.707294464111328,
+        "signal_prefix_absolute_max_V": 0.0
+      },
+      {
+        "stage": "low_learning_rate",
+        "stage_step": 2,
+        "seconds": 0.5239355559970136,
+        "gpu_peak_allocated_bytes": 1218388480,
+        "gpu_peak_reserved_bytes": 1755316224,
+        "G_preclip_gradient_norm": 25.422922134399414,
+        "signal_prefix_absolute_max_V": 0.0
+      }
+    ],
+    "device": "NVIDIA GeForce RTX 5070"
+  },
+  "capacity_native_receipt": {
+    "exit_code": 0,
+    "reason": null,
+    "peak_rss_bytes": 2821746688,
+    "started_utc": "2026-10-13T01:27:37.454632+00:00",
+    "ended_utc": "2026-10-13T01:27:44.459760+00:00",
+    "supervisor_pid": 155786,
+    "child_pid": 155791
+  },
+  "capacity_source_binding_sha256": "da5fa0ca3071c7ec2a78cf3b22dc37ee72fab4f4330f373a73aeb4670d4576ec"
+}

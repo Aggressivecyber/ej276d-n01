@@ -1,5 +1,7 @@
 # N01｜物理分解式条件随机 1D U-Net
 
+当前推进007：两臂、三种固定长程噪声假设的共同响应训练，已登记、尚未启动。计划38000次G更新；006敏感性与响应匹配未建立的结论保留。见 [007协议](docs/RESPONSE_007_PROTOCOL.md)、PROGRAM.json 和 jobs.json。按用户要求全部由主代理实施及自检。
+
 **当前主线 006 已完成：接口检查通过，但低电荷 PSD 展宽对长程假设敏感；新增训练 0 次，当前科学作业 0。** [完整480点与PSD整合报告](reports/integration_006_20261012/N01_INTEGRATION006_REPORT.html) · [006 Release](https://github.com/Aggressivecyber/ej276d-n01/releases/tag/n01-integration006-20261012) · [冻结协议](docs/INTEGRATION_006_PROTOCOL.md) · [完成回执](receipts/integration_006_20261012/FINAL_RECEIPT.json)。
 
 

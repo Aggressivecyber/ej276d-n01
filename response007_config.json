@@ -1,0 +1,208 @@
+{
+  "run_id": "response_007_20261013",
+  "registered_UTC": "2026-10-13T01:18:25.443273+00:00",
+  "previous_completed_commit": "505468fe74bae43e2dd52308d8a73a4628ca5284",
+  "local_training_container": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R23_ONLINE_STANDARDIZED_CRITIC_001\\TRAIN_PRIVATE.npz",
+  "remote_training_container": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R33_REMOTE_20261009_175239_UTC/inputs/TRAIN_PRIVATE.npz",
+  "train_container_sha256": "9e2f2c3c18470f4b2f3374a39590a9c27b18222bd1b22b5d7467e561409ad854",
+  "identities_sha256": "5145ea04d038510c9ca740d997e0cf9d060ed69210a4515e20110d884db7e845",
+  "remote_root": "/home/rylan/projects/ej276d-n01/response_007_20261013",
+  "references": {
+    "noise005": {
+      "path": "provenance/integration006_reference/noise005.pt",
+      "sha256": "1e45d3369b85d2f5f635ad44dbeb5a730f6d86864cc3dc9163384fccd48bd417",
+      "source": "runs/noise_acf005_20261012/runs/science/noise/final.pt"
+    },
+    "statistics001": {
+      "path": "provenance/integration006_reference/statistics001.json",
+      "sha256": "8c220d8417c8b078693515e67be6685e3c7abacda1c7486df56e3b53051fbb2a",
+      "source": "runs/run_001_20261012/final_review_20261012_0900/train/fit_statistics.json"
+    },
+    "complete005": {
+      "path": "provenance/integration006_reference/complete005.json",
+      "sha256": "779cd4191f85225a1dbbc9cc1059e011727aec2aaf3bbb7b2d02edadaacff7cf",
+      "source": "runs/noise_acf005_20261012/runs/science/COMPLETE.json"
+    },
+    "config005": {
+      "path": "provenance/integration006_reference/config005.json",
+      "sha256": "8eb87e705ac4abb4864a919194070c573cf39866e4ff694947965b87f3465e0a",
+      "source": "noise_acf005_config.json"
+    },
+    "final005": {
+      "path": "provenance/integration006_reference/final005.json",
+      "sha256": "fa826ff70e317050d1a5b354095dec307916a3d336efdd9c2a6d78857feebcb0",
+      "source": "receipts/noise_acf005_20261012/FINAL_RECEIPT.json"
+    },
+    "scope005": {
+      "path": "provenance/integration006_reference/scope005.json",
+      "sha256": "86e706b1f9707c120b2ae35d970d882fae060fa240a2117efd7fc94c51ca250d",
+      "source": "reports/noise_acf005_20261012/SUPPORT_SCOPE.json"
+    }
+  },
+  "source_manifest": "RESPONSE007_SOURCE_MANIFEST.json",
+  "hypotheses": [
+    {
+      "name": "fast",
+      "short_weight": 1.0,
+      "short_length": 4.0,
+      "long_weight": 0.0,
+      "long_length": null,
+      "long_type": "none"
+    },
+    {
+      "name": "slow",
+      "short_weight": 0.75,
+      "short_length": 4.0,
+      "long_weight": 0.25,
+      "long_length": 80.0,
+      "long_type": "exponential"
+    },
+    {
+      "name": "common_level",
+      "short_weight": 0.75,
+      "short_length": 4.0,
+      "long_weight": 0.25,
+      "long_length": null,
+      "long_type": "constant"
+    }
+  ],
+  "extension": {
+    "length": 480,
+    "prefix": 100,
+    "tail": 380,
+    "dtype": "float64",
+    "kernel_ridge_relative": 1e-06,
+    "kernel_variance": "mean_diagonal_frozen_C005",
+    "mean_reference": "mean_frozen_mu005",
+    "mean_tail": "mu0+A*(mu100-mu0)",
+    "scale_rule": "shared_exp(eta*u-eta^2)",
+    "fixed_cholesky_only": true,
+    "pre_adc_is_effective_latent": true,
+    "identified_hardware_noise": false
+  },
+  "arms": [
+    "deterministic",
+    "full"
+  ],
+  "hypothesis_weights": [
+    0.3333333333333333,
+    0.3333333333333333,
+    0.3333333333333333
+  ],
+  "signal_hypothesis_input": false,
+  "response": {
+    "mean_response_updates": 3000,
+    "joint_stochastic_updates": 12000,
+    "low_learning_rate_updates": 4000,
+    "updates_per_arm": 19000,
+    "total_G_updates": 38000,
+    "total_D_updates": 96000,
+    "warm_start": false,
+    "population_learning": false,
+    "common_initial_state": true,
+    "independent_D_per_hypothesis": true
+  },
+  "loss": {
+    "version": 2,
+    "weights": {
+      "wave": 1.0,
+      "QPSD": 2.0,
+      "noise": 1.0,
+      "adv": 0.1,
+      "regular": 0.01,
+      "trend": 0.1
+    },
+    "statistics": "statistics001",
+    "hypothesis_reduction": "mean_of_separate_losses",
+    "G_lr": 0.0002,
+    "D_lr": 0.0001,
+    "G_low_lr": 5e-05,
+    "D_low_lr": 2.5e-05,
+    "G_weight_decay": 0.0001,
+    "clip_norm": 5.0
+  },
+  "distribution_microbatches": 4,
+  "source_parents_per_microbatch": 128,
+  "responses_per_parent": 2,
+  "real_rows_per_microbatch": 256,
+  "seeds": {
+    "initialization": 2026101301,
+    "discriminator": 2026101302,
+    "source_sampler": 2026101303,
+    "real_sampler": 2026101304,
+    "train_response": 2026101305,
+    "train_noise005": 2026101306,
+    "train_extension": 2026101307,
+    "train_projection": 2026101308,
+    "evaluation_projection": 2026101309,
+    "TRAIN_response": 2026101310,
+    "TRAIN_noise005": 2026101311,
+    "TRAIN_extension": 2026101312,
+    "DEV_response": 2026101313,
+    "DEV_noise005": 2026101314,
+    "DEV_extension": 2026101315,
+    "selected_TRAIN": 2026101316,
+    "selected_DEV": 2026101317,
+    "real_TRAIN": 2026101318,
+    "real_DEV": 2026101319,
+    "repeat_selection": 2026101320,
+    "repeat_response": 2026101321,
+    "repeat_noise005": 2026101322,
+    "repeat_extension": 2026101323,
+    "intervention_response": 2026101324,
+    "intervention_noise005": 2026101325,
+    "intervention_extension": 2026101326,
+    "bootstrap_TRAIN": 2026101327,
+    "bootstrap_DEV": 2026101328,
+    "classifier": 2026101329,
+    "classifier_bootstrap": 2026101330
+  },
+  "evaluation": {
+    "draws_per_parent": 4,
+    "chunk_rows": 128,
+    "sample_waveform_rows": 128,
+    "repeat_parents": 128,
+    "repeat_draws": 64,
+    "intervention_pairs": 32,
+    "intervention_draws": 8,
+    "matched_TRAIN_per_class": 2048,
+    "matched_DEV_per_class": 256,
+    "bootstrap_draws": 1000,
+    "minimum_parents_per_fixed_bin": 32,
+    "minimum_rows_per_fixed_bin": 128,
+    "classifier_views": [
+      "full480",
+      "prefix100",
+      "pulse380"
+    ],
+    "classifiers": 21,
+    "updates_per_classifier": 200,
+    "classifier_total_updates": 4200,
+    "classifier_batch_per_class": 64,
+    "classifier_lr": 0.001,
+    "no_GMM_fits": true,
+    "scientific_pass_threshold": null,
+    "DEV_selects_parameters": false
+  },
+  "engineering": {
+    "signal_prefix_max_V": 6.103888176768602e-05,
+    "nonpositive_Q_stops": true,
+    "guarded_PSD_stops": true,
+    "waveform_replay_first_steps": 2,
+    "gradient_audit_interval": 1000
+  },
+  "cpu_threads": 12,
+  "gpu_memory_limit_GiB": 10,
+  "job_tree_RSS_limit_GiB": 8,
+  "wall_limit_s": 28800,
+  "output_limit_MiB": 2048,
+  "checkpoint_interval": 1000,
+  "status_interval": 25,
+  "one_active_scientific_job": true,
+  "noise_updates": 0,
+  "population_updates": 0,
+  "independent_acquisition_available": false,
+  "validation_previously_exposed": true,
+  "previous_006_outcome": "sensitivity_detected",
+  "review_mode": "primary_agent_self_review_no_subagents"
+}
