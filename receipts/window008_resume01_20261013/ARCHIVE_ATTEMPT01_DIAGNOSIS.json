@@ -1,0 +1,28 @@
+{
+  "schema": "n01/archive-attempt-diagnosis/v1",
+  "UTC": "2026-10-13T20:16:31.192326+00:00",
+  "native_exit_code": 1,
+  "failed_attempt_directory": "E:\\GAN\\private_archives\\N01\\window008_resume01_20261013_full_20261014_delivery01",
+  "failure_receipt_sha256": "e6e7b839c443c729d1a62ec28ff94af0775b8ac86447ef233bac48c8a7d87faf",
+  "failure": {
+    "UTC": "2026-10-13T20:13:44.795558+00:00",
+    "status": "archive_attempt_failed_preserved",
+    "error": "ValueError('File changed before hash: E:\\\\GAN\\\\research\\\\N01\\\\.git\\\\COMMIT_EDITMSG')",
+    "partial_files_preserved": true,
+    "automatic_retry_allowed": false
+  },
+  "diagnosis": "Windows DirEntry.stat reports zero st_dev/st_ino; Path.lstat and opened-handle fstat agree on actual device/inode. All size, mtime and mode fields agree. The guard rejected incomparable API metadata, not a changed scientific file.",
+  "observed_file": "E:/GAN/research/N01/.git/COMMIT_EDITMSG",
+  "scandir": {
+    "st_dev": 0,
+    "st_ino": 0
+  },
+  "lstat_and_handle_fstat": {
+    "st_dev": 1734618582565407774,
+    "st_ino": 844424931621450
+  },
+  "repair_plan": "Use Path.lstat for inventory; preserve full fingerprint guards; verify small artificial tar write and reopen; new full archive directory after local fix commit.",
+  "scientific_model_calls": 0,
+  "optimizer_updates": 0,
+  "previous_attempt_overwritten": false
+}

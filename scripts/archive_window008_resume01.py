@@ -126,7 +126,7 @@ def scan(root):
             children = sorted(scan_entries, key=lambda x: x.name)
         for child in children:
             path = Path(child.path); relative = path.relative_to(root).as_posix()
-            s = child.stat(follow_symlinks=False); reason = excluded(relative)
+            s = path.lstat(); reason = excluded(relative)
             if reason:
                 exclusions.append(dict(path=relative, reason=reason, lstat=fingerprint(s)))
                 continue
