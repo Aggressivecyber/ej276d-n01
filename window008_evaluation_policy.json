@@ -1,0 +1,33 @@
+{
+  "schema": "n01/window008-evaluation-policy/v1",
+  "run_id": "window008_20261013",
+  "training_source_manifest_sha256": "97b020dc68e41fa1e893e66fdf1091b1bf9500b98281a5dd7e2545ee9ce00929",
+  "training_run": "runs/science",
+  "job_root": "runs/evaluation_jobs",
+  "jobs": ["primary", "replay01"],
+  "evaluation_module": "n01.evaluate_window008",
+  "resource_limits": {
+    "GPU_GiB": 10,
+    "job_tree_RSS_GiB": 8,
+    "wall_seconds": 28800,
+    "output_MiB": 3072,
+    "poll_seconds": 1,
+    "TERM_grace_seconds": 20
+  },
+  "preflight": {"minimum_free_disk_GiB": 8, "minimum_available_RAM_GiB": 10},
+  "replay": {
+    "same_training_endpoints": true,
+    "same_training_config_and_seeds": true,
+    "draws_per_parent": 4,
+    "chunk_rows": 128,
+    "additional_unique_draws": 0,
+    "compare_all_NPZ_members": true,
+    "compare_all_chunk_records": true,
+    "compare_distances_and_parent_bootstrap": true,
+    "array_comparison": "exact_dtype_shape_values_and_member_sha256",
+    "overwrite_allowed": false
+  },
+  "optimizer_updates": 0,
+  "C2ST_updates": 0,
+  "scientific_status": "response_match_not_established"
+}

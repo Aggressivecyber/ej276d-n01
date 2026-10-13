@@ -1,0 +1,119 @@
+{
+  "schema": "n01/window008-resume01-diagnostics-artificial-check/v1",
+  "status": "passed",
+  "native_exit_code": 0,
+  "device": "cpu",
+  "full_shape": false,
+  "source_sha256": {
+    "src\\n01\\diagnose_window008_resume01.py": "063e501b9f701b8fbe4e380fa215818a11437c7090f5ef9764d8897be49777b5",
+    "scripts\\check_window008_resume01_diagnostics.py": "9c3a4b89a92eb28d4c85d6df84c95c107e0b4b4fca912ca71c5a2a3827515ce5",
+    "window008_resume01_diagnostics_policy.json": "b46e4e4bef095afcc10dcb42cedf2156218fb8b0558cd04a1c4117a441fd783e"
+  },
+  "semantic_checks": {
+    "selection_exact": true,
+    "donor_tie_original_ID_exact": true,
+    "zero_intervention_strength_retained": true,
+    "canonical_Q_and_same_shape_nodes_exact": true,
+    "temporal_interpolation_known_answer": true,
+    "undefined_time_rows_retained": true,
+    "sample_covariance_pair_counts_verified": true,
+    "narrow_covariance_stable": true,
+    "original005_ACF20_and_bands_reproduced": true,
+    "positive_weights_and_missing_mass_retained": true,
+    "exact_bin_wave_mixture_verified": true,
+    "missing_source_freeze_rejected_before_scientific_forward": true,
+    "paired_generation_common_baseline_and_decomposition": true,
+    "explicit_latent_order_replay_exact": true,
+    "artificial_family_counters": {
+      "tiny_pairs": {
+        "signal_forward_rows": 24,
+        "observation_rows": 72,
+        "noise005_forward_rows": 4,
+        "signal_calls": 6,
+        "observation_calls": 18,
+        "noise005_calls": 1,
+        "per_arm": {
+          "deterministic": 8,
+          "full": 8,
+          "simple": 8
+        },
+        "per_arm_hypothesis": {
+          "deterministic_fast": 8,
+          "deterministic_slow": 8,
+          "deterministic_common_level": 8,
+          "full_fast": 8,
+          "full_slow": 8,
+          "full_common_level": 8,
+          "simple_fast": 8,
+          "simple_slow": 8,
+          "simple_common_level": 8
+        }
+      },
+      "tiny_order_replay": {
+        "signal_forward_rows": 12,
+        "observation_rows": 36,
+        "noise005_forward_rows": 4,
+        "signal_calls": 3,
+        "observation_calls": 9,
+        "noise005_calls": 1,
+        "per_arm": {
+          "deterministic": 4,
+          "full": 4,
+          "simple": 4
+        },
+        "per_arm_hypothesis": {
+          "deterministic_fast": 4,
+          "deterministic_slow": 4,
+          "deterministic_common_level": 4,
+          "full_fast": 4,
+          "full_slow": 4,
+          "full_common_level": 4,
+          "simple_fast": 4,
+          "simple_slow": 4,
+          "simple_common_level": 4
+        }
+      }
+    }
+  },
+  "architecture128": {
+    "status": "not_requested"
+  },
+  "full_shape_readback": null,
+  "actual_artificial_forward_counters": {},
+  "scientific_signal_forward_rows": 0,
+  "actual_SOURCE_REAL_DEV_numeric_decodes": 0,
+  "trained_checkpoint_reads": 0,
+  "optimizer_updates": 0,
+  "C2ST_updates": 0,
+  "population_updates": 0,
+  "noise_updates": 0,
+  "scientific_status": "response_match_not_established",
+  "wall_seconds": 1.9058271999965655,
+  "preflight": {
+    "available_disk_bytes": 26884169728,
+    "available_RAM_bytes": 2450563072,
+    "minimum_disk_bytes": 10737418.24,
+    "minimum_RAM_bytes": 536870912.0,
+    "scope": "tiny semantic helpers only; no full resource proof"
+  },
+  "sampled_process_tree_peak_RSS_bytes": 623149056,
+  "RSS_sample_seconds": 0.05,
+  "GPU": {
+    "allocated_peak_bytes": null,
+    "reserved_peak_bytes": null,
+    "allocator_bound": {
+      "requested_GiB": 10.0,
+      "requested_bytes": 10737418240,
+      "CUDA_allocator_limit_applied": false,
+      "physical_GPU_bytes": null,
+      "allocator_fraction": null
+    },
+    "driver_context_not_in_torch_peak": true
+  },
+  "RSS_scope": "single-process OS high water; fixture creates no subprocesses; independent supervisor enforces process tree",
+  "output_bytes_before_receipt": 0,
+  "output_GiB": 0.0,
+  "full_shape_model": null,
+  "actual_architecture128_is_random_initialized": false,
+  "resource_scope": "CPU covariance/storage and artificial generation only. Trained endpoint runtime and driver GPU peak require separately supervised execution."
+}
