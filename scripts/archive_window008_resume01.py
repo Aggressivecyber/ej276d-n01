@@ -108,6 +108,18 @@ def fingerprint(s):
                 device=s.st_dev, inode=s.st_ino)
 
 
+def handle_matches(stream, expected):
+    observed = fingerprint(os.fstat(stream.fileno()))
+    expected = dict(expected)
+    if os.name == 'nt':
+        # Pathname stat infers execute bits from extensions on Windows;
+        # fstat has no pathname. Full path modes stay checked by lstat and
+        # stable_tree; all handle identity, size, time and write bits stay exact.
+        observed['mode'] &= ~0o111
+        expected['mode'] &= ~0o111
+    return observed == expected
+
+
 def excluded(relative):
     parts = Path(relative).parts
     if '__pycache__' in parts or Path(relative).suffix.lower() in {'.pyc', '.pyo'}:
@@ -153,9 +165,9 @@ def hash_row(row):
     require(row['kind'] == 'file', 'Expected regular inventory file')
     path = Path(row['source']); require(not reparse(path), 'Regular file became linked: ' + str(path))
     with path.open('rb') as stream:
-        require(fingerprint(os.fstat(stream.fileno())) == row['fingerprint'], 'File changed before hash: ' + str(path))
+        require(handle_matches(stream, row['fingerprint']), 'File changed before hash: ' + str(path))
         size, digest = digest_stream(stream)
-        require(fingerprint(os.fstat(stream.fileno())) == row['fingerprint'], 'File changed while hashing: ' + str(path))
+        require(handle_matches(stream, row['fingerprint']), 'File changed while hashing: ' + str(path))
     require(size == row['bytes'] and fingerprint(path.lstat()) == row['fingerprint'], 'File changed after hash: ' + str(path))
     row['sha256'] = digest
 
@@ -232,10 +244,10 @@ def write_tar(path, entries, metadata):
             if row['kind'] == 'file':
                 source = Path(row['source']); require(not reparse(source), 'Input became linked')
                 with source.open('rb') as stream:
-                    require(fingerprint(os.fstat(stream.fileno())) == row['fingerprint'], 'Input changed before archive: ' + str(source))
+                    require(handle_matches(stream, row['fingerprint']), 'Input changed before archive: ' + str(source))
                     reader=HashingReader(stream); archive.addfile(info, reader)
                     require(reader.size == row['bytes'] and reader.digest.hexdigest() == row['sha256'], 'Archive source bytes changed: ' + name)
-                    require(fingerprint(os.fstat(stream.fileno())) == row['fingerprint'], 'Input changed during archive: ' + name)
+                    require(handle_matches(stream, row['fingerprint']), 'Input changed during archive: ' + name)
             else:
                 source = Path(row['source'])
                 require(fingerprint(source.lstat()) == row['fingerprint'], 'Directory/link changed: ' + name)

@@ -1,0 +1,102 @@
+{
+  "schema": "n01/windows-archive-handle-mode-repair/v1",
+  "UTC": "2026-10-13T20:24:14.472509+00:00",
+  "status": "passed",
+  "native_workspace_metadata_files": 9088,
+  "mode_differences": [
+    {
+      "path": "runtime/plotting_deps/bin/fonttools.exe",
+      "path_mode": 33279,
+      "handle_mode": 33206
+    },
+    {
+      "path": "runtime/plotting_deps/bin/pyftmerge.exe",
+      "path_mode": 33279,
+      "handle_mode": 33206
+    },
+    {
+      "path": "runtime/plotting_deps/bin/pyftsubset.exe",
+      "path_mode": 33279,
+      "handle_mode": 33206
+    },
+    {
+      "path": "runtime/plotting_deps/bin/ttx.exe",
+      "path_mode": 33279,
+      "handle_mode": 33206
+    }
+  ],
+  "path_mode_unchanged_and_exact": true,
+  "device_inode_size_mtime_write_bits_exact": true,
+  "negative_controls": [
+    {
+      "field": "bytes",
+      "xor_delta": 1,
+      "rejected": true
+    },
+    {
+      "field": "mtime_ns",
+      "xor_delta": 1,
+      "rejected": true
+    },
+    {
+      "field": "device",
+      "xor_delta": 1,
+      "rejected": true
+    },
+    {
+      "field": "inode",
+      "xor_delta": 1,
+      "rejected": true
+    },
+    {
+      "field": "mode",
+      "xor_delta": 128,
+      "rejected": true
+    },
+    {
+      "field": "mode",
+      "xor_delta": 32768,
+      "rejected": true
+    }
+  ],
+  "synthetic_tar": {
+    "members_verified": 4,
+    "all_member_sizes_sha256_match": true,
+    "streaming_reopen": true,
+    "member_sha256": [
+      {
+        "path": "empty",
+        "kind": "file",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "example.exe",
+        "kind": "file",
+        "bytes": 34,
+        "sha256": "1d59bbd8427daf78b80936062c8752c1450c5ea516b7c2c127c21bbe10600d4e"
+      },
+      {
+        "path": "plain.txt",
+        "kind": "file",
+        "bytes": 17,
+        "sha256": "81d58d9fd20a45af82db20a01e65a2c201018357007f50a9e10e87cc65ae81de"
+      },
+      {
+        "path": "fixture_metadata.json",
+        "kind": "file",
+        "bytes": 20,
+        "sha256": "6f33b308d09bee7f3061a3d155dd5d24ce13dfd08fcad1474d00481643446a71"
+      }
+    ],
+    "archive_bytes": 10240,
+    "archive_sha256": "6b207b571956a8db9a06c8a130fe2c9645f9c48335e88d174fcb65c90e57a852"
+  },
+  "helper_sha256": "d2e34c4981d623c3cad57c9809a2e0a50406a05b4c8cd66c0f89c866a14eb48f",
+  "previous_helper_sha256": "24425065aa8d896e7e26f83865ca0aa310a367f698415a137ca852d806b2993b",
+  "wall_seconds": 25.375,
+  "scientific_array_decodes": 0,
+  "model_calls": 0,
+  "optimizer_updates": 0,
+  "compatibility_rule": "Normalize only Windows inferred execute bits for cross-API handle comparison; full pathname mode remains checked exactly."
+}
