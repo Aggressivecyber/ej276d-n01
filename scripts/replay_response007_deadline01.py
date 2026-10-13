@@ -4,6 +4,7 @@ import copy
 import datetime as dt
 import json
 import os
+import signal
 import subprocess
 import sys
 import time
@@ -22,6 +23,8 @@ from n01.response007 import ARMS,HYPOTHESES,SignalResponse007,make_extension,sta
 def main():
     out=ROOT/'runs/verification_deadline01';out.mkdir(parents=True,exist_ok=False)
     started=time.monotonic();counts={};models={}
+    def interrupted(signum,frame):raise TimeoutError('Owned engineering replay signal '+str(signum))
+    signal.signal(signal.SIGTERM,interrupted)
     def counted(obj,name,key):
         method=getattr(obj,name)
         def wrapper(*args,**kwargs):
@@ -87,6 +90,11 @@ def main():
                     equal=np.array_equal(a,b,equal_nan=True) if a.dtype.kind in 'fc' else np.array_equal(a,b)
                     assert equal,(name,key,'values')
                 array_checks[name]=len(old.files)
+        old_streams=torch.load(original/'TRAIN_streams.pt',map_location='cpu',weights_only=False)
+        new_streams=torch.load(out/'TRAIN_streams.pt',map_location='cpu',weights_only=False)
+        assert old_streams['chunk_rows']==new_streams['chunk_rows']==128
+        for state in ['initial','final']:
+            for key in old_streams[state]:assert torch.equal(old_streams[state][key],new_streams[state][key]),'Generation stream differs'
         old_generation=json.loads((original/'TRAIN_generation.json').read_text())
         new_generation=json.loads((out/'TRAIN_generation.json').read_text())
         assert old_generation==new_generation,'Generation hashes, statistics or engineering differ'
