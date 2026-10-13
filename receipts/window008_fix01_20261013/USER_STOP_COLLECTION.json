@@ -1,0 +1,195 @@
+{
+  "UTC": "2026-10-13T10:52:51.122276+00:00",
+  "status": "user_stopped_job_archived",
+  "native": {
+    "exit_code": 1,
+    "reason": null,
+    "peak_rss_bytes": 2989182976,
+    "started_utc": "2026-10-13T10:30:17.321176+00:00",
+    "ended_utc": "2026-10-13T10:50:43.334276+00:00",
+    "supervisor_pid": 258729,
+    "child_pid": 258731
+  },
+  "failure": {
+    "schema": "n01/window008-fix01-failure/v1",
+    "UTC": "2026-10-13T10:50:42.692594+00:00",
+    "status": "fix01_failed_or_bounded_stop_preserved",
+    "run_id": "window008_fix01_20261013",
+    "error": "TimeoutError('Owned fix01 process received termination signal 15')",
+    "traceback": "Traceback (most recent call last):\n  File \"/home/rylan/projects/ej276d-n01/window008_fix01_20261013/src/n01/train_window008_fix01.py\", line 433, in main\n    metrics = engine.step(audit=audit, verify_replay=replay)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/rylan/projects/ej276d-n01/window008_fix01_20261013/src/n01/response008_fix01.py\", line 305, in step\n    result = super().step(audit=audit, verify_replay=verify_replay)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/rylan/projects/ej276d-n01/window008_fix01_20261013/src/n01/response008.py\", line 283, in step\n    value.backward();norm=torch.nn.utils.clip_grad_norm_(d.parameters(),cfg['loss']['clip_norm'],error_if_nonfinite=True)\n    ^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/dist-packages/torch/_tensor.py\", line 631, in backward\n    torch.autograd.backward(\n  File \"/usr/local/lib/python3.12/dist-packages/torch/autograd/__init__.py\", line 379, in backward\n    _engine_run_backward(\n  File \"/usr/local/lib/python3.12/dist-packages/torch/autograd/graph.py\", line 882, in _engine_run_backward\n    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/rylan/projects/ej276d-n01/window008_fix01_20261013/src/n01/train_window008_fix01.py\", line 366, in stop\n    raise TimeoutError('Owned fix01 process received termination signal ' + str(signum))\nTimeoutError: Owned fix01 process received termination signal 15\n",
+    "new_execution_G_updates": 3398,
+    "new_execution_D_updates": 10194,
+    "effective_comparison_G_updates": 25398,
+    "effective_comparison_D_updates": 58194,
+    "historical_actual_G_updates": 25667,
+    "historical_actual_D_updates": 59001,
+    "inherited_effective_G_updates": 22000,
+    "inherited_effective_D_updates": 48000,
+    "discarded_legacy_joint_G_updates": 269,
+    "discarded_legacy_joint_D_updates": 807,
+    "legacy_references_validated": true,
+    "completed_arms": [
+      {
+        "arm": "deterministic",
+        "origin": "retained_original_endpoint",
+        "G_updates": 19000,
+        "D_updates": {
+          "fast": 16000,
+          "slow": 16000,
+          "common_level": 16000
+        },
+        "inherited_G_updates": 19000,
+        "new_G_updates": 0,
+        "new_D_updates": {
+          "fast": 0,
+          "slow": 0,
+          "common_level": 0
+        },
+        "coverage": {
+          "source_unique": 6593,
+          "source_total": 6593,
+          "real_unique": 21047,
+          "real_total": 21047,
+          "source_epochs": 1475,
+          "real_epochs": 924
+        },
+        "checkpoint_schema": "response008/v1",
+        "stage": "low_learning_rate",
+        "model_implementation": "n01.model008.N01Response008",
+        "endpoint_path": "provenance/window008_fix01_reference/deterministic_final.pt",
+        "final_sha256": "2096523d53b62dbbc6b41d2788a8fba203af89c3cf753133bbbe81ab5c036849",
+        "state_sha256": "529f9a67594ac5232b932d7af246a934f1f5e01c62e7502fc3a50736cf5644c7",
+        "legacy_arm_completion_sha256": "b5f32f7a735477e7383d9461440bed99f4beea720a4e50a5a96813e3655fbaa9",
+        "source_job_native_exit_code": 1,
+        "arm_training_complete": true,
+        "common_initial_state_sha256": "b5e598c9251bf3fbf1408d9fc4382474a798817882f1d31276cecfc50a8b5f06",
+        "noise005_state_sha256": "1af54ac1468cd009e8c97ca08f015a0624d32d6c89fe511bfdbba17b8672595a"
+      }
+    ],
+    "current_arm": "full",
+    "current_G_updates": 6398,
+    "current_D_updates": {
+      "fast": 3398,
+      "slow": 3398,
+      "common_level": 3398
+    },
+    "checkpoint_may_be_mid_step": true,
+    "automatic_resume_allowed": false,
+    "DEV_waveforms_read": false,
+    "C2ST_updates": 0,
+    "noise_updates": 0,
+    "population_updates": 0,
+    "elapsed_seconds": 1224.7159824460105,
+    "scientific_status": "response_match_not_established",
+    "evaluation_complete": false
+  },
+  "files": {
+    "runs/.start.lock": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "runs/PREFLIGHT.json": {
+      "bytes": 596,
+      "sha256": "b70e77712c3eb8110f280c329f4c54421352517c2d828c75af1dcedac1883b82"
+    },
+    "runs/REMOTE_START.json": {
+      "bytes": 553,
+      "sha256": "da8bd6659147b843b5c817c710ad932aba958e7e5dcfe88bfb63f666d1e8b246"
+    },
+    "runs/START_ATTEMPT.json": {
+      "bytes": 172,
+      "sha256": "e95c1b493f30ad9b0ae4368d777d72923ee942ecc71e924e57c9641ab27e0835"
+    },
+    "runs/USER_STOP_REQUEST.json": {
+      "bytes": 15712,
+      "sha256": "1f1be02a2f929d296d1f909cf0a95cbff6589eb85fd47da6715e156deb9cd1b8"
+    },
+    "runs/USER_STOP_VERIFICATION.json": {
+      "bytes": 22441,
+      "sha256": "d2a3aab816253aa31b2046ff1e80d58ed0bdf7c2132f12ec26b1f3e177221167"
+    },
+    "runs/launch.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "runs/science/BINDING.json": {
+      "bytes": 1597,
+      "sha256": "c461f4f0d0ca41f19fe9a54302c6d2d4166b8b17ae361c6bfe6a4896be8d1a9b"
+    },
+    "runs/science/FAILURE.json": {
+      "bytes": 4238,
+      "sha256": "27e1d76bd35268d26e4c6e81233aed49e5faab2b71e48315284e6640955a402f"
+    },
+    "runs/science/FAILURE_CHECKPOINT.pt": {
+      "bytes": 21414251,
+      "sha256": "f4e6d6a30586159a7fcecc8ee34d3fa0a439f218151cb443d3007538c9beb6cd"
+    },
+    "runs/science/FAILURE_CONTEXT.pt": {
+      "bytes": 4271877,
+      "sha256": "6482f8cf7bdbdd45060f318eb85faad3fc405f460055e84d3ed61ef5149dfb5c"
+    },
+    "runs/science/LEGACY_VALIDATION.json": {
+      "bytes": 3112,
+      "sha256": "0f7b20fc20830bbfa65d6993669f485a931eff63416399699168c7e0dccd0203"
+    },
+    "runs/science/RESUME_VALIDATION.json": {
+      "bytes": 25346,
+      "sha256": "b6e86061c6868ae98dbe18828a331151beb806b7af9d35f351fbfbf96af94583"
+    },
+    "runs/science/TRAINING_INPUTS.json": {
+      "bytes": 1049,
+      "sha256": "9d3874570a7a1574fd63ff68f08af807a5cee9a6bc57076ceea7c6fc1b1b1785"
+    },
+    "runs/science/status.json": {
+      "bytes": 4238,
+      "sha256": "27e1d76bd35268d26e4c6e81233aed49e5faab2b71e48315284e6640955a402f"
+    },
+    "runs/science/train/full/INITIALIZATION.json": {
+      "bytes": 56153,
+      "sha256": "bccd899366d651b62c5cb3d073a13141cc4ed28f0075133d418a33868b213d43"
+    },
+    "runs/science/train/full/latest.pt": {
+      "bytes": 21404363,
+      "sha256": "921ec4c58387a5ad53fdf55ade10169930536106141e9070f5e4a8df60ab6c58"
+    },
+    "runs/science/train/full/restored_start.pt": {
+      "bytes": 19562627,
+      "sha256": "a816e33626afa2168a35d81ba2460fc26a2e791f96e13b9faf81af3587f8028a"
+    },
+    "runs/science/train/full/training.jsonl": {
+      "bytes": 25503661,
+      "sha256": "1ed024f5bf4fcccbd89f53b9ceb386b18e3261d11c62e3620f65ece2d3d59ef5"
+    },
+    "runs/supervisor/console.log": {
+      "bytes": 71185,
+      "sha256": "99f370c16f36c43108c268210ff7f7cf240c9d2f57f59494f1b2f13207502c43"
+    },
+    "runs/supervisor/exit_receipt.json": {
+      "bytes": 226,
+      "sha256": "95d4ee8363f5e25cf09f32355326296e160878f2445df1788fcbbfd038b85243"
+    },
+    "runs/supervisor/launch.json": {
+      "bytes": 1282,
+      "sha256": "0337cae2c873bbe163a8a047c5468b83cd8c1a559a97f5bcd5ac94feb312c3e2"
+    },
+    "runs/supervisor/resource_status.json": {
+      "bytes": 204,
+      "sha256": "d4e438a9de6b497c510cc0e2c23456caba776f729b527d63c3da7ace09411683"
+    },
+    "runs/supervisor/run.lock": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "archive": "/home/rylan/projects/ej276d-n01/window008_fix01_20261013/incoming/user_stop_20261013T105248Z.tar.gz",
+  "archive_bytes": 61346630,
+  "archive_sha256": "58d5a33fbb3a7ecc60c7e5c14ef9e8d1da4fd4a0a38a64453b45f630cad80c0e",
+  "frozen_manifest_sha256": "2a28ecca10b3815ac7af0387eab19072ff92df0f90f196cac79a86f20a1f0180",
+  "owned_training_processes": [],
+  "new_training_updates_during_collection": 0,
+  "DEV_numeric_decodes": 0,
+  "local_archive": "E:\\GAN\\research\\N01\\runs\\window008_fix01_20261013\\user_stop_collection_20261013T105248Z\\user_stop_20261013T105248Z.tar.gz",
+  "local_collection_root": "E:\\GAN\\research\\N01\\runs\\window008_fix01_20261013",
+  "all_transferred_member_hashes_verified": true,
+  "resume_requires_coherent_boundary_checkpoint_validation": true
+}
