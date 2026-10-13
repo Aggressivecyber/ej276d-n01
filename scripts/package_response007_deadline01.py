@@ -12,7 +12,7 @@ ID = 'response_007_20261013'
 RUN = ROOT / 'runs' / ID
 REC = ROOT / 'receipts' / ID / 'deadline01'
 REPORT = ROOT / 'reports' / ID
-DEST = Path('E:/GAN/archives/N01/response_007_20261013_deadline01')
+DEST = Path('E:/GAN/archives/N01/response_007_20261013_deadline01_v2')
 BACKUP = Path('D:/GAN_backups/research/N01/response_007_20261013_deadline01')
 
 
@@ -67,17 +67,25 @@ def main():
     DEST.mkdir(parents=True)
     source = DEST / 'n01-response007-deadline01-source-and-evidence.zip'
     subprocess.run(['git', 'archive', '--format=zip', '--output=' + str(source), commit], cwd=ROOT, check=True)
+    tree = subprocess.check_output(['git', 'ls-tree', '-rz', '--full-tree', commit], cwd=ROOT).decode('utf8')
+    git_blobs = {}
+    for entry in tree.split('\0'):
+        if entry:
+            metadata, name = entry.split('\t', 1)
+            git_blobs[name] = metadata.split()[2]
+    git_hash = subprocess.check_output(['git', 'rev-parse', '--show-object-format'], cwd=ROOT, text=True).strip()
     source_inventory = {}
     with zipfile.ZipFile(source) as z:
         assert z.testzip() is None
         for member in z.infolist():
             if member.is_dir():
                 continue
-            with z.open(member) as f:
-                member_sha = digest(f)
-            assert (ROOT / member.filename).is_file()
-            assert sha(ROOT / member.filename) == member_sha, 'Committed source differs from working tree: ' + member.filename
+            content = z.read(member)
+            member_sha = hashlib.sha256(content).hexdigest()
+            blob = hashlib.new(git_hash, b'blob ' + str(len(content)).encode('ascii') + b'\0' + content).hexdigest()
+            assert blob == git_blobs[member.filename], 'Archive differs from committed Git blob: ' + member.filename
             source_inventory[member.filename] = dict(bytes=member.file_size, sha256=member_sha)
+        assert set(source_inventory) == set(git_blobs)
     bundle = DEST / 'n01-response007-deadline01-source.bundle'
     subprocess.run(['git', 'bundle', 'create', str(bundle), 'HEAD'], cwd=ROOT, check=True)
     assert subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip() == commit
@@ -94,7 +102,10 @@ def main():
         original_remote_raw_archives_copied=False,
         input_reproduction_requires_access_to_hash_bound_original_SOURCE_REAL_data=True,
         private_archive_members=full_inventory, source_archive_members=source_inventory))
-    copied = [source, bundle, inventory_path, pointer_copy]
+    frozen_source = DEST / 'EXECUTION_SOURCE.tar.gz'
+    shutil.copy2(RUN / 'deadline01/EXECUTION_SOURCE.tar.gz', frozen_source)
+    assert sha(frozen_source) == sha(RUN / 'deadline01/EXECUTION_SOURCE.tar.gz')
+    copied = [source, bundle, inventory_path, pointer_copy, frozen_source]
     small_total = sum(p.stat().st_size for p in copied)
     assert small_total <= 64 * 1024 ** 2, 'Do not consume scarce D space with full scientific payloads'
     assert shutil.disk_usage('D:/').free - small_total >= 256 * 1024 ** 2
@@ -115,6 +126,7 @@ def main():
         status='E_full_run_and_D_small_source_evidence_reopened_SHA256_verified', source_commit=commit,
         E_private_archive=dict(path=str(full), bytes=full.stat().st_size, sha256=sha(full), members=len(full_inventory)),
         source_archive_members=len(source_inventory), D_small_backup=backup_entries,
+        source_archive_git_blob_hashes_verified=True, exact_execution_source_package_included=True,
         D_backup_bytes=small_total, D_free_bytes_after=shutil.disk_usage('D:/').free,
         minimum_D_free_reserve_bytes=256 * 1024 ** 2, raw_remote_inputs_duplicated=False,
         scientific_weights_and_logs_preserved_on=['E', 'original remote execution root'],
