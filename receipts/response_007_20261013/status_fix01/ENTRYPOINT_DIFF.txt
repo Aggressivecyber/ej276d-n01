@@ -1,0 +1,113 @@
+--- original
++++ statusfix01
+@@ -6,6 +6,7 @@
+ import json
+ import os
+ import signal
++import shutil
+ from pathlib import Path
+ import time
+ import traceback
+@@ -19,6 +20,27 @@
+ 
+ ROOT=Path(__file__).resolve().parents[2]
+ ID='response_007_20261013'
++
++
++def training_status(metrics,total_G,total_D,elapsed):
++    result=dict(metrics)
++    result.update(status='training_response007',pid=os.getpid(),run_id=ID,total_G_updates=total_G,total_D_updates=total_D,
++        total_C2ST_updates=0,elapsed_seconds=elapsed,new_execution_G_updates=total_G-1,
++        previous_completed_G_updates=1,attempt_id='status_fix01')
++    return result
++
++
++def restore_first_update(engine,checkpoint,config):
++    value=torch.load(checkpoint,map_location='cpu',weights_only=False)
++    if (value['arm']!='deterministic' or value['G_updates']!=1 or any(value['D_updates'].values())
++            or value['stage']!='mean_response' or value['config']!=config):
++        raise ValueError('Only the bound completed first update may be resumed')
++    engine.restore(checkpoint)
++    if state_digest(engine.model.state_dict())!=state_digest(value['model']):raise RuntimeError('Resume model state changed')
++    if not all(torch.equal(engine.streams.state_dict()[k],v.cpu()) for k,v in value['streams'].items()):
++        raise RuntimeError('Resume stochastic streams changed')
++    return value
++
+ 
+ 
+ def bind(config_path,manifest_path,container,identities):
+@@ -53,7 +75,7 @@
+     p=argparse.ArgumentParser()
+     p.add_argument('--config',required=True);p.add_argument('--source-manifest',required=True)
+     p.add_argument('--container',required=True);p.add_argument('--identities',required=True)
+-    p.add_argument('--out',required=True);p.add_argument('--device',default='cuda:0')
++    p.add_argument('--out',required=True);p.add_argument('--device',default='cuda:0');p.add_argument('--resume-checkpoint',required=True)
+     args=p.parse_args(argv);out=Path(args.out).resolve()
+     if os.name=='nt' and out.drive.upper() not in ('E:','D:'):raise ValueError('Output must be E/D')
+     if out.exists() and any(out.iterdir()):raise FileExistsError('Science output must be fresh; no implicit retry')
+@@ -63,6 +85,14 @@
+     engine=None;completed=[];started=time.monotonic();cfg=None
+     try:
+         cfg,manifest=bind(args.config,args.source_manifest,args.container,args.identities)
++        amendment=json.loads((ROOT/'receipts'/ID/'status_fix01/PREREGISTRATION.json').read_text(encoding='utf8'))
++        required={'src/n01/train_response007_statusfix01.py','scripts/launch_response007_statusfix01.sh',
++            'docs/RESPONSE_007_STATUS_FIX01.md','receipts/'+ID+'/status_fix01/PREREGISTRATION.json'}
++        if not required<=set(manifest['files']):raise ValueError('Missing amendment sources')
++        if sha256(args.resume_checkpoint)!=amendment['resume_checkpoint_sha256']:
++            raise ValueError('Resume checkpoint differs from the preserved first update')
++        if manifest.get('previous_G_updates')!=1 or manifest.get('new_execution_G_budget')!=37999:
++            raise ValueError('Resume update accounting changed')
+         torch.set_num_threads(cfg['cpu_threads']);torch.set_num_interop_threads(2)
+         if hasattr(os,'sched_getaffinity'):os.sched_setaffinity(0,sorted(os.sched_getaffinity(0))[:cfg['cpu_threads']])
+         torch.backends.cudnn.benchmark=False;torch.backends.cudnn.allow_tf32=False;torch.backends.cuda.matmul.allow_tf32=False
+@@ -91,7 +121,21 @@
+         for arm in ARMS:
+             directory=out/'train'/arm;directory.mkdir(parents=True,exist_ok=False)
+             engine=Response007Engine(data,stats,cfg,noise,common,arm=arm,device=device)
+-            engine.set_stage('mean_response');engine.checkpoint(directory/'initial.pt')
++            engine.set_stage('mean_response')
++            if arm=='deterministic':
++                restored=restore_first_update(engine,args.resume_checkpoint,cfg)
++                journal=ROOT/'provenance/response007_statusfix01/step00001_training.jsonl'
++                lines=journal.read_text(encoding='utf8').splitlines()
++                if len(lines)!=1 or json.loads(lines[0])['G_updates']!=1:raise ValueError('First update journal differs')
++                shutil.copy2(journal,directory/'training.jsonl')
++                engine.checkpoint(directory/'resume_start.pt')
++                write_json(out/'RESUME_VERIFICATION.json',dict(UTC=utc(),resumed_G_updates=engine.update,
++                    resumed_D_updates=engine.d_updates,checkpoint_sha256=sha256(args.resume_checkpoint),
++                    model_state_sha256=state_digest(engine.model.state_dict()),
++                    common_initial_state_sha256=engine.common_state_digest,noise005_state_sha256=engine.noise_state_digest,
++                    explicit_streams_verified=True,new_scientific_forward_for_restore=0,new_G_updates_for_restore=0))
++                del restored
++            else:engine.checkpoint(directory/'initial.pt')
+             while engine.update<cfg['response']['updates_per_arm']:
+                 stage=response_stage(engine.update,cfg);changed=stage!=engine.stage
+                 if changed:engine.set_stage(stage)
+@@ -102,8 +146,7 @@
+                 total_G=sum(x['G_updates'] for x in completed)+engine.update
+                 total_D=sum(sum(x['D_updates'].values()) for x in completed)+sum(engine.d_updates.values())
+                 if audit or engine.update%cfg['status_interval']==0:
+-                    status=dict(status='training_response007',pid=os.getpid(),run_id=ID,total_G_updates=total_G,total_D_updates=total_D,
+-                        total_C2ST_updates=0,noise_updates=0,elapsed_seconds=time.monotonic()-started,**metrics)
++                    status=training_status(metrics,total_G,total_D,time.monotonic()-started)
+                     write_json(out/'status.json',status)
+                     print(json.dumps({k:status[k] for k in ['utc','status','arm','stage','G_updates','total_G_updates','total_D_updates','weighted_total','update_seconds','coverage']}),flush=True)
+                 if engine.update%cfg['checkpoint_interval']==0:engine.checkpoint(directory/'latest.pt')
+@@ -124,7 +167,7 @@
+         evaluation=evaluate_run(out,cfg,args.container,args.identities,device=device)
+         files={x.relative_to(out).as_posix():sha256(x) for x in sorted(out.rglob('*')) if x.is_file() and x.name not in ('status.json','COMPLETE.json')}
+         write_json(out/'COMPLETE.json',dict(UTC=utc(),status='fixed_response007_training_and_evaluation_complete',
+-            run_id=ID,G_updates=38000,D_updates=96000,C2ST_updates=evaluation['C2ST_updates'],noise_updates=0,
++            run_id=ID,G_updates=38000,new_execution_G_updates=37999,previous_G_updates=1,D_updates=96000,C2ST_updates=evaluation['C2ST_updates'],noise_updates=0,
+             source_manifest_sha256=sha256(args.source_manifest),config_sha256=sha256(args.config),files=files,
+             scientific_status='response_match_not_established',elapsed_seconds=time.monotonic()-started))
+         write_json(out/'status.json',dict(status='completed_fixed_response007',UTC=utc(),pid=None,G_updates=38000,D_updates=96000,
+@@ -141,7 +184,7 @@
+         receipt=dict(UTC=utc(),status='failed_preserved_no_automatic_retry',error=repr(error),traceback=traceback.format_exc(),
+             completed_arms=completed,current_arm=engine.arm if engine is not None else None,
+             G_updates=sum(x['G_updates'] for x in finished)+current_G,
+-            D_updates=sum(sum(x['D_updates'].values()) for x in finished)+current_D,C2ST_updates=c2st_updates,
++            D_updates=sum(sum(x['D_updates'].values()) for x in finished)+current_D,C2ST_updates=c2st_updates,previous_G_updates=1,new_execution_G_updates=max(0,sum(x['G_updates'] for x in finished)+current_G-1),
+             noise_updates=0,scientific_status='response_match_not_established',elapsed_seconds=time.monotonic()-started)
+         write_json(out/'FAILURE.json',receipt);write_json(out/'status.json',receipt)
+         raise
