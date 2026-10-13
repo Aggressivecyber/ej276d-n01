@@ -1,8 +1,10 @@
-当前工作：用户指定的256点有效观察窗版本008已完成实现与原生CUDA工程检查，正冻结并启动三组固定终点训练。内部384点保留100点基线和寻峰上下文；损失、评价和交付波形为256点。当前进度以 `PROGRAM.json`、`jobs.json` 和 `receipts/window008_20261013/` 为准。
+当前工作：用户指定的256点有效观察窗版本008已于2026-10-13 04:25 UTC启动三组固定终点训练，已核实实际优化更新。内部384点保留100点基线和寻峰上下文；损失、评价和交付波形为256点。当前进度以 `PROGRAM.json`、`jobs.json` 和 [启动回执](receipts/window008_20261013/START_RECEIPT.json) 为准。
 
 # N01｜物理分解式条件随机 1D U-Net
 
-当前按用户新要求核实实际采集与256点窗口的对应关系，准备统一数据、模型和Q/PSD读出定义；原480点续训尚未启动。见 [窗口范围登记](receipts/planning_008_20261013/USER_SCOPE_WINDOW_ALIGNMENT.json)。
+同源Gamma有效分类窗已核实为峰前16点、峰后239点，1 ns/点；原始采集记录为10000点。本轮已统一256点的观察、损失和Q/PSD定义，保留N01原电压处理口径。原480点续训被本轮替代。见 [008协议](docs/WINDOW008_PROTOCOL.md)、[冻结源码](WINDOW008_SOURCE_MANIFEST.json) 和 [窗口范围登记](receipts/planning_008_20261013/USER_SCOPE_WINDOW_ALIGNMENT.json)。
+
+以下为历史节点；其中“当前科学作业数”只描述各节点关闭时的状态。
 
 **007有限阶段已完成并核验：两臂各4,000 G，累计8,000 G（本执行新增7,999）及6,000训练D；原每臂19,000 G末点尚未完成，响应匹配未建立，当前科学作业0。** [三页报告](reports/response_007_20261013/deadline01/N01_RESPONSE007_STAGE_REPORT.html) · [完成回执](receipts/response_007_20261013/deadline01/FINAL_RECEIPT.json) · [比较口径与下一步](reports/response_007_20261013/deadline01/README.md)。本轮由主代理实施与自检。
 

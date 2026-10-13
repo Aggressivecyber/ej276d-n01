@@ -103,6 +103,10 @@ print(json.dumps(dict(UTC=dt.datetime.now(dt.timezone.utc).isoformat(),files=fil
                      window008_source_commit=manifest['source_commit'],
                      last_verified_UTC=snapshot['UTC'], updated_UTC=snapshot['UTC'],
                      scientific_status='response_match_not_established')
+        value['next_action'] = ('Review the preserved failure and native receipt before any amended execution.'
+                                if failure or (native and native.get('exit_code') != 0)
+                                else 'Freeze and execute endpoint evaluation after the successful native training receipt.'
+                                if complete else 'Continue the fixed three-arm19000-G schedule; review endpoint evaluation and exact replay independently.')
         if state_path.name == 'PROGRAM.json':
             value.update(new_training_updates=100000 + g, current_run_training_updates=g,
                          current_arm=status.get('arm'), current_stage=status.get('stage', status.get('status')),
