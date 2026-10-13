@@ -1,0 +1,687 @@
+{
+  "UTC": "2026-10-13T16:04:45.054093+00:00",
+  "status": "correct_scientific_start_verified_once",
+  "native": {
+    "binding": {
+      "schema": "n01/window008-resume01-binding/v1",
+      "UTC": "2026-10-13T16:04:04.320873+00:00",
+      "run_id": "window008_resume01_20261013",
+      "pid": 13513,
+      "parent_pid": 13512,
+      "recovery": {
+        "run_id": "window008_resume01_20261013",
+        "config_sha256": "b406f4b4a98e12c786248cb6857e84a956abbd0a1677def77a5b0381503ceb0b",
+        "source_manifest_sha256": "0a3208cd8f05e8dd85cd44fde60e742fd28705eadb3fdae6752dce2f81fd8fb1",
+        "base_configuration_sha256": "f5500c65f2d17a2fe6964bfc5908dedb68c27b9391cb30bf30c0ba161509d145",
+        "base_source_manifest_sha256": "97b020dc68e41fa1e893e66fdf1091b1bf9500b98281a5dd7e2545ee9ce00929",
+        "fix01_configuration_sha256": "1fc57e0daf06f3eadf2a457361a4342c953f265039cec48b9401616c703d6402",
+        "fix01_source_manifest_sha256": "2a28ecca10b3815ac7af0387eab19072ff92df0f90f196cac79a86f20a1f0180"
+      },
+      "dataset_sha256": "8d43418595f4fa992a9b83735c4bf50863a659584d58888f8f965ec1339a1993",
+      "statistics_sha256": "aadd729364d0b6afac699a9d1774ac8d29fd2bcd10a9fd9f551141ecc2fbc2a0",
+      "raw_container_sha256": "9e2f2c3c18470f4b2f3374a39590a9c27b18222bd1b22b5d7467e561409ad854",
+      "identities_sha256": "5145ea04d038510c9ca740d997e0cf9d060ed69210a4515e20110d884db7e845",
+      "before_prepared_numeric_decode": true,
+      "DEV_waveforms_read": false,
+      "legacy_native_chain": {
+        "original_native_chain": {
+          "native_exit_code": 1,
+          "native_supervisor_pid": 194237,
+          "native_child_pid": 194239,
+          "legacy_training_pid": 194240,
+          "original_completed_G_updates": 22269,
+          "original_completed_D_updates": 48807,
+          "native_child_role": "timeout_wrapper",
+          "legacy_trainer_PID_evidence": "original_hash_bound_binding_and_chronology; no trainer_parent_PID_in_old_receipt",
+          "retained_arm_training_complete": true,
+          "old_job_native_success": false,
+          "discarded_full_joint_G_updates": 269,
+          "discarded_full_joint_D_updates": 807
+        },
+        "fix01_native_exit_code": 1,
+        "fix01_native_supervisor_pid": 258729,
+        "fix01_native_child_pid": 258731,
+        "fix01_training_pid": 258732,
+        "fix01_training_parent_pid": 258731,
+        "native_child_role": "timeout_wrapper",
+        "original_native_role": "preserved_numerical_failure",
+        "fix01_native_role": "preserved_explicit_user_SIGTERM",
+        "old_jobs_native_success": false,
+        "retained_deterministic_arm_training_complete": true,
+        "fix01_actual_new_G_updates": 3398,
+        "fix01_actual_new_D_updates": 10194,
+        "full_boundary_G_updates": 6000,
+        "full_boundary_D_updates": {
+          "fast": 3000,
+          "slow": 3000,
+          "common_level": 3000
+        },
+        "discarded_user_stop_G_updates": 398,
+        "discarded_user_stop_D_updates": 1194,
+        "previous_pause_superseded_by_direct_user_resume_authorization": true,
+        "mid_step_failure_checkpoint_loaded": false,
+        "DEV_waveforms_read": false
+      },
+      "new_execution_G_updates": 0,
+      "new_execution_D_updates": 0,
+      "inherited_effective_G_updates": 25000,
+      "inherited_effective_D_updates": 57000,
+      "effective_comparison_G_updates": 25000,
+      "effective_comparison_D_updates": 57000,
+      "historical_actual_G_updates_before_resume": 25667,
+      "historical_actual_D_updates_before_resume": 59001,
+      "historical_actual_G_updates": 25667,
+      "historical_actual_D_updates": 59001,
+      "global_N01_G_updates_before_resume": 125667,
+      "global_N01_actual_G_updates": 125667,
+      "discarded_legacy_joint_G_updates": 269,
+      "discarded_legacy_joint_D_updates": 807,
+      "discarded_user_stop_G_updates": 398,
+      "discarded_user_stop_D_updates": 1194,
+      "legacy_references_validated": true
+    },
+    "launch": {
+      "supervisor_pid": 13505,
+      "child_pid": 13512,
+      "command": [
+        "timeout",
+        "--signal=TERM",
+        "--kill-after=15s",
+        "21600s",
+        "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+        "-B",
+        "-m",
+        "n01.train_window008_resume01",
+        "--container",
+        "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R33_REMOTE_20261009_175239_UTC/inputs/TRAIN_PRIVATE.npz",
+        "--identities",
+        "/home/rylan/projects/ej276d-n01/window008_resume01_20261013/data/PARENT_IDENTITIES.npz",
+        "--config",
+        "/home/rylan/projects/ej276d-n01/window008_resume01_20261013/window008_config.json",
+        "--resume-config",
+        "/home/rylan/projects/ej276d-n01/window008_resume01_20261013/window008_resume01_config.json",
+        "--dataset",
+        "/home/rylan/projects/ej276d-n01/window008_resume01_20261013/data/window008/DATASET008.npz",
+        "--statistics",
+        "/home/rylan/projects/ej276d-n01/window008_resume01_20261013/data/window008/FIT_STATISTICS008.json",
+        "--source-manifest",
+        "/home/rylan/projects/ej276d-n01/window008_resume01_20261013/WINDOW008_RESUME01_SOURCE_MANIFEST.json",
+        "--out",
+        "/home/rylan/projects/ej276d-n01/window008_resume01_20261013/runs/science",
+        "--device",
+        "cuda:0"
+      ],
+      "started_utc": "2026-10-13T16:04:03.161909+00:00"
+    },
+    "first_update": {
+      "utc": "2026-10-13T16:04:06.726015+00:00",
+      "arm": "full",
+      "stage": "joint_stochastic",
+      "G_updates": 6001,
+      "D_updates": {
+        "fast": 3001,
+        "slow": 3001,
+        "common_level": 3001
+      },
+      "weighted_total": 1.0718817683287583,
+      "regular_once": 0.015378288932238714,
+      "trend_once": 0.0,
+      "hypotheses": {
+        "fast": {
+          "components": {
+            "wave": 0.6427701120824634,
+            "QPSD": 0.09355014583816725,
+            "noise": 0.14578844960318893,
+            "adv": 0.9408997297286987
+          },
+          "wave_subcomponents": {
+            "swd": 0.8002150757240246,
+            "coordinate": 0.5082942479151622,
+            "short_lag": 0.46235604896664184
+          },
+          "conditional_diagnostics": {
+            "fake_global_rows": 1024,
+            "real_global_rows": 1024,
+            "conditional_bins": [
+              {
+                "bin": 0,
+                "fake_count": 112,
+                "real_count": 126,
+                "supported": true,
+                "status": "used"
+              },
+              {
+                "bin": 1,
+                "fake_count": 133,
+                "real_count": 146,
+                "supported": true,
+                "status": "used"
+              },
+              {
+                "bin": 2,
+                "fake_count": 119,
+                "real_count": 128,
+                "supported": true,
+                "status": "used"
+              },
+              {
+                "bin": 3,
+                "fake_count": 149,
+                "real_count": 132,
+                "supported": true,
+                "status": "used"
+              },
+              {
+                "bin": 4,
+                "fake_count": 139,
+                "real_count": 127,
+                "supported": true,
+                "status": "used"
+              },
+              {
+                "bin": 5,
+                "fake_count": 115,
+                "real_count": 132,
+                "supported": true,
+                "status": "used"
+              },
+              {
+                "bin": 6,
+                "fake_count": 121,
+                "real_count": 124,
+                "supported": true,
+                "status": "used"
+              },
+              {
+                "bin": 7,
+                "fake_count": 136,
+                "real_count": 109,
+                "supported": true,
+                "status": "used"
+              }
+            ],
+            "minimum_conditional_support": 16,
+            "conditional_bins_used": 8,
+            "conditional_bins_total": 8,
+            "conditional_coverage_complete": true,
+            "conditional_rebatch_needed": false,
+            "fake_nonpositive_q_rows": 0,
+            "real_nonpositive_q_rows": 0,
+            "fake_guarded_psd_rows": 0,
+            "real_guarded_psd_rows": 0,
+            "global_term_includes_all_rows": true,
+            "conditional_term": "PSD_empirical_W1",
+            "no_supported_bin_behavior": "global_term_only_with_incomplete_coverage_diagnostic",
+            "projection_context": {
+              "kind": "training",
+              "seed": 2026101387,
+              "update": 6001,
+              "fingerprint": "5547d0eabc228549e9c626d1f2f41c55de0e2a9699a1cf673fcbf2d7943d70e5"
+            },
+            "loss_version": 2,
+            "standardization_split": "TRAIN"
+          },
+          "engineering": {
+            "nonpositive_Q": 0,
+            "guarded_PSD": 0,
+            "saturation_fraction": 0.00011189778645833333,
+            "charge_identity_max": 3.427813588530171e-15,
+            "search_edge_rows": 0,
+            "global_peak_outside_search_rows": 0,
+            "signal_Q_crop_change_absmax": 2.275197644537478
+          }
+        },
+        "slow": {
+          "components": {
+            "wave": 0.6423617802867397,
+            "QPSD": 0.09010909093155511,
+            "noise": 0.14578844960318893,
+            "adv": 0.9801258444786072
+          },
+          "wave_subcomponents": {
+            "swd": 0.7998771116104374,
+            "coordinate": 0.5073853825657206,
+            "short_lag": 0.4623075153603639
+          },
+          "conditional_diagnostics": {
+            "fake_global_rows": 1024,
+            "real_global_rows": 1024,
+            "conditional_bins": [
+              {
+                "bin": 0,
+                "fake_count": 111,
+                "real_count": 126,
+                "supported": true,
+                "status": "used"
+              },
+              {
+                "bin": 1,
+                "fake_count": 133,
+                "real_count": 146,
+                "supported": true,
+                "status": "used"
+              },
+              {
+                "bin": 2,
+                "fake_count": 125,
+                "real_count": 128,
+                "supported": true,
+                "status": "used"
+              },
+              {
+                "bin": 3,
+                "fake_count": 142,
+                "real_count": 132,
+                "supported": true,
+                "status": "used"
+              },
+              {
+                "bin": 4,
+                "fake_count": 140,
+                "real_count": 127,
+                "supported": true,
+                "status": "used"
+              },
+              {
+                "bin": 5,
+                "fake_count": 116,
+                "real_count": 132,
+                "supported": true,
+                "status": "used"
+              },
+              {
+                "bin": 6,
+                "fake_count": 123,
+                "real_count": 124,
+                "supported": true,
+                "status": "used"
+              },
+              {
+                "bin": 7,
+                "fake_count": 134,
+                "real_count": 109,
+                "supported": true,
+                "status": "used"
+              }
+            ],
+            "minimum_conditional_support": 16,
+            "conditional_bins_used": 8,
+            "conditional_bins_total": 8,
+            "conditional_coverage_complete": true,
+            "conditional_rebatch_needed": false,
+            "fake_nonpositive_q_rows": 0,
+            "real_nonpositive_q_rows": 0,
+            "fake_guarded_psd_rows": 0,
+            "real_guarded_psd_rows": 0,
+            "global_term_includes_all_rows": true,
+            "conditional_term": "PSD_empirical_W1",
+            "no_supported_bin_behavior": "global_term_only_with_incomplete_coverage_diagnostic",
+            "projection_context": {
+              "kind": "training",
+              "seed": 2026101387,
+              "update": 6001,
+              "fingerprint": "5547d0eabc228549e9c626d1f2f41c55de0e2a9699a1cf673fcbf2d7943d70e5"
+            },
+            "loss_version": 2,
+            "standardization_split": "TRAIN"
+          },
+          "engineering": {
+            "nonpositive_Q": 0,
+            "guarded_PSD": 0,
+            "saturation_fraction": 0.00011189778645833333,
+            "charge_identity_max": 3.941291737419306e-15,
+            "search_edge_rows": 0,
+            "global_peak_outside_search_rows": 0,
+            "signal_Q_crop_change_absmax": 2.275197644537478
+          }
+        },
+        "common_level": {
+          "components": {
+            "wave": 0.640392221896604,
+            "QPSD": 0.09663888327436715,
+            "noise": 0.14578844960318893,
+            "adv": 0.9959569573402405
+          },
+          "wave_subcomponents": {
+            "swd": 0.7990690447787966,
+            "coordinate": 0.5037952241944664,
+            "short_lag": 0.4596355738343564
+          },
+          "conditional_diagnostics": {
+            "fake_global_rows": 1024,
+            "real_global_rows": 1024,
+            "conditional_bins": [
+              {
+                "bin": 0,
+                "fake_count": 114,
+                "real_count": 126,
+                "supported": true,
+                "status": "used"
+              },
+              {
+                "bin": 1,
+                "fake_count": 127,
+                "real_count": 146,
+                "supported": true,
+                "status": "used"
+              },
+              {
+                "bin": 2,
+                "fake_count": 123,
+                "real_count": 128,
+                "supported": true,
+                "status": "used"
+              },
+              {
+                "bin": 3,
+                "fake_count": 149,
+                "real_count": 132,
+                "supported": true,
+                "status": "used"
+              },
+              {
+                "bin": 4,
+                "fake_count": 136,
+                "real_count": 127,
+                "supported": true,
+                "status": "used"
+              },
+              {
+                "bin": 5,
+                "fake_count": 118,
+                "real_count": 132,
+                "supported": true,
+                "status": "used"
+              },
+              {
+                "bin": 6,
+                "fake_count": 121,
+                "real_count": 124,
+                "supported": true,
+                "status": "used"
+              },
+              {
+                "bin": 7,
+                "fake_count": 136,
+                "real_count": 109,
+                "supported": true,
+                "status": "used"
+              }
+            ],
+            "minimum_conditional_support": 16,
+            "conditional_bins_used": 8,
+            "conditional_bins_total": 8,
+            "conditional_coverage_complete": true,
+            "conditional_rebatch_needed": false,
+            "fake_nonpositive_q_rows": 0,
+            "real_nonpositive_q_rows": 0,
+            "fake_guarded_psd_rows": 0,
+            "real_guarded_psd_rows": 0,
+            "global_term_includes_all_rows": true,
+            "conditional_term": "PSD_empirical_W1",
+            "no_supported_bin_behavior": "global_term_only_with_incomplete_coverage_diagnostic",
+            "projection_context": {
+              "kind": "training",
+              "seed": 2026101387,
+              "update": 6001,
+              "fingerprint": "5547d0eabc228549e9c626d1f2f41c55de0e2a9699a1cf673fcbf2d7943d70e5"
+            },
+            "loss_version": 2,
+            "standardization_split": "TRAIN"
+          },
+          "engineering": {
+            "nonpositive_Q": 0,
+            "guarded_PSD": 0,
+            "saturation_fraction": 0.00011189778645833333,
+            "charge_identity_max": 3.7192471324942744e-15,
+            "search_edge_rows": 0,
+            "global_peak_outside_search_rows": 0,
+            "signal_Q_crop_change_absmax": 2.275197644537478
+          }
+        }
+      },
+      "discriminators": {
+        "fast": {
+          "loss": 1.3163366317749023,
+          "preclip_gradient_norm": 1.3647356033325195
+        },
+        "slow": {
+          "loss": 1.3092753887176514,
+          "preclip_gradient_norm": 1.8997597694396973
+        },
+        "common_level": {
+          "loss": 1.3192133903503418,
+          "preclip_gradient_norm": 1.2725998163223267
+        }
+      },
+      "G_preclip_gradient_norm": 14.268787384033203,
+      "signal_prefix_absolute_max_V": 0.0,
+      "model_engineering": {
+        "query_outside_carrier": 68075,
+        "beyond_extension": 25493,
+        "canonical_charge_identity_absmax": 3.552713678800501e-15,
+        "canonical_local_charge_absmax": 1.249000902703301e-16
+      },
+      "projection_context": {
+        "kind": "training",
+        "seed": 2026101387,
+        "update": 6001,
+        "fingerprint": "5547d0eabc228549e9c626d1f2f41c55de0e2a9699a1cf673fcbf2d7943d70e5"
+      },
+      "same_version_replay_verified": true,
+      "coverage": {
+        "source_unique": 6593,
+        "source_total": 6593,
+        "real_unique": 21047,
+        "real_total": 21047,
+        "source_epochs": 466,
+        "real_epochs": 291
+      },
+      "noise_updates": 0,
+      "population_updates": 0,
+      "update_seconds": 0.8667083350001121,
+      "gpu_allocated_bytes": 259533312,
+      "gpu_reserved_bytes": 2409627648,
+      "endpoint_gradients": {
+        "fast": {
+          "norms": {
+            "wave": 0.35691758209179114,
+            "QPSD": 0.8463180148466729,
+            "noise": 0.0,
+            "adv": 0.06705547236599932
+          },
+          "cosine": {
+            "wave/QPSD": -0.016210621427204728,
+            "wave/noise": null,
+            "wave/adv": 0.22903408566696418,
+            "QPSD/noise": null,
+            "QPSD/adv": -0.02597951539380556,
+            "noise/adv": null
+          },
+          "zero_norm_angle": null
+        },
+        "slow": {
+          "norms": {
+            "wave": 0.3562963797457274,
+            "QPSD": 0.854353283561407,
+            "noise": 0.0,
+            "adv": 0.0706016006458911
+          },
+          "cosine": {
+            "wave/QPSD": -0.00619686588646262,
+            "wave/noise": null,
+            "wave/adv": 0.21945423723659863,
+            "QPSD/noise": null,
+            "QPSD/adv": -0.027027269941456575,
+            "noise/adv": null
+          },
+          "zero_norm_angle": null
+        },
+        "common_level": {
+          "norms": {
+            "wave": 0.35478570314849495,
+            "QPSD": 0.8364795936010796,
+            "noise": 0.0,
+            "adv": 0.06557598477555708
+          },
+          "cosine": {
+            "wave/QPSD": -0.004060874745911708,
+            "wave/noise": null,
+            "wave/adv": 0.20098384845010528,
+            "QPSD/noise": null,
+            "QPSD/adv": 0.019538697257223396,
+            "noise/adv": null
+          },
+          "zero_norm_angle": null
+        }
+      },
+      "gradient_scope": "per-hypothesis weighted waveform endpoints; base regular excluded",
+      "G_branch_postclip_gradient_norms": {
+        "shape_encoder": 0.08571465443930233,
+        "charge_head": 3.587433669327328,
+        "response_filter": 0.024795185611297607,
+        "mean_time": 0.23186541048502501,
+        "unet": 1.4876649161334168,
+        "mean_head": 2.445266879521574,
+        "physical_head": 0.7039262203143344,
+        "basis_head": 1.811328946960867,
+        "envelope_head": 0.3157354405703143,
+        "local_filter": 0.0012471978303247452
+      },
+      "recovery_run_id": "window008_resume01_20261013",
+      "model_implementation": "n01.model008_fix01.N01Response008Fix01",
+      "inherited_G_updates": 6000,
+      "inherited_D_updates": {
+        "fast": 3000,
+        "slow": 3000,
+        "common_level": 3000
+      },
+      "new_G_updates": 1,
+      "new_D_updates": {
+        "fast": 1,
+        "slow": 1,
+        "common_level": 1
+      }
+    },
+    "first_update_line_sha256": "397701bb94ed260ad1afcaecdf01ded954fb655172b0d936ce71c42809602844",
+    "processes": {
+      "13513": {
+        "argv": [
+          "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+          "-B",
+          "-m",
+          "n01.train_window008_resume01",
+          "--container",
+          "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R33_REMOTE_20261009_175239_UTC/inputs/TRAIN_PRIVATE.npz",
+          "--identities",
+          "/home/rylan/projects/ej276d-n01/window008_resume01_20261013/data/PARENT_IDENTITIES.npz",
+          "--config",
+          "/home/rylan/projects/ej276d-n01/window008_resume01_20261013/window008_config.json",
+          "--resume-config",
+          "/home/rylan/projects/ej276d-n01/window008_resume01_20261013/window008_resume01_config.json",
+          "--dataset",
+          "/home/rylan/projects/ej276d-n01/window008_resume01_20261013/data/window008/DATASET008.npz",
+          "--statistics",
+          "/home/rylan/projects/ej276d-n01/window008_resume01_20261013/data/window008/FIT_STATISTICS008.json",
+          "--source-manifest",
+          "/home/rylan/projects/ej276d-n01/window008_resume01_20261013/WINDOW008_RESUME01_SOURCE_MANIFEST.json",
+          "--out",
+          "/home/rylan/projects/ej276d-n01/window008_resume01_20261013/runs/science",
+          "--device",
+          "cuda:0"
+        ],
+        "status": "Name:\tpython\nUmask:\t0002\nState:\tR (running)\nTgid:\t13513\nNgid:\t0\nPid:\t13513\nPPid:\t13512\nTracerPid:\t0\nUid:\t1000\t1000\t1000\t1000\nGid:\t1000\t1000\t1000\t1000\nFDSize:\t64\nGroups:\t4 24 27 30 46 100 114 126 983 984 995 1000 \nNStgid:\t13513\nNSpid:\t13513\nNSpgid:\t13512\nNSsid:\t13512\nKthread:\t0\nVmPeak:\t23815864 kB\nVmSize:\t23787636 kB\nVmLck:\t       0 kB\nVmPin:\t       0 kB\nVmHWM:\t 2913392 kB\nVmRSS:\t 2913392 kB\nRssAnon:\t 2408944 kB\nRssFile:\t  489852 kB\nRssShmem:\t   14596 kB\nVmData:\t 3848564 kB\nVmStk:\t     228 kB\nVmExe:\t    2956 kB\nVmLib:\t 2101872 kB\nVmPTE:\t    8296 kB\nVmSwap:\t       0 kB\nHugetlbPages:\t       0 kB\nCoreDumping:\t0\nTHP_enabled:\t1\nuntag_mask:\t0xffffffffffffffff\nThreads:\t38\nSigQ:\t1/233360\nSigPnd:\t0000000000000000\nShdPnd:\t0000000000000000\nSigBlk:\t0000000000000000\nSigIgn:\t0000000001001000\nSigCgt:\t0000000100004002\nCapInh:\t0000000000000000\nCapPrm:\t0000000000000000\nCapEff:\t0000000000000000\nCapBnd:\t000001ffffffffff\nCapAmb:\t0000000000000000\nNoNewPrivs:\t0\nSeccomp:\t0\nSeccomp_filters:\t0\nSpeculation_Store_Bypass:\tthread vulnerable\nSpeculationIndirectBranch:\tconditional enabled\nCpus_allowed:\t0fff\nCpus_allowed_list:\t0-11\nMems_allowed:\t00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000001\nMems_allowed_list:\t0\nvoluntary_ctxt_switches:\t927\nnonvoluntary_ctxt_switches:\t779\nx86_Thread_features:\t\nx86_Thread_features_locked:\t\n",
+        "stat": "13513 (python) R 13512 13512 13512 0 -1 4194304 619276 100 2 0 5388 422 0 0 20 0 38 0 238038 24358539264 728067 18446744073709551615 4325376 7352253 140729286752928 0 0 0 0 16781312 16386 0 0 0 17 4 0 0 0 0 0 10653128 12216448 706531328 140729286760497 140729286761453 140729286761453 140729286762419 0\n"
+      },
+      "13505": {
+        "argv": [
+          "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+          "-B",
+          "scripts/supervise.py",
+          "--output",
+          "/home/rylan/projects/ej276d-n01/window008_resume01_20261013/runs/supervisor",
+          "--rss-limit-gib",
+          "8",
+          "--",
+          "timeout",
+          "--signal=TERM",
+          "--kill-after=15s",
+          "21600s",
+          "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+          "-B",
+          "-m",
+          "n01.train_window008_resume01",
+          "--container",
+          "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R33_REMOTE_20261009_175239_UTC/inputs/TRAIN_PRIVATE.npz",
+          "--identities",
+          "/home/rylan/projects/ej276d-n01/window008_resume01_20261013/data/PARENT_IDENTITIES.npz",
+          "--config",
+          "/home/rylan/projects/ej276d-n01/window008_resume01_20261013/window008_config.json",
+          "--resume-config",
+          "/home/rylan/projects/ej276d-n01/window008_resume01_20261013/window008_resume01_config.json",
+          "--dataset",
+          "/home/rylan/projects/ej276d-n01/window008_resume01_20261013/data/window008/DATASET008.npz",
+          "--statistics",
+          "/home/rylan/projects/ej276d-n01/window008_resume01_20261013/data/window008/FIT_STATISTICS008.json",
+          "--source-manifest",
+          "/home/rylan/projects/ej276d-n01/window008_resume01_20261013/WINDOW008_RESUME01_SOURCE_MANIFEST.json",
+          "--out",
+          "/home/rylan/projects/ej276d-n01/window008_resume01_20261013/runs/science",
+          "--device",
+          "cuda:0"
+        ],
+        "status": "Name:\tpython\nUmask:\t0002\nState:\tS (sleeping)\nTgid:\t13505\nNgid:\t0\nPid:\t13505\nPPid:\t1\nTracerPid:\t0\nUid:\t1000\t1000\t1000\t1000\nGid:\t1000\t1000\t1000\t1000\nFDSize:\t256\nGroups:\t4 24 27 30 46 100 114 126 983 984 995 1000 \nNStgid:\t13505\nNSpid:\t13505\nNSpgid:\t13505\nNSsid:\t13505\nKthread:\t0\nVmPeak:\t   24656 kB\nVmSize:\t   24516 kB\nVmLck:\t       0 kB\nVmPin:\t       0 kB\nVmHWM:\t   14500 kB\nVmRSS:\t   14500 kB\nRssAnon:\t    7020 kB\nRssFile:\t    7480 kB\nRssShmem:\t       0 kB\nVmData:\t    8384 kB\nVmStk:\t     132 kB\nVmExe:\t    2956 kB\nVmLib:\t    2708 kB\nVmPTE:\t      84 kB\nVmSwap:\t       0 kB\nHugetlbPages:\t       0 kB\nCoreDumping:\t0\nTHP_enabled:\t1\nuntag_mask:\t0xffffffffffffffff\nThreads:\t1\nSigQ:\t1/233360\nSigPnd:\t0000000000000000\nShdPnd:\t0000000000000000\nSigBlk:\t0000000000000000\nSigIgn:\t0000000001001000\nSigCgt:\t0000000000000002\nCapInh:\t0000000000000000\nCapPrm:\t0000000000000000\nCapEff:\t0000000000000000\nCapBnd:\t000001ffffffffff\nCapAmb:\t0000000000000000\nNoNewPrivs:\t0\nSeccomp:\t0\nSeccomp_filters:\t0\nSpeculation_Store_Bypass:\tthread vulnerable\nSpeculationIndirectBranch:\tconditional enabled\nCpus_allowed:\tffff\nCpus_allowed_list:\t0-15\nMems_allowed:\t00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000001\nMems_allowed_list:\t0\nvoluntary_ctxt_switches:\t54\nnonvoluntary_ctxt_switches:\t0\nx86_Thread_features:\t\nx86_Thread_features_locked:\t\n",
+        "stat": "13505 (python) S 1 13505 13505 0 -1 4194304 2104 113 0 0 3 2 0 0 20 0 1 0 238036 25104384 3581 18446744073709551615 4325376 7352253 140737387917664 0 0 0 0 16781312 2 1 0 0 17 15 0 0 0 0 0 10653128 12216448 534147072 140737387923260 140737387924461 140737387924461 140737387925427 0\n"
+      },
+      "13512": {
+        "argv": [
+          "timeout",
+          "--signal=TERM",
+          "--kill-after=15s",
+          "21600s",
+          "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+          "-B",
+          "-m",
+          "n01.train_window008_resume01",
+          "--container",
+          "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R33_REMOTE_20261009_175239_UTC/inputs/TRAIN_PRIVATE.npz",
+          "--identities",
+          "/home/rylan/projects/ej276d-n01/window008_resume01_20261013/data/PARENT_IDENTITIES.npz",
+          "--config",
+          "/home/rylan/projects/ej276d-n01/window008_resume01_20261013/window008_config.json",
+          "--resume-config",
+          "/home/rylan/projects/ej276d-n01/window008_resume01_20261013/window008_resume01_config.json",
+          "--dataset",
+          "/home/rylan/projects/ej276d-n01/window008_resume01_20261013/data/window008/DATASET008.npz",
+          "--statistics",
+          "/home/rylan/projects/ej276d-n01/window008_resume01_20261013/data/window008/FIT_STATISTICS008.json",
+          "--source-manifest",
+          "/home/rylan/projects/ej276d-n01/window008_resume01_20261013/WINDOW008_RESUME01_SOURCE_MANIFEST.json",
+          "--out",
+          "/home/rylan/projects/ej276d-n01/window008_resume01_20261013/runs/science",
+          "--device",
+          "cuda:0"
+        ],
+        "status": "Name:\ttimeout\nUmask:\t0002\nState:\tS (sleeping)\nTgid:\t13512\nNgid:\t0\nPid:\t13512\nPPid:\t13505\nTracerPid:\t0\nUid:\t1000\t1000\t1000\t1000\nGid:\t1000\t1000\t1000\t1000\nFDSize:\t64\nGroups:\t4 24 27 30 46 100 114 126 983 984 995 1000 \nNStgid:\t13512\nNSpid:\t13512\nNSpgid:\t13512\nNSsid:\t13512\nKthread:\t0\nVmPeak:\t    8444 kB\nVmSize:\t    8444 kB\nVmLck:\t       0 kB\nVmPin:\t       0 kB\nVmHWM:\t    2120 kB\nVmRSS:\t    2120 kB\nRssAnon:\t     104 kB\nRssFile:\t    2016 kB\nRssShmem:\t       0 kB\nVmData:\t     224 kB\nVmStk:\t     132 kB\nVmExe:\t      20 kB\nVmLib:\t    1752 kB\nVmPTE:\t      56 kB\nVmSwap:\t       0 kB\nHugetlbPages:\t       0 kB\nCoreDumping:\t0\nTHP_enabled:\t1\nuntag_mask:\t0xffffffffffffffff\nThreads:\t1\nSigQ:\t1/233360\nSigPnd:\t0000000000000000\nShdPnd:\t0000000000000000\nSigBlk:\t0000000000000000\nSigIgn:\t0000000000300000\nSigCgt:\t0000000000016007\nCapInh:\t0000000000000000\nCapPrm:\t0000000000000000\nCapEff:\t0000000000000000\nCapBnd:\t000001ffffffffff\nCapAmb:\t0000000000000000\nNoNewPrivs:\t0\nSeccomp:\t0\nSeccomp_filters:\t0\nSpeculation_Store_Bypass:\tthread vulnerable\nSpeculationIndirectBranch:\tconditional enabled\nCpus_allowed:\tffff\nCpus_allowed_list:\t0-15\nMems_allowed:\t00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000001\nMems_allowed_list:\t0\nvoluntary_ctxt_switches:\t1\nnonvoluntary_ctxt_switches:\t0\nx86_Thread_features:\t\nx86_Thread_features_locked:\t\n",
+        "stat": "13512 (timeout) S 13505 13512 13512 0 -1 4194304 74 0 0 0 0 0 0 0 20 0 1 0 238038 8646656 504 18446744073709551615 107262110638080 107262110656145 140731700024336 0 0 0 0 3145728 90119 1 0 0 17 13 0 0 0 0 0 107262110669424 107262110671448 107262724378624 140731700029495 140731700030497 140731700030497 140731700031463 0\n"
+      }
+    },
+    "resource": {
+      "supervisor_pid": 13505,
+      "child_pid": 13512,
+      "rss_bytes": 2985484288,
+      "peak_rss_bytes": 2985484288,
+      "child_tree": [
+        13512,
+        13513
+      ],
+      "utc": "2026-10-13T16:04:44.197351+00:00"
+    },
+    "GPU_compute_processes": "13513, /home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python, 2644 MiB",
+    "complete_present": false,
+    "failure_present": false,
+    "native_exit_present": false
+  },
+  "scope": "One startup proof only; fixed endpoints and native exit remain pending.",
+  "scientific_status": "response_match_not_established"
+}
