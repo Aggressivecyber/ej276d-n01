@@ -1,0 +1,94 @@
+{
+  "schema": "n01/window008-resume01-final-delivery/v1",
+  "UTC": "2026-10-13T20:30:09.335118+00:00",
+  "status": "fixed_work_complete_report_verified_private_full_archive_verified",
+  "scientific_status": "response_match_not_established",
+  "training_completed": true,
+  "evaluation_completed": true,
+  "exact_main_replay_passed": true,
+  "supplementary_diagnostics_completed": true,
+  "independent_numerical_readback_passed": true,
+  "report_all_pages_verified": true,
+  "active_scientific_jobs": 0,
+  "automation_id": "n01",
+  "automation_status": "PAUSED",
+  "training_effective": {
+    "G_updates": 57000,
+    "D_updates": 144000,
+    "arms": 3,
+    "G_updates_each": 19000
+  },
+  "historical_Window008_actual": {
+    "G_updates": 57667,
+    "D_updates": 146001
+  },
+  "total_N01_G_updates": 157667,
+  "evaluation_and_diagnostic_optimizer_updates": 0,
+  "exact_replay": {
+    "NPZ_files": 13,
+    "NPZ_members": 815
+  },
+  "diagnostic_readback": {
+    "NPZ_files": 35,
+    "NPZ_members": 10476,
+    "independent_parent_covariances": 1152,
+    "original_tolerances_preserved": true
+  },
+  "report": {
+    "pdf": "E:\\GAN\\research\\N01\\reports\\window008_resume01_20261013\\N01_WINDOW008_RESUME01_REPORT.pdf",
+    "pdf_sha256": "3cd9bede297c8c76b900903ac6618b3e8f36e1f5ba79700f00290b5338eefaf1",
+    "pages": 10,
+    "QA": "E:\\GAN\\research\\N01\\receipts\\window008_resume01_20261013\\REPORT_VISUAL_QA.json",
+    "QA_sha256": "f8ea89f38ff51ee64a92992ea98b44c9a8c2e221e534dfd1c074592f559fdb04",
+    "HTML": "E:\\GAN\\research\\N01\\reports\\window008_resume01_20261013\\N01_WINDOW008_RESUME01_REPORT.html",
+    "evidence": "E:\\GAN\\research\\N01\\reports\\window008_resume01_20261013\\EVIDENCE.json",
+    "evidence_sha256": "ca4a417a2a64320a224daf45d0ac1496bc87504c8e3e5c593a288a06f0eff93b"
+  },
+  "private_archive": {
+    "path": "E:\\GAN\\private_archives\\N01\\window008_resume01_20261013_full_20261014_delivery03\\N01_PRIVATE_FULL.tar",
+    "bytes": 7574650880,
+    "sha256": "44c9062b0b0a8d86f1c22e9084124fb84db9491fdcff56a7ad07cd07c84be03e",
+    "members_verified": 10517,
+    "receipt": "E:\\GAN\\research\\N01\\receipts\\window008_resume01_20261013\\PRIVATE_ARCHIVE_RECEIPT.json",
+    "receipt_sha256": "73ea20e6e77033e1d72423f04bad16d9e10a6fa494e6bedcad4fdebaa123ef75",
+    "snapshot_commit": "ad588f435edb49881f4d8471c422559eaae8f3d8"
+  },
+  "D_source_backup": {
+    "status": "source_only_copy_reopened_and_sha256_verified",
+    "path": "D:\\GAN_backups\\research\\N01\\window008_resume01_20261013_full_20261014_delivery03\\source_only",
+    "files": 303,
+    "exact_payload_bytes_before_copy": 3798205,
+    "actual_payload_bytes": 3798205,
+    "D_free_before": 495583232,
+    "D_free_after": 490840064,
+    "required_free_margin_bytes": 268435456,
+    "no_direct_weight_or_data_arrays": true,
+    "git_bundle_included": false,
+    "omitted_git_bundle": {
+      "path": "E:\\GAN\\private_archives\\N01\\window008_resume01_20261013_full_20261014_delivery03\\N01_LOCAL_HISTORY.bundle",
+      "sha256": "f8be1a5875ea9b0cbf759640660800f045dec8a8039f518edb4f0710edb579ee",
+      "status": "omitted_from_D_source_copy",
+      "reason": "Historical Git includes data/weight-extension paths; full Git and bundle remain in the E private snapshot.",
+      "historical_data_paths": [
+        "reports/noise_acf005_20261012/ACF_PER_LAG.csv"
+      ]
+    }
+  },
+  "final_metadata_supplement": {
+    "directory": "E:\\GAN\\private_archives\\N01\\window008_resume01_20261013_full_20261014_delivery03\\supplements\\final_delivery01",
+    "verification_receipt": "E:\\GAN\\private_archives\\N01\\window008_resume01_20261013_full_20261014_delivery03\\supplements\\final_delivery01\\SUPPLEMENT_RECEIPT.json",
+    "scope": "Final ledgers and this receipt plus Git delta; receipt emitted after committing this metadata to avoid a self-hash cycle."
+  },
+  "conclusion": "Full wave distance exceeds both controls in TRAIN and DEV for all three noise assumptions. Training completion and exact replay do not establish physical response matching.",
+  "limitations": [
+    "One previously exposed acquisition; no independent calibration or paired repeated REAL truth",
+    "Input shape perturbation median unit-shape L2 4.799e-9; near-zero output delta cannot establish input ignoring",
+    "Population output-Q conditional waveform moments unavailable",
+    "Independent C2ST unexecuted with updates0"
+  ],
+  "original_failure_and_user_stop_native_exit_codes_preserved": [
+    1,
+    1
+  ],
+  "publication": "local_only_no_push_no_release"
+}
