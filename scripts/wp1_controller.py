@@ -20,7 +20,7 @@ import sys
 import tarfile
 import uuid
 
-REMOTE = "/home/rylan/projects/ej276d-n01/wp1_013_runtime_fix01_20261015"
+REMOTE = "/home/rylan/projects/ej276d-n01/wp1_013_repeat_fix01_20261015"
 OLD008 = "/home/rylan/projects/ej276d-n01/window008_resume01_20261013"
 OLD010 = "/home/rylan/projects/ej276d-n01/shape010_20261014"
 OLD011 = "/home/rylan/projects/ej276d-n01/stability011_20261014"
@@ -31,7 +31,7 @@ RUN_ID, CFG, MANIFEST = "wp1_013_20261015", "wp1_013_config.json", "WP1_SOURCE_M
 CONTROLLER = "scripts/wp1_controller.py"
 SOURCE_ARCHIVE, PRIVATE_ARCHIVE = "wp1_source.tar.gz", "wp1_private_inputs.tar"
 PRIVATE_KEYS = ("g4_cache", "training_container", "generator_source", "provenance_report")
-SOURCE_LIMIT, PRIVATE_LIMIT, COLLECTION_LIMIT = 16*1024**2, 64*1024**2, 1040*1024**2
+SOURCE_LIMIT, PRIVATE_LIMIT, COLLECTION_LIMIT = 16*1024**2, 64*1024**2, 1552*1024**2
 SELF_ROOT = Path(__file__).resolve().parents[1] if __file__ not in ("<stdin>", "<string>") else Path(REMOTE)
 STATE_NAMES = ("START_RECEIPT.json", "REMOTE_INSTALL_RECEIPT.json", "DISPATCH_ATTEMPT.json",
     "runs/primary/supervisor/launch.json", "runs/primary/supervisor/resource_status.json",
@@ -110,7 +110,7 @@ def validate_config(value, frozen=True):
         "population_updates", "C2ST_updates", "new_AD_queries", "DEV_model_rows")
     require(all(value["budget_caps"].get(name) == 0 for name in required_zero), "zero-update/query scope changed")
     require(value["resource_limits"] == dict(CPU_threads=12, GPU_GiB=10, job_tree_RSS_GiB=8,
-        wall_seconds=7200, output_MiB=1024, poll_seconds=10, TERM_grace_seconds=20), "registered machine limits changed")
+        wall_seconds=7200, output_MiB=1536, poll_seconds=10, TERM_grace_seconds=20), "registered machine limits changed")
     private = {name: row for name, row in value["inputs"].items() if row["path"].startswith(REMOTE+"/private_inputs/")}
     require(set(private) == set(PRIVATE_KEYS), "private payload must contain exactly four records")
     require(not frozen or (value.get("source_files") and CFG not in value["source_files"]

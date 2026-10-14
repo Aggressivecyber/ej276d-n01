@@ -1,0 +1,205 @@
+{
+  "schema": "n01/wp1-repeat-saved-readback/v1",
+  "status": "READBACK_COMPLETE_not_scientific_acceptance",
+  "inventory_sha256": "afe24b9651ec79d3a2a1da9b2729fd25b69bb8b942fa1b97fa411e275e331fa1",
+  "input_sha256": {
+    "runs/primary/artifacts/FAILED.json": "b89fdd085eeeb11395554871bb563414bf9aa98d4a0d25b568845b8afeb5f4ae",
+    "runs/primary/artifacts/SIGNAL_MOMENTS_0_A.npz": "c7d6bc976ca96702fdcc610c9e2556c366b90729773885627a048d1d28b6ab24",
+    "runs/primary/artifacts/SIGNAL_MOMENTS_0_theta.npz": "12189c31dfc2057c06b50dcfd5e7d7b236ce8ab4dbe73578679f1ba071f3906c",
+    "runs/primary/artifacts/BANK_0.npz": "eca339e69dffdfde108a8be6ad7253353a914577e1c30c120fd4a0a908740186",
+    "runs/primary/artifacts/BANK_1.npz": "0431f2399366c1f8b502b7b72b99d2957551430c9f444f96979228c1060e0648",
+    "runs/primary/evaluation/FULL_0_A_fast.npz": "89942a7c852c91d1117fcd6d8dcb8de98db0c095425905b052e1770fd3f41b4f",
+    "runs/primary/evaluation/FULL_0_theta_fast.npz": "ed5983bf5a95022a8d7142d398d0b63805936153c0464bd2c6facda235c05d69"
+  },
+  "decoded_members": {
+    "runs/primary/artifacts/SIGNAL_MOMENTS_0_A.npz": [
+      "mean_V",
+      "sample_variance_V2",
+      "source_parent_row"
+    ],
+    "runs/primary/artifacts/SIGNAL_MOMENTS_0_theta.npz": [
+      "mean_V",
+      "sample_variance_V2",
+      "source_parent_row"
+    ],
+    "runs/primary/artifacts/BANK_0.npz": [
+      "source_parent_rows"
+    ],
+    "runs/primary/artifacts/BANK_1.npz": [
+      "source_parent_rows"
+    ],
+    "runs/primary/evaluation/FULL_0_A_fast.npz": [
+      "root/repeated_parent/parent_rows",
+      "root/repeated_parent/bank_grid",
+      "root/repeated_parent/draw_grid",
+      "root/source_input_trends/source_ids"
+    ],
+    "runs/primary/evaluation/FULL_0_theta_fast.npz": [
+      "root/repeated_parent/parent_rows",
+      "root/repeated_parent/bank_grid",
+      "root/repeated_parent/draw_grid",
+      "root/source_input_trends/source_ids"
+    ]
+  },
+  "failed_error": "A repeat pure-signal bytes differ",
+  "actual_completed_counters": {
+    "old_A_rows": 52744,
+    "head_actual_parameter_forward_rows": 52744,
+    "head_linear_direction_map_rows": 0,
+    "head_total_kernel_rows": 52744,
+    "noise005_rows": 52744,
+    "hard_ADC_rows": 316464,
+    "all_path_gather_rows": 316464,
+    "checkpoint_loads": 3,
+    "optimizer_created": 0,
+    "optimizer_steps": 0,
+    "G_updates": 0,
+    "D_updates": 0,
+    "noise_updates": 0,
+    "population_updates": 0,
+    "C2ST_updates": 0,
+    "new_AD_queries": 0,
+    "DEV_model_rows": 0
+  },
+  "inflight": {},
+  "A": {
+    "parent_count": 6593,
+    "draws": 4,
+    "shape": [
+      6593,
+      384
+    ],
+    "source_prefix_exact_zero": true,
+    "positive_variance_cells": 283,
+    "positive_variance_parents": 1,
+    "sample_variance_max_V2": 9.773430835535676e-18,
+    "sample_variance_mean_V2": 3.774107358879029e-23,
+    "centered_RMS_V": 5.320320027178132e-12,
+    "centered_RMS_ADC_LSB": 8.716280300525933e-08,
+    "centered_RMS_over_active_284samples_V": 6.1864883419864145e-12,
+    "maximum_cell_centered_RMS_V": 2.707410779075048e-09,
+    "maximum_cell_centered_RMS_ADC_LSB": 4.435551079358651e-05,
+    "individual_repeat_absolute_deviation_from_saved_mean_upper_bound_V": 5.414821558150096e-09,
+    "individual_repeat_absolute_deviation_from_saved_mean_upper_bound_ADC_LSB": 8.871102158717302e-05,
+    "maximum_pairwise_repeat_difference_upper_bound_V": 7.65771408536608e-09,
+    "maximum_pairwise_repeat_difference_upper_bound_ADC_LSB": 0.00012545632986055247,
+    "upper_bounds_are_not_observed_exact_maxima": true,
+    "actual_per_draw_signal_absmax_difference": "unknown_not_saved",
+    "maximum_variance_location": {
+      "source_parent_row": 6592,
+      "sample": 303
+    },
+    "per_parent_RMS_quantiles_V": {
+      "0": 0.0,
+      "0.5": 0.0,
+      "0.9": 0.0,
+      "0.99": 0.0,
+      "1": 4.319955713062007e-10
+    },
+    "mean_signal_absmax_V": 0.4619589946343671,
+    "reduction_rounding_note": "saved variance includes finite-precision centering; positive tiny variance alone does not prove unequal raw repeats",
+    "physics_branch": "frozen deterministic A; no phys/local randomness"
+  },
+  "theta": {
+    "parent_count": 6593,
+    "draws": 4,
+    "shape": [
+      6593,
+      384
+    ],
+    "source_prefix_exact_zero": true,
+    "positive_variance_cells": 1865819,
+    "positive_variance_parents": 6593,
+    "sample_variance_max_V2": 0.0014268883932520595,
+    "sample_variance_mean_V2": 2.3704371182513273e-06,
+    "centered_RMS_V": 0.001333352106042697,
+    "centered_RMS_ADC_LSB": 21.844307553297508,
+    "centered_RMS_over_active_284samples_V": 0.001550426894934604,
+    "maximum_cell_centered_RMS_V": 0.03271339626115033,
+    "maximum_cell_centered_RMS_ADC_LSB": 535.9435709464259,
+    "individual_repeat_absolute_deviation_from_saved_mean_upper_bound_V": 0.06542679252230066,
+    "individual_repeat_absolute_deviation_from_saved_mean_upper_bound_ADC_LSB": 1071.8871418928518,
+    "maximum_pairwise_repeat_difference_upper_bound_V": 0.0925274573276082,
+    "maximum_pairwise_repeat_difference_upper_bound_ADC_LSB": 1515.877333398205,
+    "upper_bounds_are_not_observed_exact_maxima": true,
+    "actual_per_draw_signal_absmax_difference": "unknown_not_saved",
+    "maximum_variance_location": {
+      "source_parent_row": 4803,
+      "sample": 124
+    },
+    "per_parent_RMS_quantiles_V": {
+      "0": 5.9205335965395166e-05,
+      "0.5": 0.0007073522465618424,
+      "0.9": 0.0020243381655143744,
+      "0.99": 0.004648463594137628,
+      "1": 0.007338251539025307
+    },
+    "mean_signal_absmax_V": 0.4681623831232953,
+    "reduction_rounding_note": "saved variance includes finite-precision centering; positive tiny variance alone does not prove unequal raw repeats",
+    "physics_branch": "new shape head with explicit random z"
+  },
+  "A_centered_RMS_ratio_to_theta": 3.99018384046244e-09,
+  "lineage": [
+    {
+      "bank": 0,
+      "rows": 26372,
+      "parents": 6593,
+      "parent_major_four_repeats_exact": true,
+      "chunk_rows": 128,
+      "complete_chunks": 206,
+      "last_chunk_rows": 4,
+      "no_parent_spans_chunk_boundary": true
+    },
+    {
+      "bank": 1,
+      "rows": 26372,
+      "parents": 6593,
+      "parent_major_four_repeats_exact": true,
+      "chunk_rows": 128,
+      "complete_chunks": 206,
+      "last_chunk_rows": 4,
+      "no_parent_spans_chunk_boundary": true
+    }
+  ],
+  "full_identity": [
+    {
+      "arm": "A",
+      "correct_sorted_parent_rows": true,
+      "draw_grid": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "bank_grid": 0,
+      "unique_source_ids": 6593
+    },
+    {
+      "arm": "theta",
+      "correct_sorted_parent_rows": true,
+      "draw_grid": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "bank_grid": 0,
+      "unique_source_ids": 6593
+    }
+  ],
+  "missing_raw_evidence": [
+    "runs/primary/artifacts/REFERENCE_0.npz",
+    "runs/primary/artifacts/REFERENCE_1.npz",
+    "runs/primary/artifacts/SIGNAL_MOMENTS_1_A.npz",
+    "runs/primary/artifacts/FULL_POPULATION_COMPARISON.json"
+  ],
+  "saved_A_moments_cannot_identify_exact_max_or_specific_CUDA_kernel": true,
+  "cross_bank_A_raw_equivalence": "unknown_not_saved",
+  "all_source_or_REAL_data_container_decodes": 0,
+  "checkpoint_loads": 0,
+  "Torch_imported": false,
+  "model_forward_rows": 0,
+  "AD_queries": 0,
+  "training_updates": 0,
+  "SSH_calls": 0
+}

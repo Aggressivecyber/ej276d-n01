@@ -18,8 +18,49 @@ HYPOTHESES=('fast','slow','common_level')
 TRAIN_KEYS=('source','source_carrier384','real','real_baseline100','source_ids','real_ids','real_groups','source_role','real_role')
 REAL_METADATA=('real_peak_tied_samples','real_peak_search_edge','real_global_peak_outside_search','real_peak_index480','real_crop_start480')
 REAL_UNKNOWN_FLAGS=('pre_ADC_out_of_range','ADC_halfgrid_tied','ADC_rail_hit','ADC_halfgrid_min_distance','ADC_halfgrid_tie_cells')
+BASELINE_NUMERICAL_TOLERANCE_V=1e-7
 
 def arr(value):return value.detach().cpu().numpy()
+
+def A_numerical_residual(values,parent_rows,draw_indices,source_ids,*,draws,bank,other=None,other_parent_rows=None,other_draw_indices=None,chunk_rows=128):
+    """Measure actual float64 A execution residuals without replacing any row.
+
+The numerical limit is the already registered parameter baseline-replay limit,
+not a scientific response threshold. Same SOURCE-parent/draw identity is strict.
+"""
+    import numpy as np
+    ids=np.asarray(source_ids);p,d=np.asarray(parent_rows),np.asarray(draw_indices);n=len(ids)
+    require(n>0 and len(np.unique(ids))==n and isinstance(draws,int) and draws>=2,'A source identity/draw count invalid')
+    require(p.dtype.kind in 'iu' and d.dtype.kind in 'iu' and np.array_equal(p,np.repeat(np.arange(n),draws))
+        and np.array_equal(d,np.tile(np.arange(draws),n)),'A numerical comparison parent/draw identity changed')
+    x=np.asarray(values);require(x.shape==(n*draws,384) and x.dtype==np.float64,'Actual A full float64 rows required')
+    if other is not None:
+        y=np.asarray(other);require(y.shape==x.shape and y.dtype==np.float64 and np.array_equal(other_parent_rows,p)
+            and np.array_equal(other_draw_indices,d),'A cross-bank identity/dtype changed')
+    else:y=None
+    require(type(chunk_rows) is int and chunk_rows>0,'Positive numerical diagnostic chunk required')
+    maximum=squared=0.;cells=rows=bit_cells=0;affected=np.zeros(n,bool)
+    for start in range(0,n,chunk_rows):
+        stop=min(start+chunk_rows,n);block=x[start*draws:stop*draws].reshape(stop-start,draws,384)
+        reference=block[:,:1] if y is None else y[start*draws:stop*draws].reshape(stop-start,draws,384)
+        require(np.isfinite(block).all() and np.isfinite(reference).all(),'Nonfinite actual A residual input')
+        delta=block-reference;nonzero=delta!=0
+        maximum=max(maximum,float(np.abs(delta).max()));squared+=float(np.sum(delta**2,dtype=np.float64))
+        cells+=int(nonzero.sum());rows+=int(nonzero.any(2).sum());affected[start:stop]=nonzero.any(axis=(1,2))
+        bit_cells+=int((block.view(np.uint64)!=reference.view(np.uint64)).sum())
+    selected=np.flatnonzero(affected)
+    return dict(schema='n01/wp1-A-numerical-residual/v1',bank=bank,
+        comparison='repeat_to_same_parent_first_draw' if y is None else 'same_parent_draw_bank1_minus_bank0',
+        parent_count=n,actual_rows=len(x),draws_per_parent=draws,parent_draw_identity_verified=True,
+        actual_max_abs_residual_V=maximum,actual_RMS_residual_V=float(np.sqrt(squared/x.size)),
+        actual_max_abs_residual_ADC_LSB=maximum*16383,actual_RMS_residual_ADC_LSB=float(np.sqrt(squared/x.size))*16383,
+        nonzero_cells=cells,nonzero_rows=rows,nonzero_parents=len(selected),different_float64_bit_cells=bit_cells,
+        exact_numeric_equal=cells==0,exact_float64_bits_equal=bit_cells==0,
+        affected_source_parent_rows=selected,affected_source_ids=ids[selected],
+        numerical_tolerance_V=BASELINE_NUMERICAL_TOLERANCE_V,within_numerical_tolerance=maximum<=BASELINE_NUMERICAL_TOLERANCE_V,
+        tolerance_source='same_frozen_parameter_baseline_replay_1e-7_V',
+        actual_rows_preserved=True,broadcast_or_mean_substitution=False,physical_randomness_inferred=False,
+        interpretation='numerical repeat residual of deterministic A execution; not a new physical random component')
 
 def observation_rows(observation,carrier,loss,selected=None):
     """Reuse the one actual observation; these diagnostics perform no ADC."""
@@ -279,22 +320,28 @@ class Runtime:
                     save_report(self.out,'FULL_%d_%s_%s'%(bank,arm,h),result)
                     summary.append(dict(bank=bank,arm=arm,hypothesis=h,metrics=self.component(obs['window_V'],obs['baseline100'])))
             arrays={arm+'_'+h+'__'+key:value for arm in ('A','theta') for h in HYPOTHESES for key,value in lossless_window_codes(ref[arm][h]).items()}
-            arrays.update(theta_signal_pre384=ref['signal'],source_parent_row=ref['parent'],draw_index=ref['draw'],baseline100=ref['theta'][HYPOTHESES[0]]['baseline100'])
+            arrays.update(theta_signal_pre384=ref['signal'],A_signal_pre384=ref['base'],source_parent_ids=self.data['source_ids'],
+                source_parent_row=ref['parent'],draw_index=ref['draw'],baseline100=ref['theta'][HYPOTHESES[0]]['baseline100'])
             for arm in ('A','theta'):
                 for h in HYPOTHESES:
                     arrays.update({arm+'_'+h+'__'+k:v for k,v in ref[arm][h].items() if k.startswith(('flag__','diagnostic__'))})
-            if bank==0:
-                base=ref['base'].reshape(len(self.data['source']),self.p['reference']['draws_per_bank'],384)
-                require(np.array_equal(base,np.broadcast_to(base[:,:1],base.shape)),'A repeat pure-signal bytes differ')
-                arrays['A_signal_per_parent384']=base[:,0]
+            diagnostic=A_numerical_residual(ref['base'],ref['parent'],ref['draw'],self.data['source_ids'],
+                draws=self.p['reference']['draws_per_bank'],bank=bank)
+            self.store.json('A_NUMERIC_REPEATS_%d.json'%bank,diagnostic)
             self.store.npz('REFERENCE_%d.npz'%bank,**arrays)
+            require(diagnostic['within_numerical_tolerance'],'A numerical repeat residual exceeds frozen baseline replay tolerance')
         self.store.npz('REAL_ROW_FLAGS.npz',**{n:self.data[n] for n in REAL_METADATA},**self.data['real_observation_flags'],
             real_ids=self.data['real_ids'],real_groups=self.data['real_groups'])
         self.store.json('REFERENCE_ENCODING.json',dict(encoding='ADC_crop_codes_uint16_plus_actual_baseline_mean_float64_plus_optional_IEEE754_XOR',
             reconstruction='(ADC_crop_codes.astype(float64)/16383-.5-baseline_mean[:,None]).view(uint64) XOR IEEE754_reconstruction_XOR_uint64 then view(float64)',
             missing_XOR_means_all_zero=True,original_dtype='float64',all_rows_byte_reconstruction_checked=True,baseline100_shared_across_arms_and_hypotheses=True,
-            A_signal_file='REFERENCE_0.npz:A_signal_per_parent384',A_signal_broadcast_across_banks_and_draws=True,extra_ADC_or_model_calls=0))
-        require(np.array_equal(self.references[0]['base'],self.references[1]['base']),'A pure signal cross-bank bytes differ')
+            A_signal_files=['REFERENCE_0.npz:A_signal_pre384','REFERENCE_1.npz:A_signal_pre384'],
+            A_signal_broadcast_across_banks_and_draws=False,A_actual_float64_per_draw_rows_preserved=True,extra_ADC_or_model_calls=0))
+        left,right=self.references
+        diagnostic=A_numerical_residual(right['base'],right['parent'],right['draw'],self.data['source_ids'],
+            draws=self.p['reference']['draws_per_bank'],bank=1,other=left['base'],other_parent_rows=left['parent'],other_draw_indices=left['draw'])
+        self.store.json('A_NUMERIC_CROSS_BANK.json',diagnostic)
+        require(diagnostic['within_numerical_tolerance'],'A cross-bank numerical residual exceeds frozen baseline replay tolerance')
         for arm in ('A','theta'):
             pure=np.concatenate([r['base'] if arm=='A' else r['signal'] for r in self.references]);parent=np.concatenate([r['parent'] for r in self.references])
             draws=np.concatenate([r['draw'] for r in self.references]);banks=np.concatenate([np.full(len(r['parent']),b,np.int64) for b,r in enumerate(self.references)])
@@ -411,7 +458,7 @@ class Runtime:
                             output,_=self.forward(x,z,theta=theta,direction=direction['vector'],scale=sign*scale)
                             delta=output['signal_pre']-torch.as_tensor(sub['signal'][start:stop],device=self.device)
                             base_error=(output['base_signal_pre_V']-torch.as_tensor(sub['base'][start:stop],device=self.device)).abs().amax(1)
-                            require(float(base_error.max())<=1e-7,'Baseline numerical replay differs beyond original point tolerance')
+                            require(float(base_error.max())<=BASELINE_NUMERICAL_TOLERANCE_V,'Baseline numerical replay differs beyond original point tolerance')
                             rms.append(arr(delta.square().mean(1).sqrt()));maxima.append(arr(delta.abs().amax(1)));base_errors.append(arr(base_error))
                             for h in HYPOTHESES:
                                 old=sub['observations'][h];noise=torch.as_tensor(sub['noise'][h][start:stop],device=self.device)

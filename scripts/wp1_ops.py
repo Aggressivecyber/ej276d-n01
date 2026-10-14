@@ -21,7 +21,7 @@ import uuid
 
 ROOT=Path(__file__).resolve().parents[1] if not str(__file__).startswith('<') else Path.cwd()
 CFG='wp1_013_config.json';MANIFEST='WP1_SOURCE_MANIFEST.json'
-REMOTE='/home/rylan/projects/ej276d-n01/wp1_013_runtime_fix01_20261015'
+REMOTE='/home/rylan/projects/ej276d-n01/wp1_013_repeat_fix01_20261015'
 HOST='rylan@100.82.231.102';PYTHON='/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python'
 NEW_FILES=('scripts/wp1_ops.py','scripts/run_wp1_013.py','scripts/wp1_evaluation.py','scripts/wp1_parameter_probe.py',
     'scripts/stability011_metrics.py',

@@ -1,0 +1,163 @@
+{
+  "schema": "n01/wp1-independent-output-cap-amendment/v1",
+  "status": "PASS",
+  "passed": true,
+  "UTC": "2026-10-14T21:26:07.479340+00:00",
+  "run_id": "wp1_013_20261015",
+  "engineering_attempt": 3,
+  "prior_prelaunch_review_preserved": {
+    "path": "E:\\GAN\\research\\N01\\receipts\\wp1_013_20261015\\independent_01\\native_repeat_fix01\\PRELAUNCH_REPEAT_FIX_REVIEW.json",
+    "sha256": "a912d536f59d8efd90361951b51ef9e554783276b0389bee6e6ff251bab9c51e",
+    "bytes": 13302
+  },
+  "new_controller": {
+    "path": "E:\\GAN\\research\\N01\\scripts\\wp1_controller.py",
+    "sha256": "fa9d80814a416b46de6808617304699d7752be8c76e22a0bd3f0c99d8fbafabc",
+    "bytes": 42726
+  },
+  "new_draft_config": {
+    "path": "E:\\GAN\\research\\N01\\wp1_013_config.json",
+    "sha256": "cc71823fe3086d317be264cf53f4325f9d95a3a055700198425c464215fcb818",
+    "bytes": 145229
+  },
+  "original_controller": {
+    "path": "E:\\GAN\\research\\N01\\receipts\\wp1_013_20261015\\native_repeat_fix01\\output_cap_amend01\\before_01\\wp1_controller.py",
+    "sha256": "18b279771a85c04c0d50204948ab064166fcb16ca3e5cf276af88a765f3254cc",
+    "bytes": 42726
+  },
+  "original_draft_config": {
+    "path": "E:\\GAN\\research\\N01\\receipts\\wp1_013_20261015\\native_repeat_fix01\\output_cap_amend01\\config_before\\wp1_013_config.json",
+    "sha256": "2dcaa7df34a769ada47bd354e8de2926afcf16ff0f70ac7389b17e4b3f751dde",
+    "bytes": 145126
+  },
+  "storage_cap_amendment": {
+    "path": "E:\\GAN\\research\\N01\\receipts\\wp1_013_20261015\\native_repeat_fix01\\STORAGE_CAP_AMENDMENT.json",
+    "sha256": "a573fdda0ec60c7bdfb7b3c0587d7382d164751fa3dc07cc78ee8d626ea4b604",
+    "bytes": 1947
+  },
+  "current_registration": {
+    "path": "E:\\GAN\\research\\N01\\receipts\\wp1_013_20261015\\native_repeat_fix01\\NUMERICAL_STORAGE_REPAIR_REGISTRATION.json",
+    "sha256": "c15ba0fea7a6d9d9f4daf343becf813e648c8e89d6e0e59e9e2078b3afd6812c",
+    "bytes": 4122
+  },
+  "unchanged_driver": {
+    "path": "E:\\GAN\\research\\N01\\scripts\\run_wp1_013.py",
+    "sha256": "e7cbcf782e19e139c02260bbe1d67e0a50108785ed5b093975800a28b103657d",
+    "bytes": 49484
+  },
+  "unchanged_ops": {
+    "path": "E:\\GAN\\research\\N01\\scripts\\wp1_ops.py",
+    "sha256": "f8ddbbdb2f2f6df033e964f27bf03dcbda07055cc7378775591ef69b9caf85b5",
+    "bytes": 12872
+  },
+  "only_controller_changes": [
+    "COLLECTION_LIMIT1040 ->1552 MiB",
+    "validate_config expected output_MiB1024 ->1536"
+  ],
+  "only_config_changes": [
+    "resource_limits.output_MiB1024 ->1536",
+    "engineering_repair.registration_sha256 updated",
+    "engineering_repair.output_cap_amendment_sha256 appended"
+  ],
+  "output_cap": {
+    "old_MiB": 1024,
+    "new_MiB": 1536,
+    "new_bytes": 1610612736
+  },
+  "collection_cap": {
+    "old_MiB": 1040,
+    "new_MiB": 1552,
+    "new_bytes": 1627389952,
+    "unchanged_control_allowance_MiB": 16,
+    "unchanged_control_allowance_bytes": 16777216
+  },
+  "unchanged_package_limits": {
+    "source_MiB": 16,
+    "private_MiB": 64
+  },
+  "unchanged_resources": {
+    "CPU_threads": 12,
+    "GPU_GiB": 10,
+    "job_tree_RSS_GiB": 8,
+    "wall_seconds": 7200,
+    "poll_seconds": 10,
+    "TERM_grace_seconds": 20
+  },
+  "unchanged_scientific_fields_and_input_records": true,
+  "unchanged_per_attempt_and_aggregate_scientific_caps": true,
+  "unchanged_source_member_recipe_count": 84,
+  "unchanged_private_input_inventory_count": 4,
+  "source_payload_clarification": "Only controller bytes/config metadata pins change; source member names and source/private package limits are unchanged. Frozen source manifest/package SHA must reflect these amended bytes. Private input records/data SHA are unchanged.",
+  "justification": "Actual failure2 saved output322671367B is a partial bank0 report set. Full final size1.1-1.4GB is an estimate, not measured. Additional capacity retains registered precision/arrays/report counts; it adds no neural/AD/training computation or metric/threshold change.",
+  "engineering_evidence": {
+    "path": "E:\\GAN\\research\\N01\\receipts\\wp1_013_20261015\\native_repeat_fix01\\output_cap_amend01\\stdlib_01\\ENGINEERING_RECEIPT.json",
+    "sha256": "ca978fc3cd79e936dccbf1c66cdf40c00d3bfd9fc0e3a3eef028dc1b0699fa88",
+    "bytes": 1327,
+    "receipt": {
+      "schema": "n01/wp1-output-cap-amend-stdlib/v1",
+      "status": "PASS",
+      "artificial_only": true,
+      "checks": [
+        {
+          "name": "1536_output_1552_collection_and_unchanged_source_private_caps",
+          "passed": true
+        },
+        {
+          "name": "old1024_and_adjacent1535_1537_config_values_rejected",
+          "passed": true
+        },
+        {
+          "name": "other_registered_resource_limits_still_exact",
+          "passed": true
+        },
+        {
+          "name": "actual_archive_inventory_accepts_exact_collection_bound_with_virtual_size",
+          "passed": true
+        },
+        {
+          "name": "actual_archive_inventory_rejects_collection_bound_plus_one_with_virtual_size",
+          "passed": true
+        }
+      ],
+      "passed_checks": 5,
+      "controller_sha256": "fa9d80814a416b46de6808617304699d7752be8c76e22a0bd3f0c99d8fbafabc",
+      "output_MiB": 1536,
+      "collection_MiB": 1552,
+      "control_margin_MiB": 16,
+      "source_MiB": 16,
+      "private_MiB": 64,
+      "CPU_threads": 12,
+      "GPU_GiB": 10,
+      "RSS_GiB": 8,
+      "wall_seconds": 7200,
+      "virtual_byte_sizes_not_actual_gigabyte_allocation": true,
+      "no_scientific_retests": true,
+      "raw_data_decodes": 0,
+      "CP_loads": 0,
+      "Torch_imported": false,
+      "NumPy_imported": false,
+      "NN_rows": 0,
+      "ADC_calls": 0,
+      "AD_queries": 0,
+      "training_updates": 0,
+      "SSH_calls": 0
+    }
+  },
+  "original_storage_fixture_reused": "native_repeat_readback01/storage_cpu_02 7/7 PASS pinned in original PRELAUNCH_REPEAT_FIX_REVIEW; no re-execution.",
+  "reviewer_scope": {
+    "source_and_JSON_only": true,
+    "raw_data_or_saved_wave_decodes": 0,
+    "CP_loads": 0,
+    "NN_rows": 0,
+    "ADC_calls": 0,
+    "AD_queries": 0,
+    "optimizer_or_training_steps": 0,
+    "DEV_values_read": 0,
+    "SSH_calls": 0,
+    "new_fixture_runs": 0,
+    "large_file_allocation": 0,
+    "outputs_and_temp_on_E_D": true
+  },
+  "unresolved_critical_findings": [],
+  "conclusion_zh": "PASS：仅输出容量1536MiB与回收容量1552MiB修订，16MiB控制余量及source16/private64MiB不变。driver/ops、科学字段、输入、T与所有NN/ADC/CP/零更新预算保持不变；原20项预启动与7项保存检查回执保留并复用，不重跑。根可按这些最终controller/config字节冻结；容量增加不建立科学验收或新的计算授权。"
+}
