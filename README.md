@@ -1,8 +1,20 @@
-# N01：009 平均响应与随机响应诊断
+# N01：012 新头梯度与裁窗机制诊断已完成
+
+截至 2026-10-15，009 配对诊断、010 新头固定 2000 G 试验、011 的 500 次已存 TRAIN 库配对重加权、012 局部机制诊断均已完成并读回。当前科学作业为 0；012 新增训练更新为 0，累计科学训练更新仍为 159667。
+
+012 完成 9 次 scalar AD 和 2 次 masked endpoint VJP，A、005 和 final 新头各前向 2048 行；2163 项独立保存输出核验和 32 项报告检查通过。固定 TRAIN 点的加权 QPSD 梯度约为波形项的 19 倍；单一 carrier 方向的 0.1 LSB moving-crop 中心差分与代理梯度反号，1/10 LSB 不反号。下一项先用保存输出诊断裁窗边界，训练预算为 0。
+
+科学状态保持 **`response_match_not_established`**；这些结果描述固定 TRAIN 库和指定方向的局部机制。
+
+[012 诊断报告](reports/mechanism012_20261015/N01_MECHANISM012_REPORT.md) · [012 最终结果回执](receipts/mechanism012_20261015/FINAL_RESULT_RECEIPT.json) · [独立数值读回](receipts/mechanism012_20261015/postrun_independent_01/NUMERIC_READBACK.json) · [报告检查](receipts/mechanism012_20261015/postrun_independent_01/REPORT_QA_FINAL.json) · [GitHub 核验回执](receipts/mechanism012_publication_20261015/PUBLICATION_RECEIPT.json)
+
+[010 试验报告](reports/shape010_20261014/N01_SHAPE010_REPORT.md) · [011 配对重加权结果](receipts/stability011_20261014/user_server_pause_01/native_result_json/STABILITY_RESULT.json) · [009 结果](docs/MEAN_RANDOM009_RESULTS.md)
+
+## 历史登记：009 平均响应与随机响应诊断
 
 用户已授权设置计划并推进。本轮先做固定终点的配对 A/B/C/D 诊断：512 个 TRAIN 源父、每父 16 次，三种噪声假设，新增 G/D 更新均 0。[执行计划与协议](docs/MEAN_RANDOM009_PROTOCOL.md) · [登记回执](receipts/mean_random009_20261014/REGISTRATION_RECEIPT.json)。
 
-当前阶段为实现、人工数值检查和源码冻结；真实首批确认后设置预计完成时单次苏醒。诊断后根据结果决定是否登记每臂 2000 更新的冻结均值修复试验。
+009 开始时登记的阶段为实现、人工数值检查和源码冻结；启动后安排单次苏醒。其后 010 固定 2000 G 试验与 011/012 诊断已完成，最新状态见本文顶部。
 
 ## 已完成的 Window008 resume01
 
