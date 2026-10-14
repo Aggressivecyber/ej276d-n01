@@ -1,0 +1,210 @@
+{
+  "schema": "n01/mechanism012-independent-prelaunch/v1",
+  "run_id": "mechanism012_20261015",
+  "UTC": "2026-10-14T17:38:51.275675+00:00",
+  "reviewer": "GPT-6.1-Sol-Max independent reviewer",
+  "status": "PASS",
+  "passed": true,
+  "stage": "final source review before root freeze and native launch",
+  "blocking_findings": [],
+  "sources_sha256": {
+    "scripts/mechanism012_losses.py": "3fc84ccaf255b660d8eda4f96d43e2c236045a756e777c9b2d490f7137dc04ed",
+    "scripts/run_mechanism012.py": "f97df08ebbf5799908ea953e3c66084ac60f0479026411f504d88490d238efb8",
+    "scripts/mechanism012_ops.py": "98a18eef018beebff82565da9ed5b31208cf2bff6db6bff0c492eff9bf2a7816",
+    "scripts/supervise_mechanism012.py": "43b6fffd076a1e6d57db67e85e433e71d3f2cda91f3a3d5fe31f0fcb430486a4",
+    "mechanism012_policy.json": "336dde665ba1df09e88922642b4cff59ed21b5846b9ce01f6885cbd6edda16de",
+    "docs/MECHANISM012_PROTOCOL.md": "3b53fff9170ed86e61d8a09c739a1b571936f7976d3c27a359e85ba7f6dd2d0b"
+  },
+  "evidence": {
+    "receipts/mechanism012_20261015/independent_01/METHOD_REVIEW.json": {
+      "sha256": "a5b5121b7549708d368dd5bae2fdafd69acab5af1d9e491a029d403ce028893d",
+      "bytes": 8861,
+      "status": "DESIGN_SCOPE_PASS"
+    },
+    "receipts/mechanism012_20261015/independent_01/POLICY_SCOPE_REVIEW.json": {
+      "sha256": "230251df9fd4c3b085c6d7c97d9edf73dc60207b3ff046b5864f07e1aefe4ee5",
+      "bytes": 1968,
+      "status": "PASS"
+    },
+    "receipts/mechanism012_20261015/independent_01/chain_artificial_01/ENGINEERING_RECEIPT.json": {
+      "sha256": "f953d3f30018b9cc85e254bef3c4e5e38ee20b5e6ba11af713a4e0aa0c4f8f55",
+      "bytes": 3126,
+      "status": "PASS"
+    },
+    "receipts/mechanism012_20261015/independent_01/ops_cpu_01/ENGINEERING_RECEIPT.json": {
+      "sha256": "dfb6e7ff5a84bedb375c2659812d2c80755b97df65a0f8291552ecaea0b9b233",
+      "bytes": 3975,
+      "status": "PASS"
+    },
+    "receipts/mechanism012_20261015/independent_01/ops_partial_cpu_01/ENGINEERING_RECEIPT.json": {
+      "sha256": "86850a429732ca1f1e34dcbe0cb75803cf7a10264d04de75e4e7b50bded67482",
+      "bytes": 1304,
+      "status": "PASS"
+    },
+    "receipts/mechanism012_20261015/design_01/cpu_pipeline_01/ENGINEERING_RECEIPT.json": {
+      "sha256": "aa7c6ca59301609d8a9a4294a235a9551f6eb18f3bbc7e3f844b2ebe7e4f72cf",
+      "bytes": 1867,
+      "status": "PASS"
+    }
+  },
+  "protected_source_readback": [
+    {
+      "path": "SHAPE010_SOURCE_MANIFEST.json",
+      "sha256": "6a6e3b3dcabb74c614e7d1de5b6609591b8b7f48c465f580616b6660588e52c9",
+      "source_file_count": 53,
+      "current_E_source_bytes_unchanged": true,
+      "method": "hash source files only; no waveform/checkpoint decoding or historical raw-artifact scan"
+    },
+    {
+      "path": "STABILITY011_SOURCE_MANIFEST.json",
+      "sha256": "f5c0839d6b3bb4cfe29e12b52cfac449b6b3bc0c623f6a800da34fc5cb24f257",
+      "source_file_count": 63,
+      "current_E_source_bytes_unchanged": true,
+      "method": "hash source files only; no waveform/checkpoint decoding or historical raw-artifact scan"
+    }
+  ],
+  "reviewed_contracts": {
+    "registered_scope": {
+      "theta": "G2000 only",
+      "SOURCE_parents": 512,
+      "draws_per_parent": 4,
+      "matched_rows": 2048,
+      "REAL_reference_rows": 2048,
+      "hypotheses": [
+        "fast",
+        "slow",
+        "common_level"
+      ],
+      "new_trainable_tensors": [
+        "basis_head.weight",
+        "basis_head.bias"
+      ],
+      "new_trainable_parameter_entries": 1288
+    },
+    "input_source_freeze": {
+      "new_source_inventory_expected": 69,
+      "primary_slots": 30,
+      "control_metadata_copy_slots": 6,
+      "total_bound_slots_expected": 36,
+      "gate": "stdlib SHA binding of all sources and inputs before NumPy/Torch imports, numeric decoding or checkpoint loading",
+      "control_metadata": "six E original manifests copied byte-for-byte to new remote root; do not assume original metadata exists in old native root",
+      "legacy_runtime_chain": "old010 source53, old011 source63, original7 inputs, old01029/old01114 artifact inventory and native exits verified by gates",
+      "old011_independent_readback": "root local SHA-verified prerequisite; neither a 70th source nor 37th runtime slot"
+    },
+    "frozen_models": {
+      "A": "exact G19000 deterministic low_learning_rate frozen model",
+      "noise005": "schema5/update5000 frozen model",
+      "baseline_device_order": "baseline stage/freeze/eval/device placement before frozen wrapper constructor; no whole-wrapper to(device)",
+      "head_device": "constructor and exact two-head tensor restore",
+      "buffers_and_states": "deep before/after snapshots; original A/005/extension digests and eval modes checked; all .grad accumulators None",
+      "head_values": "unchanged before/after diagnosis",
+      "checkpoint_loads_max": 5
+    },
+    "loss_and_queries": {
+      "loss": "mean_h(wave)+2*mean_h(QPSD)+0.01*(RMS+curvature+mean_h(saturation))",
+      "distribution_scope": "full2048 population; original fixed statistics and projections; regular row-weighted chunk reduction",
+      "scalar_queries": 9,
+      "masked_endpoint_VJP_queries": 2,
+      "total_AD_queries": 11,
+      "wave_and_Q_each_one_call": "params2 + endpoints3 + sharedS",
+      "shared_S": "concatenate signal chunks before observing128-row slices; sharedS is actual ancestor",
+      "S_validation": "analytic gather/scatter, prefix subtraction and inclusive clamp Jacobian using existing endpoint gradients; no additional scientific AD",
+      "fixed_Q_membership": "same actual hard theta2000 membership/support16, clone/version guard; reference scalar value and1288 head gradient equivalent to native",
+      "first_proof": "formal global wave q1 after mandatory family/global forward; no tiny real pilot or extra AD",
+      "native_point_gate": "actual run requires saved final distances and strict original projection metadata/value replay"
+    },
+    "observation_and_probes": {
+      "hard_STE": "same defined values and undefined PSD flags; hard floor/round has local zero gradient, STE uses original inclusive clamp derivative",
+      "anchor": "same carrier/current ADC/current prefix baseline, only saved A crop member substituted",
+      "Q_tail_decomposition": "signal/noise/ADCdelta each includes its own gathered component minus own prefix100 mean",
+      "mask_VJP": "joint three-window VJP with detached endpoint gradients and detached masks; real parameter-chain gradient, not norm fraction",
+      "probes": "six signed0.1/1/10LSB detached shape-direction probes; no NN or AD; fixed/moving reuse same hard ADC",
+      "paths": [
+        "STE-surrogate fixed member",
+        "hard ADC fixed member",
+        "same hard ADC moving first argmax member"
+      ],
+      "nonzero_direction_ADC_rows": 49152,
+      "zero_direction_ADC_rows": 12288,
+      "zero_direction": "six undefined records; no dummy probe ADC consumption; mandatory2048 eachNN and11AD retained",
+      "sorting_boundary_limit": "fake permutation/tie diagnostics only; absolute-pair and cross-domain W1 support cusp crossing unknown_not_excluded"
+    },
+    "descriptive_strata_and_influence": {
+      "SOURCE_Q8": "raw source_carrier384 prefix100 centered; frozen canonical_charge008 [110:366]; original extended_log_charge and frozen TRAIN charge bins",
+      "row_retention": "all parents/draws and difficult cases retained; empty strata preserved; no loss reweighting",
+      "influence": "signed endpoint-gradient dot anchor displacement; local first-order diagnostic, not additive row loss or causal attribution; actual full-loss change and remainder retained",
+      "parent_denominator": 512,
+      "four_repeats": "not2048 independent sources"
+    },
+    "operations_and_failure": {
+      "fsync": "entered before each CP/NN/AD/ADC; completed fsync before counter status; unknown in-flight retained",
+      "completion": "strict native0, formal FIRST PID chain, mandatory budgets, no failed/in-flight records, terminal status/COMPLETE hash/counter schema match",
+      "partial_collection": "preserves native nonzero/absent FAILED/boot change/protection errors and raw journals; exclusive archive/extraction; cannot masquerade as COMPLETE",
+      "dispatch": "fresh exclusive directory, safe regular-file tar, inherited shared N01 flock; deploy and start separate explicit calls; no auto restart or overwrite",
+      "resource_scope": "own supervisor and descendants RSS/GPU; stop only owned child process group",
+      "caps": {
+        "CPU_threads": 12,
+        "GPU_GiB": 10,
+        "job_tree_RSS_GiB": 8,
+        "wall_seconds": 900,
+        "output_MiB": 128,
+        "poll_seconds": 10,
+        "TERM_grace_seconds": 20
+      }
+    }
+  },
+  "engineering_evidence_summary": {
+    "independent_algebraic_chain": {
+      "passed_checks": 11,
+      "synthetic_rows": 8,
+      "synthetic_AD_queries": 6,
+      "max_shared_S_error": 1.1102230246251565e-16,
+      "masked1288_VJP_error": 0,
+      "scope": "independent artificial algebraic leaves; not actual trained neural graph"
+    },
+    "independent_execution_of_authored_ops_fixtures": {
+      "core_checks_passed": 37,
+      "partial_checks_passed": 5,
+      "pure_stdlib": true,
+      "actual_OperationStore_schema_bridge": true,
+      "native_headers": "injected artificial headers; not real kernel launch or termination"
+    },
+    "builder_actual_runner_pipeline": {
+      "cases_passed": 3,
+      "synthetic_rows": 32,
+      "synthetic_parameter_entries": 1288,
+      "normal_AD": 11,
+      "normal_ADC_rows": 768,
+      "zero_direction_AD": 11,
+      "zero_direction_ADC_rows": 192,
+      "max_shared_S_analytic_error": 1.1102230246251565e-16,
+      "max_total_gradient_sum_relative_error": 1.0138106336558768e-07,
+      "no_original_A_or005_instances": true,
+      "no_checkpoint_or_scientific_array_decodes": true,
+      "source_SHA_matches_READY": true
+    }
+  },
+  "scientific_execution_in_this_review": {
+    "SSH_SCP_calls": 0,
+    "scientific_array_decodes": 0,
+    "checkpoint_loads": 0,
+    "trained_NN_instances": 0,
+    "scientific_forward_rows": 0,
+    "scientific_AD_queries": 0,
+    "optimizer_created": 0,
+    "sampler_created": 0,
+    "updates": 0,
+    "DEV_reads": 0,
+    "new_011_full_CDF_evaluations": 0
+  },
+  "limits_and_pending_native_evidence": [
+    "Root source69/input36 package freeze and D backup SHA bridge pending this review; reviewer did not freeze/deploy/start.",
+    "No real A/005/head restore or real saved-bank equality has been exercised in this review; native strict gates must establish them.",
+    "No native full trained graph, GPU/RSS peak or cap compliance demonstrated by toy fixture.",
+    "Native FIRST/COMPLETE/PID/resource receipts and independent saved-result readback remain necessary after root-authorized execution.",
+    "No scientific causal or physical response-match acceptance; fixed-bank local gradient/influence and observation diagnostics only."
+  ],
+  "next_authorized_step": "root freezes69-source/36-input inventory, verifies E/D package bridge, then root dispatches one bounded native diagnosis and schedules existing one-time wake after actual formal FIRST proof",
+  "original_sources_modified_by_reviewer": false,
+  "all_new_outputs_on_E_or_D": true
+}

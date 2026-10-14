@@ -1,0 +1,252 @@
+{
+  "schema": "n01/mechanism012-policy/v1",
+  "id": "N01_MECHANISM012_20261015",
+  "run_id": "mechanism012_20261015",
+  "registered_UTC": "2026-10-14T16:53:46+00:00",
+  "user_authorization": "2026-10-15 Asia/Singapore: 继续推进 服务器启动了",
+  "protocol": "docs/MECHANISM012_PROTOCOL.md",
+  "diagnostic_only": true,
+  "scientific_status": "response_match_not_established",
+  "remote_root": "/home/rylan/projects/ej276d-n01/mechanism012_20261015",
+  "shape010_remote_root": "/home/rylan/projects/ej276d-n01/shape010_20261014",
+  "stability011_remote_root": "/home/rylan/projects/ej276d-n01/stability011_20261014",
+  "reference_remote_root": "/home/rylan/projects/ej276d-n01/window008_resume01_20261013",
+  "source_file_count": 69,
+  "source_parent_clusters": 512,
+  "draws_per_parent": 4,
+  "matched_rows": 2048,
+  "TRAIN_counts": {
+    "source": 6593,
+    "real": 21047
+  },
+  "hypotheses": [
+    "fast",
+    "slow",
+    "common_level"
+  ],
+  "hypothesis_reduction": "arithmetic_mean_of_three_separately_computed_hypothesis_losses",
+  "head_update": 2000,
+  "metadata_only_head_updates": [
+    0,
+    1000
+  ],
+  "forward_chunk_rows": 128,
+  "head_parameter_names": [
+    "basis_head.weight",
+    "basis_head.bias"
+  ],
+  "head_parameter_count": 1288,
+  "parameter_flatten_order": [
+    "basis_head.weight.flatten",
+    "basis_head.bias.flatten"
+  ],
+  "initialization_seed": 2026101420,
+  "voltage_gain": 0.05,
+  "projection": {
+    "seed": 2026101430,
+    "training_seed": 2026101426,
+    "kind": "evaluation",
+    "update": null,
+    "fingerprint": "27ed58d90114de6bfa5bf30ff5ad251516cdc9bcadfb5eb10e2a6ec45ed11482",
+    "regenerate_once_then_freeze": true,
+    "new_random_projection_draws": 0
+  },
+  "allowed_dataset_members": [
+    "source",
+    "source_carrier384",
+    "real",
+    "real_baseline100",
+    "source_ids",
+    "real_ids",
+    "real_groups",
+    "source_role",
+    "real_role"
+  ],
+  "allowed_bank": "shape010_saved_EVALUATION_BANK_only",
+  "source_parent_order": "original_parent_major_four_saved_draws",
+  "source_Q8": {
+    "source": "prepared_source_carrier384",
+    "preprocessing": "float64_source_minus_mean_of_first100_samples",
+    "charge_function": "src.n01.model008.canonical_charge008",
+    "canonical_start": 110,
+    "canonical_stop": 366,
+    "charge_definition": "sum_centered_carrier[110:366]_on_1ns_grid",
+    "transform": "original_extended_log_charge",
+    "boundaries": "frozen_TRAIN_loss.charge_bin_boundaries",
+    "q_reference": "frozen_TRAIN_loss.q_reference",
+    "q_floor": "frozen_TRAIN_loss.q_floor",
+    "only_descriptive_strata": true,
+    "refit": false,
+    "loss_reweighting": false,
+    "retain_empty_bins_and_all_rows": true
+  },
+  "objective": {
+    "stage": "joint_stochastic",
+    "comparison_weights": null,
+    "wave_weight": 1,
+    "QPSD_weight": 2,
+    "regular_weight": 0.01,
+    "regular": "RMS_random_shape_over_a_ref_squared_plus_second_difference_over_a_ref_squared_plus_mean_h_saturation",
+    "excludes": [
+      "frozen_A_regular",
+      "noise_loss",
+      "trend",
+      "adversarial_loss"
+    ],
+    "clip_norm_reference": 5,
+    "actual_gradient_clipping": false
+  },
+  "autograd": {
+    "scalar_queries": [
+      "g_wave_with_endpoint_and_shared_S",
+      "g_QPSD_weighted_with_endpoint_and_shared_S",
+      "g_RMS_weighted",
+      "g_curvature_weighted",
+      "g_saturation_weighted",
+      "g_total_independent",
+      "g_QPSD_fixed_membership_reference",
+      "g_wave_A_anchor_crop",
+      "g_QPSD_fixed_A_anchor_crop"
+    ],
+    "masked_VJP_queries": [
+      "g_wave_crop_changed",
+      "g_QPSD_crop_changed"
+    ],
+    "uses_autograd_grad": true,
+    "backward_calls": 0,
+    "accumulate_parameter_grad": false,
+    "first_proof_uses_one_formal_global_query": true,
+    "extra_pilot_queries": 0,
+    "S_reference_gradient_check": "analytic_gather_scatter_prefix_mean_and_native_clamp_pullback_using_query1_2_endpoint_and_shared_S_gradients",
+    "zero_norm_cosine": "null_with_reason",
+    "changed_mask_detached": true
+  },
+  "observation": {
+    "ADC_LSB_V": 0.00006103888176768602,
+    "first_argmax": true,
+    "baseline_samples": 100,
+    "peak_search": [
+      112,
+      144
+    ],
+    "samples_before_peak": 16,
+    "observed_window_samples": 256,
+    "tail_start": 46,
+    "hard_STE_forward_must_match": true,
+    "A_anchor_same_current_carrier_and_ADC": true,
+    "crop_index_gradients": false,
+    "actual_fixed_membership_support_source": "theta2000_actual_hard_observation_and_selected_REAL",
+    "frozen_membership_helper_no_monkeypatch": true,
+    "keep_native_anchor_bin_and_support_migration_separate": true,
+    "conditional_support_minimum": 16,
+    "Q_decomposition_includes_prefix_baseline": true,
+    "retain_all_draws_and_parents": true
+  },
+  "probe": {
+    "step_sizes_ADC_LSB": [
+      0.1,
+      1,
+      10
+    ],
+    "signs": [
+      -1,
+      1
+    ],
+    "signed_inputs": 6,
+    "direction": "detach(random_shape_pre_V)/global_max_abs_random_shape_pre_V",
+    "direction_prefix100_zero": true,
+    "direction_canonical_charge_zero": true,
+    "paths": [
+      "S_clamp_surrogate_fixed_actual_crop",
+      "H_fixed_hard_ADC_fixed_actual_crop",
+      "H_moving_same_hard_ADC_first_argmax"
+    ],
+    "hard_ADC_shared_between_fixed_and_moving": true,
+    "membership_and_projection_fixed": true,
+    "zero_direction_behavior": "record_six_undefined_skip_probe_ADC",
+    "zero_direction_probe_ADC_rows": 0,
+    "extra_NN_forward_rows": 0,
+    "parameter_finite_difference": false,
+    "physical_candidate": false,
+    "all_steps_reported": true,
+    "best_step_selection": false,
+    "no_scientific_pass_threshold": true
+  },
+  "budgets": {
+    "old_A_rows": 2048,
+    "noise005_rows": 2048,
+    "head_final_rows": 2048,
+    "head_initial_or1000_rows": 0,
+    "scalar_AD_queries": 9,
+    "masked_endpoint_VJP_queries": 2,
+    "ADC_hard_or_STE_rows": 49152,
+    "checkpoint_loads_max": 5,
+    "optimizer_created": 0,
+    "optimizer_steps": 0,
+    "G_updates": 0,
+    "D_updates": 0,
+    "noise_updates": 0,
+    "population_updates": 0,
+    "C2ST_updates": 0,
+    "DEV_rows": 0,
+    "sampler_created": 0,
+    "new_latent_draws": 0,
+    "new_noise_draws": 0
+  },
+  "gradient_sum_scaled_relative_tolerance": 0.00001,
+  "point_replay_abs_tolerance": 1e-7,
+  "resource_limits": {
+    "CPU_threads": 12,
+    "GPU_GiB": 10,
+    "job_tree_RSS_GiB": 8,
+    "wall_seconds": 900,
+    "output_MiB": 128,
+    "poll_seconds": 10,
+    "TERM_grace_seconds": 20
+  },
+  "preflight": {
+    "minimum_available_RAM_GiB": 10,
+    "minimum_free_disk_GiB": 4,
+    "GPU_empty": true
+  },
+  "design_reference": {
+    "path": "receipts/stability011_20261014/gradient_design_01/DESIGN.md",
+    "sha256": "b33ad1db7c0a1695838fc0bf02689afe46f3464ab5756021a8a38856427671a8",
+    "receipt_sha256": "ad3858ad16086b2eb858cdcadb5dea484b850d5ac494b034ec6108ccdfcf66c5",
+    "source_formula_correction": "canonical_charge008 actual centered[110:366],matching originalA.signal_forward; earlier unregistered informal100:384 formula discarded",
+    "S_reference_query_resolution": "reuse endpoint_and_sharedS queries1_2_with_analytic_pullback; no12thquery"
+  },
+  "prior_stability_required": {
+    "bootstrap_saved": 500,
+    "child_native_exit": 0,
+    "supervisor_native_exit": 0,
+    "classification": "saved_TRAIN_bank_gain_stable_under_paired_parent_group_reweighting",
+    "independent_readback_status": "PASS",
+    "independent_readback_sha256": "b73e6563ccbbbdbacc20b38d48b45af92c87b9b3069e9d1a6df06ad4ce27c194"
+  },
+  "frozen_state_invariants": {
+    "baseline_005_extension_parameters_and_buffers_unchanged": true,
+    "head_tensors_unchanged": true,
+    "old53_source_unchanged": true,
+    "old011_63_source_unchanged": true,
+    "head_only_requires_grad": true,
+    "no_full_wrapper_to_device": true
+  },
+  "operations_accounting": {
+    "atomic_entered_before_operation": true,
+    "completed_fsynced_before_status": true,
+    "scope_each_NN_AD_ADC_checkpoint_operation": true,
+    "inflight_completion": "unknown_without_durable_success_record",
+    "failed_operations_preserved": true,
+    "automatic_restart": false,
+    "first_proof_requires_real_forward_and_finite_formal_AD": true
+  },
+  "one_active_scientific_job": true,
+  "DEV_numeric_read": false,
+  "overwrite_outputs": false,
+  "automatic_restart": false,
+  "independent_acquisition_available": false,
+  "new_training_candidate": false,
+  "formal_response_acceptance": false,
+  "followup": "correct_native_start_then_single_wakeup_in_same_n01_heartbeat_no_continuous_monitoring"
+}

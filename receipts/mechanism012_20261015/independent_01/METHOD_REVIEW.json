@@ -1,0 +1,172 @@
+{
+  "schema": "n01/mechanism012-independent-design-method-review/v1",
+  "UTC": "2026-10-14T16:59:35.896244+00:00",
+  "status": "DESIGN_SCOPE_PASS",
+  "reviewer": "GPT-6.1-Sol-Max",
+  "run_id": "mechanism012_20261015",
+  "design": {
+    "path": "E:\\GAN\\research\\N01\\receipts\\stability011_20261014\\gradient_design_01\\DESIGN.md",
+    "sha256": "b33ad1db7c0a1695838fc0bf02689afe46f3464ab5756021a8a38856427671a8"
+  },
+  "design_receipt": {
+    "path": "E:\\GAN\\research\\N01\\receipts\\stability011_20261014\\gradient_design_01\\DESIGN_RECEIPT.json",
+    "sha256": "ad3858ad16086b2eb858cdcadb5dea484b850d5ac494b034ec6108ccdfcf66c5"
+  },
+  "scope": "Bounded local fixed-theta2000 mechanism diagnosis. New implementation/policy/runtime have not yet passed final prelaunch review.",
+  "objective": {
+    "wave": "mean_h(W_h)",
+    "QPSD": "2*mean_h(QPSD_h)",
+    "RMS": ".01*mean(random_shape_pre_V^2)/a_ref^2",
+    "curvature": ".01*mean(diff2(random_shape_pre_V)^2)/a_ref^2",
+    "saturation": ".01*mean_h(saturation_penalty(S+n_h))",
+    "total": "sum five already-weighted terms, independently differentiated",
+    "excluded": [
+      "noise loss",
+      "frozen A regular",
+      "trend",
+      "adv"
+    ],
+    "global_reduction": "Original global2048-row distribution loss, never mean chunk distribution losses; scalar RMS/curvature chunk reductions weighted by actual row counts."
+  },
+  "query_schedule": [
+    {
+      "query": 1,
+      "kind": "scalar_AD",
+      "target": "weighted wave",
+      "outputs_requested": "existing two head parameters + three actual Y endpoints + shared S"
+    },
+    {
+      "query": 2,
+      "kind": "scalar_AD",
+      "target": "weighted native QPSD",
+      "outputs_requested": "same target tensor list"
+    },
+    {
+      "query": 3,
+      "kind": "scalar_AD",
+      "target": "weighted RMS"
+    },
+    {
+      "query": 4,
+      "kind": "scalar_AD",
+      "target": "weighted curvature"
+    },
+    {
+      "query": 5,
+      "kind": "scalar_AD",
+      "target": "weighted saturation"
+    },
+    {
+      "query": 6,
+      "kind": "scalar_AD",
+      "target": "independent weighted total"
+    },
+    {
+      "query": 7,
+      "kind": "scalar_AD",
+      "target": "weighted actual-reference frozen-membership QPSD, head gradient equivalence"
+    },
+    {
+      "query": 8,
+      "kind": "scalar_AD",
+      "target": "anchor weighted wave"
+    },
+    {
+      "query": 9,
+      "kind": "scalar_AD",
+      "target": "anchor weighted frozen-membership QPSD"
+    },
+    {
+      "query": 10,
+      "kind": "masked_window_VJP",
+      "target": "joint three actual endpoints with detached weighted-wave endpoints*changed mask"
+    },
+    {
+      "query": 11,
+      "kind": "masked_window_VJP",
+      "target": "joint three actual endpoints with detached weighted-QPSD endpoints*changed mask"
+    }
+  ],
+  "no_extra_S_reference_query": "Use existing q1/q2 endpoints and S adjoints. Analytic gather scatter minus prefix sum(e)/100 times original inclusive clamp mask validates reference S-path Jacobian; no12th scientific query.",
+  "graph_ancestor_contract": "Build exactly one A/head graph per128-row chunk; cat retained signal chunks to sharedS before using its slices in hard/STE observations; cat windows after observation. Independently cat signals after observing original chunk signals would make sharedS an unused parallel branch and is forbidden.",
+  "mandatory_budgets": {
+    "old_A_rows": 2048,
+    "old_noise005_rows": 2048,
+    "theta2000_head_rows": 2048,
+    "theta0_or1000_forward_rows": 0,
+    "scalar_AD_queries": 9,
+    "masked_VJP_queries": 2,
+    "total_queries": 11,
+    "base_hard_ADC_rows": 6144,
+    "base_STE_ADC_rows": 6144,
+    "signed_probe_inputs": 6,
+    "maximum_probe_hard_ADC_rows": 36864,
+    "maximum_total_ADC_rows": 49152,
+    "optimizer_instances_or_steps": 0,
+    "sampler_instances_or_advancement": 0,
+    "updates": 0,
+    "DEV_reads": 0
+  },
+  "zero_direction_branch": "Record six undefined signed probes and skip their additional ADC; mandatory2048 A/005/head and11 AD queries remain. ADC49152 is a maximum, not a required consumption count.",
+  "frozen_state_contract": "Restore stage/frozen flags/eval/device on original baseline before constructing old010 wrapper. Never call whole-wrapper to(device), never re-enable original stage/parameters. Strictly load head final two tensors; hash all A/005/extension/head state including buffers before and after. autograd.grad only; .grad remains None; no .backward or optimizer/sampler creation.",
+  "conditional_membership": "Actual theta2000 hard observation defines fake and REAL row bins and support16 once, separately perhyp. Frozen helper exactly reproduces original _qpsd/_z/W1 and global-conditional0.5 weights at reference. Compare full1288 weighted head gradient within q7. Anchor/probes keep this reference partition; native dynamic-bin/support migration is separate.",
+  "same_carrier_anchor": "Use current S+n_h, current ADC and prefix baseline for both actual p_theta and saved-A p_A gather. Neither another A forward nor A waveform replacement is permitted; same-carrier crop contrast differs from native conditional-membership migration.",
+  "observation_boundaries": [
+    "STE hard values agree but hard round AD derivative is zero",
+    "first argmax/gather indices are nondifferentiable",
+    "clamp rails use original inclusive Torch convention, not a unique classical derivative",
+    "wave peak amax ties/floor",
+    "Q sign at0 and PSD absolute-charge floor",
+    "W1 sorting ties",
+    "nearest-even quantization half-grid and finite-step jumps"
+  ],
+  "Q_tail_decomposition": "For each signal/noise/ADC_delta term, gather at chosen crop minus its own prefix100 mean; sum256 and tail46:256. ADC_delta includes quantization+clipping+prefix baseline correction. Check both identities at actual and same-carrier anchor crops.",
+  "SOURCE_Q8_contract": "Canonical SOURCE q = canonical_charge008(source_carrier384 - prefix100 mean), exactly frozen model008.py:24-32 and172-178 fixed[110:366]256-sample sum. Then original _extended_log_charge(q,q_reference,q_floor) and original TRAIN loss charge_bin_boundaries via bucketize. No new fit, generated observedQ or source256 substitute; empty bins/difficult rows retained and strata are descriptive only.",
+  "local_influence_scope": "Endpoint dot (Y_anchor-Y_actual) is signed first-order influence; report total versus actual full-loss change and residual, row/parent denominators and posterior changed masks. No row-additive distribution loss, causal event label, sum-of-norm percent contribution or causal GAN comparison.",
+  "first_proof": "First formal global query q1 after first128 family completed; possibly after all2048 graphs/observations. No extra tiny actual-model AD for launch proof.",
+  "source_inventory_contract": {
+    "approved_new_source_files": 69,
+    "new_metadata_copies": 6,
+    "exact_source_recipe": "old53 + old4 protected manifests +6 original006/008 metadata copies +4 new012py +policy/protocol2",
+    "bound_slots": 36,
+    "slot_recipe": "30 primary +6 exact copied control metadata slots",
+    "original_metadata_not_assumed_present_in_old_runtime": true
+  },
+  "artificial_evidence": {
+    "path": "E:\\GAN\\research\\N01\\receipts\\mechanism012_20261015\\independent_01\\chain_artificial_01\\ENGINEERING_RECEIPT.json",
+    "sha256": "f953d3f30018b9cc85e254bef3c4e5e38ee20b5e6ba11af713a4e0aa0c4f8f55"
+  },
+  "artificial_evidence_scope": {
+    "native_exit": 0,
+    "assertions_passed": 11,
+    "artificial_AD_queries": 6,
+    "artificial_leaf_entries": 1288,
+    "artificial_rows": 8,
+    "CPU_effective_torch_threads": 2,
+    "max_analytic_signal_pullback_error": 1.1102230246251565e-16,
+    "max_masked_1288_gradient_error": 0.0,
+    "real_trained_graph_OR_bank_proof": false
+  },
+  "checker_wording_correction": "Earlier reviewer message mistakenly expanded canonical charge as[100:384]-2.84prefix. Direct source inspection and worker correction established frozen centered[110:366]; parent notified before policy freeze. data008 saves rawcarrier, so prefix centering must match original A path.",
+  "old53_source_SHA256_currently_unchanged": true,
+  "not_yet_verified": [
+    "Actual new policy/protocol bytes",
+    "Final012 driver/helper/ops/supervisor source",
+    "Complete binding gate and native schemas",
+    "Actual scientific1288 gradients and bank waveform reproduction",
+    "Native GPU/RSS/time/lock/PID/first query behavior"
+  ],
+  "activity": {
+    "real_data_or_saved_wave_decodes": 0,
+    "checkpoint_loads": 0,
+    "real_trained_NN_instances_or_forwards": 0,
+    "scientific_AD_or_VJP": 0,
+    "new011_full_CDF_evaluations": 0,
+    "optimizers_or_samplers": 0,
+    "updates": 0,
+    "DEV_reads": 0,
+    "SSH_calls": 0,
+    "source_or_metadata_edits": 0
+  },
+  "scientific_status": "response_match_not_established"
+}
