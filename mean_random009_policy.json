@@ -1,0 +1,102 @@
+{
+  "schema": "n01/mean-random009-policy/v1",
+  "diagnostic_id": "mean_random009_20261014",
+  "registered_UTC": "2026-10-14T05:46:26.664076+00:00",
+  "user_authorization": "2026-10-14: 设置计划并推进",
+  "remote_root": "/home/rylan/projects/ej276d-n01/mean_random009_20261014",
+  "immutable_endpoint_root": "/home/rylan/projects/ej276d-n01/window008_resume01_20261013",
+  "arms": [
+    "A",
+    "B",
+    "C"
+  ],
+  "derived_mean": "D",
+  "parents": 512,
+  "repeats": 16,
+  "chunk_rows": 128,
+  "CPU_threads": 12,
+  "TRAIN_counts": {
+    "source": 6593,
+    "real": 21047
+  },
+  "hypotheses": [
+    "fast",
+    "slow",
+    "common_level"
+  ],
+  "selection": {
+    "mode": "source_TRAIN_Q8_stratified_without_replacement",
+    "bins": 8,
+    "parents_per_bin": 64,
+    "bin_edges": "data_statistics.domains.source.Q256_eight_quantile_bin_edges",
+    "population_weights_recorded_separately": true,
+    "physical_weights_preserved": true
+  },
+  "seeds": {
+    "selection": 2026101410,
+    "response": 2026101411,
+    "noise005": 2026101412,
+    "extension": 2026101413,
+    "real_selection": 2026101414,
+    "projections": 2026101415,
+    "bootstrap": 2026101416
+  },
+  "matched_real_rows": 8192,
+  "REAL_REAL_rows_each": 8192,
+  "REAL_REAL_disjoint": true,
+  "bootstrap_replicates": 500,
+  "resource_limits": {
+    "GPU_GiB": 10,
+    "job_tree_RSS_GiB": 8,
+    "wall_seconds": 7200,
+    "output_MiB": 1536,
+    "poll_seconds": 2,
+    "TERM_grace_seconds": 20
+  },
+  "preflight": {
+    "minimum_free_disk_GiB": 4,
+    "minimum_available_RAM_GiB": 10
+  },
+  "observation": {
+    "internal_samples": 384,
+    "baseline_samples": 100,
+    "effective_samples": 256,
+    "peak_search": [
+      112,
+      144
+    ],
+    "samples_before_peak": 16,
+    "ADC_once": true,
+    "canonical_Q_slice": [
+      110,
+      366
+    ]
+  },
+  "comparison": {
+    "paired_common_noise": true,
+    "D_means_of_individual_hard_observations": true,
+    "D_distribution_acceptance": false,
+    "sample_covariance_ddof": 1,
+    "waveform_covariance_storage": "centered_draw_factor",
+    "parent_cluster_uncertainty": true
+  },
+  "optimizer_updates": 0,
+  "G_updates": 0,
+  "D_updates": 0,
+  "noise_updates": 0,
+  "population_updates": 0,
+  "C2ST_updates": 0,
+  "DEV_numeric_read": false,
+  "independent_acquisition_available": false,
+  "scientific_status": "response_match_not_established",
+  "scientific_pass_threshold": null,
+  "automatic_restart": false,
+  "overwrite_outputs": false,
+  "protocol": "docs/MEAN_RANDOM009_PROTOCOL.md",
+  "phase2": {
+    "status": "conditional_after_frozen_diagnosis",
+    "candidate": "frozen_deterministic_mean_voltage_domain_zero_charge_shape",
+    "G_updates_per_arm_upper_budget": 2000,
+    "parameters_not_yet_frozen": true
+  }
+}

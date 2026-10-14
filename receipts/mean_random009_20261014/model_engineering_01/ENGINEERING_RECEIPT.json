@@ -1,0 +1,113 @@
+{
+  "schema": "n01/ablation009-cpu-engineering/v1",
+  "UTC": "2026-10-14T05:49:21.944302+00:00",
+  "status": "passed_cpu_artificial_semantics_only",
+  "device": "cpu",
+  "torch_version": "2.12.0+cu130",
+  "fixture": "four analytic positive pulses repeated four times, explicit seeded Gaussian latents",
+  "checks": [
+    {
+      "name": "all_on_original_outputs_bitwise_equal",
+      "passed": true,
+      "original_output_keys": 29
+    },
+    {
+      "name": "copied_assembly_all_on_bitwise_equal",
+      "passed": true
+    },
+    {
+      "name": "convenience_all_on_original_outputs_bitwise_equal",
+      "passed": true
+    },
+    {
+      "name": "all_signal_off_equals_same_full_own_mean_response_signal",
+      "passed": true,
+      "original_model_stage": "low_learning_rate"
+    },
+    {
+      "name": "charge_off_masks_output_row_and_removes_variance_correction",
+      "passed": true
+    },
+    {
+      "name": "time_off_preserves_all_other_physical_coordinates",
+      "passed": true
+    },
+    {
+      "name": "all_eight_basis_rows_off_preserves_charge_time_and_local_draw",
+      "passed": true
+    },
+    {
+      "name": "single_basis_output_row_off_preserves_other_correlated_coordinates",
+      "passed": true
+    },
+    {
+      "name": "local_noise_off_preserves_entire_physical_draw",
+      "passed": true
+    },
+    {
+      "name": "column_zeroing_changes_retained_outputs_and_keeps_wrong_Q_half_variance",
+      "passed": true,
+      "minimum_q_zero_latent_over_qbar": 0.9888130437271653
+    },
+    {
+      "name": "engineering_components_are_derived_without_extra_forwards",
+      "passed": true,
+      "decomposition_roundoff_absmax_V": 5.551115123125783e-17,
+      "stochastic_voltage_RMS_max_V": 0.0547188523072984
+    },
+    {
+      "name": "prefix100_exact_zero_and_fixed_canonical_charge_identity_preserved",
+      "passed": true
+    },
+    {
+      "name": "existing_ADC_baseline_peak_crop_observation_unchanged",
+      "passed": true
+    },
+    {
+      "name": "original_stage_eval_flags_parameters_buffers_stats_inputs_and_rng_unchanged",
+      "passed": true,
+      "state_sha256": "a6d45fc5fcd94140cd231fc69fa8105de7fc23b040470b13d8ded9b85f1f550c"
+    },
+    {
+      "name": "frozen_state_and_invalid_input_rejections",
+      "passed": true,
+      "rejection_count": 10
+    }
+  ],
+  "passed_checks": 15,
+  "rejection_details": {
+    "unfrozen": "009 caller must freeze all original model parameters",
+    "train_mode": "009 caller must put the complete original model in eval mode",
+    "stage_reenabled_parameters": "009 caller must freeze all original model parameters",
+    "data_write_bypassing_version_counter": "009 original state bytes changed",
+    "unknown_branch": "Unknown 009 disabled branch: 'not_a_branch'",
+    "mask_and_disable": "009 accepts either an explicit mask or disabled branch names",
+    "string_disable": "009 disable must be a sequence of branch names",
+    "missing_latent": "Window008 requires explicit phys and local_white latents",
+    "malformed_latent": "Invalid Window008 latent: phys",
+    "invalid_source_peak": "SOURCE carrier peak differs from registered126; batch rows=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]; values=[127, 127, 127, 127, 127, 127, 127, 127, 127, 127, 127, 127, 127, 127, 127, 127]"
+  },
+  "artificial_model_forward_calls": 12,
+  "artificial_model_forward_rows": 192,
+  "scientific_SOURCE_forward_rows": 0,
+  "scientific_REAL_forward_rows": 0,
+  "scientific_arrays_read": false,
+  "trained_checkpoints_read": false,
+  "optimizer_updates": 0,
+  "scientific_updates": 0,
+  "GPU_forwards": 0,
+  "extra_nominal_model_forwards": 0,
+  "old_observation_code_unchanged": true,
+  "original_imported_source_sha256": {
+    "src/n01/model.py": "0a0488218d99f351a98e30f2b1525b837b4ad3195c19f2a76ff61ee01298587b",
+    "src/n01/model008.py": "56a6b41f9d2906c82757f4ca9f91a751ff8531428a7f38714e0a291359cd1b4f",
+    "src/n01/model008_fix01.py": "3bc826a1867f2658ae507ab2be683a6b901b7f481b1efaf005f3cf4953429abc",
+    "src/n01/observation008.py": "9f7b6c0a266c420af8c6c155103774bae1ed949cfe05ee6a1f19b75f9254c4ec"
+  },
+  "original_imported_source_unchanged": true,
+  "helper_sha256": "8100bbedb765f08f689a4bce5cb9ea1af133e6f2b895b544656f6e9fbd058d3b",
+  "script_sha256": "c2ccaf8e0765219bd6adcb47fe17f4391c15ea50ce3a75cb32a6c48a81363057",
+  "frozen_artificial_model_state_sha256": "a6d45fc5fcd94140cd231fc69fa8105de7fc23b040470b13d8ded9b85f1f550c",
+  "elapsed_seconds": 2.8429999999971187,
+  "limit": "CPU analytic-input semantics only; not trained-weight, native CUDA or detector-response acceptance."
+}

@@ -1,0 +1,119 @@
+{
+  "schema": "n01/reaudit-review/v1",
+  "UTC": "2026-10-14T05:33:04.504133+00:00",
+  "user_request": "核验复审结论并给出处理建议",
+  "scope": "source review, existing saved metric/log readback, synthetic mechanism reproduction; no repair or scientific run",
+  "commit": "b59394013891c1daa1d4ae874083a8c6dfcb3d83",
+  "archive_sha256": "b43c1ba214d2e8c050014c9315fe3318eed53aca2c9629329288649a5df098a5",
+  "incoming_manifest_verified": true,
+  "full_review_text_sha256": "07a7cf3cc14aefaaf5642b3283d367d051761c3aaed1f4fc1b0e0f2d94f2060c",
+  "synthetic_reproduction": {
+    "native_exit_code": 0,
+    "differences": [
+      {
+        "path": "/correlated_shape_mean_shift/empirical_E_Q_eta_shape",
+        "absolute_difference": 6.938893903907228e-18
+      },
+      {
+        "path": "/correlated_shape_mean_shift/MonteCarlo_standard_error",
+        "absolute_difference": 5.421010862427522e-20
+      },
+      {
+        "path": "/correlated_shape_mean_shift/empirical_E_corrected_Q_eta_shape",
+        "absolute_difference": 1.5246593050577406e-20
+      }
+    ],
+    "maximum_absolute_difference": 6.938893903907228e-18,
+    "checkpoint_loaded": false,
+    "raw_SOURCE_REAL_loaded": false,
+    "optimizer_updates": 0
+  },
+  "source_reviewers": [
+    "reaudit_model_mechanisms",
+    "reaudit_optimization"
+  ],
+  "saved_records_audit_sha256": "90a072c381b0ee29635bace5fd601bac49b316e0265b46e21a3233f5c2cfef02",
+  "conclusion": "Accept the mechanism checks and diagnostic-first priority; causal ranking remains unresolved. Correct stage comparison, finite-difference isolation, paired noise averaging and freeze semantics before implementation.",
+  "confirmed": [
+    {
+      "claim": "Published TRAIN/DEV fast values and matched sizes agree with the current summary; TRAIN wave+2QPSD values agree exactly for all hypotheses.",
+      "evidence": "reports/window008_resume01_20261013/SUMMARY.json"
+    },
+    {
+      "claim": "For fixed input, Qsig conditional CV is bounded by sqrt(exp(0.3^2)-1). This does not bound observed cropped Q, population variation, or each random draw.",
+      "evidence": "src/n01/model.py:312; src/n01/model008_fix01.py:64"
+    },
+    {
+      "claim": "Correlated lognormal charge multiplying Gaussian shape coefficients shifts preADC mean at fixed time; normalization can amplify stochastic voltage. Actual trained-model contribution remains unmeasured.",
+      "evidence": "src/n01/model008_fix01.py:76; reproduced/verified_mechanisms.json"
+    },
+    {
+      "claim": "Argmax/gather retains selected-value gradients but can omit expectation boundary terms; the synthetic counterexample reproduced.",
+      "evidence": "src/n01/observation008.py:62; reproduced/verified_mechanisms.json",
+      "primary_source": "https://arxiv.org/abs/1806.00176"
+    },
+    {
+      "claim": "Different arms and hypotheses use separate critics; cross-arm absolute adversarial scores do not establish causal dominance.",
+      "evidence": "src/n01/response008.py:188"
+    },
+    {
+      "claim": "A 16-point prepeak crop can censor rise10-90 for a positive smooth pulse; undefined rise is not sufficient to classify an abnormal waveform.",
+      "evidence": "reproduced/verified_mechanisms.json"
+    }
+  ],
+  "required_corrections": [
+    {
+      "item": "Objective and phase changes",
+      "detail": "wave+2QPSD is the common evaluation proxy, not full G objective. Step3000-to3001 also switches mean-feature loss to empirical distribution loss and activates D. Current frozen noise loss has zero G gradient; trend is identically zero.",
+      "evidence": "src/n01/losses008_v2.py:199; src/n01/response008.py:230; src/n01/model008_fix01.py:107"
+    },
+    {
+      "item": "Finite difference isolation",
+      "detail": "The noADC+dynamic crop path retains hard Q bins and minimum-16 support switches. Freeze bins/support when isolating peak boundaries, or add noADC+dynamic crop+fixed bins. Then test bin migration separately.",
+      "evidence": "src/n01/losses008_v2.py:246"
+    },
+    {
+      "item": "Paired conditional means",
+      "detail": "Average A and C over the same electronics/extension draws as B before comparison with D. Report signal, preADC carrier and mean of hard observations separately; D-C and D-A plus Monte Carlo error are needed. C-A alone is not evidence of harmful drift."
+    },
+    {
+      "item": "Parameter and state freeze",
+      "detail": "joint/low set_stage calls requires_grad_(True). A future frozen-mean repair must use explicit trainable-parameter whitelist, exclude frozen weights from optimizer, disable D updates/adv independently of stochastic output and distribution loss, and verify frozen buffers and parameters.",
+      "evidence": "src/n01/model008.py:139; src/n01/response008.py:279"
+    },
+    {
+      "item": "Voltage-domain basis safeguards",
+      "detail": "Preserve first100 baseline samples with B[..., :100]=0 in addition to canonical zero charge. Use small nonzero stochastic shape initialization, actual voltage RMS regularization and fixed-time preADC mean proof. Canonical charge preservation does not imply cropped observed Q preservation.",
+      "evidence": "src/n01/model008.py:20; src/n01/model008_fix01.py:77; src/n01/observation008.py:92"
+    },
+    {
+      "item": "Data role and uncertainty",
+      "detail": "Existing128x64 repeat study is DEV, not TRAIN. New512x16 TRAIN design needs 512-parent cluster uncertainty and paired Monte Carlo SE; sixteen repeats do not guarantee mean/covariance precision.",
+      "evidence": "src/n01/diagnose_window008_resume01.py:91; src/n01/diagnose_window008_resume01.py:1023"
+    }
+  ],
+  "new_saved_log_finding": {
+    "full_G19000_fast_weighted_waveform_endpoint_gradient_norms": {
+      "wave": 0.3824386914981261,
+      "QPSD": 0.8344985947364162,
+      "adv": 0.0933995482869952
+    },
+    "scope": "Recorded weighted waveform-endpoint gradients only; no per-loss parameter-gradient or optimizer-direction causal conclusion.",
+    "effective_full_chain": "original1:3000, fix013001:6000, resume016001:19000; failed and discarded duplicate-history segments not used for effective-window means"
+  },
+  "next_action_recommendation": "First register paired frozen A/B/C/D TRAIN diagnosis, with base_shape_Q, Qsig/base_shape_Q, RMS of stochastic voltage, per-parent Monte Carlo error, morphology censoring causes and fixed observation. Decide from those results whether to implement the bounded2000-update frozen-det voltage-shape candidate. No training started by this review.",
+  "tracked_worktree_changed": false,
+  "new_trained_model_forward_calls": 0,
+  "new_optimizer_updates": 0,
+  "new_original_waveform_decodes": 0,
+  "new_scientific_jobs": 0,
+  "github_changed": false,
+  "evidence_files": {
+    "incoming/MANIFEST.json": "2cfaa62a1c6225559a7996ff1ec275afd28b9cdfff19f8b6b4d283f1fa2990ac",
+    "incoming/REVISED_ACTIONS.md": "e45cbb9c58b8dea6b7f9473b24e01e4933b3097287efeb6030544a29775ee59f",
+    "reproduced/verify_mechanisms.py": "2f8350f6f88339f83aacbf36d76e4212c66ff4993bceabec5ed53dd017a95525",
+    "reproduced/verified_mechanisms.json": "7720db9914317235a6123edf429ad8ded9cd3a0718ff70ba4282425a530f69ff",
+    "audit_saved_records.py": "282c37b646e2603ff42aaf2319ced73a137b97e4f699dea224c177597ec9fb77",
+    "SAVED_RECORDS_AUDIT.json": "90a072c381b0ee29635bace5fd601bac49b316e0265b46e21a3233f5c2cfef02"
+  }
+}

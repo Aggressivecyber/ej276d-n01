@@ -1,0 +1,56 @@
+{
+  "schema": "n01/mean-random009-independent-prelaunch-review/v1",
+  "UTC": "2026-10-14T06:15:21.246488+00:00",
+  "status": "no_blocking_findings_after_failure_accounting_fix",
+  "blocking_findings": [],
+  "resolved_findings": [
+    {
+      "id": "failure_accounting_after_first_family",
+      "pre_fix_receipt": "FAILURE_ACCOUNTING_RECEIPT.json",
+      "evidence": "Second-family failure previously lost completed A rows; final regression stores 512 completed signal rows and 128 unknown in-flight B rows.",
+      "source_refs": [
+        "src/n01/diagnose_mean_random009.py:484",
+        "src/n01/diagnose_mean_random009.py:502",
+        "src/n01/diagnose_mean_random009.py:512",
+        "src/n01/diagnose_mean_random009.py:628"
+      ]
+    }
+  ],
+  "checks": {
+    "ablation_CPU_artificial_passed": 15,
+    "driver_CPU_artificial_passed": 13,
+    "protected_008_numerical_sources": 38,
+    "owned_process_helper_mocks_passed": 4,
+    "final_reviewed_bytes_match_receipts": true
+  },
+  "reviewed_sha256": {
+    "src/n01/ablation009.py": "8100bbedb765f08f689a4bce5cb9ea1af133e6f2b895b544656f6e9fbd058d3b",
+    "src/n01/diagnose_mean_random009.py": "31a07360e9ab53e987fe6d2bec3b466398a2c7125e64c1c94b712708ae62dfc4",
+    "scripts/check_ablation009.py": "c2ccaf8e0765219bd6adcb47fe17f4391c15ea50ce3a75cb32a6c48a81363057",
+    "scripts/check_mean_random009.py": "2d3e7424a22135ffdbfae41669422d31120a533b4591308d6eb87411ca29f26e",
+    "scripts/start_mean_random009_remote.py": "78736d76267ff1dfb515391605993a79c896de9454dc3b49eef9d004f907fd0d",
+    "scripts/supervise_mean_random009.py": "69527aa48eff48f12e22ffd6d49b2dff5a2472b925a6def62424f183b3a612c9",
+    "scripts/freeze_mean_random009.py": "5e379776454d4953754b9b7c39923ef8d7a83a351da9d1c1bd02ce791be97c2a",
+    "scripts/snapshot_mean_random009.py": "25852dca316993aed615e96cb8b8012c544a99ec3352ed7627e7aa3bb82270ee",
+    "mean_random009_policy.json": "c01d6a513d96505210514619289defb316fdb17c199354b3a99f01556ef0da12",
+    "docs/MEAN_RANDOM009_PROTOCOL.md": "0d09029a146817156a7bfcb18e73982169441d0e1e46308608a3404acecb061c"
+  },
+  "receipts_sha256": {
+    "ablation_cpu_01/ENGINEERING_RECEIPT.json": "848e2dc810e6076e4f744c7a2f554550ce4f8883f704e80046ca86e95ba02f64",
+    "driver_cpu_02/ENGINEERING_RECEIPT.json": "6fe59ab6d2731624749309b3e8235b892b784bfa5f686617ba1ab54c0e908cca",
+    "OPS_MOCK_RECEIPT.json": "1367fd109aea8fc56c59d780bd476549396109318bf0a5f70b4d2aa484e713ef",
+    "SOURCE_PROTECTION_RECEIPT.json": "c41e28b737fa47775ab7cd6dca8434db724d8ca25653f4de6f1a31d6a3780c3a",
+    "FAILURE_ACCOUNTING_RECEIPT.json": "80f5b7a6f43055ccb3ed3f8477eaeb37ba82587a5d99472590c7ff6cf30c15b7"
+  },
+  "scientific_inputs_read": false,
+  "trained_checkpoint_bytes_read": false,
+  "scientific_model_forwards": 0,
+  "optimizer_updates": 0,
+  "real_OS_signals_sent": 0,
+  "native_Linux_dispatch_performed": false,
+  "caveats": [
+    "Review covers frozen-source software semantics and mocked ownership helpers, not native CUDA or scientific acceptance.",
+    "Root must verify real START_PROOF against supervisor child PID, policy/bindings/source/input digests and parameter snapshots after the first complete actual family.",
+    "Final result still requires native exit receipt; no automatic restart is authorized."
+  ]
+}
