@@ -10,14 +10,14 @@
   },
   "objective": "Deliver a usable and verifiable conditional effective stochastic response kernel with explicit data and physical scope; assess engineering, in-domain effectiveness and cross-condition reuse separately.",
   "mainline": "protected deterministic A plus input-dependent stochastic response, fixed256 hard output/384 carrier/100 baseline/1ns software sampling; originalfull19k retained as negative control",
-  "status": "WP1_013_repeat_fix01_frozen_ready",
+  "status": "WP1_013_repeat_fix01_native_running",
   "active_work_package": "WP1",
-  "active_scientific_jobs": 0,
+  "active_scientific_jobs": 1,
   "work_packages": [
     {
       "id": "WP1",
       "run": "wp1_013_20261015",
-      "status": "frozen_ready",
+      "status": "native_running",
       "scope": [
         "012_saved_boundary_closure",
         "all_legal_SOURCE_information_audit",
@@ -114,7 +114,26 @@
           "TERM_grace_seconds": 20
         },
         "new_training_updates": 0,
-        "new_AD_queries": 0
+        "new_AD_queries": 0,
+        "start_receipt": "receipts\\wp1_013_20261015\\native_repeat_fix01\\start_native_03\\START_RECEIPT.json",
+        "startup_verification": "receipts\\wp1_013_20261015\\native_repeat_fix01\\start_verification_03\\START_VALIDATION.json",
+        "start_receipt_sha256": "7adbc8d3e039b1850dc0ba0799bad8ab594a316e549ef5a7163f837fde051cef",
+        "startup_verification_sha256": "1e272bf7be237df9b79df881631e9ef84b03114dd868f9f0dbb9adecd991b8c9",
+        "source_commit": "7be67b8d3809246a58bcb6f03cd531e8f7539ad3",
+        "supervisor_pid": 57507,
+        "analysis_pid": 57514,
+        "correct_start_verified": true,
+        "followup": {
+          "automation_id": "n01",
+          "status": "ACTIVE",
+          "count": 1,
+          "next_wake_local": "2026-10-15T07:40:00+08:00",
+          "receipt": "receipts\\wp1_013_20261015\\native_repeat_fix01\\FOLLOWUP_RECEIPT.json",
+          "receipt_sha256": "86453deb5df563c673eed6ea86e16e2dd725d0e2c254323268ab5ecd2062bd20",
+          "source_commit": "7be67b8d3809246a58bcb6f03cd531e8f7539ad3",
+          "correct_start_verified": true,
+          "continuous_monitoring": false
+        }
       },
       "runtime_repair": {
         "failed_attempt": 1,
@@ -494,11 +513,18 @@
     "root_planning_SolMax_implementation_and_review": true,
     "scientific_success_not_guaranteed_by_state_fields": true
   },
-  "current_action": "Launch the one packaging repair and verify first computation plus absence of native failure.",
-  "updated_UTC": "2026-10-14T21:26:45.916668+00:00",
+  "current_action": "One scheduled wake to collect the repaired WP1 and advance bounded WP2.",
+  "updated_UTC": "2026-10-14T21:33:15.266158+00:00",
   "followup": {
     "automation_id": "n01",
-    "status": "PAUSED"
+    "status": "ACTIVE",
+    "count": 1,
+    "next_wake_local": "2026-10-15T07:40:00+08:00",
+    "receipt": "receipts\\wp1_013_20261015\\native_repeat_fix01\\FOLLOWUP_RECEIPT.json",
+    "receipt_sha256": "86453deb5df563c673eed6ea86e16e2dd725d0e2c254323268ab5ecd2062bd20",
+    "source_commit": "7be67b8d3809246a58bcb6f03cd531e8f7539ad3",
+    "correct_start_verified": true,
+    "continuous_monitoring": false
   },
   "runtime_repair": {
     "failed_attempt": 1,
@@ -577,7 +603,7 @@
   },
   "numerical_storage_repair": {
     "attempt": 3,
-    "status": "frozen_ready",
+    "status": "native_running",
     "registration": "receipts\\wp1_013_20261015\\native_repeat_fix01\\NUMERICAL_STORAGE_REPAIR_REGISTRATION.json",
     "registration_sha256": "c15ba0fea7a6d9d9f4daf343becf813e648c8e89d6e0e59e9e2078b3afd6812c",
     "prior_actual_cost": {

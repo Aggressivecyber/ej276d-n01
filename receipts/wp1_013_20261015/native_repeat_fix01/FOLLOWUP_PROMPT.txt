@@ -1,0 +1,25 @@
+在本聊天于 2026 年 10 月 15 日 07:40（Asia/Singapore，UTC+8）单次苏醒，回收已正确启动的 N01 WP1/013，并继续用户《N01 从 013 到项目交付：主实施计划》授权的六工作包路线。用户要求长计算正确启动后定时苏醒，期间休息，不持续监控。全部新增数据、源码、缓存、临时、日志、权重、归档和报告保存 E/D。根流程负责规划与登记；施工及独立审核按项目 AGENTS 指定 Sol Max 分工，优先复用已有工程检查和工作代理。
+
+先读 E:/GAN/research/N01/AGENTS.md、USER_MASTER_PLAN_20261015.txt、MASTER_EXECUTION_PLAN.json、PROGRAM.json、jobs.json、OBSERVATION_CONTRACT.json、DATA_ROLES.json、docs/ACCEPTANCE_CONTRACT.md、wp1_013_config.json、WP1_SOURCE_MANIFEST.json，以及 receipts/wp1_013_20261015/native_repeat_fix01/runtime_package_03/FREEZE_RECEIPT.json、independent_01/native_repeat_fix01/PRELAUNCH_RUNTIME_FIX_REVIEW.json、native_repeat_fix01/start_native_03/START_RECEIPT.json、native_repeat_fix01/start_verification_03/REMOTE_STATE.json 和 START_VALIDATION.json、native_repeat_fix01/SOURCE_COMMIT_READBACK.json、native_repeat_fix01/FOLLOWUP_RECEIPT.json。最新用户指令优先。六工作包已经一次登记，不因普通末位数值差异重新创建整套科学协议。
+
+013 位于 /home/rylan/projects/ej276d-n01/wp1_013_repeat_fix01_20261015，SSH rylan@100.82.231.102，Python /home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python。实际启动 UTC2026-10-14T21:28:44，监督PID57507、计算PID57514只作历史身份，不凭旧PID认定存活。首次128行A/010最终头/005均已完成，三个电子学假设的ADC和裁窗合计768行、CP3，无额外pilot、无在途；权重和所有冻结输入/源码SHA不变。累计科学训练更新159667，本次G/D/noise/pop/C2ST/optimizer和新AD均0。
+
+源码本地提交 7be67b8d3809246a58bcb6f03cd531e8f7539ad3；86个源码及控制文件与提交原始字节逐项相合。冻结cfg SHA256 b55b64d500c1cd079bb83001da6b9ae5f462de9c952809c2ef329fcdbd98ffb7，MF dccd1b6c5676fb481f04e1b94a346aff2c41ada72c41c32e6a9042ac30b1fc04。源码84文件与私有4文件分包、旧53/63/69 source185保护记录已核，D盘小源码备份已验证。CPU12/GPU10GiB/进程树RSS8GiB/墙钟7200秒/输出1536MiB，只管理本作业树。硬观察保持14bit、384载体、原100基线、first-argmax112:144、p−16:p+240、256输出、1ns软件间隔和tail46。
+
+只用 scripts/wp1_controller.py --mode status --freeze receipts/wp1_013_20261015/native_repeat_fix01/runtime_package_03 --out 一个新专属E回执目录读取一次状态。若正常未完，根据真实余量更新同一个n01为下一次单次苏醒，然后休息；不持续轮询或重复启动。SSH不可达时远端unknown。若失败，保留native exit、FAILED及durable entered/completed/inflight/error计数和全部现场；未持久化完成不当成0，不自动重启或扩大预算。
+
+若native child及supervisor退出0、producer COMPLETE齐全，用 controller --mode collect --freeze 同目录 --out receipts/wp1_013_20261015/native_repeat_fix01/collection_03 --collected runs/wp1_013_20261015/runtime_fix01_collected_03 安全回收。若任一路径已经存在，先inspect并用新专属回执目录，不能覆盖；远端归档已经存在则collect-inspect恢复。失败用collect-failed或collect-failed-inspect保留现场。复核库存SHA/大小、84源码/22输入/185旧保护记录、启动PID链、source/input终态哈希及真实资源峰值。合法定义状态数是0/6/12/18/24/30，保留被禁用方向和原因；实际计数必须符合controller已冻结的定义状态公式及完整journals，最大oldA/head各298504、线性头方向40960、头kernel339464、noise00552744、ADC1569840、gather3044400、CP3。本阶段新AD/训练/DEV模型行均0，不能用一次COMPLETE代替native退出或独立读回。
+
+独立审核仅读取013/012已保存数组、投影、指标和父事件身份，不另加载科学CP、不重新NN/AD、不生成新随机库、不读DEV波形。完成 SOURCE 信息审计与012边界定位；endpoint signed influence不是逐事件loss贡献比例。全部6593 SOURCE TRAIN父事件×每库4draw×2库以及21047 REAL TRAIN、422原逻辑组保留。SOURCE信息审计的8192总父事件、旧1599内部val、512已暴露DEV角色照原样报告。当前只有一个已确认实测采集；其他历史role池曝光未知，不能重命名为blind或跨采集确认。RR每侧10475行/210组，仅是有限样本经验基准；其辅助排除97行不影响全人口评价。
+
+以四套结果分别报告全人口、输出Q条件、SOURCE输入趋势和同父重复响应，wave、Q/tail/PSD、噪声、形态、输入依赖分开。两库各4draw及合并8draw的均值/协方差、失效标记、未定义PSD和精确波形重建都要保留。T_h,component按预登记七容忍案例（gain±3%、tail±3%、noise幅度±10%、extra Gaussian宽度1软件ns）的两库self-distance均值最大值计算；原21敏感性控制全部报告，不是硬件标定、不能由RR派生阈值。0/undefined阈值标记未标定，不能自动PASS。将本次数字T表及SHA保存冻结后才比较下一候选，不改公式或实用门槛。
+
+方法选择严格使用已冻结机器规则：当前总梯度及prospective AdamW两主方向、正号名义1LSB，每方向覆盖2库×2父批×3假设全部12格；ANY一主方向满足ALL12方可adequate，优先adequate，再repair_needed，否则inconclusive。保留其他符号/0.1及10LSB/随机方向全部证据，不事后改主方向。只能据有限真实参数更新影响选择一次工程路径；微小0.1LSB反号不单独要求代理修复。inconclusive直接进C0/C1有限短试验，不再扩大单点诊断。
+
+交付 INPUT_INFORMATION_AUDIT.json、013中文决策报告、数字容忍度冻结表、工程回执，并更新主计划、PROGRAM/jobs及E:/GAN/CURRENT_SIM2REAL_PROGRAM.json。原009–012负结果和历史验收不覆盖；response_match_not_established只有达成用户定义的科学标准才可改变。工程完成、在域有效、跨条件物理复用分别报告。
+
+若013正确完成，继续WP2：用相同010头与受保护A/005，先登记必要配置、数据角色、种子、代码commit、真实输出RMS初始化、计算与资源预算。开展C0原配置与C1积分/损失表示单因素对照，各至多2训练种子、每次至多2000G，包含跨TRAIN Q区/父事件/库的梯度分层摘要；C2仅在已登记repair_needed且C1基础上必要时启用一种观察代理。新WP2的AD/优化器预算单独明确登记，不能混在本013零AD计数里。硬ADC/first-argmax是永久最终评价，不删除低Q/Q≤0/失效记录。只晋级一个方案；不得重训旧full19k、开GAN、无界网格或追加大架构。候选总数≤12、教师2×2×2=8独立预算、最终3折×2种子×3系统需全流程重新拟合的确认预算单列；部署冻结后全TRAIN重拟合不称新未见测试。
+
+每个新的长任务只在正确启动并保存首次计算证明后更新同一个n01为下一次单次苏醒，然后停止监控。若没有待回收长任务，完成交付后暂停同一个n01。主计划持续到软件、证据、中文报告/英文图/论文材料交付；当前013运行不能称整个项目完成或科学匹配已实现。
+
+本次是经过保存数组定量审查后登记的实际重复信号保存修复attempt3。原attempt1因遗漏原011 CDF依赖退出1、attempt2因A逐字节门强于原数值回放标准退出1；25/38文件现场和已耗成本都保存，不记为科学或工程完成。saved variance只有最后6592父、4row尾批非零，pairwise严格上界7.657714e-9V，不是已观测exactmax，也不能单凭moments唯一确定CUDA kernel。采用原既有baseline回放1e-7V限值并保存全部实际A逐draw float64及精确数值残差；不把舍入残差称物理随机，不假广播、不平均硬波形、不改变实际ADC/裁窗。新REFERENCE_0/1均含actual A_signal_pre384，按完整实际两bank阵列重建preADC covariance；REFERENCE_ENCODING里A broadcast必须false。其他4个科学数值源码、全部人口/方向/尺度/观察/T公式不变。同一snapshot如果FAILED/phasefailed/native非0，historical FIRST128不足以宣布健康启动。本attempt的原科学计算cap不变；整个013累计必须包含前两次各52744 A/head/005行、各316464 ADC/gather、各CP3。累计MAX A/head403992、linear40960、head_total444952、noise158232、ADC2202768、gather3677328、CP9，其余零预算不变。先读native_repeat_fix01/NUMERICAL_STORAGE_REPAIR_REGISTRATION.json，分别报告三次attempt与总实际成本；严格区分actual raw行可重建性和已保存summary可复用范围。若此attempt再次失败，回收现场及原计数并报告缺项，禁止自动开启第四次同范围重跑或抹去成本。
