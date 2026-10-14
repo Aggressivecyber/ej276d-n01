@@ -1,17 +1,14 @@
-当前工作：用户指定的256点有效观察窗版本008已于2026-10-13 04:25 UTC启动三组固定终点训练，已核实实际优化更新。内部384点保留100点基线和寻峰上下文；损失、评价和交付波形为256点。当前进度以 `PROGRAM.json`、`jobs.json` 和 [启动回执](receipts/window008_20261013/START_RECEIPT.json) 为准。
+# N01：Window008 resume01 已完成
 
-当前推进：用户已通知服务器恢复并要求推进。Window008 resume01严格从full完整6000步周期检查点恢复全部状态；保留原det19k终点，simple从原共同初始化运行19k。新增固定32000 G / 87000 D。原两次native1及停机现场保留，禁止直接恢复可能处于微批中途的FAILURE_CHECKPOINT。当前状态和PID以PROGRAM/jobs及新启动回执为准。子智能体按用户新指令统一GPT-6.1-Sol Max。
+三组模型已达到各 19,000 G 的固定终点，合计 57,000 G / 144,000 D。256 点主评价回放与补充诊断回读通过，10 页报告已逐页核验。当前科学作业为 0，定时苏醒已暂停。
 
-当前暂停：用户将关闭服务器，已按明确要求停止Window008 fix01；训练和监督进程均已退出，GPU已释放，n01定时苏醒已暂停。24个作业文件已回收到E盘并逐文件哈希验证；最近完整周期检查点为full 6000 G，停止现场保留到6398 G。等待用户晚上开机通知，随后核对状态和完整检查点再恢复。暂停回执：`receipts/window008_fix01_20261013/USER_PAUSE_RECEIPT.json`。
+**物理响应匹配尚未建立**（`response_match_not_established`）：完整随机臂在 TRAIN、DEV 的主要整波形距离上仍劣于确定性对照。本轮训练完成、数值复核通过与科学目标验收分别记录。
 
-## 当前执行状态：Window008 fix01 恢复
+[008 Release](https://github.com/Aggressivecyber/ej276d-n01/releases/tag/n01-window008-resume01-20261014) · [10 页 PDF](https://github.com/Aggressivecyber/ej276d-n01/releases/download/n01-window008-resume01-20261014/N01_WINDOW008_RESUME01_REPORT.pdf) · [发布内容与使用方法](docs/WINDOW008_PUBLICATION.md) · [完整交付回执](receipts/window008_resume01_20261013/FINAL_DELIVERY_RECEIPT.json)
 
-2026-10-13 定时检查确认原008已原生退出1：确定性臂19,000 G终点完成，full在3,269 G之后因随机形状基积分使电荷归一化分母非正而停止。原现场、源码和失败回执保留。修复仅给full随机形状基施加零规范电荷投影；独立CPU审查、原生CUDA失败重现、正式人工批量正反向和数值回放已通过。修复还不构成物理响应匹配证明。
+Release 提供报告与完整数值证据、冻结源码、三组推理权重及复用的 noise005 参数，附 SHA256 清单。2026-10-14 用户已授权本次 GitHub 发布；此前的本地交付回执保留其形成时的状态。
 
-恢复配置为`window008_fix01_config.json`。保留原确定性19k终点，full严格导入原3k均值检查点的模型、优化器、采样器与随机流，从3001更新；simple从原共同初始化运行。新增35,000 G / 96,000 D，三臂有效终点仍为57,000 G / 144,000 D；原失败的269 G / 807 D另外保留在实际历史计数中。有效波形256点，内部384点，噪声/人口/C2ST新增优化均0。
-
-长任务正确启动后安排一次预计完成时苏醒，无需持续监控。当前PID、启动证据与实际状态以`PROGRAM.json`、`jobs.json`和`receipts/window008_fix01_20261013/START_RECEIPT.json`为准。原始第9节结果与历史记录继续保留；当前科学状态为`response_match_not_established`。恢复三臂终点且新原生退出0之后，才冻结独立评价、数值回放、报告与E盘私有归档；不发布或推送。
-
+原008数值失败和fix01用户停机的现场与计数均已保留；Window008实际历史为57,667 G / 146,001 D，区别于最终有效终点计数。当前状态以 `PROGRAM.json`、`jobs.json` 和最终交付回执为准。
 
 # N01｜物理分解式条件随机 1D U-Net
 
