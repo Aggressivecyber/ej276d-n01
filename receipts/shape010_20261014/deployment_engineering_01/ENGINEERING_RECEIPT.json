@@ -1,0 +1,120 @@
+{
+  "schema": "n01/shape010-deployment-artificial-qa/v1",
+  "UTC": "2026-10-14T07:07:12.448150+00:00",
+  "status": "passed_artificial_tar_and_fresh_root_checks",
+  "checks": [
+    {
+      "name": "valid_exact_inventory_install_and_seven_opaque_SHA_inputs",
+      "passed": true,
+      "source_files": 6,
+      "immutable_inputs": 7,
+      "private_numeric_decode": false
+    },
+    {
+      "name": "existing_root_never_overwritten",
+      "passed": true,
+      "rejection": "Preserve existing010 root"
+    },
+    {
+      "name": "prepare_existing_root_never_overwritten",
+      "passed": true,
+      "rejection": "Preserve existing010 root"
+    },
+    {
+      "name": "wrong_archive_digest",
+      "passed": true,
+      "rejection": "Archive SHA256 differs"
+    },
+    {
+      "name": "unsafe_tar_path_../escape.py",
+      "passed": true,
+      "rejection": "Noncanonical tar path"
+    },
+    {
+      "name": "unsafe_tar_path_/absolute.py",
+      "passed": true,
+      "rejection": "Absolute/control/Windows tar path"
+    },
+    {
+      "name": "unsafe_tar_path_src//alias.py",
+      "passed": true,
+      "rejection": "Noncanonical tar path"
+    },
+    {
+      "name": "unsafe_tar_path_src/./alias.py",
+      "passed": true,
+      "rejection": "Noncanonical tar path"
+    },
+    {
+      "name": "unsafe_tar_path_src/../alias.py",
+      "passed": true,
+      "rejection": "Noncanonical tar path"
+    },
+    {
+      "name": "unsafe_tar_path_C:/windows.py",
+      "passed": true,
+      "rejection": "Absolute/control/Windows tar path"
+    },
+    {
+      "name": "unsafe_tar_path_src\\windows.py",
+      "passed": true,
+      "rejection": "Absolute/control/Windows tar path"
+    },
+    {
+      "name": "duplicate_member",
+      "passed": true,
+      "rejection": "Duplicate tar member"
+    },
+    {
+      "name": "unlisted_member",
+      "passed": true,
+      "rejection": "Tar members differ from exact frozen inventory"
+    },
+    {
+      "name": "missing_member",
+      "passed": true,
+      "rejection": "Tar members differ from exact frozen inventory"
+    },
+    {
+      "name": "changed_source_digest",
+      "passed": true,
+      "rejection": "Source member SHA differs: src/n01/model010.py"
+    },
+    {
+      "name": "symlink_hardlink_directory_type_b'2'",
+      "passed": true,
+      "rejection": "Nonregular/link tar member"
+    },
+    {
+      "name": "symlink_hardlink_directory_type_b'1'",
+      "passed": true,
+      "rejection": "Nonregular/link tar member"
+    },
+    {
+      "name": "symlink_hardlink_directory_type_b'5'",
+      "passed": true,
+      "rejection": "Nonregular/link tar member"
+    },
+    {
+      "name": "immutable_input_redirected",
+      "passed": true,
+      "rejection": "Input binding escaped immutable root"
+    },
+    {
+      "name": "immutable_input_digest_changed",
+      "passed": true,
+      "rejection": "Immutable input SHA differs: dataset"
+    }
+  ],
+  "passed_checks": 20,
+  "native_SSH_calls": 0,
+  "SCP_calls": 0,
+  "actual_remote_installations": 0,
+  "scientific_numeric_decodes": 0,
+  "actual_trained_checkpoint_loads": 0,
+  "scientific_model_forwards": 0,
+  "optimizer_updates": 0,
+  "protected_artificial_immutable_files_unchanged": true,
+  "deployer_sha256": "ede4ac0d7d5c80faac6d8c8f649f2ae6e62a6f64f7dd02e9f416afca80c4f9b8",
+  "receipt_semantics": "Opaque fake .npz/.pt files are hash fixtures; no numeric loader or remote metadata function ran."
+}

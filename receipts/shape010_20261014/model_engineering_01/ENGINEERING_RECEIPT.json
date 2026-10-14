@@ -1,0 +1,108 @@
+{
+  "schema": "n01/shape010-model-cpu-engineering/v1",
+  "UTC": "2026-10-14T06:53:27.412208+00:00",
+  "status": "passed_cpu_artificial_semantics_only",
+  "device": "cpu",
+  "torch_version": "2.12.0+cu130",
+  "fixture": "untrained deterministic A, analytic pulses, signed out-of-canonical tail, explicit seeded Bx8 coefficients",
+  "checks": [
+    {
+      "name": "explicit_CPU_generator_initialization_reproducible_without_global_RNG_change",
+      "passed": true,
+      "initialization_seed": 2026101420,
+      "empirical_weight_std": 0.009939009323716164,
+      "initial_head_state_sha256": "f6f864113abd43cf6961e9b24569cf7166bb5c40c1d963fe390d40b1e6c323c9"
+    },
+    {
+      "name": "zero_latent_and_disabled_signal_are_exact_original_A_bytes",
+      "passed": true
+    },
+    {
+      "name": "antithetic_shape_draws_preserve_preADC_mean_and_canonical_Q",
+      "passed": true,
+      "antithetic_mean_absmax_V": 1.3877787807814457e-17,
+      "basis_canonical_Q_absmax": 1.0408340855860843e-16,
+      "signal_charge_identity_absmax": 2.220446049250313e-16
+    },
+    {
+      "name": "small_nonzero_voltage_bases_use_max_abs_frozen_A_only",
+      "passed": true,
+      "initial_random_RMS_to_A_peak_abs_max": 0.019950625435280995,
+      "initial_random_RMS_max_V": 0.0026376219897128626
+    },
+    {
+      "name": "regularization_uses_realized_voltage_energy_and_second_difference_in_fixed_units",
+      "passed": true,
+      "energy": 0.0003282351901706414,
+      "curvature": 7.647282745505976e-08
+    },
+    {
+      "name": "train_eval_requires_grad_and_loss_stage_controls_never_reopen_original_A",
+      "passed": true
+    },
+    {
+      "name": "one_artificial_AdamW_update_has_nonzero_new_head_gradients_and_changes_only_whitelist",
+      "passed": true,
+      "gradient_norms": {
+        "basis_head.weight": 0.025442765412519424,
+        "basis_head.bias": 0.0026055154316433917
+      },
+      "changed_parameters": [
+        "basis_head.weight",
+        "basis_head.bias"
+      ],
+      "trainable_parameter_count": 1288,
+      "frozen_parameters_with_grad": 0,
+      "invalid_optimizer_rejection": "010 optimizer must contain exactly the new-head weight and bias"
+    },
+    {
+      "name": "invalid_inputs_and_mutated_frozen_state_rejected_with_temporary_hook_removed",
+      "passed": true,
+      "rejection_count": 8
+    },
+    {
+      "name": "original_state_inputs_source_files_and_stage_preserved",
+      "passed": true
+    }
+  ],
+  "passed_checks": 9,
+  "rejection_details": {
+    "bad_z_shape": "010 requires explicit finite Bx8 shape coefficients on the source device",
+    "nonfinite_z": "010 requires explicit finite Bx8 shape coefficients on the source device",
+    "nonbool_enabled": "010 random-forward enable switch must be bool",
+    "bad_source_peak": "SOURCE carrier peak differs from registered126; batch rows=[0, 1, 2, 3, 4, 5, 6, 7]; values=[127, 127, 127, 127, 127, 127, 127, 127]",
+    "old_set_stage_reopens_gradients": "010 original A must be frozen with no accumulated gradients",
+    "state_data_write_bypassing_version": "010 original A state bytes changed",
+    "changed_gain": "010 uses the registered initialization seed and voltage gain",
+    "changed_seed": "010 uses the registered initialization seed and voltage gain"
+  },
+  "artificial_valid_baseline_signal_forward_calls": 6,
+  "artificial_valid_baseline_signal_forward_rows": 48,
+  "measured_valid_original_UNet_forward_calls": 6,
+  "artificial_optimizer_updates": 1,
+  "scientific_optimizer_updates": 0,
+  "scientific_SOURCE_forward_rows": 0,
+  "scientific_REAL_forward_rows": 0,
+  "scientific_arrays_read": false,
+  "trained_checkpoints_read": false,
+  "GPU_forwards": 0,
+  "frozen_baseline_state_sha256": "c7a0e97f136569f79fe21162939c3111a3dfce8515090ec20a7bd4bec939dd02",
+  "initial_new_head_state_sha256": "f6f864113abd43cf6961e9b24569cf7166bb5c40c1d963fe390d40b1e6c323c9",
+  "final_artificial_new_head_state_sha256": "e606a1f80b2a3dbfaaec557eef96d9c4ec068fd98fcce02057b9fede8127aac0",
+  "trainable_parameter_names": [
+    "basis_head.weight",
+    "basis_head.bias"
+  ],
+  "protected_source_sha256": {
+    "src/n01/model.py": "0a0488218d99f351a98e30f2b1525b837b4ad3195c19f2a76ff61ee01298587b",
+    "src/n01/model008.py": "56a6b41f9d2906c82757f4ca9f91a751ff8531428a7f38714e0a291359cd1b4f",
+    "src/n01/model008_fix01.py": "3bc826a1867f2658ae507ab2be683a6b901b7f481b1efaf005f3cf4953429abc",
+    "src/n01/observation008.py": "9f7b6c0a266c420af8c6c155103774bae1ed949cfe05ee6a1f19b75f9254c4ec",
+    "src/n01/ablation009.py": "8100bbedb765f08f689a4bce5cb9ea1af133e6f2b895b544656f6e9fbd058d3b"
+  },
+  "protected_sources_unchanged": true,
+  "helper_sha256": "3fbbee140477caf755feadf88175291c451c95a56899770a65eebf7be6204318",
+  "script_sha256": "029e813c7bdf0a6ff5b157d0961c43ff11cd9f15f6b648c3a599303c4b5c4f6d",
+  "elapsed_seconds": 1.7339999999967404,
+  "limit": "CPU artificial checks only. preADC mean/Q properties do not establish observed Q/PSD or detector-response acceptance."
+}

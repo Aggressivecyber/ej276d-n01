@@ -1,0 +1,144 @@
+{
+  "UTC": "2026-10-14T07:22:16.817006+00:00",
+  "status": "remote_install_verified",
+  "remote_root": "/home/rylan/projects/ej276d-n01/shape010_20261014",
+  "digests": {
+    "package": "2817cc61fe534848689c64a409d920ccf5a530e15bc7c82c5280b6ed66d7993a",
+    "manifest": "6a6e3b3dcabb74c614e7d1de5b6609591b8b7f48c465f580616b6660588e52c9",
+    "bindings": "92ad9cfc2a1d2d6793ee2810f7c05f84f180d988c4543355d90128c4f4607090"
+  },
+  "stages": [
+    {
+      "command": [
+        "ssh",
+        "-x",
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "ConnectTimeout=10",
+        "rylan@100.82.231.102",
+        "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+        "-B",
+        "-",
+        "prepare",
+        "b693daa3e7cc4a61b85aad79686049c4",
+        "2817cc61fe534848689c64a409d920ccf5a530e15bc7c82c5280b6ed66d7993a",
+        "6a6e3b3dcabb74c614e7d1de5b6609591b8b7f48c465f580616b6660588e52c9",
+        "92ad9cfc2a1d2d6793ee2810f7c05f84f180d988c4543355d90128c4f4607090"
+      ],
+      "native_ssh_exit_code": 0,
+      "stdout": "{\"status\": \"private_incoming_prepared\", \"incoming\": \"/home/rylan/projects/ej276d-n01/.shape010_incoming_b693daa3e7cc4a61b85aad79686049c4\", \"archive\": \"/home/rylan/projects/ej276d-n01/.shape010_incoming_b693daa3e7cc4a61b85aad79686049c4/source.tar.gz\", \"target\": \"/home/rylan/projects/ej276d-n01/shape010_20261014\", \"target_created\": false}\n",
+      "stderr": "",
+      "remote_mode": "prepare"
+    },
+    {
+      "command": [
+        "scp",
+        "-q",
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "ConnectTimeout=10",
+        "E:\\GAN\\research\\N01\\receipts\\shape010_20261014\\runtime_package_01\\shape010_source.tar.gz",
+        "rylan@100.82.231.102:/home/rylan/projects/ej276d-n01/.shape010_incoming_b693daa3e7cc4a61b85aad79686049c4/source.tar.gz"
+      ],
+      "native_scp_exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "ssh",
+        "-x",
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "ConnectTimeout=10",
+        "rylan@100.82.231.102",
+        "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+        "-B",
+        "-",
+        "install",
+        "b693daa3e7cc4a61b85aad79686049c4",
+        "2817cc61fe534848689c64a409d920ccf5a530e15bc7c82c5280b6ed66d7993a",
+        "6a6e3b3dcabb74c614e7d1de5b6609591b8b7f48c465f580616b6660588e52c9",
+        "92ad9cfc2a1d2d6793ee2810f7c05f84f180d988c4543355d90128c4f4607090"
+      ],
+      "native_ssh_exit_code": 0,
+      "stdout": "{\"status\": \"new_shape010_source_root_installed\", \"UTC\": \"2026-10-14T07:22:16.680596+00:00\", \"remote_root\": \"/home/rylan/projects/ej276d-n01/shape010_20261014\", \"incoming_archive\": \"/home/rylan/projects/ej276d-n01/.shape010_incoming_b693daa3e7cc4a61b85aad79686049c4/source.tar.gz\", \"package_sha256\": \"2817cc61fe534848689c64a409d920ccf5a530e15bc7c82c5280b6ed66d7993a\", \"source_manifest_sha256\": \"6a6e3b3dcabb74c614e7d1de5b6609591b8b7f48c465f580616b6660588e52c9\", \"bindings_sha256\": \"92ad9cfc2a1d2d6793ee2810f7c05f84f180d988c4543355d90128c4f4607090\", \"policy_sha256\": \"743e009f043df3f9ab57df996e37ebe57ff6726efa0401c81da116374cd59f5c\", \"source_file_count\": 53, \"immutable_input_count\": 7, \"immutable_inputs_verified\": {\"dataset\": {\"path\": \"/home/rylan/projects/ej276d-n01/window008_resume01_20261013/data/window008/DATASET008.npz\", \"sha256\": \"8d43418595f4fa992a9b83735c4bf50863a659584d58888f8f965ec1339a1993\", \"bytes\": 66440265}, \"statistics\": {\"path\": \"/home/rylan/projects/ej276d-n01/window008_resume01_20261013/data/window008/FIT_STATISTICS008.json\", \"sha256\": \"aadd729364d0b6afac699a9d1774ac8d29fd2bcd10a9fd9f551141ecc2fbc2a0\", \"bytes\": 104199}, \"data_statistics\": {\"path\": \"/home/rylan/projects/ej276d-n01/window008_resume01_20261013/data/window008/FIT_DATA_STATISTICS.json\", \"sha256\": \"e614c7b0a9861b468eb2c9e1bff5a80dadef901310539407141d1ff5c9241f3f\", \"bytes\": 36311}, \"noise005\": {\"path\": \"/home/rylan/projects/ej276d-n01/window008_resume01_20261013/provenance/integration006_reference/noise005.pt\", \"sha256\": \"1e45d3369b85d2f5f635ad44dbeb5a730f6d86864cc3dc9163384fccd48bd417\", \"bytes\": 1199865}, \"deterministic\": {\"path\": \"/home/rylan/projects/ej276d-n01/window008_resume01_20261013/provenance/window008_fix01_reference/deterministic_final.pt\", \"sha256\": \"2096523d53b62dbbc6b41d2788a8fba203af89c3cf753133bbbe81ab5c036849\", \"bytes\": 21256763}, \"base_config\": {\"path\": \"/home/rylan/projects/ej276d-n01/window008_resume01_20261013/window008_config.json\", \"sha256\": \"f5500c65f2d17a2fe6964bfc5908dedb68c27b9391cb30bf30c0ba161509d145\", \"bytes\": 6448}, \"training_complete\": {\"path\": \"/home/rylan/projects/ej276d-n01/window008_resume01_20261013/runs/science/TRAINING_COMPLETE.json\", \"sha256\": \"e2df0f2287cfdaf26e3d6314db6156456ae085582d09ba86e96b38a990b3f63f\", \"bytes\": 13868}}, \"immutable_inputs_unchanged\": true, \"source_overwrites\": 0, \"metadata\": {\"Python_executable\": \"/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python\", \"Python_version\": \"3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]\", \"Torch_version\": \"2.12.0+cu130\", \"Torch_CUDA_version\": \"13.0\", \"CUDA_available\": true, \"GPU\": \"NVIDIA GeForce RTX 5070, 580.159.03, 12227 MiB, 184 MiB, 0 %\", \"GPU_compute_processes\": \"\", \"active_project_scientific_jobs\": [], \"RAM_available_bytes\": 61910560768, \"disk_free_bytes\": 108338790400, \"environment_packages_modified\": false}, \"scientific_numeric_decode\": false, \"checkpoint_loads\": 0, \"scientific_model_forwards\": 0, \"optimizer_updates\": 0, \"automatic_restart\": false}\n",
+      "stderr": "",
+      "remote_mode": "install"
+    }
+  ],
+  "remote_result": {
+    "status": "new_shape010_source_root_installed",
+    "UTC": "2026-10-14T07:22:16.680596+00:00",
+    "remote_root": "/home/rylan/projects/ej276d-n01/shape010_20261014",
+    "incoming_archive": "/home/rylan/projects/ej276d-n01/.shape010_incoming_b693daa3e7cc4a61b85aad79686049c4/source.tar.gz",
+    "package_sha256": "2817cc61fe534848689c64a409d920ccf5a530e15bc7c82c5280b6ed66d7993a",
+    "source_manifest_sha256": "6a6e3b3dcabb74c614e7d1de5b6609591b8b7f48c465f580616b6660588e52c9",
+    "bindings_sha256": "92ad9cfc2a1d2d6793ee2810f7c05f84f180d988c4543355d90128c4f4607090",
+    "policy_sha256": "743e009f043df3f9ab57df996e37ebe57ff6726efa0401c81da116374cd59f5c",
+    "source_file_count": 53,
+    "immutable_input_count": 7,
+    "immutable_inputs_verified": {
+      "dataset": {
+        "path": "/home/rylan/projects/ej276d-n01/window008_resume01_20261013/data/window008/DATASET008.npz",
+        "sha256": "8d43418595f4fa992a9b83735c4bf50863a659584d58888f8f965ec1339a1993",
+        "bytes": 66440265
+      },
+      "statistics": {
+        "path": "/home/rylan/projects/ej276d-n01/window008_resume01_20261013/data/window008/FIT_STATISTICS008.json",
+        "sha256": "aadd729364d0b6afac699a9d1774ac8d29fd2bcd10a9fd9f551141ecc2fbc2a0",
+        "bytes": 104199
+      },
+      "data_statistics": {
+        "path": "/home/rylan/projects/ej276d-n01/window008_resume01_20261013/data/window008/FIT_DATA_STATISTICS.json",
+        "sha256": "e614c7b0a9861b468eb2c9e1bff5a80dadef901310539407141d1ff5c9241f3f",
+        "bytes": 36311
+      },
+      "noise005": {
+        "path": "/home/rylan/projects/ej276d-n01/window008_resume01_20261013/provenance/integration006_reference/noise005.pt",
+        "sha256": "1e45d3369b85d2f5f635ad44dbeb5a730f6d86864cc3dc9163384fccd48bd417",
+        "bytes": 1199865
+      },
+      "deterministic": {
+        "path": "/home/rylan/projects/ej276d-n01/window008_resume01_20261013/provenance/window008_fix01_reference/deterministic_final.pt",
+        "sha256": "2096523d53b62dbbc6b41d2788a8fba203af89c3cf753133bbbe81ab5c036849",
+        "bytes": 21256763
+      },
+      "base_config": {
+        "path": "/home/rylan/projects/ej276d-n01/window008_resume01_20261013/window008_config.json",
+        "sha256": "f5500c65f2d17a2fe6964bfc5908dedb68c27b9391cb30bf30c0ba161509d145",
+        "bytes": 6448
+      },
+      "training_complete": {
+        "path": "/home/rylan/projects/ej276d-n01/window008_resume01_20261013/runs/science/TRAINING_COMPLETE.json",
+        "sha256": "e2df0f2287cfdaf26e3d6314db6156456ae085582d09ba86e96b38a990b3f63f",
+        "bytes": 13868
+      }
+    },
+    "immutable_inputs_unchanged": true,
+    "source_overwrites": 0,
+    "metadata": {
+      "Python_executable": "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+      "Python_version": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+      "Torch_version": "2.12.0+cu130",
+      "Torch_CUDA_version": "13.0",
+      "CUDA_available": true,
+      "GPU": "NVIDIA GeForce RTX 5070, 580.159.03, 12227 MiB, 184 MiB, 0 %",
+      "GPU_compute_processes": "",
+      "active_project_scientific_jobs": [],
+      "RAM_available_bytes": 61910560768,
+      "disk_free_bytes": 108338790400,
+      "environment_packages_modified": false
+    },
+    "scientific_numeric_decode": false,
+    "checkpoint_loads": 0,
+    "scientific_model_forwards": 0,
+    "optimizer_updates": 0,
+    "automatic_restart": false
+  },
+  "scientific_first_update_verified": false,
+  "automatic_retry_allowed": false
+}

@@ -1,0 +1,73 @@
+{
+  "UTC": "2026-10-14T07:25:53.417226+00:00",
+  "status": "remote_start_cli_verified",
+  "remote_root": "/home/rylan/projects/ej276d-n01/shape010_20261014",
+  "digests": {
+    "package": "2817cc61fe534848689c64a409d920ccf5a530e15bc7c82c5280b6ed66d7993a",
+    "manifest": "6a6e3b3dcabb74c614e7d1de5b6609591b8b7f48c465f580616b6660588e52c9",
+    "bindings": "92ad9cfc2a1d2d6793ee2810f7c05f84f180d988c4543355d90128c4f4607090"
+  },
+  "stages": [
+    {
+      "command": [
+        "ssh",
+        "-x",
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "ConnectTimeout=10",
+        "rylan@100.82.231.102",
+        "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+        "-B",
+        "-",
+        "start",
+        "3dd186ff61cb4d1db829350bac33416b",
+        "2817cc61fe534848689c64a409d920ccf5a530e15bc7c82c5280b6ed66d7993a",
+        "6a6e3b3dcabb74c614e7d1de5b6609591b8b7f48c465f580616b6660588e52c9",
+        "92ad9cfc2a1d2d6793ee2810f7c05f84f180d988c4543355d90128c4f4607090"
+      ],
+      "native_ssh_exit_code": 0,
+      "stdout": "{\"status\": \"native_start_cli_completed_awaiting_first_update_proof\", \"native_start_exit_code\": 0, \"native_start_receipt\": {\"UTC\": \"2026-10-14T07:25:53.492403+00:00\", \"status\": \"supervisor_dispatched_awaiting_real_first_batch\", \"supervisor_pid\": 173172, \"command\": [\"/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python\", \"-B\", \"/home/rylan/projects/ej276d-n01/shape010_20261014/scripts/supervise_shape010.py\", \"--policy\", \"/home/rylan/projects/ej276d-n01/shape010_20261014/shape010_policy.json\", \"--bindings\", \"/home/rylan/projects/ej276d-n01/shape010_20261014/SHAPE010_BINDINGS.json\", \"--job-dir\", \"/home/rylan/projects/ej276d-n01/shape010_20261014/runs/primary\", \"--lock-fd\", \"3\"], \"remote_root\": \"/home/rylan/projects/ej276d-n01/shape010_20261014\", \"GPU\": \"NVIDIA GeForce RTX 5070, 12227 MiB, 184 MiB, 0 %\", \"GPU_compute_processes_before\": \"\", \"active_project_jobs_before\": [], \"exclusive_scientific_lock\": \"/home/rylan/projects/ej276d-n01/.n01_scientific_dispatch.lock\", \"lock_inherited_by_supervisor\": true, \"disk_free_bytes\": 108337405952, \"RAM_available_bytes\": 62174351360, \"policy_sha256\": \"743e009f043df3f9ab57df996e37ebe57ff6726efa0401c81da116374cd59f5c\", \"bindings_sha256\": \"92ad9cfc2a1d2d6793ee2810f7c05f84f180d988c4543355d90128c4f4607090\", \"source_manifest_sha256\": \"6a6e3b3dcabb74c614e7d1de5b6609591b8b7f48c465f580616b6660588e52c9\", \"raw_array_decode\": false, \"optimizer_updates\": 0}, \"scientific_first_update_verified\": false}\n",
+      "stderr": "",
+      "remote_mode": "start"
+    }
+  ],
+  "remote_result": {
+    "status": "native_start_cli_completed_awaiting_first_update_proof",
+    "native_start_exit_code": 0,
+    "native_start_receipt": {
+      "UTC": "2026-10-14T07:25:53.492403+00:00",
+      "status": "supervisor_dispatched_awaiting_real_first_batch",
+      "supervisor_pid": 173172,
+      "command": [
+        "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+        "-B",
+        "/home/rylan/projects/ej276d-n01/shape010_20261014/scripts/supervise_shape010.py",
+        "--policy",
+        "/home/rylan/projects/ej276d-n01/shape010_20261014/shape010_policy.json",
+        "--bindings",
+        "/home/rylan/projects/ej276d-n01/shape010_20261014/SHAPE010_BINDINGS.json",
+        "--job-dir",
+        "/home/rylan/projects/ej276d-n01/shape010_20261014/runs/primary",
+        "--lock-fd",
+        "3"
+      ],
+      "remote_root": "/home/rylan/projects/ej276d-n01/shape010_20261014",
+      "GPU": "NVIDIA GeForce RTX 5070, 12227 MiB, 184 MiB, 0 %",
+      "GPU_compute_processes_before": "",
+      "active_project_jobs_before": [],
+      "exclusive_scientific_lock": "/home/rylan/projects/ej276d-n01/.n01_scientific_dispatch.lock",
+      "lock_inherited_by_supervisor": true,
+      "disk_free_bytes": 108337405952,
+      "RAM_available_bytes": 62174351360,
+      "policy_sha256": "743e009f043df3f9ab57df996e37ebe57ff6726efa0401c81da116374cd59f5c",
+      "bindings_sha256": "92ad9cfc2a1d2d6793ee2810f7c05f84f180d988c4543355d90128c4f4607090",
+      "source_manifest_sha256": "6a6e3b3dcabb74c614e7d1de5b6609591b8b7f48c465f580616b6660588e52c9",
+      "raw_array_decode": false,
+      "optimizer_updates": 0
+    },
+    "scientific_first_update_verified": false
+  },
+  "scientific_first_update_verified": false,
+  "automatic_retry_allowed": false
+}

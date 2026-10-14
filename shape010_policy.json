@@ -1,0 +1,133 @@
+{
+  "schema": "n01/shape010-policy/v1",
+  "run_id": "shape010_20261014",
+  "registered_UTC": "2026-10-14T06:42:38.322128+00:00",
+  "user_authorization": "2026-10-14: 设置计划并推进",
+  "remote_root": "/home/rylan/projects/ej276d-n01/shape010_20261014",
+  "immutable_endpoint_root": "/home/rylan/projects/ej276d-n01/window008_resume01_20261013",
+  "arm": "frozen_A_voltage_shape_noGAN",
+  "protocol": "docs/SHAPE010_PROTOCOL.md",
+  "TRAIN_counts": {
+    "source": 6593,
+    "real": 21047
+  },
+  "G_updates": 2000,
+  "D_updates": 0,
+  "noise_updates": 0,
+  "population_updates": 0,
+  "C2ST_updates": 0,
+  "hypotheses": [
+    "fast",
+    "slow",
+    "common_level"
+  ],
+  "hypothesis_reduction": "mean_of_separate_losses",
+  "shape": {
+    "class_name": "n01.model010.FrozenDeterministicVoltageShape010",
+    "basis_count": 8,
+    "head_kernel": 5,
+    "control_count": 48,
+    "head_initialization_std": 0.01,
+    "voltage_gain": 0.05,
+    "mean_model": "n01.model008.N01Response008:deterministic:19000",
+    "deterministic_amplitude": "peak_absolute_voltage_of_frozen_A_signal",
+    "zero_canonical_Q": true,
+    "zero_signal_prefix_samples": 100,
+    "charge_randomness": false,
+    "time_randomness": false,
+    "local_signal_noise": false
+  },
+  "training": {
+    "source_parents_per_update": 512,
+    "draws_per_parent": 2,
+    "real_rows_per_update": 1024,
+    "forward_chunk_rows": 256,
+    "sampler": "FullCoverageSampler_all_legal_TRAIN",
+    "G_lr": 0.0002,
+    "G_weight_decay": 0.0001,
+    "clip_norm": 5.0,
+    "distribution_loss_stage": "joint_stochastic",
+    "wave_weight": 1.0,
+    "QPSD_weight": 2.0,
+    "regular_weight": 0.01,
+    "adversarial_weight": 0.0,
+    "discriminator_created": false,
+    "regularization": "actual_voltage_RMS_squared_and_second_difference_RMS_squared_over_a_ref_squared_plus_mean_ADC_saturation",
+    "checkpoint_interval": 1000,
+    "status_interval": 100,
+    "early_stop_by_metric": false
+  },
+  "seeds": {
+    "initialization": 2026101420,
+    "source_sampler": 2026101421,
+    "real_sampler": 2026101422,
+    "train_shape": 2026101423,
+    "train_noise005": 2026101424,
+    "train_extension": 2026101425,
+    "train_projection": 2026101426,
+    "evaluation_shape": 2026101427,
+    "evaluation_noise005": 2026101428,
+    "evaluation_extension": 2026101429,
+    "evaluation_projection": 2026101430,
+    "real_selection": 2026101431,
+    "source_selection": 2026101432
+  },
+  "evaluation": {
+    "split": "TRAIN",
+    "source_parents": 512,
+    "draws_per_parent": 4,
+    "matched_rows": 2048,
+    "source_selection": "uniform_without_replacement_from_all_legal_SOURCE_TRAIN",
+    "real_reference_rows": 2048,
+    "real_control_rows": 2048,
+    "REAL_REAL_disjoint": true,
+    "arms": [
+      "frozen_A",
+      "shape010_initial",
+      "shape010_final"
+    ],
+    "same_source_real_latent_projection_bank": true,
+    "chunk_rows": 128,
+    "before_training_fixed_baselines": true,
+    "final_evaluation_after_update": 2000,
+    "preserve_parent_clusters": true,
+    "scientific_pass_threshold": null,
+    "uses_DEV": false,
+    "adaptive_settings": false
+  },
+  "observation": {
+    "internal_samples": 384,
+    "baseline_samples": 100,
+    "effective_samples": 256,
+    "peak_search": [
+      112,
+      144
+    ],
+    "samples_before_peak": 16,
+    "ADC_once": true,
+    "canonical_Q_slice": [
+      110,
+      366
+    ]
+  },
+  "resource_limits": {
+    "GPU_GiB": 10,
+    "job_tree_RSS_GiB": 8,
+    "wall_seconds": 7200,
+    "output_MiB": 1536,
+    "poll_seconds": 10,
+    "TERM_grace_seconds": 20
+  },
+  "CPU_threads": 12,
+  "preflight": {
+    "minimum_free_disk_GiB": 4,
+    "minimum_available_RAM_GiB": 10
+  },
+  "one_active_scientific_job": true,
+  "DEV_numeric_read": false,
+  "overwrite_outputs": false,
+  "automatic_restart": false,
+  "scientific_status": "response_match_not_established",
+  "independent_acquisition_available": false,
+  "candidate_selection_source": "completed frozen TRAIN mean_random009 diagnosis"
+}

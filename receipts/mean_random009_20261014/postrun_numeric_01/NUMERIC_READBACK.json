@@ -1,0 +1,2405 @@
+{
+  "schema": "n01/mean-random009-independent-numeric-readback/v1",
+  "UTC": "2026-10-14T06:41:25.485172+00:00",
+  "status": "passed_saved_generated_array_readback",
+  "saved_artifact_root": "E:\\GAN\\research\\N01\\runs\\mean_random009_20261014\\collected\\runs\\primary\\artifacts",
+  "native_exit_receipt": {
+    "started_UTC": "2026-10-14T06:21:32.251541+00:00",
+    "finished_UTC": "2026-10-14T06:22:06.792975+00:00",
+    "supervisor_pid": 161513,
+    "child_pid": 161520,
+    "command": [
+      "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+      "-B",
+      "-m",
+      "n01.diagnose_mean_random009",
+      "--policy",
+      "/home/rylan/projects/ej276d-n01/mean_random009_20261014/mean_random009_policy.json",
+      "--bindings",
+      "/home/rylan/projects/ej276d-n01/mean_random009_20261014/MEAN_RANDOM009_BINDINGS.json",
+      "--output",
+      "/home/rylan/projects/ej276d-n01/mean_random009_20261014/runs/primary/artifacts",
+      "--device",
+      "cuda:0"
+    ],
+    "child_native_exit_code": 0,
+    "exit_code": 0,
+    "reason": null,
+    "error": null,
+    "elapsed_seconds": 34.541446342998825,
+    "peak_RSS_bytes": 3723796480,
+    "peak_GPU_bytes": 1814036480,
+    "peak_output_bytes": 869108602,
+    "optimizer_updates": 0
+  },
+  "completed_counters": {
+    "A_signal_forward_rows": 8192,
+    "B_signal_forward_rows": 8192,
+    "C_ablation_forward_rows": 8192,
+    "signal_forward_rows": 24576,
+    "hard_observation_rows": 73728,
+    "noise005_rows": 8192,
+    "D_model_forward_rows": 0,
+    "optimizer_updates": 0,
+    "G_updates": 0,
+    "D_updates": 0,
+    "noise_updates": 0,
+    "population_updates": 0,
+    "C2ST_updates": 0
+  },
+  "checks": [
+    "native_zero_and_exact_completed_attempted_work_and_parameter_hash_receipts",
+    "A_C_pure_signal_fixed_across_repeats_and_all_parent_draw_rows_preserved",
+    "all_21_paired_mean_variance_MCSE_and_saved_bootstrap_CI_recomputed",
+    "all_21_wave_covariance_factors_and_105_representative_full_covariances_reconstructed",
+    "all_9_scalar_covariance_blocks_and_missing_availability_recomputed",
+    "all_9_hard_observation_chains_replayed_from_saved_generated_carriers_only",
+    "all_A_B_C_hypotheses_have_exactly_shared_ADC_baseline_and_no_row_drops",
+    "D_exact_saved_B_signal_carrier_and_individual_hard_observation_means",
+    "Obs_of_mean_carrier_is_demonstrably_distinct_from_mean_individual_Obs",
+    "all_summary_inventoried_saved_artifact_hashes_and_sizes_match"
+  ],
+  "parents": 512,
+  "repeats": 16,
+  "metric_definition": "global_equal_parent_mean_wave_RMS is RMS over time of the waveform averaged over 512 parent means; it is distinct from the mean of 512 parent waveform RMS values",
+  "paired": {
+    "D_minus_C": {
+      "SIGNAL": {
+        "global_equal_parent_mean_wave_RMS_V": 0.00012101663256972966,
+        "global_conditional_MCSE_wave_RMS_V": 0.000192722094628021,
+        "mean_of_parent_mean_wave_RMS_V": {
+          "mean": 0.0031657921939645737,
+          "median": 0.002318406947829206,
+          "quantile_levels": [
+            0,
+            0.1,
+            0.5,
+            0.9,
+            0.95,
+            1
+          ],
+          "quantiles": [
+            0.00017602334072387127,
+            0.000758457278793355,
+            0.002318406947829206,
+            0.006802075431667867,
+            0.008338705763274883,
+            0.016446728845865916
+          ]
+        },
+        "parent_conditional_MCSE_wave_RMS_V": {
+          "mean": 0.00390187350147499,
+          "median": 0.003364163605624987,
+          "quantile_levels": [
+            0,
+            0.1,
+            0.5,
+            0.9,
+            0.95,
+            1
+          ],
+          "quantiles": [
+            0.0008745550982935772,
+            0.0017719358088839272,
+            0.003364163605624987,
+            0.006547087910657767,
+            0.007705284580222462,
+            0.01157447838777592
+          ]
+        },
+        "across_parents_RMS_of_parent_mean_waves_V": 0.004114637128108341,
+        "average_variance_corrected_parent_mean_squared_V2": -2.0863658519920356e-06,
+        "fixed_bank_parent_cluster_CI95_variance_corrected_squared_V2": [
+          -4.396990735731739e-06,
+          3.9210466072920996e-07
+        ],
+        "exact_readback_errors": {
+          "mean": 0.0,
+          "sample_variance": 0.0,
+          "MonteCarlo_SE": 0.0,
+          "equal_parent_mean": 0.0,
+          "conditional_global_MonteCarlo_SE": 0.0,
+          "parent_cluster_CI95": 2.168404344971009e-19
+        }
+      },
+      "fast": {
+        "PREADC": {
+          "global_equal_parent_mean_wave_RMS_V": 0.00012101663256972966,
+          "global_conditional_MCSE_wave_RMS_V": 0.000192722094628021,
+          "mean_of_parent_mean_wave_RMS_V": {
+            "mean": 0.0031657921939645737,
+            "median": 0.002318406947829206,
+            "quantile_levels": [
+              0,
+              0.1,
+              0.5,
+              0.9,
+              0.95,
+              1
+            ],
+            "quantiles": [
+              0.0001760233407238713,
+              0.0007584572787933549,
+              0.002318406947829206,
+              0.006802075431667867,
+              0.008338705763274883,
+              0.016446728845865913
+            ]
+          },
+          "parent_conditional_MCSE_wave_RMS_V": {
+            "mean": 0.00390187350147499,
+            "median": 0.003364163605624987,
+            "quantile_levels": [
+              0,
+              0.1,
+              0.5,
+              0.9,
+              0.95,
+              1
+            ],
+            "quantiles": [
+              0.0008745550982935772,
+              0.0017719358088839272,
+              0.003364163605624987,
+              0.006547087910657767,
+              0.007705284580222462,
+              0.011574478387775922
+            ]
+          },
+          "across_parents_RMS_of_parent_mean_waves_V": 0.004114637128108341,
+          "average_variance_corrected_parent_mean_squared_V2": -2.0863658519920356e-06,
+          "fixed_bank_parent_cluster_CI95_variance_corrected_squared_V2": [
+            -4.396990735731738e-06,
+            3.9210466072921e-07
+          ],
+          "exact_readback_errors": {
+            "mean": 0.0,
+            "sample_variance": 0.0,
+            "MonteCarlo_SE": 0.0,
+            "equal_parent_mean": 0.0,
+            "conditional_global_MonteCarlo_SE": 0.0,
+            "parent_cluster_CI95": 1.0842021724855044e-19
+          }
+        },
+        "HARD": {
+          "global_equal_parent_mean_wave_RMS_V": 0.007365125918056497,
+          "global_conditional_MCSE_wave_RMS_V": 0.00015170357511036853,
+          "mean_of_parent_mean_wave_RMS_V": {
+            "mean": 0.008386585782166103,
+            "median": 0.007482368388880706,
+            "quantile_levels": [
+              0,
+              0.1,
+              0.5,
+              0.9,
+              0.95,
+              1
+            ],
+            "quantiles": [
+              0.0017650997014451958,
+              0.004225642475756151,
+              0.007482368388880706,
+              0.013511961764386219,
+              0.015035111467283932,
+              0.02660729067866841
+            ]
+          },
+          "parent_conditional_MCSE_wave_RMS_V": {
+            "mean": 0.003116607814450117,
+            "median": 0.0028457776393749894,
+            "quantile_levels": [
+              0,
+              0.1,
+              0.5,
+              0.9,
+              0.95,
+              1
+            ],
+            "quantiles": [
+              0.0008513295292176922,
+              0.0015157857592792954,
+              0.0028457776393749894,
+              0.005004384982729423,
+              0.005903186657773564,
+              0.009387111749433425
+            ]
+          },
+          "across_parents_RMS_of_parent_mean_waves_V": 0.00918215525578602,
+          "average_variance_corrected_parent_mean_squared_V2": 7.252882009431e-05,
+          "fixed_bank_parent_cluster_CI95_variance_corrected_squared_V2": [
+            6.887283638558303e-05,
+            7.649683789572018e-05
+          ],
+          "exact_readback_errors": {
+            "mean": 0.0,
+            "sample_variance": 0.0,
+            "MonteCarlo_SE": 0.0,
+            "equal_parent_mean": 0.0,
+            "conditional_global_MonteCarlo_SE": 0.0,
+            "parent_cluster_CI95": 1.734723475976807e-18
+          }
+        }
+      },
+      "slow": {
+        "PREADC": {
+          "global_equal_parent_mean_wave_RMS_V": 0.00012101663256972969,
+          "global_conditional_MCSE_wave_RMS_V": 0.000192722094628021,
+          "mean_of_parent_mean_wave_RMS_V": {
+            "mean": 0.0031657921939645737,
+            "median": 0.002318406947829206,
+            "quantile_levels": [
+              0,
+              0.1,
+              0.5,
+              0.9,
+              0.95,
+              1
+            ],
+            "quantiles": [
+              0.0001760233407238713,
+              0.000758457278793355,
+              0.002318406947829206,
+              0.006802075431667867,
+              0.008338705763274883,
+              0.016446728845865916
+            ]
+          },
+          "parent_conditional_MCSE_wave_RMS_V": {
+            "mean": 0.00390187350147499,
+            "median": 0.003364163605624987,
+            "quantile_levels": [
+              0,
+              0.1,
+              0.5,
+              0.9,
+              0.95,
+              1
+            ],
+            "quantiles": [
+              0.0008745550982935773,
+              0.0017719358088839272,
+              0.003364163605624987,
+              0.006547087910657767,
+              0.007705284580222462,
+              0.01157447838777592
+            ]
+          },
+          "across_parents_RMS_of_parent_mean_waves_V": 0.004114637128108341,
+          "average_variance_corrected_parent_mean_squared_V2": -2.086365851992035e-06,
+          "fixed_bank_parent_cluster_CI95_variance_corrected_squared_V2": [
+            -4.396990735731739e-06,
+            3.9210466072921023e-07
+          ],
+          "exact_readback_errors": {
+            "mean": 0.0,
+            "sample_variance": 0.0,
+            "MonteCarlo_SE": 0.0,
+            "equal_parent_mean": 0.0,
+            "conditional_global_MonteCarlo_SE": 0.0,
+            "parent_cluster_CI95": 2.168404344971009e-19
+          }
+        },
+        "HARD": {
+          "global_equal_parent_mean_wave_RMS_V": 0.007355042013005854,
+          "global_conditional_MCSE_wave_RMS_V": 0.00015159126860514626,
+          "mean_of_parent_mean_wave_RMS_V": {
+            "mean": 0.008381213935777534,
+            "median": 0.007485148969913957,
+            "quantile_levels": [
+              0,
+              0.1,
+              0.5,
+              0.9,
+              0.95,
+              1
+            ],
+            "quantiles": [
+              0.0017679752580391861,
+              0.0042251686051200995,
+              0.007485148969913957,
+              0.013509897711235805,
+              0.015042281015329277,
+              0.026610754322655493
+            ]
+          },
+          "parent_conditional_MCSE_wave_RMS_V": {
+            "mean": 0.0031139486054009334,
+            "median": 0.0028448050138625107,
+            "quantile_levels": [
+              0,
+              0.1,
+              0.5,
+              0.9,
+              0.95,
+              1
+            ],
+            "quantiles": [
+              0.0008481098498450646,
+              0.0015131408288906645,
+              0.0028448050138625107,
+              0.005054460602728294,
+              0.005902793139793181,
+              0.00938834439896834
+            ]
+          },
+          "across_parents_RMS_of_parent_mean_waves_V": 0.009175447705246881,
+          "average_variance_corrected_parent_mean_squared_V2": 7.242312528045364e-05,
+          "fixed_bank_parent_cluster_CI95_variance_corrected_squared_V2": [
+            6.86774296624405e-05,
+            7.638677928035582e-05
+          ],
+          "exact_readback_errors": {
+            "mean": 0.0,
+            "sample_variance": 0.0,
+            "MonteCarlo_SE": 0.0,
+            "equal_parent_mean": 0.0,
+            "conditional_global_MonteCarlo_SE": 0.0,
+            "parent_cluster_CI95": 1.734723475976807e-18
+          }
+        }
+      },
+      "common_level": {
+        "PREADC": {
+          "global_equal_parent_mean_wave_RMS_V": 0.00012101663256972965,
+          "global_conditional_MCSE_wave_RMS_V": 0.000192722094628021,
+          "mean_of_parent_mean_wave_RMS_V": {
+            "mean": 0.0031657921939645737,
+            "median": 0.002318406947829206,
+            "quantile_levels": [
+              0,
+              0.1,
+              0.5,
+              0.9,
+              0.95,
+              1
+            ],
+            "quantiles": [
+              0.00017602334072387124,
+              0.000758457278793355,
+              0.002318406947829206,
+              0.006802075431667867,
+              0.008338705763274883,
+              0.016446728845865913
+            ]
+          },
+          "parent_conditional_MCSE_wave_RMS_V": {
+            "mean": 0.0039018735014749897,
+            "median": 0.003364163605624987,
+            "quantile_levels": [
+              0,
+              0.1,
+              0.5,
+              0.9,
+              0.95,
+              1
+            ],
+            "quantiles": [
+              0.0008745550982935773,
+              0.0017719358088839272,
+              0.003364163605624987,
+              0.006547087910657767,
+              0.007705284580222462,
+              0.011574478387775922
+            ]
+          },
+          "across_parents_RMS_of_parent_mean_waves_V": 0.004114637128108341,
+          "average_variance_corrected_parent_mean_squared_V2": -2.0863658519920356e-06,
+          "fixed_bank_parent_cluster_CI95_variance_corrected_squared_V2": [
+            -4.3969907357317394e-06,
+            3.921046607292096e-07
+          ],
+          "exact_readback_errors": {
+            "mean": 0.0,
+            "sample_variance": 0.0,
+            "MonteCarlo_SE": 0.0,
+            "equal_parent_mean": 0.0,
+            "conditional_global_MonteCarlo_SE": 0.0,
+            "parent_cluster_CI95": 2.168404344971009e-19
+          }
+        },
+        "HARD": {
+          "global_equal_parent_mean_wave_RMS_V": 0.00735783279061161,
+          "global_conditional_MCSE_wave_RMS_V": 0.00015159902860498157,
+          "mean_of_parent_mean_wave_RMS_V": {
+            "mean": 0.008385554214564621,
+            "median": 0.007483504193561525,
+            "quantile_levels": [
+              0,
+              0.1,
+              0.5,
+              0.9,
+              0.95,
+              1
+            ],
+            "quantiles": [
+              0.0017664069272239125,
+              0.0042250187555592815,
+              0.007483504193561525,
+              0.013507281527447186,
+              0.015041222523548219,
+              0.026610218345306795
+            ]
+          },
+          "parent_conditional_MCSE_wave_RMS_V": {
+            "mean": 0.003114081541229395,
+            "median": 0.0028450859934281312,
+            "quantile_levels": [
+              0,
+              0.1,
+              0.5,
+              0.9,
+              0.95,
+              1
+            ],
+            "quantiles": [
+              0.0008477626320746472,
+              0.001512823322434836,
+              0.0028450859934281312,
+              0.005053829365252791,
+              0.005902475393604902,
+              0.009387326484380745
+            ]
+          },
+          "across_parents_RMS_of_parent_mean_waves_V": 0.00918095406470907,
+          "average_variance_corrected_parent_mean_squared_V2": 7.25229976156233e-05,
+          "fixed_bank_parent_cluster_CI95_variance_corrected_squared_V2": [
+            6.881217019703945e-05,
+            7.647069989499945e-05
+          ],
+          "exact_readback_errors": {
+            "mean": 0.0,
+            "sample_variance": 0.0,
+            "MonteCarlo_SE": 0.0,
+            "equal_parent_mean": 0.0,
+            "conditional_global_MonteCarlo_SE": 0.0,
+            "parent_cluster_CI95": 1.734723475976807e-18
+          }
+        }
+      }
+    },
+    "D_minus_A": {
+      "SIGNAL": {
+        "global_equal_parent_mean_wave_RMS_V": 0.018685318120810836,
+        "global_conditional_MCSE_wave_RMS_V": 0.000192722094628021,
+        "mean_of_parent_mean_wave_RMS_V": {
+          "mean": 0.019858734560985896,
+          "median": 0.017562113664697634,
+          "quantile_levels": [
+            0,
+            0.1,
+            0.5,
+            0.9,
+            0.95,
+            1
+          ],
+          "quantiles": [
+            0.0021371868736679194,
+            0.007148941542228159,
+            0.017562113664697634,
+            0.038181463383415506,
+            0.04261769890025147,
+            0.05211692048456246
+          ]
+        },
+        "parent_conditional_MCSE_wave_RMS_V": {
+          "mean": 0.00390187350147499,
+          "median": 0.003364163605624987,
+          "quantile_levels": [
+            0,
+            0.1,
+            0.5,
+            0.9,
+            0.95,
+            1
+          ],
+          "quantiles": [
+            0.0008745550982935772,
+            0.0017719358088839272,
+            0.003364163605624987,
+            0.006547087910657767,
+            0.007705284580222462,
+            0.011574478387775922
+          ]
+        },
+        "across_parents_RMS_of_parent_mean_waves_V": 0.02310612623933606,
+        "average_variance_corrected_parent_mean_squared_V2": 0.0005148764652401346,
+        "fixed_bank_parent_cluster_CI95_variance_corrected_squared_V2": [
+          0.0004950726218608225,
+          0.0005363577520250905
+        ],
+        "exact_readback_errors": {
+          "mean": 0.0,
+          "sample_variance": 0.0,
+          "MonteCarlo_SE": 0.0,
+          "equal_parent_mean": 0.0,
+          "conditional_global_MonteCarlo_SE": 0.0,
+          "parent_cluster_CI95": 6.938893903907228e-18
+        }
+      },
+      "fast": {
+        "PREADC": {
+          "global_equal_parent_mean_wave_RMS_V": 0.018685318120810836,
+          "global_conditional_MCSE_wave_RMS_V": 0.000192722094628021,
+          "mean_of_parent_mean_wave_RMS_V": {
+            "mean": 0.0198587345609859,
+            "median": 0.017562113664697634,
+            "quantile_levels": [
+              0,
+              0.1,
+              0.5,
+              0.9,
+              0.95,
+              1
+            ],
+            "quantiles": [
+              0.0021371868736679194,
+              0.007148941542228159,
+              0.017562113664697634,
+              0.038181463383415506,
+              0.04261769890025147,
+              0.05211692048456246
+            ]
+          },
+          "parent_conditional_MCSE_wave_RMS_V": {
+            "mean": 0.0039018735014749893,
+            "median": 0.003364163605624987,
+            "quantile_levels": [
+              0,
+              0.1,
+              0.5,
+              0.9,
+              0.95,
+              1
+            ],
+            "quantiles": [
+              0.0008745550982935772,
+              0.0017719358088839272,
+              0.003364163605624987,
+              0.006547087910657767,
+              0.007705284580222462,
+              0.011574478387775922
+            ]
+          },
+          "across_parents_RMS_of_parent_mean_waves_V": 0.02310612623933606,
+          "average_variance_corrected_parent_mean_squared_V2": 0.0005148764652401346,
+          "fixed_bank_parent_cluster_CI95_variance_corrected_squared_V2": [
+            0.0004950726218608225,
+            0.0005363577520250905
+          ],
+          "exact_readback_errors": {
+            "mean": 0.0,
+            "sample_variance": 0.0,
+            "MonteCarlo_SE": 0.0,
+            "equal_parent_mean": 0.0,
+            "conditional_global_MonteCarlo_SE": 0.0,
+            "parent_cluster_CI95": 6.938893903907228e-18
+          }
+        },
+        "HARD": {
+          "global_equal_parent_mean_wave_RMS_V": 0.011397937424437128,
+          "global_conditional_MCSE_wave_RMS_V": 0.0001522837209309629,
+          "mean_of_parent_mean_wave_RMS_V": {
+            "mean": 0.014366602764049524,
+            "median": 0.011912801457234884,
+            "quantile_levels": [
+              0,
+              0.1,
+              0.5,
+              0.9,
+              0.95,
+              1
+            ],
+            "quantiles": [
+              0.001776411530442781,
+              0.0041275457676340135,
+              0.011912801457234884,
+              0.02728491885582783,
+              0.031726191688443185,
+              0.038511259031370315
+            ]
+          },
+          "parent_conditional_MCSE_wave_RMS_V": {
+            "mean": 0.0031342186522274615,
+            "median": 0.0028470967346738508,
+            "quantile_levels": [
+              0,
+              0.1,
+              0.5,
+              0.9,
+              0.95,
+              1
+            ],
+            "quantiles": [
+              0.0008488952445127925,
+              0.0015398558857904145,
+              0.0028470967346738508,
+              0.00501707436551016,
+              0.005911677458240854,
+              0.009393222449791403
+            ]
+          },
+          "across_parents_RMS_of_parent_mean_waves_V": 0.01692177683205679,
+          "average_variance_corrected_parent_mean_squared_V2": 0.00027447308134371726,
+          "fixed_bank_parent_cluster_CI95_variance_corrected_squared_V2": [
+            0.00026198355769388497,
+            0.000286863624680399
+          ],
+          "exact_readback_errors": {
+            "mean": 0.0,
+            "sample_variance": 0.0,
+            "MonteCarlo_SE": 0.0,
+            "equal_parent_mean": 0.0,
+            "conditional_global_MonteCarlo_SE": 0.0,
+            "parent_cluster_CI95": 6.938893903907228e-18
+          }
+        }
+      },
+      "slow": {
+        "PREADC": {
+          "global_equal_parent_mean_wave_RMS_V": 0.018685318120810836,
+          "global_conditional_MCSE_wave_RMS_V": 0.000192722094628021,
+          "mean_of_parent_mean_wave_RMS_V": {
+            "mean": 0.019858734560985896,
+            "median": 0.017562113664697634,
+            "quantile_levels": [
+              0,
+              0.1,
+              0.5,
+              0.9,
+              0.95,
+              1
+            ],
+            "quantiles": [
+              0.0021371868736679194,
+              0.007148941542228159,
+              0.017562113664697634,
+              0.038181463383415506,
+              0.04261769890025147,
+              0.05211692048456246
+            ]
+          },
+          "parent_conditional_MCSE_wave_RMS_V": {
+            "mean": 0.00390187350147499,
+            "median": 0.003364163605624987,
+            "quantile_levels": [
+              0,
+              0.1,
+              0.5,
+              0.9,
+              0.95,
+              1
+            ],
+            "quantiles": [
+              0.0008745550982935772,
+              0.0017719358088839272,
+              0.003364163605624987,
+              0.006547087910657767,
+              0.007705284580222462,
+              0.011574478387775922
+            ]
+          },
+          "across_parents_RMS_of_parent_mean_waves_V": 0.02310612623933606,
+          "average_variance_corrected_parent_mean_squared_V2": 0.0005148764652401346,
+          "fixed_bank_parent_cluster_CI95_variance_corrected_squared_V2": [
+            0.0004950726218608225,
+            0.0005363577520250905
+          ],
+          "exact_readback_errors": {
+            "mean": 0.0,
+            "sample_variance": 0.0,
+            "MonteCarlo_SE": 0.0,
+            "equal_parent_mean": 0.0,
+            "conditional_global_MonteCarlo_SE": 0.0,
+            "parent_cluster_CI95": 6.938893903907228e-18
+          }
+        },
+        "HARD": {
+          "global_equal_parent_mean_wave_RMS_V": 0.011408080563564599,
+          "global_conditional_MCSE_wave_RMS_V": 0.00015207442382452464,
+          "mean_of_parent_mean_wave_RMS_V": {
+            "mean": 0.014381158707339838,
+            "median": 0.011925102863945308,
+            "quantile_levels": [
+              0,
+              0.1,
+              0.5,
+              0.9,
+              0.95,
+              1
+            ],
+            "quantiles": [
+              0.0018171290893072116,
+              0.0041319879286732236,
+              0.011925102863945308,
+              0.02726545316400067,
+              0.03185519904949044,
+              0.038507408649130936
+            ]
+          },
+          "parent_conditional_MCSE_wave_RMS_V": {
+            "mean": 0.0031286732440860233,
+            "median": 0.0028433591044757754,
+            "quantile_levels": [
+              0,
+              0.1,
+              0.5,
+              0.9,
+              0.95,
+              1
+            ],
+            "quantiles": [
+              0.0008505353314514888,
+              0.0015360357476203017,
+              0.0028433591044757754,
+              0.005058303564070244,
+              0.005910835005957338,
+              0.009393557436189384
+            ]
+          },
+          "across_parents_RMS_of_parent_mean_waves_V": 0.01693091368817142,
+          "average_variance_corrected_parent_mean_squared_V2": 0.000274815003560951,
+          "fixed_bank_parent_cluster_CI95_variance_corrected_squared_V2": [
+            0.00026218710861032526,
+            0.0002872467832639692
+          ],
+          "exact_readback_errors": {
+            "mean": 0.0,
+            "sample_variance": 0.0,
+            "MonteCarlo_SE": 0.0,
+            "equal_parent_mean": 0.0,
+            "conditional_global_MonteCarlo_SE": 0.0,
+            "parent_cluster_CI95": 6.938893903907228e-18
+          }
+        }
+      },
+      "common_level": {
+        "PREADC": {
+          "global_equal_parent_mean_wave_RMS_V": 0.018685318120810836,
+          "global_conditional_MCSE_wave_RMS_V": 0.000192722094628021,
+          "mean_of_parent_mean_wave_RMS_V": {
+            "mean": 0.019858734560985896,
+            "median": 0.017562113664697634,
+            "quantile_levels": [
+              0,
+              0.1,
+              0.5,
+              0.9,
+              0.95,
+              1
+            ],
+            "quantiles": [
+              0.0021371868736679194,
+              0.007148941542228159,
+              0.017562113664697634,
+              0.038181463383415506,
+              0.04261769890025147,
+              0.05211692048456246
+            ]
+          },
+          "parent_conditional_MCSE_wave_RMS_V": {
+            "mean": 0.00390187350147499,
+            "median": 0.003364163605624987,
+            "quantile_levels": [
+              0,
+              0.1,
+              0.5,
+              0.9,
+              0.95,
+              1
+            ],
+            "quantiles": [
+              0.0008745550982935773,
+              0.0017719358088839272,
+              0.003364163605624987,
+              0.006547087910657767,
+              0.007705284580222462,
+              0.01157447838777592
+            ]
+          },
+          "across_parents_RMS_of_parent_mean_waves_V": 0.02310612623933606,
+          "average_variance_corrected_parent_mean_squared_V2": 0.0005148764652401346,
+          "fixed_bank_parent_cluster_CI95_variance_corrected_squared_V2": [
+            0.0004950726218608225,
+            0.0005363577520250905
+          ],
+          "exact_readback_errors": {
+            "mean": 0.0,
+            "sample_variance": 0.0,
+            "MonteCarlo_SE": 0.0,
+            "equal_parent_mean": 0.0,
+            "conditional_global_MonteCarlo_SE": 0.0,
+            "parent_cluster_CI95": 6.938893903907228e-18
+          }
+        },
+        "HARD": {
+          "global_equal_parent_mean_wave_RMS_V": 0.011410847481312674,
+          "global_conditional_MCSE_wave_RMS_V": 0.00015206000965551288,
+          "mean_of_parent_mean_wave_RMS_V": {
+            "mean": 0.014383025604611618,
+            "median": 0.011879280527542863,
+            "quantile_levels": [
+              0,
+              0.1,
+              0.5,
+              0.9,
+              0.95,
+              1
+            ],
+            "quantiles": [
+              0.0017965500753935168,
+              0.004148305300844874,
+              0.011879280527542863,
+              0.027269558893139857,
+              0.03185862562712561,
+              0.03850445727829186
+            ]
+          },
+          "parent_conditional_MCSE_wave_RMS_V": {
+            "mean": 0.0031281590743330165,
+            "median": 0.0028431537626471474,
+            "quantile_levels": [
+              0,
+              0.1,
+              0.5,
+              0.9,
+              0.95,
+              1
+            ],
+            "quantiles": [
+              0.0008493432503544842,
+              0.0015358799621104082,
+              0.0028431537626471474,
+              0.005059721246106673,
+              0.005896729019936668,
+              0.009392775417572474
+            ]
+          },
+          "across_parents_RMS_of_parent_mean_waves_V": 0.016934744604238782,
+          "average_variance_corrected_parent_mean_squared_V2": 0.00027494698458414,
+          "fixed_bank_parent_cluster_CI95_variance_corrected_squared_V2": [
+            0.0002622716123014137,
+            0.00028732172012654774
+          ],
+          "exact_readback_errors": {
+            "mean": 0.0,
+            "sample_variance": 0.0,
+            "MonteCarlo_SE": 0.0,
+            "equal_parent_mean": 0.0,
+            "conditional_global_MonteCarlo_SE": 0.0,
+            "parent_cluster_CI95": 6.938893903907228e-18
+          }
+        }
+      }
+    },
+    "C_minus_A": {
+      "SIGNAL": {
+        "global_equal_parent_mean_wave_RMS_V": 0.01860690382291354,
+        "global_conditional_MCSE_wave_RMS_V": 5.71249745052621e-20,
+        "mean_of_parent_mean_wave_RMS_V": {
+          "mean": 0.01954524393308118,
+          "median": 0.017881158997364754,
+          "quantile_levels": [
+            0,
+            0.1,
+            0.5,
+            0.9,
+            0.95,
+            1
+          ],
+          "quantiles": [
+            0.002095752810084906,
+            0.006916386123351098,
+            0.017881158997364754,
+            0.03790561969570762,
+            0.04085321760160511,
+            0.04620433619690251
+          ]
+        },
+        "parent_conditional_MCSE_wave_RMS_V": {
+          "mean": 1.1178394061011751e-18,
+          "median": 1.0393949164617065e-18,
+          "quantile_levels": [
+            0,
+            0.1,
+            0.5,
+            0.9,
+            0.95,
+            1
+          ],
+          "quantiles": [
+            1.0399045302933787e-19,
+            4.029550283021263e-19,
+            1.0393949164617065e-18,
+            2.076731913291826e-18,
+            2.348773238029302e-18,
+            3.237576583052217e-18
+          ]
+        },
+        "across_parents_RMS_of_parent_mean_waves_V": 0.02257958061090025,
+        "average_variance_corrected_parent_mean_squared_V2": 0.0005098374605641426,
+        "fixed_bank_parent_cluster_CI95_variance_corrected_squared_V2": [
+          0.0004946621099315113,
+          0.0005248040075001684
+        ],
+        "exact_readback_errors": {
+          "mean": 0.0,
+          "sample_variance": 0.0,
+          "MonteCarlo_SE": 0.0,
+          "equal_parent_mean": 0.0,
+          "conditional_global_MonteCarlo_SE": 0.0,
+          "parent_cluster_CI95": 1.3877787807814457e-17
+        }
+      },
+      "fast": {
+        "PREADC": {
+          "global_equal_parent_mean_wave_RMS_V": 0.01860690382291354,
+          "global_conditional_MCSE_wave_RMS_V": 5.710113323821948e-20,
+          "mean_of_parent_mean_wave_RMS_V": {
+            "mean": 0.01954524393308118,
+            "median": 0.017881158997364754,
+            "quantile_levels": [
+              0,
+              0.1,
+              0.5,
+              0.9,
+              0.95,
+              1
+            ],
+            "quantiles": [
+              0.002095752810084906,
+              0.006916386123351098,
+              0.017881158997364754,
+              0.037905619695707625,
+              0.04085321760160511,
+              0.04620433619690251
+            ]
+          },
+          "parent_conditional_MCSE_wave_RMS_V": {
+            "mean": 1.1208668039292913e-18,
+            "median": 1.0545032640751762e-18,
+            "quantile_levels": [
+              0,
+              0.1,
+              0.5,
+              0.9,
+              0.95,
+              1
+            ],
+            "quantiles": [
+              1.0913849623191423e-19,
+              4.0796078742969925e-19,
+              1.0545032640751762e-18,
+              2.120730438896297e-18,
+              2.302938483118496e-18,
+              2.931444501024161e-18
+            ]
+          },
+          "across_parents_RMS_of_parent_mean_waves_V": 0.02257958061090025,
+          "average_variance_corrected_parent_mean_squared_V2": 0.0005098374605641423,
+          "fixed_bank_parent_cluster_CI95_variance_corrected_squared_V2": [
+            0.0004946621099315113,
+            0.0005248040075001684
+          ],
+          "exact_readback_errors": {
+            "mean": 0.0,
+            "sample_variance": 0.0,
+            "MonteCarlo_SE": 0.0,
+            "equal_parent_mean": 0.0,
+            "conditional_global_MonteCarlo_SE": 0.0,
+            "parent_cluster_CI95": 1.3877787807814457e-17
+          }
+        },
+        "HARD": {
+          "global_equal_parent_mean_wave_RMS_V": 0.011339520707226707,
+          "global_conditional_MCSE_wave_RMS_V": 2.087872320658841e-05,
+          "mean_of_parent_mean_wave_RMS_V": {
+            "mean": 0.014058540769797704,
+            "median": 0.012238810324108748,
+            "quantile_levels": [
+              0,
+              0.1,
+              0.5,
+              0.9,
+              0.95,
+              1
+            ],
+            "quantiles": [
+              0.0010737848206267163,
+              0.003303964496675273,
+              0.012238810324108748,
+              0.030510973708345813,
+              0.03241916913400216,
+              0.04050275763643237
+            ]
+          },
+          "parent_conditional_MCSE_wave_RMS_V": {
+            "mean": 0.0003978805165697093,
+            "median": 0.00032031664021881976,
+            "quantile_levels": [
+              0,
+              0.1,
+              0.5,
+              0.9,
+              0.95,
+              1
+            ],
+            "quantiles": [
+              0.0002008685293635034,
+              0.00021234835670020047,
+              0.00032031664021881976,
+              0.0007073535702958924,
+              0.0008631625036760668,
+              0.0019490329502370716
+            ]
+          },
+          "across_parents_RMS_of_parent_mean_waves_V": 0.01705137752845954,
+          "average_variance_corrected_parent_mean_squared_V2": 0.00029052628402369333,
+          "fixed_bank_parent_cluster_CI95_variance_corrected_squared_V2": [
+            0.0002794789567035438,
+            0.00030172101008549116
+          ],
+          "exact_readback_errors": {
+            "mean": 0.0,
+            "sample_variance": 0.0,
+            "MonteCarlo_SE": 0.0,
+            "equal_parent_mean": 0.0,
+            "conditional_global_MonteCarlo_SE": 0.0,
+            "parent_cluster_CI95": 3.469446951953614e-18
+          }
+        }
+      },
+      "slow": {
+        "PREADC": {
+          "global_equal_parent_mean_wave_RMS_V": 0.018606903822913537,
+          "global_conditional_MCSE_wave_RMS_V": 5.739038120812949e-20,
+          "mean_of_parent_mean_wave_RMS_V": {
+            "mean": 0.01954524393308118,
+            "median": 0.017881158997364754,
+            "quantile_levels": [
+              0,
+              0.1,
+              0.5,
+              0.9,
+              0.95,
+              1
+            ],
+            "quantiles": [
+              0.002095752810084906,
+              0.0069163861233510985,
+              0.017881158997364754,
+              0.037905619695707625,
+              0.04085321760160511,
+              0.04620433619690251
+            ]
+          },
+          "parent_conditional_MCSE_wave_RMS_V": {
+            "mean": 1.1259922921563404e-18,
+            "median": 1.0675474229693722e-18,
+            "quantile_levels": [
+              0,
+              0.1,
+              0.5,
+              0.9,
+              0.95,
+              1
+            ],
+            "quantiles": [
+              1.0009421009297742e-19,
+              4.005331262883775e-19,
+              1.0675474229693722e-18,
+              2.1135466697629045e-18,
+              2.332972287817564e-18,
+              2.8522649152057403e-18
+            ]
+          },
+          "across_parents_RMS_of_parent_mean_waves_V": 0.02257958061090025,
+          "average_variance_corrected_parent_mean_squared_V2": 0.0005098374605641425,
+          "fixed_bank_parent_cluster_CI95_variance_corrected_squared_V2": [
+            0.0004946621099315113,
+            0.0005248040075001684
+          ],
+          "exact_readback_errors": {
+            "mean": 0.0,
+            "sample_variance": 0.0,
+            "MonteCarlo_SE": 0.0,
+            "equal_parent_mean": 0.0,
+            "conditional_global_MonteCarlo_SE": 0.0,
+            "parent_cluster_CI95": 1.3877787807814457e-17
+          }
+        },
+        "HARD": {
+          "global_equal_parent_mean_wave_RMS_V": 0.011355333381393681,
+          "global_conditional_MCSE_wave_RMS_V": 1.9266260732893068e-05,
+          "mean_of_parent_mean_wave_RMS_V": {
+            "mean": 0.014082398099640547,
+            "median": 0.012257523490586507,
+            "quantile_levels": [
+              0,
+              0.1,
+              0.5,
+              0.9,
+              0.95,
+              1
+            ],
+            "quantiles": [
+              0.001086646540683476,
+              0.0033469727568103402,
+              0.012257523490586507,
+              0.030516541444828134,
+              0.03242376165511855,
+              0.04049899233044638
+            ]
+          },
+          "parent_conditional_MCSE_wave_RMS_V": {
+            "mean": 0.0003573914188447068,
+            "median": 0.00027668263119875016,
+            "quantile_levels": [
+              0,
+              0.1,
+              0.5,
+              0.9,
+              0.95,
+              1
+            ],
+            "quantiles": [
+              0.00017712467569288797,
+              0.00018677268156954227,
+              0.00027668263119875016,
+              0.0006589098170095548,
+              0.0008479527342107893,
+              0.0016174694101337163
+            ]
+          },
+          "across_parents_RMS_of_parent_mean_waves_V": 0.01706886570751985,
+          "average_variance_corrected_parent_mean_squared_V2": 0.0002911561278744017,
+          "fixed_bank_parent_cluster_CI95_variance_corrected_squared_V2": [
+            0.0002800939849048942,
+            0.0003022364557503298
+          ],
+          "exact_readback_errors": {
+            "mean": 0.0,
+            "sample_variance": 0.0,
+            "MonteCarlo_SE": 0.0,
+            "equal_parent_mean": 0.0,
+            "conditional_global_MonteCarlo_SE": 0.0,
+            "parent_cluster_CI95": 1.734723475976807e-18
+          }
+        }
+      },
+      "common_level": {
+        "PREADC": {
+          "global_equal_parent_mean_wave_RMS_V": 0.01860690382291354,
+          "global_conditional_MCSE_wave_RMS_V": 5.708021338685822e-20,
+          "mean_of_parent_mean_wave_RMS_V": {
+            "mean": 0.01954524393308118,
+            "median": 0.017881158997364754,
+            "quantile_levels": [
+              0,
+              0.1,
+              0.5,
+              0.9,
+              0.95,
+              1
+            ],
+            "quantiles": [
+              0.002095752810084906,
+              0.0069163861233510985,
+              0.017881158997364754,
+              0.037905619695707625,
+              0.04085321760160511,
+              0.04620433619690251
+            ]
+          },
+          "parent_conditional_MCSE_wave_RMS_V": {
+            "mean": 1.1191084898730917e-18,
+            "median": 1.067064147425652e-18,
+            "quantile_levels": [
+              0,
+              0.1,
+              0.5,
+              0.9,
+              0.95,
+              1
+            ],
+            "quantiles": [
+              9.52299976005707e-20,
+              4.051659045175893e-19,
+              1.067064147425652e-18,
+              2.129047026870457e-18,
+              2.3437820144941367e-18,
+              2.9467114953757656e-18
+            ]
+          },
+          "across_parents_RMS_of_parent_mean_waves_V": 0.02257958061090025,
+          "average_variance_corrected_parent_mean_squared_V2": 0.0005098374605641423,
+          "fixed_bank_parent_cluster_CI95_variance_corrected_squared_V2": [
+            0.0004946621099315113,
+            0.0005248040075001684
+          ],
+          "exact_readback_errors": {
+            "mean": 0.0,
+            "sample_variance": 0.0,
+            "MonteCarlo_SE": 0.0,
+            "equal_parent_mean": 0.0,
+            "conditional_global_MonteCarlo_SE": 0.0,
+            "parent_cluster_CI95": 1.3877787807814457e-17
+          }
+        },
+        "HARD": {
+          "global_equal_parent_mean_wave_RMS_V": 0.011354541153128407,
+          "global_conditional_MCSE_wave_RMS_V": 1.914153793956647e-05,
+          "mean_of_parent_mean_wave_RMS_V": {
+            "mean": 0.014082422277127414,
+            "median": 0.012254181207794201,
+            "quantile_levels": [
+              0,
+              0.1,
+              0.5,
+              0.9,
+              0.95,
+              1
+            ],
+            "quantiles": [
+              0.0010857681452546137,
+              0.003345861835847031,
+              0.012254181207794201,
+              0.03051426903209635,
+              0.03238068413182271,
+              0.040498553311657755
+            ]
+          },
+          "parent_conditional_MCSE_wave_RMS_V": {
+            "mean": 0.0003536964698468714,
+            "median": 0.00027222352104408053,
+            "quantile_levels": [
+              0,
+              0.1,
+              0.5,
+              0.9,
+              0.95,
+              1
+            ],
+            "quantiles": [
+              0.0001739467992981579,
+              0.0001833596972674326,
+              0.00027222352104408053,
+              0.000668820025935713,
+              0.0008471830287536984,
+              0.001617432850236059
+            ]
+          },
+          "across_parents_RMS_of_parent_mean_waves_V": 0.01706927630605196,
+          "average_variance_corrected_parent_mean_squared_V2": 0.00029117259759330467,
+          "fixed_bank_parent_cluster_CI95_variance_corrected_squared_V2": [
+            0.000280156134116587,
+            0.0003022722858491712
+          ],
+          "exact_readback_errors": {
+            "mean": 0.0,
+            "sample_variance": 0.0,
+            "MonteCarlo_SE": 0.0,
+            "equal_parent_mean": 0.0,
+            "conditional_global_MonteCarlo_SE": 0.0,
+            "parent_cluster_CI95": 3.469446951953614e-18
+          }
+        }
+      }
+    }
+  },
+  "signal_covariance": {
+    "A": {
+      "all_512_centered_factors_mean_variance_SE_checked": true,
+      "full_covariance_checked_parent_rows": [
+        0,
+        127,
+        255,
+        383,
+        511
+      ],
+      "errors": {
+        "mean_absmax": 0.0,
+        "centered_factor_absmax": 0.0,
+        "variance_absmax": 0.0,
+        "MCSE_absmax": 0.0,
+        "full_covariance_reconstruction_absmax": 0.0,
+        "full_covariance_diagonal_absmax": 0.0
+      }
+    },
+    "B": {
+      "all_512_centered_factors_mean_variance_SE_checked": true,
+      "full_covariance_checked_parent_rows": [
+        0,
+        127,
+        255,
+        383,
+        511
+      ],
+      "errors": {
+        "mean_absmax": 0.0,
+        "centered_factor_absmax": 0.0,
+        "variance_absmax": 0.0,
+        "MCSE_absmax": 0.0,
+        "full_covariance_reconstruction_absmax": 1.734723475976807e-18,
+        "full_covariance_diagonal_absmax": 0.0
+      }
+    },
+    "C": {
+      "all_512_centered_factors_mean_variance_SE_checked": true,
+      "full_covariance_checked_parent_rows": [
+        0,
+        127,
+        255,
+        383,
+        511
+      ],
+      "errors": {
+        "mean_absmax": 0.0,
+        "centered_factor_absmax": 0.0,
+        "variance_absmax": 0.0,
+        "MCSE_absmax": 0.0,
+        "full_covariance_reconstruction_absmax": 0.0,
+        "full_covariance_diagonal_absmax": 0.0
+      }
+    }
+  },
+  "observed_covariance": {
+    "A_fast_PREADC": {
+      "all_512_centered_factors_mean_variance_SE_checked": true,
+      "full_covariance_checked_parent_rows": [
+        0,
+        127,
+        255,
+        383,
+        511
+      ],
+      "errors": {
+        "mean_absmax": 0.0,
+        "centered_factor_absmax": 0.0,
+        "variance_absmax": 0.0,
+        "MCSE_absmax": 0.0,
+        "full_covariance_reconstruction_absmax": 1.0587911840678754e-22,
+        "full_covariance_diagonal_absmax": 0.0
+      }
+    },
+    "A_fast_HARD": {
+      "all_512_centered_factors_mean_variance_SE_checked": true,
+      "full_covariance_checked_parent_rows": [
+        0,
+        127,
+        255,
+        383,
+        511
+      ],
+      "errors": {
+        "mean_absmax": 0.0,
+        "centered_factor_absmax": 0.0,
+        "variance_absmax": 0.0,
+        "MCSE_absmax": 0.0,
+        "full_covariance_reconstruction_absmax": 2.710505431213761e-20,
+        "full_covariance_diagonal_absmax": 0.0
+      }
+    },
+    "B_fast_PREADC": {
+      "all_512_centered_factors_mean_variance_SE_checked": true,
+      "full_covariance_checked_parent_rows": [
+        0,
+        127,
+        255,
+        383,
+        511
+      ],
+      "errors": {
+        "mean_absmax": 0.0,
+        "centered_factor_absmax": 0.0,
+        "variance_absmax": 0.0,
+        "MCSE_absmax": 0.0,
+        "full_covariance_reconstruction_absmax": 3.469446951953614e-18,
+        "full_covariance_diagonal_absmax": 0.0
+      }
+    },
+    "B_fast_HARD": {
+      "all_512_centered_factors_mean_variance_SE_checked": true,
+      "full_covariance_checked_parent_rows": [
+        0,
+        127,
+        255,
+        383,
+        511
+      ],
+      "errors": {
+        "mean_absmax": 0.0,
+        "centered_factor_absmax": 0.0,
+        "variance_absmax": 0.0,
+        "MCSE_absmax": 0.0,
+        "full_covariance_reconstruction_absmax": 4.336808689942018e-19,
+        "full_covariance_diagonal_absmax": 0.0
+      }
+    },
+    "C_fast_PREADC": {
+      "all_512_centered_factors_mean_variance_SE_checked": true,
+      "full_covariance_checked_parent_rows": [
+        0,
+        127,
+        255,
+        383,
+        511
+      ],
+      "errors": {
+        "mean_absmax": 0.0,
+        "centered_factor_absmax": 0.0,
+        "variance_absmax": 0.0,
+        "MCSE_absmax": 0.0,
+        "full_covariance_reconstruction_absmax": 1.0587911840678754e-22,
+        "full_covariance_diagonal_absmax": 0.0
+      }
+    },
+    "C_fast_HARD": {
+      "all_512_centered_factors_mean_variance_SE_checked": true,
+      "full_covariance_checked_parent_rows": [
+        0,
+        127,
+        255,
+        383,
+        511
+      ],
+      "errors": {
+        "mean_absmax": 0.0,
+        "centered_factor_absmax": 0.0,
+        "variance_absmax": 0.0,
+        "MCSE_absmax": 0.0,
+        "full_covariance_reconstruction_absmax": 6.776263578034403e-21,
+        "full_covariance_diagonal_absmax": 0.0
+      }
+    },
+    "A_slow_PREADC": {
+      "all_512_centered_factors_mean_variance_SE_checked": true,
+      "full_covariance_checked_parent_rows": [
+        0,
+        127,
+        255,
+        383,
+        511
+      ],
+      "errors": {
+        "mean_absmax": 0.0,
+        "centered_factor_absmax": 0.0,
+        "variance_absmax": 0.0,
+        "MCSE_absmax": 0.0,
+        "full_covariance_reconstruction_absmax": 1.0587911840678754e-22,
+        "full_covariance_diagonal_absmax": 0.0
+      }
+    },
+    "A_slow_HARD": {
+      "all_512_centered_factors_mean_variance_SE_checked": true,
+      "full_covariance_checked_parent_rows": [
+        0,
+        127,
+        255,
+        383,
+        511
+      ],
+      "errors": {
+        "mean_absmax": 0.0,
+        "centered_factor_absmax": 0.0,
+        "variance_absmax": 0.0,
+        "MCSE_absmax": 0.0,
+        "full_covariance_reconstruction_absmax": 2.710505431213761e-20,
+        "full_covariance_diagonal_absmax": 0.0
+      }
+    },
+    "B_slow_PREADC": {
+      "all_512_centered_factors_mean_variance_SE_checked": true,
+      "full_covariance_checked_parent_rows": [
+        0,
+        127,
+        255,
+        383,
+        511
+      ],
+      "errors": {
+        "mean_absmax": 0.0,
+        "centered_factor_absmax": 0.0,
+        "variance_absmax": 0.0,
+        "MCSE_absmax": 0.0,
+        "full_covariance_reconstruction_absmax": 3.469446951953614e-18,
+        "full_covariance_diagonal_absmax": 0.0
+      }
+    },
+    "B_slow_HARD": {
+      "all_512_centered_factors_mean_variance_SE_checked": true,
+      "full_covariance_checked_parent_rows": [
+        0,
+        127,
+        255,
+        383,
+        511
+      ],
+      "errors": {
+        "mean_absmax": 0.0,
+        "centered_factor_absmax": 0.0,
+        "variance_absmax": 0.0,
+        "MCSE_absmax": 0.0,
+        "full_covariance_reconstruction_absmax": 4.336808689942018e-19,
+        "full_covariance_diagonal_absmax": 0.0
+      }
+    },
+    "C_slow_PREADC": {
+      "all_512_centered_factors_mean_variance_SE_checked": true,
+      "full_covariance_checked_parent_rows": [
+        0,
+        127,
+        255,
+        383,
+        511
+      ],
+      "errors": {
+        "mean_absmax": 0.0,
+        "centered_factor_absmax": 0.0,
+        "variance_absmax": 0.0,
+        "MCSE_absmax": 0.0,
+        "full_covariance_reconstruction_absmax": 1.0587911840678754e-22,
+        "full_covariance_diagonal_absmax": 0.0
+      }
+    },
+    "C_slow_HARD": {
+      "all_512_centered_factors_mean_variance_SE_checked": true,
+      "full_covariance_checked_parent_rows": [
+        0,
+        127,
+        255,
+        383,
+        511
+      ],
+      "errors": {
+        "mean_absmax": 0.0,
+        "centered_factor_absmax": 0.0,
+        "variance_absmax": 0.0,
+        "MCSE_absmax": 0.0,
+        "full_covariance_reconstruction_absmax": 3.3881317890172014e-21,
+        "full_covariance_diagonal_absmax": 0.0
+      }
+    },
+    "A_common_level_PREADC": {
+      "all_512_centered_factors_mean_variance_SE_checked": true,
+      "full_covariance_checked_parent_rows": [
+        0,
+        127,
+        255,
+        383,
+        511
+      ],
+      "errors": {
+        "mean_absmax": 0.0,
+        "centered_factor_absmax": 0.0,
+        "variance_absmax": 0.0,
+        "MCSE_absmax": 0.0,
+        "full_covariance_reconstruction_absmax": 1.0587911840678754e-22,
+        "full_covariance_diagonal_absmax": 0.0
+      }
+    },
+    "A_common_level_HARD": {
+      "all_512_centered_factors_mean_variance_SE_checked": true,
+      "full_covariance_checked_parent_rows": [
+        0,
+        127,
+        255,
+        383,
+        511
+      ],
+      "errors": {
+        "mean_absmax": 0.0,
+        "centered_factor_absmax": 0.0,
+        "variance_absmax": 0.0,
+        "MCSE_absmax": 0.0,
+        "full_covariance_reconstruction_absmax": 6.776263578034403e-21,
+        "full_covariance_diagonal_absmax": 0.0
+      }
+    },
+    "B_common_level_PREADC": {
+      "all_512_centered_factors_mean_variance_SE_checked": true,
+      "full_covariance_checked_parent_rows": [
+        0,
+        127,
+        255,
+        383,
+        511
+      ],
+      "errors": {
+        "mean_absmax": 0.0,
+        "centered_factor_absmax": 0.0,
+        "variance_absmax": 0.0,
+        "MCSE_absmax": 0.0,
+        "full_covariance_reconstruction_absmax": 3.469446951953614e-18,
+        "full_covariance_diagonal_absmax": 0.0
+      }
+    },
+    "B_common_level_HARD": {
+      "all_512_centered_factors_mean_variance_SE_checked": true,
+      "full_covariance_checked_parent_rows": [
+        0,
+        127,
+        255,
+        383,
+        511
+      ],
+      "errors": {
+        "mean_absmax": 0.0,
+        "centered_factor_absmax": 0.0,
+        "variance_absmax": 0.0,
+        "MCSE_absmax": 0.0,
+        "full_covariance_reconstruction_absmax": 4.336808689942018e-19,
+        "full_covariance_diagonal_absmax": 0.0
+      }
+    },
+    "C_common_level_PREADC": {
+      "all_512_centered_factors_mean_variance_SE_checked": true,
+      "full_covariance_checked_parent_rows": [
+        0,
+        127,
+        255,
+        383,
+        511
+      ],
+      "errors": {
+        "mean_absmax": 0.0,
+        "centered_factor_absmax": 0.0,
+        "variance_absmax": 0.0,
+        "MCSE_absmax": 0.0,
+        "full_covariance_reconstruction_absmax": 1.0587911840678754e-22,
+        "full_covariance_diagonal_absmax": 0.0
+      }
+    },
+    "C_common_level_HARD": {
+      "all_512_centered_factors_mean_variance_SE_checked": true,
+      "full_covariance_checked_parent_rows": [
+        0,
+        127,
+        255,
+        383,
+        511
+      ],
+      "errors": {
+        "mean_absmax": 0.0,
+        "centered_factor_absmax": 0.0,
+        "variance_absmax": 0.0,
+        "MCSE_absmax": 0.0,
+        "full_covariance_reconstruction_absmax": 6.776263578034403e-21,
+        "full_covariance_diagonal_absmax": 0.0
+      }
+    }
+  },
+  "scalar_covariance": {
+    "A_fast": {
+      "fields": [
+        "Q",
+        "tail",
+        "PSD",
+        "qsig",
+        "qbar",
+        "time_scale",
+        "Q_signal",
+        "Q_noise",
+        "Q_ADC_delta",
+        "tail_signal",
+        "tail_noise",
+        "tail_ADC_delta",
+        "Q_signal_crop_migration",
+        "base_shape_Q",
+        "qsig_over_base_shape_Q",
+        "stochastic_shape_voltage_RMS_V",
+        "local_RMS_V"
+      ],
+      "errors": {
+        "mean_absmax": 0.0,
+        "covariance_absmax": 1.734723475976807e-18
+      }
+    },
+    "B_fast": {
+      "fields": [
+        "Q",
+        "tail",
+        "PSD",
+        "qsig",
+        "qbar",
+        "time_scale",
+        "Q_signal",
+        "Q_noise",
+        "Q_ADC_delta",
+        "tail_signal",
+        "tail_noise",
+        "tail_ADC_delta",
+        "Q_signal_crop_migration",
+        "base_shape_Q",
+        "qsig_over_base_shape_Q",
+        "stochastic_shape_voltage_RMS_V",
+        "local_RMS_V"
+      ],
+      "errors": {
+        "mean_absmax": 0.0,
+        "covariance_absmax": 3.552713678800501e-15
+      }
+    },
+    "C_fast": {
+      "fields": [
+        "Q",
+        "tail",
+        "PSD",
+        "qsig",
+        "qbar",
+        "time_scale",
+        "Q_signal",
+        "Q_noise",
+        "Q_ADC_delta",
+        "tail_signal",
+        "tail_noise",
+        "tail_ADC_delta",
+        "Q_signal_crop_migration",
+        "base_shape_Q",
+        "qsig_over_base_shape_Q",
+        "stochastic_shape_voltage_RMS_V",
+        "local_RMS_V"
+      ],
+      "errors": {
+        "mean_absmax": 0.0,
+        "covariance_absmax": 1.734723475976807e-18
+      }
+    },
+    "A_slow": {
+      "fields": [
+        "Q",
+        "tail",
+        "PSD",
+        "qsig",
+        "qbar",
+        "time_scale",
+        "Q_signal",
+        "Q_noise",
+        "Q_ADC_delta",
+        "tail_signal",
+        "tail_noise",
+        "tail_ADC_delta",
+        "Q_signal_crop_migration",
+        "base_shape_Q",
+        "qsig_over_base_shape_Q",
+        "stochastic_shape_voltage_RMS_V",
+        "local_RMS_V"
+      ],
+      "errors": {
+        "mean_absmax": 0.0,
+        "covariance_absmax": 3.469446951953614e-18
+      }
+    },
+    "B_slow": {
+      "fields": [
+        "Q",
+        "tail",
+        "PSD",
+        "qsig",
+        "qbar",
+        "time_scale",
+        "Q_signal",
+        "Q_noise",
+        "Q_ADC_delta",
+        "tail_signal",
+        "tail_noise",
+        "tail_ADC_delta",
+        "Q_signal_crop_migration",
+        "base_shape_Q",
+        "qsig_over_base_shape_Q",
+        "stochastic_shape_voltage_RMS_V",
+        "local_RMS_V"
+      ],
+      "errors": {
+        "mean_absmax": 0.0,
+        "covariance_absmax": 3.552713678800501e-15
+      }
+    },
+    "C_slow": {
+      "fields": [
+        "Q",
+        "tail",
+        "PSD",
+        "qsig",
+        "qbar",
+        "time_scale",
+        "Q_signal",
+        "Q_noise",
+        "Q_ADC_delta",
+        "tail_signal",
+        "tail_noise",
+        "tail_ADC_delta",
+        "Q_signal_crop_migration",
+        "base_shape_Q",
+        "qsig_over_base_shape_Q",
+        "stochastic_shape_voltage_RMS_V",
+        "local_RMS_V"
+      ],
+      "errors": {
+        "mean_absmax": 0.0,
+        "covariance_absmax": 3.469446951953614e-18
+      }
+    },
+    "A_common_level": {
+      "fields": [
+        "Q",
+        "tail",
+        "PSD",
+        "qsig",
+        "qbar",
+        "time_scale",
+        "Q_signal",
+        "Q_noise",
+        "Q_ADC_delta",
+        "tail_signal",
+        "tail_noise",
+        "tail_ADC_delta",
+        "Q_signal_crop_migration",
+        "base_shape_Q",
+        "qsig_over_base_shape_Q",
+        "stochastic_shape_voltage_RMS_V",
+        "local_RMS_V"
+      ],
+      "errors": {
+        "mean_absmax": 0.0,
+        "covariance_absmax": 1.734723475976807e-18
+      }
+    },
+    "B_common_level": {
+      "fields": [
+        "Q",
+        "tail",
+        "PSD",
+        "qsig",
+        "qbar",
+        "time_scale",
+        "Q_signal",
+        "Q_noise",
+        "Q_ADC_delta",
+        "tail_signal",
+        "tail_noise",
+        "tail_ADC_delta",
+        "Q_signal_crop_migration",
+        "base_shape_Q",
+        "qsig_over_base_shape_Q",
+        "stochastic_shape_voltage_RMS_V",
+        "local_RMS_V"
+      ],
+      "errors": {
+        "mean_absmax": 0.0,
+        "covariance_absmax": 3.552713678800501e-15
+      }
+    },
+    "C_common_level": {
+      "fields": [
+        "Q",
+        "tail",
+        "PSD",
+        "qsig",
+        "qbar",
+        "time_scale",
+        "Q_signal",
+        "Q_noise",
+        "Q_ADC_delta",
+        "tail_signal",
+        "tail_noise",
+        "tail_ADC_delta",
+        "Q_signal_crop_migration",
+        "base_shape_Q",
+        "qsig_over_base_shape_Q",
+        "stochastic_shape_voltage_RMS_V",
+        "local_RMS_V"
+      ],
+      "errors": {
+        "mean_absmax": 0.0,
+        "covariance_absmax": 1.734723475976807e-18
+      }
+    }
+  },
+  "observation_replay": {
+    "A_fast": {
+      "rows": 8192,
+      "errors": {
+        "CPU_ADC_prefix_replay_absmax_V": 1.1102230246251565e-16,
+        "hard_wave_absmax_V": 1.1102230246251565e-16,
+        "baseline_mean_absmax_V": 1.9983201291623454e-17,
+        "same_crop_Q_component_absmax": 3.552713678800501e-15
+      },
+      "peak_mean": 122.8634033203125,
+      "peak_sd": 1.4758037201931191,
+      "peak_range": [
+        119,
+        131
+      ],
+      "peak_at_search_boundary_rows": 0,
+      "global_peak_outside_search_rows": 0,
+      "rise_undefined_rows": 66,
+      "rise_prepeak_censored_rows": 66,
+      "temporal_nonpositive_peak_rows": 0
+    },
+    "B_fast": {
+      "rows": 8192,
+      "errors": {
+        "CPU_ADC_prefix_replay_absmax_V": 1.1102230246251565e-16,
+        "hard_wave_absmax_V": 1.1102230246251565e-16,
+        "baseline_mean_absmax_V": 1.9983201291623454e-17,
+        "same_crop_Q_component_absmax": 5.329070518200751e-15
+      },
+      "peak_mean": 134.17431640625,
+      "peak_sd": 4.267442895767568,
+      "peak_range": [
+        123,
+        143
+      ],
+      "peak_at_search_boundary_rows": 16,
+      "global_peak_outside_search_rows": 1,
+      "rise_undefined_rows": 1088,
+      "rise_prepeak_censored_rows": 1088,
+      "temporal_nonpositive_peak_rows": 0
+    },
+    "C_fast": {
+      "rows": 8192,
+      "errors": {
+        "CPU_ADC_prefix_replay_absmax_V": 1.1102230246251565e-16,
+        "hard_wave_absmax_V": 1.1102230246251565e-16,
+        "baseline_mean_absmax_V": 1.9983201291623454e-17,
+        "same_crop_Q_component_absmax": 3.552713678800501e-15
+      },
+      "peak_mean": 131.752197265625,
+      "peak_sd": 0.5281342973962903,
+      "peak_range": [
+        129,
+        133
+      ],
+      "peak_at_search_boundary_rows": 0,
+      "global_peak_outside_search_rows": 0,
+      "rise_undefined_rows": 0,
+      "rise_prepeak_censored_rows": 0,
+      "temporal_nonpositive_peak_rows": 0
+    },
+    "A_slow": {
+      "rows": 8192,
+      "errors": {
+        "CPU_ADC_prefix_replay_absmax_V": 1.1102230246251565e-16,
+        "hard_wave_absmax_V": 1.1102230246251565e-16,
+        "baseline_mean_absmax_V": 1.9983201291623454e-17,
+        "same_crop_Q_component_absmax": 3.552713678800501e-15
+      },
+      "peak_mean": 122.8544921875,
+      "peak_sd": 1.4707663473089343,
+      "peak_range": [
+        119,
+        131
+      ],
+      "peak_at_search_boundary_rows": 0,
+      "global_peak_outside_search_rows": 0,
+      "rise_undefined_rows": 63,
+      "rise_prepeak_censored_rows": 63,
+      "temporal_nonpositive_peak_rows": 0
+    },
+    "B_slow": {
+      "rows": 8192,
+      "errors": {
+        "CPU_ADC_prefix_replay_absmax_V": 1.1102230246251565e-16,
+        "hard_wave_absmax_V": 1.1102230246251565e-16,
+        "baseline_mean_absmax_V": 1.9983201291623454e-17,
+        "same_crop_Q_component_absmax": 3.552713678800501e-15
+      },
+      "peak_mean": 134.173828125,
+      "peak_sd": 4.265345525843596,
+      "peak_range": [
+        123,
+        143
+      ],
+      "peak_at_search_boundary_rows": 15,
+      "global_peak_outside_search_rows": 1,
+      "rise_undefined_rows": 1094,
+      "rise_prepeak_censored_rows": 1094,
+      "temporal_nonpositive_peak_rows": 0
+    },
+    "C_slow": {
+      "rows": 8192,
+      "errors": {
+        "CPU_ADC_prefix_replay_absmax_V": 1.1102230246251565e-16,
+        "hard_wave_absmax_V": 1.1102230246251565e-16,
+        "baseline_mean_absmax_V": 1.9983201291623454e-17,
+        "same_crop_Q_component_absmax": 3.552713678800501e-15
+      },
+      "peak_mean": 131.761474609375,
+      "peak_sd": 0.5207980779795478,
+      "peak_range": [
+        129,
+        133
+      ],
+      "peak_at_search_boundary_rows": 0,
+      "global_peak_outside_search_rows": 0,
+      "rise_undefined_rows": 0,
+      "rise_prepeak_censored_rows": 0,
+      "temporal_nonpositive_peak_rows": 0
+    },
+    "A_common_level": {
+      "rows": 8192,
+      "errors": {
+        "CPU_ADC_prefix_replay_absmax_V": 1.1102230246251565e-16,
+        "hard_wave_absmax_V": 1.1102230246251565e-16,
+        "baseline_mean_absmax_V": 1.9983201291623454e-17,
+        "same_crop_Q_component_absmax": 3.552713678800501e-15
+      },
+      "peak_mean": 122.852294921875,
+      "peak_sd": 1.467223144845762,
+      "peak_range": [
+        119,
+        131
+      ],
+      "peak_at_search_boundary_rows": 0,
+      "global_peak_outside_search_rows": 0,
+      "rise_undefined_rows": 61,
+      "rise_prepeak_censored_rows": 61,
+      "temporal_nonpositive_peak_rows": 0
+    },
+    "B_common_level": {
+      "rows": 8192,
+      "errors": {
+        "CPU_ADC_prefix_replay_absmax_V": 1.1102230246251565e-16,
+        "hard_wave_absmax_V": 1.1102230246251565e-16,
+        "baseline_mean_absmax_V": 1.9983201291623454e-17,
+        "same_crop_Q_component_absmax": 5.329070518200751e-15
+      },
+      "peak_mean": 134.1741943359375,
+      "peak_sd": 4.26700447993259,
+      "peak_range": [
+        123,
+        143
+      ],
+      "peak_at_search_boundary_rows": 15,
+      "global_peak_outside_search_rows": 1,
+      "rise_undefined_rows": 1097,
+      "rise_prepeak_censored_rows": 1097,
+      "temporal_nonpositive_peak_rows": 0
+    },
+    "C_common_level": {
+      "rows": 8192,
+      "errors": {
+        "CPU_ADC_prefix_replay_absmax_V": 1.1102230246251565e-16,
+        "hard_wave_absmax_V": 1.1102230246251565e-16,
+        "baseline_mean_absmax_V": 1.9983201291623454e-17,
+        "same_crop_Q_component_absmax": 5.329070518200751e-15
+      },
+      "peak_mean": 131.7607421875,
+      "peak_sd": 0.5223349731328689,
+      "peak_range": [
+        129,
+        133
+      ],
+      "peak_at_search_boundary_rows": 0,
+      "global_peak_outside_search_rows": 0,
+      "rise_undefined_rows": 0,
+      "rise_prepeak_censored_rows": 0,
+      "temporal_nonpositive_peak_rows": 0
+    }
+  },
+  "D_observation_order": {
+    "fast": {
+      "D_exactly_mean_of_saved_B_observations": true,
+      "meanObs_minus_ObsMean_parent_RMS_V": {
+        "mean": 0.008117137396971333,
+        "median": 0.006978287117034373,
+        "quantile_levels": [
+          0,
+          0.1,
+          0.5,
+          0.9,
+          0.95,
+          1
+        ],
+        "quantiles": [
+          0.0018010676062013241,
+          0.0037733772693074557,
+          0.006978287117034373,
+          0.01363065631966445,
+          0.016275467125605025,
+          0.02320571787448973
+        ]
+      },
+      "global_mean_wave_difference_RMS_V": 0.006570335674610607,
+      "exact_equal_parent_rows": 0
+    },
+    "slow": {
+      "D_exactly_mean_of_saved_B_observations": true,
+      "meanObs_minus_ObsMean_parent_RMS_V": {
+        "mean": 0.008118059551383332,
+        "median": 0.00698515585464713,
+        "quantile_levels": [
+          0,
+          0.1,
+          0.5,
+          0.9,
+          0.95,
+          1
+        ],
+        "quantiles": [
+          0.00180101065228123,
+          0.003772069658801808,
+          0.00698515585464713,
+          0.013631174986318434,
+          0.01621105176940465,
+          0.023211420931777672
+        ]
+      },
+      "global_mean_wave_difference_RMS_V": 0.006570298796444465,
+      "exact_equal_parent_rows": 0
+    },
+    "common_level": {
+      "D_exactly_mean_of_saved_B_observations": true,
+      "meanObs_minus_ObsMean_parent_RMS_V": {
+        "mean": 0.008120884761788525,
+        "median": 0.006979165537443113,
+        "quantile_levels": [
+          0,
+          0.1,
+          0.5,
+          0.9,
+          0.95,
+          1
+        ],
+        "quantiles": [
+          0.0017999968784763731,
+          0.0037923035122931553,
+          0.006979165537443113,
+          0.01363476376225926,
+          0.01641605620697506,
+          0.023208537348970402
+        ]
+      },
+      "global_mean_wave_difference_RMS_V": 0.006572384735138629,
+      "exact_equal_parent_rows": 0
+    }
+  },
+  "saved_matched_distribution_distances": {
+    "A": {
+      "fast": {
+        "wave": 0.18601872276546882,
+        "QPSD": 0.0911388515190112,
+        "noise": 0.14195561181637228
+      },
+      "slow": {
+        "wave": 0.18729050165253341,
+        "QPSD": 0.08120975637947024,
+        "noise": 0.14195561181637228
+      },
+      "common_level": {
+        "wave": 0.18617060339720293,
+        "QPSD": 0.09126595258877235,
+        "noise": 0.14195561181637228
+      }
+    },
+    "B": {
+      "fast": {
+        "wave": 0.5324063343839865,
+        "QPSD": 0.057365984938601206,
+        "noise": 0.14195561181637228
+      },
+      "slow": {
+        "wave": 0.5315369913714649,
+        "QPSD": 0.06047207278032755,
+        "noise": 0.14195561181637228
+      },
+      "common_level": {
+        "wave": 0.5302007022256003,
+        "QPSD": 0.0572154333013767,
+        "noise": 0.14195561181637228
+      }
+    },
+    "C": {
+      "fast": {
+        "wave": 0.3991078118664009,
+        "QPSD": 0.31157006896626227,
+        "noise": 0.14195561181637228
+      },
+      "slow": {
+        "wave": 0.4018738079146521,
+        "QPSD": 0.2852402654935887,
+        "noise": 0.14195561181637228
+      },
+      "common_level": {
+        "wave": 0.4002917167339404,
+        "QPSD": 0.3123271946927471,
+        "noise": 0.14195561181637228
+      }
+    }
+  },
+  "saved_REAL_REAL_distances": {
+    "wave": 0.02984791775959617,
+    "QPSD": 0.033959272640690964,
+    "noise": 0.024659491927816243
+  },
+  "verified_artifact_count": 81,
+  "verified_artifact_sha256": {
+    "A_SIGNAL_DRAWS.npz": "5b7027e016c6f8a3db4281d5fba888b26685223f759d7a634baf2425824962f1",
+    "A_SIGNAL_MOMENTS.npz": "995b61240092d12bd155b460706e0bbb5f6cdde8fbf2960cd574acc718e15612",
+    "A_common_level_HARD_MOMENTS.npz": "6b56237c0118081560e88cacc01ee6605b5e317d15f0071c7afdb2c300d76a44",
+    "A_common_level_OBSERVED_DRAWS.npz": "19c8eaaff2574fb8d0750459313176b77557a462b3abbba87705e5ab33ff2a8b",
+    "A_common_level_PREADC_MOMENTS.npz": "bf6b143da92af437a44f726f10c239852d4c6c735f1619b107111748d3c5518d",
+    "A_common_level_SCALAR_MOMENTS.npz": "ece92e8d752285371eac4904bc4d6bcb5195f4e88ec03c93836b48b8551eb393",
+    "A_fast_HARD_MOMENTS.npz": "eaa172b9c3ce06376cf48d4e57513ebdfd308efd973dee38bbb83d514c76cc5f",
+    "A_fast_OBSERVED_DRAWS.npz": "d7851b0afdc33d96774638726c6436ffe9fec47c490e3af11935e6d765da55c1",
+    "A_fast_PREADC_MOMENTS.npz": "e5369c11af2e1c53d7638e48db0df83b28ff3fb2327cdef7347a03051b45790f",
+    "A_fast_SCALAR_MOMENTS.npz": "5138bbee39e246b5a64c4453c1758bca79201d1db0ee888f186ff51126ad750e",
+    "A_slow_HARD_MOMENTS.npz": "16892f2d73debb4fe9b3efee4e30baa29b75c8343db07af91ae816b4aa8b3def",
+    "A_slow_OBSERVED_DRAWS.npz": "1979a769b4aab331d00e1342cf58e46bbce34f8d73bff9fdb1771052a0c0b794",
+    "A_slow_PREADC_MOMENTS.npz": "9e0434b1d6dbaa77abb178c2ce5c6a85e7ab630b62880837bf9e877c4200b7bb",
+    "A_slow_SCALAR_MOMENTS.npz": "9eece2467e056ee4f0293fd5d19ad533480a82a4f25af0fdd63e2db3ab2536e3",
+    "BINDING.json": "ba53f9b246b4213164918384c3eed18470dafc6f3bdabd8e19465af54927f685",
+    "B_SIGNAL_DRAWS.npz": "2229134e144f8f9911b9532f140cb1420e665116168d6434fb758fe8ee11ae77",
+    "B_SIGNAL_MOMENTS.npz": "9a3e82814924a70fa1bfb25c7f4f90d7dd7b27da5687b734bfa93afe00a77b67",
+    "B_common_level_HARD_MOMENTS.npz": "5b15816994d564cd4a2f45cb1dfc97fea6f3558f7948e945832d77f054473422",
+    "B_common_level_OBSERVED_DRAWS.npz": "06c72492c0885e4ee266d83a7844f94f4e4d2f23b5e859fc977e663b11c44a02",
+    "B_common_level_PREADC_MOMENTS.npz": "14bc8abe0d6c60bbac8c57ec6f8a0f5a963c048831e5d970e8811d9a23e3f91d",
+    "B_common_level_SCALAR_MOMENTS.npz": "90589dd15da2f1ce308ca1c73bb08f49fa75d31376278ca3fee3afafb389c08e",
+    "B_fast_HARD_MOMENTS.npz": "a92ad2805abcc3cec6c5d89f054dbf56a2702b8b5fcac524113f928ab355fe90",
+    "B_fast_OBSERVED_DRAWS.npz": "aa3638d5c7f55c801db4ec1d2df89895f1224c01086f3130094ea106598c7a2a",
+    "B_fast_PREADC_MOMENTS.npz": "2596a51b23d30a45bbb9d63d742ef4b8ffb07164f6f01bf44aaf4a3a2da83b72",
+    "B_fast_SCALAR_MOMENTS.npz": "b393e817cca8cb749aaf7a8df5ade3c25ad785bfeb2c9c2d69935b9271a3504c",
+    "B_slow_HARD_MOMENTS.npz": "ed8e0982b33f2a4f31a8355d90847cbc4b9f780fb24640e3f1d8b607ae2e83ab",
+    "B_slow_OBSERVED_DRAWS.npz": "669e0bbb878bc118482d30226420507353a9021f10fcf9b4a3091c65b38425fa",
+    "B_slow_PREADC_MOMENTS.npz": "c1310f35d23ff2e34e786430dccc08c0963d743883cc3f3809d53c01d27adb47",
+    "B_slow_SCALAR_MOMENTS.npz": "bd073a3a96c10442dc7d7cbf679956dfa98b53d1e65b3cf9e8a6920bf1a535e1",
+    "CHUNK_RECEIPTS.json": "55b5409dfacc466fe56d19cdc3c2726962c05bb2beb167cbfb0e912bb6d3cb19",
+    "CHUNK_RECEIPTS.jsonl": "fce15cf0b1f4edc829022c36badeea25950634bc6d1209299d8f035ef91ebd38",
+    "C_SIGNAL_DRAWS.npz": "e357563b17ff305d55c732ede09f30f2e41b20738cf4b390621d74caaac15cde",
+    "C_SIGNAL_MOMENTS.npz": "78f6a7e61fdf4f48e027289d6d0acfb3387b8488e81cfcd99084ae5c543b9387",
+    "C_common_level_HARD_MOMENTS.npz": "1c95a4cc33d18b1c45f685c3294f3cac37938be91469615307829208c7e1b738",
+    "C_common_level_OBSERVED_DRAWS.npz": "29042fa0a3cdc1102bafa4db7043b64203c0235eceb982c52a49a68e2082aafd",
+    "C_common_level_PREADC_MOMENTS.npz": "b646ba69c621b29651d04aa0805dcfbac08f603150b83562b2187c0925b8d062",
+    "C_common_level_SCALAR_MOMENTS.npz": "c7af2d96ec7fd3db8eb0cb1e60c603105d86119308be45a97cc022d893d1843c",
+    "C_fast_HARD_MOMENTS.npz": "8b585138f24b783f99614939b54ac337b60d6111e6866a95726991d13b49ef06",
+    "C_fast_OBSERVED_DRAWS.npz": "656ebba9683fdf0da41b16a3d1f06ecb9978e60054155c04cc2c4c445036d958",
+    "C_fast_PREADC_MOMENTS.npz": "85d8c814f0add6a7adc1dc548ec29c3240a1888ac647f8a6352b400457c1f6ed",
+    "C_fast_SCALAR_MOMENTS.npz": "3c647e39d5363b0ba94108c0d7bc5602516ad95795d435e3fc1181d0d5d46048",
+    "C_minus_A_SIGNAL_PAIRED.npz": "33c4dfeb8e4cba9240526025c338d01c51dc586bcf9294bcf8d3cb2cf30b08f1",
+    "C_minus_A_common_level_HARD_PAIRED.npz": "b8515b511e0e2c273d34ac4e58e22a8920dbe4ae7dae6434a8cb340fa9c128b7",
+    "C_minus_A_common_level_PREADC_PAIRED.npz": "f99f91ad0a45594aac3ab1a781cf9fc9353dc713eea2e321677e6c5a1837dd25",
+    "C_minus_A_fast_HARD_PAIRED.npz": "8b6451c158dc2ad1c0f0a8ce5ad31b27735bacc72be58712a601f79916cf615c",
+    "C_minus_A_fast_PREADC_PAIRED.npz": "0ee92c8b1ff109b9eec323e86901e7fa107c54926a3764e5579b9af4fef58413",
+    "C_minus_A_slow_HARD_PAIRED.npz": "a529418d6666654d4faf5ab81341b8d989038d57957de95dac1451d8757d5e65",
+    "C_minus_A_slow_PREADC_PAIRED.npz": "14fae5ee19d6281df12e8a934b7fe6bd8f98b2ea136be09674ded8c08ccd8d25",
+    "C_slow_HARD_MOMENTS.npz": "88916a958ecb2a078ebeb68c759ea6b3d1750d07cdfba1c98a12b84c950ca6ce",
+    "C_slow_OBSERVED_DRAWS.npz": "55e85e8e7e5adc7ca72ad30f1f1a92d504605c221348a2882bf185ed80ac972c",
+    "C_slow_PREADC_MOMENTS.npz": "225341ed11ca71a4a91dd2cf5671bee38b0aa758d1b04138041d8ec1298ba6c5",
+    "C_slow_SCALAR_MOMENTS.npz": "d5e4c76bda08cc2b0a6d857401985248de8fe58e2da9d9dd0361e2af654b7ad2",
+    "DISTRIBUTION_DISTANCES.json": "727c47331bcbc2dcb5f50dbacbaf3082d470fb1bc84f434c88f9655b3aa254d8",
+    "D_SIGNAL_MC_MEAN.npz": "3d8befa052e93c3eb5fc6eb04e092f18954f1398d009fa45f17039eddac088c5",
+    "D_common_level_MC_MEANS.npz": "f7e24fc888325adc203f0c36671c3651670d7ac2e78713cd8e88faedd9086fe8",
+    "D_fast_MC_MEANS.npz": "979d63a31536fde050b350c26be866a89eae5446713063e0f86b40dec84ec25d",
+    "D_minus_A_SIGNAL_PAIRED.npz": "bf88771b92fd1efd9fa50b7e632be63b755fcfbfb077b4628562e23010f0f602",
+    "D_minus_A_common_level_HARD_PAIRED.npz": "6cdb7b12d825947a6a2263b00ee204ee35fd785f3f1ac4c71f0d3c9ce818b420",
+    "D_minus_A_common_level_PREADC_PAIRED.npz": "71f1dc70812b4969bdfc26d01fa182b32f7403d0fb2937df9c1286e13c7163bd",
+    "D_minus_A_fast_HARD_PAIRED.npz": "2ed7943173daaa50cc7143632079e41b0b6ddfb247ebe4a58b16bb7e5b7f49bb",
+    "D_minus_A_fast_PREADC_PAIRED.npz": "b16ff983c20bb54cb86e3e3f62fc1d5ddefa48234af62eb77c9bd819749dff9e",
+    "D_minus_A_slow_HARD_PAIRED.npz": "e5d7f22e3c0d6ba84e94329ce1a85e57fdd61851b7d9d1d0c03189e095a184bc",
+    "D_minus_A_slow_PREADC_PAIRED.npz": "42915f7afa055f1e9ea750d025bb7cf3b99adb07a2227ee959f96ffca43456aa",
+    "D_minus_C_SIGNAL_PAIRED.npz": "22cfe0fc3f9985cfe0f847f3f8742db248ed8193c89df2fd96cf20b9197e69be",
+    "D_minus_C_common_level_HARD_PAIRED.npz": "6d349894c88a49d180de6b9993eabef247c737d1190be8007e51b412761819f2",
+    "D_minus_C_common_level_PREADC_PAIRED.npz": "d4d99e95e369e48a56945f2f60e48933455dd1321875bd0fe07898437f61cf4a",
+    "D_minus_C_fast_HARD_PAIRED.npz": "a32f17e40aa15250156f4bef7c101a9b15b91c2404bc6be58e05c8024f8bc4ec",
+    "D_minus_C_fast_PREADC_PAIRED.npz": "9081f585df6e256c2f7bd03701107244e93dac399a6143769288190d2cecb247",
+    "D_minus_C_slow_HARD_PAIRED.npz": "f87eb8a36c64ebdbf60498afa653074f4313076f700c7492bc606c7764dbe005",
+    "D_minus_C_slow_PREADC_PAIRED.npz": "ac78844689091685f264ce61af2cd97f101dc91221141070f94156af1a78a026",
+    "D_slow_MC_MEANS.npz": "abaa12676150f9a25b38a8ecaf8207a13fcd8722ca5ccfad96028f840da22b7e",
+    "EXPLICIT_LATENTS.npz": "cae3c86c007e164c67cca5d1f06d72095b7f7a3825bedf25ad1a410b315b190d",
+    "FROZEN_INPUTS.json": "544097ebbc99f561c9901e48a1cb1c1f6d24e637ee7ed443debdb4fb99d1b36e",
+    "LATENT_BANK.json": "b1dccc8295b8b5c5a47f02a09a969294f09db411707443dcdbb417e7ccb3cac2",
+    "MORPHOLOGY_AND_READOUT_SUMMARIES.json": "cbc976967e2eb563795603926fca76f598528fa20d4806d91f46ae56be86f8ef",
+    "PARENT_BOOTSTRAP_MASS.npz": "8c46595b48e76b5a235ae987b5fdccbfd1a25f36aafe64c401ec49318494e5cb",
+    "SELECTION.json": "f298029bb4f083f1b0d560d597b813e5d0d7799b19fa1db40c94980833ebe842",
+    "SELECTION.npz": "3fec83aab7e7a619009421ade13852317b62e196ec191e5a82f38483ca6f4b23",
+    "SHARED_BASELINE100_ADC.npz": "201b506d60254ebb167fa62fcd7d8ac625c8e9aad5b874047148563fabe0329b",
+    "START_PROOF.json": "ba2144fcf5f425c5893b81e28eb131b4fc051e3cd8424b9f62534165349025bb",
+    "status.json": "4e839b409a82e09a3df113bf95ccfdb069e630dbf94936fd1af6db8c19af2af7"
+  },
+  "used_saved_files_sha256": {
+    "SUMMARY.json": "5023a09292979c48187a080a2dedba414e16b4e36d7f70ba8515f6d9f95049a8",
+    "status.json": "4e839b409a82e09a3df113bf95ccfdb069e630dbf94936fd1af6db8c19af2af7",
+    "START_PROOF.json": "ba2144fcf5f425c5893b81e28eb131b4fc051e3cd8424b9f62534165349025bb",
+    "FROZEN_INPUTS.json": "544097ebbc99f561c9901e48a1cb1c1f6d24e637ee7ed443debdb4fb99d1b36e",
+    "CHUNK_RECEIPTS.json": "55b5409dfacc466fe56d19cdc3c2726962c05bb2beb167cbfb0e912bb6d3cb19",
+    "SELECTION.json": "f298029bb4f083f1b0d560d597b813e5d0d7799b19fa1db40c94980833ebe842",
+    "PARENT_BOOTSTRAP_MASS.npz": "8c46595b48e76b5a235ae987b5fdccbfd1a25f36aafe64c401ec49318494e5cb",
+    "SHARED_BASELINE100_ADC.npz": "201b506d60254ebb167fa62fcd7d8ac625c8e9aad5b874047148563fabe0329b",
+    "A_SIGNAL_DRAWS.npz": "5b7027e016c6f8a3db4281d5fba888b26685223f759d7a634baf2425824962f1",
+    "A_SIGNAL_MOMENTS.npz": "995b61240092d12bd155b460706e0bbb5f6cdde8fbf2960cd574acc718e15612",
+    "B_SIGNAL_DRAWS.npz": "2229134e144f8f9911b9532f140cb1420e665116168d6434fb758fe8ee11ae77",
+    "B_SIGNAL_MOMENTS.npz": "9a3e82814924a70fa1bfb25c7f4f90d7dd7b27da5687b734bfa93afe00a77b67",
+    "C_SIGNAL_DRAWS.npz": "e357563b17ff305d55c732ede09f30f2e41b20738cf4b390621d74caaac15cde",
+    "C_SIGNAL_MOMENTS.npz": "78f6a7e61fdf4f48e027289d6d0acfb3387b8488e81cfcd99084ae5c543b9387",
+    "D_SIGNAL_MC_MEAN.npz": "3d8befa052e93c3eb5fc6eb04e092f18954f1398d009fa45f17039eddac088c5",
+    "D_minus_C_SIGNAL_PAIRED.npz": "22cfe0fc3f9985cfe0f847f3f8742db248ed8193c89df2fd96cf20b9197e69be",
+    "D_minus_A_SIGNAL_PAIRED.npz": "bf88771b92fd1efd9fa50b7e632be63b755fcfbfb077b4628562e23010f0f602",
+    "C_minus_A_SIGNAL_PAIRED.npz": "33c4dfeb8e4cba9240526025c338d01c51dc586bcf9294bcf8d3cb2cf30b08f1",
+    "A_fast_OBSERVED_DRAWS.npz": "d7851b0afdc33d96774638726c6436ffe9fec47c490e3af11935e6d765da55c1",
+    "A_fast_PREADC_MOMENTS.npz": "e5369c11af2e1c53d7638e48db0df83b28ff3fb2327cdef7347a03051b45790f",
+    "A_fast_HARD_MOMENTS.npz": "eaa172b9c3ce06376cf48d4e57513ebdfd308efd973dee38bbb83d514c76cc5f",
+    "A_fast_SCALAR_MOMENTS.npz": "5138bbee39e246b5a64c4453c1758bca79201d1db0ee888f186ff51126ad750e",
+    "B_fast_OBSERVED_DRAWS.npz": "aa3638d5c7f55c801db4ec1d2df89895f1224c01086f3130094ea106598c7a2a",
+    "B_fast_PREADC_MOMENTS.npz": "2596a51b23d30a45bbb9d63d742ef4b8ffb07164f6f01bf44aaf4a3a2da83b72",
+    "B_fast_HARD_MOMENTS.npz": "a92ad2805abcc3cec6c5d89f054dbf56a2702b8b5fcac524113f928ab355fe90",
+    "B_fast_SCALAR_MOMENTS.npz": "b393e817cca8cb749aaf7a8df5ade3c25ad785bfeb2c9c2d69935b9271a3504c",
+    "C_fast_OBSERVED_DRAWS.npz": "656ebba9683fdf0da41b16a3d1f06ecb9978e60054155c04cc2c4c445036d958",
+    "C_fast_PREADC_MOMENTS.npz": "85d8c814f0add6a7adc1dc548ec29c3240a1888ac647f8a6352b400457c1f6ed",
+    "C_fast_HARD_MOMENTS.npz": "8b585138f24b783f99614939b54ac337b60d6111e6866a95726991d13b49ef06",
+    "C_fast_SCALAR_MOMENTS.npz": "3c647e39d5363b0ba94108c0d7bc5602516ad95795d435e3fc1181d0d5d46048",
+    "D_minus_C_fast_PREADC_PAIRED.npz": "9081f585df6e256c2f7bd03701107244e93dac399a6143769288190d2cecb247",
+    "D_minus_C_fast_HARD_PAIRED.npz": "a32f17e40aa15250156f4bef7c101a9b15b91c2404bc6be58e05c8024f8bc4ec",
+    "D_minus_A_fast_PREADC_PAIRED.npz": "b16ff983c20bb54cb86e3e3f62fc1d5ddefa48234af62eb77c9bd819749dff9e",
+    "D_minus_A_fast_HARD_PAIRED.npz": "2ed7943173daaa50cc7143632079e41b0b6ddfb247ebe4a58b16bb7e5b7f49bb",
+    "C_minus_A_fast_PREADC_PAIRED.npz": "0ee92c8b1ff109b9eec323e86901e7fa107c54926a3764e5579b9af4fef58413",
+    "C_minus_A_fast_HARD_PAIRED.npz": "8b6451c158dc2ad1c0f0a8ce5ad31b27735bacc72be58712a601f79916cf615c",
+    "D_fast_MC_MEANS.npz": "979d63a31536fde050b350c26be866a89eae5446713063e0f86b40dec84ec25d",
+    "A_slow_OBSERVED_DRAWS.npz": "1979a769b4aab331d00e1342cf58e46bbce34f8d73bff9fdb1771052a0c0b794",
+    "A_slow_PREADC_MOMENTS.npz": "9e0434b1d6dbaa77abb178c2ce5c6a85e7ab630b62880837bf9e877c4200b7bb",
+    "A_slow_HARD_MOMENTS.npz": "16892f2d73debb4fe9b3efee4e30baa29b75c8343db07af91ae816b4aa8b3def",
+    "A_slow_SCALAR_MOMENTS.npz": "9eece2467e056ee4f0293fd5d19ad533480a82a4f25af0fdd63e2db3ab2536e3",
+    "B_slow_OBSERVED_DRAWS.npz": "669e0bbb878bc118482d30226420507353a9021f10fcf9b4a3091c65b38425fa",
+    "B_slow_PREADC_MOMENTS.npz": "c1310f35d23ff2e34e786430dccc08c0963d743883cc3f3809d53c01d27adb47",
+    "B_slow_HARD_MOMENTS.npz": "ed8e0982b33f2a4f31a8355d90847cbc4b9f780fb24640e3f1d8b607ae2e83ab",
+    "B_slow_SCALAR_MOMENTS.npz": "bd073a3a96c10442dc7d7cbf679956dfa98b53d1e65b3cf9e8a6920bf1a535e1",
+    "C_slow_OBSERVED_DRAWS.npz": "55e85e8e7e5adc7ca72ad30f1f1a92d504605c221348a2882bf185ed80ac972c",
+    "C_slow_PREADC_MOMENTS.npz": "225341ed11ca71a4a91dd2cf5671bee38b0aa758d1b04138041d8ec1298ba6c5",
+    "C_slow_HARD_MOMENTS.npz": "88916a958ecb2a078ebeb68c759ea6b3d1750d07cdfba1c98a12b84c950ca6ce",
+    "C_slow_SCALAR_MOMENTS.npz": "d5e4c76bda08cc2b0a6d857401985248de8fe58e2da9d9dd0361e2af654b7ad2",
+    "D_minus_C_slow_PREADC_PAIRED.npz": "ac78844689091685f264ce61af2cd97f101dc91221141070f94156af1a78a026",
+    "D_minus_C_slow_HARD_PAIRED.npz": "f87eb8a36c64ebdbf60498afa653074f4313076f700c7492bc606c7764dbe005",
+    "D_minus_A_slow_PREADC_PAIRED.npz": "42915f7afa055f1e9ea750d025bb7cf3b99adb07a2227ee959f96ffca43456aa",
+    "D_minus_A_slow_HARD_PAIRED.npz": "e5d7f22e3c0d6ba84e94329ce1a85e57fdd61851b7d9d1d0c03189e095a184bc",
+    "C_minus_A_slow_PREADC_PAIRED.npz": "14fae5ee19d6281df12e8a934b7fe6bd8f98b2ea136be09674ded8c08ccd8d25",
+    "C_minus_A_slow_HARD_PAIRED.npz": "a529418d6666654d4faf5ab81341b8d989038d57957de95dac1451d8757d5e65",
+    "D_slow_MC_MEANS.npz": "abaa12676150f9a25b38a8ecaf8207a13fcd8722ca5ccfad96028f840da22b7e",
+    "A_common_level_OBSERVED_DRAWS.npz": "19c8eaaff2574fb8d0750459313176b77557a462b3abbba87705e5ab33ff2a8b",
+    "A_common_level_PREADC_MOMENTS.npz": "bf6b143da92af437a44f726f10c239852d4c6c735f1619b107111748d3c5518d",
+    "A_common_level_HARD_MOMENTS.npz": "6b56237c0118081560e88cacc01ee6605b5e317d15f0071c7afdb2c300d76a44",
+    "A_common_level_SCALAR_MOMENTS.npz": "ece92e8d752285371eac4904bc4d6bcb5195f4e88ec03c93836b48b8551eb393",
+    "B_common_level_OBSERVED_DRAWS.npz": "06c72492c0885e4ee266d83a7844f94f4e4d2f23b5e859fc977e663b11c44a02",
+    "B_common_level_PREADC_MOMENTS.npz": "14bc8abe0d6c60bbac8c57ec6f8a0f5a963c048831e5d970e8811d9a23e3f91d",
+    "B_common_level_HARD_MOMENTS.npz": "5b15816994d564cd4a2f45cb1dfc97fea6f3558f7948e945832d77f054473422",
+    "B_common_level_SCALAR_MOMENTS.npz": "90589dd15da2f1ce308ca1c73bb08f49fa75d31376278ca3fee3afafb389c08e",
+    "C_common_level_OBSERVED_DRAWS.npz": "29042fa0a3cdc1102bafa4db7043b64203c0235eceb982c52a49a68e2082aafd",
+    "C_common_level_PREADC_MOMENTS.npz": "b646ba69c621b29651d04aa0805dcfbac08f603150b83562b2187c0925b8d062",
+    "C_common_level_HARD_MOMENTS.npz": "1c95a4cc33d18b1c45f685c3294f3cac37938be91469615307829208c7e1b738",
+    "C_common_level_SCALAR_MOMENTS.npz": "c7af2d96ec7fd3db8eb0cb1e60c603105d86119308be45a97cc022d893d1843c",
+    "D_minus_C_common_level_PREADC_PAIRED.npz": "d4d99e95e369e48a56945f2f60e48933455dd1321875bd0fe07898437f61cf4a",
+    "D_minus_C_common_level_HARD_PAIRED.npz": "6d349894c88a49d180de6b9993eabef247c737d1190be8007e51b412761819f2",
+    "D_minus_A_common_level_PREADC_PAIRED.npz": "71f1dc70812b4969bdfc26d01fa182b32f7403d0fb2937df9c1286e13c7163bd",
+    "D_minus_A_common_level_HARD_PAIRED.npz": "6cdb7b12d825947a6a2263b00ee204ee35fd785f3f1ac4c71f0d3c9ce818b420",
+    "C_minus_A_common_level_PREADC_PAIRED.npz": "f99f91ad0a45594aac3ab1a781cf9fc9353dc713eea2e321677e6c5a1837dd25",
+    "C_minus_A_common_level_HARD_PAIRED.npz": "b8515b511e0e2c273d34ac4e58e22a8920dbe4ae7dae6434a8cb340fa9c128b7",
+    "D_common_level_MC_MEANS.npz": "f7e24fc888325adc203f0c36671c3651670d7ac2e78713cd8e88faedd9086fe8"
+  },
+  "new_model_forwards": 0,
+  "optimizer_updates": 0,
+  "original_private_arrays_read": false,
+  "trained_checkpoints_loaded": false,
+  "saved_generated_observation_numeric_recomputations": 75264,
+  "scientific_status": "response_match_not_established",
+  "independent_acquisition_available": false,
+  "uncertainty_scope": "512 equal-quota TRAIN source-parent clusters and 16 fixed draws; saved bootstrap retains each fixed draw bank and does not establish independent-acquisition transfer",
+  "elapsed_seconds": 29.234000000004016
+}
