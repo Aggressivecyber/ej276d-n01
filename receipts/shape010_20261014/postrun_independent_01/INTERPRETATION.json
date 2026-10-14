@@ -1,0 +1,734 @@
+{
+  "schema": "n01/shape010-independent-interpretation/v1",
+  "UTC": "2026-10-14T08:03:35.923116+00:00",
+  "run_id": "shape010_20261014",
+  "numerical_readback": {
+    "path": "E:\\GAN\\research\\N01\\receipts\\shape010_20261014\\postrun_independent_01\\NUMERIC_READBACK.json",
+    "sha256": "e3d3596e5287e857f82d206388c743b45f6a200e62bbccfade6cde68f83b4652"
+  },
+  "conclusion": "Same fixed TRAIN bank shows modest joint wave/QPSD improvement over frozen A; nonzero random voltage shape remains. Scientific response match is not established.",
+  "conclusion_zh": "同一固定 TRAIN bank 上，终点相对冻结 A 的 wave 与 QPSD 均小幅改善；随机电压形状仍非零。尚未建立科学响应匹配。",
+  "completed_budget": {
+    "G": 2000,
+    "attempted_G": 2000,
+    "native_exit": 0,
+    "all_source_TRAIN": 6593,
+    "all_REAL_TRAIN": 21047,
+    "D": 0,
+    "noise": 0,
+    "population": 0,
+    "C2ST": 0,
+    "DEV_numeric_read": false,
+    "additional_training_or_arm": false
+  },
+  "matched_comparison": {
+    "source_parents": 512,
+    "repeats": 4,
+    "rows": 2048,
+    "REAL_reference": 2048,
+    "REAL_REAL_control": 2048,
+    "disjoint": true,
+    "same_latent_noise_projection_semantics": true,
+    "uncertainty_unit": "512 source-parent clusters; 2048 are repeated response draws, not 2048 independent source events",
+    "distances": {
+      "fast": {
+        "A": {
+          "wave": 0.17881402321419193,
+          "QPSD": 0.0791531153478931
+        },
+        "initial": {
+          "wave": 0.1883709781974912,
+          "QPSD": 0.1468319892455298
+        },
+        "final": {
+          "wave": 0.1764865374711083,
+          "QPSD": 0.07094522283158336
+        },
+        "final_minus_A": {
+          "wave": -0.0023274857430836404,
+          "QPSD": -0.00820789251630974
+        },
+        "relative_final_minus_A_percent": {
+          "wave": -1.3016237212534865,
+          "QPSD": -10.369639249490659
+        },
+        "final_minus_initial": {
+          "wave": -0.011884440726382922,
+          "QPSD": -0.07588676641394643
+        },
+        "wave_plus_2QPSD_proxy": {
+          "A": 0.33712025390997813,
+          "initial": 0.4820349566885508,
+          "final": 0.318376983134275,
+          "final_minus_A": -0.018743270775703147,
+          "relative_final_minus_A_percent": -5.559817471159178
+        },
+        "all_three_joint_components_improve_on_same_A_bank": true
+      },
+      "slow": {
+        "A": {
+          "wave": 0.17950834701034074,
+          "QPSD": 0.07502653932032236
+        },
+        "initial": {
+          "wave": 0.1891604352484882,
+          "QPSD": 0.14944704305608608
+        },
+        "final": {
+          "wave": 0.17745618453291373,
+          "QPSD": 0.06930718037167967
+        },
+        "final_minus_A": {
+          "wave": -0.002052162477427011,
+          "QPSD": -0.005719358948642686
+        },
+        "relative_final_minus_A_percent": {
+          "wave": -1.1432128430823307,
+          "QPSD": -7.62311443451249
+        },
+        "final_minus_initial": {
+          "wave": -0.01170425071557446,
+          "QPSD": -0.08013986268440641
+        },
+        "wave_plus_2QPSD_proxy": {
+          "A": 0.32956142565098545,
+          "initial": 0.48805452136066035,
+          "final": 0.3160705452762731,
+          "final_minus_A": -0.013490880374712355,
+          "relative_final_minus_A_percent": -4.0935859978344595
+        },
+        "all_three_joint_components_improve_on_same_A_bank": true
+      },
+      "common_level": {
+        "A": {
+          "wave": 0.17978287186962355,
+          "QPSD": 0.08223767713821026
+        },
+        "initial": {
+          "wave": 0.18656979975224325,
+          "QPSD": 0.14619624505996404
+        },
+        "final": {
+          "wave": 0.17639340501786077,
+          "QPSD": 0.07248481624524605
+        },
+        "final_minus_A": {
+          "wave": -0.003389466851762779,
+          "QPSD": -0.009752860892964205
+        },
+        "relative_final_minus_A_percent": {
+          "wave": -1.8853113294467705,
+          "QPSD": -11.85935842591147
+        },
+        "final_minus_initial": {
+          "wave": -0.010176394734382477,
+          "QPSD": -0.07371142881471798
+        },
+        "wave_plus_2QPSD_proxy": {
+          "A": 0.34425822614604407,
+          "initial": 0.4789622898721713,
+          "final": 0.3213630375083529,
+          "final_minus_A": -0.02289518863769119,
+          "relative_final_minus_A_percent": -6.650585780912732
+        },
+        "all_three_joint_components_improve_on_same_A_bank": true
+      }
+    },
+    "joint_proxy": {
+      "definition": "mean_h(wave+2*QPSD), without regular/noise terms",
+      "A": 0.33697996856900253,
+      "final": 0.318603521972967,
+      "relative_change_percent": -5.453275657325207
+    },
+    "REAL_REAL_empirical_reference": {
+      "wave": 0.059226172978951094,
+      "QPSD": 0.0533815479257609
+    },
+    "REAL_REAL_is_acceptance_threshold": false,
+    "direct_comparison_to_009_or_old_D": false
+  },
+  "random_voltage_shape": {
+    "initial_all_draw_time_RMS_V": 0.0028419993778191787,
+    "final_all_draw_time_RMS_V": 0.0013848113257057626,
+    "relative_change_percent": -51.273341700433306,
+    "fixed_bank_shape_strength_decreased": true,
+    "complete_functional_collapse": false,
+    "parameter_whitelist": [
+      "basis_head.weight",
+      "basis_head.bias"
+    ],
+    "trained_parameters": 1288,
+    "parameter_norm_is_not_waveform_activity_proof": true,
+    "frozen_A_voltage_signal_identical_across_repeats": true,
+    "pure_signal_prefix_exact_zero": true,
+    "canonical_random_Q_max_abs_Vns": 3.191891195797325e-16,
+    "canonical_signal_Q_identity_max_abs_Vns": 5.329070518200751e-15,
+    "conditional_mean_pure_signal": {
+      "mean_parent_mean_RMS_V": 0.0004959080008745237,
+      "RMS_across_parent_means_V": 0.0007407466311414868,
+      "mean_parent_MCSE_RMS_V": 0.000510440447366601,
+      "RMS_of_equal_parent_global_mean_V": 3.28439167878886e-05,
+      "global_mean_MCSE_RMS_V": 2.9854212130571598e-05,
+      "actual_all_draw_RMS_V": 0.0013848113257057626,
+      "mean_per_draw_RMS_V": 0.000964298332440777,
+      "parent_mean_RMS_summary_V": {
+        "mean": 0.0004959080008745237,
+        "std": 0.0005507933843963596,
+        "minimum": 3.197201724916354e-05,
+        "median": 0.00032891979075718803,
+        "maximum": 0.004397456633346362,
+        "p05": 8.241651607160433e-05,
+        "p95": 0.0014423702576572656
+      },
+      "average_conditional_mean_squared_MC_variance_corrected_V2": 9.237329279563163e-08,
+      "corrected_parent_MS_cluster_bootstrap_CI95_V2": [
+        -3.605238838937942e-08,
+        2.420438365271652e-07
+      ],
+      "parent_mean_RMS_cluster_bootstrap_CI95_V": [
+        0.0004490221006810562,
+        0.0005405188424779465
+      ],
+      "MCSE_scope": "four saved latent/noise draws per parent; estimated ddof1; not physical uncertainty",
+      "canonical_random_Q_absmax_Vns": 3.191891195797325e-16,
+      "canonical_signal_Q_difference_absmax_Vns": 5.329070518200751e-15
+    },
+    "explanation": "The source construction has zero conditional preADC mean. Four saved draws have a finite sample mean; its MC-variance-corrected parent mean-square interval includes zero.",
+    "basis8_or_tanh_saturation_not_measured": true
+  },
+  "observed_mean_and_crop": {
+    "paired_final_vs_A": {
+      "fast": {
+        "observed_wave_difference": {
+          "mean_parent_mean_RMS_V": 0.00089265624570943,
+          "RMS_across_parent_means_V": 0.0015127135328215978,
+          "mean_parent_MCSE_RMS_V": 0.0008621731766507339,
+          "RMS_of_equal_parent_global_mean_V": 8.595500431647639e-05,
+          "global_mean_MCSE_RMS_V": 5.646014492928364e-05,
+          "actual_all_draw_RMS_V": 0.002680425919008182,
+          "mean_per_draw_RMS_V": 0.0014965179318137856,
+          "parent_mean_RMS_summary_V": {
+            "mean": 0.00089265624570943,
+            "std": 0.001222450727680771,
+            "minimum": 4.1231700392970345e-05,
+            "median": 0.0004986333889869791,
+            "maximum": 0.011160062528249777,
+            "p05": 0.00012174323153015238,
+            "p95": 0.003527880692272012
+          },
+          "average_conditional_mean_squared_MC_variance_corrected_V2": 6.561752740785133e-07,
+          "corrected_parent_MS_cluster_bootstrap_CI95_V2": [
+            2.714834074198997e-07,
+            1.1217631579032733e-06
+          ],
+          "parent_mean_RMS_cluster_bootstrap_CI95_V": [
+            0.0007945114565170652,
+            0.0010019214448960037
+          ],
+          "MCSE_scope": "four saved latent/noise draws per parent; estimated ddof1; not physical uncertainty"
+        },
+        "Q_difference": {
+          "mean": -5.910161257095483e-05,
+          "parent_cluster_SE": 5.190730732637426e-05,
+          "parent_cluster_bootstrap_CI95": [
+            -0.00015755065273454925,
+            4.3217495364879185e-05
+          ],
+          "mean_within_parent_MCSE": 0.0008122558873812345,
+          "parent_mean_summary": {
+            "mean": -5.910161257095483e-05,
+            "std": 0.0011745282881156288,
+            "minimum": -0.008682780931452694,
+            "median": -4.577916132533777e-05,
+            "maximum": 0.0063175242629553985,
+            "p05": -0.0019227247756825009,
+            "p95": 0.0015923518281150124
+          },
+          "parent_clusters": 512,
+          "draws_per_parent": 4,
+          "uncertainty_scope": "fixed TRAIN pool and saved four draws; not independent-acquisition uncertainty"
+        },
+        "PSD_difference": {
+          "mean": -0.0003467388309046115,
+          "parent_cluster_SE": 0.0004122337501307502,
+          "parent_cluster_bootstrap_CI95": [
+            -0.0011410881103799712,
+            0.0005330016163145148
+          ],
+          "mean_within_parent_MCSE": 0.007946651578962023,
+          "parent_mean_summary": {
+            "mean": -0.0003467388309046115,
+            "std": 0.009327784964845258,
+            "minimum": -0.03582983198395933,
+            "median": 0.00010422527208892376,
+            "maximum": 0.02995870785526107,
+            "p05": -0.014771470068252367,
+            "p95": 0.014649938391910547
+          },
+          "parent_clusters": 512,
+          "draws_per_parent": 4,
+          "uncertainty_scope": "fixed TRAIN pool and saved four draws; not independent-acquisition uncertainty"
+        },
+        "Q_signal_difference": {
+          "mean": -4.086262067337659e-05,
+          "parent_cluster_SE": 5.191358942304668e-05,
+          "parent_cluster_bootstrap_CI95": [
+            -0.0001467086443594661,
+            5.454358009422464e-05
+          ],
+          "mean_within_parent_MCSE": 0.0007418805986859478,
+          "parent_mean_summary": {
+            "mean": -4.086262067337659e-05,
+            "std": 0.0011746704357366573,
+            "minimum": -0.00858036235323345,
+            "median": 5.969079452938786e-07,
+            "maximum": 0.006488207471138319,
+            "p05": -0.0017614133458640601,
+            "p95": 0.0013780429592207542
+          },
+          "parent_clusters": 512,
+          "draws_per_parent": 4,
+          "uncertainty_scope": "fixed TRAIN pool and saved four draws; not independent-acquisition uncertainty"
+        },
+        "Q_noise_difference": {
+          "mean": -1.7964776436859454e-05,
+          "parent_cluster_SE": 1.2059536439324618e-05,
+          "parent_cluster_bootstrap_CI95": [
+            -4.496006684657781e-05,
+            3.264592860009532e-06
+          ],
+          "mean_within_parent_MCSE": 7.945235721030058e-05,
+          "parent_mean_summary": {
+            "mean": -1.7964776436859454e-05,
+            "std": 0.0002728761598148067,
+            "minimum": -0.0022345603703428415,
+            "median": 0.0,
+            "maximum": 0.0015661501335506207,
+            "p05": -0.00025825119525375796,
+            "p95": 0.00020469915840850336
+          },
+          "parent_clusters": 512,
+          "draws_per_parent": 4,
+          "uncertainty_scope": "fixed TRAIN pool and saved four draws; not independent-acquisition uncertainty"
+        },
+        "Q_ADC_delta_difference": {
+          "mean": -2.742154607153579e-07,
+          "parent_cluster_SE": 9.280994334050863e-06,
+          "parent_cluster_bootstrap_CI95": [
+            -1.8391863030068312e-05,
+            1.707249324752141e-05
+          ],
+          "mean_within_parent_MCSE": 0.00018114273283608313,
+          "parent_mean_summary": {
+            "mean": -2.742154607153579e-07,
+            "std": 0.00021000492895236134,
+            "minimum": -0.0006633229488414371,
+            "median": -1.3398878230556024e-05,
+            "maximum": 0.0006217217127578629,
+            "p05": -0.0003206486746636504,
+            "p95": 0.0003442280984570192
+          },
+          "parent_clusters": 512,
+          "draws_per_parent": 4,
+          "uncertainty_scope": "fixed TRAIN pool and saved four draws; not independent-acquisition uncertainty"
+        },
+        "Q_signal_migration_difference": {
+          "mean": -4.086262067337659e-05,
+          "parent_cluster_SE": 5.191358942304668e-05,
+          "parent_cluster_bootstrap_CI95": [
+            -0.0001467086443594661,
+            5.454358009422464e-05
+          ],
+          "mean_within_parent_MCSE": 0.0007418805986859478,
+          "parent_mean_summary": {
+            "mean": -4.086262067337659e-05,
+            "std": 0.0011746704357366573,
+            "minimum": -0.00858036235323345,
+            "median": 5.969079452938786e-07,
+            "maximum": 0.006488207471138319,
+            "p05": -0.0017614133458640601,
+            "p95": 0.0013780429592207542
+          },
+          "parent_clusters": 512,
+          "draws_per_parent": 4,
+          "uncertainty_scope": "fixed TRAIN pool and saved four draws; not independent-acquisition uncertainty"
+        },
+        "crop_changed_rows": 116,
+        "crop_changed_parents": 95,
+        "peak_shift_samples": {
+          "mean": 0.0234375,
+          "std": 0.6772436881876672,
+          "minimum": -7.0,
+          "median": 0.0,
+          "maximum": 6.0,
+          "p05": 0.0,
+          "p95": 0.0
+        }
+      },
+      "slow": {
+        "observed_wave_difference": {
+          "mean_parent_mean_RMS_V": 0.0008677095220723811,
+          "RMS_across_parent_means_V": 0.0014963737734123063,
+          "mean_parent_MCSE_RMS_V": 0.0008234314042719121,
+          "RMS_of_equal_parent_global_mean_V": 7.152363860921815e-05,
+          "global_mean_MCSE_RMS_V": 5.317495857914898e-05,
+          "actual_all_draw_RMS_V": 0.0025655976971290123,
+          "mean_per_draw_RMS_V": 0.0014663221327940036,
+          "parent_mean_RMS_summary_V": {
+            "mean": 0.0008677095220723811,
+            "std": 0.001220296315905724,
+            "minimum": 4.221276623697456e-05,
+            "median": 0.0004959559951977746,
+            "maximum": 0.011159951272778496,
+            "p05": 0.00011454206344284993,
+            "p95": 0.0033714057123500276
+          },
+          "average_conditional_mean_squared_MC_variance_corrected_V2": 7.914154451703477e-07,
+          "corrected_parent_MS_cluster_bootstrap_CI95_V2": [
+            2.9148003621585246e-07,
+            1.3698273329476785e-06
+          ],
+          "parent_mean_RMS_cluster_bootstrap_CI95_V": [
+            0.0007687991390521944,
+            0.000973947476654586
+          ],
+          "MCSE_scope": "four saved latent/noise draws per parent; estimated ddof1; not physical uncertainty"
+        },
+        "Q_difference": {
+          "mean": -8.720691799426846e-05,
+          "parent_cluster_SE": 5.147251852441317e-05,
+          "parent_cluster_bootstrap_CI95": [
+            -0.00017792997958058745,
+            1.5046620830275678e-05
+          ],
+          "mean_within_parent_MCSE": 0.0008006534408608366,
+          "parent_mean_summary": {
+            "mean": -8.720691799426846e-05,
+            "std": 0.0011646901405876077,
+            "minimum": -0.008514924006592928,
+            "median": -4.5779161325559814e-05,
+            "maximum": 0.006271745101630977,
+            "p05": -0.0017235854239151525,
+            "p95": 0.0013886345602147799
+          },
+          "parent_clusters": 512,
+          "draws_per_parent": 4,
+          "uncertainty_scope": "fixed TRAIN pool and saved four draws; not independent-acquisition uncertainty"
+        },
+        "PSD_difference": {
+          "mean": -0.0002460679171060979,
+          "parent_cluster_SE": 0.0004158881147592687,
+          "parent_cluster_bootstrap_CI95": [
+            -0.001074442868464026,
+            0.0006426610850229923
+          ],
+          "mean_within_parent_MCSE": 0.007916417212648331,
+          "parent_mean_summary": {
+            "mean": -0.0002460679171060979,
+            "std": 0.009410473797157376,
+            "minimum": -0.03579569036973602,
+            "median": 0.00013724040731163956,
+            "maximum": 0.03002896661846488,
+            "p05": -0.014665433137863068,
+            "p95": 0.015574219861575318
+          },
+          "parent_clusters": 512,
+          "draws_per_parent": 4,
+          "uncertainty_scope": "fixed TRAIN pool and saved four draws; not independent-acquisition uncertainty"
+        },
+        "Q_signal_difference": {
+          "mean": -5.653902812614094e-05,
+          "parent_cluster_SE": 5.0829349602779456e-05,
+          "parent_cluster_bootstrap_CI95": [
+            -0.0001484423582879158,
+            4.221612747995673e-05
+          ],
+          "mean_within_parent_MCSE": 0.000738081361537326,
+          "parent_mean_summary": {
+            "mean": -5.653902812614094e-05,
+            "std": 0.0011501368891976673,
+            "minimum": -0.00858036235323345,
+            "median": 1.1102230246251565e-16,
+            "maximum": 0.006488207471138319,
+            "p05": -0.0018261651855189965,
+            "p95": 0.0013495689690702912
+          },
+          "parent_clusters": 512,
+          "draws_per_parent": 4,
+          "uncertainty_scope": "fixed TRAIN pool and saved four draws; not independent-acquisition uncertainty"
+        },
+        "Q_noise_difference": {
+          "mean": -2.2550321211930883e-05,
+          "parent_cluster_SE": 1.2428136279488835e-05,
+          "parent_cluster_bootstrap_CI95": [
+            -4.9287683081797456e-05,
+            1.6753827870137594e-06
+          ],
+          "mean_within_parent_MCSE": 7.147707902142945e-05,
+          "parent_mean_summary": {
+            "mean": -2.2550321211930883e-05,
+            "std": 0.0002812166221035874,
+            "minimum": -0.003599166937211876,
+            "median": 0.0,
+            "maximum": 0.0019433683990562542,
+            "p05": -0.0001982305030054047,
+            "p95": 0.00011962148476141063
+          },
+          "parent_clusters": 512,
+          "draws_per_parent": 4,
+          "uncertainty_scope": "fixed TRAIN pool and saved four draws; not independent-acquisition uncertainty"
+        },
+        "Q_ADC_delta_difference": {
+          "mean": -8.117568656198995e-06,
+          "parent_cluster_SE": 8.797697922274908e-06,
+          "parent_cluster_bootstrap_CI95": [
+            -2.6523497836704806e-05,
+            1.0172350650732975e-05
+          ],
+          "mean_within_parent_MCSE": 0.00018186267447347417,
+          "parent_mean_summary": {
+            "mean": -8.117568656198995e-06,
+            "std": 0.0001990691795094844,
+            "minimum": -0.0005906947331882264,
+            "median": -4.764686803279996e-06,
+            "maximum": 0.0007143081588821987,
+            "p05": -0.00033149419933022517,
+            "p95": 0.00032235600715585527
+          },
+          "parent_clusters": 512,
+          "draws_per_parent": 4,
+          "uncertainty_scope": "fixed TRAIN pool and saved four draws; not independent-acquisition uncertainty"
+        },
+        "Q_signal_migration_difference": {
+          "mean": -5.653902812614094e-05,
+          "parent_cluster_SE": 5.0829349602779456e-05,
+          "parent_cluster_bootstrap_CI95": [
+            -0.0001484423582879158,
+            4.221612747995673e-05
+          ],
+          "mean_within_parent_MCSE": 0.000738081361537326,
+          "parent_mean_summary": {
+            "mean": -5.653902812614094e-05,
+            "std": 0.0011501368891976673,
+            "minimum": -0.00858036235323345,
+            "median": 1.1102230246251565e-16,
+            "maximum": 0.006488207471138319,
+            "p05": -0.0018261651855189965,
+            "p95": 0.0013495689690702912
+          },
+          "parent_clusters": 512,
+          "draws_per_parent": 4,
+          "uncertainty_scope": "fixed TRAIN pool and saved four draws; not independent-acquisition uncertainty"
+        },
+        "crop_changed_rows": 112,
+        "crop_changed_parents": 84,
+        "peak_shift_samples": {
+          "mean": 0.0068359375,
+          "std": 0.6600855212741005,
+          "minimum": -7.0,
+          "median": 0.0,
+          "maximum": 6.0,
+          "p05": 0.0,
+          "p95": 0.0
+        }
+      },
+      "common_level": {
+        "observed_wave_difference": {
+          "mean_parent_mean_RMS_V": 0.0008859294781927862,
+          "RMS_across_parent_means_V": 0.0015470510942965465,
+          "mean_parent_MCSE_RMS_V": 0.0008362810711279638,
+          "RMS_of_equal_parent_global_mean_V": 7.895996121681968e-05,
+          "global_mean_MCSE_RMS_V": 5.473386707358389e-05,
+          "actual_all_draw_RMS_V": 0.0026447892277043747,
+          "mean_per_draw_RMS_V": 0.001485478663934474,
+          "parent_mean_RMS_summary_V": {
+            "mean": 0.0008859294781927862,
+            "std": 0.0012695053327222274,
+            "minimum": 4.050837869589494e-05,
+            "median": 0.0005017138110755743,
+            "maximum": 0.011160955506805825,
+            "p05": 0.00012240775477207911,
+            "p95": 0.003372147620254769
+          },
+          "average_conditional_mean_squared_MC_variance_corrected_V2": 8.595194314918214e-07,
+          "corrected_parent_MS_cluster_bootstrap_CI95_V2": [
+            3.635054727332063e-07,
+            1.4842480662677452e-06
+          ],
+          "parent_mean_RMS_cluster_bootstrap_CI95_V": [
+            0.0007859552682544192,
+            0.0009980564034046885
+          ],
+          "MCSE_scope": "four saved latent/noise draws per parent; estimated ddof1; not physical uncertainty"
+        },
+        "Q_difference": {
+          "mean": -7.686488089791565e-05,
+          "parent_cluster_SE": 5.2318815583109006e-05,
+          "parent_cluster_bootstrap_CI95": [
+            -0.00017993132768155649,
+            1.939057445213501e-05
+          ],
+          "mean_within_parent_MCSE": 0.0008134787011350711,
+          "parent_mean_summary": {
+            "mean": -7.686488089791565e-05,
+            "std": 0.0011838396570388735,
+            "minimum": -0.008392846243056695,
+            "median": -4.577916132578186e-05,
+            "maximum": 0.006393822865164545,
+            "p05": -0.0016465238356836499,
+            "p95": 0.001449673441982896
+          },
+          "parent_clusters": 512,
+          "draws_per_parent": 4,
+          "uncertainty_scope": "fixed TRAIN pool and saved four draws; not independent-acquisition uncertainty"
+        },
+        "PSD_difference": {
+          "mean": -0.000274906640349897,
+          "parent_cluster_SE": 0.00041516014520219226,
+          "parent_cluster_bootstrap_CI95": [
+            -0.001064933269723617,
+            0.0006064294777812003
+          ],
+          "mean_within_parent_MCSE": 0.007894040770511358,
+          "parent_mean_summary": {
+            "mean": -0.000274906640349897,
+            "std": 0.00939400172642758,
+            "minimum": -0.03575845014375968,
+            "median": -1.402406940410883e-05,
+            "maximum": 0.030091388907735522,
+            "p05": -0.015064031507873585,
+            "p95": 0.01500118063971617
+          },
+          "parent_clusters": 512,
+          "draws_per_parent": 4,
+          "uncertainty_scope": "fixed TRAIN pool and saved four draws; not independent-acquisition uncertainty"
+        },
+        "Q_signal_difference": {
+          "mean": -4.372053562356332e-05,
+          "parent_cluster_SE": 5.171483631804944e-05,
+          "parent_cluster_bootstrap_CI95": [
+            -0.00014311819827140086,
+            5.191550168605662e-05
+          ],
+          "mean_within_parent_MCSE": 0.0007451405877837854,
+          "parent_mean_summary": {
+            "mean": -4.372053562356332e-05,
+            "std": 0.0011701731663502435,
+            "minimum": -0.00858036235323345,
+            "median": 3.3306690738754696e-16,
+            "maximum": 0.006488207471138319,
+            "p05": -0.001841829246761964,
+            "p95": 0.0013286533158056446
+          },
+          "parent_clusters": 512,
+          "draws_per_parent": 4,
+          "uncertainty_scope": "fixed TRAIN pool and saved four draws; not independent-acquisition uncertainty"
+        },
+        "Q_noise_difference": {
+          "mean": -2.602177573416381e-05,
+          "parent_cluster_SE": 1.108774561428533e-05,
+          "parent_cluster_bootstrap_CI95": [
+            -4.9550114962414295e-05,
+            -6.6070566725580086e-06
+          ],
+          "mean_within_parent_MCSE": 6.854908168502219e-05,
+          "parent_mean_summary": {
+            "mean": -2.602177573416381e-05,
+            "std": 0.0002508870435818419,
+            "minimum": -0.003048461722034884,
+            "median": 0.0,
+            "maximum": 0.0014599554581534203,
+            "p05": -0.0002744233899993564,
+            "p95": 0.00014645114776524318
+          },
+          "parent_clusters": 512,
+          "draws_per_parent": 4,
+          "uncertainty_scope": "fixed TRAIN pool and saved four draws; not independent-acquisition uncertainty"
+        },
+        "Q_ADC_delta_difference": {
+          "mean": -7.1225695401764796e-06,
+          "parent_cluster_SE": 8.637079046295578e-06,
+          "parent_cluster_bootstrap_CI95": [
+            -2.36088570337241e-05,
+            1.0026991239523417e-05
+          ],
+          "mean_within_parent_MCSE": 0.00018295812424463709,
+          "parent_mean_summary": {
+            "mean": -7.1225695401764796e-06,
+            "std": 0.00019543478922495495,
+            "minimum": -0.0005232419625048589,
+            "median": 4.30315623892817e-06,
+            "maximum": 0.0006280340094034379,
+            "p05": -0.00033957534423398664,
+            "p95": 0.0003076311414557572
+          },
+          "parent_clusters": 512,
+          "draws_per_parent": 4,
+          "uncertainty_scope": "fixed TRAIN pool and saved four draws; not independent-acquisition uncertainty"
+        },
+        "Q_signal_migration_difference": {
+          "mean": -4.372053562356332e-05,
+          "parent_cluster_SE": 5.171483631804944e-05,
+          "parent_cluster_bootstrap_CI95": [
+            -0.00014311819827140086,
+            5.191550168605662e-05
+          ],
+          "mean_within_parent_MCSE": 0.0007451405877837854,
+          "parent_mean_summary": {
+            "mean": -4.372053562356332e-05,
+            "std": 0.0011701731663502435,
+            "minimum": -0.00858036235323345,
+            "median": 3.3306690738754696e-16,
+            "maximum": 0.006488207471138319,
+            "p05": -0.001841829246761964,
+            "p95": 0.0013286533158056446
+          },
+          "parent_clusters": 512,
+          "draws_per_parent": 4,
+          "uncertainty_scope": "fixed TRAIN pool and saved four draws; not independent-acquisition uncertainty"
+        },
+        "crop_changed_rows": 122,
+        "crop_changed_parents": 92,
+        "peak_shift_samples": {
+          "mean": 0.0107421875,
+          "std": 0.6651943131834834,
+          "minimum": -7.0,
+          "median": 0.0,
+          "maximum": 6.0,
+          "p05": 0.0,
+          "p95": 0.0
+        }
+      }
+    },
+    "explanation": "After ADC/first-argmax/cropping, corrected parent waveform mean-square differences are positive in the 500 descriptive parent-bootstrap intervals for all hypotheses. Pure-signal zero canonical Q/mean does not force zero observed waveform/Q/PSD change.",
+    "global_paired_Q_and_PSD_mean_intervals_include_zero_all_hypotheses": true,
+    "global_mean_cancellation_not_a_causal_test": true,
+    "no_unique_attribution_to_ADC_vs_peak_vs_crop": true,
+    "no_mean_path_sole_cause_claim": true
+  },
+  "numerical_reproducibility": {
+    "independent_NumPy_wave_QPSD_RR": true,
+    "max_absolute_component_or_wave_subcomponent_error": 3.8692535286877217e-10,
+    "same_crop_Q_decomposition_max_error_Vns": 7.42759803315507e-15,
+    "native_vs_local_projection_fingerprint_byte_exact": false,
+    "cross_CPU_shape_rng_max_absolute_difference": 2.384185791015625e-07,
+    "interpretation": "Cross-CPU float32 normal/direction rounding prevented byte-identical RNG/projection reconstruction; numeric loss error is below 4e-10 and the saved native arrays were never replaced.",
+    "fake_baseline100_and_noise_carriers_not_saved": true,
+    "full_electronics_array_replay_completed": false,
+    "noise_component_independently_recomputed": false,
+    "native_shared_prefix_guard_frozen005_hash_and_same_crop_noise_checks": true,
+    "native_reported_noise_component_A_initial_final": 0.13848853836634592
+  },
+  "evidence_bounds": {
+    "statistical_bootstrap": "500 pure NumPy resamples of 512 saved parent clusters; only descriptive mean/RMS/MS/Q/PSD summaries, no whole-loss bootstrap or hyperparameter selection",
+    "independent_acquisition_uncertainty": "unknown",
+    "no_predefined_scientific_pass_threshold": true,
+    "TRAIN_improvement_is_scientific_response_acceptance": false,
+    "no_GAN_effect_estimated": true,
+    "frozen_A_parameters_stage_and_noise005_unchanged": true,
+    "original_old_weights_not_loaded": true,
+    "no_new_model_forwards_gradients_or_optimizer": true
+  },
+  "next_action": "Preserve and close this 2000-G candidate at its registered budget. Pause existing N01 follow-up after final reporting; do not automatically launch a GAN arm or extend training. Any further controlled objective attribution or comparison needs a separately registered bounded plan.",
+  "scientific_status": "response_match_not_established"
+}

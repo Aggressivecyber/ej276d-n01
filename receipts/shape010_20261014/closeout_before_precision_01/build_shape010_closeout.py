@@ -1,0 +1,113 @@
+"""Summarize collected fixed-budget results; no models, gradients or data fits."""
+from datetime import datetime, timezone
+import hashlib
+import json
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+OUT = ROOT / 'reports/shape010_20261014'
+RECEIPTS = ROOT / 'receipts/shape010_20261014'
+ARTIFACTS = ROOT / 'runs/shape010_20261014/collected_01/runs/primary/artifacts'
+
+
+def sha(path):
+    with Path(path).open('rb') as stream:
+        return hashlib.file_digest(stream, 'sha256').hexdigest()
+
+
+def read(path):
+    return json.loads(Path(path).read_text(encoding='utf8'))
+
+
+def main():
+    OUT.mkdir(parents=True, exist_ok=False)
+    complete = read(ARTIFACTS / 'COMPLETE.json')
+    collection = read(RECEIPTS / 'collection_01/COLLECTION_RECEIPT.json')
+    independent = read(RECEIPTS / 'postrun_independent_01/INTERPRETATION.json')
+    validation = read(RECEIPTS / 'postrun_independent_01/READBACK_VALIDATION.json')
+    training = read(RECEIPTS / 'training_readback_01/TRAINING_READBACK.json')
+    assert complete['G_updates'] == complete['counters']['attempted_G_updates'] == 2000
+    assert complete['coverage']['source_unique'] == 6593 and complete['coverage']['real_unique'] == 21047
+    assert complete['scientific_status'] == 'response_match_not_established'
+    assert 'passed' in validation['status']
+    table = []
+    for hyp in ('fast', 'slow', 'common_level'):
+        a = complete['initial_evaluation']['frozen_A'][hyp]['components']
+        z = complete['final_evaluation']['shape010_final'][hyp]['components']
+        delta = ((z['wave']+2*z['QPSD'])/(a['wave']+2*a['QPSD'])-1)*100
+        table.append(f"| {hyp} | {a['wave']:.6f} | {z['wave']:.6f} | {a['QPSD']:.6f} | {z['QPSD']:.6f} | {delta:.2f}% |")
+    report = '''# N01 010：固定均值、电压域随机形状试验结果
+
+010 已完成预登记的 2000 次 G 更新及固定 TRAIN 比较，训练和监督原生退出均为 0，用时 340.99 秒。独立读回支持小幅联合 TRAIN 改善；当前科学状态为 `response_match_not_established`。
+
+## 固定同库结果
+
+冻结 deterministic 19k A 与原 005 噪声，只训练 1288 个新随机形状头参数。2000/2000 次尝试均完成；D、噪声、人口和 C2ST 更新为 0。全体 SOURCE TRAIN 6593 父、REAL TRAIN 21047 事件均覆盖，分别完成 155 与 97 个 epoch。
+
+比较使用同一预冻结的 512 SOURCE TRAIN 父 ×4 次响应（2048 行）、2048 REAL 参考及另外 2048 个互不重叠 REAL 对照；三种噪声假设、电子学随机库、源身份和评价投影设置一致。距离均用原 TRAIN 标定尺度，数值越小越好。
+
+| 假设 | A wave | 终点 wave | A QPSD | 终点 QPSD | wave+2QPSD 相对 A |
+| --- | ---: | ---: | ---: | ---: | ---: |
+'''+ '\n'.join(table) + '''
+
+三假设平均 `wave+2QPSD` 从 **0.336980 降至 0.318604，改善 5.45%**。波形距离改善 1.14–1.89%，QPSD 改善 7.62–11.86%，方向一致。这个代理指标不包含正则或噪声项，也不是物理验收门。5.45% 是本固定 bank 的点估计；此次没有计算该完整代理指标的父簇置信区间。
+
+初始随机头的平均代理指标为 0.483017，比 A 恶化 43.34%。初始到终点的下降中，88.82% 在数值上用于回到 A 的水平，终点额外收益较小。REAL–REAL 同样本数经验参考为 wave=0.059226、QPSD=0.053382；它不是不可约误差下限。此处不直接比较不同样本数、不同随机库的 009 或旧 full19k 分数。
+
+## 随机幅度与观察链
+
+固定 bank 全部 2048 个 draw ×384 点的纯信号随机 RMS 为 **2.842→1.385 mV**，下降 51.27%，仍非零；逐 draw RMS 的均值为 2.050→0.964 mV。新头权重 L2 范数增加 6.82%，1288 个参数全部改变，因此不能把结果解释成参数整体缩到零。
+
+随机分量前 100 点严格为零，canonical 随机电荷最大误差 3.19e-16 V ns。终点逐父纯信号均值差的 RMS 平均为 0.496 mV，对应 MCSE RMS 平均 0.510 mV；去 Monte Carlo 方差的均方父簇区间跨零，4 次重复没有分辨额外的 preADC 均值漂移。
+
+观察后的均值性质不同。相对 A，fast/slow/common_level 分别有 116/112/122 个 draw 改变裁窗，即 5.47–5.96%。fast 观察后逐父均值差 RMS 平均 0.893 mV，MCSE RMS 平均 0.862 mV；去抽样方差后的均方父簇区间为 [2.71e-7,1.12e-6] V²。preADC 零均值与零 canonical 电荷不能扩展成 ADC、寻峰和裁窗后的不变性。全局 ΔQ 和 ΔPSD 均值区间跨零，也不能替代分布距离或响应验收。
+
+## 核验与下一步
+
+39 个归档文件、29 个 COMPLETE 库存项的 SHA256/大小均通过；初始、1000、2000 薄检查点、AdamW 两个参数的 step=2000、完整采样器访问及原生 PID 链均核验通过。53 个冻结源码、7 个只读输入、原 008/009 保护材料保持不变。独立 NumPy 重算九组及 REAL–REAL 的 wave/QPSD，最大误差 3.87e-10；分析新增响应/噪声模型前向、梯度、优化器更新和 DEV 波形读取均为 0。
+
+跨 CPU 的 seed 重建存在最多 1 个 float32 ULP 量级的差异，本地投影 fingerprint 与 native 不同；本次通过的是数值读回，不是跨平台逐字节重建。fake baseline100 和完整噪声载体未保存，噪声分量依赖 native 配对 prefix 守卫及冻结 hash，没有声称完成这些数组的完整重放。
+
+本轮按 2000 G 固定预算关闭。下一步优先另行登记父簇上的完整代理指标稳定性分析，再做新头 wave/QPSD/regular 的参数梯度和峰/裁窗机制诊断；暂不优先引入判别器。当前只有 21 个保存批次的总新头梯度，末点仍非零，2000 步不是收敛证明。以后若登记 GAN 因果对照，需使用相同新头、初始化、数据/噪声库、优化器与 G 预算，仅切换 adversarial 项。科学响应匹配仍需另外证据。
+
+## 证据文件
+
+- [完整成果回收](../../receipts/shape010_20261014/collection_01/COLLECTION_RECEIPT.json)
+- [独立数值读回](../../receipts/shape010_20261014/postrun_independent_01/NUMERIC_READBACK.json)
+- [独立核验](../../receipts/shape010_20261014/postrun_independent_01/READBACK_VALIDATION.json)
+- [训练与薄检查点读回](../../receipts/shape010_20261014/training_readback_01/TRAINING_READBACK.json)
+
+私有完整成果包：E:/GAN/research/N01/runs/shape010_20261014/shape010_complete_01.tar，84,736,000 字节，SHA256 `3676f0bc88e6a23a727a55743b838cdf985fadb497594c1811d56d79ac4ac86d`。
+'''
+    path = OUT / 'N01_SHAPE010_REPORT.md'
+    path.write_text(report, encoding='utf8')
+    inputs = [ARTIFACTS/'COMPLETE.json', RECEIPTS/'collection_01/COLLECTION_RECEIPT.json',
+        RECEIPTS/'postrun_independent_01/NUMERIC_READBACK.json',
+        RECEIPTS/'postrun_independent_01/INTERPRETATION.json',
+        RECEIPTS/'postrun_independent_01/READBACK_VALIDATION.json',
+        RECEIPTS/'training_readback_01/TRAINING_READBACK.json']
+    receipt = dict(schema='n01/shape010-result-delivery/v1', UTC=datetime.now(timezone.utc).isoformat(),
+        status='bounded_2000G_complete_collected_and_independently_read_back',
+        native_exit_code=0, G_updates=2000, attempted_G_updates=2000,
+        global_N01_scientific_G_updates=159667, other_optimizer_updates=0,
+        report=str(path), report_sha256=sha(path),
+        artifact_archive=collection['archive'], artifact_archive_sha256=collection['archive_sha256'],
+        collected_files=39, COMPLETE_inventory_files=29,
+        evidence={str(p.relative_to(ROOT)):sha(p) for p in inputs},
+        joint_proxy=independent['matched_comparison']['joint_proxy'],
+        response_match_established=False, scientific_status='response_match_not_established',
+        next_action='preregister parent-cluster proxy stability then bounded per-loss new-head and observation-mechanism diagnosis',
+        additional_arm_launched=False, additional_model_forwards=0, additional_optimizer_updates=0,
+        DEV_waveforms_decoded=False,
+        numerical_replay_limit='cross_CPU numeric agreement, not bitwise projection/RNG reconstruction; missing fake baseline/noise arrays are explicit',
+        followup_pause='pending_app_pause_after_report_delivery')
+    receipt_path = RECEIPTS/'FINAL_RESULT_RECEIPT.json'
+    receipt_path.write_text(json.dumps(receipt, ensure_ascii=False, indent=2)+'\n', encoding='utf8')
+    assert read(receipt_path)['report_sha256'] == sha(path)
+    assert path.read_text(encoding='utf8') == report
+    print(json.dumps(dict(report=str(path),report_sha256=sha(path),receipt=str(receipt_path),
+        receipt_sha256=sha(receipt_path),report_reopened=True,native_exit_code=0,G_updates=2000)))
+
+
+if __name__ == '__main__':
+    main()

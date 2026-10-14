@@ -1,0 +1,155 @@
+{
+  "schema": "n01/shape010-final-report-QA/v2",
+  "UTC": "2026-10-14T08:17:29.147414+00:00",
+  "status": "passed_final_report_precision_fixes_result_receipt_and_PAUSED_chain",
+  "report": {
+    "path": "E:\\GAN\\research\\N01\\reports\\shape010_20261014\\N01_SHAPE010_REPORT.md",
+    "sha256": "ab00dff904798025e2e4ed3fdc4a17ba9c5772c7a6377699ebe4045d8a801a8d"
+  },
+  "final_result_receipt": {
+    "path": "E:\\GAN\\research\\N01\\receipts\\shape010_20261014\\FINAL_RESULT_RECEIPT.json",
+    "sha256": "e5fab37287807b9e87ba064ea7ca1135e64b029ee7cc378fa65144ee8f6ed2a0"
+  },
+  "automation_pause_receipt": {
+    "path": "E:\\GAN\\research\\N01\\receipts\\shape010_20261014\\AUTOMATION_PAUSE_RECEIPT.json",
+    "sha256": "a28bf0ae6f69239418d6e53dd0cbafbb0a099f5c6649144025fd21ed46796750",
+    "status": "PAUSED",
+    "automation_id": "n01",
+    "verified_UTC": "2026-10-14T08:15:38.939365+00:00",
+    "persisted_config_readback": true,
+    "same_automation_updated": true
+  },
+  "previous_QA": {
+    "path": "E:\\GAN\\research\\N01\\receipts\\shape010_20261014\\postrun_independent_01\\REPORT_QA.json",
+    "sha256": "d831d3f34c3e7e2d50f53c32fa6604b49d1060ae73c4507a42cab9c077146002",
+    "preserved_unchanged": true
+  },
+  "original_report": {
+    "path": "E:\\GAN\\research\\N01\\receipts\\shape010_20261014\\closeout_before_precision_01\\N01_SHAPE010_REPORT.md",
+    "sha256": "367ace1d9e1dd9def858b4443e502634452d374a98e5dbf68d34510e4c707b9e",
+    "preserved_unchanged": true
+  },
+  "editorial_precision_fixes": {
+    "parameter_L2_includes_weight_and_bias": true,
+    "cross_CPU_shape_z_uses_measured_absolute_error": true,
+    "only_two_report_wording_changes": true
+  },
+  "reused_numerical_and_scope_QA": {
+    "table_all_12_distances_and_3_relative_changes": {
+      "passed": true,
+      "matched_rows": [
+        "| fast | 0.178814 | 0.176487 | 0.079153 | 0.070945 | -5.56% |",
+        "| slow | 0.179508 | 0.177456 | 0.075027 | 0.069307 | -4.09% |",
+        "| common_level | 0.179783 | 0.176393 | 0.082238 | 0.072485 | -6.65% |"
+      ]
+    },
+    "joint_proxy_mean_definition_and_point_estimate": {
+      "passed": true,
+      "values": {
+        "definition": "mean_h(wave+2*QPSD), without regular/noise terms",
+        "A": 0.33697996856900253,
+        "final": 0.318603521972967,
+        "relative_change_percent": -5.453275657325207
+      },
+      "CI_not_computed_explicit": true
+    },
+    "RMS_distinguishes_all_draw_time_RMS_from_average_per_draw_RMS": {
+      "passed": true,
+      "values": {
+        "initial_all_draw_time_RMS_V": 0.0028419993778191787,
+        "final_all_draw_time_RMS_V": 0.0013848113257057626,
+        "relative_change_percent": -51.273341700433306,
+        "fixed_bank_shape_strength_decreased": true,
+        "complete_functional_collapse": false,
+        "parameter_whitelist": [
+          "basis_head.weight",
+          "basis_head.bias"
+        ],
+        "trained_parameters": 1288,
+        "parameter_norm_is_not_waveform_activity_proof": true,
+        "frozen_A_voltage_signal_identical_across_repeats": true,
+        "pure_signal_prefix_exact_zero": true,
+        "canonical_random_Q_max_abs_Vns": 3.191891195797325e-16,
+        "canonical_signal_Q_identity_max_abs_Vns": 5.329070518200751e-15,
+        "conditional_mean_pure_signal": {
+          "mean_parent_mean_RMS_V": 0.0004959080008745237,
+          "RMS_across_parent_means_V": 0.0007407466311414868,
+          "mean_parent_MCSE_RMS_V": 0.000510440447366601,
+          "RMS_of_equal_parent_global_mean_V": 3.28439167878886e-05,
+          "global_mean_MCSE_RMS_V": 2.9854212130571598e-05,
+          "actual_all_draw_RMS_V": 0.0013848113257057626,
+          "mean_per_draw_RMS_V": 0.000964298332440777,
+          "parent_mean_RMS_summary_V": {
+            "mean": 0.0004959080008745237,
+            "std": 0.0005507933843963596,
+            "minimum": 3.197201724916354e-05,
+            "median": 0.00032891979075718803,
+            "maximum": 0.004397456633346362,
+            "p05": 8.241651607160433e-05,
+            "p95": 0.0014423702576572656
+          },
+          "average_conditional_mean_squared_MC_variance_corrected_V2": 9.237329279563163e-08,
+          "corrected_parent_MS_cluster_bootstrap_CI95_V2": [
+            -3.605238838937942e-08,
+            2.420438365271652e-07
+          ],
+          "parent_mean_RMS_cluster_bootstrap_CI95_V": [
+            0.0004490221006810562,
+            0.0005405188424779465
+          ],
+          "MCSE_scope": "four saved latent/noise draws per parent; estimated ddof1; not physical uncertainty",
+          "canonical_random_Q_absmax_Vns": 3.191891195797325e-16,
+          "canonical_signal_Q_difference_absmax_Vns": 5.329070518200751e-15
+        },
+        "explanation": "The source construction has zero conditional preADC mean. Four saved draws have a finite sample mean; its MC-variance-corrected parent mean-square interval includes zero.",
+        "basis8_or_tanh_saturation_not_measured": true
+      },
+      "no_new_array_statistics": true
+    },
+    "parent_MCSE_observed_drift_crop_and_CI_scope": {
+      "passed": true,
+      "parent_unit": 512,
+      "repeats": 4,
+      "whole_distribution_proxy_CI_claimed": false,
+      "preADC_zero_mean_extended_to_postObs": false,
+      "global_cancellation_used_as_acceptance": false
+    },
+    "same_bank_RR_cross_CPU_and_missing_baseline_limits": {
+      "passed": true,
+      "maximum_numeric_loss_recompute_error": 3.8692535286877217e-10,
+      "shape_rng_max_absolute_difference": 2.384185791015625e-07,
+      "missing_fake_baseline_full_replay_not_claimed": true,
+      "old009_or_D_direct_rank_not_claimed": true
+    },
+    "bounded_conclusions_and_proposed_next_work": {
+      "passed": true,
+      "mean_path_sole_cause_claim": false,
+      "GAN_effect_estimated": false,
+      "additional_training_authorized_by_report": false,
+      "convergence_or_response_acceptance_claim": false,
+      "further_work_requires_preregistration": true
+    },
+    "relative_evidence_links": {
+      "passed": true,
+      "count": 4
+    }
+  },
+  "scientific_conclusion_blockers": [],
+  "editorial_precision_notes": [],
+  "review_scope": {
+    "readonly_final_report_result_pause_and_previous_QA": true,
+    "new_statistics": false,
+    "array_decodes": 0,
+    "checkpoint_loads": 0,
+    "model_instances": 0,
+    "model_forwards": 0,
+    "gradients": 0,
+    "optimizer_updates": 0,
+    "DEV_reads": 0,
+    "frozen_source_or_raw_output_edits": 0,
+    "final_result_receipt_edits": 0
+  },
+  "scientific_status": "response_match_not_established",
+  "response_match_established": false,
+  "circular_SHA_avoided": "Result receipt pins report/pause and final QA path only; final QA independently pins result receipt SHA. Result receipt was not modified."
+}
