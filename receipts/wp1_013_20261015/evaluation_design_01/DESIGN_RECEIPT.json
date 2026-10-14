@@ -1,0 +1,22 @@
+{
+  "schema": "n01/wp1-evaluation-design/v1",
+  "status": "proposal_pending_root_common_registration",
+  "master_plan_sha256": "56190995374eb2a765a3c8589736514154dba7ff33aa1309b8b1de493e846ebb",
+  "baseline_commit": "c9ad769697b982b607ccec320da9b727ad37b978",
+  "primary": {"SOURCE_TRAIN_parents":6593,"REAL_TRAIN_rows":21047,"independent_banks":2,"draws_per_bank":4,"reference_rows":52744},
+  "parameter_validation": {
+    "parents":1024,"TRAIN_parent_batches":2,"parents_per_batch":512,"draws_per_bank":4,"banks":2,"rows":8192,
+    "directions":["negative_saved012_total","negative_saved012_wave","negative_saved012_weighted_QPSD","prospective_AdamW2001_from_saved012_total","fixed_Rademacher"],
+    "direction_slots":5,"signs":[-1,1],"nominal_carrier_RMS_ADC_LSB":[0.1,1,10],"parameter_states":30,
+    "scale_rule":"analytic_head_direction_RMS_on_frozen_reference_then_single_fixed_lambda_per_scale",
+    "new_autograd_queries":0,"carrier_probe_misrepresented_as_parameter_probe":false
+  },
+  "sensitivity_calibration":{"states":21,"gain_percent_signed":[1,3,5],"tail_percent_signed":[1,3,5],"noise_percent_signed":[5,10,20],"width_sigma_software_ns_positive":[0.5,1,2],"not_measurement":true,"thresholds_not_derived_from_RR":true},
+  "budget_caps":{"old_A_rows":298504,"head_actual_parameter_forward_rows":298504,"head_linear_direction_map_rows":40960,"head_total_kernel_rows":339464,"noise005_rows":52744,"hard_ADC_rows":1569840,"all_path_gather_rows":3044400,"checkpoint_loads":3,"head_initial_or1000_forward_rows":0,"optimizer_created":0,"optimizer_steps":0,"G_updates":0,"D_updates":0,"noise_updates":0,"population_updates":0,"C2ST_updates":0,"new_AD_queries":0,"DEV_model_rows":0},
+  "resource_proposal":{"CPU_threads":12,"GPU_GiB":10,"job_tree_RSS_GiB":8,"wall_seconds":7200,"output_MiB":1024,"chunk_rows":128},
+  "roles":{"evaluation":"all_original_prepared_TRAIN_no_row_drop","input_audit":"original8192_SOURCE_roles_kept_by_information_worker","validation":"fixed_frozen_system_posthoc_parameter_sensitivity_not_full_refit_CV","external_acquisition":"unverified","physical_weights":"unknown_unless_separately_verified"},
+  "actual_work":{"source_JSON_reads":true,"NPZ_header_metadata_only":true,"numeric_array_decodes":0,"checkpoint_loads":0,"NN_rows":0,"AD_queries":0,"optimizer_steps":0,"SSH_calls":0,"science_dispatches":0},
+  "open_registration_fields":["fixed_seeds","exact_RR_matched_group_rule","application_error_tolerance_assumptions","Gaussian_kernel_and_tail_gate","common_remote_root_and_manifest_layout"],
+  "native_zero_is_scientific_acceptance":false,
+  "next_owner":"root decides literal common config and freezes once before real compute"
+}

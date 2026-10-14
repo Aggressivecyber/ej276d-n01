@@ -1,0 +1,77 @@
+{
+  "schema": "n01/observation-contract/v1",
+  "run_id": "wp1_013_20261015",
+  "registered_UTC": "2026-10-14T19:47:37.841563+00:00",
+  "authority": {
+    "path": "USER_MASTER_PLAN_20261015.txt",
+    "sha256": "56190995374eb2a765a3c8589736514154dba7ff33aa1309b8b1de493e846ebb"
+  },
+  "implementation": {
+    "path": "src/n01/observation008.py",
+    "sha256": "9f7b6c0a266c420af8c6c155103774bae1ed949cfe05ee6a1f19b75f9254c4ec"
+  },
+  "units": {
+    "voltage": "V",
+    "software_sample_interval_ns": 1,
+    "physical_calibration": "unknown"
+  },
+  "representation": {
+    "original_source_samples": 480,
+    "internal_carrier_samples": 384,
+    "original_baseline_indices_half_open": [
+      0,
+      100
+    ],
+    "output_samples": 256
+  },
+  "ADC": {
+    "bits": 14,
+    "minimum_V": -0.5,
+    "maximum_V": 0.5,
+    "intervals": 16383,
+    "LSB_V": 6.103888176768602e-05,
+    "rounding": "original nearest-even",
+    "measured_REAL_ADC_again": false
+  },
+  "peak": {
+    "search_indices_half_open": [
+      112,
+      144
+    ],
+    "ties": "first argmax",
+    "prepeak_samples": 16,
+    "gather_offsets_half_open": [
+      -16,
+      240
+    ]
+  },
+  "baseline": "Subtract the original measured/ADC prefix100 mean from the gathered window; window first100 is not baseline.",
+  "observables": {
+    "Q": "sum(output[0:256]) V*software_ns",
+    "front": "sum(output[0:46])",
+    "tail": "sum(output[46:256])",
+    "PSD_raw": "tail/Q; retain undefined and protected-denominator flags",
+    "canonical_SOURCE_Q": "prefix-centered carrier[110:366]; distinct from observed Q"
+  },
+  "failures": [
+    "saturation",
+    "search_edge",
+    "peak_ties",
+    "ADC_halfgrid_ties",
+    "out_of_window_peak",
+    "low_Q",
+    "nonpositive_Q",
+    "PSD_undefined_or_guarded",
+    "morphology_undefined_or_censored"
+  ],
+  "all_rows_retained": true,
+  "parent_lineage_retained": true,
+  "truth_operator": "hard ADC and dynamic first-argmax crop",
+  "training_surrogate": "separately named; does not change inference or final evaluation",
+  "comparison_paths": [
+    "continuous_clamp_increment_fixed_reference_crop",
+    "hard_ADC_fixed_reference_crop",
+    "hard_ADC_dynamic_first_argmax_crop"
+  ],
+  "legacy_DATA_REFERENCES_480_fields": "historical interface facts; current observation is this fixed008 contract"
+}

@@ -1,0 +1,149 @@
+{
+  "schema": "n01/data-roles-contract/v1",
+  "run_id": "wp1_013_20261015",
+  "registered_UTC": "2026-10-14T19:47:37.841563+00:00",
+  "metadata_readback": {
+    "path": "receipts/wp1_013_20261015/ROLE_METADATA_READBACK.json",
+    "sha256": "0f4c8e445afba85a5a53fa1fa96789a69cb986b1022b9344a98b45e16a216923"
+  },
+  "original_roles_preserved": true,
+  "blind_relabeling_allowed": false,
+  "SOURCE": {
+    "bound_population": 8192,
+    "TRAIN_parents": 6593,
+    "original_internal_val": 1599,
+    "historically_fixed_DEV": 512,
+    "missing_fixed_DEV_subset": 1087,
+    "remaining_internal_val_exposure": "unknown; not designated new blind data",
+    "WP1_information_audit": "all8192 with original roles retained",
+    "WP1_model_forward": "TRAIN6593 only"
+  },
+  "REAL": {
+    "TRAIN_rows": 21047,
+    "TRAIN_original_logical_groups": 422,
+    "TRAIN_group_size_histogram": {
+      "48": 3,
+      "49": 47,
+      "50": 372
+    },
+    "original_exposed_DEV_rows": 599,
+    "original_DEV_groups": 12,
+    "TRAIN_DEV_group_overlap": 0,
+    "012_reference_bank_groups": 419,
+    "group_meaning": "blocks of original record indices, not physical acquisitions"
+  },
+  "confirmed_bound_real_acquisitions": 1,
+  "external_confirmation": {
+    "status": "not_verified",
+    "eligible_set": null,
+    "search_scope": [
+      "N01 DATA_REFERENCES and its registered role/provenance references",
+      "current prepared-dataset identity metadata"
+    ],
+    "machinewide_history_search_claimed": false,
+    "requirements": [
+      "distinct acquisition provenance and immutable SHA",
+      "condition and observation compatibility or declared shift",
+      "documented absence of prior fitting, tolerance calibration and configuration selection",
+      "no duplicate or leaked original records"
+    ],
+    "unknown_is_external": false,
+    "software_delivery_blocked_by_absence": false,
+    "metadata_audit": {
+      "path": "receipts\\wp1_013_20261015\\EXTERNAL_ACQUISITION_METADATA_AUDIT.json",
+      "sha256": "54a9b0c7809a2afb582ba8ed095241fb3a127d21dea0d8b27e2813eb908c79d2"
+    }
+  },
+  "model_inputs": [
+    "clean SOURCE waveform"
+  ],
+  "audit_only": [
+    "source IDs",
+    "row and file references",
+    "deposition metadata",
+    "pdg",
+    "fold IDs"
+  ],
+  "original_count_weights": "uniform one per legal source parent",
+  "original_physical_weights": "unknown",
+  "comparison_weights": "separate artifact; no population fitting or weighting changes in WP1",
+  "all_legal_training_records_retained": true,
+  "A_and_005_history": "fitted on all original TRAIN; head-only holdout is frozen-system posthoc sensitivity",
+  "WP1_evaluation_kind": "TRAIN fit description and frozen-system posthoc finite-parameter sensitivity",
+  "whole_pipeline_CV": {
+    "folds": 3,
+    "seeds": 2,
+    "split_units": [
+      "SOURCE parent",
+      "REAL original logical group"
+    ],
+    "refit_per_fold": [
+      "data-derived statistics/scales/bins",
+      "noise model",
+      "A/feature extractor",
+      "stochastic or mean adapters",
+      "population or selection fits",
+      "classifiers on their permitted role"
+    ],
+    "known_single_acquisition_and_architecture_history": true,
+    "independent_acquisition_test_claimed": false
+  },
+  "deployment": "After frozen confirmation, refit all legal TRAIN; fitted deployment score is not new unseen-fit evidence",
+  "uncertainty_sources_separate": [
+    "model seed",
+    "SOURCE parent",
+    "REAL logical group",
+    "MC library",
+    "independent acquisition"
+  ],
+  "RR": {
+    "seed": 2026101531,
+    "group_isolated": true,
+    "same_group_size_histogram_each_side": true,
+    "rule": "Sort size strata ascending; RNG(seed).permutation(sorted IDs) within each stratum; pair first2*floor(count/2) IDs; first of each pair left, second right; keep all rows of selected groups.",
+    "rows_per_side": 10475,
+    "groups_per_side": 210,
+    "histogram_each_side": {
+      "48": 1,
+      "49": 23,
+      "50": 186
+    },
+    "auxiliary_unpaired_groups": 2,
+    "auxiliary_unpaired_rows": 97,
+    "main_population_exclusions": 0,
+    "interpretation": "finite-sample empirical benchmark, not an irreducible lower bound"
+  },
+  "historical_other_raw_role_pools": {
+    "same_acquisition": true,
+    "raw_roles": {
+      "DEV_RESERVED": {
+        "code": 0,
+        "groups": 1279,
+        "records": 63950,
+        "old_dev_selected_records": 2000
+      },
+      "TRAIN_POOL": {
+        "code": 1,
+        "groups": 434,
+        "records": 21700,
+        "old_dev_selected_records": 0
+      },
+      "CALIBRATION_POOL": {
+        "code": 2,
+        "groups": 135,
+        "records": 6750,
+        "old_dev_selected_records": 0
+      },
+      "EVALUATION_RESERVED": {
+        "code": 3,
+        "groups": 152,
+        "records": 7600,
+        "old_dev_selected_records": 0
+      }
+    },
+    "unverified_prior_exposure": "unknown",
+    "WP1_waveform_access": 0,
+    "N01_prepared_TRAIN_and_DEV_roles_changed": false,
+    "external_acquisition_eligibility": false
+  }
+}
