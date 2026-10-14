@@ -21,11 +21,15 @@ import uuid
 
 ROOT=Path(__file__).resolve().parents[1] if not str(__file__).startswith('<') else Path.cwd()
 CFG='wp1_013_config.json';MANIFEST='WP1_SOURCE_MANIFEST.json'
-REMOTE='/home/rylan/projects/ej276d-n01/wp1_013_20261015'
+REMOTE='/home/rylan/projects/ej276d-n01/wp1_013_runtime_fix01_20261015'
 HOST='rylan@100.82.231.102';PYTHON='/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python'
 NEW_FILES=('scripts/wp1_ops.py','scripts/run_wp1_013.py','scripts/wp1_evaluation.py','scripts/wp1_parameter_probe.py',
+    'scripts/stability011_metrics.py',
     'scripts/wp1_input_information.py','scripts/wp1_boundary_saved.py','USER_MASTER_PLAN_20261015.txt',
     'OBSERVATION_CONTRACT.json','DATA_ROLES.json','docs/ACCEPTANCE_CONTRACT.md')
+REUSED_CDF_FILE='scripts/stability011_metrics.py'
+REUSED_CDF_SHA='fd87e544673f63887e57c8efafeb0327bbe4db430b04c9697c71cd2e244c3f78'
+STABILITY_MANIFEST_SHA='f5c0839d6b3bb4cfe29e12b52cfac449b6b3bc0c623f6a800da34fc5cb24f257'
 
 def require(value,message):
     if not value:raise ValueError(message)
@@ -76,6 +80,10 @@ def gate(config_path,expected_sha):
         if 'bytes' in row:require(q.stat().st_size==row['bytes'],'Frozen byte size changed')
         if name.startswith('input:'):paths[name[6:]]=q
     require(set(NEW_FILES)<={n for n in p['source_files']},'Owned WP1/source contracts missing')
+    require(p['source_files'][REUSED_CDF_FILE]['sha256']==REUSED_CDF_SHA
+        and p['source_files']['STABILITY011_SOURCE_MANIFEST.json']['sha256']==STABILITY_MANIFEST_SHA,'Original011 CDF source/manifest changed')
+    stability=read_json(p['source_files']['STABILITY011_SOURCE_MANIFEST.json']['path'])
+    require(stability['files'].get(REUSED_CDF_FILE)==REUSED_CDF_SHA,'Original011 CDF manifest binding changed')
     old=read_json(paths['shape010_manifest']);binding=read_json(paths['shape010_bindings'])
     require(len(old['files'])==53 and binding['source_manifest']['sha256']==p['inputs']['shape010_manifest']['sha256']
         and old['bound_inputs']=={k:r['sha256'] for k,r in binding['files'].items()},'Original53/seven-input chain mismatch')

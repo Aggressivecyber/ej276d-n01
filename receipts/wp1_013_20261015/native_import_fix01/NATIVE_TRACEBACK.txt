@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "/home/rylan/projects/ej276d-n01/wp1_013_20261015/scripts/run_wp1_013.py", line 526, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/home/rylan/projects/ej276d-n01/wp1_013_20261015/scripts/run_wp1_013.py", line 494, in main
+    store.phase='unified_hard_evaluation';store.status();runtime.complete_evaluations()
+                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rylan/projects/ej276d-n01/wp1_013_20261015/scripts/run_wp1_013.py", line 269, in complete_evaluations
+    obs=ref[arm][h];result=evaluate_hard_population(obs['window_V'],obs['baseline100'],real_wave256=self.data['real'],
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rylan/projects/ej276d-n01/wp1_013_20261015/scripts/wp1_evaluation.py", line 219, in evaluate_hard_population
+    waveform=native,integrals={n:dict(fake=summary(fake[n]),real=summary(real[n]),W1=raw_distance(fake[n],real[n])) for n in quantities},
+                                                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rylan/projects/ej276d-n01/wp1_013_20261015/scripts/wp1_evaluation.py", line 48, in raw_distance
+    from stability011_metrics import CDFCache
+ModuleNotFoundError: No module named 'stability011_metrics'

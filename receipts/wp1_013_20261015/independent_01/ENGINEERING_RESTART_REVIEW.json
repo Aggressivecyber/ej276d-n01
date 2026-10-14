@@ -1,0 +1,146 @@
+{
+  "schema": "n01/wp1-independent-engineering-repair-review/v1",
+  "UTC": "2026-10-14T20:50:48.788530+00:00",
+  "status": "ACCEPT_ENGINEERING_REPAIR_PENDING_PATCH_AND_ISOLATED_PACKAGE_SMOKE",
+  "passed": true,
+  "run_id": "wp1_013_20261015",
+  "original_attempt": {
+    "native_exit_code": 1,
+    "first128_proof_valid": true,
+    "complete": false,
+    "failed_stage": "failed",
+    "child_pid": 49199,
+    "supervisor_pid": 49192,
+    "operations_entered": 3729,
+    "operations_completed": 3729,
+    "unknown_inflight_ids": [],
+    "failed_operation_ids": [],
+    "charged_work_before_nonoperation_import_failure": {
+      "old_A_rows": 52744,
+      "head_actual_parameter_forward_rows": 52744,
+      "head_linear_direction_map_rows": 0,
+      "head_total_kernel_rows": 52744,
+      "noise005_rows": 52744,
+      "hard_ADC_rows": 316464,
+      "all_path_gather_rows": 316464,
+      "checkpoint_loads": 3,
+      "optimizer_created": 0,
+      "optimizer_steps": 0,
+      "G_updates": 0,
+      "D_updates": 0,
+      "noise_updates": 0,
+      "population_updates": 0,
+      "C2ST_updates": 0,
+      "new_AD_queries": 0,
+      "DEV_model_rows": 0
+    },
+    "actual_semantic_statistical_failure": false
+  },
+  "evidence": {
+    "collection": {
+      "path": "E:\\GAN\\research\\N01\\receipts\\wp1_013_20261015\\collection_failed_01\\COLLECTION_RECEIPT.json",
+      "bytes": 2712,
+      "sha256": "83c1f9a770c113323eb582b4826de9182a38d070601d62bf37d0b038f48980e5"
+    },
+    "native": {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp1_013_20261015\\failed_attempt_01\\runs\\primary\\supervisor\\exit_receipt.json",
+      "bytes": 1025,
+      "sha256": "9a11ab6d8c81e5a2627dac6dc6e79d9778ae5618454ba677b4435f82cea95b4f"
+    },
+    "failed": {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp1_013_20261015\\failed_attempt_01\\runs\\primary\\artifacts\\FAILED.json",
+      "bytes": 47247,
+      "sha256": "da3f516fb48b0960be2f15185238ac42c2b11ef2289d9ac2248b4b9dedfdb3ca"
+    },
+    "first128": {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp1_013_20261015\\failed_attempt_01\\runs\\primary\\artifacts\\FIRST_WP1_PROOF.json",
+      "bytes": 47362,
+      "sha256": "d933f9a3183839836ed30b80abd865dc5aba774d23f486b312775d24d9db638a"
+    },
+    "frozen_source_manifest": {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp1_013_20261015\\failed_attempt_01\\WP1_SOURCE_MANIFEST.json",
+      "bytes": 13209,
+      "sha256": "ba10d2cb27713302e0709869b3d384882fb4b449766c27e33b1561fd946357fc"
+    },
+    "missing_original_dependency": {
+      "path": "E:\\GAN\\research\\N01\\scripts\\stability011_metrics.py",
+      "bytes": 10778,
+      "sha256": "fd87e544673f63887e57c8efafeb0327bbe4db430b04c9697c71cd2e244c3f78"
+    }
+  },
+  "root_cause": {
+    "import_site": "scripts/wp1_evaluation.py:48",
+    "missing_package_member": "scripts/stability011_metrics.py",
+    "original_011_dependency_sha256": "fd87e544673f63887e57c8efafeb0327bbe4db430b04c9697c71cd2e244c3f78",
+    "original_WP1_source_count": 83,
+    "independent_review_lapse": "Prior source review did not close this cross-script lazy import. Artificial fixtures used the full local scripts directory; stdlib fake-package checks did not import numeric helpers."
+  },
+  "cumulative_caps": {
+    "old_A_rows": 351248,
+    "head_actual_parameter_forward_rows": 351248,
+    "head_linear_direction_map_rows": 40960,
+    "head_total_kernel_rows": 392208,
+    "noise005_rows": 105488,
+    "hard_ADC_rows": 1886304,
+    "all_path_gather_rows": 3360864,
+    "checkpoint_loads": 6,
+    "optimizer_created": 0,
+    "optimizer_steps": 0,
+    "G_updates": 0,
+    "D_updates": 0,
+    "noise_updates": 0,
+    "population_updates": 0,
+    "C2ST_updates": 0,
+    "new_AD_queries": 0,
+    "DEV_model_rows": 0
+  },
+  "repaired_attempt_caps": {
+    "old_A_rows": 298504,
+    "head_actual_parameter_forward_rows": 298504,
+    "head_linear_direction_map_rows": 40960,
+    "head_total_kernel_rows": 339464,
+    "noise005_rows": 52744,
+    "hard_ADC_rows": 1569840,
+    "all_path_gather_rows": 3044400,
+    "checkpoint_loads": 3,
+    "optimizer_created": 0,
+    "optimizer_steps": 0,
+    "G_updates": 0,
+    "D_updates": 0,
+    "noise_updates": 0,
+    "population_updates": 0,
+    "C2ST_updates": 0,
+    "new_AD_queries": 0,
+    "DEV_model_rows": 0
+  },
+  "allowed_repair": "Exactly one fresh isolated attempt, same scientific question, all6593 SOURCE TRAIN/all21047 REAL TRAIN, same five directions/two MC banks/all three hypotheses/two parent batches/both signs/.1/1/10LSB, same theta2000, tolerance and decision algorithms.",
+  "minimal_validation": [
+    "Preserve original frozen83/control bytes and all25 failed output files; give new attempt its own config/root/source manifest and receipts with original attempt linkage.",
+    "Copy the unchanged original011 CDF module into the new source inventory and SHA-pin it; close all lazy cross-script imports using only installed repair-package paths, with no fallback to the full local repository.",
+    "Run a tiny manufactured-array CDF/evaluation import smoke in that isolated package, no real data/CP/NN/AD; verify unchanged metric algebra and IEEE storage contracts without rerunning old42 operations or012/011 statistics.",
+    "Record per-attempt caps plus explicit cumulative caps including head_total_kernel_rows392208; do not create replacement pilot or add direction/scale/bank/population/tolerance search.",
+    "Root separately verifies new native first128 family and exclusive PID/lock/resource chain; only then schedules one wake. Start receipt or old first128 proof cannot certify the new attempt.",
+    "Require new native0 plus complete artifacts and durable budget proof; cumulative charged work must include failed-attempt counts. All training/AD/optimizer/DEVmodel zeros remain zero.",
+    "Information census/saved-boundary and initial loss-statistic work already performed before the import error must be disclosed as read-only analysis/replay cost if replayed; they were not separately counted NN/AD queries."
+  ],
+  "scientific_scope": {
+    "scientific_verdict_changed": false,
+    "response_match_established": false,
+    "thresholds_changed": false,
+    "new_scientific_protocol_required_for_this_import_repair": false,
+    "extra_restart_authority": "one root-authorized engineering repair only"
+  },
+  "reviewer_scope": {
+    "original_numeric_array_decodes": 0,
+    "checkpoint_loads": 0,
+    "NN_rows": 0,
+    "AD_queries": 0,
+    "optimizer_steps": 0,
+    "training_updates": 0,
+    "DEV_values_read": 0,
+    "SSH_calls": 0,
+    "source_edits": 0,
+    "old_output_edits": 0
+  },
+  "conclusion_zh": "同意一次新隔离attempt的工程修复重跑：原013包漏掉已冻结的stability011_metrics，属于导入/分包故障，不支持更改科学方案。保留旧失败与首128证据，补原字节依赖并仅做隔离人工导入/CDF烟测；累计A/headactual351248、005105488、ADC1886304、gather3360864、CP6，headtotal392208而linear40960不变，所有AD/训练/DEVmodel预算仍0。正式修复源码与包桥接尚待审核。"
+}

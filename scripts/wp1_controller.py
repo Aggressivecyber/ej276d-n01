@@ -20,7 +20,7 @@ import sys
 import tarfile
 import uuid
 
-REMOTE = "/home/rylan/projects/ej276d-n01/wp1_013_20261015"
+REMOTE = "/home/rylan/projects/ej276d-n01/wp1_013_runtime_fix01_20261015"
 OLD008 = "/home/rylan/projects/ej276d-n01/window008_resume01_20261013"
 OLD010 = "/home/rylan/projects/ej276d-n01/shape010_20261014"
 OLD011 = "/home/rylan/projects/ej276d-n01/stability011_20261014"
@@ -201,6 +201,11 @@ def freeze(repo, output, expected_draft_sha, artificial=False):
     require(sha(repo/config["authority"]["path"]) == config["authority"]["sha256"], "raw user authority changed")
     old = core().read_json(repo/"MECHANISM012_SOURCE_MANIFEST.json")
     require(len(old["files"]) == 69, "old69 inventory differs")
+    dependency = ops().REUSED_CDF_FILE
+    stability = repo/"STABILITY011_SOURCE_MANIFEST.json"
+    require(sha(stability) == ops().STABILITY_MANIFEST_SHA, "original011 source manifest changed")
+    dependency_sha = core().read_json(stability)["files"].get(dependency)
+    require(dependency_sha == ops().REUSED_CDF_SHA, "original011 CDF source binding changed")
     names = set(old["files"]) | set(ops().NEW_FILES) | {CONTROLLER,
         "SHAPE010_SOURCE_MANIFEST.json", "STABILITY011_SOURCE_MANIFEST.json", "MECHANISM012_SOURCE_MANIFEST.json"}
     source_records = {}
@@ -210,6 +215,8 @@ def freeze(repo, output, expected_draft_sha, artificial=False):
         record = named_record(local)
         if name in old["files"]:
             require(record["sha256"] == old["files"][name], "frozen69 source bytes changed")
+        if name == dependency:
+            require(record["sha256"] == dependency_sha, "original011 CDF helper bytes changed")
         source_records[name] = record
         checked[str(local)] = record["sha256"]
     for collection in (config["inputs"], config["contracts"]):
@@ -587,6 +594,13 @@ def controller_action(mode, freeze_directory, output, collected=None):
         payload["mode"] = "status"
         state = ssh_action(payload, output); core().write_new(output/"REMOTE_STATE.json", state)
         if mode == "verify-start":
+            failed = state.get("runs/primary/artifacts/FAILED.json")
+            status = state.get("runs/primary/artifacts/status.json") or {}
+            native = state.get("runs/primary/supervisor/exit_receipt.json") or {}
+            child = native.get("child_native_returncode", native.get("child_native_exit_code"))
+            supervisor = native.get("supervisor_native_returncode", native.get("exit_code"))
+            require(failed is None and status.get("phase") != "failed"
+                and child in (None, 0) and supervisor in (None, 0), "same snapshot already failed; historical first-family proof is insufficient")
             verified = proof_valid(state, config); core().write_new(output/"START_VALIDATION.json", verified); return verified
         return dict(status="one_snapshot_saved", receipt=str(output/"REMOTE_STATE.json"), receipt_sha256=sha(output/"REMOTE_STATE.json"),
             native_exit=state.get("runs/primary/supervisor/exit_receipt.json"), continuous_monitoring=False)
