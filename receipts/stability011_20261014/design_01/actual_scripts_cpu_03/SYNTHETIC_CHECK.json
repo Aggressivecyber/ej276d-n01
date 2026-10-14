@@ -1,0 +1,102 @@
+{
+  "schema": "n01/stability011-native-check/v1",
+  "artificial_only": true,
+  "science_bootstrap_replicates": 0,
+  "private_array_decodes": 0,
+  "checkpoint_decodes": 0,
+  "model_forward_rows": 0,
+  "optimizer_updates": 0,
+  "passed": 17,
+  "total": 17,
+  "tests": [
+    {
+      "name": "CDF_literal_repeat_equal_unequal_N_ties_zero_counts",
+      "passed": true,
+      "maximum_error": 2.220446049250313e-16
+    },
+    {
+      "name": "CDF_rejects_mismatch_negative_noninteger_nonfinite_zero_mass",
+      "passed": true,
+      "rejected": 5
+    },
+    {
+      "name": "whole_proxy_literal_repeat_A",
+      "passed": true,
+      "maximum_error": 4.119968255444917e-17,
+      "real_repeated_rows": 186,
+      "conditional_bins_used": 8
+    },
+    {
+      "name": "whole_proxy_literal_repeat_final_specific_Qbins",
+      "passed": true,
+      "maximum_error": 5.551115123125783e-17,
+      "real_repeated_rows": 186,
+      "conditional_bins_used": 7
+    },
+    {
+      "name": "support_16_is_occurrence_count_not_12_unique_rows",
+      "passed": true
+    },
+    {
+      "name": "all_missing_Qbins_global_only_exact_fallback",
+      "passed": true
+    },
+    {
+      "name": "zero_negative_nearzero_Q_guard_retains_rows",
+      "passed": true
+    },
+    {
+      "name": "threaded_CDF_cache_immutable",
+      "passed": true
+    },
+    {
+      "name": "all_8776_wave_columns_hierarchical_weights_preserved",
+      "passed": true
+    },
+    {
+      "name": "exact_PCG64_integers_bincount_and_global_RNG_unchanged",
+      "passed": true
+    },
+    {
+      "name": "actual_Store_status_and_base_share_protected_hash_fields",
+      "passed": true
+    },
+    {
+      "name": "actual_driver_bounded_threads_saved_counts_wholeproxy_coverage_classification",
+      "passed": true,
+      "synthetic_replicates": 6,
+      "optimizer_updates": 0,
+      "NN_forward_rows": 0
+    },
+    {
+      "name": "all_six_driver_replicates_match_explicit_pooled_proxy",
+      "passed": true
+    },
+    {
+      "name": "partial_failure_keeps_one_saved_two_attempts_no_fill_restart_or_complete",
+      "passed": true
+    },
+    {
+      "name": "native_nonzero_before_first_completion_retains_durable_attempts_and_FAILED",
+      "passed": true,
+      "native_exit_code": 7,
+      "durable_attempts": 2
+    },
+    {
+      "name": "hard_kill_during_first_inflight_keeps_start_journal_no_zero_attempt_inference",
+      "passed": true,
+      "native_exit_code": 1,
+      "durable_attempt_lower_bound": 2,
+      "status_snapshot_attempts": 0,
+      "unfinished_actual_compute_state": "unknown"
+    },
+    {
+      "name": "fresh_output_no_overwrite",
+      "passed": true
+    }
+  ],
+  "source_sha256": {
+    "scripts/stability011_metrics.py": "fd87e544673f63887e57c8efafeb0327bbe4db430b04c9697c71cd2e244c3f78",
+    "scripts/run_stability011.py": "37510bf0a607c04bea3e97ddbeb38c64714ecb461a94a6febefc6e2c43bbeee1"
+  }
+}

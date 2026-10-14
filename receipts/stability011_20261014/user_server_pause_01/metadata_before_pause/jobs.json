@@ -1,0 +1,1365 @@
+{
+  "experiment_id": "N01",
+  "updated_UTC": "2026-10-14T12:29:32.920681+00:00",
+  "active_scientific_jobs": 1,
+  "jobs": [
+    {
+      "job_id": "N01_RUN_001_20261012",
+      "status": "completed",
+      "host": "100.82.231.102",
+      "hostname": "rylan-GTi15",
+      "pid": null,
+      "supervisor_pid": null,
+      "started_UTC": "2026-10-12T00:51:53.300512+08:00",
+      "remote_root": "/home/rylan/projects/ej276d-n01/run_001_20261012",
+      "remote_status": "/home/rylan/projects/ej276d-n01/run_001_20261012/runs/train/status.json",
+      "remote_console": "/home/rylan/projects/ej276d-n01/run_001_20261012/runs/train/console.log",
+      "arm": null,
+      "stage": "fixed_runs_complete",
+      "nominal_arm_update": 20000,
+      "last_verified_UTC": "2026-10-12T09:24:47.144933+08:00",
+      "all_legal_train_coverage": {
+        "full": {
+          "source_unique": 6593,
+          "source_total": 6593,
+          "real_unique": 21047,
+          "real_total": 21047,
+          "source_epochs": 1475,
+          "real_epochs": 924
+        },
+        "deterministic": {
+          "source_unique": 6593,
+          "source_total": 6593,
+          "real_unique": 21047,
+          "real_total": 21047,
+          "source_epochs": 1475,
+          "real_epochs": 924
+        },
+        "simple": {
+          "source_unique": 6593,
+          "source_total": 6593,
+          "real_unique": 21047,
+          "real_total": 21047,
+          "source_epochs": 1475,
+          "real_epochs": 924
+        },
+        "full_uniform": {
+          "source_unique": 6593,
+          "source_total": 6593,
+          "real_unique": 21047,
+          "real_total": 21047,
+          "source_epochs": 1475,
+          "real_epochs": 924
+        }
+      },
+      "run_configuration": "run_config.json",
+      "checkpoint": "runs/run_001_20261012/final_review_20261012_0900/train/full/stage_20000.pt",
+      "unique_updates_planned": 77000,
+      "scientific_acceptance_evaluated": true,
+      "historical_pid": 478257,
+      "historical_supervisor_pid": 478255,
+      "ended_UTC": "2026-10-12T07:00:28.421571+08:00",
+      "native_exit_code": 0,
+      "unique_updates_completed": 77000,
+      "scientific_acceptance": "response_match_not_established",
+      "completed_arms": [
+        "full",
+        "deterministic",
+        "simple",
+        "full_uniform"
+      ],
+      "completion_receipt": "receipts/run_001_20261012/FINAL_EVALUATION_RECEIPT.json",
+      "final_review": "runs/run_001_20261012/final_review_20261012_0900/N01_COMPLETE_MODEL_REVIEW.html"
+    },
+    {
+      "job_id": "N01_NOISE_AUDIT_20261012",
+      "status": "diagnostics_completed",
+      "host": "local",
+      "response_model_updates": 0,
+      "classifier_updates_planned": 3600,
+      "protocol": "docs/NOISE_AUDIT_PROTOCOL.md",
+      "output": "runs/noise_audit_20261012",
+      "started_UTC": "2026-10-12T10:16:14.381811+08:00",
+      "ended_UTC": "2026-10-12T10:44:13.384657+08:00",
+      "classifier_updates": 4800,
+      "classifier_updates_original_budget": 3600,
+      "classifier_updates_control_amendment": 1200,
+      "actual_forward_rows_total": 32768,
+      "native_exit_codes": {
+        "window_classifiers": 0,
+        "stratified_control": 0,
+        "paired_slope": 0,
+        "conditional_PSD_postprocess": 0,
+        "report_render": 0
+      },
+      "report": "reports/noise_audit_20261012/N01_NOISE_MECHANISM_REVIEW.html"
+    },
+    {
+      "job_id": "N01_REPAIR_002_20261012",
+      "status": "completed_stopped_at_failed_noise_gate",
+      "host": "100.82.231.102",
+      "noise_updates_planned": 5000,
+      "response_updates_conditional": 38000,
+      "noise_training_updates": 5000,
+      "response_training_updates": 0,
+      "protocol": "docs/REPAIR_002_PROTOCOL.md",
+      "configuration": "repair_run_config.json",
+      "preregistration": "receipts/repair_002_20261012/PREREGISTRATION.json",
+      "registered_UTC": "2026-10-12T10:59:48.157759+08:00",
+      "pid": null,
+      "supervisor_pid": null,
+      "started_UTC": "2026-10-12T11:08:34.546745+08:00",
+      "start_receipt": "receipts/repair_002_20261012/START_RECEIPT.json",
+      "remote_root": "/home/rylan/projects/ej276d-n01/repair_002_20261012",
+      "historical_training_pid": 591883,
+      "ended_UTC": "2026-10-12T11:09:21.57039+08:00",
+      "native_exit_code": 0,
+      "noise_gate_status": "development_noise_gate_inconclusive_control",
+      "failed_checks": [
+        "acf",
+        "ols_joint",
+        "negative_control_interval_contains_half"
+      ],
+      "historical_supervisor_pid": 591875,
+      "classifier_evaluation_updates": 1200,
+      "implementation_complete": true,
+      "response_comparison_executed": false,
+      "last_verified_UTC": "2026-10-12T11:36:00.407528+08:00",
+      "report": "reports/repair_002_20261012/N01_NOISE_REPAIR_REPORT.html",
+      "completion_receipt": "receipts/repair_002_20261012/FINAL_RECEIPT.json"
+    },
+    {
+      "job_id": "N01_NOISE_ORIGIN_AUDIT_003_20261012",
+      "status": "completed_diagnostics",
+      "registered_UTC": "2026-10-12T12:17:31.611017+08:00",
+      "host": "100.82.231.102",
+      "pid": null,
+      "noise_updates": 0,
+      "response_updates": 0,
+      "classifier_updates_planned": 25600,
+      "configuration": "noise_origin_003_config.json",
+      "protocol": "docs/NOISE_ORIGIN_003_PROTOCOL.md",
+      "preregistration": "receipts\\noise_origin_audit_003_20261012\\PREREGISTRATION.json",
+      "remote_root": "/home/rylan/projects/ej276d-n01/noise_origin_audit_003_20261012",
+      "supervisor_pid": null,
+      "started_UTC": "2026-10-12T12:36:37.179017+08:00",
+      "source_commit": "d42a5fe2425808dbe765fbfa09ccf6d32f903382",
+      "original_driver_native_exit_code": 1,
+      "original_driver_failure": "CUDA allocator guard before target decode and before all classifier updates",
+      "original_historical_pid": 608494,
+      "original_historical_supervisor_pid": 608486,
+      "origin_stage_native_exit_code": 0,
+      "origin_rows_completed": 21047,
+      "origin_target_bitwise_equal": true,
+      "continuation_started_UTC": "2026-10-12T04:46:35.438046+00:00",
+      "continuation_remote_root": "/home/rylan/projects/ej276d-n01/noise_origin_audit_003_20261012/continuation_001",
+      "last_verified_UTC": "2026-10-12T04:56:02.866854+00:00",
+      "historical_continuation_pid": 611084,
+      "historical_continuation_supervisor_pid": 611076,
+      "ended_UTC": "2026-10-12T04:47:17.676266+00:00",
+      "classifier_updates": 25600,
+      "continuation_native_exit_code": 0,
+      "replay_native_exit_code": 0,
+      "replayed_classifier_checkpoints": 128,
+      "replayed_score_rows": 65536,
+      "score_replay_bitwise_equal": true,
+      "report": "reports/noise_origin_audit_003_20261012/N01_NOISE_ORIGIN_REPORT.html",
+      "completion_receipt": "receipts/noise_origin_audit_003_20261012/FINAL_RECEIPT.json"
+    },
+    {
+      "job_id": "N01_NOISE_IMPROVEMENT_004_20261012",
+      "status": "completed_partial_gain_stopped_at_failed_noise_gate",
+      "registered_UTC": "2026-10-12T06:00:22.922017+00:00",
+      "host": "100.82.231.102",
+      "pid": null,
+      "noise_updates_planned": 5000,
+      "classifier_updates_planned": 1200,
+      "response_updates_planned": 0,
+      "configuration": "noise_improvement_004_config.json",
+      "protocol": "docs/NOISE_IMPROVEMENT_004_PROTOCOL.md",
+      "preregistration": "receipts\\noise_improvement_004_20261012\\PREREGISTRATION.json",
+      "remote_root": "/home/rylan/projects/ej276d-n01/noise_improvement_004_20261012",
+      "supervisor_pid": null,
+      "started_UTC": "2026-10-12T06:22:14.216329+00:00",
+      "observed_noise_updates": 5000,
+      "source_commit": "0c3c3793d4ab033a18b8644756f447abe47d4ba2",
+      "historical_training_pid": 628576,
+      "historical_supervisor_pid": 628567,
+      "ended_UTC": "2026-10-12T06:22:58.240313+00:00",
+      "last_verified_UTC": "2026-10-12T06:32:07.212333+00:00",
+      "native_exit_code": 0,
+      "noise_training_updates": 5000,
+      "response_training_updates": 0,
+      "classifier_evaluation_updates": 1200,
+      "noise_gate_passed": false,
+      "noise_gate_status": "development_noise_gate_inconclusive_control",
+      "failed_checks": [
+        "acf",
+        "negative_control_interval_contains_half"
+      ],
+      "report": "reports/noise_improvement_004_20261012/N01_NOISE_IMPROVEMENT_REPORT.html",
+      "completion_receipt": "receipts/noise_improvement_004_20261012/FINAL_RECEIPT.json"
+    },
+    {
+      "job_id": "N01_NOISE_ACF005_20261012",
+      "status": "completed_100point_candidate_improvement_measurement_uncertain",
+      "registered_UTC": "2026-10-12T07:05:42.297435+00:00",
+      "host": "100.82.231.102",
+      "pid": null,
+      "supervisor_pid": null,
+      "noise_updates_planned": 5000,
+      "classifier_updates_planned": 1200,
+      "response_updates_planned": 0,
+      "configuration": "noise_acf005_config.json",
+      "protocol": "docs/NOISE_ACF005_PROTOCOL.md",
+      "preregistration": "receipts/noise_acf005_20261012/PREREGISTRATION.json",
+      "remote_root": "/home/rylan/projects/ej276d-n01/noise_acf005_20261012",
+      "started_UTC": "2026-10-12T07:44:21.600960+00:00",
+      "observed_noise_updates": 5000,
+      "source_commit": "ca7459300fdccdc69cf5b0c009b5688f12265aac",
+      "noise_training_updates": 5000,
+      "response_training_updates": 0,
+      "classifier_evaluation_updates": 1200,
+      "native_exit_code": 0,
+      "ended_UTC": "2026-10-12T07:46:16.713190+00:00",
+      "historical_training_pid": 644139,
+      "historical_supervisor_pid": 644130,
+      "last_verified_UTC": "2026-10-12T08:01:06.893919+00:00",
+      "candidate_checks_passed": true,
+      "legacy_gate_passed": false,
+      "control_status": "measurement_uncertain_single_exposed_acquisition",
+      "report": "reports/noise_acf005_20261012/N01_ACF005_REPORT.html",
+      "completion_receipt": "receipts/noise_acf005_20261012/FINAL_RECEIPT.json"
+    },
+    {
+      "job_id": "N01_INTEGRATION006_20261012",
+      "status": "failed_before_dataset_decode_metadata_representation",
+      "registered_UTC": "2026-10-12T10:13:59.699951+00:00",
+      "host": "100.82.231.102",
+      "pid": null,
+      "supervisor_pid": null,
+      "noise_updates_planned": 0,
+      "response_updates_planned": 0,
+      "classifier_updates_planned": 0,
+      "GMM_fits_planned": 0,
+      "configuration": "integration006_config.json",
+      "protocol": "docs/INTEGRATION_006_PROTOCOL.md",
+      "preregistration": "receipts/integration_006_20261012/PREREGISTRATION.json",
+      "remote_root": "/home/rylan/projects/ej276d-n01/integration_006_20261012",
+      "native_exit_code": 1,
+      "started_UTC": "2026-10-12T11:51:08.339430+00:00",
+      "ended_UTC": "2026-10-12T11:51:11.341459+00:00",
+      "historical_supervisor_pid": 8994,
+      "historical_timeout_pid": 8996,
+      "scientific_forward_rows": 0,
+      "noise_updates": 0,
+      "response_updates": 0,
+      "source_commit": "f697698023bf228155c14dbee66d2a1a8ac76a8e",
+      "failure_receipt": "receipts/integration_006_20261012/failed_attempt/science/FAILURE.json"
+    },
+    {
+      "job_id": "N01_INTEGRATION006_BINDING_FIX01_20261012",
+      "status": "failed_string_ID_serialization_before_response_forward",
+      "registered_UTC": "2026-10-12T11:55:33.451126+00:00",
+      "host": "100.82.231.102",
+      "pid": null,
+      "supervisor_pid": null,
+      "noise_updates_planned": 0,
+      "response_updates_planned": 0,
+      "classifier_updates_planned": 0,
+      "GMM_fits_planned": 0,
+      "configuration": "integration006_config.json",
+      "protocol": "docs/INTEGRATION_006_PROTOCOL.md",
+      "amendment": "docs/INTEGRATION_006_BINDING_FIX01.md",
+      "preregistration": "receipts/integration_006_20261012/binding_fix01/PREREGISTRATION.json",
+      "remote_root": "/home/rylan/projects/ej276d-n01/integration_006_20261012_binding_fix01",
+      "source_commit": "e1b8ab0cc1609bd21f18a390fd85bd397dc0d889",
+      "started_UTC": "2026-10-12T12:08:14.683974+00:00",
+      "native_exit_code": 1,
+      "ended_UTC": "2026-10-12T12:08:17.686071+00:00",
+      "historical_evaluation_pid": 12568,
+      "historical_supervisor_pid": 12565,
+      "actual_counts": {
+        "REAL_readout_rows": {
+          "TRAIN": 21047
+        },
+        "noise005_forward_attempted": {
+          "TRAIN": {
+            "batches": 1,
+            "events": 128
+          }
+        },
+        "noise005_forward": {
+          "TRAIN": {
+            "batches": 1,
+            "events": 128
+          }
+        },
+        "extension_forward_attempted": {
+          "TRAIN/fast": {
+            "batches": 1,
+            "events": 128
+          },
+          "TRAIN/slow": {
+            "batches": 1,
+            "events": 128
+          },
+          "TRAIN/common_level": {
+            "batches": 1,
+            "events": 128
+          }
+        },
+        "extension_forward": {
+          "TRAIN/fast": {
+            "batches": 1,
+            "events": 128
+          },
+          "TRAIN/slow": {
+            "batches": 1,
+            "events": 128
+          },
+          "TRAIN/common_level": {
+            "batches": 1,
+            "events": 128
+          }
+        }
+      },
+      "noise_updates": 0,
+      "response_updates": 0,
+      "failure_receipt": "receipts/integration_006_20261012/failed_binding_fix01/science/FAILURE.json"
+    },
+    {
+      "job_id": "N01_INTEGRATION006_ID_FIX02_20261012",
+      "status": "completed_zero_training_integration006_sensitivity_detected",
+      "registered_UTC": "2026-10-12T12:12:35.463381+00:00",
+      "host": "100.82.231.102",
+      "pid": null,
+      "supervisor_pid": null,
+      "noise_updates_planned": 0,
+      "response_updates_planned": 0,
+      "classifier_updates_planned": 0,
+      "GMM_fits_planned": 0,
+      "configuration": "integration006_config.json",
+      "protocol": "docs/INTEGRATION_006_PROTOCOL.md",
+      "amendment": "docs/INTEGRATION_006_ID_FIX02.md",
+      "preregistration": "receipts/integration_006_20261012/id_fix02/PREREGISTRATION.json",
+      "remote_root": "/home/rylan/projects/ej276d-n01/integration_006_20261012_id_fix02",
+      "source_commit": "49ac3eb77df344145dd3c7a50286ba29096dc882",
+      "started_UTC": "2026-10-12T12:32:32.925142+00:00",
+      "scientific_native_exit_code": 0,
+      "actual_counts": {
+        "REAL_readout_rows": {
+          "TRAIN": 21047,
+          "DEV": 599
+        },
+        "noise005_forward_attempted": {
+          "TRAIN": {
+            "batches": 207,
+            "events": 26372
+          },
+          "DEV": {
+            "batches": 16,
+            "events": 2048
+          },
+          "NOISE_DIAGNOSTIC": {
+            "batches": 64,
+            "events": 8192
+          }
+        },
+        "noise005_forward": {
+          "TRAIN": {
+            "batches": 207,
+            "events": 26372
+          },
+          "DEV": {
+            "batches": 16,
+            "events": 2048
+          },
+          "NOISE_DIAGNOSTIC": {
+            "batches": 64,
+            "events": 8192
+          }
+        },
+        "extension_forward_attempted": {
+          "TRAIN/fast": {
+            "batches": 207,
+            "events": 26372
+          },
+          "TRAIN/slow": {
+            "batches": 207,
+            "events": 26372
+          },
+          "TRAIN/common_level": {
+            "batches": 207,
+            "events": 26372
+          },
+          "DEV/fast": {
+            "batches": 16,
+            "events": 2048
+          },
+          "DEV/slow": {
+            "batches": 16,
+            "events": 2048
+          },
+          "DEV/common_level": {
+            "batches": 16,
+            "events": 2048
+          },
+          "NOISE_DIAGNOSTIC/fast": {
+            "batches": 64,
+            "events": 8192
+          },
+          "NOISE_DIAGNOSTIC/slow": {
+            "batches": 64,
+            "events": 8192
+          },
+          "NOISE_DIAGNOSTIC/common_level": {
+            "batches": 64,
+            "events": 8192
+          }
+        },
+        "extension_forward": {
+          "TRAIN/fast": {
+            "batches": 207,
+            "events": 26372
+          },
+          "TRAIN/slow": {
+            "batches": 207,
+            "events": 26372
+          },
+          "TRAIN/common_level": {
+            "batches": 207,
+            "events": 26372
+          },
+          "DEV/fast": {
+            "batches": 16,
+            "events": 2048
+          },
+          "DEV/slow": {
+            "batches": 16,
+            "events": 2048
+          },
+          "DEV/common_level": {
+            "batches": 16,
+            "events": 2048
+          },
+          "NOISE_DIAGNOSTIC/fast": {
+            "batches": 64,
+            "events": 8192
+          },
+          "NOISE_DIAGNOSTIC/slow": {
+            "batches": 64,
+            "events": 8192
+          },
+          "NOISE_DIAGNOSTIC/common_level": {
+            "batches": 64,
+            "events": 8192
+          }
+        },
+        "model_forward_attempted": {
+          "TRAIN/deterministic": {
+            "batches": 207,
+            "events": 26372
+          },
+          "TRAIN/full": {
+            "batches": 207,
+            "events": 26372
+          },
+          "DEV/deterministic": {
+            "batches": 16,
+            "events": 2048
+          },
+          "DEV/full": {
+            "batches": 16,
+            "events": 2048
+          }
+        },
+        "model_forward": {
+          "TRAIN/deterministic": {
+            "batches": 207,
+            "events": 26372
+          },
+          "TRAIN/full": {
+            "batches": 207,
+            "events": 26372
+          },
+          "DEV/deterministic": {
+            "batches": 16,
+            "events": 2048
+          },
+          "DEV/full": {
+            "batches": 16,
+            "events": 2048
+          }
+        },
+        "signal_reference_ADC_attempted": {
+          "TRAIN/deterministic": {
+            "batches": 207,
+            "events": 26372
+          },
+          "TRAIN/full": {
+            "batches": 207,
+            "events": 26372
+          },
+          "DEV/deterministic": {
+            "batches": 16,
+            "events": 2048
+          },
+          "DEV/full": {
+            "batches": 16,
+            "events": 2048
+          }
+        },
+        "signal_reference_ADC": {
+          "TRAIN/deterministic": {
+            "batches": 207,
+            "events": 26372
+          },
+          "TRAIN/full": {
+            "batches": 207,
+            "events": 26372
+          },
+          "DEV/deterministic": {
+            "batches": 16,
+            "events": 2048
+          },
+          "DEV/full": {
+            "batches": 16,
+            "events": 2048
+          }
+        },
+        "candidate_ADC_attempted": {
+          "TRAIN/deterministic/fast": {
+            "batches": 207,
+            "events": 26372
+          },
+          "TRAIN/deterministic/slow": {
+            "batches": 207,
+            "events": 26372
+          },
+          "TRAIN/deterministic/common_level": {
+            "batches": 207,
+            "events": 26372
+          },
+          "TRAIN/full/fast": {
+            "batches": 207,
+            "events": 26372
+          },
+          "TRAIN/full/slow": {
+            "batches": 207,
+            "events": 26372
+          },
+          "TRAIN/full/common_level": {
+            "batches": 207,
+            "events": 26372
+          },
+          "DEV/deterministic/fast": {
+            "batches": 16,
+            "events": 2048
+          },
+          "DEV/deterministic/slow": {
+            "batches": 16,
+            "events": 2048
+          },
+          "DEV/deterministic/common_level": {
+            "batches": 16,
+            "events": 2048
+          },
+          "DEV/full/fast": {
+            "batches": 16,
+            "events": 2048
+          },
+          "DEV/full/slow": {
+            "batches": 16,
+            "events": 2048
+          },
+          "DEV/full/common_level": {
+            "batches": 16,
+            "events": 2048
+          }
+        },
+        "candidate_ADC": {
+          "TRAIN/deterministic/fast": {
+            "batches": 207,
+            "events": 26372
+          },
+          "TRAIN/deterministic/slow": {
+            "batches": 207,
+            "events": 26372
+          },
+          "TRAIN/deterministic/common_level": {
+            "batches": 207,
+            "events": 26372
+          },
+          "TRAIN/full/fast": {
+            "batches": 207,
+            "events": 26372
+          },
+          "TRAIN/full/slow": {
+            "batches": 207,
+            "events": 26372
+          },
+          "TRAIN/full/common_level": {
+            "batches": 207,
+            "events": 26372
+          },
+          "DEV/deterministic/fast": {
+            "batches": 16,
+            "events": 2048
+          },
+          "DEV/deterministic/slow": {
+            "batches": 16,
+            "events": 2048
+          },
+          "DEV/deterministic/common_level": {
+            "batches": 16,
+            "events": 2048
+          },
+          "DEV/full/fast": {
+            "batches": 16,
+            "events": 2048
+          },
+          "DEV/full/slow": {
+            "batches": 16,
+            "events": 2048
+          },
+          "DEV/full/common_level": {
+            "batches": 16,
+            "events": 2048
+          }
+        },
+        "generated_view_rows": {
+          "TRAIN": {
+            "deterministic": 131860,
+            "full": 131860
+          },
+          "DEV": {
+            "deterministic": 10240,
+            "full": 10240
+          }
+        },
+        "diagnostic_rows": 8192
+      },
+      "outcome": "sensitivity_detected",
+      "verification_attempts": [
+        {
+          "status": "original_replay_failure_preserved",
+          "UTC": "2026-10-12T12:36:38.181651+00:00",
+          "error": "('fast analytical A', (380, 100), (380, 100), 1.3638561223107692e-15)",
+          "native_exit_code": 1,
+          "original_verifier_sha256": "5990b29c1f232329978fe5700b73e9826c346025e465ec76b340213c7e5cced0",
+          "complete_sha256": "00ea8272d97801c33dca8aa6550683b62c75b3f2797da705499ff825c32d30c1",
+          "source_manifest_sha256": "1edf4d3200eff7065a40beea9ac1a4080212900a230a7d4d8994279c8b61e74d",
+          "prior_replay_failed_before_response_or_noise_forward": true,
+          "SOURCE_REAL_datasets_decoded": true,
+          "REAL_readout_rows_recomputed": 21646,
+          "scientific_results_unchanged": true,
+          "noise_updates": 0,
+          "response_updates": 0,
+          "classifier_updates": 0,
+          "GMM_fits": 0,
+          "failed_receipt_sha256": "07f81a78d02ae561d3972eda9b34d703efe2da97eb39b110e8bc0a1656beed06",
+          "native_receipt_sha256": "e8d5972876e2fb49db1f0c926d5a8888e2f18d50a5e00028e389a9424ff97957"
+        },
+        {
+          "status": "numeric_fix01_replay_failure_preserved",
+          "UTC": "2026-10-12T12:56:29.293937+00:00",
+          "error": "('TRAIN_deterministic_ baseline ADC change', (128,), (128,), 0.17)",
+          "native_exit_code": 1,
+          "previous_verifier_sha256": "6de11280961ade7d15b222d5fcc4362938a2503616eb81b1f879bc5caa878ed9",
+          "complete_sha256": "00ea8272d97801c33dca8aa6550683b62c75b3f2797da705499ff825c32d30c1",
+          "source_manifest_sha256": "1edf4d3200eff7065a40beea9ac1a4080212900a230a7d4d8994279c8b61e74d",
+          "count_evidence": "Reconstructed from immutable failing path and saved first128 diagnostic; failed verifier had no persisted live forward counters",
+          "reconstructed_counts": {
+            "noise005_forward_rows": 128,
+            "extension_forward_rows": 384,
+            "response_forward_rows": 128,
+            "signal_reference_ADC_rows": 128,
+            "candidate_ADC_rows": 384,
+            "REAL_readout_rows_recomputed": 21646,
+            "bootstrap_resamples_recomputed": 2000
+          },
+          "first_batch_generated_waveform_hashes_already_matched": true,
+          "scientific_results_unchanged": true,
+          "new_unique_random_draws": 0,
+          "training_updates": 0,
+          "failed_receipt_sha256": "b4433c03faa7c571d2cbe2b701778a906d202e67ae8cc70490f89d38927c7c11",
+          "native_receipt_sha256": "7335186ba71a5fddc449256d1a12fc350e4ed637c5f8ac66e144d3df2184fc18"
+        },
+        {
+          "attempt": "adc_fix02",
+          "status": "passed",
+          "native_exit_code": 0,
+          "completed_UTC": "2026-10-12T13:15:01.288979+00:00",
+          "replay_counts": {
+            "response_forward_events": 56840,
+            "noise005_forward_events": 28420,
+            "extension_events": 85260,
+            "regenerated_source_rows": 28420,
+            "checked_view_rows": 284200,
+            "explicit_sample_rows": 512,
+            "random_stream_chunks": 223
+          },
+          "noise_diagnostic_replay_counts": {
+            "noise005_forward_events": 8192,
+            "extension_events": 24576,
+            "noise_hypothesis_rows": 24576,
+            "random_stream_chunks": 64
+          },
+          "verifier_sha256": "b5eb1bb67d242bfeafae57b983f138496db926fd7be75e9a01bb840af5029ad6",
+          "receipt": "runs/integration_006_20261012/id_fix02/runs/verification_adc_fix02/REPLAY_VERIFICATION.json",
+          "receipt_sha256": "97f7fe498ebfaf05c8d4f3f50ab089994eeba54c746eeb07f3d92b347bf9644a",
+          "updates": {
+            "noise": 0,
+            "response": 0,
+            "classifier": 0,
+            "GMM_fits": 0
+          }
+        }
+      ],
+      "verification_status": "passed",
+      "verification_supervisor_pid": null,
+      "historical_evaluation_pid": 17413,
+      "historical_supervisor_pid": 17410,
+      "ended_UTC": "2026-10-12T12:32:52.950815+00:00",
+      "last_verified_UTC": "2026-10-12T13:15:25.030719+00:00",
+      "native_exit_code": 0,
+      "observed_noise_updates": 0,
+      "response_training_updates": 0,
+      "classifier_evaluation_updates": 0,
+      "report": "reports/integration_006_20261012/N01_INTEGRATION006_REPORT.html",
+      "completion_receipt": "receipts/integration_006_20261012/FINAL_RECEIPT.json"
+    },
+    {
+      "job_id": "N01_RESPONSE007_20261013",
+      "status": "failed_status_recording_after_first_G_update",
+      "registered_UTC": "2026-10-13T01:18:25.443273+00:00",
+      "host": "100.82.231.102",
+      "pid": null,
+      "supervisor_pid": null,
+      "response_updates_planned": 38000,
+      "D_updates_planned": 96000,
+      "C2ST_updates_planned": 4200,
+      "noise_updates_planned": 0,
+      "configuration": "response007_config.json",
+      "protocol": "docs/RESPONSE_007_PROTOCOL.md",
+      "preregistration": "receipts/response_007_20261013/PREREGISTRATION.json",
+      "remote_root": "/home/rylan/projects/ej276d-n01/response_007_20261013",
+      "native_exit_code": 1,
+      "G_updates": 1,
+      "D_updates": 0,
+      "C2ST_updates": 0,
+      "started_UTC": "2026-10-13T01:34:23.013561+00:00",
+      "ended_UTC": "2026-10-13T01:34:27.016058+00:00",
+      "historical_supervisor_pid": 157422,
+      "historical_training_pid": 157434,
+      "failure_receipt": "provenance/response007_statusfix01/FAILURE.json"
+    },
+    {
+      "job_id": "N01_RESPONSE007_STATUSFIX01_20261013",
+      "status": "not_started_superseded_by_noon_bound",
+      "registered_UTC": "2026-10-13T01:39:00.326882+00:00",
+      "host": "100.82.231.102",
+      "pid": null,
+      "supervisor_pid": null,
+      "previous_G_updates": 1,
+      "new_execution_G_updates_planned": 37999,
+      "cumulative_G_updates_planned": 38000,
+      "D_updates_planned": 96000,
+      "C2ST_updates_planned": 4200,
+      "noise_updates_planned": 0,
+      "remote_root": "/home/rylan/projects/ej276d-n01/response_007_20261013_statusfix01",
+      "configuration": "response007_config.json",
+      "protocol": "docs/RESPONSE_007_PROTOCOL.md",
+      "amendment": "docs/RESPONSE_007_STATUS_FIX01.md",
+      "source_manifest": "RESPONSE007_STATUSFIX01_SOURCE_MANIFEST.json",
+      "new_execution_G_updates": 0,
+      "D_updates": 0,
+      "C2ST_updates": 0
+    },
+    {
+      "job_id": "N01_RESPONSE007_DEADLINE01_20261013",
+      "status": "bounded_stage_comparison_complete_reviewed",
+      "registered_UTC": "2026-10-13T01:45:50.031725+00:00",
+      "host": "100.82.231.102",
+      "pid": null,
+      "supervisor_pid": null,
+      "previous_G_updates": 1,
+      "new_execution_G_updates_planned": 7999,
+      "cumulative_G_updates_planned": 8000,
+      "D_updates_planned": 6000,
+      "C2ST_updates_planned": 0,
+      "noise_updates_planned": 0,
+      "wall_limit_s": 5400,
+      "stop_updates_UTC": "2026-10-13T03:30:00+00:00",
+      "remote_root": "/home/rylan/projects/ej276d-n01/response_007_20261013_deadline01",
+      "configuration": "response007_deadline01_config.json",
+      "protocol": "docs/RESPONSE_007_DEADLINE01.md",
+      "source_manifest": "RESPONSE007_DEADLINE01_SOURCE_MANIFEST.json",
+      "source_commit": "f27521a4f8c7721b46df540eeb3b034b1e35e44d",
+      "started_UTC": "2026-10-13T01:48:21.874417+00:00",
+      "historical_training_pid": 161143,
+      "historical_supervisor_pid": 161134,
+      "observed_cumulative_G_updates": 8000,
+      "observed_new_execution_G_updates": 7999,
+      "observed_D_updates": 6000,
+      "C2ST_updates": 0,
+      "noise_updates": 0,
+      "last_verified_UTC": "2026-10-13T02:54:58.202614+00:00",
+      "live_snapshot": "runs/response_007_20261013/deadline01/live/20261013T025458Z.json",
+      "ended_UTC": "2026-10-13T02:41:45.908406+00:00",
+      "native_exit_code": 0,
+      "original_endpoint_reached": false,
+      "completion_receipt": "receipts/response_007_20261013/deadline01/FINAL_RECEIPT.json",
+      "report": "reports/response_007_20261013/deadline01/N01_RESPONSE007_STAGE_REPORT.html",
+      "scientific_status": "response_match_not_established"
+    },
+    {
+      "job_id": "N01_RESPONSE007_DEADLINE01_REPLAY",
+      "status": "completed_engineering_replay",
+      "host": "100.82.231.102",
+      "pid": null,
+      "supervisor_pid": null,
+      "scientific_job": false,
+      "historical_supervisor_pid": 173681,
+      "started_UTC": "2026-10-13T02:43:06.364791+00:00",
+      "ended_UTC": "2026-10-13T02:43:20.374552+00:00",
+      "native_exit_code": 0,
+      "new_training_updates": 0,
+      "new_unique_random_draws": 0,
+      "DEV_decodes": 0,
+      "engineering_forward_counts": {
+        "noise005": {
+          "attempted_rows": 26372,
+          "completed_rows": 26372,
+          "calls": 207
+        },
+        "extension_all_hypotheses": {
+          "attempted_rows": 79116,
+          "completed_rows": 79116,
+          "calls": 621
+        },
+        "response/deterministic": {
+          "attempted_rows": 26372,
+          "completed_rows": 26372,
+          "calls": 207
+        },
+        "response/full": {
+          "attempted_rows": 26372,
+          "completed_rows": 26372,
+          "calls": 207
+        }
+      },
+      "receipt": "runs/response_007_20261013/deadline01/runs/verification_deadline01/REPLAY_VERIFICATION.json"
+    },
+    {
+      "job_id": "N01_WINDOW008_20261013",
+      "status": "window008_failed_or_bounded_stop_preserved",
+      "registered_UTC": "2026-10-13T04:21:00.661182+00:00",
+      "host": "100.82.231.102",
+      "pid": null,
+      "supervisor_pid": null,
+      "scientific_job": true,
+      "remote_root": "/home/rylan/projects/ej276d-n01/window008_20261013",
+      "configuration": "window008_config.json",
+      "protocol": "docs/WINDOW008_PROTOCOL.md",
+      "source_manifest": "WINDOW008_SOURCE_MANIFEST.json",
+      "planned_G_updates": 57000,
+      "planned_D_updates": 144000,
+      "observed_G_updates": 22269,
+      "observed_D_updates": 48807,
+      "C2ST_updates": 0,
+      "noise_updates": 0,
+      "population_updates": 0,
+      "arms": [
+        "deterministic",
+        "full",
+        "simple"
+      ],
+      "G_updates_per_arm": 19000,
+      "wall_limit_s": 28800,
+      "effective_observation_samples": 256,
+      "internal_carrier_samples": 384,
+      "evaluation": "separate_frozen_job_after_training_native_exit",
+      "scientific_status": "response_match_not_established",
+      "source_commit": "41c2a8ccf668bb17a9d68c2865a83f6014ebd126",
+      "last_verified_UTC": "2026-10-13T09:30:30.263187+00:00",
+      "live_snapshot": "runs/window008_20261013/live/20261013T093030Z.json",
+      "started_UTC": "2026-10-13T04:25:22.062955+00:00",
+      "historical_supervisor_pid": 194237,
+      "historical_training_pid": 194240,
+      "native_exit_code": 1,
+      "native_exit_receipt": "runs/window008_20261013/live/20261013T093030Z.json#files/supervisor/exit_receipt.json"
+    },
+    {
+      "job_id": "N01_WINDOW008_FIX01_20261013",
+      "status": "paused_by_user_before_server_shutdown",
+      "registered_UTC": "2026-10-13T10:25:07.399304+00:00",
+      "host": "100.82.231.102",
+      "pid": null,
+      "supervisor_pid": null,
+      "scientific_job": true,
+      "remote_root": "/home/rylan/projects/ej276d-n01/window008_fix01_20261013",
+      "configuration": "window008_fix01_config.json",
+      "protocol": "docs/WINDOW008_STABILITY_FIX01_PROTOCOL.md",
+      "source_manifest": "WINDOW008_FIX01_SOURCE_MANIFEST.json",
+      "planned_new_G_updates": 35000,
+      "planned_new_D_updates": 96000,
+      "observed_new_G_updates": 3398,
+      "observed_new_D_updates": 10194,
+      "retained_deterministic_G_updates": 19000,
+      "inherited_full_mean_G_updates": 3000,
+      "effective_comparison_G_budget": 57000,
+      "effective_comparison_D_budget": 144000,
+      "historical_actual_G_after_success": 57269,
+      "historical_actual_D_after_success": 144807,
+      "discarded_legacy_joint_G_updates": 269,
+      "discarded_legacy_joint_D_updates": 807,
+      "execution_arms": [
+        "full",
+        "simple"
+      ],
+      "comparison_arms": [
+        "deterministic",
+        "full",
+        "simple"
+      ],
+      "C2ST_updates": 0,
+      "noise_updates": 0,
+      "population_updates": 0,
+      "wall_limit_s": 21600,
+      "effective_observation_samples": 256,
+      "internal_carrier_samples": 384,
+      "original_job_native_exit_code": 1,
+      "original_deterministic_endpoint_reused": true,
+      "native_CUDA_engineering_G_updates": 4,
+      "native_CUDA_engineering_D_updates": 6,
+      "scientific_status": "response_match_not_established",
+      "source_commit": "af49ec2cc00d3dd024ba9b10daea4af457f1e00c",
+      "last_verified_UTC": "2026-10-13T10:50:43.450154+00:00",
+      "live_snapshot": "runs/window008_fix01_20261013/live/20261013T103037Z.json",
+      "effective_comparison_G_updates": 22025,
+      "effective_comparison_D_updates": 48075,
+      "historical_actual_G_updates": 22294,
+      "historical_actual_D_updates": 48882,
+      "started_UTC": "2026-10-13T10:30:18.297870+00:00",
+      "historical_supervisor_pid": 258729,
+      "native_exit_code": 1,
+      "ended_UTC": "2026-10-13T10:50:43.334276+00:00",
+      "user_requested_pause": true,
+      "stop_receipt": "receipts/window008_fix01_20261013/USER_PAUSE_RECEIPT.json",
+      "local_artifacts_root": "E:\\GAN\\research\\N01\\runs\\window008_fix01_20261013"
+    },
+    {
+      "job_id": "N01_WINDOW008_RESUME01_20261013",
+      "status": "complete_native0_evaluated_replayed_reported_privately_archived",
+      "registered_UTC": "2026-10-13T15:40:54.529241+00:00",
+      "host": "100.82.231.102",
+      "pid": null,
+      "supervisor_pid": null,
+      "scientific_job": true,
+      "remote_root": "/home/rylan/projects/ej276d-n01/window008_resume01_20261013",
+      "configuration": "window008_resume01_config.json",
+      "source_manifest": "WINDOW008_RESUME01_SOURCE_MANIFEST.json",
+      "protocol": "docs/WINDOW008_RESUME01_EXECUTION.md",
+      "planned_new_G_updates": 32000,
+      "planned_new_D_updates": 87000,
+      "observed_new_G_updates": 32000,
+      "observed_new_D_updates": 87000,
+      "inherited_effective_G_updates": 25000,
+      "inherited_effective_D_updates": 57000,
+      "historical_actual_G_before_resume": 25667,
+      "historical_actual_D_before_resume": 59001,
+      "retained_original_deterministic_G_updates": 19000,
+      "imported_full_G_updates": 6000,
+      "discarded_user_stop_G_updates": 398,
+      "discarded_user_stop_D_updates": 1194,
+      "execution_arms": [
+        "full",
+        "simple"
+      ],
+      "comparison_arms": [
+        "deterministic",
+        "full",
+        "simple"
+      ],
+      "C2ST_updates": 0,
+      "noise_updates": 0,
+      "population_updates": 0,
+      "effective_observation_samples": 256,
+      "internal_carrier_samples": 384,
+      "wall_limit_s": 21600,
+      "user_resume_authorized": true,
+      "scientific_status": "response_match_not_established",
+      "source_commit": "f3490c64aecb2311597913832934bd1a65592bcc",
+      "last_verified_UTC": "2026-10-13T19:03:34.472350+00:00",
+      "live_snapshot": "runs/window008_resume01_20261013/live/20261013T190334Z.json",
+      "effective_comparison_G_updates": 57000,
+      "effective_comparison_D_updates": 144000,
+      "historical_actual_G_updates": 57667,
+      "historical_actual_D_updates": 146001,
+      "started_UTC": "2026-10-13T16:04:04.138745+00:00",
+      "historical_supervisor_pid": 13505,
+      "native_exit_code": 0,
+      "evaluation_completion_receipt": "receipts/window008_resume01_20261013/EVALUATION_COMPLETE.json",
+      "report": "E:\\GAN\\research\\N01\\reports\\window008_resume01_20261013\\N01_WINDOW008_RESUME01_REPORT.pdf",
+      "report_visual_QA_complete": true,
+      "prearchive_delivery_receipt": "E:\\GAN\\research\\N01\\receipts\\window008_resume01_20261013\\PREARCHIVE_DELIVERY_RECEIPT.json",
+      "delivery_receipt": "E:\\GAN\\research\\N01\\receipts\\window008_resume01_20261013\\FINAL_DELIVERY_RECEIPT.json",
+      "private_archive_sha256": "44c9062b0b0a8d86f1c22e9084124fb84db9491fdcff56a7ad07cd07c84be03e"
+    },
+    {
+      "job_id": "N01_WINDOW008_RESUME01_EVALUATION_PRIMARY",
+      "relative": "runs/evaluation_jobs/primary",
+      "manifest": "WINDOW008_RESUME01_EVALUATION_SOURCE_MANIFEST.json",
+      "planned_signal_forward_rows": 85260,
+      "planned_observation_rows": 255780,
+      "additional_unique_signal_rows": 85260,
+      "status": "complete_native0_collected_sha_verified",
+      "registered_UTC": "2026-10-13T19:40:16.926361+00:00",
+      "host": "100.82.231.102",
+      "run_id": "window008_resume01_20261013",
+      "remote_root": "/home/rylan/projects/ej276d-n01/window008_resume01_20261013",
+      "scientific_job": true,
+      "source_manifest_sha256": "bc4a3a21dfdf9a8e4e6a6a8bdccf03924f5f4ae2ecf77be21cc33d424f84beaa",
+      "planned_G_updates": 0,
+      "planned_D_updates": 0,
+      "noise_updates": 0,
+      "population_updates": 0,
+      "C2ST_updates": 0,
+      "scientific_status": "response_match_not_established",
+      "last_verified_UTC": "2026-10-13T19:43:03.752758+00:00",
+      "snapshot": "runs/window008_resume01_20261013/live/primary_20261013T194303Z.json",
+      "snapshot_sha256": "7fbc78a180d9871c7b7031a7b1bc8ac5ea14d10bc03e431ddc2ece05ef50fdd3",
+      "native_exit_code": 0,
+      "owned_processes": [],
+      "failure": null,
+      "job_complete": {
+        "schema": "n01/window008-resume01-evaluation-job/v1",
+        "UTC": "2026-10-13T19:43:02.157313+00:00",
+        "status": "evaluation_job_complete",
+        "kind": "primary",
+        "evaluation_source_manifest_sha256": "bc4a3a21dfdf9a8e4e6a6a8bdccf03924f5f4ae2ecf77be21cc33d424f84beaa",
+        "training_source_manifest_sha256": "0a3208cd8f05e8dd85cd44fde60e742fd28705eadb3fdae6752dce2f81fd8fb1",
+        "summary_sha256": "fdd6390b801246c2b4b3635937b8aa085152a7a4955be85b5c4538dd50fdf143",
+        "evaluator_native_sha256": "1eadadfae3ea4370af0975e3fc542d0bf7e323a0418ad6c2f0552121bc61114b",
+        "replay_verification_sha256": null,
+        "optimizer_updates": 0,
+        "additional_unique_draws": null,
+        "awaiting_supervisor_native_exit": true,
+        "scientific_status": "response_match_not_established"
+      },
+      "native_exit_receipt": {
+        "exit_code": 0,
+        "reason": null,
+        "error": null,
+        "peak_rss_bytes": 3533725696,
+        "peak_GPU_memory_bytes": 627048448,
+        "peak_output_bytes": 95140107,
+        "started_utc": "2026-10-13T19:42:20.035664+00:00",
+        "ended_utc": "2026-10-13T19:43:03.046076+00:00",
+        "wall_seconds": 43.010420986998724,
+        "supervisor_pid": 50045,
+        "child_pid": 50046,
+        "kind": "primary",
+        "resource_limits": {
+          "GPU_GiB": 10,
+          "job_tree_RSS_GiB": 8,
+          "wall_seconds": 21600,
+          "output_MiB": 3072,
+          "poll_seconds": 1,
+          "TERM_grace_seconds": 20
+        }
+      },
+      "current_processes": [],
+      "ended_and_collected_UTC": "2026-10-13T19:53:28.632678+00:00"
+    },
+    {
+      "job_id": "N01_WINDOW008_RESUME01_EVALUATION_REPLAY01",
+      "relative": "runs/evaluation_jobs/replay01",
+      "manifest": "WINDOW008_RESUME01_EVALUATION_SOURCE_MANIFEST.json",
+      "planned_signal_forward_rows": 85260,
+      "planned_observation_rows": 255780,
+      "additional_unique_signal_rows": 0,
+      "status": "complete_native0_collected_sha_verified",
+      "registered_UTC": "2026-10-13T19:40:16.926361+00:00",
+      "host": "100.82.231.102",
+      "run_id": "window008_resume01_20261013",
+      "remote_root": "/home/rylan/projects/ej276d-n01/window008_resume01_20261013",
+      "scientific_job": true,
+      "source_manifest_sha256": "bc4a3a21dfdf9a8e4e6a6a8bdccf03924f5f4ae2ecf77be21cc33d424f84beaa",
+      "planned_G_updates": 0,
+      "planned_D_updates": 0,
+      "noise_updates": 0,
+      "population_updates": 0,
+      "C2ST_updates": 0,
+      "scientific_status": "response_match_not_established",
+      "last_verified_UTC": "2026-10-13T19:45:12.479514+00:00",
+      "snapshot": "runs/window008_resume01_20261013/live/replay01_20261013T194512Z.json",
+      "snapshot_sha256": "fa182ba400a6f49adfd63ab77c948eef86d898f1630d835c84e8ac1bdff760b7",
+      "native_exit_code": 0,
+      "owned_processes": [],
+      "failure": null,
+      "job_complete": {
+        "schema": "n01/window008-resume01-evaluation-job/v1",
+        "UTC": "2026-10-13T19:44:23.170447+00:00",
+        "status": "evaluation_job_complete",
+        "kind": "replay01",
+        "evaluation_source_manifest_sha256": "bc4a3a21dfdf9a8e4e6a6a8bdccf03924f5f4ae2ecf77be21cc33d424f84beaa",
+        "training_source_manifest_sha256": "0a3208cd8f05e8dd85cd44fde60e742fd28705eadb3fdae6752dce2f81fd8fb1",
+        "summary_sha256": "64e895ff40b8bdbbe9cc4d08ae6237bd57c73cb8bd0f8eb0b0035c42f26914be",
+        "evaluator_native_sha256": "0d509748fa1ae4307eb91516fa6b207d06e75e63e031dc200143c9603e9b66ad",
+        "replay_verification_sha256": "0bb952a37df956c4415f80a3da15608f582757eb1ee0e48fc632e47dd9acc9bf",
+        "optimizer_updates": 0,
+        "additional_unique_draws": 0,
+        "awaiting_supervisor_native_exit": true,
+        "scientific_status": "response_match_not_established"
+      },
+      "native_exit_receipt": {
+        "exit_code": 0,
+        "reason": null,
+        "error": null,
+        "peak_rss_bytes": 3534708736,
+        "peak_GPU_memory_bytes": 629145600,
+        "peak_output_bytes": 95660536,
+        "started_utc": "2026-10-13T19:43:39.018476+00:00",
+        "ended_utc": "2026-10-13T19:44:24.062816+00:00",
+        "wall_seconds": 45.04433737900035,
+        "supervisor_pid": 50595,
+        "child_pid": 50596,
+        "kind": "replay01",
+        "resource_limits": {
+          "GPU_GiB": 10,
+          "job_tree_RSS_GiB": 8,
+          "wall_seconds": 21600,
+          "output_MiB": 3072,
+          "poll_seconds": 1,
+          "TERM_grace_seconds": 20
+        }
+      },
+      "current_processes": [],
+      "ended_and_collected_UTC": "2026-10-13T19:53:28.632678+00:00"
+    },
+    {
+      "job_id": "N01_WINDOW008_RESUME01_DIAGNOSTICS_PRIMARY",
+      "relative": "runs/diagnostic_jobs/primary",
+      "manifest": "WINDOW008_RESUME01_DIAGNOSTICS_SOURCE_MANIFEST.json",
+      "planned_signal_forward_rows": 29952,
+      "planned_observation_rows": 89856,
+      "additional_unique_signal_rows": 28416,
+      "status": "complete_native0_collected_sha_verified",
+      "registered_UTC": "2026-10-13T19:40:16.926361+00:00",
+      "host": "100.82.231.102",
+      "run_id": "window008_resume01_20261013",
+      "remote_root": "/home/rylan/projects/ej276d-n01/window008_resume01_20261013",
+      "scientific_job": true,
+      "source_manifest_sha256": "391814ba108db517d2002b34413989eb46ab1f2d748cd06703d740e615ed0eb6",
+      "planned_G_updates": 0,
+      "planned_D_updates": 0,
+      "noise_updates": 0,
+      "population_updates": 0,
+      "C2ST_updates": 0,
+      "scientific_status": "response_match_not_established",
+      "last_verified_UTC": "2026-10-13T19:47:11.082440+00:00",
+      "snapshot": "runs/window008_resume01_20261013/live/diagnostics_20261013T194711Z.json",
+      "snapshot_sha256": "d71ab427da8cbbd6b8173f990b174e0066c2d77a6090d5b783abb0b848a78ad0",
+      "native_exit_code": 0,
+      "owned_processes": [],
+      "failure": null,
+      "job_complete": {
+        "schema": "n01/window008-resume01-diagnostics-job/v1",
+        "UTC": "2026-10-13T19:46:08.743138+00:00",
+        "status": "diagnostics_job_complete",
+        "kind": "primary",
+        "diagnostics_source_manifest_sha256": "391814ba108db517d2002b34413989eb46ab1f2d748cd06703d740e615ed0eb6",
+        "training_source_manifest_sha256": "0a3208cd8f05e8dd85cd44fde60e742fd28705eadb3fdae6752dce2f81fd8fb1",
+        "summary_sha256": "fdafc47c9e36e5f5debaa6f8f4adb75c5590d58113b5db4aa56afee86646f2d8",
+        "evaluator_native_sha256": "6291f9cf05bb9361f1929b30af18033e3ac2d4df602e42ebc2e6538410e3c2ca",
+        "replay_verification_sha256": null,
+        "optimizer_updates": 0,
+        "additional_unique_draws": null,
+        "awaiting_supervisor_native_exit": true,
+        "scientific_status": "response_match_not_established"
+      },
+      "native_exit_receipt": {
+        "exit_code": 0,
+        "reason": null,
+        "error": null,
+        "peak_rss_bytes": 3705622528,
+        "peak_GPU_memory_bytes": 461373440,
+        "peak_output_bytes": 765915306,
+        "started_utc": "2026-10-13T19:45:36.834154+00:00",
+        "ended_utc": "2026-10-13T19:46:09.711443+00:00",
+        "wall_seconds": 32.87728929200057,
+        "supervisor_pid": 51421,
+        "child_pid": 51422,
+        "kind": "primary",
+        "resource_limits": {
+          "GPU_GiB": 10,
+          "job_tree_RSS_GiB": 8,
+          "wall_seconds": 21600,
+          "output_MiB": 3072,
+          "poll_seconds": 1,
+          "TERM_grace_seconds": 20
+        }
+      },
+      "current_processes": [],
+      "ended_and_collected_UTC": "2026-10-13T19:53:28.632678+00:00"
+    },
+    {
+      "job_id": "N01_MEAN_RANDOM009_20261014",
+      "status": "completed_native0_collected",
+      "registered_UTC": "2026-10-14T05:46:26.664076+00:00",
+      "host": "100.82.231.102",
+      "remote_root": "/home/rylan/projects/ej276d-n01/mean_random009_20261014",
+      "pid": null,
+      "supervisor_pid": null,
+      "scientific_job": true,
+      "diagnostic_only": true,
+      "configuration": "mean_random009_policy.json",
+      "protocol": "docs/MEAN_RANDOM009_PROTOCOL.md",
+      "source_manifest": "MEAN_RANDOM009_SOURCE_MANIFEST.json",
+      "planned_G_updates": 0,
+      "planned_D_updates": 0,
+      "source_TRAIN_parents": 512,
+      "draws_per_parent": 16,
+      "hypotheses": [
+        "fast",
+        "slow",
+        "common_level"
+      ],
+      "science_complete": true,
+      "scientific_status": "response_match_not_established",
+      "started_UTC": "2026-10-14T06:21:32.251541+00:00",
+      "completed_UTC": "2026-10-14T06:22:06.792975+00:00",
+      "native_exit_code": 0,
+      "actual_counters": {
+        "A_signal_forward_rows": 8192,
+        "B_signal_forward_rows": 8192,
+        "C_ablation_forward_rows": 8192,
+        "signal_forward_rows": 24576,
+        "hard_observation_rows": 73728,
+        "noise005_rows": 8192,
+        "D_model_forward_rows": 0,
+        "optimizer_updates": 0,
+        "G_updates": 0,
+        "D_updates": 0,
+        "noise_updates": 0,
+        "population_updates": 0,
+        "C2ST_updates": 0
+      },
+      "collection_receipt": "receipts/mean_random009_20261014/COLLECTION_RECEIPT.json"
+    },
+    {
+      "job_id": "N01_SHAPE010_20261014",
+      "run_id": "shape010_20261014",
+      "status": "completed_native0_collected_and_independently_read_back",
+      "registered_UTC": "2026-10-14T06:42:38.322128+00:00",
+      "remote_root": "/home/rylan/projects/ej276d-n01/shape010_20261014",
+      "policy": "shape010_policy.json",
+      "protocol": "docs/SHAPE010_PROTOCOL.md",
+      "G_update_budget": 2000,
+      "actual_G_updates": 2000,
+      "D_updates": 0,
+      "noise_updates": 0,
+      "population_updates": 0,
+      "C2ST_updates": 0,
+      "DEV_numeric_read": false,
+      "scientific_status": "response_match_not_established",
+      "started_UTC": "2026-10-14T07:25:53.492403+00:00",
+      "supervisor_pid": null,
+      "training_pid": null,
+      "last_verified_UTC": "2026-10-14T08:17:18.952095+00:00",
+      "start_verification": "receipts/shape010_20261014/START_NATIVE_VERIFICATION.json",
+      "followup_receipt": "receipts/shape010_20261014/FOLLOWUP_RECEIPT.json",
+      "attempted_G_updates": 2000,
+      "completed_UTC": "2026-10-14T07:31:34.503691+00:00",
+      "native_exit_code": 0,
+      "actual_counters": {
+        "G_updates": 2000,
+        "attempted_G_updates": 2000,
+        "D_updates": 0,
+        "noise_updates": 0,
+        "population_updates": 0,
+        "C2ST_updates": 0,
+        "train_response_rows": 2048000,
+        "train_noise005_rows": 2048000,
+        "train_hard_observation_rows": 6144000,
+        "evaluation_response_rows": 6144,
+        "evaluation_noise005_rows": 4096,
+        "evaluation_hard_observation_rows": 18432
+      },
+      "coverage": {
+        "source_unique": 6593,
+        "source_total": 6593,
+        "real_unique": 21047,
+        "real_total": 21047,
+        "source_epochs": 155,
+        "real_epochs": 97,
+        "source_parent_visits": 1024000,
+        "real_row_visits": 2048000
+      },
+      "collection_complete": true,
+      "independent_numeric_readback_complete": true,
+      "bounded_budget_closed": true,
+      "report": "reports/shape010_20261014/N01_SHAPE010_REPORT.md",
+      "completion_receipt": "receipts/shape010_20261014/FINAL_RESULT_RECEIPT.json",
+      "collection_receipt": "receipts/shape010_20261014/collection_01/COLLECTION_RECEIPT.json",
+      "numeric_readback": "receipts/shape010_20261014/postrun_independent_01/NUMERIC_READBACK.json",
+      "training_readback": "receipts/shape010_20261014/training_readback_01/TRAINING_READBACK.json",
+      "final_report_QA": "receipts/shape010_20261014/postrun_independent_01/REPORT_QA_FINAL.json",
+      "followup_automation_status": "PAUSED",
+      "followup_pause_receipt": "receipts/shape010_20261014/AUTOMATION_PAUSE_RECEIPT.json",
+      "additional_optimizer_updates": 0
+    },
+    {
+      "job_id": "N01_STABILITY011_20261014",
+      "run_id": "stability011_20261014",
+      "status": "running_last_verified_single_wakeup_scheduled",
+      "registered_UTC": "2026-10-14T11:30:32.574168+00:00",
+      "user_authorization": "2026-10-14: 继续推进",
+      "scientific_job": true,
+      "diagnostic_only": true,
+      "host": "100.82.231.102",
+      "remote_root": "/home/rylan/projects/ej276d-n01/stability011_20261014",
+      "policy": "stability011_policy.json",
+      "protocol": "docs/STABILITY011_PROTOCOL.md",
+      "source_manifest": "STABILITY011_SOURCE_MANIFEST.json",
+      "planned_bootstrap_replicates": 500,
+      "completed_bootstrap_replicates": 323,
+      "source_parent_clusters": 512,
+      "draws_per_parent": 4,
+      "REAL_reference_original_groups": 419,
+      "REAL_reference_rows": 2048,
+      "G_updates": 0,
+      "D_updates": 0,
+      "noise_updates": 0,
+      "population_updates": 0,
+      "C2ST_updates": 0,
+      "model_forward_rows": 0,
+      "gradient_evaluations": 0,
+      "checkpoint_loads": 0,
+      "DEV_numeric_read": false,
+      "scientific_status": "response_match_not_established",
+      "training_pid": null,
+      "supervisor_pid": 223607,
+      "analysis_pid": 223614,
+      "preflight": "receipts/stability011_20261014/resource_preflight_01/RESOURCE_PREFLIGHT.json",
+      "method_review": "receipts/stability011_20261014/method_review_01/METHOD_REVIEW.json",
+      "source_manifest_sha256": "f5c0839d6b3bb4cfe29e12b52cfac449b6b3bc0c623f6a800da34fc5cb24f257",
+      "bindings_sha256": "c7978fd1c30802f0bc2b89dab19a55740e4824af58311b704aea49c5df57e631",
+      "freeze_receipt": "receipts/stability011_20261014/freeze_01/FREEZE_RECEIPT.json",
+      "started_UTC": "2026-10-14T12:15:08.003465+00:00",
+      "first_replicate_verified": true,
+      "completed_bootstrap_replicates_last_verified": 323,
+      "actual_unobserved_bootstrap_progress": "unknown until scheduled single wake",
+      "start_receipt": "receipts/stability011_20261014/start_native_01/START_RECEIPT.json",
+      "independent_review": "receipts/stability011_20261014/independent_01/PRELAUNCH_REVIEW.json",
+      "attempted_bootstrap_replicates_last_verified": 334,
+      "computed_bootstrap_replicates_last_verified": 323,
+      "last_verified_UTC": "2026-10-14T12:18:43.745627+00:00",
+      "start_verification": "receipts/stability011_20261014/START_NATIVE_VERIFICATION.json",
+      "followup_receipt": "receipts/stability011_20261014/FOLLOWUP_RECEIPT.json"
+    }
+  ]
+}

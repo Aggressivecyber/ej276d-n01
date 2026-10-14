@@ -1,0 +1,132 @@
+{
+  "UTC": "2026-10-14T11:26:31.017456+00:00",
+  "native_ssh_exit_code": 0,
+  "command": [
+    "ssh",
+    "-x",
+    "-o",
+    "BatchMode=yes",
+    "-o",
+    "ConnectTimeout=15",
+    "-o",
+    "StrictHostKeyChecking=yes",
+    "rylan@100.82.231.102",
+    "env PYTHONDONTWRITEBYTECODE=1 PYTHONUTF8=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 NUMEXPR_NUM_THREADS=1 /home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python -B - benchmark --workers 12"
+  ],
+  "stdin_source_sha256": "9dee53f85d411b0051964deeabe36db0d3776273c4d5f4a0081d9572f5a40b67",
+  "artificial_only": true,
+  "remote_project_array_reads": 0,
+  "checkpoint_decodes": 0,
+  "scientific_bootstrap_replicates": 0,
+  "new_model_forwards": 0,
+  "optimizer_updates": 0,
+  "remote_persistent_output": false,
+  "stderr": "",
+  "benchmark": {
+    "schema": "n01/stability011-design-native-synthetic-benchmark/v1",
+    "artificial_only": true,
+    "real_arrays_decoded": false,
+    "checkpoint_decoded": false,
+    "science_bootstrap_replicates": 0,
+    "new_model_forwards": 0,
+    "optimizer_updates": 0,
+    "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+    "numpy": "1.26.4",
+    "CPU_workers": 12,
+    "CPU_affinity": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "OMP_threads_per_worker": 1,
+    "original_synthetic_rows": [
+      2048,
+      2048
+    ],
+    "columns": 256,
+    "cache_prepare_seconds": 0.0663863080117153,
+    "serial": {
+      "seconds": 0.15880640500108711,
+      "synthetic_reductions": 32,
+      "checksum": 1.828359382199149
+    },
+    "parallel_wall_seconds": 0.4297189549979521,
+    "parallel_synthetic_reductions": 384,
+    "children": [
+      {
+        "seconds": 0.4137741239974275,
+        "synthetic_reductions": 32,
+        "checksum": 1.818619145486234
+      },
+      {
+        "seconds": 0.4137718840065645,
+        "synthetic_reductions": 32,
+        "checksum": 1.8099562285079893
+      },
+      {
+        "seconds": 0.413659669997287,
+        "synthetic_reductions": 32,
+        "checksum": 1.8136081749985942
+      },
+      {
+        "seconds": 0.41354583199427,
+        "synthetic_reductions": 32,
+        "checksum": 1.8048984444612381
+      },
+      {
+        "seconds": 0.3892434290028177,
+        "synthetic_reductions": 32,
+        "checksum": 1.808817013698216
+      },
+      {
+        "seconds": 0.38238954498956446,
+        "synthetic_reductions": 32,
+        "checksum": 1.814722889122766
+      },
+      {
+        "seconds": 0.3202950150007382,
+        "synthetic_reductions": 32,
+        "checksum": 1.8137468698886652
+      },
+      {
+        "seconds": 0.3202613680041395,
+        "synthetic_reductions": 32,
+        "checksum": 1.816003910117939
+      },
+      {
+        "seconds": 0.3200468529976206,
+        "synthetic_reductions": 32,
+        "checksum": 1.81752074651734
+      },
+      {
+        "seconds": 0.3197608710033819,
+        "synthetic_reductions": 32,
+        "checksum": 1.808189552604959
+      },
+      {
+        "seconds": 0.31925634600338526,
+        "synthetic_reductions": 32,
+        "checksum": 1.8151150384888977
+      },
+      {
+        "seconds": 0.318825326001388,
+        "synthetic_reductions": 32,
+        "checksum": 1.8104157071796203
+      }
+    ],
+    "parent_maxrss_KiB": 81940,
+    "child_maxrss_KiB": 81940,
+    "proposed_A_final_3h_500_cache_reduce_seconds_linear_extrapolation": 115.32435578161594,
+    "runtime_estimate_scope": "Synthetic cached reducer only; excludes true-array decode, projection/sort preparation, QA, supervisor/hash/output overhead; six A/final x three-h comparisons; measured fork workers on synthetic arrays."
+  }
+}

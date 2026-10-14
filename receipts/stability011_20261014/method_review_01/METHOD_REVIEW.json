@@ -1,0 +1,342 @@
+{
+  "schema": "n01/stability011-independent-method-review/v1",
+  "UTC": "2026-10-14T11:24:59.205376+00:00",
+  "status": "revised_419_reference_group_primary_design_is_executable_with_frozen_scope",
+  "method": "paired source-parent and REAL artificial-record-group fixed-bank bootstrap of complete frozen distribution-loss contrast",
+  "existing_evidence": {
+    "NUMERIC_READBACK": {
+      "path": "E:\\GAN\\research\\N01\\receipts\\shape010_20261014\\postrun_independent_01\\NUMERIC_READBACK.json",
+      "sha256": "e3d3596e5287e857f82d206388c743b45f6a200e62bbccfade6cde68f83b4652"
+    },
+    "static_source_documents": {
+      "src/n01/losses008_v2.py": "6932772c4b00fa62383b5ca356f26d0cf81271be531888b474ae6146fa25f3d8",
+      "src/n01/losses008.py": "68a9330b7e0620f12adbb3dc22a00c632a1b7577d44b92617da7d14979d9ea61",
+      "src/n01/data.py": "2ec3363bc830043af053342b4638f5e6ab55d27303da037f383f4fe630d77bd2",
+      "src/n01/data008.py": "2a66a8800642cf6788ce268d326af9d128cb165daf60d555f802b2c881ac97af",
+      "src/n01/train_shape010.py": "5c94a6d947c1cfcb926ea2b39e77fbdeb6600f231f503fdf4c43c7ff7033e6d9",
+      "docs/NOISE_ORIGIN_METHOD.md": "dc61b6e55337f6c791e261acc40a4ff6af05be974a8774ac17a33536263f08be",
+      "docs/WINDOW008_DATA_INTERFACE.md": "9d9eb413b2ef152c639e8ea934cefe6a57791b6973afca7a34097f9380e010ce",
+      "DATA_REFERENCES.json": "fcd92ddeab93aa361b546b0efd2b28603043f6d7f90c29637ab1f485e0c98d1e"
+    },
+    "source_parent_clusters": 512,
+    "repeats": 4,
+    "fake_rows": 2048,
+    "REAL_reference_rows": 2048,
+    "REAL_control_rows": 2048,
+    "REAL_reference_groups": 419,
+    "REAL_control_groups": 419,
+    "shared_groups": 416,
+    "union_groups": 422,
+    "group_origin": "Known historical 50-record artificial blocks, not identified independent acquisitions",
+    "acquisition_count": 1,
+    "independent_acquisition_uncertainty": "unknown",
+    "common_bank": {
+      "source_parents": 512,
+      "draws_per_parent": 4,
+      "rows": 2048,
+      "parent_major_order_exact": true,
+      "selected_source_ids_sha256": "a1ead7ac4911c4eaa84f8394a3ac85c26d0d511fa01d299fb69704a03b3f8bd5",
+      "EVALUATION_BANK_sha256": "ccb56fb61c27c44236adaa8ccf19657bb24b315a14a57990e04e7f6bae90b987",
+      "source_and_REAL_seed_selection_exact": true,
+      "evaluation_shape_stream_byte_exact": false,
+      "shape_stream_recreation_max_error": 2.384185791015625e-07,
+      "shape_stream_tolerance": 5e-07,
+      "REAL_REAL_disjoint": true,
+      "native_projection_context": {
+        "kind": "evaluation",
+        "seed": 2026101430,
+        "update": null,
+        "fingerprint": "27ed58d90114de6bfa5bf30ff5ad251516cdc9bcadfb5eb10e2a6ec45ed11482"
+      },
+      "local_projection_context": {
+        "kind": "evaluation",
+        "seed": 2026101430,
+        "update": null,
+        "fingerprint": "2648af2164d6a7d36697f2006b8f23269b1f62c8b94b80b81c3fd69fc11d1092"
+      },
+      "projection_fingerprint_byte_exact": false,
+      "distance_numeric_tolerance": 1e-07,
+      "noise_extension_bank_shared_by_native_code": true
+    },
+    "base_conditional_support": "All eight frozen TRAIN-Q bins used by all A/final hypotheses; original min16 row-count rule"
+  },
+  "review_activity": {
+    "statistical_bootstrap_replicates_executed": 0,
+    "new_scientific_statistics": 0,
+    "waveform_array_numeric_decodes": 0,
+    "saved_NPZ_header_metadata_only": true,
+    "checkpoint_loads": 0,
+    "new_model_instances": 0,
+    "model_forwards": 0,
+    "gradients": 0,
+    "optimizer_updates": 0,
+    "DEV_reads": 0,
+    "protected_source_original_metadata_or_output_edits": 0,
+    "output_root": "E:\\GAN\\research\\N01\\receipts\\stability011_20261014\\method_review_01",
+    "temps": "E:/GAN/runtime_tmp"
+  },
+  "primary_plan": {
+    "replicates": 500,
+    "source_draw": "512 draws with replacement from exactly 512 saved source parents",
+    "source_draw_pack": "Retain all four saved paired responses per selected parent; no within-parent resampling",
+    "REAL_draw": "419 draws with replacement from the 419 groups represented in the REAL reference bank only",
+    "REAL_draw_pack": "Retain every reference-bank row in each drawn group; do not draw group-internal rows",
+    "source_and_REAL_plans_independent": true,
+    "shared_across": [
+      "frozen_A",
+      "shape010_final",
+      "fast",
+      "slow",
+      "common_level",
+      "all loss components"
+    ],
+    "control": "REAL_REAL point only; no control bootstrap and no union-of-422 group sampling",
+    "initial": "Preserve initial point receipt; initial is not a primary comparator and needs no additional 500-replicate run",
+    "unstratified": true,
+    "no_refit_statistics_or_new_projection_latents_or_neural_calls": true,
+    "seeds": "Root must preassign distinct uint64 source-plan and REAL-group-plan seeds before freeze; record full plans plus before/after RNG states",
+    "fake_row_weight": "m_source[parent(row)] / 2048",
+    "REAL_row_weight": "m_REAL[group(row)] / sum_over_reference_rows(m_REAL[group(row)])",
+    "fake_expanded_rows": 2048,
+    "REAL_expanded_rows": "Variable; save total and unique source parents/groups/rows each replicate",
+    "group_size_weighting": "Preserve original event-weighted empirical distribution; do not average each group distribution equally",
+    "categorical_label_policy": "Identifiers/groups enter resampling bookkeeping only; never waveform/NN inputs"
+  },
+  "frozen_statistic": {
+    "S_h": "wave_h + 2*QPSD_h; regular and noise excluded",
+    "S": "mean of S_h across fixed fast/slow/common_level",
+    "primary_contrast": "Delta_b = S_final_b - S_A_b; negative denotes lower proxy distance",
+    "primary_interval": "Unadjusted 95% two-sided percentile interval, quantile probabilities .025 and .975, NumPy method linear, exactly all 500 paired replicates",
+    "relative_change": "100 * Delta_b / S_A_b for each replicate, guard finite positive denominator; point change uses point S_A",
+    "reported_point": {
+      "fast": {
+        "A": {
+          "wave": 0.17881402321419193,
+          "QPSD": 0.0791531153478931
+        },
+        "initial": {
+          "wave": 0.1883709781974912,
+          "QPSD": 0.1468319892455298
+        },
+        "final": {
+          "wave": 0.1764865374711083,
+          "QPSD": 0.07094522283158336
+        },
+        "final_minus_A": {
+          "wave": -0.0023274857430836404,
+          "QPSD": -0.00820789251630974
+        },
+        "relative_final_minus_A_percent": {
+          "wave": -1.3016237212534865,
+          "QPSD": -10.369639249490659
+        },
+        "final_minus_initial": {
+          "wave": -0.011884440726382922,
+          "QPSD": -0.07588676641394643
+        },
+        "wave_plus_2QPSD_proxy": {
+          "A": 0.33712025390997813,
+          "initial": 0.4820349566885508,
+          "final": 0.318376983134275,
+          "final_minus_A": -0.018743270775703147,
+          "relative_final_minus_A_percent": -5.559817471159178
+        },
+        "all_three_joint_components_improve_on_same_A_bank": true
+      },
+      "slow": {
+        "A": {
+          "wave": 0.17950834701034074,
+          "QPSD": 0.07502653932032236
+        },
+        "initial": {
+          "wave": 0.1891604352484882,
+          "QPSD": 0.14944704305608608
+        },
+        "final": {
+          "wave": 0.17745618453291373,
+          "QPSD": 0.06930718037167967
+        },
+        "final_minus_A": {
+          "wave": -0.002052162477427011,
+          "QPSD": -0.005719358948642686
+        },
+        "relative_final_minus_A_percent": {
+          "wave": -1.1432128430823307,
+          "QPSD": -7.62311443451249
+        },
+        "final_minus_initial": {
+          "wave": -0.01170425071557446,
+          "QPSD": -0.08013986268440641
+        },
+        "wave_plus_2QPSD_proxy": {
+          "A": 0.32956142565098545,
+          "initial": 0.48805452136066035,
+          "final": 0.3160705452762731,
+          "final_minus_A": -0.013490880374712355,
+          "relative_final_minus_A_percent": -4.0935859978344595
+        },
+        "all_three_joint_components_improve_on_same_A_bank": true
+      },
+      "common_level": {
+        "A": {
+          "wave": 0.17978287186962355,
+          "QPSD": 0.08223767713821026
+        },
+        "initial": {
+          "wave": 0.18656979975224325,
+          "QPSD": 0.14619624505996404
+        },
+        "final": {
+          "wave": 0.17639340501786077,
+          "QPSD": 0.07248481624524605
+        },
+        "final_minus_A": {
+          "wave": -0.003389466851762779,
+          "QPSD": -0.009752860892964205
+        },
+        "relative_final_minus_A_percent": {
+          "wave": -1.8853113294467705,
+          "QPSD": -11.85935842591147
+        },
+        "final_minus_initial": {
+          "wave": -0.010176394734382477,
+          "QPSD": -0.07371142881471798
+        },
+        "wave_plus_2QPSD_proxy": {
+          "A": 0.34425822614604407,
+          "initial": 0.4789622898721713,
+          "final": 0.3213630375083529,
+          "final_minus_A": -0.02289518863769119,
+          "relative_final_minus_A_percent": -6.650585780912732
+        },
+        "all_three_joint_components_improve_on_same_A_bank": true
+      }
+    },
+    "wave_definition": ".50*mean six projected W1 terms + .25*mean voltage/shape coordinate W1 + .25*mean eight time-resolved short-lag W1 terms",
+    "qpsd_global": ".50*(marginal standardized logQ/PSD W1 + projected standardized logQ/PSD W1)",
+    "qpsd_reduction": ".50*(global_qpsd + mean supported conditional PSD W1 terms); original global-only fallback if no supported bins",
+    "bin_boundaries": "Original FIT_STATISTICS008 TRAIN boundaries frozen; bucketize raw extended-log output Q, side left, separately for each saved view/hypothesis",
+    "standardization": "Original fixed TRAIN centers/scales, q_reference, q_floor and peak_floor; no replicate refitting",
+    "observation": "Already saved hard waveform_V; no redigitization, peak/crop recomputation, or new noise reconstruction"
+  },
+  "support_rule": {
+    "minimum": 16,
+    "count_basis": "Expanded row multiplicity, not number of unique nonzero-weight rows and not original unexpanded array length",
+    "fake_bin_count": "sum_rows m_source[parent(row)] * I(saved output-Q bin == k)",
+    "REAL_bin_count": "sum_reference_rows m_REAL[group(row)] * I(saved output-Q bin == k)",
+    "conditional_mass": "Normalize each domain independently within the selected bin",
+    "global_term": "Always includes all rows/mass; no tail or low-charge event removal",
+    "dynamic_fallback": "Reproduce original supported-bin/fallback statistic exactly and store every coverage mask",
+    "missing_bins": "Keep each planned replicate and its exact metric/coverage diagnostics; never redraw, drop, impute, or select a common survivors-only subset",
+    "decision_guard": "If any primary replicate has incomplete conditional coverage, label coverage artifact and do not directly confirm stable benefit",
+    "record_extra_unique_counts": true
+  },
+  "secondary_plan": {
+    "same_500_replicates_only": true,
+    "intervals": [
+      "aggregate Delta_wave",
+      "aggregate Delta_QPSD",
+      "three per-hypothesis Delta_proxy"
+    ],
+    "additionally_save": "All six per-hypothesis component contrasts and their marginal intervals can be saved from the same already computed vectors",
+    "interval_scope": "Marginal descriptive 95% intervals, not simultaneous family coverage",
+    "no_best_hypothesis_selection": true,
+    "no_extra_source_only_or_inner_draw_bootstrap": true,
+    "bootstrap_bias_diagnostic": "Report mean Delta_b minus point Delta and percentile interval; do not choose percentile/basic/BCa after seeing outcomes",
+    "zero_fraction": "Optional descriptive fraction of Delta_b<0; never call it a p-value or posterior probability"
+  },
+  "implementation_risks": [
+    {
+      "risk": "Existing loss APIs accept fake weights only and conditional support counts unexpanded rows",
+      "remedy": "Literal source/group-expanded row arrays with original loss OR an exact dual-domain weighted-CDF implementation tested against literal expansion, including variable REAL N and unequal conditional counts"
+    },
+    {
+      "risk": "Fast equal-N sorted-difference path cannot be used for variable REAL totals or nonconstant bootstrap weights",
+      "remedy": "Exact integration of abs(CDF_fake-CDF_REAL) over merged sorted support; each domain and each conditional bin normalized separately"
+    },
+    {
+      "risk": "Four-response pseudo-replication",
+      "remedy": "Sample complete source-parent packs, not 2048 independent generated rows"
+    },
+    {
+      "risk": "REAL row independence and control overlap",
+      "remedy": "Use 419 reference groups; only point RR uses disjoint control rows; group blocks are sensitivity units, not physical acquisitions"
+    },
+    {
+      "risk": "Cross-CPU projection fingerprints",
+      "remedy": "Use same original native CPU/runtime and registered evaluation seed; require native fingerprint if reproducible, otherwise retain distinct fingerprint plus <=1e-7 baseline component error gate and unchanged saved inputs"
+    },
+    {
+      "risk": "Changing support estimator",
+      "remedy": "Count duplicate multiplicities exactly and preserve original fallback/coverage records, with no selective missing-replicate filtering"
+    },
+    {
+      "risk": "Silently approximating expensive loss",
+      "remedy": "Cache fixed waveform transforms/projections and sorted support in float64; chunk feature/replicate tiles; no projection thinning, approximate quantiles, fewer bins, or reduced hypotheses"
+    },
+    {
+      "risk": "Unplanned parameter/candidate selection",
+      "remedy": "Use fixed final-versus-A contrast and predeclared thresholds only; no best checkpoint, scale, hypothesis, seed, or bootstrap budget selection"
+    }
+  ],
+  "engineering_requirements": {
+    "artificial_only_before_scientific_execution": true,
+    "fixtures": [
+      "Uniform baseline weights equal the existing 010 point loss",
+      "Literal expanded group weights equal exact-CDF loss with unequal REAL N",
+      "Tie supports and zero multiplicity rows",
+      "Conditional counts include multiplicities and min16 boundary cases",
+      "Duplicated source parent retains all four draws and all hypothesis pairing",
+      "Failure/partial replicate count preserved; no successful COMPLETE before 500 results"
+    ],
+    "protected_SHA_inputs": "Original 010 source manifest, policy, bank, A/final waveform NPZ and their parent IDs, original TRAIN data/stat/group identity binding, initial/final evaluation JSON; no original trained weight load required",
+    "baseline_gate": "Reproduce all six A/final waveform/QPSD and subcomponent points against original 010 receipts within 1e-7 before bootstrapping",
+    "runtime": "Root to freeze native CPU/thread/RSS/wall/output caps and batch sizes based on artificial full-shape engineering tests; no scientific pilot or budget extension",
+    "cache": "Precompute point transforms/projected coordinates and exact sorted support; use bounded replicate/feature chunks; preserve all wave view/short-lag/QPSD terms",
+    "completion": "Exact500 planned/attempted/completed with primary arrays, per-hyp/component arrays, plan and support diagnostics, native exit and final unchanged-input/source SHA proof"
+  },
+  "decision_rule_recommendation": {
+    "preregister_before_any_011_statistic": true,
+    "worth_next_bounded_per_loss_crop_diagnosis": "All500 finite and engineering binding gates pass, every primary replicate uses complete original conditional coverage, and upper primary Delta percentile95% endpoint <0",
+    "interpretation_of_yes": "Stable sign under the registered fixed-TRAIN-bank source/REAL-group reweighting; only motivates the next registered mechanism diagnosis",
+    "uncertain": "If primary interval includes zero, no stable-benefit claim; preserve result and do not expand bootstrap/training or choose another CI scheme",
+    "harmful_or_coverage": "If direction is adverse or coverage/finite/gate checks fail, report the exact issue and do not confirm stable benefit",
+    "secondary_CI_role": "Diagnosis and tradeoff context only; no post hoc selection of a winning hypothesis or threshold",
+    "never_implied": [
+      "Scientific response acceptance",
+      "Convergence at2000G",
+      "Mean-path-only causal mechanism",
+      "GAN would fix the gap",
+      "Automatic GAN arm or more training"
+    ]
+  },
+  "interpretation_limits": [
+    "Conditional on fixed fitted A/final models, this selected TRAIN pool and the four saved draw packs, original preprocessing and frozen projection bank.",
+    "The bootstrap changes empirical row/group weights, not the response/noise model. It does not generate new latent/noise draws or refit training.",
+    "Source packs contain only four repeats. Their empirical conditional variation cannot represent all true conditional response uncertainty.",
+    "Original REAL50-record groups are artificial blocks in one historical acquisition, not established independent acquisitions; unknown cross-block/acquisition uncertainty remains.",
+    "010 trained on all of these TRAIN events and was chosen after 009 TRAIN diagnosis. Preregistering011 now does not remove adaptive model-design/in-sample selection optimism.",
+    "The chosen statistic has absolute values, sorting and support discontinuities. General percentile-bootstrap coverage is not automatically calibrated for this composite Wasserstein contrast.",
+    "With500 replicates each2.5% tail has only about12.5 resample ranks; report finite MonteCarlo resolution, and do not adaptively extend the budget.",
+    "No formal calibrated hypothesis test, posterior improvement probability, independent generalization, hardware acceptance or physical noise identification follows from an interval excluding0."
+  ],
+  "primary_method_references": [
+    {
+      "title": "Inference for Empirical Wasserstein Distances on Finite Spaces",
+      "authors": "Max Sommerfeld and Axel Munk",
+      "url": "https://arxiv.org/abs/1610.03287",
+      "use": "The authors discuss failure of the classical bootstrap for finite-space Wasserstein inference. This motivates an explicit non-calibrated stability interpretation; it is not a proof that this specific paired composite interval fails."
+    },
+    {
+      "title": "ClusterBootstrap: hierarchical repeated-measure cluster bootstrap",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7148287/",
+      "use": "Preserve the full set of repeated measurements within each resampled cluster; do not treat repeated responses as independent parent events."
+    },
+    {
+      "title": "SciPy bootstrap official documentation",
+      "url": "https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.bootstrap.html",
+      "use": "Paired resampling reuses an index plan across paired arrays, and percentile intervals come from resampled statistic quantiles. Independent SOURCE/REAL unit counts require separate domain plans."
+    }
+  ],
+  "scientific_status": "response_match_not_established"
+}

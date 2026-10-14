@@ -1,0 +1,91 @@
+{
+  "schema": "n01/stability011-design-receipt/v1",
+  "scope": "Read-only feasibility and authorized two-script construction with explicitly artificial CPU fixtures; true scientific execution awaits root freeze/launch",
+  "primary_estimand": "Delta = mean_h[whole_pooled_wave_final + 2*whole_pooled_QPSD_final] - mean_h[whole_pooled_wave_A + 2*whole_pooled_QPSD_A]",
+  "final_registered_resampling": {
+    "replicates": 500,
+    "source_units": "512 saved parents, four saved observed responses retained together",
+    "REAL_units": "419 original artificial 50-record groups represented by the 2048 selected reference rows",
+    "source_seed": 2026101451,
+    "REAL_seed": 2026101452,
+    "algorithm": "Independent Generator(PCG64(seed)).integers(0,C,size=(500,C)), then rowwise np.bincount(minlength=C)",
+    "pairing": "Same source/REAL multiplicity across both arms, three hypotheses and all components",
+    "mass": "Source actual repeated row count 2048; REAL actual variable repeated row count; separate per-bin masses",
+    "stratification": false,
+    "within_cluster_resampling": false,
+    "REAL_control": "Original point REAL-REAL only, no replicate resampling",
+    "source_only_mode": "Considered as uncertainty conditional on fixed REAL, not added to the final single 500-replicate design"
+  },
+  "metric_details": {
+    "wave_columns": 8776,
+    "wave_projection_columns": 192,
+    "wave_coordinate_columns": 512,
+    "short_lag_columns": 8072,
+    "weights": "Preserve hierarchical mean over six SWD groups, two coordinate groups and eight short-lag groups, then .5/.25/.25",
+    "QPSD": "Two-coordinate plus sixteen-direction global W1 and supported output-Q-bin PSD W1, original reduction/fallback",
+    "Q_membership": "Frozen per observed saved row and arm; source strata cannot ensure observed-output bins",
+    "support": "Each domain repeated occurrence count >=16; no missing-bin zero penalty, replicate deletion, redrawing or replacement",
+    "classification": "Coverage-limited takes precedence; otherwise upper Delta interval <0 means stable saved-TRAIN-bank gain, lower >0 means worsening, else unresolved"
+  },
+  "feasibility": {
+    "saved_waveforms": "A/final x three hypotheses, 2048x256, original paired parent identities",
+    "reference": "REAL waveforms are reconstructed only from the four permitted frozen DATASET008 members and saved bank indices",
+    "projection": "Once-only original CPU evaluation factory from verified 011 copies of frozen010 source; seed 2026101430/kind evaluation/update None",
+    "point_gate": "Six endpoint comparisons plus original REAL-REAL, max error <=1e-7 before any scientific bootstrap; fingerprint equality separately recorded",
+    "cache": "Fixed sorted union IDs and gaps; count-weighted CDF integral exactly equals literal replicated pooled rows, including unequal N/ties/zero multiplicity",
+    "memory": "Column-major caches, 256-column reduction chunks, six caches about2.16GB; single process with twelve NumPy worker threads",
+    "durability": "Four distinct fsynced journals for entered, computed, saved and worker-failure records. SIGKILL preserves lower bounds and unknown unfinished work; no native success without full COMPLETE500"
+  },
+  "actual_source_sha256": {
+    "scripts/stability011_metrics.py": "fd87e544673f63887e57c8efafeb0327bbe4db430b04c9697c71cd2e244c3f78",
+    "scripts/run_stability011.py": "37510bf0a607c04bea3e97ddbeb38c64714ecb461a94a6febefc6e2c43bbeee1"
+  },
+  "synthetic_validation": {
+    "receipt": "actual_scripts_cpu_03/SYNTHETIC_CHECK.json",
+    "passed": 17,
+    "total": 17,
+    "native_exit_code": 0,
+    "maximum_literal_CDF_repeat_error": 2.220446049250313e-16,
+    "maximum_whole_proxy_repeat_error": 5.551115123125783e-17,
+    "native_failure_before_first_completion": "exit7, two durable entered records, zero computed/saved, FAILED retained",
+    "hard_kill_first_inflight": "native nonzero, two durable entered records despite old status attempts0; unfinished computation is unknown",
+    "partial_failure": "One saved/computed, two entered attempts, no replacement or COMPLETE",
+    "first_failed_fixture_attempts": "Preserved separately; strict float-zero tolerance and checker path index repaired without changing scientific metric semantics"
+  },
+  "native_synthetic_cost": {
+    "receipt": "ACTUAL_METRICS_NATIVE_BENCHMARK.json",
+    "SSH_exit_code": 0,
+    "private_project_array_reads": 0,
+    "checkpoint_decodes": 0,
+    "synthetic_domain_rows": [2048, 2048],
+    "columns": 1024,
+    "CPU_worker_threads": 12,
+    "CPU_affinity": [0,1,2,3,4,5,6,7,8,9,10,11],
+    "cached_reductions": 24,
+    "reduction_seconds": 0.27993620399502106,
+    "linear_500x6_full_CDF_estimate_seconds": 300.5076877358661,
+    "suggested_total_estimate_minutes": [8, 15],
+    "estimate_exclusions": "True dataset decode, full projection/cache-sort construction, CPU/runtime variation, hash/QA/fsync/output overhead; not a scientific runtime guarantee",
+    "full_runtime_RSS_estimate_GiB": [3,4],
+    "output_estimate_MiB_less_than": 16,
+    "hard_caps": "CPU12/RSS8GiB/wall7200s/output256MiB; external owned-job supervisor remains authoritative",
+    "remote_persistent_output": false
+  },
+  "remaining_limits": [
+    "Intervals describe fixed trained/selected endpoints, fixed exposed TRAIN bank, saved four draws and fixed projection only",
+    "419 artificial REAL groups are not established independent acquisition units",
+    "No training/model-selection/fresh-latent/independent-acquisition uncertainty is estimated",
+    "No formal frequentist coverage, significance test or response-match acceptance follows from the interval",
+    "Original full baseline/noise carriers were not saved; noise loss is not part of the registered wave+2QPSD proxy"
+  ],
+  "scientific_bootstrap_replicates_executed": 0,
+  "scientific_point_recomputations_executed": 0,
+  "private_array_decodes_this_task": 0,
+  "checkpoint_decodes_this_task": 0,
+  "new_model_instances": 0,
+  "new_model_forward_rows": 0,
+  "gradient_evaluations": 0,
+  "optimizer_updates": 0,
+  "original_008_009_010_files_modified": false,
+  "scientific_status": "response_match_not_established"
+}

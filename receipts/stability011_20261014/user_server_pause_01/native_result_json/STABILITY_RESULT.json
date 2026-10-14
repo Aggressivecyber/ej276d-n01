@@ -1,0 +1,957 @@
+{
+  "UTC": "2026-10-14T12:20:27.727927+00:00",
+  "schema": "n01/stability011-result/v1",
+  "run_id": "stability011_20261014",
+  "pid": 223614,
+  "artificial_only": false,
+  "phase": "final_readback_and_hash_verification",
+  "point_checks_passed": true,
+  "bootstrap_replicates_completed": 500,
+  "bootstrap_replicates_attempted": 500,
+  "bootstrap_replicates_computed_successfully": 500,
+  "counters": {
+    "checkpoint_loads": 0,
+    "model_instances": 0,
+    "model_forward_rows": 0,
+    "gradient_evaluations": 0,
+    "G_updates": 0,
+    "D_updates": 0,
+    "noise_updates": 0,
+    "population_updates": 0,
+    "C2ST_updates": 0
+  },
+  "recorded_unfinished_replicate_ids": [],
+  "durability": {
+    "attempts_journal": "bootstrap_attempts.jsonl",
+    "computed_journal": "bootstrap_computed.jsonl",
+    "saved_journal": "bootstrap.jsonl",
+    "worker_errors_journal": "bootstrap_worker_errors.jsonl",
+    "journals_flushed_and_fsynced_before_counters": true,
+    "status_is_snapshot_only": true,
+    "interrupted_unjournaled_compute_state": "unknown_do_not_infer_zero"
+  },
+  "DEV_numeric_read": false,
+  "SOURCE_waveform_decode": false,
+  "scientific_status": "response_match_not_established",
+  "elapsed_seconds": 319.670678355993,
+  "inputs_sha256": {
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/stability011_policy.json": "ead651a10565f5712e33869b39f0c486e092efb21edb73f9dc9e30464081098c",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/STABILITY011_SOURCE_MANIFEST.json": "f5c0839d6b3bb4cfe29e12b52cfac449b6b3bc0c623f6a800da34fc5cb24f257",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/STABILITY011_BINDINGS.json": "c7978fd1c30802f0bc2b89dab19a55740e4824af58311b704aea49c5df57e631",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/docs/SHAPE010_PROTOCOL.md": "d11b5d6942b9a22c4c53d9dda2928cbaf06f76d4cf3e6cd51257257d4ae76198",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/scripts/check_mean_random009.py": "2d3e7424a22135ffdbfae41669422d31120a533b4591308d6eb87411ca29f26e",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/scripts/check_model010.py": "029e813c7bdf0a6ff5b157d0961c43ff11cd9f15f6b648c3a599303c4b5c4f6d",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/scripts/check_shape010.py": "055fe0d44d0d0f49d857fac45baf9abd4b4c9b3bb1dac1f3e0ed9d2fd9aac8f8",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/scripts/deploy_shape010.py": "ede4ac0d7d5c80faac6d8c8f649f2ae6e62a6f64f7dd02e9f416afca80c4f9b8",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/scripts/freeze_shape010.py": "0716d88ab3fe9b83d17e62223f053cb46a9f564e1620d7657ebab534e45b0b86",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/scripts/register_shape010.py": "047e3b5397798a635e22cba5735f3a88a4fe0e10e8fbf5f7a01a90759b13db1c",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/scripts/snapshot_shape010.py": "04cff09df022becabfa9b8b172039c68b3ad574d27b8f376b12b3f8d0ef2e459",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/scripts/start_shape010_remote.py": "ac77ecceecdf573e1a0aadb485d91d4475c0c7b955b7f81053d0b3915fead7f4",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/scripts/supervise_shape010.py": "86bd5b0d11bbd7cf9f67890816fd430c739b58a7c3b055bb4ef90daf0dd7fae9",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/shape010_policy.json": "743e009f043df3f9ab57df996e37ebe57ff6726efa0401c81da116374cd59f5c",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/src/n01/__init__.py": "d17d880249fa0f50920dd14c505b15b4de74419849f86296913c31576c31e891",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/src/n01/ablation009.py": "8100bbedb765f08f689a4bce5cb9ea1af133e6f2b895b544656f6e9fbd058d3b",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/src/n01/acf20.py": "cebc8f4bbb16a442d4c37a4d4ceab15592264b935d153070df1abbdb551838b2",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/src/n01/data.py": "2ec3363bc830043af053342b4638f5e6ab55d27303da037f383f4fe630d77bd2",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/src/n01/data008.py": "2a66a8800642cf6788ce268d326af9d128cb165daf60d555f802b2c881ac97af",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/src/n01/diagnose_mean_random009.py": "31a07360e9ab53e987fe6d2bec3b466398a2c7125e64c1c94b712708ae62dfc4",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/src/n01/diagnose_window008_resume01.py": "063e501b9f701b8fbe4e380fa215818a11437c7090f5ef9764d8897be49777b5",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/src/n01/electronics_v2.py": "e4a6618edf9dba1c427e1e93342eb3b143e482f471f000003fba96dc48ce4706",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/src/n01/electronics_v3.py": "816b12bf4814f23ff4455498ec385df335cdb38827548c969e38ef08b9763926",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/src/n01/evaluate.py": "baaaf0c50c98a15b3c04cddf07ea4c1b5b4503156c50fd78d774cf3fb5baf8bb",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/src/n01/evaluate_integration006.py": "13729569d05f2d2f29372355e11da56bff659dd2c72b9bab8bb6dcdf5d3e282a",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/src/n01/evaluate_repair.py": "d03401b7c6d497bffd2172f2204005413d4de9aa9eafac4c743bc5f12b6622c4",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/src/n01/evaluate_response007.py": "e27ecba71cbe1eb3d2ba389eb860c0109d72741abceb72a878e2db3a8cd602f3",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/src/n01/evaluate_window008.py": "75f8988415a181a31a7c2b5890418b1f7685e0d8fb141cdea84f4174af783cc0",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/src/n01/evaluate_window008_resume01.py": "79e0187d562521809efaff553ee6357cd14ac75e9c38c59c5e484710f48e27b0",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/src/n01/extension006.py": "caa2eff66555773d04a72482c8375b5896a241e0a858070a80f689aa3def5040",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/src/n01/losses.py": "4371a6d5924f0f664935b5d6eb6715c530f80af39ae276c7dc34ba02c5f4b1a7",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/src/n01/losses008.py": "68a9330b7e0620f12adbb3dc22a00c632a1b7577d44b92617da7d14979d9ea61",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/src/n01/losses008_v2.py": "6932772c4b00fa62383b5ca356f26d0cf81271be531888b474ae6146fa25f3d8",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/src/n01/losses_v2.py": "0df69a4e22ec3817e405c53f25ab1b0824bde82cebca0e15008412651d1b136f",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/src/n01/model.py": "0a0488218d99f351a98e30f2b1525b837b4ad3195c19f2a76ff61ee01298587b",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/src/n01/model008.py": "56a6b41f9d2906c82757f4ca9f91a751ff8531428a7f38714e0a291359cd1b4f",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/src/n01/model008_fix01.py": "3bc826a1867f2658ae507ab2be683a6b901b7f481b1efaf005f3cf4953429abc",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/src/n01/model010.py": "3fbbee140477caf755feadf88175291c451c95a56899770a65eebf7be6204318",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/src/n01/noise_validation.py": "40660c95ff64368de6a33bf8ebb4f82e060966578f651e2315fb6fe18fb9b886",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/src/n01/noise_validation_acf005.py": "81677033fefab393e6c577f463a480992ad376a728058ce25d1ea20a3a4b88f6",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/src/n01/observation008.py": "9f7b6c0a266c420af8c6c155103774bae1ed949cfe05ee6a1f19b75f9254c4ec",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/src/n01/response007.py": "884081b5b777c0c6be282c575c2ffbf91ba44fae21d371d8b4e922abb96ee298",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/src/n01/response008.py": "cf8b14b377530a234b066c2fd958827172abb624e7a959ac9bb26a416ff3b2e7",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/src/n01/response008_fix01.py": "fbf365a219051ed6c0a3786a59ea3f4b216772610cd52da10101f35ac9515aef",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/src/n01/response008_resume01.py": "efcd7b473fdcbb3ecb69c736b5f2862d7e5769c60752f9c3912a235d5e8f32f1",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/src/n01/train.py": "9cb6b0a9cfad3fd9163eee919de7b2d64ca422513093e204f62a934e25684169",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/src/n01/train_noise_acf005.py": "78db77a5af1a22ef9d1a3088d09b20de07369bf77529e1c19defe2e361920c26",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/src/n01/train_noise_v3.py": "192ba48b0b7dd11a2fc6812bcc6667c7a947afc6e30c6a159314b67e8a453cfb",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/src/n01/train_repair.py": "79895348ee192e8dd9e757f1d16b15d41fc05bd1755badcafaf571822fc27332",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/src/n01/train_response007.py": "901d0c7cc98fc591f218312237da58865d796ff2fb848dc912e212a4e6cbe0e2",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/src/n01/train_response007_deadline01.py": "587ce623847591a1a4c0619f24d988d33d667cb9afe2beade370231758a213a7",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/src/n01/train_response007_statusfix01.py": "8db597c6388fe5f6255a113ca752c5d3796c58699931a27482d3ffe2e30c06d1",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/src/n01/train_shape010.py": "5c94a6d947c1cfcb926ea2b39e77fbdeb6600f231f503fdf4c43c7ff7033e6d9",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/src/n01/train_window008.py": "13bfe66a321c85e688f7dc2812ed9915e020050bbf1c79c81c2c133d27415b0e",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/src/n01/train_window008_fix01.py": "8202fc07d4220b82b13d0722d62be235733d8e1bf00eff5b52fc5cacc6551d4c",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/src/n01/train_window008_resume01.py": "bea28aa29eb6df8a750168815ae56cf1db4204c3d20ef8bd480e0334b1999cb9",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/WINDOW008_RESUME01_SOURCE_MANIFEST.json": "0a3208cd8f05e8dd85cd44fde60e742fd28705eadb3fdae6752dce2f81fd8fb1",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/WINDOW008_RESUME01_EVALUATION_SOURCE_MANIFEST.json": "bc4a3a21dfdf9a8e4e6a6a8bdccf03924f5f4ae2ecf77be21cc33d424f84beaa",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/WINDOW008_RESUME01_DIAGNOSTICS_SOURCE_MANIFEST.json": "391814ba108db517d2002b34413989eb46ab1f2d748cd06703d740e615ed0eb6",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/MEAN_RANDOM009_SOURCE_MANIFEST.json": "493053341229c9aae74a8a9bb372aa38f2b3414be9994d22886e733755ea211d",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/scripts/stability011_ops.py": "79d5d17f0faf19f0e935f052fdae2c7103625b5a68d7940702ecbff2916ce7b5",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/scripts/supervise_stability011.py": "98bed7ee84d4cd99181cdf1f9e9511c07ddc1672926e0f484849dfa1a0e8de3d",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/scripts/run_stability011.py": "37510bf0a607c04bea3e97ddbeb38c64714ecb461a94a6febefc6e2c43bbeee1",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/scripts/stability011_metrics.py": "fd87e544673f63887e57c8efafeb0327bbe4db430b04c9697c71cd2e244c3f78",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/docs/STABILITY011_PROTOCOL.md": "e335edec31d767fc2ee25513b7ae0e010a4cacf510c9519860c9a6d649b8e2bb",
+    "/home/rylan/projects/ej276d-n01/window008_resume01_20261013/data/window008/DATASET008.npz": "8d43418595f4fa992a9b83735c4bf50863a659584d58888f8f965ec1339a1993",
+    "/home/rylan/projects/ej276d-n01/window008_resume01_20261013/data/window008/FIT_STATISTICS008.json": "aadd729364d0b6afac699a9d1774ac8d29fd2bcd10a9fd9f551141ecc2fbc2a0",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/SHAPE010_SOURCE_MANIFEST.json": "6a6e3b3dcabb74c614e7d1de5b6609591b8b7f48c465f580616b6660588e52c9",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/SHAPE010_BINDINGS.json": "92ad9cfc2a1d2d6793ee2810f7c05f84f180d988c4543355d90128c4f4607090",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/runs/primary/artifacts/COMPLETE.json": "b8c4676886e2b0053363df881e94b49cf36741d3b04bde9dd14315d6da1500c5",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/runs/primary/artifacts/INITIAL_EVALUATION.json": "9b121e0f2fdf41134ddb462ea8175a488074d233edd44acf359458202f659133",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/runs/primary/artifacts/FINAL_EVALUATION.json": "38ddbed635b14da75d9ceefa3866da23594e4dc1a0d1b0b6ac0c26374e95217b",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/runs/primary/artifacts/EVALUATION_BANK.npz": "ccb56fb61c27c44236adaa8ccf19657bb24b315a14a57990e04e7f6bae90b987",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/runs/primary/artifacts/BINDING.json": "701c4e7566c971122f5e46b3a9cc1c96adaad04d8ec91d72f97c08620c9792bd",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/runs/primary/supervisor/exit_receipt.json": "8e74babbbe3abbf65dd67ea65038d50208277c9b9429c1d43150d5e91045fe26",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/runs/primary/artifacts/frozen_A_fast_TRAIN.npz": "2c2b13fc4d5a8681bdd99fa78a8bf7298c32c29d72b95f219ec29fc9c64f583a",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/runs/primary/artifacts/frozen_A_slow_TRAIN.npz": "a0a15124b9acf9d125010be4c8b006f854a6d66824b5ccc6051ce39beb984b54",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/runs/primary/artifacts/frozen_A_common_level_TRAIN.npz": "254370bc9b32c787abcb2d3517705664573de0650ad951cbe6c129250f7c1b64",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/runs/primary/artifacts/shape010_final_fast_TRAIN.npz": "58843ea653f10447930f2e40d8c8746b4c33e8962caed52e537869d92a62e6d3",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/runs/primary/artifacts/shape010_final_slow_TRAIN.npz": "ef2ea3ffa132cc31a95c7851ad50f4a32a15bbce45e7fcf216e9e9977d05d0c4",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/runs/primary/artifacts/shape010_final_common_level_TRAIN.npz": "989da194bcde19b0e51c729ffe90e18c2e3a6596083d837f3032df77ee3455e1",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/docs/SHAPE010_PROTOCOL.md": "d11b5d6942b9a22c4c53d9dda2928cbaf06f76d4cf3e6cd51257257d4ae76198",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/scripts/check_mean_random009.py": "2d3e7424a22135ffdbfae41669422d31120a533b4591308d6eb87411ca29f26e",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/scripts/check_model010.py": "029e813c7bdf0a6ff5b157d0961c43ff11cd9f15f6b648c3a599303c4b5c4f6d",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/scripts/check_shape010.py": "055fe0d44d0d0f49d857fac45baf9abd4b4c9b3bb1dac1f3e0ed9d2fd9aac8f8",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/scripts/deploy_shape010.py": "ede4ac0d7d5c80faac6d8c8f649f2ae6e62a6f64f7dd02e9f416afca80c4f9b8",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/scripts/freeze_shape010.py": "0716d88ab3fe9b83d17e62223f053cb46a9f564e1620d7657ebab534e45b0b86",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/scripts/register_shape010.py": "047e3b5397798a635e22cba5735f3a88a4fe0e10e8fbf5f7a01a90759b13db1c",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/scripts/snapshot_shape010.py": "04cff09df022becabfa9b8b172039c68b3ad574d27b8f376b12b3f8d0ef2e459",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/scripts/start_shape010_remote.py": "ac77ecceecdf573e1a0aadb485d91d4475c0c7b955b7f81053d0b3915fead7f4",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/scripts/supervise_shape010.py": "86bd5b0d11bbd7cf9f67890816fd430c739b58a7c3b055bb4ef90daf0dd7fae9",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/shape010_policy.json": "743e009f043df3f9ab57df996e37ebe57ff6726efa0401c81da116374cd59f5c",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/src/n01/__init__.py": "d17d880249fa0f50920dd14c505b15b4de74419849f86296913c31576c31e891",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/src/n01/ablation009.py": "8100bbedb765f08f689a4bce5cb9ea1af133e6f2b895b544656f6e9fbd058d3b",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/src/n01/acf20.py": "cebc8f4bbb16a442d4c37a4d4ceab15592264b935d153070df1abbdb551838b2",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/src/n01/data.py": "2ec3363bc830043af053342b4638f5e6ab55d27303da037f383f4fe630d77bd2",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/src/n01/data008.py": "2a66a8800642cf6788ce268d326af9d128cb165daf60d555f802b2c881ac97af",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/src/n01/diagnose_mean_random009.py": "31a07360e9ab53e987fe6d2bec3b466398a2c7125e64c1c94b712708ae62dfc4",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/src/n01/diagnose_window008_resume01.py": "063e501b9f701b8fbe4e380fa215818a11437c7090f5ef9764d8897be49777b5",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/src/n01/electronics_v2.py": "e4a6618edf9dba1c427e1e93342eb3b143e482f471f000003fba96dc48ce4706",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/src/n01/electronics_v3.py": "816b12bf4814f23ff4455498ec385df335cdb38827548c969e38ef08b9763926",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/src/n01/evaluate.py": "baaaf0c50c98a15b3c04cddf07ea4c1b5b4503156c50fd78d774cf3fb5baf8bb",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/src/n01/evaluate_integration006.py": "13729569d05f2d2f29372355e11da56bff659dd2c72b9bab8bb6dcdf5d3e282a",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/src/n01/evaluate_repair.py": "d03401b7c6d497bffd2172f2204005413d4de9aa9eafac4c743bc5f12b6622c4",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/src/n01/evaluate_response007.py": "e27ecba71cbe1eb3d2ba389eb860c0109d72741abceb72a878e2db3a8cd602f3",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/src/n01/evaluate_window008.py": "75f8988415a181a31a7c2b5890418b1f7685e0d8fb141cdea84f4174af783cc0",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/src/n01/evaluate_window008_resume01.py": "79e0187d562521809efaff553ee6357cd14ac75e9c38c59c5e484710f48e27b0",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/src/n01/extension006.py": "caa2eff66555773d04a72482c8375b5896a241e0a858070a80f689aa3def5040",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/src/n01/losses.py": "4371a6d5924f0f664935b5d6eb6715c530f80af39ae276c7dc34ba02c5f4b1a7",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/src/n01/losses008.py": "68a9330b7e0620f12adbb3dc22a00c632a1b7577d44b92617da7d14979d9ea61",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/src/n01/losses008_v2.py": "6932772c4b00fa62383b5ca356f26d0cf81271be531888b474ae6146fa25f3d8",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/src/n01/losses_v2.py": "0df69a4e22ec3817e405c53f25ab1b0824bde82cebca0e15008412651d1b136f",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/src/n01/model.py": "0a0488218d99f351a98e30f2b1525b837b4ad3195c19f2a76ff61ee01298587b",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/src/n01/model008.py": "56a6b41f9d2906c82757f4ca9f91a751ff8531428a7f38714e0a291359cd1b4f",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/src/n01/model008_fix01.py": "3bc826a1867f2658ae507ab2be683a6b901b7f481b1efaf005f3cf4953429abc",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/src/n01/model010.py": "3fbbee140477caf755feadf88175291c451c95a56899770a65eebf7be6204318",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/src/n01/noise_validation.py": "40660c95ff64368de6a33bf8ebb4f82e060966578f651e2315fb6fe18fb9b886",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/src/n01/noise_validation_acf005.py": "81677033fefab393e6c577f463a480992ad376a728058ce25d1ea20a3a4b88f6",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/src/n01/observation008.py": "9f7b6c0a266c420af8c6c155103774bae1ed949cfe05ee6a1f19b75f9254c4ec",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/src/n01/response007.py": "884081b5b777c0c6be282c575c2ffbf91ba44fae21d371d8b4e922abb96ee298",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/src/n01/response008.py": "cf8b14b377530a234b066c2fd958827172abb624e7a959ac9bb26a416ff3b2e7",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/src/n01/response008_fix01.py": "fbf365a219051ed6c0a3786a59ea3f4b216772610cd52da10101f35ac9515aef",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/src/n01/response008_resume01.py": "efcd7b473fdcbb3ecb69c736b5f2862d7e5769c60752f9c3912a235d5e8f32f1",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/src/n01/train.py": "9cb6b0a9cfad3fd9163eee919de7b2d64ca422513093e204f62a934e25684169",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/src/n01/train_noise_acf005.py": "78db77a5af1a22ef9d1a3088d09b20de07369bf77529e1c19defe2e361920c26",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/src/n01/train_noise_v3.py": "192ba48b0b7dd11a2fc6812bcc6667c7a947afc6e30c6a159314b67e8a453cfb",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/src/n01/train_repair.py": "79895348ee192e8dd9e757f1d16b15d41fc05bd1755badcafaf571822fc27332",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/src/n01/train_response007.py": "901d0c7cc98fc591f218312237da58865d796ff2fb848dc912e212a4e6cbe0e2",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/src/n01/train_response007_deadline01.py": "587ce623847591a1a4c0619f24d988d33d667cb9afe2beade370231758a213a7",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/src/n01/train_response007_statusfix01.py": "8db597c6388fe5f6255a113ca752c5d3796c58699931a27482d3ffe2e30c06d1",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/src/n01/train_shape010.py": "5c94a6d947c1cfcb926ea2b39e77fbdeb6600f231f503fdf4c43c7ff7033e6d9",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/src/n01/train_window008.py": "13bfe66a321c85e688f7dc2812ed9915e020050bbf1c79c81c2c133d27415b0e",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/src/n01/train_window008_fix01.py": "8202fc07d4220b82b13d0722d62be235733d8e1bf00eff5b52fc5cacc6551d4c",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/src/n01/train_window008_resume01.py": "bea28aa29eb6df8a750168815ae56cf1db4204c3d20ef8bd480e0334b1999cb9",
+    "/home/rylan/projects/ej276d-n01/window008_resume01_20261013/data/window008/FIT_DATA_STATISTICS.json": "e614c7b0a9861b468eb2c9e1bff5a80dadef901310539407141d1ff5c9241f3f",
+    "/home/rylan/projects/ej276d-n01/window008_resume01_20261013/provenance/integration006_reference/noise005.pt": "1e45d3369b85d2f5f635ad44dbeb5a730f6d86864cc3dc9163384fccd48bd417",
+    "/home/rylan/projects/ej276d-n01/window008_resume01_20261013/provenance/window008_fix01_reference/deterministic_final.pt": "2096523d53b62dbbc6b41d2788a8fba203af89c3cf753133bbbe81ab5c036849",
+    "/home/rylan/projects/ej276d-n01/window008_resume01_20261013/window008_config.json": "f5500c65f2d17a2fe6964bfc5908dedb68c27b9391cb30bf30c0ba161509d145",
+    "/home/rylan/projects/ej276d-n01/window008_resume01_20261013/runs/science/TRAINING_COMPLETE.json": "e2df0f2287cfdaf26e3d6314db6156456ae085582d09ba86e96b38a990b3f63f",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/runs/primary/artifacts/FIRST_UPDATE_PROOF.json": "abf210e89f0b375e2b463e71d1d4407c8dece7bb4dd951615977765db075da7c",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/runs/primary/artifacts/FROZEN_INPUTS.json": "766ae094dac0bc5c1b66c4c05c6a6f50d79f1805b9f21b240d13c551f5f9a543",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/runs/primary/artifacts/final.pt": "a9d043d144c1d56d276facc0c9f041e508d9d577ce7b34d398a0745faf4b878b",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/runs/primary/artifacts/frozen_A_common_level_PARENT_MOMENTS.npz": "58162628daf62993f545b38400e68825a3d9fbfb021537237dc5074820ae3966",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/runs/primary/artifacts/frozen_A_fast_PARENT_MOMENTS.npz": "60ad0d6743c9af460d22927976e1e13902c15dd21108e5124b5015055f72b663",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/runs/primary/artifacts/frozen_A_slow_PARENT_MOMENTS.npz": "a3edf10e6ba5f253c31d66f4a48ca212639a54ec12ada250898903bed1c1e5c2",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/runs/primary/artifacts/initial.pt": "81e01ff9125c8c1c2d8b6a13df67b9564c53f8b52ca5f3a465c450c0c9655e7e",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/runs/primary/artifacts/periodic_01000.pt": "8a936a125b2f661d6965e79f968dba6a22e29d8f0842bdd798dcc3703c21b8ed",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/runs/primary/artifacts/shape010_final_common_level_PARENT_MOMENTS.npz": "daf6853744f06bbc8360a56d73c8aee25886439fff59b5ad17b7c0b1fba3db9b",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/runs/primary/artifacts/shape010_final_fast_PARENT_MOMENTS.npz": "37a282ca434823ab14082daa04b5e4a556830a1d3131baafc8e08f38856dd6cd",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/runs/primary/artifacts/shape010_final_slow_PARENT_MOMENTS.npz": "d383f3d03affcc4b3405ee6684dc50f0dddf4694e14c4f0f8c4c79780091809c",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/runs/primary/artifacts/shape010_initial_common_level_PARENT_MOMENTS.npz": "d0f2b35794132c38d9df0f3c3fe43c410b47dac5ab01cd2e6d0135ea4bd7009a",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/runs/primary/artifacts/shape010_initial_common_level_TRAIN.npz": "43f95a9b15602f8050c253d13e893d1f0864ad27cf4e0a197c4327cf8ef5b95a",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/runs/primary/artifacts/shape010_initial_fast_PARENT_MOMENTS.npz": "f9942965b3bddcb491309c6fe166e2a6d6b8a532d00b9f949be11dd574e66cc5",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/runs/primary/artifacts/shape010_initial_fast_TRAIN.npz": "ace7455fb101df119f84375c66cc4eec521a58ec369092b76ceba7950d02c14a",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/runs/primary/artifacts/shape010_initial_slow_PARENT_MOMENTS.npz": "67f98b315d5e02177512fa70903f282d14bd8df226ab46d0d350c93e942ce4b4",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/runs/primary/artifacts/shape010_initial_slow_TRAIN.npz": "2aed2d46947866a77e535e7d56d3f94d2ce4ab067c96626a2b76fdc9b682426a",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/runs/primary/artifacts/status.json": "eaa57c68b44b6512ca511a8401bc087ea8c8eccb183d6a9342888a8c3d45684d",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/runs/primary/artifacts/training.jsonl": "ac98d8c3c7e5dc8374b7807be1a824c17d53921502063ff7fbb8ea0749957c51"
+  },
+  "sources_sha256": {
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/docs/SHAPE010_PROTOCOL.md": "d11b5d6942b9a22c4c53d9dda2928cbaf06f76d4cf3e6cd51257257d4ae76198",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/scripts/check_mean_random009.py": "2d3e7424a22135ffdbfae41669422d31120a533b4591308d6eb87411ca29f26e",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/scripts/check_model010.py": "029e813c7bdf0a6ff5b157d0961c43ff11cd9f15f6b648c3a599303c4b5c4f6d",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/scripts/check_shape010.py": "055fe0d44d0d0f49d857fac45baf9abd4b4c9b3bb1dac1f3e0ed9d2fd9aac8f8",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/scripts/deploy_shape010.py": "ede4ac0d7d5c80faac6d8c8f649f2ae6e62a6f64f7dd02e9f416afca80c4f9b8",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/scripts/freeze_shape010.py": "0716d88ab3fe9b83d17e62223f053cb46a9f564e1620d7657ebab534e45b0b86",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/scripts/register_shape010.py": "047e3b5397798a635e22cba5735f3a88a4fe0e10e8fbf5f7a01a90759b13db1c",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/scripts/snapshot_shape010.py": "04cff09df022becabfa9b8b172039c68b3ad574d27b8f376b12b3f8d0ef2e459",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/scripts/start_shape010_remote.py": "ac77ecceecdf573e1a0aadb485d91d4475c0c7b955b7f81053d0b3915fead7f4",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/scripts/supervise_shape010.py": "86bd5b0d11bbd7cf9f67890816fd430c739b58a7c3b055bb4ef90daf0dd7fae9",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/shape010_policy.json": "743e009f043df3f9ab57df996e37ebe57ff6726efa0401c81da116374cd59f5c",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/src/n01/__init__.py": "d17d880249fa0f50920dd14c505b15b4de74419849f86296913c31576c31e891",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/src/n01/ablation009.py": "8100bbedb765f08f689a4bce5cb9ea1af133e6f2b895b544656f6e9fbd058d3b",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/src/n01/acf20.py": "cebc8f4bbb16a442d4c37a4d4ceab15592264b935d153070df1abbdb551838b2",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/src/n01/data.py": "2ec3363bc830043af053342b4638f5e6ab55d27303da037f383f4fe630d77bd2",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/src/n01/data008.py": "2a66a8800642cf6788ce268d326af9d128cb165daf60d555f802b2c881ac97af",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/src/n01/diagnose_mean_random009.py": "31a07360e9ab53e987fe6d2bec3b466398a2c7125e64c1c94b712708ae62dfc4",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/src/n01/diagnose_window008_resume01.py": "063e501b9f701b8fbe4e380fa215818a11437c7090f5ef9764d8897be49777b5",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/src/n01/electronics_v2.py": "e4a6618edf9dba1c427e1e93342eb3b143e482f471f000003fba96dc48ce4706",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/src/n01/electronics_v3.py": "816b12bf4814f23ff4455498ec385df335cdb38827548c969e38ef08b9763926",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/src/n01/evaluate.py": "baaaf0c50c98a15b3c04cddf07ea4c1b5b4503156c50fd78d774cf3fb5baf8bb",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/src/n01/evaluate_integration006.py": "13729569d05f2d2f29372355e11da56bff659dd2c72b9bab8bb6dcdf5d3e282a",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/src/n01/evaluate_repair.py": "d03401b7c6d497bffd2172f2204005413d4de9aa9eafac4c743bc5f12b6622c4",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/src/n01/evaluate_response007.py": "e27ecba71cbe1eb3d2ba389eb860c0109d72741abceb72a878e2db3a8cd602f3",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/src/n01/evaluate_window008.py": "75f8988415a181a31a7c2b5890418b1f7685e0d8fb141cdea84f4174af783cc0",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/src/n01/evaluate_window008_resume01.py": "79e0187d562521809efaff553ee6357cd14ac75e9c38c59c5e484710f48e27b0",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/src/n01/extension006.py": "caa2eff66555773d04a72482c8375b5896a241e0a858070a80f689aa3def5040",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/src/n01/losses.py": "4371a6d5924f0f664935b5d6eb6715c530f80af39ae276c7dc34ba02c5f4b1a7",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/src/n01/losses008.py": "68a9330b7e0620f12adbb3dc22a00c632a1b7577d44b92617da7d14979d9ea61",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/src/n01/losses008_v2.py": "6932772c4b00fa62383b5ca356f26d0cf81271be531888b474ae6146fa25f3d8",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/src/n01/losses_v2.py": "0df69a4e22ec3817e405c53f25ab1b0824bde82cebca0e15008412651d1b136f",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/src/n01/model.py": "0a0488218d99f351a98e30f2b1525b837b4ad3195c19f2a76ff61ee01298587b",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/src/n01/model008.py": "56a6b41f9d2906c82757f4ca9f91a751ff8531428a7f38714e0a291359cd1b4f",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/src/n01/model008_fix01.py": "3bc826a1867f2658ae507ab2be683a6b901b7f481b1efaf005f3cf4953429abc",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/src/n01/model010.py": "3fbbee140477caf755feadf88175291c451c95a56899770a65eebf7be6204318",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/src/n01/noise_validation.py": "40660c95ff64368de6a33bf8ebb4f82e060966578f651e2315fb6fe18fb9b886",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/src/n01/noise_validation_acf005.py": "81677033fefab393e6c577f463a480992ad376a728058ce25d1ea20a3a4b88f6",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/src/n01/observation008.py": "9f7b6c0a266c420af8c6c155103774bae1ed949cfe05ee6a1f19b75f9254c4ec",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/src/n01/response007.py": "884081b5b777c0c6be282c575c2ffbf91ba44fae21d371d8b4e922abb96ee298",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/src/n01/response008.py": "cf8b14b377530a234b066c2fd958827172abb624e7a959ac9bb26a416ff3b2e7",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/src/n01/response008_fix01.py": "fbf365a219051ed6c0a3786a59ea3f4b216772610cd52da10101f35ac9515aef",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/src/n01/response008_resume01.py": "efcd7b473fdcbb3ecb69c736b5f2862d7e5769c60752f9c3912a235d5e8f32f1",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/src/n01/train.py": "9cb6b0a9cfad3fd9163eee919de7b2d64ca422513093e204f62a934e25684169",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/src/n01/train_noise_acf005.py": "78db77a5af1a22ef9d1a3088d09b20de07369bf77529e1c19defe2e361920c26",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/src/n01/train_noise_v3.py": "192ba48b0b7dd11a2fc6812bcc6667c7a947afc6e30c6a159314b67e8a453cfb",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/src/n01/train_repair.py": "79895348ee192e8dd9e757f1d16b15d41fc05bd1755badcafaf571822fc27332",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/src/n01/train_response007.py": "901d0c7cc98fc591f218312237da58865d796ff2fb848dc912e212a4e6cbe0e2",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/src/n01/train_response007_deadline01.py": "587ce623847591a1a4c0619f24d988d33d667cb9afe2beade370231758a213a7",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/src/n01/train_response007_statusfix01.py": "8db597c6388fe5f6255a113ca752c5d3796c58699931a27482d3ffe2e30c06d1",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/src/n01/train_shape010.py": "5c94a6d947c1cfcb926ea2b39e77fbdeb6600f231f503fdf4c43c7ff7033e6d9",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/src/n01/train_window008.py": "13bfe66a321c85e688f7dc2812ed9915e020050bbf1c79c81c2c133d27415b0e",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/src/n01/train_window008_fix01.py": "8202fc07d4220b82b13d0722d62be235733d8e1bf00eff5b52fc5cacc6551d4c",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/src/n01/train_window008_resume01.py": "bea28aa29eb6df8a750168815ae56cf1db4204c3d20ef8bd480e0334b1999cb9",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/WINDOW008_RESUME01_SOURCE_MANIFEST.json": "0a3208cd8f05e8dd85cd44fde60e742fd28705eadb3fdae6752dce2f81fd8fb1",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/WINDOW008_RESUME01_EVALUATION_SOURCE_MANIFEST.json": "bc4a3a21dfdf9a8e4e6a6a8bdccf03924f5f4ae2ecf77be21cc33d424f84beaa",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/WINDOW008_RESUME01_DIAGNOSTICS_SOURCE_MANIFEST.json": "391814ba108db517d2002b34413989eb46ab1f2d748cd06703d740e615ed0eb6",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/MEAN_RANDOM009_SOURCE_MANIFEST.json": "493053341229c9aae74a8a9bb372aa38f2b3414be9994d22886e733755ea211d",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/scripts/stability011_ops.py": "79d5d17f0faf19f0e935f052fdae2c7103625b5a68d7940702ecbff2916ce7b5",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/scripts/supervise_stability011.py": "98bed7ee84d4cd99181cdf1f9e9511c07ddc1672926e0f484849dfa1a0e8de3d",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/scripts/run_stability011.py": "37510bf0a607c04bea3e97ddbeb38c64714ecb461a94a6febefc6e2c43bbeee1",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/scripts/stability011_metrics.py": "fd87e544673f63887e57c8efafeb0327bbe4db430b04c9697c71cd2e244c3f78",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/stability011_policy.json": "ead651a10565f5712e33869b39f0c486e092efb21edb73f9dc9e30464081098c",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014/docs/STABILITY011_PROTOCOL.md": "e335edec31d767fc2ee25513b7ae0e010a4cacf510c9519860c9a6d649b8e2bb",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/docs/SHAPE010_PROTOCOL.md": "d11b5d6942b9a22c4c53d9dda2928cbaf06f76d4cf3e6cd51257257d4ae76198",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/scripts/check_mean_random009.py": "2d3e7424a22135ffdbfae41669422d31120a533b4591308d6eb87411ca29f26e",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/scripts/check_model010.py": "029e813c7bdf0a6ff5b157d0961c43ff11cd9f15f6b648c3a599303c4b5c4f6d",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/scripts/check_shape010.py": "055fe0d44d0d0f49d857fac45baf9abd4b4c9b3bb1dac1f3e0ed9d2fd9aac8f8",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/scripts/deploy_shape010.py": "ede4ac0d7d5c80faac6d8c8f649f2ae6e62a6f64f7dd02e9f416afca80c4f9b8",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/scripts/freeze_shape010.py": "0716d88ab3fe9b83d17e62223f053cb46a9f564e1620d7657ebab534e45b0b86",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/scripts/register_shape010.py": "047e3b5397798a635e22cba5735f3a88a4fe0e10e8fbf5f7a01a90759b13db1c",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/scripts/snapshot_shape010.py": "04cff09df022becabfa9b8b172039c68b3ad574d27b8f376b12b3f8d0ef2e459",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/scripts/start_shape010_remote.py": "ac77ecceecdf573e1a0aadb485d91d4475c0c7b955b7f81053d0b3915fead7f4",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/scripts/supervise_shape010.py": "86bd5b0d11bbd7cf9f67890816fd430c739b58a7c3b055bb4ef90daf0dd7fae9",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/shape010_policy.json": "743e009f043df3f9ab57df996e37ebe57ff6726efa0401c81da116374cd59f5c",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/src/n01/__init__.py": "d17d880249fa0f50920dd14c505b15b4de74419849f86296913c31576c31e891",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/src/n01/ablation009.py": "8100bbedb765f08f689a4bce5cb9ea1af133e6f2b895b544656f6e9fbd058d3b",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/src/n01/acf20.py": "cebc8f4bbb16a442d4c37a4d4ceab15592264b935d153070df1abbdb551838b2",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/src/n01/data.py": "2ec3363bc830043af053342b4638f5e6ab55d27303da037f383f4fe630d77bd2",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/src/n01/data008.py": "2a66a8800642cf6788ce268d326af9d128cb165daf60d555f802b2c881ac97af",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/src/n01/diagnose_mean_random009.py": "31a07360e9ab53e987fe6d2bec3b466398a2c7125e64c1c94b712708ae62dfc4",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/src/n01/diagnose_window008_resume01.py": "063e501b9f701b8fbe4e380fa215818a11437c7090f5ef9764d8897be49777b5",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/src/n01/electronics_v2.py": "e4a6618edf9dba1c427e1e93342eb3b143e482f471f000003fba96dc48ce4706",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/src/n01/electronics_v3.py": "816b12bf4814f23ff4455498ec385df335cdb38827548c969e38ef08b9763926",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/src/n01/evaluate.py": "baaaf0c50c98a15b3c04cddf07ea4c1b5b4503156c50fd78d774cf3fb5baf8bb",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/src/n01/evaluate_integration006.py": "13729569d05f2d2f29372355e11da56bff659dd2c72b9bab8bb6dcdf5d3e282a",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/src/n01/evaluate_repair.py": "d03401b7c6d497bffd2172f2204005413d4de9aa9eafac4c743bc5f12b6622c4",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/src/n01/evaluate_response007.py": "e27ecba71cbe1eb3d2ba389eb860c0109d72741abceb72a878e2db3a8cd602f3",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/src/n01/evaluate_window008.py": "75f8988415a181a31a7c2b5890418b1f7685e0d8fb141cdea84f4174af783cc0",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/src/n01/evaluate_window008_resume01.py": "79e0187d562521809efaff553ee6357cd14ac75e9c38c59c5e484710f48e27b0",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/src/n01/extension006.py": "caa2eff66555773d04a72482c8375b5896a241e0a858070a80f689aa3def5040",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/src/n01/losses.py": "4371a6d5924f0f664935b5d6eb6715c530f80af39ae276c7dc34ba02c5f4b1a7",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/src/n01/losses008.py": "68a9330b7e0620f12adbb3dc22a00c632a1b7577d44b92617da7d14979d9ea61",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/src/n01/losses008_v2.py": "6932772c4b00fa62383b5ca356f26d0cf81271be531888b474ae6146fa25f3d8",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/src/n01/losses_v2.py": "0df69a4e22ec3817e405c53f25ab1b0824bde82cebca0e15008412651d1b136f",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/src/n01/model.py": "0a0488218d99f351a98e30f2b1525b837b4ad3195c19f2a76ff61ee01298587b",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/src/n01/model008.py": "56a6b41f9d2906c82757f4ca9f91a751ff8531428a7f38714e0a291359cd1b4f",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/src/n01/model008_fix01.py": "3bc826a1867f2658ae507ab2be683a6b901b7f481b1efaf005f3cf4953429abc",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/src/n01/model010.py": "3fbbee140477caf755feadf88175291c451c95a56899770a65eebf7be6204318",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/src/n01/noise_validation.py": "40660c95ff64368de6a33bf8ebb4f82e060966578f651e2315fb6fe18fb9b886",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/src/n01/noise_validation_acf005.py": "81677033fefab393e6c577f463a480992ad376a728058ce25d1ea20a3a4b88f6",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/src/n01/observation008.py": "9f7b6c0a266c420af8c6c155103774bae1ed949cfe05ee6a1f19b75f9254c4ec",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/src/n01/response007.py": "884081b5b777c0c6be282c575c2ffbf91ba44fae21d371d8b4e922abb96ee298",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/src/n01/response008.py": "cf8b14b377530a234b066c2fd958827172abb624e7a959ac9bb26a416ff3b2e7",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/src/n01/response008_fix01.py": "fbf365a219051ed6c0a3786a59ea3f4b216772610cd52da10101f35ac9515aef",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/src/n01/response008_resume01.py": "efcd7b473fdcbb3ecb69c736b5f2862d7e5769c60752f9c3912a235d5e8f32f1",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/src/n01/train.py": "9cb6b0a9cfad3fd9163eee919de7b2d64ca422513093e204f62a934e25684169",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/src/n01/train_noise_acf005.py": "78db77a5af1a22ef9d1a3088d09b20de07369bf77529e1c19defe2e361920c26",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/src/n01/train_noise_v3.py": "192ba48b0b7dd11a2fc6812bcc6667c7a947afc6e30c6a159314b67e8a453cfb",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/src/n01/train_repair.py": "79895348ee192e8dd9e757f1d16b15d41fc05bd1755badcafaf571822fc27332",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/src/n01/train_response007.py": "901d0c7cc98fc591f218312237da58865d796ff2fb848dc912e212a4e6cbe0e2",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/src/n01/train_response007_deadline01.py": "587ce623847591a1a4c0619f24d988d33d667cb9afe2beade370231758a213a7",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/src/n01/train_response007_statusfix01.py": "8db597c6388fe5f6255a113ca752c5d3796c58699931a27482d3ffe2e30c06d1",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/src/n01/train_shape010.py": "5c94a6d947c1cfcb926ea2b39e77fbdeb6600f231f503fdf4c43c7ff7033e6d9",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/src/n01/train_window008.py": "13bfe66a321c85e688f7dc2812ed9915e020050bbf1c79c81c2c133d27415b0e",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/src/n01/train_window008_fix01.py": "8202fc07d4220b82b13d0722d62be235733d8e1bf00eff5b52fc5cacc6551d4c",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014/src/n01/train_window008_resume01.py": "bea28aa29eb6df8a750168815ae56cf1db4204c3d20ef8bd480e0334b1999cb9"
+  },
+  "primary": {
+    "S_A": {
+      "mean": 0.4150459483719272,
+      "standard_deviation": 0.0281558435918504,
+      "minimum": 0.3493464398570328,
+      "maximum": 0.5044590312338949,
+      "percentile_resampling_interval95": [
+        0.3699153171130065,
+        0.47563449130516006
+      ]
+    },
+    "S_final": {
+      "mean": 0.39806021413155757,
+      "standard_deviation": 0.029035405244683083,
+      "minimum": 0.334605966256366,
+      "maximum": 0.5042407627677304,
+      "percentile_resampling_interval95": [
+        0.35116785554155194,
+        0.46256371263186014
+      ]
+    },
+    "Delta": {
+      "mean": -0.016985734240369612,
+      "standard_deviation": 0.008205262118541733,
+      "minimum": -0.03875875781611815,
+      "maximum": 0.011745032967411972,
+      "percentile_resampling_interval95": [
+        -0.03283247248162238,
+        -0.002126546301424032
+      ]
+    },
+    "relative_contrast_percent": {
+      "mean": -4.104965208455287,
+      "standard_deviation": 1.9756658903680617,
+      "minimum": -8.88288579807488,
+      "maximum": 2.7726093657754136,
+      "percentile_resampling_interval95": [
+        -7.875651279297858,
+        -0.521989064475956
+      ]
+    }
+  },
+  "secondary_marginal_diagnostics": {
+    "fast": {
+      "wave": {
+        "A": {
+          "mean": 0.1989573642821406,
+          "standard_deviation": 0.0061323653315242185,
+          "minimum": 0.18254136754548997,
+          "maximum": 0.22207333998699774,
+          "percentile_resampling_interval95": [
+            0.1878612420866828,
+            0.21378139761984663
+          ]
+        },
+        "final": {
+          "mean": 0.1964293687919765,
+          "standard_deviation": 0.006126075886392438,
+          "minimum": 0.1795675222198977,
+          "maximum": 0.2192802077011884,
+          "percentile_resampling_interval95": [
+            0.18565487979871004,
+            0.2110564800662398
+          ]
+        },
+        "final_minus_A": {
+          "mean": -0.0025279954901640906,
+          "standard_deviation": 0.001022598310111937,
+          "minimum": -0.005239371113365698,
+          "maximum": 0.0005064539614020314,
+          "percentile_resampling_interval95": [
+            -0.004495635408044652,
+            -0.0006083493000228149
+          ]
+        }
+      },
+      "QPSD": {
+        "A": {
+          "mean": 0.10831322861448331,
+          "standard_deviation": 0.013031732366157352,
+          "minimum": 0.07816964535069525,
+          "maximum": 0.15143746938733943,
+          "percentile_resampling_interval95": [
+            0.08720186020265974,
+            0.13600578826812496
+          ]
+        },
+        "final": {
+          "mean": 0.10055564937124024,
+          "standard_deviation": 0.013459613134519426,
+          "minimum": 0.0712065601812794,
+          "maximum": 0.14494168306485722,
+          "percentile_resampling_interval95": [
+            0.07773630112517879,
+            0.13120384643526947
+          ]
+        },
+        "final_minus_A": {
+          "mean": -0.007757579243243052,
+          "standard_deviation": 0.004139265191307473,
+          "minimum": -0.01891252905778512,
+          "maximum": 0.006808699056025755,
+          "percentile_resampling_interval95": [
+            -0.015630547050081604,
+            -0.0001229922179899315
+          ]
+        }
+      },
+      "proxy": {
+        "A": {
+          "mean": 0.4155838215111072,
+          "standard_deviation": 0.028787294646423982,
+          "minimum": 0.34937674017811454,
+          "maximum": 0.5092749907106998,
+          "percentile_resampling_interval95": [
+            0.36931812286005317,
+            0.4771994320540065
+          ]
+        },
+        "final": {
+          "mean": 0.39754066753445705,
+          "standard_deviation": 0.02986802128008966,
+          "minimum": 0.3322961509692111,
+          "maximum": 0.5066782340557145,
+          "percentile_resampling_interval95": [
+            0.34942491850556545,
+            0.4652044141510454
+          ]
+        },
+        "final_minus_A": {
+          "mean": -0.018043153976650194,
+          "standard_deviation": 0.00839910451556223,
+          "minimum": -0.039667503922794556,
+          "maximum": 0.012167412262965749,
+          "percentile_resampling_interval95": [
+            -0.03354779601975718,
+            -0.002238272420318019
+          ]
+        }
+      },
+      "swd": {
+        "A": {
+          "mean": 0.2371123404577947,
+          "standard_deviation": 0.007238342239977616,
+          "minimum": 0.2121768692692075,
+          "maximum": 0.27077470077787885,
+          "percentile_resampling_interval95": [
+            0.2239821557199878,
+            0.2517114327446004
+          ]
+        },
+        "final": {
+          "mean": 0.23308618932471953,
+          "standard_deviation": 0.007140321408337304,
+          "minimum": 0.20908724003038104,
+          "maximum": 0.2681334064441189,
+          "percentile_resampling_interval95": [
+            0.21978900341664137,
+            0.2481120070229844
+          ]
+        },
+        "final_minus_A": {
+          "mean": -0.004026151133075146,
+          "standard_deviation": 0.00152616057306058,
+          "minimum": -0.00846700636365083,
+          "maximum": 0.0004157213343421451,
+          "percentile_resampling_interval95": [
+            -0.006860010515540271,
+            -0.0011585168850122378
+          ]
+        }
+      },
+      "coordinate": {
+        "A": {
+          "mean": 0.16718646647379287,
+          "standard_deviation": 0.008048648681088283,
+          "minimum": 0.1506139329941517,
+          "maximum": 0.202799931993058,
+          "percentile_resampling_interval95": [
+            0.15491324688939795,
+            0.18773849704846252
+          ]
+        },
+        "final": {
+          "mean": 0.16654580865940036,
+          "standard_deviation": 0.008184478682883132,
+          "minimum": 0.14872946771455509,
+          "maximum": 0.20296550436009275,
+          "percentile_resampling_interval95": [
+            0.1547228915177264,
+            0.18653560472901107
+          ]
+        },
+        "final_minus_A": {
+          "mean": -0.000640657814392506,
+          "standard_deviation": 0.0011049748224233435,
+          "minimum": -0.003410917070933772,
+          "maximum": 0.0028897350303762337,
+          "percentile_resampling_interval95": [
+            -0.002768655460161736,
+            0.0014220989283453053
+          ]
+        }
+      },
+      "short_lag": {
+        "A": {
+          "mean": 0.15441830973918017,
+          "standard_deviation": 0.00701458813365639,
+          "minimum": 0.14007692879464212,
+          "maximum": 0.18418524925625057,
+          "percentile_resampling_interval95": [
+            0.14372565711784022,
+            0.1720384578671999
+          ]
+        },
+        "final": {
+          "mean": 0.1529992878590666,
+          "standard_deviation": 0.00711370143189362,
+          "minimum": 0.13827458413077917,
+          "maximum": 0.1832838576007962,
+          "percentile_resampling_interval95": [
+            0.1423706127472541,
+            0.1704896378921227
+          ]
+        },
+        "final_minus_A": {
+          "mean": -0.001419021880113558,
+          "standard_deviation": 0.0008795714346448415,
+          "minimum": -0.003744522007323392,
+          "maximum": 0.0013153270757056412,
+          "percentile_resampling_interval95": [
+            -0.0031445105552180158,
+            0.0003155973972397946
+          ]
+        }
+      }
+    },
+    "slow": {
+      "wave": {
+        "A": {
+          "mean": 0.19971038352078466,
+          "standard_deviation": 0.006092257305869886,
+          "minimum": 0.1829544781102789,
+          "maximum": 0.2223331885061502,
+          "percentile_resampling_interval95": [
+            0.1887899697612146,
+            0.21400351479592675
+          ]
+        },
+        "final": {
+          "mean": 0.19739846231816888,
+          "standard_deviation": 0.00609906850759693,
+          "minimum": 0.17993390134716072,
+          "maximum": 0.22095329331568164,
+          "percentile_resampling_interval95": [
+            0.18626009620707268,
+            0.21161104745915496
+          ]
+        },
+        "final_minus_A": {
+          "mean": -0.002311921202615798,
+          "standard_deviation": 0.0010049692636338334,
+          "minimum": -0.005465668895599102,
+          "maximum": 0.0004951161412787008,
+          "percentile_resampling_interval95": [
+            -0.004328259083296917,
+            -0.0005952837280162507
+          ]
+        }
+      },
+      "QPSD": {
+        "A": {
+          "mean": 0.1043113411615793,
+          "standard_deviation": 0.012712594784850012,
+          "minimum": 0.07435413209145435,
+          "maximum": 0.14880709365186656,
+          "percentile_resampling_interval95": [
+            0.08296561540692099,
+            0.13148947086133234
+          ]
+        },
+        "final": {
+          "mean": 0.09960122671848703,
+          "standard_deviation": 0.013058060982027312,
+          "minimum": 0.0711340879746042,
+          "maximum": 0.1434683671967298,
+          "percentile_resampling_interval95": [
+            0.07651438984310557,
+            0.12833164460929428
+          ]
+        },
+        "final_minus_A": {
+          "mean": -0.004710114443092245,
+          "standard_deviation": 0.004107164367976559,
+          "minimum": -0.01709993155454706,
+          "maximum": 0.008734620445394845,
+          "percentile_resampling_interval95": [
+            -0.012558303522806586,
+            0.002946766555523444
+          ]
+        }
+      },
+      "proxy": {
+        "A": {
+          "mean": 0.40833306584394324,
+          "standard_deviation": 0.0280284072446755,
+          "minimum": 0.34614741221129897,
+          "maximum": 0.5037389579922269,
+          "percentile_resampling_interval95": [
+            0.3627752053092311,
+            0.4692763777956272
+          ]
+        },
+        "final": {
+          "mean": 0.396600915755143,
+          "standard_deviation": 0.028940795458620588,
+          "minimum": 0.33693178617142744,
+          "maximum": 0.5042312154781827,
+          "percentile_resampling_interval95": [
+            0.34952507404946426,
+            0.4622058765025177
+          ]
+        },
+        "final_minus_A": {
+          "mean": -0.011732150088800287,
+          "standard_deviation": 0.008357081510596342,
+          "minimum": -0.03627403114490818,
+          "maximum": 0.015784185232314174,
+          "percentile_resampling_interval95": [
+            -0.028233451176784732,
+            0.003855408564023491
+          ]
+        }
+      },
+      "swd": {
+        "A": {
+          "mean": 0.2384219063800557,
+          "standard_deviation": 0.007377150771181245,
+          "minimum": 0.2141026294651913,
+          "maximum": 0.27219711225468796,
+          "percentile_resampling_interval95": [
+            0.22470468263981705,
+            0.25335944144168965
+          ]
+        },
+        "final": {
+          "mean": 0.23497796104547766,
+          "standard_deviation": 0.007300828919513208,
+          "minimum": 0.20989233675991562,
+          "maximum": 0.2707131200567348,
+          "percentile_resampling_interval95": [
+            0.22158936807291063,
+            0.2505800795905886
+          ]
+        },
+        "final_minus_A": {
+          "mean": -0.0034439453345780613,
+          "standard_deviation": 0.0014614824593789475,
+          "minimum": -0.009114297552191147,
+          "maximum": 0.0009685510590728419,
+          "percentile_resampling_interval95": [
+            -0.0064236765460310066,
+            -0.0007162639203393014
+          ]
+        }
+      },
+      "coordinate": {
+        "A": {
+          "mean": 0.16695142521162246,
+          "standard_deviation": 0.007888114027026117,
+          "minimum": 0.15022099890455476,
+          "maximum": 0.2014706683697211,
+          "percentile_resampling_interval95": [
+            0.15462260291537472,
+            0.18710356409020862
+          ]
+        },
+        "final": {
+          "mean": 0.16614420936807847,
+          "standard_deviation": 0.00800171902292089,
+          "minimum": 0.14897472507487372,
+          "maximum": 0.20127069237853334,
+          "percentile_resampling_interval95": [
+            0.15430251512126172,
+            0.18527006981207603
+          ]
+        },
+        "final_minus_A": {
+          "mean": -0.0008072158435439519,
+          "standard_deviation": 0.0011678226066916425,
+          "minimum": -0.004123921630675792,
+          "maximum": 0.002769651301822773,
+          "percentile_resampling_interval95": [
+            -0.0030524783292934857,
+            0.001482576207804831
+          ]
+        }
+      },
+      "short_lag": {
+        "A": {
+          "mean": 0.15504629611140477,
+          "standard_deviation": 0.006872038976009628,
+          "minimum": 0.14053738751257927,
+          "maximum": 0.18462572811935019,
+          "percentile_resampling_interval95": [
+            0.1442530528981092,
+            0.1721828950178983
+          ]
+        },
+        "final": {
+          "mean": 0.15349371781364163,
+          "standard_deviation": 0.006949879961481607,
+          "minimum": 0.13880985489385606,
+          "maximum": 0.18382114063141547,
+          "percentile_resampling_interval95": [
+            0.14293627916192614,
+            0.17035120020753394
+          ]
+        },
+        "final_minus_A": {
+          "mean": -0.0015525782977631136,
+          "standard_deviation": 0.0008916243234014347,
+          "minimum": -0.004480283842769189,
+          "maximum": 0.0009726777906712281,
+          "percentile_resampling_interval95": [
+            -0.003235970671309088,
+            0.00014607711154408437
+          ]
+        }
+      }
+    },
+    "common_level": {
+      "wave": {
+        "A": {
+          "mean": 0.1999459843603786,
+          "standard_deviation": 0.006183606355209266,
+          "minimum": 0.18304006283679156,
+          "maximum": 0.22274171623206473,
+          "percentile_resampling_interval95": [
+            0.1887691363785572,
+            0.21446895035294986
+          ]
+        },
+        "final": {
+          "mean": 0.19637369644085031,
+          "standard_deviation": 0.0061692074383511205,
+          "minimum": 0.1785342569497888,
+          "maximum": 0.2201671561725507,
+          "percentile_resampling_interval95": [
+            0.18527298593741992,
+            0.21098520352092925
+          ]
+        },
+        "final_minus_A": {
+          "mean": -0.0035722879195282603,
+          "standard_deviation": 0.0010749179423054536,
+          "minimum": -0.006975817699470116,
+          "maximum": -0.0005533268222201182,
+          "percentile_resampling_interval95": [
+            -0.005573396534393968,
+            -0.0015919670928826526
+          ]
+        }
+      },
+      "QPSD": {
+        "A": {
+          "mean": 0.11063748670017626,
+          "standard_deviation": 0.012999357345029619,
+          "minimum": 0.07781963243551482,
+          "maximum": 0.15175272971863057,
+          "percentile_resampling_interval95": [
+            0.08914794215326788,
+            0.13757919266414054
+          ]
+        },
+        "final": {
+          "mean": 0.10183268133211121,
+          "standard_deviation": 0.013191828445898756,
+          "minimum": 0.07065047476032217,
+          "maximum": 0.1436242225096856,
+          "percentile_resampling_interval95": [
+            0.08017983384685418,
+            0.13064969279072083
+          ]
+        },
+        "final_minus_A": {
+          "mean": -0.008804805368065051,
+          "standard_deviation": 0.004129474521758296,
+          "minimum": -0.019649885405769035,
+          "maximum": 0.004798397959087902,
+          "percentile_resampling_interval95": [
+            -0.016763124295388107,
+            -0.001301661716171278
+          ]
+        }
+      },
+      "proxy": {
+        "A": {
+          "mean": 0.42122095776073115,
+          "standard_deviation": 0.028429709586078315,
+          "minimum": 0.35002721926314057,
+          "maximum": 0.5068602464935108,
+          "percentile_resampling_interval95": [
+            0.37620567543075656,
+            0.4810042277321803
+          ]
+        },
+        "final": {
+          "mean": 0.40003905910507276,
+          "standard_deviation": 0.029057771179145514,
+          "minimum": 0.3328672066227524,
+          "maximum": 0.501812838769294,
+          "percentile_resampling_interval95": [
+            0.35268767056266676,
+            0.46336528223310364
+          ]
+        },
+        "final_minus_A": {
+          "mean": -0.021181898655658362,
+          "standard_deviation": 0.008403022429217161,
+          "minimum": -0.042358422532678575,
+          "maximum": 0.00728350140695605,
+          "percentile_resampling_interval95": [
+            -0.037868206590901704,
+            -0.005581560917067464
+          ]
+        }
+      },
+      "swd": {
+        "A": {
+          "mean": 0.2398562853142955,
+          "standard_deviation": 0.007392157411776354,
+          "minimum": 0.21552783197896286,
+          "maximum": 0.27335170035876294,
+          "percentile_resampling_interval95": [
+            0.22631014086599463,
+            0.25454079562116416
+          ]
+        },
+        "final": {
+          "mean": 0.23548429655483138,
+          "standard_deviation": 0.00726203034433974,
+          "minimum": 0.2105920145500345,
+          "maximum": 0.2701385206540456,
+          "percentile_resampling_interval95": [
+            0.2217103138610013,
+            0.25071024666686553
+          ]
+        },
+        "final_minus_A": {
+          "mean": -0.004371988759464163,
+          "standard_deviation": 0.0015915372915649391,
+          "minimum": -0.00900726847997968,
+          "maximum": -0.00016923139729879688,
+          "percentile_resampling_interval95": [
+            -0.007526717849005567,
+            -0.001532560495591006
+          ]
+        }
+      },
+      "coordinate": {
+        "A": {
+          "mean": 0.16564435386970058,
+          "standard_deviation": 0.007944454551996584,
+          "minimum": 0.14904214630933096,
+          "maximum": 0.200406152839008,
+          "percentile_resampling_interval95": [
+            0.1533312672855961,
+            0.18548708676234352
+          ]
+        },
+        "final": {
+          "mean": 0.1629007155519712,
+          "standard_deviation": 0.008102866536840668,
+          "minimum": 0.14449772270407105,
+          "maximum": 0.19859296279097519,
+          "percentile_resampling_interval95": [
+            0.15070805832506173,
+            0.18217998430332163
+          ]
+        },
+        "final_minus_A": {
+          "mean": -0.00274363831772937,
+          "standard_deviation": 0.0012217701273076489,
+          "minimum": -0.005973112850925194,
+          "maximum": 0.001135274695388433,
+          "percentile_resampling_interval95": [
+            -0.004996133530305399,
+            -0.00029280325418121515
+          ]
+        }
+      },
+      "short_lag": {
+        "A": {
+          "mean": 0.15442701294322272,
+          "standard_deviation": 0.006949599210762306,
+          "minimum": 0.13994423341314804,
+          "maximum": 0.1843935647650306,
+          "percentile_resampling_interval95": [
+            0.1436731389106036,
+            0.17153348696254958
+          ]
+        },
+        "final": {
+          "mean": 0.15162547710176738,
+          "standard_deviation": 0.007051798788655255,
+          "minimum": 0.1369234098093365,
+          "maximum": 0.18247555781243763,
+          "percentile_resampling_interval95": [
+            0.14102784041454505,
+            0.16902437818894422
+          ]
+        },
+        "final_minus_A": {
+          "mean": -0.0028015358414553485,
+          "standard_deviation": 0.000922922183942109,
+          "minimum": -0.0051825963556926535,
+          "maximum": 0.00012397115677889592,
+          "percentile_resampling_interval95": [
+            -0.004478339938744042,
+            -0.0010161215913291883
+          ]
+        }
+      }
+    }
+  },
+  "classification": "saved_TRAIN_bank_gain_stable_under_paired_parent_group_reweighting",
+  "all_replicate_conditional_coverage_complete": true,
+  "coverage_limited_replicates": 0,
+  "interval_scope": "fixed trained/selected models, saved TRAIN bank, four saved draws per parent, artificial REAL blocks and fixed projections",
+  "formal_frequentist_coverage_established": false,
+  "formal_significance_test": false,
+  "response_match_established": false,
+  "point": {
+    "S_A": 0.3369799687412198,
+    "S_final": 0.3186035221340076,
+    "Delta": -0.018376446607212216,
+    "relative_contrast_percent": -5.453275657854961,
+    "conditional_coverage_complete": true
+  },
+  "point_comparison_sha256": "dec7254029d78b1cbcbfb8ca84b8db95da7b4bcc94122ac6d16d62daff614f6f",
+  "original_group_description": "50-record artificial blocks within one exposed acquisition, not confirmed physical independent units"
+}

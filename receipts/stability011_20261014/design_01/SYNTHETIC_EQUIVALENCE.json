@@ -1,0 +1,84 @@
+{
+  "schema": "n01/stability011-design-synthetic/v1",
+  "artificial_only": true,
+  "real_arrays_decoded": false,
+  "checkpoint_decoded": false,
+  "science_bootstrap_replicates": 0,
+  "new_model_forwards": 0,
+  "optimizer_updates": 0,
+  "tests": [
+    {
+      "name": "equal_original_N",
+      "passed": true,
+      "literal_repeat_error": 0.0,
+      "original_rows": [
+        9,
+        9
+      ],
+      "repeated_rows": [
+        18,
+        14
+      ]
+    },
+    {
+      "name": "unequal_N_variable_REAL",
+      "passed": true,
+      "literal_repeat_error": 1.1102230246251565e-16,
+      "original_rows": [
+        9,
+        13
+      ],
+      "repeated_rows": [
+        13,
+        17
+      ]
+    },
+    {
+      "name": "ties_zero_multiplicity_identical",
+      "passed": true,
+      "W1": 5.551115123125783e-17
+    },
+    {
+      "name": "full_proxy_original_bins",
+      "passed": true,
+      "repeated_rows": [
+        128,
+        186
+      ],
+      "max_abs_error": 5.117434254131581e-17,
+      "conditional_bins_used": 8
+    },
+    {
+      "name": "full_proxy_arm_specific_bins",
+      "passed": true,
+      "repeated_rows": [
+        128,
+        186
+      ],
+      "max_abs_error": 2.7755575615628914e-17,
+      "conditional_bins_used": 7
+    },
+    {
+      "name": "full_proxy_no_supported_bin_global_only",
+      "passed": true,
+      "repeated_rows": [
+        128,
+        186
+      ],
+      "max_abs_error": 1.0234868508263162e-16,
+      "conditional_bins_used": 0
+    },
+    {
+      "name": "support_uses_repeated_occurrences_not_unique_rows",
+      "passed": true,
+      "original_bin_rows": 16,
+      "nonzero_unique_rows": 12,
+      "repeated_count": 16,
+      "minimum_support": 16
+    }
+  ],
+  "passed": 7,
+  "total": 7,
+  "reference_source_sha256": "f51c882c0ed5712f732de1e893fc70732ec37abbab8c08c38b40012178a23124",
+  "maximum_full_proxy_literal_repeat_error": 1.0234868508263162e-16
+}
