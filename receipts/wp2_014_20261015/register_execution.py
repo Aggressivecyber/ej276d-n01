@@ -132,7 +132,8 @@ if args.stage=='ready':
     write(receipt,dict(schema='n01/wp2-execution-ready/v1',UTC=stamp,refs=refs,
         cumulative_training_updates=159667,actual_WP2_training_updates=0,actual_WP2_AD_queries=0),True)
 else:
-    assert args.start_dir and args.verification_dir and jobs['active_scientific_jobs']==0
+    assert args.start_dir and args.verification_dir and jobs['active_scientific_jobs'] in (0,1)
+    assert jobs['active_scientific_jobs']==0 or next(j for j in jobs['jobs'] if j['job_id']=='N01_WP2_014_20261015')['status']=='native_initializing_verification_pending'
     start=resolve(args.start_dir);verification=resolve(args.verification_dir)
     sv=read(verification/'START_VALIDATION.json');assert sv.get('status')=='actual_first_G1_source_and_initialization_verified'
     state=read(verification/'REMOTE_STATE.json');launch=read(start/'START_RECEIPT.json')

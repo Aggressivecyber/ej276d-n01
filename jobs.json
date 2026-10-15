@@ -1,7 +1,7 @@
 {
   "experiment_id": "N01",
-  "updated_UTC": "2026-10-15T00:14:27.399961+00:00",
-  "active_scientific_jobs": 0,
+  "updated_UTC": "2026-10-15T00:24:08.643811+00:00",
+  "active_scientific_jobs": 1,
   "jobs": [
     {
       "job_id": "N01_RUN_001_20261012",
@@ -1977,7 +1977,7 @@
       "job_id": "N01_WP2_014_20261015",
       "run_id": "wp2_014_20261015",
       "scientific_job": true,
-      "status": "frozen_ready_not_started",
+      "status": "native_running",
       "registered_UTC": "2026-10-15T00:14:27.399961+00:00",
       "user_authority": "USER_MASTER_PLAN_20261015.txt",
       "source_freeze_pending": false,
@@ -2012,8 +2012,8 @@
       ],
       "planned_short_candidate_runs": 4,
       "completed_short_candidate_runs": 0,
-      "G_updates": 0,
-      "new_AD_queries": 0,
+      "G_updates": 197,
+      "new_AD_queries": 432,
       "automatic_restart": false,
       "DEV_numeric_read": false,
       "execution": {
@@ -2073,12 +2073,62 @@
           "wall_seconds": 7200,
           "output_MiB": 1536
         },
-        "status": "frozen_ready_not_started",
+        "status": "native_running",
         "C2_enabled": false,
-        "new_training_updates": 0,
-        "new_AD_queries": 0,
+        "new_training_updates": 197,
+        "new_AD_queries": 432,
         "cumulative_training_before_run": 159667,
-        "source_commit_pending_local_readback": true
+        "source_commit_pending_local_readback": false,
+        "source_commit": "e116368c4f699243a60598c03865bcb4f601be35",
+        "source_commit_readback": {
+          "path": "receipts/wp2_014_20261015/SOURCE_COMMIT_READBACK.json",
+          "sha256": "a5149d9d6384dab90c540539e6a6cc2d7b6fa28bf9df70d4de68580ac8162bfb",
+          "bytes": 14980
+        },
+        "start_receipt": {
+          "path": "receipts/wp2_014_20261015/start_native_01/START_RECEIPT.json",
+          "sha256": "1b150a72d44a2d54836d29453295fc1e756b1e4fc906e2e114166bed26997b93",
+          "bytes": 1464
+        },
+        "startup_verification": {
+          "path": "receipts/wp2_014_20261015/start_verification_01/START_VALIDATION.json",
+          "sha256": "4e1ac5143a5ae1998be25d3df62e8deefd8324b5337b583a090a46d123ef85ec",
+          "bytes": 241
+        },
+        "analysis_pid": 107083,
+        "supervisor_pid": 107073,
+        "last_verified_completed_counts": {
+          "training_backward_queries": 198,
+          "integral_statistics_fits": 1,
+          "old_A_rows": 255880,
+          "calibration_map_rows": 18432,
+          "optimizer_created": 1,
+          "probe_AD_queries": 234,
+          "optimizer_steps": 197,
+          "hard_ADC_rows": 925488,
+          "noise005_rows": 255752,
+          "checkpoint_loads": 2,
+          "head_actual_parameter_forward_rows": 256008,
+          "new_AD_queries": 432,
+          "head_total_kernel_rows": 274440,
+          "G_updates": 197,
+          "all_path_gather_rows": 925488
+        },
+        "actual_costs_are_durable_lower_bounds_while_running": true,
+        "correct_start_verified": true,
+        "followup": {
+          "automation_id": "n01",
+          "kind": "heartbeat",
+          "status": "ACTIVE",
+          "count": 1,
+          "next_wake_local": "2026-10-15T10:30:00+08:00",
+          "next_wake_UTC": "2026-10-15T02:30:00+00:00",
+          "source_commit": "e116368c4f699243a60598c03865bcb4f601be35",
+          "continuous_agent_monitoring": false,
+          "receipt": "receipts/wp2_014_20261015/FOLLOWUP_RECEIPT.json",
+          "receipt_sha256": "a3cf3b06a0218afa32d507264c8900dc595cec5ae17d1b6ccdc7ecfdd3a2df46",
+          "correct_start_verified": true
+        }
       },
       "resource_limits": {
         "GPU_GiB": 10,
@@ -2088,9 +2138,66 @@
         "poll_seconds": 10,
         "TERM_grace_seconds": 20
       },
-      "scientific_status": "response_match_not_established"
+      "scientific_status": "response_match_not_established",
+      "dispatch": {
+        "UTC": "2026-10-15T00:17:03.697159+00:00",
+        "status": "native_initializing_verification_pending",
+        "start_receipt": "receipts\\wp2_014_20261015\\start_native_01\\START_RECEIPT.json",
+        "start_receipt_sha256": "1b150a72d44a2d54836d29453295fc1e756b1e4fc906e2e114166bed26997b93",
+        "supervisor_pid": 107073,
+        "actual_G1_verified": false,
+        "current_computation_counts": "unknown_until_saved_progress_readback",
+        "training159667_is_last_pre014_verified_count": true
+      },
+      "supervisor_pid": 107073,
+      "actual_counters_last_verified": {
+        "training_backward_queries": 198,
+        "integral_statistics_fits": 1,
+        "old_A_rows": 255880,
+        "calibration_map_rows": 18432,
+        "optimizer_created": 1,
+        "probe_AD_queries": 234,
+        "optimizer_steps": 197,
+        "hard_ADC_rows": 925488,
+        "noise005_rows": 255752,
+        "checkpoint_loads": 2,
+        "head_actual_parameter_forward_rows": 256008,
+        "new_AD_queries": 432,
+        "head_total_kernel_rows": 274440,
+        "G_updates": 197,
+        "all_path_gather_rows": 925488
+      },
+      "analysis_pid": 107083,
+      "correct_start_verified": true,
+      "verified_start_UTC": "2026-10-15T00:19:11.418550+00:00",
+      "followup": {
+        "automation_id": "n01",
+        "kind": "heartbeat",
+        "status": "ACTIVE",
+        "count": 1,
+        "next_wake_local": "2026-10-15T10:30:00+08:00",
+        "next_wake_UTC": "2026-10-15T02:30:00+00:00",
+        "source_commit": "e116368c4f699243a60598c03865bcb4f601be35",
+        "continuous_agent_monitoring": false,
+        "receipt": "receipts/wp2_014_20261015/FOLLOWUP_RECEIPT.json",
+        "receipt_sha256": "a3cf3b06a0218afa32d507264c8900dc595cec5ae17d1b6ccdc7ecfdd3a2df46",
+        "correct_start_verified": true
+      }
     }
   ],
   "user_requested_pause": false,
-  "resume_requires_user_server_started_notice": false
+  "resume_requires_user_server_started_notice": false,
+  "followup": {
+    "automation_id": "n01",
+    "kind": "heartbeat",
+    "status": "ACTIVE",
+    "count": 1,
+    "next_wake_local": "2026-10-15T10:30:00+08:00",
+    "next_wake_UTC": "2026-10-15T02:30:00+00:00",
+    "source_commit": "e116368c4f699243a60598c03865bcb4f601be35",
+    "continuous_agent_monitoring": false,
+    "receipt": "receipts/wp2_014_20261015/FOLLOWUP_RECEIPT.json",
+    "receipt_sha256": "a3cf3b06a0218afa32d507264c8900dc595cec5ae17d1b6ccdc7ecfdd3a2df46",
+    "correct_start_verified": true
+  }
 }

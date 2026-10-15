@@ -1,3 +1,12 @@
+<!-- WP2_014_STARTED_20261015 -->
+## 当前作业：WP2/014 C0/C1两种子配对短试
+
+014已通过首次真实AdamW更新与同一快照健康检查。固定4trial串行、每次2000G，最多8000G；新AD最多9872，已与013零AD成本分开登记。保护A/005，C2关闭，硬ADC/first-argmax和013冻结数字T保持不变。运行期计数以最后持久化核验为下界，完整结果待回收。
+
+已设置2026-10-15 10:30（Asia/Singapore）单次回收唤醒，期间休息。[014配置](wp2_014_config.json) · [014固定方案](docs/WP2_014_CONFIGURATION.md) · [启动回执](receipts/wp2_014_20261015/EXECUTION_STARTED.json) · [013报告](reports/wp1_013_20261015/N01_WP1_013_REPORT.md)
+
+<!-- END_WP2_014_STARTED_20261015 -->
+
 <!-- WP1_013_CLOSEOUT_20261015 -->
 ## 当前进展：WP1/013已独立闭合，推进WP2
 
