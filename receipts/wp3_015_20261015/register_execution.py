@@ -156,6 +156,7 @@ else:
         unknown_inflight_ids=progress.get('unknown_inflight_ids',[]),actual_costs_are_durable_lower_bounds_while_running=True,
         correct_start_verified=True,new_training_updates=counts['G_updates'],new_AD_queries=counts['new_AD_queries'])
     program.update(status='WP3_015_native_running_last_verified',active_scientific_jobs=1,active_research=p['run_id'],
+        latest_source_commit=source['source_commit'],
         current_stage='WP3_015_native_paired_mean_path_trials',next_action='One scheduled wake, then collect015 and continue the six-workpackage plan.',
         current_run_training_updates=counts['G_updates'],new_training_updates=167667+counts['G_updates'],
         latest_run_id=p['run_id'],latest_training_run_id=p['run_id'],wp3_execution=refs,
@@ -167,10 +168,12 @@ else:
         correct_start_verified=True,verified_start_UTC=stamp)
     jobs['active_scientific_jobs']=1
     master.update(status=program['status'],active_scientific_jobs=1,latest_run_id=p['run_id'],latest_training_run_id=p['run_id'],
+        latest_source_commit=source['source_commit'],
         current_run_training_updates=counts['G_updates'],current_action='Four fixed015 short trials running last verified; one scheduled wake then rest.',wp3_execution=refs,
         current_stage=program['current_stage'],next_action=program['next_action'],active_research=p['run_id'])
     next(w for w in master['work_packages'] if w['id']=='WP3').update(status='native_running_last_verified',execution=refs)
     current.update(status=program['status'],active_scientific_jobs=1,latest_run_id=p['run_id'],latest_training_run_id=p['run_id'],
+        latest_source_commit=source['source_commit'],
         current_run_training_updates=counts['G_updates'],new_training_updates=167667+counts['G_updates'],wp3_execution=refs,
         current_stage=program['current_stage'],next_action=program['next_action'])
     write(OUT/'EXECUTION_STARTED.json',dict(schema='n01/wp3-correct-start/v1',UTC=stamp,refs=refs,

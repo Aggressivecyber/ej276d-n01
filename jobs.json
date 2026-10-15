@@ -1,7 +1,7 @@
 {
   "experiment_id": "N01",
-  "updated_UTC": "2026-10-15T04:09:25.788300+00:00",
-  "active_scientific_jobs": 0,
+  "updated_UTC": "2026-10-15T04:19:25.020434+00:00",
+  "active_scientific_jobs": 1,
   "jobs": [
     {
       "job_id": "N01_RUN_001_20261012",
@@ -2573,7 +2573,7 @@
       "job_id": "N01_WP3_015_20261015",
       "run_id": "wp3_015_20261015",
       "scientific_job": true,
-      "status": "frozen_ready_not_started",
+      "status": "native_running_last_verified",
       "registered_UTC": "2026-10-15T04:09:25.788300+00:00",
       "user_authority": "USER_MASTER_PLAN_20261015.txt",
       "source_freeze_pending": false,
@@ -2613,8 +2613,8 @@
       ],
       "planned_short_candidate_runs": 4,
       "completed_short_candidate_runs": 0,
-      "G_updates": 0,
-      "new_AD_queries": 0,
+      "G_updates": 120,
+      "new_AD_queries": 120,
       "automatic_restart": false,
       "DEV_numeric_read": false,
       "execution": {
@@ -2680,11 +2680,73 @@
           "wall_seconds": 7200,
           "output_MiB": 1536
         },
-        "status": "frozen_ready_not_started",
-        "new_training_updates": 0,
-        "new_AD_queries": 0,
+        "status": "native_running_last_verified",
+        "new_training_updates": 120,
+        "new_AD_queries": 120,
         "cumulative_training_before_run": 167667,
-        "source_commit_pending_local_readback": true
+        "source_commit_pending_local_readback": false,
+        "source_commit": "15b60f3fbe02641bcd18693486698f4fed0875bf",
+        "source_commit_readback": {
+          "path": "receipts/wp3_015_20261015/SOURCE_COMMIT_READBACK.json",
+          "sha256": "20cc7809b3ddc7cbfd1c09fa5e891804eea0f7910edb580659bd58437d9ed25a",
+          "bytes": 16524
+        },
+        "start_receipt": {
+          "path": "receipts/wp3_015_20261015/start_native_01/START_RECEIPT.json",
+          "sha256": "ce589da15bc299d90c776dbefb987dce33c68ca91f2564d5d6c00ad665b68b2c",
+          "bytes": 1464
+        },
+        "startup_verification": {
+          "path": "receipts/wp3_015_20261015/start_verification_01/START_VALIDATION.json",
+          "sha256": "0c9e75088c157cabdc23f27e991b2b84043495d827e8ef8fa33823c70a51da38",
+          "bytes": 306
+        },
+        "startup_snapshot": {
+          "path": "receipts/wp3_015_20261015/start_verification_01/REMOTE_STATE.json",
+          "sha256": "79d0cfd258e0c8ceee16586ff9763ecfffd697807756fc8b564dd5a791c564af",
+          "bytes": 359873
+        },
+        "analysis_pid": 149201,
+        "supervisor_pid": 149185,
+        "last_verified_completed_counts": {
+          "head_actual_parameter_forward_rows": 176648,
+          "mean_evidence_REAL_rows": 21047,
+          "G_updates": 120,
+          "all_path_gather_rows": 687152,
+          "new_AD_queries": 120,
+          "optimizer_steps": 120,
+          "mean_evidence_tests": 6,
+          "training_backward_queries": 120,
+          "optimizer_created": 1,
+          "head_total_kernel_rows": 176648,
+          "old_A_rows": 176648,
+          "checkpoint_loads": 3,
+          "mean_evidence_REPORT_files": 12,
+          "noise005_rows": 176648,
+          "hard_ADC_rows": 687152,
+          "mean_evidence_REPORT_parent_rows": 79116
+        },
+        "unknown_inflight_ids": [],
+        "actual_costs_are_durable_lower_bounds_while_running": true,
+        "correct_start_verified": true,
+        "followup": {
+          "schema": "n01/wp3-single-followup-confirmation/v1",
+          "UTC": "2026-10-15T04:22:27.329927+00:00",
+          "automation_id": "n01",
+          "kind": "heartbeat",
+          "status": "ACTIVE",
+          "count": 1,
+          "next_wake_local": "2026-10-15T13:20:00+08:00",
+          "next_wake_UTC": "2026-10-15T05:20:00+00:00",
+          "target_thread_id": "01a12bad-8839-7522-89a5-f028b107d7ff",
+          "actual_saved_settings_verified": true,
+          "settings_sha256": "0682b4748e9fbfc2977c848c86bac82bee422922f69e9ac6bfa66b3c5895871c",
+          "prepared_prompt_file_sha256": "908e6be28d765498e6d557b04dc333db9194031faedf427904d044a55deedb93",
+          "actual_prompt_sha256": "600dcc0d22a8ae1baaec7059a3b5c9990fe8fffb69e389f556e2d6363784652b",
+          "continuous_agent_monitoring": false,
+          "no_remote_calls_after_correct_start_snapshot": true,
+          "source_commit": "15b60f3fbe02641bcd18693486698f4fed0875bf"
+        }
       },
       "resource_limits": {
         "GPU_GiB": 10,
@@ -2694,31 +2756,68 @@
         "poll_seconds": 10,
         "TERM_grace_seconds": 20
       },
-      "scientific_status": "response_match_not_established"
+      "scientific_status": "response_match_not_established",
+      "actual_counters_last_verified": {
+        "head_actual_parameter_forward_rows": 176648,
+        "mean_evidence_REAL_rows": 21047,
+        "G_updates": 120,
+        "all_path_gather_rows": 687152,
+        "new_AD_queries": 120,
+        "optimizer_steps": 120,
+        "mean_evidence_tests": 6,
+        "training_backward_queries": 120,
+        "optimizer_created": 1,
+        "head_total_kernel_rows": 176648,
+        "old_A_rows": 176648,
+        "checkpoint_loads": 3,
+        "mean_evidence_REPORT_files": 12,
+        "noise005_rows": 176648,
+        "hard_ADC_rows": 687152,
+        "mean_evidence_REPORT_parent_rows": 79116
+      },
+      "analysis_pid": 149201,
+      "supervisor_pid": 149185,
+      "correct_start_verified": true,
+      "verified_start_UTC": "2026-10-15T04:19:25.020434+00:00",
+      "followup": {
+        "schema": "n01/wp3-single-followup-confirmation/v1",
+        "UTC": "2026-10-15T04:22:27.329927+00:00",
+        "automation_id": "n01",
+        "kind": "heartbeat",
+        "status": "ACTIVE",
+        "count": 1,
+        "next_wake_local": "2026-10-15T13:20:00+08:00",
+        "next_wake_UTC": "2026-10-15T05:20:00+00:00",
+        "target_thread_id": "01a12bad-8839-7522-89a5-f028b107d7ff",
+        "actual_saved_settings_verified": true,
+        "settings_sha256": "0682b4748e9fbfc2977c848c86bac82bee422922f69e9ac6bfa66b3c5895871c",
+        "prepared_prompt_file_sha256": "908e6be28d765498e6d557b04dc333db9194031faedf427904d044a55deedb93",
+        "actual_prompt_sha256": "600dcc0d22a8ae1baaec7059a3b5c9990fe8fffb69e389f556e2d6363784652b",
+        "continuous_agent_monitoring": false,
+        "no_remote_calls_after_correct_start_snapshot": true,
+        "source_commit": "15b60f3fbe02641bcd18693486698f4fed0875bf"
+      }
     }
   ],
   "user_requested_pause": false,
   "resume_requires_user_server_started_notice": false,
   "followup": {
-    "schema": "n01/wp2-readback-single-followup-confirmation/v1",
-    "UTC": "2026-10-15T03:14:57.571981+00:00",
+    "schema": "n01/wp3-single-followup-confirmation/v1",
+    "UTC": "2026-10-15T04:22:27.329927+00:00",
     "automation_id": "n01",
     "kind": "heartbeat",
     "status": "ACTIVE",
     "count": 1,
-    "next_wake_local": "2026-10-15T11:17:00+08:00",
-    "next_wake_UTC": "2026-10-15T03:17:00+00:00",
+    "next_wake_local": "2026-10-15T13:20:00+08:00",
+    "next_wake_UTC": "2026-10-15T05:20:00+00:00",
     "target_thread_id": "01a12bad-8839-7522-89a5-f028b107d7ff",
     "actual_saved_settings_verified": true,
-    "settings_sha256": "4f6f369cbe720cb31fecfde2b25dc5ad6d0fbf401b8aab25ae1d86b6a7512177",
-    "prepared_prompt_file_sha256": "b884f5e292c4da9af45467bcb7a712272f35a336b98db9b766d076ca9eb273e7",
-    "actual_prompt_sha256": "34f0a9df53c811fe2cd99bd202e1ad916f67c2fbe411789a07b194b8947d6f9f",
-    "prepared_trailing_linebreak_removed_before_tool": true,
+    "settings_sha256": "0682b4748e9fbfc2977c848c86bac82bee422922f69e9ac6bfa66b3c5895871c",
+    "prepared_prompt_file_sha256": "908e6be28d765498e6d557b04dc333db9194031faedf427904d044a55deedb93",
+    "actual_prompt_sha256": "600dcc0d22a8ae1baaec7059a3b5c9990fe8fffb69e389f556e2d6363784652b",
     "continuous_agent_monitoring": false,
     "no_remote_calls_after_correct_start_snapshot": true,
-    "source_commit": "cde0b8db49c49d7beab23011cb5e95f5627cee6d",
-    "delivery_status": "single_0317UTC_wake_delivered_0318UTC_this_turn",
-    "saved_app_status_is_historical": true
+    "source_commit": "15b60f3fbe02641bcd18693486698f4fed0875bf"
   },
   "scientific_status": "response_match_not_established",
   "active_scientific_jobs_status_basis": "CPU audit collected native0 and independently closed; no015 computational job authorized or started",
@@ -2736,5 +2835,10 @@
     "all36_pairs_verified": true,
     "weights_promoted": false,
     "scientific_acceptance": false
-  }
+  },
+  "followup_automation_id": "n01",
+  "followup_automation_status": "ACTIVE",
+  "followup_next_run_local": "2026-10-15T13:20:00+08:00",
+  "followup_receipt": "receipts/wp3_015_20261015/FOLLOWUP_RECEIPT.json",
+  "followup_receipt_sha256": "889b219a2a86ce86f9b926945c8d608b7e1ddef141740759909e921aedc6fe6d"
 }
