@@ -1,0 +1,20 @@
+{
+  "schema": "n01/agent-model-policy/v1",
+  "effective_user_instruction_UTC": "2026-10-15T05:32:13.145512Z",
+  "user_instruction": "全部换成astra max",
+  "scope": "Current N01 planning, implementation, independent review and subsequent dispatch in this task",
+  "requested_model": "gpt-6-astra",
+  "requested_reasoning_effort": "max",
+  "roles": {
+    "planning": {"model": "gpt-6-astra", "reasoning_effort": "max"},
+    "implementation": {"model": "gpt-6-astra", "reasoning_effort": "max", "active_agent": "/root/wp3_015_astra_execution"},
+    "independent_review": {"model": "gpt-6-astra", "reasoning_effort": "max", "active_agent": "/root/wp3_015_astra_review"}
+  },
+  "replacement_agents_started_with_explicit_model_and_effort": true,
+  "legacy_agents_interrupted": ["/root/mean_random009_independent", "/root/reaudit_optimization", "/root/reaudit_model_mechanisms"],
+  "resume_legacy_agents": false,
+  "historical_artifact_authorship_preserved": true,
+  "root_runtime_model_independently_exposed_to_tools": false,
+  "scientific_configuration_or_budget_changed": false,
+  "long_job_policy": "Save first real calculation and same-snapshot health evidence, set one future wake in existing n01, then rest without continued monitoring."
+}

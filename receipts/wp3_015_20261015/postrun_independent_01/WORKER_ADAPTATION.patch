@@ -1,0 +1,190 @@
+--- completed014/readback_saved_arrays.py
++++ 015/readback_saved_arrays.py
+@@ -1,4 +1,4 @@
+-"""Bounded014 saved-array verification. Never import neural modules or load CP.
++"""Bounded015 saved-array verification. Never import neural modules or load CP.
+ 
+ Prepared locally. Root must register its SHA and authorize the one CPU execution.
+ Native wave/QPSD/noise distances are producer evidence plus JSON algebra; they
+@@ -18,12 +18,13 @@
+ import sys
+ import time
+ 
+-CONFIG_SHA = 'abb1de68d5ca312d1dbaf14dc058d7514429321b0813aa00c70ff37b20e92e32'
+-MANIFEST_SHA = '14db81d3a08a0edede97f544ed8ec4c63147138223c00fc38d833bbc278e2684'
++CONFIG_SHA = '54c096ad1a5e112493798e5c6c8db481cd3c79b78747200af0bbd47bccba5394'
++MANIFEST_SHA = 'f1255dbff0e47edb7ec20e76c7d90057201f9a56f1184b7896f0c8cb0a67825a'
++INVENTORY_SHA = '9d253a57bb79d9f25b112b4f5e0009a239c21360766c89cef7357d040adebe42'
+ KERNEL_SHA = 'fe1366f35f36e97974f1a4037a36ad858c03dd8453957c1b45b65080f0fee3ac'
+ P, R, N = 6593, 4, 26372
+ H = ('fast', 'slow', 'common_level')
+-TRIALS = ('seed0_C0', 'seed0_C1', 'seed1_C0', 'seed1_C1')
++TRIALS = ('seed0_M0', 'seed0_M1', 'seed1_M0', 'seed1_M1')
+ SCALARS = ('Q_Vns', 'tail_Vns', 'PSD_raw', 'PSD_guarded', 'peak_voltage_V',
+            'baseline_mean_V', 'baseline_RMS_V', 'rise10_90_ns', 'FWHM_ns')
+ np = kernels = None
+@@ -62,12 +63,6 @@
+     mean = values.mean(1)
+     factor = values-mean[:, None]
+     return mean, (factor**2).sum(1)/(values.shape[1]-1), factor
+-
+-
+-def add_three_gradients(wave, distribution, regular):
+-    require(all(v.shape == (1288,) and v.dtype == np.float64 and np.isfinite(v).all()
+-                for v in (wave, distribution, regular)), '1288 finite parameter vectors')
+-    return wave+distribution+regular
+ 
+ 
+ def require(value, message):
+@@ -114,7 +109,7 @@
+         self.state()
+ 
+     def base(self):
+-        return dict(schema='n01/wp2-readback-state/v1', run_id='wp2_014_saved_readback',
++        return dict(schema='n01/wp3-readback-state/v1', run_id='wp3_015_saved_readback_20261015',
+             UTC=datetime.now(timezone.utc).isoformat(), pid=os.getpid(), phase=self.phase,
+             counters=self.counts.copy(), attempted_counters=self.attempted.copy(),
+             operations_entered=self.entered, operations_completed=self.completed,
+@@ -352,63 +347,6 @@
+         gc.collect()
+         print(json.dumps(dict(phase='pair_verified', pair=len(self.pairs), trial=trial, arm=arm, hypothesis=hyp)), flush=True)
+ 
+-    def probe(self, trial, step):
+-        directory = self.root/'runs/primary/artifacts'/trial/f'probe_{step:04d}'
+-        doc = load(directory/'SUMMARY.json')
+-        rows, queries = 0, 0
+-        with np.load(directory/'RAW_PARENT_ROWS.npz', allow_pickle=False) as raw, \
+-             np.load(directory/'GRADIENT_VECTORS.npz', allow_pickle=False) as vectors:
+-            for row in doc['records']:
+-                prefix = f'bank{row["bank"]}_{row["hypothesis"]}'
+-                ids = raw[prefix+'__source_parent_row']
+-                draw = raw[prefix+'__draw_index']
+-                parent_ids = raw[prefix+'__source_parent_id']
+-                require(ids.shape == draw.shape == parent_ids.shape == (128,), 'probe128row schema')
+-                require(np.array_equal(draw, np.tile(np.arange(2), 64))
+-                        and len(np.unique(ids)) == 64 and np.array_equal(ids[0::2], ids[1::2]), 'probe64parent2draw')
+-                require(np.array_equal(parent_ids, self.parents[ids]), 'probe original SOURCE IDs')
+-                output_bin = raw[prefix+'__output_Q_quartile']
+-                q = raw[prefix+'__Q_Vns']
+-                require(np.array_equal(output_bin, np.searchsorted(doc['generated_output_Q_quartile_bounds_REAL_TRAIN'], q, side='left')),
+-                        'probe generated output-Q quartile membership')
+-                name = row['stratum']
+-                if name == 'all':
+-                    mask = np.ones(128, bool)
+-                elif name.startswith('SOURCE_Q_quartile_'):
+-                    mask = raw[prefix+'__source_Q_quartile'] == int(name.rsplit('_', 1)[1])
+-                elif name.startswith('generated_output_Q_quartile_'):
+-                    mask = output_bin == int(name.rsplit('_', 1)[1])
+-                else:
+-                    which = int(name.rsplit('_', 1)[1])
+-                    mask = ids == ids[2*self.cfg['probe']['single_parent_positions'][which]]
+-                require(row['fake_rows'] == int(mask.sum()) and row['fake_parent_count'] == len(np.unique(ids[mask])), 'probe conditional denominator')
+-                require(row['peak_switch_rows'] == int(raw[prefix+'__peak_switch_vs_initial'][mask].sum()), 'preserved probe peak-switch count')
+-                if row['status'] == 'empty_stratum':
+-                    require(not mask.any() and row['AD_queries'] == 0, 'empty stratum explicit skip')
+-                else:
+-                    gs = {n: vectors[prefix+'__'+name+'__'+n] for n in ('wave', 'weighted_distribution', 'weighted_regular', 'total')}
+-                    require(all(g.shape == (1288,) and g.dtype == np.float64 and np.isfinite(g).all() for g in gs.values()), '1288 finite parameter vectors')
+-                    self.equal(gs['total'], add_three_gradients(gs['wave'], gs['weighted_distribution'], gs['weighted_regular']),
+-                               'stored total=sum3', atol=2e-11)
+-                    norms = {n: float(np.linalg.norm(g)) for n, g in gs.items()}
+-                    for n, value in norms.items():
+-                        self.equal(value, row['gradient_norms'][n], 'stored gradient norm', atol=2e-11)
+-                    for name_pair, saved in row['cosine'].items():
+-                        one, two = name_pair.split('__')
+-                        if norms[one] == 0 or norms[two] == 0:
+-                            require(saved is None, 'undefined zero-vector cosine retained')
+-                        else:
+-                            value = float(np.dot(gs[one], gs[two])/(norms[one]*norms[two]))
+-                            self.equal(value, saved, 'stored gradient cosine', atol=2e-11)
+-                    require(row['AD_queries'] == 3 and row['probe_updates_parameters'] is False, 'three stored AD only')
+-                rows += 1
+-                queries += row['AD_queries']
+-        require(len(doc['records']) == len({(r['bank'], r['hypothesis'], r['stratum']) for r in doc['records']}) == 78
+-                and queries == doc['extra_scalar_AD_queries'], 'probe78 unique strata and AD summary')
+-        self.probes.append(dict(trial=trial, G_updates=step, stratum_records=rows, stored_AD_queries=queries,
+-            identities_vectors_and_mask_counts_verified=True,
+-            actual_peak_switch_reconstruction=False, reason='probe peak_index/fullwindow not saved; stored boolean/count checked only'))
+-        self.guard()
+ 
+ 
+ def main():
+@@ -437,20 +375,31 @@
+         signal.signal(signal.SIGTERM, interrupted)
+         signal.setitimer(signal.ITIMER_REAL, 1800)
+         root = audit.root
+-        require(sha(root/'wp2_014_config.json') == CONFIG_SHA and sha(root/'WP2_SOURCE_MANIFEST.json') == MANIFEST_SHA, 'frozen014 controls')
+-        cfg, mf = load(root/'wp2_014_config.json'), load(root/'WP2_SOURCE_MANIFEST.json')
++        require(sha(root/'wp3_015_config.json') == CONFIG_SHA and sha(root/'WP3_SOURCE_MANIFEST.json') == MANIFEST_SHA, 'frozen015 controls')
++        cfg, mf = load(root/'wp3_015_config.json'), load(root/'WP3_SOURCE_MANIFEST.json')
+         audit.cfg = cfg
+-        require(len(mf['files']) == 95, 'frozen95source')
++        require(len(mf['files']) == 105, 'frozen105source')
+         for name, row in mf['files'].items():
+             path = root/name
+             require(path.is_file() and not path.is_symlink() and path.stat().st_size == row['bytes'] and sha(path) == row['sha256'], 'frozen sourceSHA:' + name)
++        require(sha(args.inventory) == INVENTORY_SHA, 'registered015 full inventory SHA')
+         inv = load(args.inventory)
+         audit.inventory_sha = sha(args.inventory)
+         require(inv['config_sha256'] == CONFIG_SHA and inv['source_manifest_sha256'] == MANIFEST_SHA
+                 and inv['whole_remote_inventory_verified'] is True, 'bound complete remote inventory')
+         raw = inv['omitted_remote_inventory']
+-        require(len(raw) == 176 and all(name.endswith('.npz') for name in raw), 'exact176 rawNPZ scope')
+-        require(sum(row['bytes'] for row in raw.values()) <= 6160*1024**2, 'finite raw-byte envelope')
++        expected_evaluation = set()
++        for trial in TRIALS:
++            for snapshot, arms in [('initial_evaluation', ('A', 'initial')), ('final_evaluation', ('final',))]:
++                directory = 'runs/primary/artifacts/' + trial + '/' + snapshot + '/'
++                expected_evaluation.update(directory + f'bank{b}_BASELINE100.npz' for b in (0, 1))
++                expected_evaluation.update(directory + f'bank{b}_{arm}_{h}_{kind}.npz'
++                    for b in (0, 1) for arm in arms for h in H for kind in ('HARD_ROWS', 'REPORT'))
++        summary_only = 'runs/primary/artifacts/MEAN_EVIDENCE_REAL_SUMMARY.npz'
++        require(len(expected_evaluation) == 160 and set(raw) == expected_evaluation | {summary_only},
++                'exact015 raw160 evaluation plus one SHA-only mean summary scope')
++        require(sum(row['bytes'] for row in raw.values()) == 3064431039 and
++                sum(row['bytes'] for row in raw.values()) <= 3072*1024**2, 'finite actual015 raw-byte envelope')
+         for name, row in raw.items():
+             path = root/name
+             def hash_raw(path=path, row=row, name=name):
+@@ -481,24 +430,20 @@
+                                  trial=trial, snapshot=snapshot, arm=arm, hypothesis=h)
+                         if not (audit.out/'FIRST_PAIR_PROOF.json').exists():
+                             write_new(audit.out/'FIRST_PAIR_PROOF.json', dict(audit.base(),
+-                                schema='n01/wp2-readback-first-formal-pair/v1',
++                                schema='n01/wp3-readback-first-formal-pair/v1',
+                                 actual_saved_array_pair_completed=True, pair=audit.pairs[0],
+                                 no_extra_tiny_actual_input=True, actual_new_CP_NN_AD=0))
+                 del baseline
+                 gc.collect()
+-            for step in (0, 2000):
+-                audit.op('probe_saved_vectors_and_rows', dict(probe_raw_npz_files_decoded=1,
+-                    probe_gradient_npz_files_decoded=1, probe_snapshots_verified=1),
+-                    lambda: audit.probe(trial, step), trial=trial, G_updates=step)
+-        require(len(audit.pairs) == 36 and len(audit.probes) == 8, 'complete finite readback scope')
++        require(len(audit.pairs) == 36 and not audit.probes, 'complete015 finite readback without probes')
+         require(not audit.inflight and audit.counts == audit.attempted, 'audit complete has no unknown operations')
+         require({k:audit.counts[k] for k in ('raw_files_SHA_checked','hard_rows_files_decoded','report_npz_files_decoded',
+                     'baseline_npz_files_decoded','probe_raw_npz_files_decoded','probe_gradient_npz_files_decoded',
+                     'bank_pairs_verified','probe_snapshots_verified','waveform_rows_decoded')}
+-                == dict(raw_files_SHA_checked=176, hard_rows_files_decoded=72, report_npz_files_decoded=72,
+-                        baseline_npz_files_decoded=16, probe_raw_npz_files_decoded=8, probe_gradient_npz_files_decoded=8,
+-                        bank_pairs_verified=36, probe_snapshots_verified=8, waveform_rows_decoded=72*N), 'exact finite audit completion counts')
+-        result = dict(audit.base(), schema='n01/wp2-independent-raw-saved-array-readback/v1', status='PASS', passed=True,
++                == dict(raw_files_SHA_checked=161, hard_rows_files_decoded=72, report_npz_files_decoded=72,
++                        baseline_npz_files_decoded=16, probe_raw_npz_files_decoded=0, probe_gradient_npz_files_decoded=0,
++                        bank_pairs_verified=36, probe_snapshots_verified=0, waveform_rows_decoded=72*N), 'exact finite audit completion counts')
++        result = dict(audit.base(), schema='n01/wp3-independent-raw-saved-array-readback/v1', status='PASS', passed=True,
+             UTC=datetime.now(timezone.utc).isoformat(), frozen_configuration_sha256=CONFIG_SHA,
+             frozen_manifest_sha256=MANIFEST_SHA, inventory_sha256=sha(args.inventory), raw_files_SHA_checked=audit.touched,
+             pairs=audit.pairs, probes=audit.probes, numerical_comparison_absmax_errors=audit.errors,
+@@ -508,6 +453,10 @@
+             distance_evidence='frozen producer + separately verified JSON aggregation/decision only; no raw CDF/loss replay',
+             original_C1_median_fit_independently_replayed=False,
+             preADC384_and_fullcarrier_independent_readback=False,
++            mean_evidence_REAL_summary_SHA_only_no_decode=True,
++            mean_evidence_summary_record=audit.touched[summary_only],
++            probe_or_gradient_readback_applicable=False,
++            inherited015_reference_mean_module_not_causal_identification=True,
+             reviewer_operations=dict(CP_loads=0, NN_rows=0, AD_queries=0, training_updates=0,
+                 optimizer_or_sampler_created=0, new_random_draws=0, CDF_or_loss_replays=0,
+                 original_TRAIN_or_DEV_waveform_reads=0, GPU_work=0),

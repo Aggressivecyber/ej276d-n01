@@ -1,3 +1,23 @@
+# N01 当前执行：WP3/015 保存数组独立复核准备
+
+015四trial各2000G，child/supervisor均0。实际8000G/AD已完整入账，累计175667，搜索短试8/12，WP3已4/6。选收139/300文件，161原NPZ仍在服务器，原A/005和冻结源保持不变。
+
+保存JSON独立比较按冻结规则选择M0研究参考，均值模块关闭：mean12 final wave为M0 0.15012505860962605、M1 0.15243191496746586，共同初始0.15042006897712382。M0相对A的2%用途门6/6，M1为0/6；绝对T和完整响应匹配仍未通过。权重未作科学晋级。
+
+下一步已登记一次36对、161份NPZ身份SHA/160份评价数组解码的CPU复核，新增CP/NN/AD/G和随机数均0。完整CDF/loss与median尺度不重拟合。当前仅已准备，启动以真实回执为准。
+
+[原生终点](receipts/wp3_015_20261015/postrun_root_01/NATIVE_COMPLETION_READBACK.json) · [保存指标独审](receipts/wp3_015_20261015/postrun_independent_01/DEVELOPMENT_SELECTION.json) · [读回配置](receipts/wp3_015_20261015/readback_registration_01/READBACK_EXECUTION.json)
+
+以下保留此前阶段说明。
+
+# N01 当前执行：WP3/015 训练完成，独立数组复核待执行
+
+四次配对短试均2000G，原生子进程及监督进程均0，总计8000G/AD；所有154518操作完成，无在途或失败。原A/005保护通过，未读取DEV。本轮只补记7880次更新，累计175667。模型研究参考选择与完整数值接受，等待冻结合同规定的独立保存数组复核；科学状态仍为response_match_not_established。
+
+[015原生终点](receipts/wp3_015_20261015/postrun_root_01/NATIVE_COMPLETION_READBACK.json) · [015合同](docs/WP3_015_CONFIGURATION.md)
+
+以下保留此前阶段说明。
+
 # N01 当前执行：WP3/015 已正确启动
 
 015已通过首次真实AdamW更新、ALL6固定人口均值残差门和同一快照健康检查。四次配对短试串行、每次2000G，最多8000G/AD；M0继续C1形状头，M1冻结相同头而训练6参数均值适配器。A/005保持冻结，原硬观测和013数字T不变，005基线DC限制单列。

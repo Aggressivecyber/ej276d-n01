@@ -1,0 +1,331 @@
+{
+  "schema": "n01/wp3-astra-prelaunch-independent-review/v1",
+  "UTC": "2026-10-15 05:45:40 UTC",
+  "passed": true,
+  "status": "PASS_STATIC_PRELAUNCH",
+  "recommendation": "GO_ONE_ROOT_REGISTERED_CPU_SAVED_ARRAY_READBACK",
+  "run_id": "wp3_015_saved_readback_20261015",
+  "reviewer": {
+    "agent": "/root/wp3_015_astra_review",
+    "assigned_model": "GPT-6-Astra",
+    "assigned_effort": "Max",
+    "assignment_evidence": "Parent relayed user's explicit instruction to change all roles to Astra Max; this agent accepted the independent-review role.",
+    "runtime_model_metadata_independently_exposed": false,
+    "historical_Sol_preparation_authorship_preserved": true
+  },
+  "controller": {
+    "path": "E:\\GAN\\research\\N01\\receipts\\wp3_015_20261015\\readback_engineering_01\\readback_control.py",
+    "bytes": 31779,
+    "sha256": "85f19797e91ec62951a4bfc2eb54b46a05fc550a3d28e4ded9346e077477b66d"
+  },
+  "worker": {
+    "path": "E:\\GAN\\research\\N01\\receipts\\wp3_015_20261015\\postrun_independent_01\\readback_saved_arrays.py",
+    "bytes": 29536,
+    "sha256": "c2f53542b2bdc2557cfc6f1470f11113e4fc8d2be0ec13648e154d05222272a7"
+  },
+  "kernel": {
+    "path": "E:\\GAN\\research\\N01\\receipts\\wp3_015_20261015\\postrun_independent_01\\saved_array_kernels.py",
+    "bytes": 3691,
+    "sha256": "fe1366f35f36e97974f1a4037a36ad858c03dd8453957c1b45b65080f0fee3ac"
+  },
+  "plan": {
+    "path": "E:\\GAN\\research\\N01\\receipts\\wp3_015_20261015\\postrun_independent_01\\READBACK_PLAN.json",
+    "bytes": 8647,
+    "sha256": "32ee8e020d653491c8d97ae5e41f9aca18098824b11c6f6333b3635cc0d7dd50"
+  },
+  "worker_ready": {
+    "path": "E:\\GAN\\research\\N01\\receipts\\wp3_015_20261015\\postrun_independent_01\\READBACK_WORKER_READY.json",
+    "bytes": 4511,
+    "sha256": "f73f342ea96286fb00614bdbefef82187b5d775d6b48eab7cd2c3e4c1fd57164"
+  },
+  "inventory": {
+    "path": "E:\\GAN\\research\\N01\\receipts\\wp3_015_20261015\\collection_01\\REMOTE_FULL_INVENTORY.json",
+    "bytes": 123203,
+    "sha256": "9d253a57bb79d9f25b112b4f5e0009a239c21360766c89cef7357d040adebe42"
+  },
+  "frozen_configuration_sha256": "54c096ad1a5e112493798e5c6c8db481cd3c79b78747200af0bbd47bccba5394",
+  "frozen_manifest_sha256": "f1255dbff0e47edb7ec20e76c7d90057201f9a56f1184b7896f0c8cb0a67825a",
+  "reviewed_documents": [
+    "E:/GAN/AGENTS.md",
+    "E:/GAN/research/N01/AGENTS.md",
+    "E:/GAN/research/N01/USER_MASTER_PLAN_20261015.txt",
+    "LOCAL_METADATA_READBACK.json",
+    "DEVELOPMENT_SELECTION.json",
+    "DEVELOPMENT_SUMMARY.md",
+    "READBACK_PLAN.json",
+    "READBACK_WORKER_READY.json",
+    "BINDING_LITERAL_FIX.json",
+    "readback_saved_arrays.py",
+    "saved_array_kernels.py",
+    "../readback_engineering_01/readback_control.py",
+    "../readback_engineering_01/check_readback_control.py",
+    "../readback_engineering_01/artificial_stdlib_01/ENGINEERING_RECEIPT.json"
+  ],
+  "actual_independent_verification": {
+    "method": "Local stdlib file hashing, JSON parsing, AST parsing/comparison, full worker/kernel/controller code review and focused controller diff review.",
+    "static_results": {
+      "binding_checks": [
+        {
+          "document": "plan",
+          "field": "frozen_configuration",
+          "passed": true
+        },
+        {
+          "document": "plan",
+          "field": "frozen_manifest",
+          "passed": true
+        },
+        {
+          "document": "plan",
+          "field": "inventory",
+          "passed": true
+        },
+        {
+          "document": "plan",
+          "field": "worker",
+          "passed": true
+        },
+        {
+          "document": "plan",
+          "field": "kernel",
+          "passed": true
+        },
+        {
+          "document": "plan",
+          "field": "scope_note",
+          "passed": true
+        },
+        {
+          "document": "ready",
+          "field": "worker",
+          "passed": true
+        },
+        {
+          "document": "ready",
+          "field": "kernel",
+          "passed": true
+        },
+        {
+          "document": "ready",
+          "field": "plan",
+          "passed": true
+        },
+        {
+          "document": "ready",
+          "field": "scope_note",
+          "passed": true
+        },
+        {
+          "document": "ready",
+          "field": "inventory",
+          "passed": true
+        },
+        {
+          "document": "fix_after",
+          "field": "readback_saved_arrays.py",
+          "passed": true
+        },
+        {
+          "document": "fix_after",
+          "field": "READBACK_PLAN.json",
+          "passed": true
+        },
+        {
+          "document": "fix_after",
+          "field": "READBACK_WORKER_READY.json",
+          "passed": true
+        },
+        {
+          "document": "fix_after",
+          "field": "WORKER_ADAPTATION.patch",
+          "passed": true
+        }
+      ],
+      "all_bindings_match": true,
+      "mature_AST_method_equivalence": {
+        "decode_window": true,
+        "lineage": true,
+        "wave_moments": true,
+        "Audit.equal": true,
+        "Audit.member": true,
+        "Audit.identities": true,
+        "Audit.load_baselines": true,
+        "Audit.one_bank": true,
+        "Audit.pair": true,
+        "Audit.op": true,
+        "Audit.journal": true,
+        "Audit.state": true,
+        "Audit.guard": true
+      },
+      "all_mature_AST_methods_identical": true,
+      "kernel_byte_exact_014": true,
+      "old_runtime_literals_present": {
+        "wp3_014_config.json": false,
+        "wp2_014_config.json": false,
+        "WP2_SOURCE_MANIFEST.json": false,
+        "wp3_014_saved_readback": false,
+        "wp2_014_saved_readback": false
+      },
+      "frozen105_count": 105,
+      "frozen105_changed": [],
+      "npz_inventory_scope_matches": true,
+      "evaluation_npz_count": 160,
+      "total_bound_npz_bytes": 3064431039,
+      "original014_readback_pass": true,
+      "original014_readback_status": "PASS",
+      "original014_scientific_acceptance": false,
+      "current_worker_sha256": "c2f53542b2bdc2557cfc6f1470f11113e4fc8d2be0ec13648e154d05222272a7",
+      "current_plan_sha256": "32ee8e020d653491c8d97ae5e41f9aca18098824b11c6f6333b3635cc0d7dd50",
+      "current_kernel_sha256": "fe1366f35f36e97974f1a4037a36ad858c03dd8453957c1b45b65080f0fee3ac",
+      "current_controller_sha256": "85f19797e91ec62951a4bfc2eb54b46a05fc550a3d28e4ded9346e077477b66d",
+      "actual_npz_decodes": 0,
+      "actual_numeric_fixture_runs": 0,
+      "actual_scientific_operations": 0,
+      "actual_ssh_calls": 0
+    },
+    "controller_numeric_or_scientific_execution": false,
+    "original105_source_files_SHA_and_bytes_checked": 105,
+    "source105_changed_files": [],
+    "worker_or_kernel_or_plan_modified_by_this_reviewer": false
+  },
+  "reviewed_controller_contract": {
+    "source_and_input_identity": {
+      "passed": true,
+      "exact_five_source_files_plus_execution_registration": true,
+      "registration_SHA_before_gate": true,
+      "each_source_bytes_and_SHA_checked": true,
+      "plan_SHA_literal_matches_current_plan": true,
+      "original105_source_and_015_control_SHA_before_launch": true,
+      "original_native_completion_required": true,
+      "consumed72_REPORT_JSON_bytes_and_SHA_bound_to_original300_inventory": true,
+      "worker_exact160_evaluation_NPZ_plus1_SHA_only_summary_set": true,
+      "raw161_SHA_completed_before_NumPy_import_or_numeric_decode": true,
+      "no_second_raw_SHA_pass_added_by_controller": true
+    },
+    "finite_resources": {
+      "passed": true,
+      "CPU_threads": 2,
+      "RSS_MiB": 1536,
+      "virtual_memory_backstop_MiB": 3072,
+      "wall_seconds": 1800,
+      "worker_output_MiB": 64,
+      "collection_cap_MiB_including_controls": 80,
+      "enforcement": "Worker affinity/thread environment/RLIMIT_AS/SIGALRM/guards plus supervisor owned process tree RSS/output/wall and TERM/KILL of owned child.",
+      "expected_pairs": 36,
+      "expected_raw_SHA_files": 161,
+      "expected_evaluation_NPZ_decodes": 160,
+      "expected_hard_rows": 1898784,
+      "expected_operations": 285,
+      "scientific_CP_NN_AD_G_RNG_GPU_and_original_TRAIN_DEV_reads": 0
+    },
+    "first_formal_proof": {
+      "passed": true,
+      "writer_after_first_completed_actual_two_bank_pair": true,
+      "no_separate_tiny_actual_pair": true,
+      "proof_completed_equals_attempted_and_no_inflight": true,
+      "same_snapshot_failed_files_status_and_durable_failed_or_truncated_journal_rejected": true,
+      "current_status_and_durable_completed_counters_at_least_proof": true,
+      "live_branch": "Boot, PID, start ticks, parent process, command, cwd and worker CPU affinity bound to launch; live RSS/VM and sampled owned-tree resource caps required.",
+      "terminal_branch": "Native child and supervisor exit zero, empty reason/error, bound PID chain, completed producer state, and terminal resource caps required.",
+      "normal_current_inflight_allowed_but_not_claimed_completed": true
+    },
+    "failure_and_single_attempt": {
+      "passed": true,
+      "worker_BaseException_preserves_FAILED_and_status_and_rethrows": true,
+      "supervisor_resource_or_signal_stop_is_nonzero_with_receipt": true,
+      "unknown_inflight_completion_never_claimed_complete": true,
+      "start_refuses_any_existing_dispatch_launch_artifact_or_log": true,
+      "automatic_retry": false,
+      "SSH_unknown_outcome_recorded_and_raises_no_retry": true,
+      "failed_terminal_collection_preserves_partial_evidence": true,
+      "no_frozen_source_edits_or_raw_array_transfer": true
+    }
+  },
+  "resolved_findings": [
+    {
+      "id": "F01",
+      "description": "Inherited controller PLAN_SHA referred to the pre-fix plan.",
+      "resolution": "Updated to current plan SHA 32ee8e02...; worker/READY/fix bindings agree.",
+      "status": "resolved_before_registration"
+    },
+    {
+      "id": "F02",
+      "description": "Historical FIRST_PAIR_PROOF alone could pass when current owned process health was unavailable.",
+      "resolution": "Added same-snapshot live process identity/resource/durable checks and explicit successful native-terminal branch.",
+      "status": "resolved_before_registration"
+    },
+    {
+      "id": "F03",
+      "description": "The worker consumes 72 REPORT JSON files in addition to the NPZ inputs; these JSON files were not individually bound at launch.",
+      "resolution": "old_small_gate now derives the exact 72 paired REPORT JSON paths from the bound NPZ inventory and verifies bytes/SHA before start.",
+      "status": "resolved_before_registration"
+    }
+  ],
+  "reused_engineering_evidence": {
+    "controller_stdlib_015": {
+      "path": "E:\\GAN\\research\\N01\\receipts\\wp3_015_20261015\\readback_engineering_01\\artificial_stdlib_01\\ENGINEERING_RECEIPT.json",
+      "sha256": "35efa71371ee36f36ad1a346feeb31182ca5277dbbef86b06b409a116dd7ff9f",
+      "passed": true,
+      "passed_checks": 7,
+      "same_snapshot_negative_cases": 13,
+      "checker_sha256": "b02445f05b3259cffe61826c15e270e747515e58701b0ebe280326a24e3bf19f",
+      "independent_reviewer_reexecuted": false,
+      "engineer_reported_native_exit_code": 0,
+      "scope": "Inspected actual checker source and matching hash-bound receipt. Positive native/array markers existed only in in-memory artificial fixtures; stored fixture artifacts remain artificial_only.",
+      "real_saved_NPZ_reads": 0,
+      "numeric_imports": false
+    },
+    "numerical_014": {
+      "path": "E:\\GAN\\research\\N01\\receipts\\wp2_014_20261015\\postrun_independent_01\\artificial_cpu_01\\ENGINEERING_RECEIPT.json",
+      "sha256": "bf6abb699726196f2d68d85d4a6e3f6edeaf6c59270c33352d9ec20b31df7886",
+      "passed_checks": 8,
+      "independent_reviewer_reexecuted": false
+    },
+    "actual014_completed_readback": {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp2_014_20261015\\independent_readback_collected_01\\artifacts\\ARRAY_READBACK.json",
+      "sha256": "bfb2169ead85c60a7f5a39e9379f5d910a2d1712cc3a01ff1d9b48f1bce8ea71",
+      "status": "PASS",
+      "passed": true,
+      "scientific_acceptance": false,
+      "purpose": "Prior execution evidence for the byte-identical kernel and 13 AST-identical mature statistical/durable methods; no replay of 014 arrays."
+    }
+  },
+  "independent_current_operations": {
+    "local_code_JSON_and_hash_checks_only": true,
+    "raw_NPZ_reads": 0,
+    "NPZ_decodes": 0,
+    "original_SOURCE_REAL_TRAIN_DEV_waveform_reads": 0,
+    "checkpoint_tensor_loads": 0,
+    "model_forwards": 0,
+    "AD_queries": 0,
+    "optimizer_or_sampler_created": 0,
+    "training_updates": 0,
+    "new_random_draws": 0,
+    "new_CDF_or_loss_replays": 0,
+    "bootstrap_replicates": 0,
+    "GPU_work": 0,
+    "numeric_fixture_reruns": 0,
+    "SSH_calls": 0,
+    "deployment_or_start_calls": 0
+  },
+  "observed_prior_development_result": {
+    "source": "Existing LOCAL_METADATA_READBACK/DEVELOPMENT_SELECTION and summary were read; this is not a new scientific recomputation.",
+    "selected_research_reference": "M0",
+    "M0_wave_mean12": 0.15012505860962605,
+    "M1_wave_mean12": 0.15243191496746586,
+    "common_initial_wave_mean12": 0.15042006897712382,
+    "selected_mean_adapter_enabled": false,
+    "weights_promoted": false,
+    "independent_raw_saved_array_readback_complete": false
+  },
+  "limitations": [
+    "This receipt approves the reviewed bounded implementation for root registration; it does not claim that 015 raw arrays have already been read or that the remote process has started.",
+    "No remote filesystem/runtime state or Linux /proc collector was exercised by this independent reviewer; actual live identity, resource and native exit evidence must come from the registered execution.",
+    "The saved-row audit recomputes hard-row statistics, native r4 and derived r8 moments/MCSE; it does not independently replay full wave/QPSD/noise empirical CDF losses, refit the original C1 median, decode original TRAIN/DEV, or reconstruct full preADC384.",
+    "The mean-evidence REAL summary NPZ is SHA-only. Conditional mean identification, physical response match and weight promotion are not established by this review."
+  ],
+  "blockers": [],
+  "scientific_acceptance": false,
+  "scientific_status": "response_match_not_established",
+  "root_must_register_final_exact_controller_worker_kernel_plan_inventory_and_this_receipt": true
+}
