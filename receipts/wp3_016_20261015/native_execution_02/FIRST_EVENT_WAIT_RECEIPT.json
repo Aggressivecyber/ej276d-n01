@@ -1,0 +1,35 @@
+{
+  "schema": "n01/wp3-016-first-event-existence-wait/v1",
+  "started_UTC": "2026-10-15T07:18:24.962561+00:00",
+  "finished_UTC": "2026-10-15T07:23:25.277426+00:00",
+  "elapsed_seconds": 300.3148366000096,
+  "command": [
+    "ssh",
+    "-x",
+    "-o",
+    "BatchMode=yes",
+    "-o",
+    "ConnectTimeout=10",
+    "rylan@100.82.231.102",
+    "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python -B -c 'from pathlib import Path\nfrom datetime import datetime,timezone\nimport json,time,sys\nevent=Path(\"/home/rylan/projects/ej276d-n01/wp3_016_20261015/runs/primary/artifacts/FIRST_UPDATE_PROOF.json\")\nstarted=time.monotonic();deadline=started+300\nwhile True:\n    exists=event.is_file()\n    if exists or time.monotonic()>=deadline:\n        print(json.dumps(dict(event=str(event),exists=exists,observed_UTC=datetime.now(timezone.utc).isoformat(),elapsed_seconds=time.monotonic()-started,maximum_wait_seconds=300,content_reads=0,status_snapshots=0)),flush=True)\n        sys.exit(0 if exists else 124)\n    time.sleep(min(2,max(0,deadline-time.monotonic())))\n'"
+  ],
+  "SSH_exit_code": 124,
+  "stdout": "{\"event\": \"/home/rylan/projects/ej276d-n01/wp3_016_20261015/runs/primary/artifacts/FIRST_UPDATE_PROOF.json\", \"exists\": false, \"observed_UTC\": \"2026-10-15T07:23:25.076397+00:00\", \"elapsed_seconds\": 300.0002489469989, \"maximum_wait_seconds\": 300, \"content_reads\": 0, \"status_snapshots\": 0}\n",
+  "stderr": "",
+  "remote_wait_result": {
+    "event": "/home/rylan/projects/ej276d-n01/wp3_016_20261015/runs/primary/artifacts/FIRST_UPDATE_PROOF.json",
+    "exists": false,
+    "observed_UTC": "2026-10-15T07:23:25.076397+00:00",
+    "elapsed_seconds": 300.0002489469989,
+    "maximum_wait_seconds": 300,
+    "content_reads": 0,
+    "status_snapshots": 0
+  },
+  "unknown_remote_result": false,
+  "SSH_calls": 1,
+  "maximum_remote_wait_seconds": 300,
+  "progress_content_reads": 0,
+  "status_snapshots": 0,
+  "automatic_retry": false,
+  "scientific_NN_AD_random_training_probe": 0
+}

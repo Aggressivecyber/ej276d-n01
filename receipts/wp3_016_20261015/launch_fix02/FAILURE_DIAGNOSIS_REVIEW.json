@@ -1,0 +1,381 @@
+{
+  "schema": "n01/wp3-016-preG-failure-independent-diagnosis/v1",
+  "UTC": "2026-10-15T07:39:26.335179+00:00",
+  "run_id": "wp3_016_20261015",
+  "status": "DIAGNOSIS_COMPLETE_MEASURED_REPEAT_MAGNITUDE_UNKNOWN",
+  "passed": true,
+  "reviewer": {
+    "agent": "/root/wp3_015_solmax_review",
+    "assigned_model": "GPT-6.1-Sol",
+    "assigned_effort": "Max",
+    "runtime_model_metadata_independently_exposed": false
+  },
+  "conclusion_zh": "真实失败定位于初始bank0完成后的报告reducer严格Q相等检查，尚未G/AD。父/draw顺序和chunk划分静态正确；实际差值未落盘，不能确认仅为浮点舍入。可用013已登记的1e-7V实际A重复残差门作最小工程修复，保留逐draw实际A/mu/v，先落盘再门判，禁止替代或广播。",
+  "confirmed_execution": {
+    "source_commit": "99464dd21544d4f6ef60f348015759b449fafaa2",
+    "pins": {
+      "config_sha256": "c0fe6408b53969da9f0bd70c01bf7649cfabfbf1864752dc5696bb8c9b6d5da9",
+      "source_manifest_sha256": "1488217be443fb49c60db4fcf3d852fcda8ba33507ce7e5ba2ee2f3d1e4d1327",
+      "source_package_sha256": "524ba471ac24d376211349280237e02562dfe797b2921fc25b01c46aac8e688e",
+      "controller_sha256": "ae9afe444a90acb4fabddf1d2bf643550a4cbf29c4b9130408b040abcc843b5b"
+    },
+    "worker_pid": 182403,
+    "supervisor_pid": 182393,
+    "failure_UTC": "2026-10-15T07:18:16.034425+00:00",
+    "native_exit_UTC": "2026-10-15T07:18:25.858393+00:00",
+    "snapshot_UTC": "2026-10-15T07:23:33.039797+00:00",
+    "native_child_exit": 1,
+    "native_supervisor_exit": 1,
+    "G_updates": 0,
+    "AD_queries": 0,
+    "optimizer_steps": 0,
+    "actual_counts": {
+      "calibration_A_rows": 6593,
+      "old_A_rows": 32965,
+      "head_actual_parameter_forward_rows": 26372,
+      "head_total_kernel_rows": 26372,
+      "noise005_rows": 26372,
+      "charge_module_rows": 26372,
+      "charge_latent_scalar_draws": 26372,
+      "charge_initialization_fits": 1,
+      "hard_ADC_rows": 237348,
+      "all_path_gather_rows": 237348,
+      "checkpoint_loads": 3,
+      "optimizer_created": 1,
+      "optimizer_steps": 0,
+      "G_updates": 0,
+      "training_backward_queries": 0,
+      "new_AD_queries": 0,
+      "probe_AD_queries": 0,
+      "integral_statistics_fits": 0,
+      "mean_adapter_rows": 0,
+      "D_updates": 0,
+      "noise_updates": 0,
+      "population_updates": 0,
+      "C2ST_updates": 0,
+      "DEV_model_rows": 0
+    },
+    "scientific_compute_and_RNG_cost_nonzero": true,
+    "operations_entered": 2929,
+    "operations_completed": 2929,
+    "inflight": [],
+    "failed_operation_ids": [],
+    "truncated_tail": false,
+    "explanation": "The failing require is outside Store.call, after all charged bank operations completed. Thus native failure with an all-completed journal is consistent."
+  },
+  "lineage_and_batch_analysis": {
+    "source": "failed frozen driver evaluate lines282,287-314",
+    "parent_order": "repeat(arange6593,4)",
+    "draw_order": "tile(arange4,6593)",
+    "append_and_reshape": "Each sequential chunk appends q/mu, then concatenate and reshape(6593,4).",
+    "evaluation_chunk_rows": 128,
+    "full_chunks": 206,
+    "last_chunk_rows": 4,
+    "parents_per_full_chunk": 32,
+    "parent_crosses_chunk": false,
+    "actual_array_lineage_replayed": false,
+    "inference_zh": "没有静态错位或父跨chunk证据。因而不能把本次失败直接解释为同父跨不同batch大小；真实设备行位置/算子数值差异仍属候选解释。"
+  },
+  "model_path_analysis": {
+    "Q_mu": "canonical_charge008(actual frozen A signal_pre) in float64 before charge multiplier",
+    "actual_A_path": "Frozen deterministic baseline with zero physical/local latents, sample-wise GroupNorm/Conv/FiLM and no observed BatchNorm/Dropout path; new shape/charge latents do not setQ_mu.",
+    "mean_rows_preserved_in_model": true,
+    "charge_denominator_floor": false,
+    "exact_mu_comparison_implies": "At least one saved-in-memory per-draw Q differs from its parent first draw; finite positive output guards were already passed.",
+    "does_not_imply": "No magnitude, affected parents, waveform residual, ULP profile or CUDA-kernel cause follows from the boolean failure."
+  },
+  "saved_calibration": {
+    "parents": 6593,
+    "S0_V2": 0.0016069720304571775,
+    "Sminus_V2_per_Vns": 0.00025187027004966006,
+    "a_initial_Vns": 7.396158916880037e-06,
+    "b_initial": 1.1592439124125852e-06,
+    "Q_mu_min_Vns": 0.5462979269685883,
+    "Q_mu_max_Vns": 15.12013678615344,
+    "actual_A_expected_increment_RMS_V": 6.1038881767686e-05,
+    "target_RMS_V": 6.103888176768602e-05,
+    "inference": "One-parent-per-row calibration passed positive Q and analytical1LSB initialization. It does not quantify the later duplicate-draw A/Q residual."
+  },
+  "partial_evidence": {
+    "selected_files": 21,
+    "whole_files": 22,
+    "omitted": [
+      "runs/primary/artifacts/seed0_Q1/initial_evaluation/bank0_BASELINE100.npz"
+    ],
+    "actual_A_or_mu_repeat_arrays_saved": false,
+    "original_bad_repeat_magnitude": "unknown_not_recoverable_from_collected_metadata",
+    "save_order": "bank0 BASELINE100 was written before the strict check; CHARGE_PREADC_MOMENTS, CHARGE_SEMANTICS, HARD_ROWS and REPORT saves follow the check and were not reached.",
+    "original_failure_preserved": true
+  },
+  "engineering_gate_recommendation": {
+    "reuse_existing_gate": true,
+    "numerical_A_max_abs_residual_V": 1e-07,
+    "provenance": [
+      "scripts/run_wp1_013.py:21 and25-63 A_numerical_residual",
+      "wp1_013_config.json:3502-3504 original numerical storage repair"
+    ],
+    "applicability": "Same frozen A on the same exact SOURCE-parent/draw identities, full384 actual float64 voltage rows. Reuse the helper unchanged; the limit is execution replay tolerance, separate from scientific response T.",
+    "required_save_before_gate": [
+      "Actual A384 rows for every parent/draw, actual model Q_mu per draw and q_sig per draw, per-draw v=a*mu+b*mu², and parent/draw/ID metadata",
+      "A repeat diagnostic summary with max/RMS/bit differences and affected identities, input byte-identity and exact lineage status"
+    ],
+    "exact_guards": "Verify source IDs unique, repeat/tile order, count/dtype/finite-positive fields, and exact same-parent SOURCE input bytes separately; failure remains hard. Use all actual outputs without substitution.",
+    "numeric_guard": "Write evidence first, then fail if any full-A point residual exceeds the existing1e-7V gate. A Q-only allclose is insufficient: cancelling waveform errors can hide in the integral.",
+    "prohibited": [
+      "No default np.allclose or unregistered tolerance",
+      "No change to actual A, no broadcasting first draw or mean A",
+      "No substitution of mu[:,0] or mean(mu) into q law or its denominator",
+      "No claim that the already failed attempt was within tolerance"
+    ],
+    "extra_NN_or_random_needed_for_diagnostics": 0,
+    "scientific_law_seeds_loss_T_and_fixed4000G_design_changed": false
+  },
+  "canonical_Q_bound": {
+    "canonical_half_open_slice": [
+      110,
+      366
+    ],
+    "terms": 256,
+    "software_dt_ns": 1,
+    "exact_real_arithmetic": "|Q_d-Q_ref| <= sum_[110:366)|A_d-A_ref| <=256*max_t|A_d-A_ref|",
+    "derived_max_from_A_gate_Vns": 2.56e-05,
+    "finite_sum_note": "For stored float64 A and a normal IEEE round-to-nearest sum without overflow/subnormal exceptions, include a conservative sum-rounding term gamma255*(L1(A_d)+L1(A_ref)); gamma255=255u/(1-255u),u=2^-53. Record actual Q residual and actual reduction-consistency residual. Do not turn the derived integral bound into an unrelated learned/scientific tolerance.",
+    "double_unit_roundoff": 1.1102230246251565e-16,
+    "gamma255": 2.8310687127942293e-14,
+    "failed_run_actual_Q_error": "unknown"
+  },
+  "correct_draw_specific_statistics": {
+    "conditioning": "Condition on every retained actual mu_d and independent charge z_d, D=4.",
+    "row_moments": "E(q_d)=mu_d; v_d=Var(q_d)=a*mu_d+b*mu_d².",
+    "report_mean_only": "E(mean_d q_d)=mean_d mu_d; this descriptive report center never replaces actual per-row modelmu.",
+    "expected_sample_variance_ddof1": "E[s_q²]=mean_d(v_d)+samplevar_d(mu_d,ddof=1). The second term is deterministic numerical row-mean spread and must not be labelled physical charge variance.",
+    "theoretical_sample_mean_MCSE": "sqrt(sum_d v_d)/D; variance of sample mean=sum_d v_d/D². No samplevar(mu) term is added when conditioning on the retained deterministicmu layout.",
+    "draw_specific_residual_second_moment_ddof0": "mean_d((q_d-mu_d)²) has expectation mean_d(v_d); do not subtract the realized residual mean or relabel the numericmu spread as physical variation.",
+    "empirical_MCSE": "Keep sqrt(samplevar(q,ddof=1)/D) if reported, label it the empirical draw-based value and distinguish it from the analytical conditionalMCSE.",
+    "inference_limit": "Repeated model draws remain Monte Carlo samples of the generator. Unpaired REAL does not supply same-input conditional variance truth."
+  },
+  "artificial_checks_executed": {
+    "method": "stdlib manufactured integer lineage, count arithmetic and non-neural hand-written384-point arrays only",
+    "lineage_all6593": true,
+    "chunk_count": 207,
+    "initialization_operations": 31,
+    "evaluation_operations": 2898,
+    "total_operations": 2929,
+    "waveform_counterexamples": [
+      {
+        "case": "exact_A",
+        "A_residual": 0.0,
+        "gate": true
+      },
+      {
+        "case": "sub_tolerance_actual_A_but_Q_not_bit_equal",
+        "A_residual": 5.000000000143778e-08,
+        "Q_difference": 1.2800000000368073e-05,
+        "gate": true
+      },
+      {
+        "case": "A_over_registered_gate",
+        "A_residual": 1.9999999999881224e-07,
+        "gate": false
+      },
+      {
+        "case": "large_cancelling_shape_error_not_caught_by_Q_only",
+        "A_residual": 1.9999999999881224e-07,
+        "Q_difference": 0.0,
+        "gate": false
+      }
+    ],
+    "new_NN_or_random_or_original_arrays": 0
+  },
+  "focused_artificial_tests_for_next_patch": [
+    "Exact repeats, sub1e-7 A perturbations, above-gate A perturbations and equal-Q cancelling shape errors; persist diagnostic before any rejection",
+    "Parent/draw permutation, input-byte mismatch, missing row, wrongdtype and nonfinite/nonpositive fields must reject exactly",
+    "Keep actual per-drawmu and v untouched, verify mean(v)+samplevar(mu) and sqrt(sum(v))/D with controlled unequalmu arrays",
+    "Run evaluator save path on manufactured arrays without CP/real data/newNN; verify saved A/mu/v and failure evidence order"
+  ],
+  "restart_review_boundary": "This is a diagnosis review, not a repaired-source/frozen-package or restart approval. Root has separately authorized a minimal driver storage/reducer and new runtime-root repair; its final diff/tests/pins require independent review. No retrospective rerun of the failed private arrays is needed to choose the already registered engineering limit.",
+  "replacement_accounting": {
+    "existing_failure_counts": {
+      "calibration_A_rows": 6593,
+      "old_A_rows": 32965,
+      "head_actual_parameter_forward_rows": 26372,
+      "head_total_kernel_rows": 26372,
+      "noise005_rows": 26372,
+      "charge_module_rows": 26372,
+      "charge_latent_scalar_draws": 26372,
+      "charge_initialization_fits": 1,
+      "hard_ADC_rows": 237348,
+      "all_path_gather_rows": 237348,
+      "checkpoint_loads": 3,
+      "optimizer_created": 1,
+      "optimizer_steps": 0,
+      "G_updates": 0,
+      "training_backward_queries": 0,
+      "new_AD_queries": 0,
+      "probe_AD_queries": 0,
+      "integral_statistics_fits": 0,
+      "mean_adapter_rows": 0,
+      "D_updates": 0,
+      "noise_updates": 0,
+      "population_updates": 0,
+      "C2ST_updates": 0,
+      "DEV_model_rows": 0
+    },
+    "planned_replacement_caps": {
+      "calibration_A_rows": 6593,
+      "old_A_rows": 4313569,
+      "head_actual_parameter_forward_rows": 4306976,
+      "head_total_kernel_rows": 4306976,
+      "noise005_rows": 4306976,
+      "charge_module_rows": 4306976,
+      "charge_latent_scalar_draws": 4306976,
+      "charge_initialization_fits": 1,
+      "hard_ADC_rows": 13553856,
+      "all_path_gather_rows": 13553856,
+      "checkpoint_loads": 4,
+      "optimizer_created": 2,
+      "optimizer_steps": 4000,
+      "G_updates": 4000,
+      "training_backward_queries": 4000,
+      "new_AD_queries": 4000,
+      "probe_AD_queries": 0,
+      "integral_statistics_fits": 0,
+      "mean_adapter_rows": 0,
+      "D_updates": 0,
+      "noise_updates": 0,
+      "population_updates": 0,
+      "C2ST_updates": 0,
+      "DEV_model_rows": 0
+    },
+    "failure_plus_one_full_replacement_aggregate_caps": {
+      "calibration_A_rows": 13186,
+      "old_A_rows": 4346534,
+      "head_actual_parameter_forward_rows": 4333348,
+      "head_total_kernel_rows": 4333348,
+      "noise005_rows": 4333348,
+      "charge_module_rows": 4333348,
+      "charge_latent_scalar_draws": 4333348,
+      "charge_initialization_fits": 2,
+      "hard_ADC_rows": 13791204,
+      "all_path_gather_rows": 13791204,
+      "checkpoint_loads": 7,
+      "optimizer_created": 3,
+      "optimizer_steps": 4000,
+      "G_updates": 4000,
+      "training_backward_queries": 4000,
+      "new_AD_queries": 4000,
+      "probe_AD_queries": 0,
+      "integral_statistics_fits": 0,
+      "mean_adapter_rows": 0,
+      "D_updates": 0,
+      "noise_updates": 0,
+      "population_updates": 0,
+      "C2ST_updates": 0,
+      "DEV_model_rows": 0
+    },
+    "original_scientific_seed_trials": 2,
+    "total_G_budget": 4000,
+    "old_nontraining_compute_RNG_CP_not_erased": true,
+    "cumulative_G_before_and_after_failure": 175667
+  },
+  "evidence": [
+    {
+      "path": "receipts/wp3_016_20261015/start_verification_01/REMOTE_STATE.json",
+      "bytes": 401685,
+      "sha256": "6831515d00ec6fa8dffd654ab87e779dcf5a57043569f525ffc21cb76982b83c"
+    },
+    {
+      "path": "receipts/wp3_016_20261015/native_execution_02/NATIVE_START_SUMMARY.json",
+      "bytes": 212649,
+      "sha256": "73576f6db3b97e87593c779081c8f175d169b38d5a50bc6a0bbd0de070982e56"
+    },
+    {
+      "path": "receipts/wp3_016_20261015/failure_collection_01/COLLECTION_RECEIPT.json",
+      "bytes": 3831,
+      "sha256": "551d8f4a3023a98ab890167c2d563977ba37e39ce662a0a6c4171ce7b872e2b8"
+    },
+    {
+      "path": "receipts/wp3_016_20261015/failure_collection_01/REMOTE_FULL_INVENTORY.json",
+      "bytes": 10984,
+      "sha256": "ffb4eb9312eb5a5103a4aa93bcdb3d921b38fb9021409598c77d6bcf69796fd1"
+    },
+    {
+      "path": "runs/wp3_016_20261015/failed_collected_01/runs/primary/artifacts/CHARGE_INITIALIZATION.json",
+      "bytes": 65893,
+      "sha256": "865fc7da1cef1b03fb70d002f11e56658ff4db82f9ea4edcaa26a565af043101"
+    },
+    {
+      "path": "runs/wp3_016_20261015/failed_collected_01/runs/primary/artifacts/FAILED.json",
+      "bytes": 96385,
+      "sha256": "f38061769b4f08520e67afd655d0b72126e01cd581a11b72deb3046c356fabc8"
+    },
+    {
+      "path": "runs/wp3_016_20261015/failed_collected_01/runs/primary/artifacts/operations.jsonl",
+      "bytes": 1119124,
+      "sha256": "2a5fbf5242e36ce42bb0ccca4682d7528fcecf40da7e474597fa7b94faa6eca6"
+    },
+    {
+      "path": "runs/wp3_016_20261015/failed_collected_01/runs/primary/console.log",
+      "bytes": 1259,
+      "sha256": "dde66d2b9fd2d1fb74c127c8af25da9abb829dbf1fbc3d7cfe1d4933fbc75532"
+    },
+    {
+      "path": "scripts/run_wp1_013.py",
+      "bytes": 49484,
+      "sha256": "e7cbcf782e19e139c02260bbe1d67e0a50108785ed5b093975800a28b103657d"
+    },
+    {
+      "path": "wp1_013_config.json",
+      "bytes": 234194,
+      "sha256": "b55b64d500c1cd079bb83001da6b9ae5f462de9c952809c2ef329fcdbd98ffb7"
+    },
+    {
+      "path": "src/n01/model008.py",
+      "bytes": 14264,
+      "sha256": "56a6b41f9d2906c82757f4ca9f91a751ff8531428a7f38714e0a291359cd1b4f"
+    },
+    {
+      "path": "src/n01/model010.py",
+      "bytes": 13883,
+      "sha256": "3fbbee140477caf755feadf88175291c451c95a56899770a65eebf7be6204318"
+    },
+    {
+      "path": "src/n01/model016.py",
+      "bytes": 9226,
+      "sha256": "04c63f91ea5405937a940a9aee6eaed876db79149c857bfbe6ed8cfe6dcb138b"
+    },
+    {
+      "path": "src/n01/model.py",
+      "bytes": 34459,
+      "sha256": "0a0488218d99f351a98e30f2b1525b837b4ad3195c19f2a76ff61ee01298587b"
+    },
+    {
+      "path": "receipts/wp3_016_20261015/launch_fix02/failure_diagnosis_review.py",
+      "bytes": 18477,
+      "sha256": "5e97b389a6c15b4a6ac7c4b9614393a547116eefafe70580f725381d2ddafb94"
+    }
+  ],
+  "failed_driver_source": {
+    "package_path": "receipts/wp3_016_20261015/runtime_package_fix01/wp3_016_source.tar.gz",
+    "member": "scripts/run_wp3_016.py",
+    "sha256": "4729208d66c61c3b082827535719e72d8d7bb2ee60f390b688111ae3b4f12972",
+    "source_read_only": true
+  },
+  "actual_review_operations": {
+    "stdlib_only": true,
+    "original_NPZ_NPY_reads_or_decodes": 0,
+    "checkpoint_payload_reads_or_loads": 0,
+    "new_NN_rows": 0,
+    "new_AD_queries": 0,
+    "new_random_draws": 0,
+    "training_updates": 0,
+    "new_calibration_fits": 0,
+    "SSH_calls": 0,
+    "GPU_work": 0,
+    "source_or_meta_or_oldpins_edits": 0,
+    "output_root": "E:/GAN/research/N01/receipts/wp3_016_20261015/launch_fix02"
+  },
+  "scientific_acceptance": false,
+  "weights_promoted": false,
+  "scientific_status": "response_match_not_established"
+}
