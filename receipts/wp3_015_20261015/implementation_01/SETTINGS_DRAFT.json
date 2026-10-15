@@ -1,0 +1,179 @@
+{
+  "schema": "n01/wp3-015-config/v1",
+  "run_id": "wp3_015_20261015",
+  "status": "draft",
+  "candidates": [
+    "M0",
+    "M1"
+  ],
+  "seed_sets": [
+    {
+      "initialization": 2026101540,
+      "source_sampler": 2026101541,
+      "real_sampler": 2026101542,
+      "train_shape": 2026101543,
+      "train_noise005": 2026101544,
+      "train_extension": 2026101545,
+      "train_projection": 2026101546,
+      "integral_projection": 2026101547
+    },
+    {
+      "initialization": 2026101640,
+      "source_sampler": 2026101641,
+      "real_sampler": 2026101642,
+      "train_shape": 2026101643,
+      "train_noise005": 2026101644,
+      "train_extension": 2026101645,
+      "train_projection": 2026101646,
+      "integral_projection": 2026101647
+    }
+  ],
+  "G_updates": 2000,
+  "TRAIN_counts": {
+    "source": 6593,
+    "real": 21047,
+    "REAL_logical_groups": 422
+  },
+  "training": {
+    "source_parents_per_update": 512,
+    "draws_per_parent": 2,
+    "real_rows_per_update": 1024,
+    "forward_chunk_rows": 256,
+    "G_lr": 0.0002,
+    "G_weight_decay": 0.0001,
+    "clip_norm": 5.0,
+    "wave_weight": 1.0,
+    "distribution_weight": 2.0,
+    "regular_weight": 0.01,
+    "status_interval": 100,
+    "checkpoint_steps": [
+      1000,
+      2000
+    ],
+    "fresh_AdamW": true,
+    "inherit_014_optimizer": false
+  },
+  "mean_adapter": {
+    "parameters": 6,
+    "zero_initialization": true,
+    "control_Q_slice": [
+      110,
+      366
+    ],
+    "control_tail_slice": [
+      156,
+      366
+    ],
+    "Gaussian_sigma_ns": 2.0,
+    "Gaussian_length": 13,
+    "causal_tau_ns": 16.0,
+    "causal_length": 64,
+    "coefficient_limit": 0.1,
+    "RMS_trust_fraction": 0.1,
+    "epsilon_V": 1e-12,
+    "mean_regular_weight": 0.01,
+    "M0_trainable_parameters": 1288,
+    "M1_trainable_parameters": 6,
+    "stochastic_amplitude_from_original_A": true
+  },
+  "mean_evidence": {
+    "REPORT_mean_member": "root/repeated_parent/hard_wave_mean_V",
+    "REPORT_parent_member": "root/repeated_parent/parent_rows",
+    "minimum_RMS_V": 1e-07,
+    "SE_multiplier": 3.0,
+    "minimum_bank_residual_cosine": 0.5,
+    "ALL_seed_hypothesis_cells": 6,
+    "real_cluster_variance": "G/(G-1)*sum_g(sum_i_in_g(y_i-row_mean))^2/N^2",
+    "group_is_independent_acquisition": false,
+    "not_conditional_mean_identification": true
+  },
+  "evaluation": {
+    "parents": 6593,
+    "draws": 4,
+    "banks": 2,
+    "chunk_rows": 128,
+    "bank_seeds": [
+      {
+        "shape": 2026101501,
+        "noise005": 2026101502,
+        "extension": 2026101503
+      },
+      {
+        "shape": 2026101511,
+        "noise005": 2026101512,
+        "extension": 2026101513
+      }
+    ],
+    "projection_seed": 2026101430,
+    "whole_population": true,
+    "snapshot_arms": {
+      "initial": [
+        "A",
+        "initial"
+      ],
+      "final": [
+        "final"
+      ]
+    }
+  },
+  "hypotheses": [
+    "fast",
+    "slow",
+    "common_level"
+  ],
+  "CPU_threads": 12,
+  "run_resource_limits": {
+    "GPU_GiB": 10,
+    "job_tree_RSS_GiB": 8,
+    "wall_seconds": 7200,
+    "output_MiB": 1536
+  },
+  "resource_limits": {
+    "GPU_GiB": 10,
+    "job_tree_RSS_GiB": 8,
+    "wall_seconds": 28800,
+    "output_MiB": 6144,
+    "poll_seconds": 10,
+    "TERM_grace_seconds": 20
+  },
+  "one_active_scientific_job": true,
+  "serial_runs": true,
+  "automatic_restart": false,
+  "overwrite_outputs": false,
+  "DEV_numeric_read": false,
+  "scientific_status": "response_match_not_established",
+  "remote_root": "/home/rylan/projects/ej276d-n01/wp3_015_20261015",
+  "budget_caps": {
+    "old_A_rows": 8613952,
+    "head_actual_parameter_forward_rows": 8613952,
+    "head_total_kernel_rows": 8613952,
+    "noise005_rows": 8613952,
+    "mean_adapter_rows": 4306976,
+    "hard_ADC_rows": 26474784,
+    "all_path_gather_rows": 26474784,
+    "checkpoint_loads": 4,
+    "optimizer_created": 4,
+    "optimizer_steps": 8000,
+    "G_updates": 8000,
+    "training_backward_queries": 8000,
+    "new_AD_queries": 8000,
+    "calibration_map_rows": 0,
+    "integral_statistics_fits": 0,
+    "probe_AD_queries": 0,
+    "mean_evidence_REPORT_files": 12,
+    "mean_evidence_REPORT_parent_rows": 79116,
+    "mean_evidence_REAL_rows": 21047,
+    "mean_evidence_tests": 6,
+    "D_updates": 0,
+    "noise_updates": 0,
+    "population_updates": 0,
+    "C2ST_updates": 0,
+    "DEV_model_rows": 0
+  },
+  "remote_inventory_evidence": {
+    "path": "/home/rylan/projects/ej276d-n01/wp3_015_20261015/WP2_REMOTE_FULL_INVENTORY.json",
+    "local_path": "E:\\GAN\\research\\N01\\receipts\\wp2_014_20261015\\collection_01\\REMOTE_FULL_INVENTORY.json",
+    "sha256": "4cf27f6c771294561a474ef2de9574ab711d9322c588da488f0d9ce2e49792d5",
+    "bytes": 129532
+  }
+}

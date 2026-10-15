@@ -10,7 +10,7 @@
   },
   "objective": "Deliver a usable and verifiable conditional effective stochastic response kernel with explicit data and physical scope; assess engineering, in-domain effectiveness and cross-condition reuse separately.",
   "mainline": "protected deterministic A plus input-dependent stochastic response, fixed256 hard output/384 carrier/100 baseline/1ns software sampling; originalfull19k retained as negative control",
-  "status": "WP3_015_implementation_preparation",
+  "status": "WP3_015_frozen_ready",
   "active_work_package": "WP3",
   "active_scientific_jobs": 0,
   "work_packages": [
@@ -682,7 +682,7 @@
     },
     {
       "id": "WP3",
-      "status": "implementation_preparation",
+      "status": "frozen_ready",
       "scope": [
         "zero_initialized_trust_region_mean_adapter_if_identifiable_residual",
         "positive_mean_corrected_signal_charge_variance",
@@ -690,7 +690,76 @@
         "time_centering_if_needed",
         "local_signal_noise_or_one_distribution_extension_only_if_needed"
       ],
-      "exit": "One modular candidate with separable mean/charge/shape/time/electronics and explicit disabled-branch identities."
+      "exit": "One modular candidate with separable mean/charge/shape/time/electronics and explicit disabled-branch identities.",
+      "execution": {
+        "configuration": "wp3_015_config.json",
+        "configuration_sha256": "54c096ad1a5e112493798e5c6c8db481cd3c79b78747200af0bbd47bccba5394",
+        "source_manifest": "WP3_SOURCE_MANIFEST.json",
+        "source_manifest_sha256": "f1255dbff0e47edb7ec20e76c7d90057201f9a56f1184b7896f0c8cb0a67825a",
+        "source_files": 105,
+        "source_controls": 107,
+        "protected_source_records": 368,
+        "original_protection271_preserved": true,
+        "freeze_receipt": {
+          "path": "receipts/wp3_015_20261015/runtime_package_01/FREEZE_RECEIPT.json",
+          "sha256": "9fb8149e50b94d15da08aa4f4842c1fa5baaf1e23798a942ed36e2d6b776227c",
+          "bytes": 18503
+        },
+        "independent_review": {
+          "path": "receipts/wp3_015_20261015/independent_01/PRELAUNCH_REVIEW.json",
+          "sha256": "b3189a271c90b89445acca12e253484509869587b0dc705b6961eb07fb1306a7",
+          "bytes": 7621
+        },
+        "remote_root": "/home/rylan/projects/ej276d-n01/wp3_015_20261015",
+        "protocol": "docs/WP3_015_CONFIGURATION.md",
+        "roles": "WP3_DATA_ROLES.json",
+        "budget_caps": {
+          "old_A_rows": 8613952,
+          "head_actual_parameter_forward_rows": 8613952,
+          "head_total_kernel_rows": 8613952,
+          "noise005_rows": 8613952,
+          "mean_adapter_rows": 4306976,
+          "hard_ADC_rows": 26474784,
+          "all_path_gather_rows": 26474784,
+          "checkpoint_loads": 4,
+          "optimizer_created": 4,
+          "optimizer_steps": 8000,
+          "G_updates": 8000,
+          "training_backward_queries": 8000,
+          "new_AD_queries": 8000,
+          "calibration_map_rows": 0,
+          "integral_statistics_fits": 0,
+          "probe_AD_queries": 0,
+          "mean_evidence_REPORT_files": 12,
+          "mean_evidence_REPORT_parent_rows": 79116,
+          "mean_evidence_REAL_rows": 21047,
+          "mean_evidence_tests": 6,
+          "D_updates": 0,
+          "noise_updates": 0,
+          "population_updates": 0,
+          "C2ST_updates": 0,
+          "DEV_model_rows": 0
+        },
+        "resource_limits": {
+          "GPU_GiB": 10,
+          "job_tree_RSS_GiB": 8,
+          "wall_seconds": 28800,
+          "output_MiB": 6144,
+          "poll_seconds": 10,
+          "TERM_grace_seconds": 20
+        },
+        "run_resource_limits": {
+          "GPU_GiB": 10,
+          "job_tree_RSS_GiB": 8,
+          "wall_seconds": 7200,
+          "output_MiB": 1536
+        },
+        "status": "frozen_ready_not_started",
+        "new_training_updates": 0,
+        "new_AD_queries": 0,
+        "cumulative_training_before_run": 167667,
+        "source_commit_pending_local_readback": true
+      }
     },
     {
       "id": "WP4",
@@ -932,6 +1001,50 @@
       },
       "separate_from_WP1_zero_AD": true,
       "original_cumulative_training": 159667
+    },
+    "WP3_015": {
+      "budget_caps": {
+        "old_A_rows": 8613952,
+        "head_actual_parameter_forward_rows": 8613952,
+        "head_total_kernel_rows": 8613952,
+        "noise005_rows": 8613952,
+        "mean_adapter_rows": 4306976,
+        "hard_ADC_rows": 26474784,
+        "all_path_gather_rows": 26474784,
+        "checkpoint_loads": 4,
+        "optimizer_created": 4,
+        "optimizer_steps": 8000,
+        "G_updates": 8000,
+        "training_backward_queries": 8000,
+        "new_AD_queries": 8000,
+        "calibration_map_rows": 0,
+        "integral_statistics_fits": 0,
+        "probe_AD_queries": 0,
+        "mean_evidence_REPORT_files": 12,
+        "mean_evidence_REPORT_parent_rows": 79116,
+        "mean_evidence_REAL_rows": 21047,
+        "mean_evidence_tests": 6,
+        "D_updates": 0,
+        "noise_updates": 0,
+        "population_updates": 0,
+        "C2ST_updates": 0,
+        "DEV_model_rows": 0
+      },
+      "resource_limits": {
+        "GPU_GiB": 10,
+        "job_tree_RSS_GiB": 8,
+        "wall_seconds": 28800,
+        "output_MiB": 6144,
+        "poll_seconds": 10,
+        "TERM_grace_seconds": 20
+      },
+      "run_limits": {
+        "GPU_GiB": 10,
+        "job_tree_RSS_GiB": 8,
+        "wall_seconds": 7200,
+        "output_MiB": 1536
+      },
+      "original_cumulative_training": 167667
     }
   },
   "evaluation_axes": {
@@ -960,8 +1073,8 @@
     "root_planning_SolMax_implementation_and_review": true,
     "scientific_success_not_guaranteed_by_state_fields": true
   },
-  "current_action": "Finish014 Chinese report and implement015 four paired short trials; freeze exact budget/source before new scientific computation.",
-  "updated_UTC": "2026-10-15T03:55:52.293934+00:00",
+  "current_action": "Start one frozen015 batch; first run pre-check before all CP/NN; verify firstG1 or legal completed skip.",
+  "updated_UTC": "2026-10-15T04:09:25.788300+00:00",
   "followup": {
     "schema": "n01/wp2-readback-single-followup-confirmation/v1",
     "UTC": "2026-10-15T03:14:57.571981+00:00",
@@ -1270,9 +1383,9 @@
     "independent_saved_array_scope": "36pairs/176NPZ/1898784hard_rows; not complete loss replay"
   },
   "current_work_package": "WP3",
-  "current_stage": "015_bounded_mean_module_implementation_no_computation_started",
+  "current_stage": "WP3_015_paired_mean_path_trials",
   "active_research": "wp3_015_preparation",
-  "next_action": "Finish014 Chinese report and implement015 four paired short trials; freeze exact budget/source before new scientific computation.",
+  "next_action": "Deploy the frozen015 batch and verify firstG1 or a correctly completed negative mean gate.",
   "last_verified_UTC": "2026-10-15T02:33:04.070820+00:00",
   "wp2_collection": {
     "path": "receipts\\wp2_014_20261015\\collection_01\\COLLECTION_RECEIPT.json",
@@ -1530,5 +1643,74 @@
       "bytes": 3365
     }
   },
-  "wp2_report_visual_QA_complete": true
+  "wp2_report_visual_QA_complete": true,
+  "wp3_execution": {
+    "configuration": "wp3_015_config.json",
+    "configuration_sha256": "54c096ad1a5e112493798e5c6c8db481cd3c79b78747200af0bbd47bccba5394",
+    "source_manifest": "WP3_SOURCE_MANIFEST.json",
+    "source_manifest_sha256": "f1255dbff0e47edb7ec20e76c7d90057201f9a56f1184b7896f0c8cb0a67825a",
+    "source_files": 105,
+    "source_controls": 107,
+    "protected_source_records": 368,
+    "original_protection271_preserved": true,
+    "freeze_receipt": {
+      "path": "receipts/wp3_015_20261015/runtime_package_01/FREEZE_RECEIPT.json",
+      "sha256": "9fb8149e50b94d15da08aa4f4842c1fa5baaf1e23798a942ed36e2d6b776227c",
+      "bytes": 18503
+    },
+    "independent_review": {
+      "path": "receipts/wp3_015_20261015/independent_01/PRELAUNCH_REVIEW.json",
+      "sha256": "b3189a271c90b89445acca12e253484509869587b0dc705b6961eb07fb1306a7",
+      "bytes": 7621
+    },
+    "remote_root": "/home/rylan/projects/ej276d-n01/wp3_015_20261015",
+    "protocol": "docs/WP3_015_CONFIGURATION.md",
+    "roles": "WP3_DATA_ROLES.json",
+    "budget_caps": {
+      "old_A_rows": 8613952,
+      "head_actual_parameter_forward_rows": 8613952,
+      "head_total_kernel_rows": 8613952,
+      "noise005_rows": 8613952,
+      "mean_adapter_rows": 4306976,
+      "hard_ADC_rows": 26474784,
+      "all_path_gather_rows": 26474784,
+      "checkpoint_loads": 4,
+      "optimizer_created": 4,
+      "optimizer_steps": 8000,
+      "G_updates": 8000,
+      "training_backward_queries": 8000,
+      "new_AD_queries": 8000,
+      "calibration_map_rows": 0,
+      "integral_statistics_fits": 0,
+      "probe_AD_queries": 0,
+      "mean_evidence_REPORT_files": 12,
+      "mean_evidence_REPORT_parent_rows": 79116,
+      "mean_evidence_REAL_rows": 21047,
+      "mean_evidence_tests": 6,
+      "D_updates": 0,
+      "noise_updates": 0,
+      "population_updates": 0,
+      "C2ST_updates": 0,
+      "DEV_model_rows": 0
+    },
+    "resource_limits": {
+      "GPU_GiB": 10,
+      "job_tree_RSS_GiB": 8,
+      "wall_seconds": 28800,
+      "output_MiB": 6144,
+      "poll_seconds": 10,
+      "TERM_grace_seconds": 20
+    },
+    "run_resource_limits": {
+      "GPU_GiB": 10,
+      "job_tree_RSS_GiB": 8,
+      "wall_seconds": 7200,
+      "output_MiB": 1536
+    },
+    "status": "frozen_ready_not_started",
+    "new_training_updates": 0,
+    "new_AD_queries": 0,
+    "cumulative_training_before_run": 167667,
+    "source_commit_pending_local_readback": true
+  }
 }

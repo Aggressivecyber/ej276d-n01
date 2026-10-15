@@ -1,0 +1,63 @@
+{
+  "schema": "n01/wp3-015-data-roles/v1",
+  "run_id": "wp3_015_20261015",
+  "authority": "USER_MASTER_PLAN_20261015.txt WP3 and current user instructions",
+  "parent_roles": "DATA_ROLES.json",
+  "original_TRAIN_DEV_roles_preserved": true,
+  "SOURCE": {
+    "TRAIN_parents": 6593,
+    "waveform_input": "complete prepared original SOURCE384 carrier, preserving the existing480-to384 interface",
+    "mean_controls": "baseline-centered SOURCE canonical Q[110:366) and tail[156:366); no labels or audit metadata",
+    "all_legal_records_retained": true,
+    "arbitrary_SOURCE_REAL_pointwise_pairing": false,
+    "event_ID_row_file_group_or_h_as_network_input": false,
+    "source_information": "Existing deposited-generator metadata is for audit only; measured input shape information is approximately one dimensional."
+  },
+  "REAL": {
+    "TRAIN_rows": 21047,
+    "logical_record_groups": 422,
+    "confirmed_independent_acquisitions": 1,
+    "all_legal_records_retained": true,
+    "DEV_numeric_decode": false,
+    "old_DEV_is_blind": false,
+    "new_independent_real_confirmation": false,
+    "historical_other_pools": "unknown exposure; not promoted to blind"
+  },
+  "new_mean_evidence_role": {
+    "scope": "015-only pre-check, separate from the completed014 saved-array audit",
+    "dataset_members": ["real", "real_groups", "real_role", "real_ids"],
+    "SOURCE_or_DEV_waveforms_read": false,
+    "saved014_inputs": "12 hash-bound C1 final REPORT NPZ:2 seeds x2 banks x3 hypotheses; only parent_rows and6593x256 per-parent4draw hard_wave_mean_V",
+    "counts": {"REAL_rows": 21047, "REPORT_files": 12, "REPORT_parent_rows": 79116, "seed_hypothesis_tests": 6},
+    "working_cluster_SE": "G/(G-1) *sum_g[sum_i_in_g(y_i-global_mean)]^2 /N^2 per time sample, G422; use RMS across time",
+    "pass": "ALL6 r>max(1e-7 V,3*sqrt(RMS(bank0_mean-bank1_mean)^2/2+REAL_cluster_SE_RMS^2)) and residual cosine>.5",
+    "failure": "Save evidence and native COMPLETE training_skipped; no CP/NN/optimizer/AD/G or new random banks; do not change the gate",
+    "inference_limit": "A fixed-population mean residual under the recorded source/noise/selection assumptions; not identified true conditional mean, not paired measurement, and422 logical groups are not422 acquisitions."
+  },
+  "model_references": {
+    "A": "Original det19k retained frozen with byte and parameter guards; fallback remains available",
+    "noise005": "Original checkpoint and three long-range hypotheses remain frozen; no refit",
+    "C1_shape": "014 C1 final checkpoint per seed is a development reference only; no promotion implied",
+    "M0": "Same reference head, fresh AdamW,1288 shape parameters trainable, mean disabled",
+    "M1": "Same reference head frozen, fresh AdamW,6 zero-initialized bounded mean parameters trainable",
+    "within_seed_pairing": "SOURCE/REAL samplers, shape/noise/extension, waveform and independent integral-projection streams reset identically",
+    "data_dependent_statistics": "Original bound TRAIN statistics and014 fixed integral statistics reused without refit; all were fitted on originalTRAIN, so this is development evidence."
+  },
+  "evaluation": {
+    "original_hard_observation_and_T": "OBSERVATION_CONTRACT.json and CALIBRATED_TOLERANCES_WP1_013.json unchanged",
+    "suites": ["whole population", "output-Q conditions", "SOURCE-input trends", "same-parent repeated response"],
+    "SOURCE_parents_per_bank": 6593,
+    "draws_per_parent_per_bank": 4,
+    "independent_banks": 2,
+    "REAL_rows": 21047,
+    "noise_hypotheses": ["fast", "slow", "common_level"],
+    "all_failure_and_nonpositive_Q_rows_retained": true,
+    "repeated_draws_are_independent_physical_events": false,
+    "full_pipeline_grouped_CV": "Not performed by015; WP5 must refit all data-dependent components within each fold.",
+    "deployment_full_TRAIN_refit_is_unseen_test": false
+  },
+  "original_count_and_physical_weights_preserved": true,
+  "population_adjustment_or_posterior_spectrum_correction": false,
+  "baseline_DC_limitation": "Reported separately; signal prefix100 remains exactly zero and cannot repair baseline electronics DC.",
+  "scientific_status": "response_match_not_established"
+}

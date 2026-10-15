@@ -1,0 +1,133 @@
+{
+  "schema": "n01/wp3-015-design-preparation/v1",
+  "registered_UTC": "2026-10-15T03:29:05.288837+00:00",
+  "status": "implementation_ready_pending_final_configuration_freeze",
+  "candidate_trial_order": [
+    "seed0_M0",
+    "seed0_M1",
+    "seed1_M0",
+    "seed1_M1"
+  ],
+  "G_updates_per_trial": 2000,
+  "planned_G_updates_maximum": 8000,
+  "WP3_trial_slots_reserved": 4,
+  "WP3_remaining_unreserved_maximum": 2,
+  "global_short_trials_completed": 4,
+  "global_after_this_block_if_completed": 8,
+  "M0": "continue original C1 shape head from saved014 C1 final research reference; mean adapter disabled",
+  "M1": "same saved C1 research reference, shape head frozen; zero-initialized six-parameter bounded mean adapter only",
+  "mean_adapter": "gain / sigma2 Gaussian smoothing difference / tau16 causal exponential difference; width and tail zero canonicalQ, prefix100 zero; per-event delta RMS <=0.1 RMS(A)",
+  "mean_evidence": "Before CP/NN, compare saved014 finalC1 hard-wave population means and REAL TRAIN mean with fixed ALL6 criterion; not identification of true conditional mean",
+  "mean_evidence_gate": "r>max(1e-7V,3*sqrt(bankdiff_RMS^2/2+REAL_group_sandwich_SE_RMS^2)); two-bank residual cosine>.5; ALL6; otherwise save and skip",
+  "optimizer": {
+    "lr": 0.0002,
+    "weight_decay": 0.0001,
+    "clip_norm": 5.0
+  },
+  "training_objective": "wave +2*C1integral +.01*(original_regular+mean_trust_ratio_squared); no adaptive weights",
+  "mean_parameter_initialization": 0,
+  "canonical_SOURCE_control_features": {
+    "Q_window": [
+      110,
+      366
+    ],
+    "tail_window": [
+      156,
+      366
+    ],
+    "authority": "src/n01/model008.py canonical_charge008; tail starts at canonical start +46",
+    "prefix100_observation_definition_unchanged": true,
+    "input": "baseline-centered complete SOURCE384 waveform only",
+    "q_reference_and_signed_guard_floor": "frozen FIT_STATISTICS008.json loss.q_reference/loss.q_floor; no refit",
+    "q_reference_Vns": 3.7103998046755806,
+    "q_floor_Vns": 0.0005319378913383611,
+    "cQ": "tanh(log1p(abs(Q_SOURCE)/q_reference)-log(2))",
+    "cS": "tanh(2*(T_SOURCE/signed_guarded_Q_SOURCE-.5))",
+    "metadata_ID_or_h_as_neural_input": false
+  },
+  "paired_optimization_state": {
+    "both_arms_fresh_AdamW": true,
+    "014_optimizer_state_inherited": false,
+    "same_saved_C1_head_tensor_start_within_seed": true,
+    "streams_and_samplers_reset_to_same_values_within_seed": true,
+    "M0_trainable_parameters": 1288,
+    "M1_trainable_parameters": 6,
+    "weight_promotion_implied": false
+  },
+  "exact_expected_maximum_counts": {
+    "old_A_rows": 8613952,
+    "head_actual_parameter_forward_rows": 8613952,
+    "head_total_kernel_rows": 8613952,
+    "calibration_map_rows": 0,
+    "mean_adapter_rows": 4306976,
+    "noise005_rows": 8613952,
+    "hard_ADC_rows": 26474784,
+    "all_path_gather_rows": 26474784,
+    "checkpoint_loads": 4,
+    "optimizer_created": 4,
+    "optimizer_steps": 8000,
+    "G_updates": 8000,
+    "training_backward_queries": 8000,
+    "probe_AD_queries": 0,
+    "new_AD_queries": 8000,
+    "integral_statistics_fits": 0,
+    "D_updates": 0,
+    "noise_updates": 0,
+    "population_updates": 0,
+    "C2ST_updates": 0,
+    "DEV_model_rows": 0
+  },
+  "budget_derivation": {
+    "training_rows": "4 trials *2000 updates *512 parents *2 draws =8192000",
+    "extra_A_head_noise_rows": "4 trials *2 snapshots *2 banks *6593 parents *4 draws =421952",
+    "hard_training_rows": "8192000 *3 hypotheses =24576000",
+    "hard_evaluation_rows": "4 trials *(A +common_initial +final) *2 banks *6593 parents *4 draws *3 hypotheses =1898784",
+    "mean_adapter_rows": "2 M1 trials *(2000*1024 +2*2*6593*4) =4306976",
+    "checkpoint_loads": "A +005 +one cached014 C1 final tensor checkpoint per seed =4",
+    "gate_failure": "Before CP/NN, save reason and skip; all model and update counts0; no threshold adjustment"
+  },
+  "stochastic_voltage_gain_unchanged": 0.05,
+  "no_charge_time_local_noise_extension_in_this_block": true,
+  "exact_NN_AD_CP_caps_pending_implementation": false,
+  "data_roles": "all legal6593SOURCE/21047REAL TRAIN; noDEV; original physical weights retained; no arbitrary unpaired pointwise MSE",
+  "scientific_status": "response_match_not_established",
+  "updated_UTC": "2026-10-15T04:02:05.677910+00:00",
+  "exact_budget_caps": {
+    "old_A_rows": 8613952,
+    "head_actual_parameter_forward_rows": 8613952,
+    "head_total_kernel_rows": 8613952,
+    "noise005_rows": 8613952,
+    "mean_adapter_rows": 4306976,
+    "hard_ADC_rows": 26474784,
+    "all_path_gather_rows": 26474784,
+    "checkpoint_loads": 4,
+    "optimizer_created": 4,
+    "optimizer_steps": 8000,
+    "G_updates": 8000,
+    "training_backward_queries": 8000,
+    "new_AD_queries": 8000,
+    "calibration_map_rows": 0,
+    "integral_statistics_fits": 0,
+    "probe_AD_queries": 0,
+    "mean_evidence_REPORT_files": 12,
+    "mean_evidence_REPORT_parent_rows": 79116,
+    "mean_evidence_REAL_rows": 21047,
+    "mean_evidence_tests": 6,
+    "D_updates": 0,
+    "noise_updates": 0,
+    "population_updates": 0,
+    "C2ST_updates": 0,
+    "DEV_model_rows": 0
+  },
+  "implementation": {
+    "path": "receipts/wp3_015_20261015/implementation_01/READY.json",
+    "sha256": "dbf7f2a37142a12963d9ea75ab1972920d452e3a5516386f41f629f2a682d1b7",
+    "bytes": 3943
+  },
+  "independent_source_review": {
+    "path": "receipts/wp3_015_20261015/independent_01/SOURCE_REVIEW.json",
+    "sha256": "f800ae2422502025b268de767c8b32a7732d7478febb2de5cb16f97a05447b0b",
+    "bytes": 11108
+  },
+  "computation_started": false
+}
