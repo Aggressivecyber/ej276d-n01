@@ -1,0 +1,95 @@
+{
+  "schema": "n01/wp3-016-CPU-readback-reuse-entrypoints/v1",
+  "status": "INFORMATION_ONLY_NOT_IMPLEMENTED_NOT_STARTED",
+  "mature015_sources": {
+    "worker": {
+      "path": "receipts/wp3_015_20261015/postrun_independent_01/readback_saved_arrays.py",
+      "bytes": 29536,
+      "sha256": "c2f53542b2bdc2557cfc6f1470f11113e4fc8d2be0ec13648e154d05222272a7"
+    },
+    "kernel": {
+      "path": "receipts/wp3_015_20261015/postrun_independent_01/saved_array_kernels.py",
+      "bytes": 3691,
+      "sha256": "fe1366f35f36e97974f1a4037a36ad858c03dd8453957c1b45b65080f0fee3ac"
+    },
+    "controller": {
+      "path": "receipts/wp3_015_20261015/readback_engineering_01/readback_control.py",
+      "bytes": 31779,
+      "sha256": "85f19797e91ec62951a4bfc2eb54b46a05fc550a3d28e4ded9346e077477b66d"
+    },
+    "controller_tests": {
+      "path": "receipts/wp3_015_20261015/readback_engineering_01/check_readback_control.py",
+      "bytes": 14693,
+      "sha256": "b02445f05b3259cffe61826c15e270e747515e58701b0ebe280326a24e3bf19f"
+    },
+    "preparation_example": {
+      "path": "receipts/wp3_015_20261015/postrun_independent_01/prepare_saved_readback015.py",
+      "bytes": 18890,
+      "sha256": "29bc65673fa24d31783d0103b1066ff79ace6b132419853ba2381d984572d257"
+    },
+    "registration_example": {
+      "path": "receipts/wp3_015_20261015/readback_registration_01/register_readback.py",
+      "bytes": 13723,
+      "sha256": "a72e72d74b69863232da968a3bd0b1b0b52aa11f29ae89b9bcb74ea35549bd1f"
+    },
+    "plan_example": {
+      "path": "receipts/wp3_015_20261015/postrun_independent_01/READBACK_PLAN.json",
+      "bytes": 8647,
+      "sha256": "32ee8e020d653491c8d97ae5e41f9aca18098824b11c6f6333b3635cc0d7dd50"
+    },
+    "native_completion_evidence": {
+      "path": "receipts/wp3_015_20261015/readback_execution_01/WAKE_COMPLETION_SUMMARY.json",
+      "bytes": 8499,
+      "sha256": "1ad797ba820044e537c52ed8a3a8e83b5ffab95b382355b3a1df3ad383f03c82"
+    }
+  },
+  "worker_APIs": [
+    "decode_window",
+    "lineage",
+    "wave_moments",
+    "Audit.member",
+    "Audit.identities",
+    "Audit.load_baselines",
+    "Audit.one_bank",
+    "Audit.pair",
+    "main"
+  ],
+  "controller_APIs": [
+    "validate",
+    "gate",
+    "old_small_gate",
+    "process_identity",
+    "first_valid",
+    "snapshot",
+    "complete_valid",
+    "supervise",
+    "start",
+    "action"
+  ],
+  "existing_scope": "saved ADC float64 roundtrip and row identity/features/flags; native4draw and derived8draw 9x9 finite pair covariance; byte SHA input protection",
+  "required016_adaptation": "Bind new frozen root/pins/actual112-file inventory and 24 hard-bank pairs. Add separately reviewed charge-array validation for actual A384/mu/v and saved per-draw statistics; existing015 worker does not yet validate new charge schema.",
+  "actual_raw_inventory": {
+    "path": "receipts/wp3_016_20261015/wake_execution_01/RAW_NPZ_INVENTORY.json",
+    "bytes": 24233,
+    "sha256": "abccc5432f754552c0369b1f7863c3689a717b96b1f2224972751bb70e2168ff"
+  },
+  "whole_inventory": {
+    "path": "receipts/wp3_016_20261015/collection_01/REMOTE_FULL_INVENTORY.json",
+    "bytes": 86944,
+    "sha256": "e7cf8c67cdcb2dcadf006b3a8c060f706f9a1b64990c2e383288d79ce22097af"
+  },
+  "raw_files": 112,
+  "raw_bytes": 2169655337,
+  "actual_hard_files": 48,
+  "actual_report_files": 48,
+  "actual_baseline_files": 8,
+  "actual_charge_bank_files": 8,
+  "expected_hard_bank_pairs_from_exact_path_pairs": 24,
+  "charge_z_or_full_stochastic_carrier_not_saved": true,
+  "no_original_raw_NPZ_transfer_or_tensor_checkpoint_load": true,
+  "no_NN_AD_random_training_loss_CDF_or_median_replay": true,
+  "CPU_source_modified_or_implemented": false,
+  "CPU_started": false,
+  "SSH_calls_for_this_information": 0,
+  "root_registration_required_before_any_CPU_run": true
+}

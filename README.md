@@ -1,10 +1,10 @@
-# N01 当前执行：WP3/016 已正确启动
+# N01 当前执行：WP3/016 两次短试完成，独立数值复核待执行
 
-016已通过首次真实两参数AdamW更新及同一快照的当前进程身份/资源健康验证。原A/005和015 M0形状头冻结，mean关闭；两seed各2000G，最多4000G/AD。实际入账为唯一快照的137G，累计175804，在途操作不补满。全部后续工作使用GPT-6.1-Sol Max。首次原生失败的前向/随机/权重加载成本单独保留，修复运行使用独立目录。
+两个seed各2000G，计算与监督均native0。94249项操作进入=完成，无在途；本轮共4000G/AD，扣除已入账137G后仅补记3863G，累计179667。搜索短试已完成10次、WP3完成6/6次，不再为近阈值追加短试。首次失败的非训练费用与原目录继续保留。
 
-已确认2026-10-15T16:45:00+08:00（Asia/Singapore）同一n01单次回收唤醒，当前休息，不持续监控。最终效果和原硬观察门由完整结果判定；科学状态仍为response_match_not_established。015报告、用途6/6和均值适配负结果已闭合保留。
+当前回收小结果包并按冻结合同做独立JSON选择及必要保存数组CPU复核；研究参考选择尚未最终确认，科学状态仍为response_match_not_established。016训练结束不代表六工作包全部完成。后续施工和独审使用GPT-6.1-Sol Max。
 
-[016配置](wp3_016_config.json) · [016启动验证](receipts/wp3_016_20261015/start_verification_02/START_VALIDATION.json) · [015报告](reports/wp3_015_20261015/REPORT.md)
+[016原生终点](receipts/wp3_016_20261015/postrun_root_01/NATIVE_COMPLETION_READBACK.json) · [016合同](docs/WP3_016_CONFIGURATION.md) · [015报告](reports/wp3_015_20261015/REPORT.html)
 
 以下保留此前阶段说明。
 
