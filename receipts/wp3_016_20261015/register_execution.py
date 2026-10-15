@@ -44,7 +44,7 @@ def main():
     parser.add_argument('--ready-revision', action='store_true')
     args = parser.parse_args()
     suffix=args.receipt_suffix
-    assert suffix in ('','_FIX01')
+    assert suffix in ('','_FIX01','_FIX02')
     freeze = OUT/args.freeze_dir
     p, manifest, frozen = [read(path) for path in (ROOT/CFG,ROOT/MF,freeze/'FREEZE_RECEIPT.json')]
     assert p['status']=='frozen' and sha(ROOT/CFG)==frozen['config_sha256']
@@ -100,11 +100,27 @@ def main():
     assert program['new_training_updates']==175667
     existing=next((j for j in jobs['jobs'] if j['job_id']=='N01_WP3_016_20261015'),None)
     if args.ready_revision:
-        failed_path=OUT/'native_execution_01/NATIVE_START_SUMMARY.json'
-        failed=read(failed_path)
-        assert suffix=='_FIX01' and existing and existing['G_updates']==0
-        assert failed['status']=='DEPLOY_BOOTSTRAP_FAILED_BEFORE_INSTALL_OR_START'
-        assert failed['scientific_launch_performed'] is False and failed['scientific_cost_from_this_failed_bootstrap']==0
+        assert existing and existing['G_updates']==0
+        if suffix=='_FIX01':
+            failed_path=OUT/'native_execution_01/NATIVE_START_SUMMARY.json'
+            failed=read(failed_path)
+            assert failed['status']=='DEPLOY_BOOTSTRAP_FAILED_BEFORE_INSTALL_OR_START'
+            assert failed['scientific_launch_performed'] is False and failed['scientific_cost_from_this_failed_bootstrap']==0
+        else:
+            assert suffix=='_FIX02'
+            failed_path=OUT/'NATIVE_FAILURE_RECONCILIATION.json'
+            failed=read(failed_path)
+            assert existing['status']=='terminal_native1_before_first_G_update'
+            assert failed['status']=='terminal_native1_before_first_G_update' and failed['newly_added_G_updates']==0
+            repair=p['runtime_repair']
+            assert repair['prior_actual_cost']==failed['actual_completed_counts']
+            assert repair['replacement_attempt_budget_caps']==p['budget_caps']
+            assert repair['original_remote_root']!=p['remote_root']==repair['replacement_remote_root']
+            assert repair['aggregate_budget_caps']=={k:p['budget_caps'][k]+failed['actual_completed_counts'][k] for k in p['budget_caps']}
+            existing.setdefault('previous_native_attempts',[]).append(dict(
+                native_execution_attempt=1,status=existing['status'],
+                execution=copy.deepcopy(existing['execution']),actual_counters=failed['actual_completed_counts'],
+                native_exit_code=1,supervisor_exit_code=1,failure_reconciliation=ref(failed_path)))
         existing.setdefault('previous_registered_executions',[]).append(copy.deepcopy(existing['execution']))
         existing.setdefault('deployment_attempts',[]).append(ref(failed_path))
     else:
@@ -120,6 +136,10 @@ def main():
         budget_caps=p['budget_caps'],resource_limits=p['resource_limits'],run_resource_limits=p['run_resource_limits'],
         status='frozen_ready_not_started',new_training_updates=0,new_AD_queries=0,
         cumulative_training_before_run=175667,source_commit_pending_local_readback=True)
+    if suffix=='_FIX02':
+        refs.update(launch_revision='fix02',native_execution_attempt=2,runtime_repair=p['runtime_repair'],
+            previous_native_failure=ref(OUT/'NATIVE_FAILURE_RECONCILIATION.json'),
+            start_receipt_directory='start_native_02',startup_verification_directory='start_verification_02')
     for value in (master,program,current):
         if 'wp3_execution' in value and 'wp3_015_execution' not in value:
             value['wp3_015_execution']=copy.deepcopy(value['wp3_execution'])
@@ -141,6 +161,12 @@ def main():
         jobs['jobs'].append(new_job)
     else:
         existing.update(new_job)
+        if suffix=='_FIX02':
+            for key in ('native_exit_code','supervisor_exit_code','analysis_pid','supervisor_pid',
+                        'actual_progress_after_dispatch','verified_start_UTC'):
+                existing.pop(key,None)
+            existing.update(actual_counters={k:0 for k in p['budget_caps']},
+                actual_counters_last_verified={k:0 for k in p['budget_caps']},correct_start_verified=False)
     jobs['updated_UTC']=stamp
     wp3=next(w for w in master['work_packages'] if w['id']=='WP3')
     if 'execution015' not in wp3:
@@ -150,6 +176,13 @@ def main():
         remaining_unregistered_WP3_slots=0,registered016_trials=2)
     master['budgets']['WP3_016']=dict(budget_caps=p['budget_caps'],resource_limits=p['resource_limits'],
         run_limits=p['run_resource_limits'],original_cumulative_training=175667)
+    if suffix=='_FIX02':
+        master['budgets']['WP3_016'].update(runtime_repair=p['runtime_repair'],
+            prior_actual_cost=p['runtime_repair']['prior_actual_cost'],
+            aggregate_budget_caps=p['runtime_repair']['aggregate_budget_caps'])
+        existing.update(runtime_repair=p['runtime_repair'],native_execution_attempts=1,
+            prior_actual_cost=p['runtime_repair']['prior_actual_cost'],
+            aggregate_budget_caps=p['runtime_repair']['aggregate_budget_caps'])
     text=paths[3].read_text(encoding='utf-8-sig');marker='以下保留此前阶段说明。'
     assert marker in text
     prefix='''# N01 当前执行：WP3/016 已冻结，待启动

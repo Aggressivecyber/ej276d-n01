@@ -78,10 +78,12 @@ def main():
         scientific_acceptance=False,whole_project_complete=False,rest_now=True)
     write(summary_path,summary,new=True)
     destination=Path('D:/GAN_backups/N01/wp3_016_20261015/startup_01');destination.mkdir(parents=True,exist_ok=False)
-    source_path=OUT/('SOURCE_COMMIT_READBACK_FIX01.json' if read(ROOT/'wp3_016_config.json').get('launch_revision')=='fix01' else 'SOURCE_COMMIT_READBACK.json')
+    suffix={'fix01':'_FIX01','fix02':'_FIX02'}.get(read(ROOT/'wp3_016_config.json').get('launch_revision'),'')
+    source_path=OUT/('SOURCE_COMMIT_READBACK'+suffix+'.json')
+    start_dir=OUT/started['start_receipt_directory'];verify_dir=OUT/started['startup_verification_directory']
     files=[OUT/'EXECUTION_STARTED.json',followup_path,tool_path,OUT/'FOLLOWUP_PROMPT.txt',summary_path,source_path,
-        OUT/'start_native_01/START_RECEIPT.json',OUT/'start_verification_01/START_VALIDATION.json',
-        OUT/'start_verification_01/REMOTE_STATE.json']+paths
+        start_dir/'START_RECEIPT.json',verify_dir/'START_VALIDATION.json',verify_dir/'REMOTE_STATE.json',
+        OUT/'NATIVE_FAILURE_RECONCILIATION.json']+paths
     assert sum(path.stat().st_size for path in files)<8*1024**2
     inventory={}
     for path in files:

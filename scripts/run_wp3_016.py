@@ -176,6 +176,128 @@ class Runtime016(old.Runtime014):
         self.verify(files=True);return result
 
 
+def source_input_evidence016(source,actual,forward,parent,draw,*,draws,start):
+    """Check original bytes and the actual float64 forward input separately."""
+    import numpy as np
+    source,actual,forward=[np.ascontiguousarray(v) for v in (source,actual,forward)]
+    parent,draw=np.asarray(parent),np.asarray(draw);positions=np.arange(start,start+len(actual))
+    require(parent.dtype.kind in 'iu' and draw.dtype.kind in 'iu' and np.array_equal(parent,positions//draws)
+        and np.array_equal(draw,positions%draws),'016 evaluation input parent/draw identity changed')
+    require(actual.shape==(len(parent),384) and actual.dtype==source.dtype and actual.dtype.kind in 'fi'
+        and forward.shape==actual.shape and forward.dtype==np.float64,'016 evaluation input shape/dtype changed')
+    expected=np.ascontiguousarray(source[parent]);expected64=np.ascontiguousarray(expected,dtype=np.float64)
+    require(np.array_equal(actual.view(np.uint8),expected.view(np.uint8)),'016 original SOURCE input bytes changed')
+    require(np.array_equal(forward.view(np.uint8),expected64.view(np.uint8)),'016 actual float64 forward input bytes changed')
+    def hashes(rows):return np.stack([np.frombuffer(hashlib.sha256(row.tobytes()).digest(),dtype=np.uint8) for row in rows])
+    return hashes(actual),hashes(forward)
+
+
+def repeat_detail016(values):
+    """Actual per-draw diagnostics; first draw is a comparator, never a substitute."""
+    import numpy as np
+    x=np.asarray(values);require(x.dtype==np.float64 and x.ndim in (2,3) and x.shape[1]>=2
+        and np.isfinite(x).all(),'016 finite actual float64 repeat rows required')
+    if x.ndim==2:x=x[:,:,None]
+    shape=x.shape[:2];absolute=np.zeros(shape);relative=np.zeros(shape);ulp=np.zeros(shape,np.uint64)
+    position=np.zeros(shape,np.int64);ulp_position=np.zeros(shape,np.int64);changed=np.zeros(shape,np.int64);zero_reference=np.zeros(shape,np.int64)
+    examples=[];sign=np.uint64(1<<63)
+    for start in range(0,len(x),128):
+        block=x[start:start+128];ref=block[:,:1];delta=block-ref;ab=np.abs(delta)
+        rel=np.divide(ab,np.abs(ref),out=np.zeros_like(ab),where=ref!=0)
+        bits=block.view(np.uint64);rbits=ref.view(np.uint64)
+        ordered=np.where(bits&sign,~bits,bits^sign);reference=np.where(rbits&sign,~rbits,rbits^sign)
+        distance=np.maximum(ordered,reference)-np.minimum(ordered,reference)
+        sl=slice(start,start+len(block));absolute[sl]=ab.max(2);position[sl]=ab.argmax(2);relative[sl]=rel.max(2)
+        ulp[sl]=distance.max(2);ulp_position[sl]=distance.argmax(2);changed[sl]=(delta!=0).sum(2)
+        zero_reference[sl]=((ref==0)&(delta!=0)).sum(2)
+        for p,d,c in np.argwhere(delta!=0)[:max(0,16-len(examples))]:
+            examples.append(dict(source_parent_row=int(start+p),draw_index=int(d),coordinate=int(c),
+                actual=float(block[p,d,c]),first_draw=float(ref[p,0,c]),signed_difference=float(delta[p,d,c]),
+                absolute_difference=float(ab[p,d,c]),relative_difference=float(rel[p,d,c]) if ref[p,0,c]!=0 else None,
+                ordered_float64_ULP_distance=int(distance[p,d,c])))
+    arrays=dict(absmax=absolute,absmax_coordinate=position,relative_max_nonzero_reference=relative,
+        ordered_float64_ULP_max=ulp,ULP_max_coordinate=ulp_position,nonzero_cells=changed,nonzero_with_zero_reference=zero_reference)
+    p,d=np.unravel_index(absolute.argmax(),shape)
+    summary=dict(actual_absmax=float(absolute[p,d]),absmax_source_parent_row=int(p),absmax_draw_index=int(d),
+        absmax_coordinate=int(position[p,d]),relative_max_nonzero_reference=float(relative.max()),
+        nonzero_with_zero_reference=int(zero_reference.sum()),ordered_float64_ULP_max=int(ulp.max()),
+        ULP_definition='distance of monotone IEEE754 float64 codes, signed zeros remain distinct',
+        first_changed_locations=examples,actual_values_preserved=True,reference_substitution=False)
+    return arrays,summary
+
+
+def charge_draw_moments016(q,mu,*,a,b):
+    """Independent draws with actual row-specific means, without fitting or recentering q."""
+    import numpy as np
+    q,mu=np.asarray(q),np.asarray(mu)
+    require(q.dtype==mu.dtype==np.float64 and q.ndim==mu.ndim==2 and q.shape==mu.shape and q.shape[1]>=2
+        and np.isfinite(q).all() and np.isfinite(mu).all() and (q>0).all() and (mu>0).all(),
+        '016 charge moments need finite strictly positive actual q/mu draws')
+    require(math.isfinite(a) and math.isfinite(b) and a>0 and b>0,'016 charge moment coefficients invalid')
+    draws=q.shape[1];v=a*mu+b*mu**2;center=mu.mean(1);residual=q-mu
+    sample_variance=q.var(1,ddof=1);mu_variance=mu.var(1,ddof=1);mean_v=v.mean(1)
+    return dict(Q_mu_Vns=center,Q_mu_draws_Vns=mu,q_sig_draws_Vns=q,
+        sample_mean_Vns=q.mean(1),sample_variance_Vns2=sample_variance,
+        conditional_mean_MCSE_Vns=np.sqrt(sample_variance/draws),sample_mean_MCSE_Vns=np.sqrt(sample_variance/draws),
+        theory_conditional_variance_Vns2=mean_v,theory_conditional_variance_draws_Vns2=v,
+        theory_expected_sample_variance_Vns2=mean_v+mu_variance,theory_sample_mean_MCSE_Vns=np.sqrt(v.sum(1))/draws,
+        Q_mu_numeric_sample_variance_Vns2=mu_variance,Q_mu_numeric_range_Vns=np.ptp(mu,axis=1),
+        draw_centered_residuals_Vns=residual,draw_centered_residual_mean_Vns=residual.mean(1),
+        draw_centered_residual_second_moment_Vns2=np.square(residual).mean(1),
+        draw_centered_residual_sample_variance_Vns2=residual.var(1,ddof=1),
+        draw_centered_sample_mean_MCSE_Vns=np.sqrt(residual.var(1,ddof=1)/draws))
+
+
+def save_charge_bank016(directory,bank,*,A,q,mu,a,b,parent,draw,source_ids,source_hashes,forward_hashes,input_dtype,extra_arrays):
+    """Save the actual frozen-A rows and diagnostics before the registered replay gate."""
+    import numpy as np
+    from run_wp1_013 import A_numerical_residual,BASELINE_NUMERICAL_TOLERANCE_V
+    draws=q.shape[1];n=len(source_ids)
+    require(source_hashes.shape==forward_hashes.shape==(n*draws,32),'016 input hash row identity changed')
+    require(np.all(source_hashes.reshape(n,draws,32)==source_hashes.reshape(n,draws,32)[:,:1])
+        and np.all(forward_hashes.reshape(n,draws,32)==forward_hashes.reshape(n,draws,32)[:,:1]),'016 repeated input bytes changed')
+    diagnostic=A_numerical_residual(A,parent,draw,source_ids,draws=draws,bank=bank)
+    moments=charge_draw_moments016(q,mu,a=a,b=b);adetail,asummary=repeat_detail016(A.reshape(n,draws,384));mdetail,msummary=repeat_detail016(mu)
+    canonical=A[:,110:366];cpu_mu=canonical.sum(1,dtype=np.float64).reshape(n,draws)
+    u=np.finfo(np.float64).eps/2;gamma=255*u/(1-255*u)
+    reduction_bound=np.nextafter(2*gamma/(1-gamma)*np.abs(canonical).sum(1).reshape(n,draws)
+        +512*np.finfo(np.float64).smallest_subnormal,np.inf)
+    reduction_residual=mu-cpu_mu;within_reduction=bool(np.all(np.abs(reduction_residual)<=reduction_bound))
+    moments.update(A_signal_pre384_V=A,source_parent_row=np.arange(n),A_source_parent_row=parent,draw_index=draw,
+        source_parent_ids=np.asarray(source_ids),source_input_sha256_uint8=source_hashes,forward_float64_input_sha256_uint8=forward_hashes,
+        Q_mu_CPU_recomputed_draws_Vns=cpu_mu,Q_mu_GPU_minus_CPU_draws_Vns=reduction_residual,
+        Q_mu_CPU_GPU_reduction_bound_Vns=reduction_bound,
+        Q_mu_repeat_bound_from_A_gate_Vns=256*BASELINE_NUMERICAL_TOLERANCE_V+reduction_bound+reduction_bound[:,:1],**extra_arrays)
+    moments.update({'A_numeric_repeat_'+k:v for k,v in adetail.items()})
+    moments.update({'Q_mu_numeric_repeat_'+k:v for k,v in mdetail.items()})
+    path=Path(directory)/f'bank{bank}_CHARGE_PREADC_MOMENTS.npz'
+    with path.open('xb') as f:np.savez_compressed(f,**moments)
+    diagnostic.update(schema='n01/wp3-016-actual-A-and-charge-repeats/v2',A_repeat_detail=asummary,Q_mu_repeat_detail=msummary,
+        original_source_dtype=input_dtype,forward_input_dtype='float64',original_input_bytes_verified=True,forward_input_bytes_verified=True,
+        A_storage='all actual frozen-A float64 carrier rows; not full stochastic preADC carriers',
+        Q_mu_storage='actual per-draw model denominator; never broadcast, averaged or replaced in the model',
+        Q_mu_CPU_GPU_absmax_Vns=float(np.abs(reduction_residual).max()),Q_mu_CPU_GPU_within_derived_bound=within_reduction,
+        reduction_bound_formula='2*gamma255/(1-gamma255)*sum(abs(A[110:366]))+512*smallest_subnormal; nextafter to +inf',
+        reduction_bound_assumptions='finite actual same float64 inputs; IEEE754 round-to-nearest additions, at most255 additions per sum; no overflow; tiny subnormal allowance included',
+        gamma255=gamma,Q_repeat_A_gate_derived_component_Vns=256*BASELINE_NUMERICAL_TOLERANCE_V,
+        saved_arrays_file=path.name,saved_arrays_sha256=sha(path),numerical_repeat_spread_is_physical_variance=False,
+        statistics=dict(Q_mu_Vns='legacy shape: mean of actual draw-specific mu; reporting center only',
+            conditional_mean_MCSE_Vns='legacy empirical sqrt(sample_variance(q,ddof1)/draws); includes numerical mu spread',
+            sample_mean_MCSE_Vns='empirical sqrt(sample_variance(q,ddof1)/draws)',
+            theory_conditional_variance_Vns2='legacy shape: mean of per-draw v=a*mu+b*mu^2, conditional random variance only',
+            theory_expected_sample_variance_Vns2='mean(v)+sample_variance(mu,ddof1)',
+            theory_sample_mean_MCSE_Vns='sqrt(sum(v))/draws for independent draw-specific random q',
+            draw_centered_residuals_Vns='q-mu per draw, without changing either input',
+            draw_centered_residual_second_moment_Vns2='mean((q-mu)^2), denominator draws; expectation mean(v)',
+            draw_centered_residual_sample_variance_Vns2='sample variance of q-mu, denominator draws-1; expectation mean(v)',
+            Q_mu_numeric_sample_variance_Vns2='numerical execution quantity, not a physical charge component'),
+        diagnostic_and_arrays_saved_before_numerical_gate=True,extra_NN_ADC_RNG_AD_calls=0)
+    write_new(Path(directory)/f'bank{bank}_A_NUMERIC_REPEATS.json',diagnostic)
+    require(diagnostic['within_numerical_tolerance'],'016 actual A repeat residual exceeds frozen013 replay tolerance')
+    require(within_reduction,'016 actual Q does not match saved A within derived float64 sum bound')
+    return moments,diagnostic
+
+
 class Engine016(old.Engine014):
     def __init__(self,runtime,seed,initial_head,calibration,reference,directory):
         import torch
@@ -286,12 +408,18 @@ class Engine016(old.Engine014):
             for bank,seeds in enumerate(e['bank_seeds']):
                 streams=ChargeStreams016(seeds['shape'],seeds['noise005'],seeds['extension'],e['charge_bank_seeds'][bank]);rng_initial=streams.state_dict()
                 pieces={arm:{h:[] for h in HYPOTHESES} for arm in arms};codes={arm:{h:[] for h in HYPOTHESES} for arm in arms}
-                baseline_pieces=[];q_values=[];mu_values=[];increment_sum=expected_sum=0.;canonical_error=projection_error=0.;sample_coordinates=0
+                baseline_pieces=[];q_values=[];mu_values=[];A_values=[];source_hashes=[];forward_hashes=[]
+                increment_sum=expected_sum=0.;canonical_error=projection_error=0.;sample_coordinates=0
                 for start in range(0,len(parent_rows),e['chunk_rows']):
                     selected=parent_rows[start:start+e['chunk_rows']]
-                    x=torch.as_tensor(rt.data['source_carrier384'][selected],dtype=torch.float64,device=rt.device)
+                    actual_source=rt.data['source_carrier384'][selected]
+                    x=torch.as_tensor(actual_source,dtype=torch.float64,device=rt.device)
+                    sh,fh=source_input_evidence016(rt.data['source_carrier384'],actual_source,old.arr(x),selected,
+                        draw_index[start:start+len(selected)],draws=e['draws'],start=start)
+                    source_hashes.append(sh);forward_hashes.append(fh)
                     z,nz,epsilon,zq=streams.draw(len(x),rt.device,rt.call);noise=rt.noise(nz,epsilon);out=rt.forward(self.model,x,z,zq)
                     q_values.append(old.arr(out['qsig']));mu_values.append(old.arr(out['Q_mu_Vns']))
+                    A_values.append(old.arr(out['base_signal_pre_V']))
                     increment_sum+=float(out['charge_increment_pre_V'].square().sum());sample_coordinates+=len(x)*384
                     expected_sum+=float(out['charge_expected_increment_RMS_V'].square().sum())*384
                     canonical_error=max(canonical_error,float(out['canonical_charge_identity_residual'].abs().max()))
@@ -309,24 +437,33 @@ class Engine016(old.Engine014):
                 with (directory/f'bank{bank}_BASELINE100.npz').open('xb') as f:
                     np.savez_compressed(f,baseline100=baseline,source_parent_row=parent_rows,draw_index=draw_index)
                 q=np.concatenate(q_values).reshape(-1,e['draws']);mu=np.concatenate(mu_values).reshape(-1,e['draws'])
-                require(np.all(mu==mu[:,:1]),'016 per-parent A canonical Q changed across draws')
-                a,b=[float(v) for v in (out['charge_a_Vns'],out['charge_b'])];theory_var=a*mu[:,0]+b*mu[:,0]**2
-                observed_mean=q.mean(1);variance=q.var(1,ddof=1);mcse=np.sqrt(variance/e['draws']);rng_final=streams.state_dict()
-                moments=dict(Q_mu_Vns=mu[:,0],q_sig_draws_Vns=q,sample_mean_Vns=observed_mean,sample_variance_Vns2=variance,
-                    conditional_mean_MCSE_Vns=mcse,theory_conditional_variance_Vns2=theory_var,source_parent_row=np.arange(len(q)),
-                    charge_rng_initial_state=old.arr(rng_initial['charge']),charge_rng_final_state=old.arr(rng_final['charge']))
-                for name,state in rng_initial['existing015'].items():moments['existing015_'+name+'_initial_state']=old.arr(state)
-                for name,state in rng_final['existing015'].items():moments['existing015_'+name+'_final_state']=old.arr(state)
-                with (directory/f'bank{bank}_CHARGE_PREADC_MOMENTS.npz').open('xb') as f:np.savez_compressed(f,**moments)
+                A=np.concatenate(A_values);A_values.clear();a,b=[float(v) for v in (out['charge_a_Vns'],out['charge_b'])]
+                rng_final=streams.state_dict();extra=dict(charge_rng_initial_state=old.arr(rng_initial['charge']),charge_rng_final_state=old.arr(rng_final['charge']))
+                for name,state in rng_initial['existing015'].items():extra['existing015_'+name+'_initial_state']=old.arr(state)
+                for name,state in rng_final['existing015'].items():extra['existing015_'+name+'_final_state']=old.arr(state)
+                moments,numeric=save_charge_bank016(directory,bank,A=A,q=q,mu=mu,a=a,b=b,parent=parent_rows,draw=draw_index,
+                    source_ids=rt.data['source_ids'],source_hashes=np.concatenate(source_hashes),forward_hashes=np.concatenate(forward_hashes),
+                    input_dtype=rt.data['source_carrier384'].dtype.str,extra_arrays=extra)
+                rt.guard(self.out,self.started)
+                center=moments['Q_mu_Vns'];mcse=moments['sample_mean_MCSE_Vns'];observed_mean=moments['sample_mean_Vns']
                 charge_summaries.append(dict(bank=bank,charge_seed=e['charge_bank_seeds'][bank],rows=q.size,parents=len(q),draws=e['draws'],
                     a_Vns=a,b=b,Q_mu_min_Vns=float(mu.min()),Q_mu_max_Vns=float(mu.max()),
                     realized_increment_RMS_V=math.sqrt(increment_sum/sample_coordinates),actual_A_expected_increment_RMS_V=math.sqrt(expected_sum/sample_coordinates),
-                    conditional_CV_min=float(np.sqrt(a/mu[:,0]+b).min()),conditional_CV_mean=float(np.sqrt(a/mu[:,0]+b).mean()),conditional_CV_max=float(np.sqrt(a/mu[:,0]+b).max()),
-                    finite_MC_mean_error_RMS_Vns=float(np.sqrt(np.square(observed_mean-mu[:,0]).mean())),
+                    conditional_CV_min=float(np.sqrt(a/mu+b).min()),conditional_CV_mean=float(np.sqrt(a/mu+b).mean()),conditional_CV_max=float(np.sqrt(a/mu+b).max()),
+                    finite_MC_mean_error_RMS_Vns=float(np.sqrt(np.square(observed_mean-center).mean())),
                     finite_MC_mean_MCSE_RMS_Vns=float(np.sqrt(np.square(mcse).mean())),canonical_identity_absmax_Vns=canonical_error,
+                    theory_sample_mean_MCSE_RMS_Vns=float(np.sqrt(np.square(moments['theory_sample_mean_MCSE_Vns']).mean())),
+                    draw_centered_mean_MCSE_RMS_Vns=float(np.sqrt(np.square(moments['draw_centered_sample_mean_MCSE_Vns']).mean())),
+                    conditional_random_variance_mean_Vns2=float(moments['theory_conditional_variance_draws_Vns2'].mean()),
+                    expected_sample_variance_mean_Vns2=float(moments['theory_expected_sample_variance_Vns2'].mean()),
+                    Q_mu_numeric_repeat_absmax_Vns=numeric['Q_mu_repeat_detail']['actual_absmax'],
+                    A_numeric_repeat_absmax_V=numeric['actual_max_abs_residual_V'],
+                    actual_mu_per_draw=True,mu_center_is_reporting_only=True,numerical_mu_spread_is_physical_variance=False,
+                    legacy_MCSE_is_empirical_uncentered_q_sample_variance=True,
                     inherited_M0_projection_residual_absmax_Vns=projection_error,covariance_denominator=e['draws']-1,
                     finite_MC_recalibration=False,preADC_conditional_mean_protection=True,hard_observation_expectation_guaranteed_unchanged=False,
                     retained_moments_file=f'bank{bank}_CHARGE_PREADC_MOMENTS.npz',retained_moments_sha256=sha(directory/f'bank{bank}_CHARGE_PREADC_MOMENTS.npz')))
+                del A,moments
                 for arm in arms:
                     for h in HYPOTHESES:
                         joined={n:np.concatenate([r[n] for r in pieces[arm][h]]) for n in pieces[arm][h][0]}
@@ -345,7 +482,10 @@ class Engine016(old.Engine014):
                         rt.guard(self.out,self.started)
         write_new(directory/'CHARGE_SEMANTICS.json',dict(schema='n01/wp3-016-charge-semantics/v1',banks=charge_summaries,
             actual_canonical_A_Q=True,no_denominator_floor=True,shape_amplitude_from_original_A=True,mean_adapter_enabled=False,
-            moments_are_finite_MC_not_exact_analytic_moments=True,full_preADC_carrier_saved=False,scientific_acceptance=False))
+            moments_are_finite_MC_not_exact_analytic_moments=True,full_preADC_carrier_saved=False,
+            legacy_full_preADC_flag_refers_to_stochastic_carriers=True,full_frozen_A_preADC_carrier_saved=True,
+            full_stochastic_preADC_carrier_saved=False,actual_mu_and_theory_variance_per_draw_saved=True,
+            numerical_replay_gate='unchanged013_A384_max_abs_1e-7_V',scientific_acceptance=False))
         write_new(directory/'METRICS.json',dict(schema='n01/wp3-016-full-hard-metrics/v1',metrics=metrics,source_parents=len(rt.data['source']),
             draws_per_bank=e['draws'],MC_banks=e['banks'],REAL_rows=len(rt.data['real']),statistical_unit='SOURCE_parent_and_original_REAL_group; MC draws are not new physical records',
             no_DEV=True,all_signed_rows_retained=True,tolerance_table=rt.p['contracts']['tolerance_table'],all_metric_classes=True,root_acceptance_pending=True,scientific_acceptance=False))

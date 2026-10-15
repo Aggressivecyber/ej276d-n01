@@ -1,0 +1,337 @@
+{
+  "schema": "n01/wp3-016-engineering-fix-ready/v1",
+  "UTC": "2026-10-15T07:52:36.277637+00:00",
+  "status": "LOCAL_FIX02_READY_FOR_INDEPENDENT_SOURCE_REVIEW",
+  "passed": true,
+  "sources": {
+    "scripts/wp3_016_controller.py": {
+      "sha256": "ee1780358314b2fb7c425d21bddd5df16184642b2f5b1317c1e1b6a00d403cfb",
+      "bytes": 26928
+    },
+    "scripts/run_wp3_016.py": {
+      "sha256": "5d3b4892bbe564c887cab29346a11e92edd9eab7ba1d512ca9143280732da4c0",
+      "bytes": 49252
+    },
+    "src/n01/model016.py": {
+      "sha256": "04c63f91ea5405937a940a9aee6eaed876db79149c857bfbe6ed8cfe6dcb138b",
+      "bytes": 9226
+    }
+  },
+  "before": {
+    "scripts/run_wp3_016.py": {
+      "path": "receipts/wp3_016_20261015/launch_fix02/before/run_wp3_016.py",
+      "bytes": 37310,
+      "sha256": "4729208d66c61c3b082827535719e72d8d7bb2ee60f390b688111ae3b4f12972"
+    },
+    "scripts/wp3_016_controller.py": {
+      "path": "receipts/wp3_016_20261015/launch_fix02/before/wp3_016_controller.py",
+      "bytes": 26914,
+      "sha256": "ae9afe444a90acb4fabddf1d2bf643550a4cbf29c4b9130408b040abcc843b5b"
+    }
+  },
+  "source_diff": {
+    "path": "receipts/wp3_016_20261015/launch_fix02/SOURCE_DIFF.patch",
+    "bytes": 20151,
+    "sha256": "85753632f3c66dec8c8c120c4faad6df91902bbd3882ebf5215c32dbe713760c"
+  },
+  "diagnosis": {
+    "path": "receipts/wp3_016_20261015/launch_fix02/FAILURE_DIAGNOSIS_ENGINEERING.json",
+    "bytes": 9327,
+    "sha256": "ae3cf8e728f902fe308ea031851b2eff93a60710e0d6322b6cd9bddd173b31d4"
+  },
+  "numerical_receipt": {
+    "path": "receipts/wp3_016_20261015/launch_fix02/artificial_cpu_01/ENGINEERING_RECEIPT.json",
+    "bytes": 3133,
+    "sha256": "e0a25f91f3a6a94167e596f23dbbc23dfc2ae00a88ce0952c3ae1575f1e550cd"
+  },
+  "stdlib_receipt": {
+    "path": "receipts/wp3_016_20261015/launch_fix02/artificial_stdlib_01/ENGINEERING_RECEIPT.json",
+    "bytes": 3909,
+    "sha256": "7bd43731c1d7726a596058170efbcdef2e5e9acd02236e81c39fe3f20931a0ee"
+  },
+  "original105_sources_and107_controls_unchanged": true,
+  "original_fix01_package_unchanged": {
+    "config": {
+      "path": "receipts/wp3_016_20261015/runtime_package_fix01/wp3_016_config.json",
+      "bytes": 208864,
+      "sha256": "c0fe6408b53969da9f0bd70c01bf7649cfabfbf1864752dc5696bb8c9b6d5da9"
+    },
+    "manifest": {
+      "path": "receipts/wp3_016_20261015/runtime_package_fix01/WP3_016_SOURCE_MANIFEST.json",
+      "bytes": 19460,
+      "sha256": "1488217be443fb49c60db4fcf3d852fcda8ba33507ce7e5ba2ee2f3d1e4d1327"
+    },
+    "package": {
+      "path": "receipts/wp3_016_20261015/runtime_package_fix01/wp3_016_source.tar.gz",
+      "bytes": 762155,
+      "sha256": "524ba471ac24d376211349280237e02562dfe797b2921fc25b01c46aac8e688e"
+    }
+  },
+  "model016_exact_bytes_unchanged": true,
+  "all_old_factories_scientific_settings_and_budget_equal": true,
+  "settings_factory": {
+    "schema": "n01/wp3-016-config/v1",
+    "run_id": "wp3_016_20261015",
+    "status": "draft",
+    "candidates": [
+      "Q1"
+    ],
+    "seed_sets": [
+      {
+        "initialization": 2026101540,
+        "source_sampler": 2026101541,
+        "real_sampler": 2026101542,
+        "train_shape": 2026101543,
+        "train_noise005": 2026101544,
+        "train_extension": 2026101545,
+        "train_projection": 2026101546,
+        "integral_projection": 2026101547,
+        "train_charge": 2026101741
+      },
+      {
+        "initialization": 2026101640,
+        "source_sampler": 2026101641,
+        "real_sampler": 2026101642,
+        "train_shape": 2026101643,
+        "train_noise005": 2026101644,
+        "train_extension": 2026101645,
+        "train_projection": 2026101646,
+        "integral_projection": 2026101647,
+        "train_charge": 2026101751
+      }
+    ],
+    "G_updates": 2000,
+    "TRAIN_counts": {
+      "source": 6593,
+      "real": 21047,
+      "REAL_logical_groups": 422
+    },
+    "training": {
+      "source_parents_per_update": 512,
+      "draws_per_parent": 2,
+      "real_rows_per_update": 1024,
+      "forward_chunk_rows": 256,
+      "G_lr": 0.01,
+      "G_weight_decay": 0.0,
+      "clip_norm": 5.0,
+      "wave_weight": 1.0,
+      "distribution_weight": 2.0,
+      "regular_weight": 0.01,
+      "status_interval": 100,
+      "checkpoint_steps": [
+        1000,
+        2000
+      ],
+      "fresh_AdamW": true,
+      "inherit_015_optimizer": false
+    },
+    "charge": {
+      "parameters": 2,
+      "q_reference_Vns": 3.7103998046755806,
+      "positive_mean_corrected_lognormal": true,
+      "denominator_floor": false,
+      "electronic_constant_variance": 0,
+      "shape_multiplied_by_random_charge": false,
+      "charge_disabled_exact_M0_bytes": true,
+      "independent_explicit_latent": true
+    },
+    "calibration": {
+      "parents": 6593,
+      "coordinates": 384,
+      "chunk_rows": 256,
+      "target_expected_RMS_ADC_LSB": 1.0,
+      "zero_prefix100_in_RMS_denominator": true,
+      "all_actual_A_Q_positive_required": true,
+      "A_only": true,
+      "finite_MC_retuning": false,
+      "shared_across_seeds": true
+    },
+    "evaluation": {
+      "parents": 6593,
+      "draws": 4,
+      "banks": 2,
+      "chunk_rows": 128,
+      "bank_seeds": [
+        {
+          "shape": 2026101501,
+          "noise005": 2026101502,
+          "extension": 2026101503
+        },
+        {
+          "shape": 2026101511,
+          "noise005": 2026101512,
+          "extension": 2026101513
+        }
+      ],
+      "charge_bank_seeds": [
+        2026101721,
+        2026101731
+      ],
+      "projection_seed": 2026101430,
+      "projection_fingerprint": "27ed58d90114de6bfa5bf30ff5ad251516cdc9bcadfb5eb10e2a6ec45ed11482",
+      "whole_population": true,
+      "snapshot_arms": {
+        "initial": [
+          "A",
+          "M0",
+          "initial"
+        ],
+        "final": [
+          "final"
+        ]
+      },
+      "save_charge_semantics_and_preADC_moments": true
+    },
+    "hypotheses": [
+      "fast",
+      "slow",
+      "common_level"
+    ],
+    "CPU_threads": 12,
+    "run_resource_limits": {
+      "GPU_GiB": 10,
+      "job_tree_RSS_GiB": 8,
+      "wall_seconds": 7200,
+      "output_MiB": 1536
+    },
+    "resource_limits": {
+      "GPU_GiB": 10,
+      "job_tree_RSS_GiB": 8,
+      "wall_seconds": 14400,
+      "output_MiB": 3072,
+      "poll_seconds": 10,
+      "TERM_grace_seconds": 20
+    },
+    "one_active_scientific_job": true,
+    "serial_runs": true,
+    "automatic_restart": false,
+    "overwrite_outputs": false,
+    "DEV_numeric_read": false,
+    "scientific_status": "response_match_not_established"
+  },
+  "budget_caps": {
+    "calibration_A_rows": 6593,
+    "old_A_rows": 4313569,
+    "head_actual_parameter_forward_rows": 4306976,
+    "head_total_kernel_rows": 4306976,
+    "noise005_rows": 4306976,
+    "charge_module_rows": 4306976,
+    "charge_latent_scalar_draws": 4306976,
+    "charge_initialization_fits": 1,
+    "hard_ADC_rows": 13553856,
+    "all_path_gather_rows": 13553856,
+    "checkpoint_loads": 4,
+    "optimizer_created": 2,
+    "optimizer_steps": 4000,
+    "G_updates": 4000,
+    "training_backward_queries": 4000,
+    "new_AD_queries": 4000,
+    "probe_AD_queries": 0,
+    "integral_statistics_fits": 0,
+    "mean_adapter_rows": 0,
+    "D_updates": 0,
+    "noise_updates": 0,
+    "population_updates": 0,
+    "C2ST_updates": 0,
+    "DEV_model_rows": 0
+  },
+  "remote_root": "/home/rylan/projects/ej276d-n01/wp3_016_runtime_fix02_20261015",
+  "run_id": "wp3_016_20261015",
+  "trial_names": [
+    "seed0_Q1",
+    "seed1_Q1"
+  ],
+  "controller_only_change": "REMOTE constant",
+  "driver_scope": "evaluation evidence saving, frozen013 replay gate, actual-row reducer semantics; no scientific forward/train/calibration/law changes",
+  "extra_imports_already_in_old105": [
+    "scripts/run_wp1_013.py"
+  ],
+  "new_external_helper_files": [],
+  "tests": {
+    "numeric_groups": 5,
+    "numeric_negative_cases": 12,
+    "native_numeric_seconds": 85.45133559999522,
+    "two_synthetic_trial_updates": 2,
+    "stdlib_groups": 5,
+    "stdlib_live_health_negative_cases": 15,
+    "private_CP_NN_AD_random_training": 0,
+    "SSH": 0,
+    "artificial_costs": {
+      "calibration_A_rows": 8,
+      "old_A_rows": 280,
+      "head_actual_parameter_forward_rows": 272,
+      "head_total_kernel_rows": 272,
+      "noise005_rows": 272,
+      "charge_module_rows": 272,
+      "charge_latent_scalar_draws": 272,
+      "charge_initialization_fits": 1,
+      "hard_ADC_rows": 1584,
+      "all_path_gather_rows": 1584,
+      "checkpoint_loads": 0,
+      "optimizer_created": 2,
+      "optimizer_steps": 2,
+      "G_updates": 2,
+      "training_backward_queries": 2,
+      "new_AD_queries": 2,
+      "probe_AD_queries": 0,
+      "integral_statistics_fits": 0,
+      "mean_adapter_rows": 0,
+      "D_updates": 0,
+      "noise_updates": 0,
+      "population_updates": 0,
+      "C2ST_updates": 0,
+      "DEV_model_rows": 0
+    },
+    "artificial_initialization_and_RNG_counts_are_not_scientific_costs": true
+  },
+  "resource_estimate": {
+    "new_actual_A_float64_bytes_per_bank": 81014784,
+    "total8banks_A_payload_bytes": 648118272,
+    "artificial8bank_npz_actual_bytes": 463693,
+    "artificial8bank_payload_bytes": 1183744,
+    "projected8bank_charge_payload_and_container_no_compression_bytes": 711092305,
+    "historical_same_population_NPZ_inventory": {
+      "path": "receipts/wp3_015_20261015/collection_01/REMOTE_FULL_INVENTORY.json",
+      "bytes": 123203,
+      "sha256": "9d253a57bb79d9f25b112b4f5e0009a239c21360766c89cef7357d040adebe42"
+    },
+    "historical": {
+      "_HARD_ROWS.npz": {
+        "count": 72,
+        "bytes": 810854913,
+        "maximum_file_bytes": 11315022
+      },
+      "_REPORT.npz": {
+        "count": 72,
+        "bytes": 2200421600,
+        "maximum_file_bytes": 30623072
+      },
+      "_BASELINE100.npz": {
+        "count": 16,
+        "bytes": 53150096,
+        "maximum_file_bytes": 3322518
+      }
+    },
+    "existing48hard48report8baseline_empirical_forecast_bytes": 2039608656,
+    "other_output_reserve_bytes": 134217728,
+    "projected_batch_output_bytes": 2884918689,
+    "projected_trial_average_bytes": 1442459344.5,
+    "batch_cap_bytes": 3221225472,
+    "trial_cap_bytes": 1610612736,
+    "within_batch_cap_estimate": true,
+    "within_trial_average_cap_estimate": true,
+    "forecast_is_not_measured_native_or_a_worst_case_compression_guarantee": true,
+    "existing_caps_unchanged_and_guard_after_bank_save": true,
+    "additional_peak_CPU_memory_estimate_upper_bytes": 536870912,
+    "CPU_memory_method": "two A copies during concatenate ~162MB; block diagnostics/input hashes and compression reserve within512MiB; actual bank A/moment refs deleted before next bank",
+    "extra_GPU_forward_activation_rows": 0,
+    "full_stochastic_preADC_carrier_saved": false
+  },
+  "unresolved_engineering_items": [],
+  "original_actual_repeat_amplitude": "unknown; preserved old failure has no A/mu arrays",
+  "root_next_action": "Independent final source review; register additional old native costs, freeze/commit/backup a new package and explicitly authorize one new remote execution if approved.",
+  "main_metadata_changed_by_engineer": false,
+  "refreeze_or_SSH_or_real_retry_performed": false,
+  "scientific_acceptance": false,
+  "weights_promoted": false
+}

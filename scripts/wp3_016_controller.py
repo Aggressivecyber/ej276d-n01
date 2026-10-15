@@ -15,7 +15,7 @@ import time
 import types
 
 RUN_ID='wp3_016_20261015'
-REMOTE='/home/rylan/projects/ej276d-n01/wp3_016_20261015'
+REMOTE='/home/rylan/projects/ej276d-n01/wp3_016_runtime_fix02_20261015'
 OLD015='/home/rylan/projects/ej276d-n01/wp3_015_20261015'
 CFG,MANIFEST='wp3_016_config.json','WP3_016_SOURCE_MANIFEST.json'
 CONTROLLER,DRIVER='scripts/wp3_016_controller.py','scripts/run_wp3_016.py'

@@ -1,0 +1,367 @@
+{
+  "schema": "n01/wp3-016-independent-fix-review/v2",
+  "UTC": "2026-10-15T07:59:22.667519+00:00",
+  "status": "PASS_FIX02_SOURCE_REVIEW_PENDING_FROZEN_BINDING",
+  "passed": true,
+  "blockers": [],
+  "sources": {
+    "scripts/run_wp3_016.py": {
+      "sha256": "5d3b4892bbe564c887cab29346a11e92edd9eab7ba1d512ca9143280732da4c0",
+      "bytes": 49252
+    },
+    "src/n01/model016.py": {
+      "sha256": "04c63f91ea5405937a940a9aee6eaed876db79149c857bfbe6ed8cfe6dcb138b",
+      "bytes": 9226
+    },
+    "scripts/wp3_016_controller.py": {
+      "sha256": "ee1780358314b2fb7c425d21bddd5df16184642b2f5b1317c1e1b6a00d403cfb",
+      "bytes": 26928
+    }
+  },
+  "budget_caps": {
+    "calibration_A_rows": 6593,
+    "old_A_rows": 4313569,
+    "head_actual_parameter_forward_rows": 4306976,
+    "head_total_kernel_rows": 4306976,
+    "noise005_rows": 4306976,
+    "charge_module_rows": 4306976,
+    "charge_latent_scalar_draws": 4306976,
+    "charge_initialization_fits": 1,
+    "hard_ADC_rows": 13553856,
+    "all_path_gather_rows": 13553856,
+    "checkpoint_loads": 4,
+    "optimizer_created": 2,
+    "optimizer_steps": 4000,
+    "G_updates": 4000,
+    "training_backward_queries": 4000,
+    "new_AD_queries": 4000,
+    "probe_AD_queries": 0,
+    "integral_statistics_fits": 0,
+    "mean_adapter_rows": 0,
+    "D_updates": 0,
+    "noise_updates": 0,
+    "population_updates": 0,
+    "C2ST_updates": 0,
+    "DEV_model_rows": 0
+  },
+  "engineering_ready": {
+    "path": "receipts/wp3_016_20261015/launch_fix02/ENGINEERING_FIX_READY.json",
+    "sha256": "2e32de2b805be4f31ceddde73be436222e6065e40aba6f69c63d360e485e869f",
+    "bytes": 11571
+  },
+  "engineering_numeric_receipt": {
+    "path": "receipts/wp3_016_20261015/launch_fix02/artificial_cpu_01/ENGINEERING_RECEIPT.json",
+    "sha256": "e0a25f91f3a6a94167e596f23dbbc23dfc2ae00a88ce0952c3ae1575f1e550cd",
+    "bytes": 3133
+  },
+  "engineering_health_receipt": {
+    "path": "receipts/wp3_016_20261015/launch_fix02/artificial_stdlib_01/ENGINEERING_RECEIPT.json",
+    "sha256": "7bd43731c1d7726a596058170efbcdef2e5e9acd02236e81c39fe3f20931a0ee",
+    "bytes": 3909
+  },
+  "source_diff": {
+    "path": "receipts/wp3_016_20261015/launch_fix02/SOURCE_DIFF.patch",
+    "sha256": "85753632f3c66dec8c8c120c4faad6df91902bbd3882ebf5215c32dbe713760c",
+    "bytes": 20151
+  },
+  "independent_health_receipt": {
+    "path": "receipts/wp3_016_20261015/launch_fix02/independent_artificial_stdlib_01/ENGINEERING_RECEIPT.json",
+    "sha256": "f98675500a1211708766cc12b6001327be704f0a08ee6fa795d8c66c78dcf959",
+    "bytes": 3909
+  },
+  "prior_failure_diagnosis": {
+    "path": "receipts/wp3_016_20261015/launch_fix02/FAILURE_DIAGNOSIS_REVIEW.json",
+    "sha256": "be64e291e38e9ccf4249550bce39c8cd0606a10e8871d58eb5c9cf9b970f80ec",
+    "bytes": 17407
+  },
+  "prior_source_review": {
+    "path": "receipts/wp3_016_20261015/independent_01/SOURCE_REVIEW.json",
+    "sha256": "4d286687cdd18e10515363c57837cf58233b8f12abbb1f1bc89c3b5af861ee7d",
+    "bytes": 14311
+  },
+  "checks": [
+    {
+      "name": "final_source_hashes_and_ready_test_bindings",
+      "passed": true,
+      "sources": {
+        "scripts/run_wp3_016.py": {
+          "sha256": "5d3b4892bbe564c887cab29346a11e92edd9eab7ba1d512ca9143280732da4c0",
+          "bytes": 49252
+        },
+        "src/n01/model016.py": {
+          "sha256": "04c63f91ea5405937a940a9aee6eaed876db79149c857bfbe6ed8cfe6dcb138b",
+          "bytes": 9226
+        },
+        "scripts/wp3_016_controller.py": {
+          "sha256": "ee1780358314b2fb7c425d21bddd5df16184642b2f5b1317c1e1b6a00d403cfb",
+          "bytes": 26928
+        }
+      }
+    },
+    {
+      "name": "old_failure_source_and_package_preserved_original105_plus107_controls_unchanged",
+      "passed": true,
+      "old_package_members": 117,
+      "old_sources": 115,
+      "current_changed_sources": [
+        "scripts/run_wp3_016.py",
+        "scripts/wp3_016_controller.py"
+      ],
+      "other_old_sources_unchanged": 113
+    },
+    {
+      "name": "complete_AST_delta_scoped_to_four_evidence_helpers_evaluate_and_REMOTE_science_factories_equal",
+      "passed": true,
+      "protected_unchanged": [
+        "model016",
+        "Runtime016",
+        "calibrate_charge",
+        "Engine016.__init__",
+        "Engine016.step",
+        "loss",
+        "streams",
+        "selection",
+        "budget_caps016"
+      ],
+      "new_external_helpers": [],
+      "fixed_two_trials": [
+        "seed0_Q1",
+        "seed1_Q1"
+      ]
+    },
+    {
+      "name": "independently_replayed_array_only_four_groups_12_negatives_plus_two_targeted_negatives",
+      "passed": true,
+      "receipt": {
+        "path": "receipts/wp3_016_20261015/launch_fix02/independent_artificial_02/ENGINEERING_RECEIPT.json",
+        "sha256": "91b34fdf8d50b9645c9a1bd8b815d46261dbee2219059f738a419825c79c831c",
+        "bytes": 1631
+      }
+    },
+    {
+      "name": "independently_replayed_current_controller_five_stdlib_groups_and15_health_negatives",
+      "passed": true,
+      "receipt": {
+        "path": "receipts/wp3_016_20261015/launch_fix02/independent_artificial_stdlib_01/ENGINEERING_RECEIPT.json",
+        "sha256": "f98675500a1211708766cc12b6001327be704f0a08ee6fa795d8c66c78dcf959",
+        "bytes": 3909
+      }
+    },
+    {
+      "name": "all_eight_artificial_banks_reopened_actual_rows_moments_lineage_and_two_trial_journal_verified",
+      "passed": true,
+      "banks": 8,
+      "files": {
+        "_HARD_ROWS.npz": 48,
+        "_REPORT.npz": 48,
+        "_BASELINE100.npz": 8,
+        "_CHARGE_PREADC_MOMENTS.npz": 8,
+        "_A_NUMERIC_REPEATS.json": 8
+      },
+      "synthetic_updates": 2,
+      "synthetic_checkpoint_loads": 0,
+      "operations": 206,
+      "counters": {
+        "calibration_A_rows": 8,
+        "old_A_rows": 280,
+        "head_actual_parameter_forward_rows": 272,
+        "head_total_kernel_rows": 272,
+        "noise005_rows": 272,
+        "charge_module_rows": 272,
+        "charge_latent_scalar_draws": 272,
+        "charge_initialization_fits": 1,
+        "hard_ADC_rows": 1584,
+        "all_path_gather_rows": 1584,
+        "checkpoint_loads": 0,
+        "optimizer_created": 2,
+        "optimizer_steps": 2,
+        "G_updates": 2,
+        "training_backward_queries": 2,
+        "new_AD_queries": 2,
+        "probe_AD_queries": 0,
+        "integral_statistics_fits": 0,
+        "mean_adapter_rows": 0,
+        "D_updates": 0,
+        "noise_updates": 0,
+        "population_updates": 0,
+        "C2ST_updates": 0,
+        "DEV_model_rows": 0
+      }
+    },
+    {
+      "name": "output_forecast_arithmetic_and_unchanged_live_caps",
+      "passed": true,
+      "new_A_payload_bytes": 648118272,
+      "projected_batch_bytes": 2884918689,
+      "batch_cap_bytes": 3221225472,
+      "trial_cap_bytes": 1610612736,
+      "native_measurement": false,
+      "worst_case_guarantee": false,
+      "per_trial_average_is_not_each_trial_bound": true,
+      "additional_CPU_512MiB_is_an_estimate": true,
+      "extra_NN_ADC_AD_RNG_calls": 0
+    }
+  ],
+  "scientific_settings_and_budget_unchanged": true,
+  "model016_exact_bytes_unchanged": true,
+  "numerical_contract": {
+    "A_max_abs_point_tolerance_V": 1e-07,
+    "origin": "unchanged scripts/run_wp1_013.py A_numerical_residual",
+    "actual_A_mu_q_v_saved_before_threshold_gate": true,
+    "parent_draw_and_original_forward_input_bytes_exact": true,
+    "CPU_GPU_canonical_bound": "2*gamma255/(1-gamma255)*L1(A[110:366])+512*smallest_subnormal, rounded upward",
+    "assumptions": "finite same actual float64 inputs, round-to-nearest, at most255 additions per256-term sum, no overflow; subnormal allowance",
+    "no_new_arbitrary_Q_allclose": true,
+    "actual_model_mu_per_draw_unchanged": true,
+    "original_failure_amplitude": "unknown_not_saved"
+  },
+  "statistics": {
+    "theory_v_per_draw": "a*mu_d+b*mu_d^2",
+    "expected_sample_variance": "mean(v_d)+samplevar(mu_d,ddof1)",
+    "theory_mean_MCSE": "sqrt(sum(v_d))/4",
+    "draw_centered_second_moment": "mean((q_d-mu_d)^2), ddof0; expectation mean(v_d)",
+    "draw_centered_sample_variance": "samplevar(q_d-mu_d,ddof1); expectation mean(v_d)",
+    "legacy_empirical_MCSE": "sqrt(samplevar(q,ddof1)/4), explicitly distinct from theory",
+    "mean_mu_reporting_only": true,
+    "numerical_mu_spread_is_physical_variance": false
+  },
+  "resource_estimate": {
+    "new_actual_A_float64_bytes_per_bank": 81014784,
+    "total8banks_A_payload_bytes": 648118272,
+    "artificial8bank_npz_actual_bytes": 463693,
+    "artificial8bank_payload_bytes": 1183744,
+    "projected8bank_charge_payload_and_container_no_compression_bytes": 711092305,
+    "historical_same_population_NPZ_inventory": {
+      "path": "receipts/wp3_015_20261015/collection_01/REMOTE_FULL_INVENTORY.json",
+      "bytes": 123203,
+      "sha256": "9d253a57bb79d9f25b112b4f5e0009a239c21360766c89cef7357d040adebe42"
+    },
+    "historical": {
+      "_HARD_ROWS.npz": {
+        "count": 72,
+        "bytes": 810854913,
+        "maximum_file_bytes": 11315022
+      },
+      "_REPORT.npz": {
+        "count": 72,
+        "bytes": 2200421600,
+        "maximum_file_bytes": 30623072
+      },
+      "_BASELINE100.npz": {
+        "count": 16,
+        "bytes": 53150096,
+        "maximum_file_bytes": 3322518
+      }
+    },
+    "existing48hard48report8baseline_empirical_forecast_bytes": 2039608656,
+    "other_output_reserve_bytes": 134217728,
+    "projected_batch_output_bytes": 2884918689,
+    "projected_trial_average_bytes": 1442459344.5,
+    "batch_cap_bytes": 3221225472,
+    "trial_cap_bytes": 1610612736,
+    "within_batch_cap_estimate": true,
+    "within_trial_average_cap_estimate": true,
+    "forecast_is_not_measured_native_or_a_worst_case_compression_guarantee": true,
+    "existing_caps_unchanged_and_guard_after_bank_save": true,
+    "additional_peak_CPU_memory_estimate_upper_bytes": 536870912,
+    "CPU_memory_method": "two A copies during concatenate ~162MB; block diagnostics/input hashes and compression reserve within512MiB; actual bank A/moment refs deleted before next bank",
+    "extra_GPU_forward_activation_rows": 0,
+    "full_stochastic_preADC_carrier_saved": false
+  },
+  "resource_conclusion": "Estimated below unchanged caps; not native measurement or a worst-case guarantee. Per-trial average does not prove each trial fits. Existing trial and supervisor guards remain decisive.",
+  "replacement_accounting": {
+    "original_failed_actual_counts_preserved": {
+      "calibration_A_rows": 6593,
+      "old_A_rows": 32965,
+      "head_actual_parameter_forward_rows": 26372,
+      "head_total_kernel_rows": 26372,
+      "noise005_rows": 26372,
+      "charge_module_rows": 26372,
+      "charge_latent_scalar_draws": 26372,
+      "charge_initialization_fits": 1,
+      "hard_ADC_rows": 237348,
+      "all_path_gather_rows": 237348,
+      "checkpoint_loads": 3,
+      "optimizer_created": 1,
+      "optimizer_steps": 0,
+      "G_updates": 0,
+      "training_backward_queries": 0,
+      "new_AD_queries": 0,
+      "probe_AD_queries": 0,
+      "integral_statistics_fits": 0,
+      "mean_adapter_rows": 0,
+      "D_updates": 0,
+      "noise_updates": 0,
+      "population_updates": 0,
+      "C2ST_updates": 0,
+      "DEV_model_rows": 0
+    },
+    "full_replacement_caps": {
+      "calibration_A_rows": 6593,
+      "old_A_rows": 4313569,
+      "head_actual_parameter_forward_rows": 4306976,
+      "head_total_kernel_rows": 4306976,
+      "noise005_rows": 4306976,
+      "charge_module_rows": 4306976,
+      "charge_latent_scalar_draws": 4306976,
+      "charge_initialization_fits": 1,
+      "hard_ADC_rows": 13553856,
+      "all_path_gather_rows": 13553856,
+      "checkpoint_loads": 4,
+      "optimizer_created": 2,
+      "optimizer_steps": 4000,
+      "G_updates": 4000,
+      "training_backward_queries": 4000,
+      "new_AD_queries": 4000,
+      "probe_AD_queries": 0,
+      "integral_statistics_fits": 0,
+      "mean_adapter_rows": 0,
+      "D_updates": 0,
+      "noise_updates": 0,
+      "population_updates": 0,
+      "C2ST_updates": 0,
+      "DEV_model_rows": 0
+    },
+    "failed_plus_planned_replacement_aggregate_caps": {
+      "calibration_A_rows": 13186,
+      "old_A_rows": 4346534,
+      "head_actual_parameter_forward_rows": 4333348,
+      "head_total_kernel_rows": 4333348,
+      "noise005_rows": 4333348,
+      "charge_module_rows": 4333348,
+      "charge_latent_scalar_draws": 4333348,
+      "charge_initialization_fits": 2,
+      "hard_ADC_rows": 13791204,
+      "all_path_gather_rows": 13791204,
+      "checkpoint_loads": 7,
+      "optimizer_created": 3,
+      "optimizer_steps": 4000,
+      "G_updates": 4000,
+      "training_backward_queries": 4000,
+      "new_AD_queries": 4000,
+      "probe_AD_queries": 0,
+      "integral_statistics_fits": 0,
+      "mean_adapter_rows": 0,
+      "D_updates": 0,
+      "noise_updates": 0,
+      "population_updates": 0,
+      "C2ST_updates": 0,
+      "DEV_model_rows": 0
+    },
+    "scientific_seed_trials": 2,
+    "new_candidate": false,
+    "cumulative_scientific_G_before_replacement": 175667,
+    "root_registration_required_before_refreeze": true
+  },
+  "review_costs": {
+    "scientific_CP_NN_AD_random_training": 0,
+    "synthetic_NN_AD_random_training": 0,
+    "actual_private_NPZ_CP_decodes": 0,
+    "SSH": 0,
+    "source_or_config_mutations": 0
+  },
+  "next_boundary": "Root registers replacement accounting then refreezes/reviews binding; this source review performs or authorizes no native restart.",
+  "scientific_acceptance": false,
+  "weights_promoted": false,
+  "elapsed_seconds": 1.007902400000603
+}

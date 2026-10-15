@@ -1,0 +1,198 @@
+{
+  "schema": "n01/wp3-016-failure-diagnosis-engineering/v1",
+  "UTC": "2026-10-15T07:52:36.275347+00:00",
+  "status": "CONFIRMED_REDUCER_INVARIANT_FAILURE_ACTUAL_DIFFERENCE_MAGNITUDE_UNKNOWN",
+  "conclusion_zh": "真实失败位于初始bank0结束后的严格Q相等reducer；实际差值未保存，不能把GPU/cuDNN舍入说成已证实根因。最小修复保留实际逐draw A/Q/v，先保存再按013原A数值门判定，并修正异均值draw的统计汇总。",
+  "actual_failure": {
+    "path": "receipts/wp3_016_20261015/failure_collection_01/FAILURE_PRESERVATION_RECEIPT.json",
+    "bytes": 12682,
+    "sha256": "e8843648d48bf4e7ce05c8a531ddaf51c2bd5ff67895d0cd52b6e361b85428e0"
+  },
+  "confirmed_error": {
+    "error_type": "ValueError",
+    "error": "016 per-parent A canonical Q changed across draws",
+    "source": "scripts/run_wp3_016.py",
+    "line": 312,
+    "statement": "require(np.all(mu==mu[:,:1]),'016 per-parent A canonical Q changed across draws')",
+    "traceback": {
+      "path": "runs/wp3_016_20261015/failed_collected_01/runs/primary/console.log",
+      "bytes": 1259,
+      "sha256": "dde66d2b9fd2d1fb74c127c8af25da9abb829dbf1fbc3d7cfe1d4933fbc75532"
+    },
+    "actual_bad_mu_difference_magnitude": "unknown_not_saved"
+  },
+  "actual_completed_counters": {
+    "calibration_A_rows": 6593,
+    "old_A_rows": 32965,
+    "head_actual_parameter_forward_rows": 26372,
+    "head_total_kernel_rows": 26372,
+    "noise005_rows": 26372,
+    "charge_module_rows": 26372,
+    "charge_latent_scalar_draws": 26372,
+    "charge_initialization_fits": 1,
+    "hard_ADC_rows": 237348,
+    "all_path_gather_rows": 237348,
+    "checkpoint_loads": 3,
+    "optimizer_created": 1,
+    "optimizer_steps": 0,
+    "G_updates": 0,
+    "training_backward_queries": 0,
+    "new_AD_queries": 0,
+    "probe_AD_queries": 0,
+    "integral_statistics_fits": 0,
+    "mean_adapter_rows": 0,
+    "D_updates": 0,
+    "noise_updates": 0,
+    "population_updates": 0,
+    "C2ST_updates": 0,
+    "DEV_model_rows": 0
+  },
+  "actual_native_costs_not_all_zero": true,
+  "actual_G_AD_updates": 0,
+  "ordering": {
+    "parents": 6593,
+    "draws": 4,
+    "rows": 26372,
+    "layout": "repeat(arange(6593),4); tile(arange(4),6593); concatenate chunks then reshape(6593,4)",
+    "chunk_rows": 128,
+    "full_chunks": 206,
+    "last_chunk_rows": 4,
+    "parent_crosses_chunk": false,
+    "static_order_correct": true,
+    "actual_original_failure_input_row_hashes_saved": false,
+    "new_original_and_forward_input_byte_evidence_added": true
+  },
+  "calibration": {
+    "source": {
+      "path": "runs/wp3_016_20261015/failed_collected_01/runs/primary/artifacts/CHARGE_INITIALIZATION.json",
+      "bytes": 65893,
+      "sha256": "865fc7da1cef1b03fb70d002f11e56658ff4db82f9ea4edcaa26a565af043101"
+    },
+    "parents": 6593,
+    "chunk_rows": 256,
+    "all_Q_positive": true,
+    "Q_min_Vns": 0.5462979269685883,
+    "Q_max_Vns": 15.12013678615344,
+    "expected_RMS_V": 6.1038881767686e-05,
+    "target_RMS_V": 6.103888176768602e-05,
+    "comparison_at_old_line312": "within one evaluation bank, same parent across draws; not calibration versus evaluation",
+    "new_calibration_or_finite_MC_retuning": false
+  },
+  "dtype": {
+    "on_disk_original_source_dtype_in_failed_run": "unknown_not_in_collected_JSON_not_decoded",
+    "evaluation_and_calibration_forward_input": "explicit torch.float64",
+    "canonical_sum": "actual A to float64, indices110:366, software1ns",
+    "model_feature_path": "model008._features casts to encoder weight dtype; default neural parameters instantiated float32; FP64 input does not make the entire network FP64",
+    "checkpoint_tensor_dtypes_not_reloaded_for_this_diagnosis": true
+  },
+  "mechanism": {
+    "A_path": "frozen original A; _baseline_once uses zero phys/local latents; no q latent in A; old shape head uses captured decoded output after A",
+    "deterministic_controls": "use_deterministic_algorithms(True), cudnn.benchmark=False, TF32 matmul/cudnn disabled",
+    "network_normalization": "GroupNorm found; no batch-statistics normalization introduced by016",
+    "GPU_or_cuDNN_rounding": "plausible mechanism, not established by saved evidence; no original actual A/mu matrix to locate stage or magnitude",
+    "mapping_or_material_A_change": "not observed in source ordering; actual byte/point evidence unavailable in failed run; future explicit gates refuse mismatch"
+  },
+  "fixed_numerical_contract": {
+    "original_helper": {
+      "path": "scripts/run_wp1_013.py",
+      "bytes": 49484,
+      "sha256": "e7cbcf782e19e139c02260bbe1d67e0a50108785ed5b093975800a28b103657d"
+    },
+    "original_config": {
+      "path": "wp1_013_config.json",
+      "bytes": 234194,
+      "sha256": "b55b64d500c1cd079bb83001da6b9ae5f462de9c952809c2ef329fcdbd98ffb7"
+    },
+    "original_gate_V": 1e-07,
+    "canonical_window_samples": 256,
+    "derived_repeat_Q_component_Vns": 2.56e-05,
+    "GPU_CPU_sum_bound": "2*gamma255/(1-gamma255)*L1(A)+512*smallest_subnormal, rounded upward; u=2^-53, gamma255=255*u/(1-255*u)",
+    "assumptions": "same finite actual float64 A, IEEE754 nearest additions, <=255 additions per256-term sum, no overflow; tiny subnormal allowance",
+    "bound_is_predeclared_not_fit_to_new_results": true,
+    "no_independent_charge_allclose": true,
+    "no_A_Q_broadcast_or_replacement": true,
+    "actual_arrays_and_diagnostics_before_A_gate": true,
+    "actual_mu_and_v_per_draw": true
+  },
+  "reducer_formulas": {
+    "v_d": "a*mu_d+b*mu_d^2",
+    "report_center": "mean(mu_d)",
+    "expected_sample_variance": "mean(v_d)+samplevar(mu_d,ddof1)",
+    "theoretical_sample_mean_MCSE": "sqrt(sum(v_d))/draws",
+    "sample_mean_MCSE": "sqrt(samplevar(q,ddof1)/draws)",
+    "centered_residual": "r_d=q_d-mu_d",
+    "centered_second_moment": "mean(r_d^2), denominator draws; expectation mean(v_d)",
+    "centered_sample_variance": "samplevar(r_d,ddof1); expectation mean(v_d)",
+    "numerical_mu_spread_is_physical_variance": false,
+    "individual_model_denominators_unchanged": true,
+    "legacy_shapes_retained_with_explicit_semantics": true
+  },
+  "documentation": [
+    {
+      "url": "https://docs.pytorch.org/docs/2.14/notes/numerical_accuracy.html",
+      "use": "Equivalent floating-point or batched/sliced computations need not be bitwise identical; supports rejecting an unconditional equality assumption, not attribution of this failure."
+    },
+    {
+      "url": "https://docs.pytorch.org/docs/2.14/notes/randomness.html",
+      "use": "Deterministic algorithms address repeat execution choices; source flags do not supply missing measurements of this failure."
+    }
+  ],
+  "independent_diagnosis": {
+    "path": "receipts/wp3_016_20261015/launch_fix02/FAILURE_DIAGNOSIS_REVIEW.json",
+    "bytes": 17407,
+    "sha256": "be64e291e38e9ccf4249550bce39c8cd0606a10e8871d58eb5c9cf9b970f80ec"
+  },
+  "artificial_engineering": {
+    "path": "receipts/wp3_016_20261015/launch_fix02/artificial_cpu_01/ENGINEERING_RECEIPT.json",
+    "bytes": 3133,
+    "sha256": "e0a25f91f3a6a94167e596f23dbbc23dfc2ae00a88ce0952c3ae1575f1e550cd"
+  },
+  "original_failure_magnitude_recovered": false,
+  "original_raw_arrays_or_private_models_decoded": 0,
+  "SSH_calls_after_collection": 0,
+  "source_fix_authorized_by_root": true,
+  "real_retry_authorized_by_this_artifact": false,
+  "output_memory_estimate": {
+    "new_actual_A_float64_bytes_per_bank": 81014784,
+    "total8banks_A_payload_bytes": 648118272,
+    "artificial8bank_npz_actual_bytes": 463693,
+    "artificial8bank_payload_bytes": 1183744,
+    "projected8bank_charge_payload_and_container_no_compression_bytes": 711092305,
+    "historical_same_population_NPZ_inventory": {
+      "path": "receipts/wp3_015_20261015/collection_01/REMOTE_FULL_INVENTORY.json",
+      "bytes": 123203,
+      "sha256": "9d253a57bb79d9f25b112b4f5e0009a239c21360766c89cef7357d040adebe42"
+    },
+    "historical": {
+      "_HARD_ROWS.npz": {
+        "count": 72,
+        "bytes": 810854913,
+        "maximum_file_bytes": 11315022
+      },
+      "_REPORT.npz": {
+        "count": 72,
+        "bytes": 2200421600,
+        "maximum_file_bytes": 30623072
+      },
+      "_BASELINE100.npz": {
+        "count": 16,
+        "bytes": 53150096,
+        "maximum_file_bytes": 3322518
+      }
+    },
+    "existing48hard48report8baseline_empirical_forecast_bytes": 2039608656,
+    "other_output_reserve_bytes": 134217728,
+    "projected_batch_output_bytes": 2884918689,
+    "projected_trial_average_bytes": 1442459344.5,
+    "batch_cap_bytes": 3221225472,
+    "trial_cap_bytes": 1610612736,
+    "within_batch_cap_estimate": true,
+    "within_trial_average_cap_estimate": true,
+    "forecast_is_not_measured_native_or_a_worst_case_compression_guarantee": true,
+    "existing_caps_unchanged_and_guard_after_bank_save": true,
+    "additional_peak_CPU_memory_estimate_upper_bytes": 536870912,
+    "CPU_memory_method": "two A copies during concatenate ~162MB; block diagnostics/input hashes and compression reserve within512MiB; actual bank A/moment refs deleted before next bank",
+    "extra_GPU_forward_activation_rows": 0,
+    "full_stochastic_preADC_carrier_saved": false
+  }
+}
