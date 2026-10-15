@@ -1,12 +1,12 @@
-# N01 当前执行：WP3/016 保存数组独立复核已登记
+# N01 当前执行：WP3/016 已闭合，推进 WP4 教师恢复
 
-016两个seed各2000G、child/supervisor均0，实际4000G/AD已闭合，累计179667；搜索短试10次、WP3用满6/6。选收99/211文件、112份原NPZ仍在服务器，首次失败的非训练费用保留。
+016两seed共4000G/AD、112文件/200项保存数组独立核验、最终选择和报告均已闭合。累计179667G；WP3短试6/6、全部短候选10/12；当前无运行中的科学作业。
 
-保存JSON按冻结规则暂选Q1，mean关闭、charge开启；mean12波形距离0.15011008209012994，相对M0 0.15012505860962605改善约0.009976%。ALL6双参考非劣和相对A用途门通过，绝对T未全通过；等待保存数组QA，权重未科学晋级。
+研究参考为Q1（mean off、charge on）。mean12 wave=0.15011008209012994，M0=0.15012505860962605，改善约0.009976%；6个seed/假设cell中3改善、3略差，ALL6双参考非劣及相对A用途通过，绝对T仍未全通。权重未科学晋级，response_match_not_established。
 
-已登记112份NPZ各一次SHA/解码、24对硬统计和8份电荷矩，共200项CPU操作，新增CP/NN/AD/G/RNG/GPU及原TRAIN/DEV读取均0。实际A384与逐draw电荷矩将独立复核；完整随机载体、RNG、CDF/loss及C1median不重放。当前尚未启动，启动以真实回执为准。
+[016中文报告](reports/wp3_016_20261015/REPORT.md) · [HTML与英文图](reports/wp3_016_20261015/REPORT.html) · [最终回执](receipts/wp3_016_20261015/FINAL_RESULT_RECEIPT.json) · [D盘闭合备份](receipts/wp3_016_20261015/D_CLOSEOUT_BACKUP_RECEIPT.json)
 
-[016原生终点](receipts/wp3_016_20261015/postrun_root_01/NATIVE_COMPLETION_READBACK.json) · [暂选结果](receipts/wp3_016_20261015/postrun_independent_01/PROVISIONAL_DEVELOPMENT_SELECTION.json) · [CPU配置](receipts/wp3_016_20261015/readback_registration_01/READBACK_EXECUTION.json)
+WP3不追加候选。下一阶段为固定已知响应的WP4恢复检验；首批同族配对恢复门在其它教师试验之前，教师成功不代表实测或硬件物理复用。六工作包尚未全部完成。
 
 以下保留此前阶段说明。
 

@@ -1,6 +1,6 @@
 {
   "experiment_id": "N01",
-  "updated_UTC": "2026-10-15T09:20:40.944029+00:00",
+  "updated_UTC": "2026-10-15T09:50:42.818626+00:00",
   "active_scientific_jobs": 0,
   "jobs": [
     {
@@ -3301,7 +3301,7 @@
       "job_id": "N01_WP3_016_20261015",
       "run_id": "wp3_016_20261015",
       "scientific_job": true,
-      "status": "completed_native0_selectively_collected_independent_readback_pending",
+      "status": "completed_native0_collected_independently_reviewed_reported_closed",
       "registered_UTC": "2026-10-15T08:04:41.044184+00:00",
       "user_authority": "USER_MASTER_PLAN_20261015.txt",
       "source_freeze_pending": false,
@@ -3404,7 +3404,7 @@
           "wall_seconds": 7200,
           "output_MiB": 1536
         },
-        "status": "completed_native0_selectively_collected_independent_readback_pending",
+        "status": "completed_native0_collected_independently_reviewed_reported_closed",
         "new_training_updates": 4000,
         "new_AD_queries": 4000,
         "cumulative_training_before_run": 175667,
@@ -4381,6 +4381,49 @@
         "path": "receipts/wp3_016_20261015/collection_01/COLLECTION_RECEIPT.json",
         "sha256": "ceafc6707eafb29ff9ce6283386e6b834c42bc6ea6a307f22fc592de1eed1290",
         "bytes": 2365
+      },
+      "final_independent_review": {
+        "path": "receipts/wp3_016_20261015/postrun_independent_01/FINAL_ARRAY_AND_SELECTION_REVIEW.json",
+        "bytes": 31710,
+        "sha256": "e62630fe7a3d902ba36d239dcd0799556bd0dae6a2f3645c30e27091ca9248b7"
+      },
+      "development_selection": {
+        "path": "receipts/wp3_016_20261015/postrun_independent_01/FINAL_DEVELOPMENT_SELECTION.json",
+        "bytes": 139938,
+        "sha256": "4e859622f4c3c1335e6912228f139e70c0e9083679fb36ce022e2daa4b648e20",
+        "selected_research_reference": "Q1",
+        "mean_adapter_enabled": false,
+        "charge_enabled": true,
+        "status": "independently_reviewed_development_research_reference",
+        "provisional": false,
+        "weights_promoted": false,
+        "scientific_acceptance": false
+      },
+      "report_pending": false,
+      "result": {
+        "path": "receipts/wp3_016_20261015/FINAL_RESULT_RECEIPT.json",
+        "bytes": 4556,
+        "sha256": "05a113bf37d29c5b9bec84e31e26f43b113d543d3549fb01f90b4fd9dca3abbb",
+        "status": "016_bounded_training_array_audit_and_report_complete",
+        "weights_promoted": false,
+        "scientific_acceptance": false
+      },
+      "report": {
+        "MD": {
+          "path": "reports/wp3_016_20261015/REPORT.md",
+          "bytes": 15212,
+          "sha256": "6363aeb4cbf37fce2797cfeaea2c7480334f37853a39a91889f27e766bc006e7"
+        },
+        "HTML": {
+          "path": "reports/wp3_016_20261015/REPORT.html",
+          "bytes": 20015,
+          "sha256": "69e68c1c8c4d5ed6d2a1a6b0c067ae5a449450effa866d2f4db1c922bff19d69"
+        },
+        "visual_QA": {
+          "path": "receipts/wp3_016_20261015/postrun_root_02/REPORT_VISUAL_QA.json",
+          "bytes": 4165,
+          "sha256": "9268bfb6bdcef6598af861fbd2843e2e3102c33f61ea0898db25348b4efcddbf"
+        }
       }
     },
     {
@@ -4388,7 +4431,7 @@
       "run_id": "wp3_016_saved_readback_20261015",
       "scientific_job": true,
       "kind": "CPU_saved_array_audit",
-      "status": "registered_not_started",
+      "status": "completed_native0_collected_independently_reviewed_closed",
       "registered_UTC": "2026-10-15T09:20:40.944029+00:00",
       "execution": {
         "configuration": "receipts/wp3_016_20261015/readback_registration_01/READBACK_EXECUTION.json",
@@ -4404,8 +4447,8 @@
         },
         "source_file_count": 5,
         "source_controls": 6,
-        "source_commit_pending": true,
-        "status": "registered_not_started",
+        "source_commit_pending": false,
+        "status": "completed_native0_collected_independently_reviewed_closed",
         "new_training_updates": 0,
         "new_AD_queries": 0,
         "NN_forward_rows": 0,
@@ -4428,7 +4471,123 @@
           "charge_parent_moment_records_verified": 52744
         },
         "expected_operations": 200,
-        "scientific_status": "response_match_not_established"
+        "scientific_status": "response_match_not_established",
+        "source_commit": "3c1b0e218b9f54d91d6dc713d75e5e2ec2ddbf60",
+        "source_commit_readback": {
+          "path": "receipts/wp3_016_20261015/readback_registration_01/SOURCE_COMMIT_READBACK.json",
+          "sha256": "650ea497d995618485a916cf4b9165082c5a6ebbbdad00a8f756604d1aa64a37",
+          "bytes": 5345
+        },
+        "D_source_backup": {
+          "path": "receipts/wp3_016_20261015/readback_registration_01/D_SOURCE_BACKUP_RECEIPT.json",
+          "sha256": "227b20f42a15d4038c7c6ed9bee149df1de7f1382e15485642ec9a097ed70531",
+          "bytes": 432
+        },
+        "historical_analysis_pid": 204949,
+        "historical_supervisor_pid": 204942,
+        "analysis_pid": null,
+        "supervisor_pid": null,
+        "last_verified_UTC": "2026-10-15T09:24:00.266454+00:00",
+        "actual_completed_counts_last_verified": {
+          "raw_files_SHA_checked": 112,
+          "raw_bytes_SHA_read": 2169655337,
+          "hard_rows_files_decoded": 48,
+          "report_npz_files_decoded": 48,
+          "baseline_npz_files_decoded": 8,
+          "probe_raw_npz_files_decoded": 0,
+          "probe_gradient_npz_files_decoded": 0,
+          "waveform_rows_decoded": 1265856,
+          "bank_pairs_verified": 24,
+          "probe_snapshots_verified": 0,
+          "charge_npz_files_decoded": 8,
+          "charge_A_rows_verified": 210976,
+          "charge_A_float64_cells_verified": 81014784,
+          "charge_mu_draws_verified": 210976,
+          "charge_q_draws_verified": 210976,
+          "charge_parent_moment_records_verified": 52744
+        },
+        "attempted_counts_last_verified": {
+          "raw_files_SHA_checked": 112,
+          "raw_bytes_SHA_read": 2169655337,
+          "hard_rows_files_decoded": 48,
+          "report_npz_files_decoded": 48,
+          "baseline_npz_files_decoded": 8,
+          "probe_raw_npz_files_decoded": 0,
+          "probe_gradient_npz_files_decoded": 0,
+          "waveform_rows_decoded": 1265856,
+          "bank_pairs_verified": 24,
+          "probe_snapshots_verified": 0,
+          "charge_npz_files_decoded": 8,
+          "charge_A_rows_verified": 210976,
+          "charge_A_float64_cells_verified": 81014784,
+          "charge_mu_draws_verified": 210976,
+          "charge_q_draws_verified": 210976,
+          "charge_parent_moment_records_verified": 52744
+        },
+        "unknown_inflight_ids": [],
+        "failed_ids": [],
+        "counts_are_durable_lower_bounds": false,
+        "actual_current_completion": "native0_COMPLETE_all200_operations_completed",
+        "native_child_exit_at_snapshot": 0,
+        "native_supervisor_exit_at_snapshot": 0,
+        "native_exit_code": 0,
+        "supervisor_exit_code": 0,
+        "completed_UTC": "2026-10-15T09:23:45.748999+00:00",
+        "terminal_readback": {
+          "path": "receipts/wp3_016_20261015/readback_registration_01/CPU_COMPLETION_RECONCILIATION.json",
+          "bytes": 4134,
+          "sha256": "742f674b0ec00d0c01616ec98dda7afd5f54aab1f605d996c4cad8d66721d689"
+        },
+        "collection": {
+          "receipt": {
+            "path": "receipts/wp3_016_20261015/readback_collection_01/COLLECTION_RECEIPT.json",
+            "bytes": 544,
+            "sha256": "965ad3b0beaad6e86fe6534b857261e063191db37f64edda4a025acc037f121d"
+          },
+          "archive_sha256": "765db742ccd336b533975eb3057a21ff8cc0304acd976b5e6aadefddd5aefdd2",
+          "files": 19,
+          "bytes": 470489,
+          "all_files_SHA256_and_bytes_verified": true,
+          "raw_NPZ_transferred": false,
+          "collected_root": "E:\\GAN\\research\\N01\\runs\\wp3_016_20261015\\readback_collected_01"
+        },
+        "collection_complete": true,
+        "bounded_saved_array_readback_complete": true,
+        "final_independent_local_review_complete": true,
+        "original_raw_NPZ_transferred": false,
+        "complete_distribution_loss_raw_replay": false,
+        "actual_terminal_resources": {
+          "elapsed_seconds": 44.30035964799754,
+          "peak_owned_RSS_bytes": 417308672,
+          "peak_worker_artifact_bytes": 249037,
+          "resource_limits": {
+            "CPU_threads": 2,
+            "RSS_MiB": 1536,
+            "virtual_memory_MiB": 3072,
+            "wall_seconds": 1800,
+            "output_MiB": 64
+          }
+        },
+        "scientific_operations": {
+          "CP_loads": 0,
+          "original_SOURCE_REAL_TRAIN_waveform_reads": 0,
+          "original_DEV_waveform_reads": 0,
+          "model_forwards": 0,
+          "AD_queries": 0,
+          "optimizer_or_sampler_created": 0,
+          "training_updates": 0,
+          "random_library_draws": 0,
+          "new_CDF_or_loss_replays": 0,
+          "bootstrap_replicates": 0,
+          "GPU_work": 0
+        },
+        "CP_NN_AD_training": 0,
+        "scientific_acceptance": false,
+        "final_independent_review": {
+          "path": "receipts/wp3_016_20261015/postrun_independent_01/FINAL_ARRAY_AND_SELECTION_REVIEW.json",
+          "bytes": 31710,
+          "sha256": "e62630fe7a3d902ba36d239dcd0799556bd0dae6a2f3645c30e27091ca9248b7"
+        }
       },
       "resource_limits": {
         "CPU_threads": 2,
@@ -4443,7 +4602,43 @@
       "checkpoint_loads": 0,
       "automatic_retry": false,
       "original_training_before_and_after": 179667,
-      "scientific_status": "response_match_not_established"
+      "scientific_status": "response_match_not_established",
+      "native_exit_code": 0,
+      "supervisor_native_exit_code": 0,
+      "completed_UTC": "2026-10-15T09:23:45.748999+00:00",
+      "historical_analysis_pid": 204949,
+      "historical_supervisor_pid": 204942,
+      "analysis_pid": null,
+      "supervisor_pid": null,
+      "actual_array_counts": {
+        "raw_files_SHA_checked": 112,
+        "raw_bytes_SHA_read": 2169655337,
+        "hard_rows_files_decoded": 48,
+        "report_npz_files_decoded": 48,
+        "baseline_npz_files_decoded": 8,
+        "probe_raw_npz_files_decoded": 0,
+        "probe_gradient_npz_files_decoded": 0,
+        "waveform_rows_decoded": 1265856,
+        "bank_pairs_verified": 24,
+        "probe_snapshots_verified": 0,
+        "charge_npz_files_decoded": 8,
+        "charge_A_rows_verified": 210976,
+        "charge_A_float64_cells_verified": 81014784,
+        "charge_mu_draws_verified": 210976,
+        "charge_q_draws_verified": 210976,
+        "charge_parent_moment_records_verified": 52744
+      },
+      "collection_complete": true,
+      "terminal_readback": {
+        "path": "receipts/wp3_016_20261015/readback_registration_01/CPU_COMPLETION_RECONCILIATION.json",
+        "bytes": 4134,
+        "sha256": "742f674b0ec00d0c01616ec98dda7afd5f54aab1f605d996c4cad8d66721d689"
+      },
+      "final_independent_review": {
+        "path": "receipts/wp3_016_20261015/postrun_independent_01/FINAL_ARRAY_AND_SELECTION_REVIEW.json",
+        "bytes": 31710,
+        "sha256": "e62630fe7a3d902ba36d239dcd0799556bd0dae6a2f3645c30e27091ca9248b7"
+      }
     }
   ],
   "user_requested_pause": false,
@@ -4455,10 +4650,12 @@
     "automation_id": "n01",
     "status": "ACTIVE",
     "scheduled_local_Asia_Singapore": "2026-10-15T16:45:00+08:00",
-    "single_occurrence": true
+    "single_occurrence": true,
+    "delivery_status": "single_0845UTC_wake_delivered_this_turn",
+    "saved_app_status_is_historical": true
   },
   "scientific_status": "response_match_not_established",
-  "active_scientific_jobs_status_basis": "native0 COMPLETE and both owned processes absent at sole saved wake snapshot",
+  "active_scientific_jobs_status_basis": "Collected native0 CPU016, all200 operations complete",
   "wp2_readback_prepare_failure": {
     "path": "receipts\\wp2_014_20261015\\readback_registration_01\\ROOT_PREPARE_FAILURE_RECEIPT.json",
     "sha256": "6f89dedd516cd5612295060b074fa84625364774a6a8c5c74b5172608f2b83f5",
@@ -4479,8 +4676,8 @@
   "followup_next_run_local": "2026-10-15T16:45:00+08:00",
   "followup_receipt": "receipts/wp3_016_20261015/FOLLOWUP_RECEIPT.json",
   "followup_receipt_sha256": "70093276ab78ca1e439eb005ffc8d569ed8060df29b1364f010fe194b1c66791",
-  "followup_last_delivered_UTC": "2026-10-15T06:03:03.848Z",
-  "current_followup_status": "one_future_n01_wake_saved_correct_start_verified",
+  "followup_last_delivered_UTC": "2026-10-15T08:45:06.316Z",
+  "current_followup_status": "single_occurrence_delivered_this_turn_no_pending_long_job",
   "agent_model_policy": {
     "path": "receipts/wp3_015_20261015/postrun_root_02/AGENT_MODEL_POLICY_SOLMAX.json",
     "bytes": 813,

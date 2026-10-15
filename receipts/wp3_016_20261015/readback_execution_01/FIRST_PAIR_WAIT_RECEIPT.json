@@ -1,0 +1,39 @@
+{
+  "schema": "n01/wp3-016-readback-first-pair-presence-wait/v1",
+  "started_UTC": "2026-10-15T09:23:50.189446+00:00",
+  "finished_UTC": "2026-10-15T09:23:50.556052+00:00",
+  "elapsed_seconds": 0.36661280000407714,
+  "command": [
+    "ssh",
+    "-x",
+    "-o",
+    "BatchMode=yes",
+    "-o",
+    "ConnectTimeout=10",
+    "rylan@100.82.231.102",
+    "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python -B -c 'from pathlib import Path\nfrom datetime import datetime,timezone\nimport json,time,sys\nroot=Path(\"/home/rylan/projects/ej276d-n01/wp3_016_saved_readback_20261015/artifacts\")\nnames=[\"FAILED.json\",\"COMPLETE.json\",\"FIRST_PAIR_PROOF.json\"]\nstarted=time.monotonic();deadline=started+300\nwhile True:\n    exists={name:(root/name).is_file() for name in names}\n    if any(exists.values()) or time.monotonic()>=deadline:\n        print(json.dumps(dict(root=str(root),exists=exists,observed_UTC=datetime.now(timezone.utc).isoformat(),elapsed_seconds=time.monotonic()-started,maximum_wait_seconds=300,content_reads=0,status_snapshots=0)),flush=True)\n        sys.exit(0 if any(exists.values()) else 124)\n    time.sleep(min(2,max(0,deadline-time.monotonic())))\n'"
+  ],
+  "SSH_exit_code": 0,
+  "stdout": "{\"root\": \"/home/rylan/projects/ej276d-n01/wp3_016_saved_readback_20261015/artifacts\", \"exists\": {\"FAILED.json\": false, \"COMPLETE.json\": true, \"FIRST_PAIR_PROOF.json\": true}, \"observed_UTC\": \"2026-10-15T09:23:50.355361+00:00\", \"elapsed_seconds\": 0.00011469799937913194, \"maximum_wait_seconds\": 300, \"content_reads\": 0, \"status_snapshots\": 0}\n",
+  "stderr": "",
+  "remote_wait_result": {
+    "root": "/home/rylan/projects/ej276d-n01/wp3_016_saved_readback_20261015/artifacts",
+    "exists": {
+      "FAILED.json": false,
+      "COMPLETE.json": true,
+      "FIRST_PAIR_PROOF.json": true
+    },
+    "observed_UTC": "2026-10-15T09:23:50.355361+00:00",
+    "elapsed_seconds": 0.00011469799937913194,
+    "maximum_wait_seconds": 300,
+    "content_reads": 0,
+    "status_snapshots": 0
+  },
+  "unknown_remote_result": false,
+  "SSH_calls": 1,
+  "maximum_remote_wait_seconds": 300,
+  "progress_content_reads": 0,
+  "status_snapshots": 0,
+  "automatic_retry": false,
+  "CP_NN_AD_RNG_training_GPU": 0
+}

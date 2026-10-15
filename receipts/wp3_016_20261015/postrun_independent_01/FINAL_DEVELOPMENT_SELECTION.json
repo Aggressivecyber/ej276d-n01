@@ -1,0 +1,4468 @@
+{
+  "schema": "n01/wp3-016-final-independent-development-selection/v1",
+  "UTC": "2026-10-15T09:35:51.921326+00:00",
+  "status": "FINAL_DEVELOPMENT_REFERENCE_AFTER_BOUNDED_SAVED_ARRAY_QA",
+  "run_id": "wp3_016_20261015",
+  "assigned_reviewer": {
+    "model": "gpt-6.1-sol",
+    "effort": "max",
+    "assignment": "parent/user policy; runtime telemetry not separately exposed"
+  },
+  "frozen_configuration": {
+    "path": "wp3_016_config.json",
+    "bytes": 218669,
+    "sha256": "5279597aed74feae87448bfc71aa1387bd711609591eabde775142fa6d1303ab"
+  },
+  "frozen_manifest": {
+    "path": "WP3_016_SOURCE_MANIFEST.json",
+    "bytes": 19616,
+    "sha256": "824780d297c440d0f1bc51b3ea3344e488ec42ccb46af959d9d0412d8240fc14"
+  },
+  "collection_receipt": {
+    "path": "receipts/wp3_016_20261015/collection_01/COLLECTION_RECEIPT.json",
+    "bytes": 2365,
+    "sha256": "ceafc6707eafb29ff9ce6283386e6b834c42bc6ea6a307f22fc592de1eed1290"
+  },
+  "inventory": {
+    "path": "receipts/wp3_016_20261015/collection_01/REMOTE_FULL_INVENTORY.json",
+    "bytes": 86944,
+    "sha256": "e7cf8c67cdcb2dcadf006b3a8c060f706f9a1b64990c2e383288d79ce22097af"
+  },
+  "native_completion": {
+    "path": "receipts/wp3_016_20261015/postrun_root_01/NATIVE_COMPLETION_READBACK.json",
+    "bytes": 4714,
+    "sha256": "cab834d48d6868c363fa046358453bd3e735dcdc6a809b7de1cc85ab8d20e57d"
+  },
+  "tolerance_table_sha256": "f33217e07b1872dfd51f56e86ed30cda665a705568f2f9ada937865d8a33607b",
+  "candidates": {
+    "Q1": {
+      "eligible": true,
+      "dual_reference_noninferior_cells": 6,
+      "final_wave_mean12": 0.15011008209012994,
+      "paired_M0_wave_mean12": 0.15012505860962605,
+      "A_wave_mean12": 0.15432927983704245,
+      "charge_on_initial_wave_mean12": 0.15012367005166385,
+      "mean12_absolute_improvement_vs_M0": 1.4976519496112672e-05,
+      "mean12_relative_improvement_vs_M0": 9.97602907523686e-05,
+      "improvement_epsilon": 1e-12,
+      "exceeds_M0_improvement_epsilon": true,
+      "relative_wave_usefulness_cells": 6,
+      "relative_wave_usefulness_ALL6": true,
+      "absolute_T_ALL6": false,
+      "calibrated_components_per_hypothesis": {
+        "fast": 15,
+        "slow": 15,
+        "common_level": 15
+      }
+    }
+  },
+  "cells": [
+    {
+      "candidate": "Q1",
+      "seed": 0,
+      "hypothesis": "fast",
+      "eligible_cell": true,
+      "required_pending": [],
+      "noninferiority_failures": [],
+      "pending_uncalibrated": [
+        "Q_nonpositive_rate",
+        "PSD_undefined_rate",
+        "PSD_guarded_rate",
+        "FWHM_undefined_rate",
+        "temporal_nonpositive_peak_rate",
+        "FWHM_prepeak_censored_rate",
+        "FWHM_postpeak_censored_rate"
+      ],
+      "wave_relative_improvement_vs_A": 0.024214926835342453,
+      "wave_relative_improvement_vs_M0": -0.0004046160232393493,
+      "wave_usefulness_2percent": true,
+      "absolute_T_all_positive_defined": false,
+      "absolute_T_failures": [
+        "QPSD",
+        "peak_voltage_V",
+        "rise10_90_ns",
+        "FWHM_ns",
+        "baseline_mean_V",
+        "rise_undefined_rate",
+        "rise_prepeak_censored_rate"
+      ],
+      "components": {
+        "wave": {
+          "A": 0.1537072963036354,
+          "M0": 0.14992462346465263,
+          "initial": 0.15002972117464186,
+          "final": 0.14998528536958455,
+          "bank_values": {
+            "A": [
+              0.1537690764597931,
+              0.15364551614747768
+            ],
+            "M0": [
+              0.14968474004725388,
+              0.1501645068820514
+            ],
+            "initial": [
+              0.14982642039663452,
+              0.1502330219526492
+            ],
+            "final": [
+              0.14977717346558664,
+              0.1501933972735825
+            ]
+          },
+          "T": 0.18835690066187133,
+          "status": "noninferior_to_both_references",
+          "delta_final_minus_A": -0.0037220109340508345,
+          "delta_final_minus_M0": 6.066190493192458e-05,
+          "absolute_distance_over_T": 0.7962824024102545,
+          "absolute_within_T": true
+        },
+        "QPSD": {
+          "A": 0.050785701965257876,
+          "M0": 0.050896931365681686,
+          "initial": 0.051003618790393,
+          "final": 0.050900740123504803,
+          "bank_values": {
+            "A": [
+              0.05032278529497885,
+              0.05124861863553691
+            ],
+            "M0": [
+              0.05045664452727586,
+              0.05133721820408752
+            ],
+            "initial": [
+              0.050627354384466555,
+              0.051379883196319455
+            ],
+            "final": [
+              0.05023945302549246,
+              0.05156202722151715
+            ]
+          },
+          "T": 0.048271307926588014,
+          "status": "noninferior_to_both_references",
+          "delta_final_minus_A": 0.00011503815824692731,
+          "delta_final_minus_M0": 3.8087578231177366e-06,
+          "absolute_distance_over_T": 1.054471948448459,
+          "absolute_within_T": false
+        },
+        "noise": {
+          "A": 0.1248250001820626,
+          "M0": 0.1248250001820626,
+          "initial": 0.1248250001820626,
+          "final": 0.1248250001820626,
+          "bank_values": {
+            "A": [
+              0.12488850382524291,
+              0.12476149653888231
+            ],
+            "M0": [
+              0.12488850382524291,
+              0.12476149653888231
+            ],
+            "initial": [
+              0.12488850382524291,
+              0.12476149653888231
+            ],
+            "final": [
+              0.12488850382524291,
+              0.12476149653888231
+            ]
+          },
+          "T": 0.24513525857737978,
+          "status": "noninferior_to_both_references",
+          "delta_final_minus_A": 0.0,
+          "delta_final_minus_M0": 0.0,
+          "absolute_distance_over_T": 0.5092086748616791,
+          "absolute_within_T": true
+        },
+        "Q_Vns": {
+          "A": 0.04537453054910181,
+          "M0": 0.04542305533134204,
+          "initial": 0.04546545452834882,
+          "final": 0.04546427736310364,
+          "bank_values": {
+            "A": [
+              0.04574745922161834,
+              0.04500160187658528
+            ],
+            "M0": [
+              0.04578475039474887,
+              0.04506136026793521
+            ],
+            "initial": [
+              0.045851616671968666,
+              0.04507929238472897
+            ],
+            "final": [
+              0.045890935638787156,
+              0.04503761908742013
+            ]
+          },
+          "T": 0.14006821393078955,
+          "status": "noninferior_to_both_references",
+          "delta_final_minus_A": 8.974681400183288e-05,
+          "delta_final_minus_M0": 4.1222031761600775e-05,
+          "absolute_distance_over_T": 0.3245866859241057,
+          "absolute_within_T": true
+        },
+        "front_Vns": {
+          "A": 0.10501915008299606,
+          "M0": 0.08838995216001069,
+          "initial": 0.08835712969347172,
+          "final": 0.08823037978465684,
+          "bank_values": {
+            "A": [
+              0.10501244105142102,
+              0.10502585911457109
+            ],
+            "M0": [
+              0.0874608305355533,
+              0.08931907378446807
+            ],
+            "initial": [
+              0.08744876465788229,
+              0.08926549472906115
+            ],
+            "final": [
+              0.08732939508266867,
+              0.089131364486645
+            ]
+          },
+          "T": 0.1090464838504471,
+          "status": "noninferior_to_both_references",
+          "delta_final_minus_A": -0.016788770298339223,
+          "delta_final_minus_M0": -0.00015957237535385582,
+          "absolute_distance_over_T": 0.8091079755094285,
+          "absolute_within_T": true
+        },
+        "tail_Vns": {
+          "A": 0.02350483352071262,
+          "M0": 0.018180761368470643,
+          "initial": 0.018177560625160585,
+          "final": 0.018215612522106864,
+          "bank_values": {
+            "A": [
+              0.02352725402299685,
+              0.02348241301842839
+            ],
+            "M0": [
+              0.01757270404452487,
+              0.018788818692416415
+            ],
+            "initial": [
+              0.01756210927148659,
+              0.01879301197883458
+            ],
+            "final": [
+              0.01759144927446829,
+              0.01883977576974544
+            ]
+          },
+          "T": 0.03108613086926998,
+          "status": "noninferior_to_both_references",
+          "delta_final_minus_A": -0.005289220998605758,
+          "delta_final_minus_M0": 3.485115363622074e-05,
+          "absolute_distance_over_T": 0.5859723295482168,
+          "absolute_within_T": true
+        },
+        "PSD_raw": {
+          "A": 0.004069536806987505,
+          "M0": 0.0035615906778813915,
+          "initial": 0.0035632054529380576,
+          "final": 0.0035620248697742192,
+          "bank_values": {
+            "A": [
+              0.00404134074848002,
+              0.0040977328654949905
+            ],
+            "M0": [
+              0.003444688143133837,
+              0.0036784932126289467
+            ],
+            "initial": [
+              0.003445203631937572,
+              0.0036812072739385434
+            ],
+            "final": [
+              0.0034414450103710265,
+              0.003682604729177412
+            ]
+          },
+          "T": 0.0042836374482436,
+          "status": "noninferior_to_both_references",
+          "delta_final_minus_A": -0.0005075119372132857,
+          "delta_final_minus_M0": 4.3419189282769416e-07,
+          "absolute_distance_over_T": 0.8315420977643053,
+          "absolute_within_T": true
+        },
+        "PSD_guarded": {
+          "A": 0.004069536806987505,
+          "M0": 0.0035615906778813915,
+          "initial": 0.0035632054529380576,
+          "final": 0.0035620248697742192,
+          "bank_values": {
+            "A": [
+              0.00404134074848002,
+              0.0040977328654949905
+            ],
+            "M0": [
+              0.003444688143133837,
+              0.0036784932126289467
+            ],
+            "initial": [
+              0.003445203631937572,
+              0.0036812072739385434
+            ],
+            "final": [
+              0.0034414450103710265,
+              0.003682604729177412
+            ]
+          },
+          "T": 0.0042836374482436,
+          "status": "noninferior_to_both_references",
+          "delta_final_minus_A": -0.0005075119372132857,
+          "delta_final_minus_M0": 4.3419189282769416e-07,
+          "absolute_distance_over_T": 0.8315420977643053,
+          "absolute_within_T": true
+        },
+        "peak_voltage_V": {
+          "A": 0.036720995773860184,
+          "M0": 0.03679646606465513,
+          "initial": 0.03679550888036215,
+          "final": 0.03679478305727643,
+          "bank_values": {
+            "A": [
+              0.036718091540141884,
+              0.03672390000757848
+            ],
+            "M0": [
+              0.036867096052292526,
+              0.03672583607701773
+            ],
+            "initial": [
+              0.03686640665239971,
+              0.0367246111083246
+            ],
+            "final": [
+              0.03686636161715017,
+              0.0367232044974027
+            ]
+          },
+          "T": 0.005499862543299458,
+          "status": "noninferior_to_both_references",
+          "delta_final_minus_A": 7.378728341624757e-05,
+          "delta_final_minus_M0": -1.6830073786971989e-06,
+          "absolute_distance_over_T": 6.69012775639346,
+          "absolute_within_T": false
+        },
+        "rise10_90_ns": {
+          "A": 1.5586713022013527,
+          "M0": 1.5649712489281418,
+          "initial": 1.5643191536902763,
+          "final": 1.5643824945997484,
+          "bank_values": {
+            "A": [
+              1.5583607029007578,
+              1.5589819015019477
+            ],
+            "M0": [
+              1.5650160726512503,
+              1.5649264252050332
+            ],
+            "initial": [
+              1.5642106762669732,
+              1.5644276311135794
+            ],
+            "final": [
+              1.564056694151175,
+              1.564708295048322
+            ]
+          },
+          "T": 0.21159366879623287,
+          "status": "noninferior_to_both_references",
+          "delta_final_minus_A": 0.005711192398395681,
+          "delta_final_minus_M0": -0.0005887543283933372,
+          "absolute_distance_over_T": 7.3933331913927285,
+          "absolute_within_T": false
+        },
+        "FWHM_ns": {
+          "A": 2.576715356453154,
+          "M0": 2.4609100006009914,
+          "initial": 2.4610673966304653,
+          "final": 2.4609039018643912,
+          "bank_values": {
+            "A": [
+              2.576715808847025,
+              2.5767149040592834
+            ],
+            "M0": [
+              2.4587710469077497,
+              2.4630489542942335
+            ],
+            "initial": [
+              2.4589483065240825,
+              2.4631864867368485
+            ],
+            "final": [
+              2.45885291737119,
+              2.4629548863575925
+            ]
+          },
+          "T": 0.5129398878764326,
+          "status": "noninferior_to_both_references",
+          "delta_final_minus_A": -0.11581145458876296,
+          "delta_final_minus_M0": -6.098736600179677e-06,
+          "absolute_distance_over_T": 4.797645806124604,
+          "absolute_within_T": false
+        },
+        "baseline_mean_V": {
+          "A": 1.4991559970511508e-05,
+          "M0": 1.4991559970511508e-05,
+          "initial": 1.4991559970511508e-05,
+          "final": 1.4991559970511508e-05,
+          "bank_values": {
+            "A": [
+              1.484073547652114e-05,
+              1.5142384464501878e-05
+            ],
+            "M0": [
+              1.484073547652114e-05,
+              1.5142384464501878e-05
+            ],
+            "initial": [
+              1.484073547652114e-05,
+              1.5142384464501878e-05
+            ],
+            "final": [
+              1.484073547652114e-05,
+              1.5142384464501878e-05
+            ]
+          },
+          "T": 4.506386193005153e-07,
+          "status": "noninferior_to_both_references",
+          "delta_final_minus_A": 0.0,
+          "delta_final_minus_M0": 0.0,
+          "absolute_distance_over_T": 33.26736619640261,
+          "absolute_within_T": false
+        },
+        "baseline_RMS_V": {
+          "A": 1.8529339937061005e-05,
+          "M0": 1.8529339937061005e-05,
+          "initial": 1.8529339937061005e-05,
+          "final": 1.8529339937061005e-05,
+          "bank_values": {
+            "A": [
+              1.865801752447836e-05,
+              1.840066234964365e-05
+            ],
+            "M0": [
+              1.865801752447836e-05,
+              1.840066234964365e-05
+            ],
+            "initial": [
+              1.865801752447836e-05,
+              1.840066234964365e-05
+            ],
+            "final": [
+              1.865801752447836e-05,
+              1.840066234964365e-05
+            ]
+          },
+          "T": 6.316818201581438e-05,
+          "status": "noninferior_to_both_references",
+          "delta_final_minus_A": 0.0,
+          "delta_final_minus_M0": 0.0,
+          "absolute_distance_over_T": 0.2933334369575828,
+          "absolute_within_T": true
+        },
+        "Q_nonpositive_rate": {
+          "A": 0.0,
+          "M0": 0.0,
+          "initial": 0.0,
+          "final": 0.0,
+          "bank_values": {
+            "A": [
+              0.0,
+              0.0
+            ],
+            "M0": [
+              0.0,
+              0.0
+            ],
+            "initial": [
+              0.0,
+              0.0
+            ],
+            "final": [
+              0.0,
+              0.0
+            ]
+          },
+          "T": null,
+          "status": "pending_not_calibrated",
+          "delta_final_minus_A": 0.0,
+          "delta_final_minus_M0": 0.0,
+          "absolute_distance_over_T": null,
+          "absolute_within_T": null
+        },
+        "PSD_undefined_rate": {
+          "A": 0.0,
+          "M0": 0.0,
+          "initial": 0.0,
+          "final": 0.0,
+          "bank_values": {
+            "A": [
+              0.0,
+              0.0
+            ],
+            "M0": [
+              0.0,
+              0.0
+            ],
+            "initial": [
+              0.0,
+              0.0
+            ],
+            "final": [
+              0.0,
+              0.0
+            ]
+          },
+          "T": null,
+          "status": "pending_not_calibrated",
+          "delta_final_minus_A": 0.0,
+          "delta_final_minus_M0": 0.0,
+          "absolute_distance_over_T": null,
+          "absolute_within_T": null
+        },
+        "PSD_guarded_rate": {
+          "A": 0.0,
+          "M0": 0.0,
+          "initial": 0.0,
+          "final": 0.0,
+          "bank_values": {
+            "A": [
+              0.0,
+              0.0
+            ],
+            "M0": [
+              0.0,
+              0.0
+            ],
+            "initial": [
+              0.0,
+              0.0
+            ],
+            "final": [
+              0.0,
+              0.0
+            ]
+          },
+          "T": null,
+          "status": "pending_not_calibrated",
+          "delta_final_minus_A": 0.0,
+          "delta_final_minus_M0": 0.0,
+          "absolute_distance_over_T": null,
+          "absolute_within_T": null
+        },
+        "rise_undefined_rate": {
+          "A": 0.005411706096798761,
+          "M0": 0.006511357241952712,
+          "initial": 0.006606154754465984,
+          "final": 0.006625114256968638,
+          "bank_values": {
+            "A": [
+              0.005658179629333268,
+              0.005165232564264255
+            ],
+            "M0": [
+              0.0066819927644766,
+              0.0063407217194288235
+            ],
+            "initial": [
+              0.00671991176948191,
+              0.006492397739450058
+            ],
+            "final": [
+              0.0068715877895031445,
+              0.006378640724434131
+            ]
+          },
+          "T": 0.003173828125,
+          "status": "noninferior_to_both_references",
+          "delta_final_minus_A": 0.0012134081601698765,
+          "delta_final_minus_M0": 0.00011375701501592592,
+          "absolute_distance_over_T": 2.087420615118734,
+          "absolute_within_T": false
+        },
+        "FWHM_undefined_rate": {
+          "A": 0.00023756354824915665,
+          "M0": 0.00019964454324384798,
+          "initial": 0.00019964454324384798,
+          "final": 0.00019964454324384798,
+          "bank_values": {
+            "A": [
+              0.00023756354824915665,
+              0.00023756354824915665
+            ],
+            "M0": [
+              0.00023756354824915665,
+              0.00016172553823853934
+            ],
+            "initial": [
+              0.00023756354824915665,
+              0.00016172553823853934
+            ],
+            "final": [
+              0.00023756354824915665,
+              0.00016172553823853934
+            ]
+          },
+          "T": null,
+          "status": "pending_not_calibrated",
+          "delta_final_minus_A": -3.791900500530867e-05,
+          "delta_final_minus_M0": 0.0,
+          "absolute_distance_over_T": null,
+          "absolute_within_T": null
+        },
+        "temporal_nonpositive_peak_rate": {
+          "A": 0.0,
+          "M0": 0.0,
+          "initial": 0.0,
+          "final": 0.0,
+          "bank_values": {
+            "A": [
+              0.0,
+              0.0
+            ],
+            "M0": [
+              0.0,
+              0.0
+            ],
+            "initial": [
+              0.0,
+              0.0
+            ],
+            "final": [
+              0.0,
+              0.0
+            ]
+          },
+          "T": null,
+          "status": "pending_not_calibrated",
+          "delta_final_minus_A": 0.0,
+          "delta_final_minus_M0": 0.0,
+          "absolute_distance_over_T": null,
+          "absolute_within_T": null
+        },
+        "rise_prepeak_censored_rate": {
+          "A": 0.005411706096798761,
+          "M0": 0.006511357241952712,
+          "initial": 0.006606154754465984,
+          "final": 0.006625114256968638,
+          "bank_values": {
+            "A": [
+              0.005658179629333268,
+              0.005165232564264255
+            ],
+            "M0": [
+              0.0066819927644766,
+              0.0063407217194288235
+            ],
+            "initial": [
+              0.00671991176948191,
+              0.006492397739450058
+            ],
+            "final": [
+              0.0068715877895031445,
+              0.006378640724434131
+            ]
+          },
+          "T": 0.003173828125,
+          "status": "noninferior_to_both_references",
+          "delta_final_minus_A": 0.0012134081601698765,
+          "delta_final_minus_M0": 0.00011375701501592592,
+          "absolute_distance_over_T": 2.087420615118734,
+          "absolute_within_T": false
+        },
+        "FWHM_prepeak_censored_rate": {
+          "A": 0.00023756354824915665,
+          "M0": 0.00019964454324384798,
+          "initial": 0.00019964454324384798,
+          "final": 0.00019964454324384798,
+          "bank_values": {
+            "A": [
+              0.00023756354824915665,
+              0.00023756354824915665
+            ],
+            "M0": [
+              0.00023756354824915665,
+              0.00016172553823853934
+            ],
+            "initial": [
+              0.00023756354824915665,
+              0.00016172553823853934
+            ],
+            "final": [
+              0.00023756354824915665,
+              0.00016172553823853934
+            ]
+          },
+          "T": null,
+          "status": "pending_not_calibrated",
+          "delta_final_minus_A": -3.791900500530867e-05,
+          "delta_final_minus_M0": 0.0,
+          "absolute_distance_over_T": null,
+          "absolute_within_T": null
+        },
+        "FWHM_postpeak_censored_rate": {
+          "A": 0.0,
+          "M0": 0.0,
+          "initial": 0.0,
+          "final": 0.0,
+          "bank_values": {
+            "A": [
+              0.0,
+              0.0
+            ],
+            "M0": [
+              0.0,
+              0.0
+            ],
+            "initial": [
+              0.0,
+              0.0
+            ],
+            "final": [
+              0.0,
+              0.0
+            ]
+          },
+          "T": null,
+          "status": "pending_not_calibrated",
+          "delta_final_minus_A": 0.0,
+          "delta_final_minus_M0": 0.0,
+          "absolute_distance_over_T": null,
+          "absolute_within_T": null
+        }
+      }
+    },
+    {
+      "candidate": "Q1",
+      "seed": 0,
+      "hypothesis": "slow",
+      "eligible_cell": true,
+      "required_pending": [],
+      "noninferiority_failures": [],
+      "pending_uncalibrated": [
+        "Q_nonpositive_rate",
+        "PSD_undefined_rate",
+        "PSD_guarded_rate",
+        "FWHM_undefined_rate",
+        "temporal_nonpositive_peak_rate",
+        "FWHM_prepeak_censored_rate",
+        "FWHM_postpeak_censored_rate"
+      ],
+      "wave_relative_improvement_vs_A": 0.02625928521511166,
+      "wave_relative_improvement_vs_M0": 0.0009001993609134292,
+      "wave_usefulness_2percent": true,
+      "absolute_T_all_positive_defined": false,
+      "absolute_T_failures": [
+        "QPSD",
+        "peak_voltage_V",
+        "rise10_90_ns",
+        "FWHM_ns",
+        "baseline_mean_V",
+        "rise_undefined_rate",
+        "rise_prepeak_censored_rate"
+      ],
+      "components": {
+        "wave": {
+          "A": 0.15467468442966842,
+          "M0": 0.15074874169660615,
+          "initial": 0.15061003495427605,
+          "final": 0.15061303777567236,
+          "bank_values": {
+            "A": [
+              0.1545519021747654,
+              0.15479746668457142
+            ],
+            "M0": [
+              0.15052018931772615,
+              0.15097729407548616
+            ],
+            "initial": [
+              0.15036017840288632,
+              0.1508598915056658
+            ],
+            "final": [
+              0.15036875706413125,
+              0.1508573184872135
+            ]
+          },
+          "T": 0.19015560932077008,
+          "status": "noninferior_to_both_references",
+          "delta_final_minus_A": -0.004061646653996054,
+          "delta_final_minus_M0": -0.00013570392093378847,
+          "absolute_distance_over_T": 0.7920515114629405,
+          "absolute_within_T": true
+        },
+        "QPSD": {
+          "A": 0.045074661304003415,
+          "M0": 0.054681048772851015,
+          "initial": 0.05455567321027781,
+          "final": 0.054594017104490876,
+          "bank_values": {
+            "A": [
+              0.04479076701274412,
+              0.04535855559526271
+            ],
+            "M0": [
+              0.053972424522293616,
+              0.055389673023408414
+            ],
+            "initial": [
+              0.053780951100866795,
+              0.05533039531968882
+            ],
+            "final": [
+              0.05380156653374566,
+              0.05538646767523609
+            ]
+          },
+          "T": 0.045608667099154225,
+          "status": "noninferior_to_both_references",
+          "delta_final_minus_A": 0.009519355800487461,
+          "delta_final_minus_M0": -8.703166836013937e-05,
+          "absolute_distance_over_T": 1.1970097040065282,
+          "absolute_within_T": false
+        },
+        "noise": {
+          "A": 0.1248250001820626,
+          "M0": 0.1248250001820626,
+          "initial": 0.1248250001820626,
+          "final": 0.1248250001820626,
+          "bank_values": {
+            "A": [
+              0.12488850382524291,
+              0.12476149653888231
+            ],
+            "M0": [
+              0.12488850382524291,
+              0.12476149653888231
+            ],
+            "initial": [
+              0.12488850382524291,
+              0.12476149653888231
+            ],
+            "final": [
+              0.12488850382524291,
+              0.12476149653888231
+            ]
+          },
+          "T": 0.24513525857737978,
+          "status": "noninferior_to_both_references",
+          "delta_final_minus_A": 0.0,
+          "delta_final_minus_M0": 0.0,
+          "absolute_distance_over_T": 0.5092086748616791,
+          "absolute_within_T": true
+        },
+        "Q_Vns": {
+          "A": 0.04528565412059833,
+          "M0": 0.045324852987728835,
+          "initial": 0.04534911714109803,
+          "final": 0.04533973746018165,
+          "bank_values": {
+            "A": [
+              0.045612231971173076,
+              0.04495907627002358
+            ],
+            "M0": [
+              0.045641115668533155,
+              0.045008590306924515
+            ],
+            "initial": [
+              0.045697788039234515,
+              0.045000446242961546
+            ],
+            "final": [
+              0.045719829789017265,
+              0.044959645131346024
+            ]
+          },
+          "T": 0.1400669323527055,
+          "status": "noninferior_to_both_references",
+          "delta_final_minus_A": 5.408333958331624e-05,
+          "delta_final_minus_M0": 1.4884472452812714e-05,
+          "absolute_distance_over_T": 0.3237005101676011,
+          "absolute_within_T": true
+        },
+        "front_Vns": {
+          "A": 0.10479047026275913,
+          "M0": 0.08829099585628986,
+          "initial": 0.08828779454131735,
+          "final": 0.08814833248722748,
+          "bank_values": {
+            "A": [
+              0.10477161025106524,
+              0.10480933027445302
+            ],
+            "M0": [
+              0.08732485015188578,
+              0.08925714156069395
+            ],
+            "initial": [
+              0.08734342819594682,
+              0.0892321608866879
+            ],
+            "final": [
+              0.0872418412567585,
+              0.08905482371769645
+            ]
+          },
+          "T": 0.10900203842445293,
+          "status": "noninferior_to_both_references",
+          "delta_final_minus_A": -0.016642137775531654,
+          "delta_final_minus_M0": -0.00014266336906237909,
+          "absolute_distance_over_T": 0.808685174711859,
+          "absolute_within_T": true
+        },
+        "tail_Vns": {
+          "A": 0.02146773826995517,
+          "M0": 0.016898492258134105,
+          "initial": 0.01691093771380324,
+          "final": 0.016944046371172593,
+          "bank_values": {
+            "A": [
+              0.021473590334557438,
+              0.0214618862053529
+            ],
+            "M0": [
+              0.016191921046285897,
+              0.017605063469982314
+            ],
+            "initial": [
+              0.016204269979764985,
+              0.017617605447841495
+            ],
+            "final": [
+              0.01621657785321687,
+              0.017671514889128315
+            ]
+          },
+          "T": 0.031110665638543,
+          "status": "noninferior_to_both_references",
+          "delta_final_minus_A": -0.004523691898782576,
+          "delta_final_minus_M0": 4.5554113038488026e-05,
+          "absolute_distance_over_T": 0.5446378604699674,
+          "absolute_within_T": true
+        },
+        "PSD_raw": {
+          "A": 0.00348509608517727,
+          "M0": 0.0042673347963969235,
+          "initial": 0.004259639978184292,
+          "final": 0.004266116569590972,
+          "bank_values": {
+            "A": [
+              0.0034730903913563213,
+              0.003497101778998219
+            ],
+            "M0": [
+              0.0041677629990085506,
+              0.004366906593785297
+            ],
+            "initial": [
+              0.004158321254037239,
+              0.004360958702331346
+            ],
+            "final": [
+              0.004164252995273958,
+              0.004367980143907986
+            ]
+          },
+          "T": 0.004280475598982037,
+          "status": "noninferior_to_both_references",
+          "delta_final_minus_A": 0.0007810204844137018,
+          "delta_final_minus_M0": -1.2182268059515028e-06,
+          "absolute_distance_over_T": 0.9966454593516477,
+          "absolute_within_T": true
+        },
+        "PSD_guarded": {
+          "A": 0.00348509608517727,
+          "M0": 0.0042673347963969235,
+          "initial": 0.004259639978184292,
+          "final": 0.004266116569590972,
+          "bank_values": {
+            "A": [
+              0.0034730903913563213,
+              0.003497101778998219
+            ],
+            "M0": [
+              0.0041677629990085506,
+              0.004366906593785297
+            ],
+            "initial": [
+              0.004158321254037239,
+              0.004360958702331346
+            ],
+            "final": [
+              0.004164252995273958,
+              0.004367980143907986
+            ]
+          },
+          "T": 0.004280475598982037,
+          "status": "noninferior_to_both_references",
+          "delta_final_minus_A": 0.0007810204844137018,
+          "delta_final_minus_M0": -1.2182268059515028e-06,
+          "absolute_distance_over_T": 0.9966454593516477,
+          "absolute_within_T": true
+        },
+        "peak_voltage_V": {
+          "A": 0.03672902378181478,
+          "M0": 0.036804284669160234,
+          "initial": 0.03680346230562291,
+          "final": 0.036802360681772894,
+          "bank_values": {
+            "A": [
+              0.03672677447019469,
+              0.03673127309343487
+            ],
+            "M0": [
+              0.0368753935889745,
+              0.03673317574934597
+            ],
+            "initial": [
+              0.03687498793159589,
+              0.036731936679649926
+            ],
+            "final": [
+              0.03687436218127986,
+              0.03673035918226593
+            ]
+          },
+          "T": 0.005499869994334829,
+          "status": "noninferior_to_both_references",
+          "delta_final_minus_A": 7.333689995811521e-05,
+          "delta_final_minus_M0": -1.923987387339454e-06,
+          "absolute_distance_over_T": 6.6914964753133015,
+          "absolute_within_T": false
+        },
+        "rise10_90_ns": {
+          "A": 1.5561384967737797,
+          "M0": 1.5620986913040888,
+          "initial": 1.5622580820458776,
+          "final": 1.5624832144048089,
+          "bank_values": {
+            "A": [
+              1.5561498368014357,
+              1.5561271567461237
+            ],
+            "M0": [
+              1.5617649469572115,
+              1.562432435650966
+            ],
+            "initial": [
+              1.5618658035993807,
+              1.5626503604923743
+            ],
+            "final": [
+              1.562084066821562,
+              1.5628823619880559
+            ]
+          },
+          "T": 0.21101546028178209,
+          "status": "noninferior_to_both_references",
+          "delta_final_minus_A": 0.006344717631029173,
+          "delta_final_minus_M0": 0.0003845231007200134,
+          "absolute_distance_over_T": 7.404591172221825,
+          "absolute_within_T": false
+        },
+        "FWHM_ns": {
+          "A": 2.573235242948971,
+          "M0": 2.4569789825697748,
+          "initial": 2.4569804397044983,
+          "final": 2.457013867998732,
+          "bank_values": {
+            "A": [
+              2.5731409568230696,
+              2.5733295290748726
+            ],
+            "M0": [
+              2.4547575501120065,
+              2.459200415027543
+            ],
+            "initial": [
+              2.4548311187179004,
+              2.459129760691096
+            ],
+            "final": [
+              2.4548443689264907,
+              2.459183367070973
+            ]
+          },
+          "T": 0.5149414509583063,
+          "status": "noninferior_to_both_references",
+          "delta_final_minus_A": -0.11622137495023921,
+          "delta_final_minus_M0": 3.488542895713209e-05,
+          "absolute_distance_over_T": 4.771443167813016,
+          "absolute_within_T": false
+        },
+        "baseline_mean_V": {
+          "A": 1.4991559970511508e-05,
+          "M0": 1.4991559970511508e-05,
+          "initial": 1.4991559970511508e-05,
+          "final": 1.4991559970511508e-05,
+          "bank_values": {
+            "A": [
+              1.484073547652114e-05,
+              1.5142384464501878e-05
+            ],
+            "M0": [
+              1.484073547652114e-05,
+              1.5142384464501878e-05
+            ],
+            "initial": [
+              1.484073547652114e-05,
+              1.5142384464501878e-05
+            ],
+            "final": [
+              1.484073547652114e-05,
+              1.5142384464501878e-05
+            ]
+          },
+          "T": 4.506386193005153e-07,
+          "status": "noninferior_to_both_references",
+          "delta_final_minus_A": 0.0,
+          "delta_final_minus_M0": 0.0,
+          "absolute_distance_over_T": 33.26736619640261,
+          "absolute_within_T": false
+        },
+        "baseline_RMS_V": {
+          "A": 1.8529339937061005e-05,
+          "M0": 1.8529339937061005e-05,
+          "initial": 1.8529339937061005e-05,
+          "final": 1.8529339937061005e-05,
+          "bank_values": {
+            "A": [
+              1.865801752447836e-05,
+              1.840066234964365e-05
+            ],
+            "M0": [
+              1.865801752447836e-05,
+              1.840066234964365e-05
+            ],
+            "initial": [
+              1.865801752447836e-05,
+              1.840066234964365e-05
+            ],
+            "final": [
+              1.865801752447836e-05,
+              1.840066234964365e-05
+            ]
+          },
+          "T": 6.316818201581438e-05,
+          "status": "noninferior_to_both_references",
+          "delta_final_minus_A": 0.0,
+          "delta_final_minus_M0": 0.0,
+          "absolute_distance_over_T": 0.2933334369575828,
+          "absolute_within_T": true
+        },
+        "Q_nonpositive_rate": {
+          "A": 0.0,
+          "M0": 0.0,
+          "initial": 0.0,
+          "final": 0.0,
+          "bank_values": {
+            "A": [
+              0.0,
+              0.0
+            ],
+            "M0": [
+              0.0,
+              0.0
+            ],
+            "initial": [
+              0.0,
+              0.0
+            ],
+            "final": [
+              0.0,
+              0.0
+            ]
+          },
+          "T": null,
+          "status": "pending_not_calibrated",
+          "delta_final_minus_A": 0.0,
+          "delta_final_minus_M0": 0.0,
+          "absolute_distance_over_T": null,
+          "absolute_within_T": null
+        },
+        "PSD_undefined_rate": {
+          "A": 0.0,
+          "M0": 0.0,
+          "initial": 0.0,
+          "final": 0.0,
+          "bank_values": {
+            "A": [
+              0.0,
+              0.0
+            ],
+            "M0": [
+              0.0,
+              0.0
+            ],
+            "initial": [
+              0.0,
+              0.0
+            ],
+            "final": [
+              0.0,
+              0.0
+            ]
+          },
+          "T": null,
+          "status": "pending_not_calibrated",
+          "delta_final_minus_A": 0.0,
+          "delta_final_minus_M0": 0.0,
+          "absolute_distance_over_T": null,
+          "absolute_within_T": null
+        },
+        "PSD_guarded_rate": {
+          "A": 0.0,
+          "M0": 0.0,
+          "initial": 0.0,
+          "final": 0.0,
+          "bank_values": {
+            "A": [
+              0.0,
+              0.0
+            ],
+            "M0": [
+              0.0,
+              0.0
+            ],
+            "initial": [
+              0.0,
+              0.0
+            ],
+            "final": [
+              0.0,
+              0.0
+            ]
+          },
+          "T": null,
+          "status": "pending_not_calibrated",
+          "delta_final_minus_A": 0.0,
+          "delta_final_minus_M0": 0.0,
+          "absolute_distance_over_T": null,
+          "absolute_within_T": null
+        },
+        "rise_undefined_rate": {
+          "A": 0.005373787091793453,
+          "M0": 0.006435519231942095,
+          "initial": 0.006492397739450058,
+          "final": 0.006359681221931477,
+          "bank_values": {
+            "A": [
+              0.005658179629333268,
+              0.0050893945542536375
+            ],
+            "M0": [
+              0.006606154754465983,
+              0.006264883709418206
+            ],
+            "initial": [
+              0.00671991176948191,
+              0.006264883709418206
+            ],
+            "final": [
+              0.006530316744455366,
+              0.006189045699407589
+            ]
+          },
+          "T": 0.0025634765625,
+          "status": "noninferior_to_both_references",
+          "delta_final_minus_A": 0.0009858941301380247,
+          "delta_final_minus_M0": -7.583801001061728e-05,
+          "absolute_distance_over_T": 2.4808813604791746,
+          "absolute_within_T": false
+        },
+        "FWHM_undefined_rate": {
+          "A": 0.00023756354824915665,
+          "M0": 0.00019964454324384798,
+          "initial": 0.00019964454324384798,
+          "final": 0.00019964454324384798,
+          "bank_values": {
+            "A": [
+              0.00023756354824915665,
+              0.00023756354824915665
+            ],
+            "M0": [
+              0.00023756354824915665,
+              0.00016172553823853934
+            ],
+            "initial": [
+              0.00023756354824915665,
+              0.00016172553823853934
+            ],
+            "final": [
+              0.00023756354824915665,
+              0.00016172553823853934
+            ]
+          },
+          "T": null,
+          "status": "pending_not_calibrated",
+          "delta_final_minus_A": -3.791900500530867e-05,
+          "delta_final_minus_M0": 0.0,
+          "absolute_distance_over_T": null,
+          "absolute_within_T": null
+        },
+        "temporal_nonpositive_peak_rate": {
+          "A": 0.0,
+          "M0": 0.0,
+          "initial": 0.0,
+          "final": 0.0,
+          "bank_values": {
+            "A": [
+              0.0,
+              0.0
+            ],
+            "M0": [
+              0.0,
+              0.0
+            ],
+            "initial": [
+              0.0,
+              0.0
+            ],
+            "final": [
+              0.0,
+              0.0
+            ]
+          },
+          "T": null,
+          "status": "pending_not_calibrated",
+          "delta_final_minus_A": 0.0,
+          "delta_final_minus_M0": 0.0,
+          "absolute_distance_over_T": null,
+          "absolute_within_T": null
+        },
+        "rise_prepeak_censored_rate": {
+          "A": 0.005373787091793453,
+          "M0": 0.006435519231942095,
+          "initial": 0.006492397739450058,
+          "final": 0.006359681221931477,
+          "bank_values": {
+            "A": [
+              0.005658179629333268,
+              0.0050893945542536375
+            ],
+            "M0": [
+              0.006606154754465983,
+              0.006264883709418206
+            ],
+            "initial": [
+              0.00671991176948191,
+              0.006264883709418206
+            ],
+            "final": [
+              0.006530316744455366,
+              0.006189045699407589
+            ]
+          },
+          "T": 0.0025634765625,
+          "status": "noninferior_to_both_references",
+          "delta_final_minus_A": 0.0009858941301380247,
+          "delta_final_minus_M0": -7.583801001061728e-05,
+          "absolute_distance_over_T": 2.4808813604791746,
+          "absolute_within_T": false
+        },
+        "FWHM_prepeak_censored_rate": {
+          "A": 0.00023756354824915665,
+          "M0": 0.00019964454324384798,
+          "initial": 0.00019964454324384798,
+          "final": 0.00019964454324384798,
+          "bank_values": {
+            "A": [
+              0.00023756354824915665,
+              0.00023756354824915665
+            ],
+            "M0": [
+              0.00023756354824915665,
+              0.00016172553823853934
+            ],
+            "initial": [
+              0.00023756354824915665,
+              0.00016172553823853934
+            ],
+            "final": [
+              0.00023756354824915665,
+              0.00016172553823853934
+            ]
+          },
+          "T": null,
+          "status": "pending_not_calibrated",
+          "delta_final_minus_A": -3.791900500530867e-05,
+          "delta_final_minus_M0": 0.0,
+          "absolute_distance_over_T": null,
+          "absolute_within_T": null
+        },
+        "FWHM_postpeak_censored_rate": {
+          "A": 0.0,
+          "M0": 0.0,
+          "initial": 0.0,
+          "final": 0.0,
+          "bank_values": {
+            "A": [
+              0.0,
+              0.0
+            ],
+            "M0": [
+              0.0,
+              0.0
+            ],
+            "initial": [
+              0.0,
+              0.0
+            ],
+            "final": [
+              0.0,
+              0.0
+            ]
+          },
+          "T": null,
+          "status": "pending_not_calibrated",
+          "delta_final_minus_A": 0.0,
+          "delta_final_minus_M0": 0.0,
+          "absolute_distance_over_T": null,
+          "absolute_within_T": null
+        }
+      }
+    },
+    {
+      "candidate": "Q1",
+      "seed": 0,
+      "hypothesis": "common_level",
+      "eligible_cell": true,
+      "required_pending": [],
+      "noninferiority_failures": [],
+      "pending_uncalibrated": [
+        "Q_nonpositive_rate",
+        "PSD_undefined_rate",
+        "PSD_guarded_rate",
+        "FWHM_undefined_rate",
+        "temporal_nonpositive_peak_rate",
+        "FWHM_prepeak_censored_rate",
+        "FWHM_postpeak_censored_rate"
+      ],
+      "wave_relative_improvement_vs_A": 0.03477260055626292,
+      "wave_relative_improvement_vs_M0": 0.00028156312186826193,
+      "wave_usefulness_2percent": true,
+      "absolute_T_all_positive_defined": false,
+      "absolute_T_failures": [
+        "QPSD",
+        "peak_voltage_V",
+        "rise10_90_ns",
+        "FWHM_ns",
+        "baseline_mean_V",
+        "rise_undefined_rate",
+        "rise_prepeak_censored_rate"
+      ],
+      "components": {
+        "wave": {
+          "A": 0.1546058587778235,
+          "M0": 0.14927184045228903,
+          "initial": 0.1492385224765505,
+          "final": 0.14922981100688426,
+          "bank_values": {
+            "A": [
+              0.15464364026544233,
+              0.15456807729020466
+            ],
+            "M0": [
+              0.14913073704392663,
+              0.14941294386065146
+            ],
+            "initial": [
+              0.14909717506982945,
+              0.14937986988327157
+            ],
+            "final": [
+              0.149103702067931,
+              0.14935591994583755
+            ]
+          },
+          "T": 0.1905364603858985,
+          "status": "noninferior_to_both_references",
+          "delta_final_minus_A": -0.005376047770939252,
+          "delta_final_minus_M0": -4.202944540476761e-05,
+          "absolute_distance_over_T": 0.7832086872226198,
+          "absolute_within_T": true
+        },
+        "QPSD": {
+          "A": 0.05233928727482279,
+          "M0": 0.051550215244704954,
+          "initial": 0.0514324104255076,
+          "final": 0.051298985721075836,
+          "bank_values": {
+            "A": [
+              0.05220245090763409,
+              0.05247612364201148
+            ],
+            "M0": [
+              0.05098550529547362,
+              0.05211492519393629
+            ],
+            "initial": [
+              0.050899272837753404,
+              0.0519655480132618
+            ],
+            "final": [
+              0.050584692119494304,
+              0.05201327932265737
+            ]
+          },
+          "T": 0.046214249198750015,
+          "status": "noninferior_to_both_references",
+          "delta_final_minus_A": -0.0010403015537469515,
+          "delta_final_minus_M0": -0.0002512295236291179,
+          "absolute_distance_over_T": 1.1100252976188858,
+          "absolute_within_T": false
+        },
+        "noise": {
+          "A": 0.1248250001820626,
+          "M0": 0.1248250001820626,
+          "initial": 0.1248250001820626,
+          "final": 0.1248250001820626,
+          "bank_values": {
+            "A": [
+              0.12488850382524291,
+              0.12476149653888231
+            ],
+            "M0": [
+              0.12488850382524291,
+              0.12476149653888231
+            ],
+            "initial": [
+              0.12488850382524291,
+              0.12476149653888231
+            ],
+            "final": [
+              0.12488850382524291,
+              0.12476149653888231
+            ]
+          },
+          "T": 0.24513525857737978,
+          "status": "noninferior_to_both_references",
+          "delta_final_minus_A": 0.0,
+          "delta_final_minus_M0": 0.0,
+          "absolute_distance_over_T": 0.5092086748616791,
+          "absolute_within_T": true
+        },
+        "Q_Vns": {
+          "A": 0.045615343867289215,
+          "M0": 0.0456555914468864,
+          "initial": 0.04567864375317902,
+          "final": 0.045655904272655604,
+          "bank_values": {
+            "A": [
+              0.04575255529388937,
+              0.04547813244068906
+            ],
+            "M0": [
+              0.04578063467228029,
+              0.0455305482214925
+            ],
+            "initial": [
+              0.04583948498109171,
+              0.045517802525266327
+            ],
+            "final": [
+              0.045853126934626745,
+              0.045458681610684455
+            ]
+          },
+          "T": 0.14006769980934886,
+          "status": "noninferior_to_both_references",
+          "delta_final_minus_A": 4.0560405366388275e-05,
+          "delta_final_minus_M0": 3.128257692053271e-07,
+          "absolute_distance_over_T": 0.3259559793928185,
+          "absolute_within_T": true
+        },
+        "front_Vns": {
+          "A": 0.10517526759219559,
+          "M0": 0.08847478943417561,
+          "initial": 0.08846245723374918,
+          "final": 0.08832220197452467,
+          "bank_values": {
+            "A": [
+              0.10517207377982705,
+              0.1051784614045641
+            ],
+            "M0": [
+              0.08749192238525581,
+              0.0894576564830954
+            ],
+            "initial": [
+              0.08749633867520572,
+              0.08942857579229263
+            ],
+            "final": [
+              0.0873830591036239,
+              0.08926134484542544
+            ]
+          },
+          "T": 0.10901502706931349,
+          "status": "noninferior_to_both_references",
+          "delta_final_minus_A": -0.016853065617670915,
+          "delta_final_minus_M0": -0.000152587459650938,
+          "absolute_distance_over_T": 0.8101837365812697,
+          "absolute_within_T": true
+        },
+        "tail_Vns": {
+          "A": 0.023715589015557266,
+          "M0": 0.01827985532636883,
+          "initial": 0.018297282891473164,
+          "final": 0.0183125353450357,
+          "bank_values": {
+            "A": [
+              0.023768796197298298,
+              0.02366238183381623
+            ],
+            "M0": [
+              0.017681806302972843,
+              0.018877904349764815
+            ],
+            "initial": [
+              0.017722356643598742,
+              0.018872209139347586
+            ],
+            "final": [
+              0.017747705450237537,
+              0.018877365239833865
+            ]
+          },
+          "T": 0.031056340139645512,
+          "status": "noninferior_to_both_references",
+          "delta_final_minus_A": -0.005403053670521567,
+          "delta_final_minus_M0": 3.268001866687034e-05,
+          "absolute_distance_over_T": 0.5896552930156285,
+          "absolute_within_T": true
+        },
+        "PSD_raw": {
+          "A": 0.0042029936819828586,
+          "M0": 0.0034992389642882838,
+          "initial": 0.003502249294228734,
+          "final": 0.00350084148858137,
+          "bank_values": {
+            "A": [
+              0.0042220577682965214,
+              0.004183929595669196
+            ],
+            "M0": [
+              0.003384323142262564,
+              0.0036141547863140036
+            ],
+            "initial": [
+              0.0033920806734300244,
+              0.0036124179150274433
+            ],
+            "final": [
+              0.003388770005007115,
+              0.0036129129721556253
+            ]
+          },
+          "T": 0.004264454906522381,
+          "status": "noninferior_to_both_references",
+          "delta_final_minus_A": -0.0007021521934014886,
+          "delta_final_minus_M0": 1.60252429308623e-06,
+          "absolute_distance_over_T": 0.8209352813713466,
+          "absolute_within_T": true
+        },
+        "PSD_guarded": {
+          "A": 0.0042029936819828586,
+          "M0": 0.0034992389642882838,
+          "initial": 0.003502249294228734,
+          "final": 0.00350084148858137,
+          "bank_values": {
+            "A": [
+              0.0042220577682965214,
+              0.004183929595669196
+            ],
+            "M0": [
+              0.003384323142262564,
+              0.0036141547863140036
+            ],
+            "initial": [
+              0.0033920806734300244,
+              0.0036124179150274433
+            ],
+            "final": [
+              0.003388770005007115,
+              0.0036129129721556253
+            ]
+          },
+          "T": 0.004264454906522381,
+          "status": "noninferior_to_both_references",
+          "delta_final_minus_A": -0.0007021521934014886,
+          "delta_final_minus_M0": 1.60252429308623e-06,
+          "absolute_distance_over_T": 0.8209352813713466,
+          "absolute_within_T": true
+        },
+        "peak_voltage_V": {
+          "A": 0.036729590001711485,
+          "M0": 0.03680466333719482,
+          "initial": 0.0368037101215072,
+          "final": 0.03680283466120184,
+          "bank_values": {
+            "A": [
+              0.03672759448540586,
+              0.036731585518017106
+            ],
+            "M0": [
+              0.0368762985200721,
+              0.036733028154317546
+            ],
+            "initial": [
+              0.036875538547495396,
+              0.036731881695519
+            ],
+            "final": [
+              0.03687535295215941,
+              0.03673031637024428
+            ]
+          },
+          "T": 0.00550009352539599,
+          "status": "noninferior_to_both_references",
+          "delta_final_minus_A": 7.324465949035824e-05,
+          "delta_final_minus_M0": -1.8286759929792007e-06,
+          "absolute_distance_over_T": 6.6913107006761585,
+          "absolute_within_T": false
+        },
+        "rise10_90_ns": {
+          "A": 1.5556742942334532,
+          "M0": 1.5617789801912862,
+          "initial": 1.5617519450355468,
+          "final": 1.5617539665769316,
+          "bank_values": {
+            "A": [
+              1.5556679373084676,
+              1.5556806511584387
+            ],
+            "M0": [
+              1.5616297558656118,
+              1.5619282045169605
+            ],
+            "initial": [
+              1.5616819356443907,
+              1.561821954426703
+            ],
+            "final": [
+              1.5616800955894812,
+              1.561827837564382
+            ]
+          },
+          "T": 0.21177797877203527,
+          "status": "noninferior_to_both_references",
+          "delta_final_minus_A": 0.006079672343478393,
+          "delta_final_minus_M0": -2.50136143546964e-05,
+          "absolute_distance_over_T": 7.374487071944597,
+          "absolute_within_T": false
+        },
+        "FWHM_ns": {
+          "A": 2.572747505853052,
+          "M0": 2.4569308127211964,
+          "initial": 2.4569821862862686,
+          "final": 2.4568612566865617,
+          "bank_values": {
+            "A": [
+              2.5728471112461753,
+              2.5726479004599287
+            ],
+            "M0": [
+              2.4546967160809703,
+              2.4591649093614225
+            ],
+            "initial": [
+              2.4545865945517162,
+              2.459377778020821
+            ],
+            "final": [
+              2.454473315407356,
+              2.459249197965767
+            ]
+          },
+          "T": 0.5147888093676196,
+          "status": "noninferior_to_both_references",
+          "delta_final_minus_A": -0.11588624916649026,
+          "delta_final_minus_M0": -6.955603463465465e-05,
+          "absolute_distance_over_T": 4.7725615086789395,
+          "absolute_within_T": false
+        },
+        "baseline_mean_V": {
+          "A": 1.4991559970511508e-05,
+          "M0": 1.4991559970511508e-05,
+          "initial": 1.4991559970511508e-05,
+          "final": 1.4991559970511508e-05,
+          "bank_values": {
+            "A": [
+              1.484073547652114e-05,
+              1.5142384464501878e-05
+            ],
+            "M0": [
+              1.484073547652114e-05,
+              1.5142384464501878e-05
+            ],
+            "initial": [
+              1.484073547652114e-05,
+              1.5142384464501878e-05
+            ],
+            "final": [
+              1.484073547652114e-05,
+              1.5142384464501878e-05
+            ]
+          },
+          "T": 4.506386193005153e-07,
+          "status": "noninferior_to_both_references",
+          "delta_final_minus_A": 0.0,
+          "delta_final_minus_M0": 0.0,
+          "absolute_distance_over_T": 33.26736619640261,
+          "absolute_within_T": false
+        },
+        "baseline_RMS_V": {
+          "A": 1.8529339937061005e-05,
+          "M0": 1.8529339937061005e-05,
+          "initial": 1.8529339937061005e-05,
+          "final": 1.8529339937061005e-05,
+          "bank_values": {
+            "A": [
+              1.865801752447836e-05,
+              1.840066234964365e-05
+            ],
+            "M0": [
+              1.865801752447836e-05,
+              1.840066234964365e-05
+            ],
+            "initial": [
+              1.865801752447836e-05,
+              1.840066234964365e-05
+            ],
+            "final": [
+              1.865801752447836e-05,
+              1.840066234964365e-05
+            ]
+          },
+          "T": 6.316818201581438e-05,
+          "status": "noninferior_to_both_references",
+          "delta_final_minus_A": 0.0,
+          "delta_final_minus_M0": 0.0,
+          "absolute_distance_over_T": 0.2933334369575828,
+          "absolute_within_T": true
+        },
+        "Q_nonpositive_rate": {
+          "A": 0.0,
+          "M0": 0.0,
+          "initial": 0.0,
+          "final": 0.0,
+          "bank_values": {
+            "A": [
+              0.0,
+              0.0
+            ],
+            "M0": [
+              0.0,
+              0.0
+            ],
+            "initial": [
+              0.0,
+              0.0
+            ],
+            "final": [
+              0.0,
+              0.0
+            ]
+          },
+          "T": null,
+          "status": "pending_not_calibrated",
+          "delta_final_minus_A": 0.0,
+          "delta_final_minus_M0": 0.0,
+          "absolute_distance_over_T": null,
+          "absolute_within_T": null
+        },
+        "PSD_undefined_rate": {
+          "A": 0.0,
+          "M0": 0.0,
+          "initial": 0.0,
+          "final": 0.0,
+          "bank_values": {
+            "A": [
+              0.0,
+              0.0
+            ],
+            "M0": [
+              0.0,
+              0.0
+            ],
+            "initial": [
+              0.0,
+              0.0
+            ],
+            "final": [
+              0.0,
+              0.0
+            ]
+          },
+          "T": null,
+          "status": "pending_not_calibrated",
+          "delta_final_minus_A": 0.0,
+          "delta_final_minus_M0": 0.0,
+          "absolute_distance_over_T": null,
+          "absolute_within_T": null
+        },
+        "PSD_guarded_rate": {
+          "A": 0.0,
+          "M0": 0.0,
+          "initial": 0.0,
+          "final": 0.0,
+          "bank_values": {
+            "A": [
+              0.0,
+              0.0
+            ],
+            "M0": [
+              0.0,
+              0.0
+            ],
+            "initial": [
+              0.0,
+              0.0
+            ],
+            "final": [
+              0.0,
+              0.0
+            ]
+          },
+          "T": null,
+          "status": "pending_not_calibrated",
+          "delta_final_minus_A": 0.0,
+          "delta_final_minus_M0": 0.0,
+          "absolute_distance_over_T": null,
+          "absolute_within_T": null
+        },
+        "rise_undefined_rate": {
+          "A": 0.005544422614317341,
+          "M0": 0.006549276246958021,
+          "initial": 0.006625114256968638,
+          "final": 0.006606154754465983,
+          "bank_values": {
+            "A": [
+              0.0058098556493545025,
+              0.00527898957928018
+            ],
+            "M0": [
+              0.006757830774487218,
+              0.0063407217194288235
+            ],
+            "initial": [
+              0.00671991176948191,
+              0.006530316744455366
+            ],
+            "final": [
+              0.006757830774487218,
+              0.0064544787344447485
+            ]
+          },
+          "T": 0.001953125,
+          "status": "noninferior_to_both_references",
+          "delta_final_minus_A": 0.001061732140148642,
+          "delta_final_minus_M0": 5.687850750796253e-05,
+          "absolute_distance_over_T": 3.3823512342865834,
+          "absolute_within_T": false
+        },
+        "FWHM_undefined_rate": {
+          "A": 0.00023756354824915665,
+          "M0": 0.00019964454324384798,
+          "initial": 0.00019964454324384798,
+          "final": 0.00019964454324384798,
+          "bank_values": {
+            "A": [
+              0.00023756354824915665,
+              0.00023756354824915665
+            ],
+            "M0": [
+              0.00023756354824915665,
+              0.00016172553823853934
+            ],
+            "initial": [
+              0.00023756354824915665,
+              0.00016172553823853934
+            ],
+            "final": [
+              0.00023756354824915665,
+              0.00016172553823853934
+            ]
+          },
+          "T": null,
+          "status": "pending_not_calibrated",
+          "delta_final_minus_A": -3.791900500530867e-05,
+          "delta_final_minus_M0": 0.0,
+          "absolute_distance_over_T": null,
+          "absolute_within_T": null
+        },
+        "temporal_nonpositive_peak_rate": {
+          "A": 0.0,
+          "M0": 0.0,
+          "initial": 0.0,
+          "final": 0.0,
+          "bank_values": {
+            "A": [
+              0.0,
+              0.0
+            ],
+            "M0": [
+              0.0,
+              0.0
+            ],
+            "initial": [
+              0.0,
+              0.0
+            ],
+            "final": [
+              0.0,
+              0.0
+            ]
+          },
+          "T": null,
+          "status": "pending_not_calibrated",
+          "delta_final_minus_A": 0.0,
+          "delta_final_minus_M0": 0.0,
+          "absolute_distance_over_T": null,
+          "absolute_within_T": null
+        },
+        "rise_prepeak_censored_rate": {
+          "A": 0.005544422614317341,
+          "M0": 0.006549276246958021,
+          "initial": 0.006625114256968638,
+          "final": 0.006606154754465983,
+          "bank_values": {
+            "A": [
+              0.0058098556493545025,
+              0.00527898957928018
+            ],
+            "M0": [
+              0.006757830774487218,
+              0.0063407217194288235
+            ],
+            "initial": [
+              0.00671991176948191,
+              0.006530316744455366
+            ],
+            "final": [
+              0.006757830774487218,
+              0.0064544787344447485
+            ]
+          },
+          "T": 0.001953125,
+          "status": "noninferior_to_both_references",
+          "delta_final_minus_A": 0.001061732140148642,
+          "delta_final_minus_M0": 5.687850750796253e-05,
+          "absolute_distance_over_T": 3.3823512342865834,
+          "absolute_within_T": false
+        },
+        "FWHM_prepeak_censored_rate": {
+          "A": 0.00023756354824915665,
+          "M0": 0.00019964454324384798,
+          "initial": 0.00019964454324384798,
+          "final": 0.00019964454324384798,
+          "bank_values": {
+            "A": [
+              0.00023756354824915665,
+              0.00023756354824915665
+            ],
+            "M0": [
+              0.00023756354824915665,
+              0.00016172553823853934
+            ],
+            "initial": [
+              0.00023756354824915665,
+              0.00016172553823853934
+            ],
+            "final": [
+              0.00023756354824915665,
+              0.00016172553823853934
+            ]
+          },
+          "T": null,
+          "status": "pending_not_calibrated",
+          "delta_final_minus_A": -3.791900500530867e-05,
+          "delta_final_minus_M0": 0.0,
+          "absolute_distance_over_T": null,
+          "absolute_within_T": null
+        },
+        "FWHM_postpeak_censored_rate": {
+          "A": 0.0,
+          "M0": 0.0,
+          "initial": 0.0,
+          "final": 0.0,
+          "bank_values": {
+            "A": [
+              0.0,
+              0.0
+            ],
+            "M0": [
+              0.0,
+              0.0
+            ],
+            "initial": [
+              0.0,
+              0.0
+            ],
+            "final": [
+              0.0,
+              0.0
+            ]
+          },
+          "T": null,
+          "status": "pending_not_calibrated",
+          "delta_final_minus_A": 0.0,
+          "delta_final_minus_M0": 0.0,
+          "absolute_distance_over_T": null,
+          "absolute_within_T": null
+        }
+      }
+    },
+    {
+      "candidate": "Q1",
+      "seed": 1,
+      "hypothesis": "fast",
+      "eligible_cell": true,
+      "required_pending": [],
+      "noninferiority_failures": [],
+      "pending_uncalibrated": [
+        "Q_nonpositive_rate",
+        "PSD_undefined_rate",
+        "PSD_guarded_rate",
+        "FWHM_undefined_rate",
+        "temporal_nonpositive_peak_rate",
+        "FWHM_prepeak_censored_rate",
+        "FWHM_postpeak_censored_rate"
+      ],
+      "wave_relative_improvement_vs_A": 0.021574358314001667,
+      "wave_relative_improvement_vs_M0": 0.00010072633055571023,
+      "wave_usefulness_2percent": true,
+      "absolute_T_all_positive_defined": false,
+      "absolute_T_failures": [
+        "QPSD",
+        "peak_voltage_V",
+        "rise10_90_ns",
+        "FWHM_ns",
+        "baseline_mean_V",
+        "rise_undefined_rate",
+        "rise_prepeak_censored_rate"
+      ],
+      "components": {
+        "wave": {
+          "A": 0.1537072963036354,
+          "M0": 0.15040630989339232,
+          "initial": 0.15037725396884205,
+          "final": 0.15039116001770433,
+          "bank_values": {
+            "A": [
+              0.1537690764597931,
+              0.15364551614747768
+            ],
+            "M0": [
+              0.15020248574397313,
+              0.15061013404281154
+            ],
+            "initial": [
+              0.15014852988885297,
+              0.15060597804883114
+            ],
+            "final": [
+              0.15012088011063446,
+              0.1506614399247742
+            ]
+          },
+          "T": 0.18835690066187133,
+          "status": "noninferior_to_both_references",
+          "delta_final_minus_A": -0.003316136285931054,
+          "delta_final_minus_M0": -1.5149875687986425e-05,
+          "absolute_distance_over_T": 0.798437219391706,
+          "absolute_within_T": true
+        },
+        "QPSD": {
+          "A": 0.050785701965257876,
+          "M0": 0.051406767600424286,
+          "initial": 0.05149827544246974,
+          "final": 0.05153789512356831,
+          "bank_values": {
+            "A": [
+              0.05032278529497885,
+              0.05124861863553691
+            ],
+            "M0": [
+              0.051149622137241724,
+              0.05166391306360684
+            ],
+            "initial": [
+              0.051258512128380146,
+              0.05173803875655932
+            ],
+            "final": [
+              0.05114520975750197,
+              0.05193058048963464
+            ]
+          },
+          "T": 0.048271307926588014,
+          "status": "noninferior_to_both_references",
+          "delta_final_minus_A": 0.0007521931583104324,
+          "delta_final_minus_M0": 0.00013112752314402287,
+          "absolute_distance_over_T": 1.067671404345376,
+          "absolute_within_T": false
+        },
+        "noise": {
+          "A": 0.1248250001820626,
+          "M0": 0.1248250001820626,
+          "initial": 0.1248250001820626,
+          "final": 0.1248250001820626,
+          "bank_values": {
+            "A": [
+              0.12488850382524291,
+              0.12476149653888231
+            ],
+            "M0": [
+              0.12488850382524291,
+              0.12476149653888231
+            ],
+            "initial": [
+              0.12488850382524291,
+              0.12476149653888231
+            ],
+            "final": [
+              0.12488850382524291,
+              0.12476149653888231
+            ]
+          },
+          "T": 0.24513525857737978,
+          "status": "noninferior_to_both_references",
+          "delta_final_minus_A": 0.0,
+          "delta_final_minus_M0": 0.0,
+          "absolute_distance_over_T": 0.5092086748616791,
+          "absolute_within_T": true
+        },
+        "Q_Vns": {
+          "A": 0.04537453054910181,
+          "M0": 0.04544482887659297,
+          "initial": 0.04548612609913086,
+          "final": 0.04549993558917621,
+          "bank_values": {
+            "A": [
+              0.04574745922161834,
+              0.04500160187658528
+            ],
+            "M0": [
+              0.045792619736016935,
+              0.04509703801716901
+            ],
+            "initial": [
+              0.045856398840720944,
+              0.04511585335754078
+            ],
+            "final": [
+              0.04588579512307929,
+              0.04511407605527314
+            ]
+          },
+          "T": 0.14006821393078955,
+          "status": "noninferior_to_both_references",
+          "delta_final_minus_A": 0.00012540504007440417,
+          "delta_final_minus_M0": 5.5106712583241624e-05,
+          "absolute_distance_over_T": 0.32484126349793124,
+          "absolute_within_T": true
+        },
+        "front_Vns": {
+          "A": 0.10501915008299606,
+          "M0": 0.08958848711441444,
+          "initial": 0.08958072273323972,
+          "final": 0.08954657888282042,
+          "bank_values": {
+            "A": [
+              0.10501244105142102,
+              0.10502585911457109
+            ],
+            "M0": [
+              0.08823226922631176,
+              0.09094470500251713
+            ],
+            "initial": [
+              0.08828672456765188,
+              0.09087472089882757
+            ],
+            "final": [
+              0.08825787156949524,
+              0.09083528619614559
+            ]
+          },
+          "T": 0.1090464838504471,
+          "status": "noninferior_to_both_references",
+          "delta_final_minus_A": -0.015472571200175644,
+          "delta_final_minus_M0": -4.19082315940289e-05,
+          "absolute_distance_over_T": 0.821178049221926,
+          "absolute_within_T": true
+        },
+        "tail_Vns": {
+          "A": 0.02350483352071262,
+          "M0": 0.017246299635496287,
+          "initial": 0.017257436086489393,
+          "final": 0.017263712412977507,
+          "bank_values": {
+            "A": [
+              0.02352725402299685,
+              0.02348241301842839
+            ],
+            "M0": [
+              0.016074737881781286,
+              0.01841786138921129
+            ],
+            "initial": [
+              0.01609069478841356,
+              0.018424177384565227
+            ],
+            "final": [
+              0.016083089812866255,
+              0.018444335013088755
+            ]
+          },
+          "T": 0.03108613086926998,
+          "status": "noninferior_to_both_references",
+          "delta_final_minus_A": -0.006241121107735115,
+          "delta_final_minus_M0": 1.7412777481219666e-05,
+          "absolute_distance_over_T": 0.5553509533102897,
+          "absolute_within_T": true
+        },
+        "PSD_raw": {
+          "A": 0.004069536806987505,
+          "M0": 0.003553751166005867,
+          "initial": 0.003559328067186831,
+          "final": 0.0035618395346607183,
+          "bank_values": {
+            "A": [
+              0.00404134074848002,
+              0.0040977328654949905
+            ],
+            "M0": [
+              0.0034375239568486416,
+              0.0036699783751630924
+            ],
+            "initial": [
+              0.0034443448108843035,
+              0.003674311323489358
+            ],
+            "final": [
+              0.0034420894149365853,
+              0.0036815896543848517
+            ]
+          },
+          "T": 0.0042836374482436,
+          "status": "noninferior_to_both_references",
+          "delta_final_minus_A": -0.0005076972723267867,
+          "delta_final_minus_M0": 8.088368654851283e-06,
+          "absolute_distance_over_T": 0.8314988319380676,
+          "absolute_within_T": true
+        },
+        "PSD_guarded": {
+          "A": 0.004069536806987505,
+          "M0": 0.003553751166005867,
+          "initial": 0.003559328067186831,
+          "final": 0.0035618395346607183,
+          "bank_values": {
+            "A": [
+              0.00404134074848002,
+              0.0040977328654949905
+            ],
+            "M0": [
+              0.0034375239568486416,
+              0.0036699783751630924
+            ],
+            "initial": [
+              0.0034443448108843035,
+              0.003674311323489358
+            ],
+            "final": [
+              0.0034420894149365853,
+              0.0036815896543848517
+            ]
+          },
+          "T": 0.0042836374482436,
+          "status": "noninferior_to_both_references",
+          "delta_final_minus_A": -0.0005076972723267867,
+          "delta_final_minus_M0": 8.088368654851283e-06,
+          "absolute_distance_over_T": 0.8314988319380676,
+          "absolute_within_T": true
+        },
+        "peak_voltage_V": {
+          "A": 0.036720995773860184,
+          "M0": 0.036759201639267464,
+          "initial": 0.036758036337511416,
+          "final": 0.036757577560250165,
+          "bank_values": {
+            "A": [
+              0.036718091540141884,
+              0.03672390000757848
+            ],
+            "M0": [
+              0.03679050152223891,
+              0.036727901756296026
+            ],
+            "initial": [
+              0.03678926772781004,
+              0.036726804947212796
+            ],
+            "final": [
+              0.036788721687242225,
+              0.036726433433258106
+            ]
+          },
+          "T": 0.005499862543299458,
+          "status": "noninferior_to_both_references",
+          "delta_final_minus_A": 3.658178638998172e-05,
+          "delta_final_minus_M0": -1.62407901729833e-06,
+          "absolute_distance_over_T": 6.6833629515036375,
+          "absolute_within_T": false
+        },
+        "rise10_90_ns": {
+          "A": 1.5586713022013527,
+          "M0": 1.5637815959054469,
+          "initial": 1.5635567665426926,
+          "final": 1.563624987328283,
+          "bank_values": {
+            "A": [
+              1.5583607029007578,
+              1.5589819015019477
+            ],
+            "M0": [
+              1.563694752633613,
+              1.563868439177281
+            ],
+            "initial": [
+              1.5635620536954629,
+              1.5635514793899223
+            ],
+            "final": [
+              1.5636973995376005,
+              1.5635525751189654
+            ]
+          },
+          "T": 0.21159366879623287,
+          "status": "noninferior_to_both_references",
+          "delta_final_minus_A": 0.004953685126930285,
+          "delta_final_minus_M0": -0.00015660857716381926,
+          "absolute_distance_over_T": 7.389753182237564,
+          "absolute_within_T": false
+        },
+        "FWHM_ns": {
+          "A": 2.576715356453154,
+          "M0": 2.469897063532409,
+          "initial": 2.4699366874696125,
+          "final": 2.469940678219666,
+          "bank_values": {
+            "A": [
+              2.576715808847025,
+              2.5767149040592834
+            ],
+            "M0": [
+              2.4666561998221725,
+              2.4731379272426457
+            ],
+            "initial": [
+              2.466742064567523,
+              2.4731313103717025
+            ],
+            "final": [
+              2.46668072023482,
+              2.473200636204512
+            ]
+          },
+          "T": 0.5129398878764326,
+          "status": "noninferior_to_both_references",
+          "delta_final_minus_A": -0.10677467823348818,
+          "delta_final_minus_M0": 4.361468725688766e-05,
+          "absolute_distance_over_T": 4.815263418965529,
+          "absolute_within_T": false
+        },
+        "baseline_mean_V": {
+          "A": 1.4991559970511508e-05,
+          "M0": 1.4991559970511508e-05,
+          "initial": 1.4991559970511508e-05,
+          "final": 1.4991559970511508e-05,
+          "bank_values": {
+            "A": [
+              1.484073547652114e-05,
+              1.5142384464501878e-05
+            ],
+            "M0": [
+              1.484073547652114e-05,
+              1.5142384464501878e-05
+            ],
+            "initial": [
+              1.484073547652114e-05,
+              1.5142384464501878e-05
+            ],
+            "final": [
+              1.484073547652114e-05,
+              1.5142384464501878e-05
+            ]
+          },
+          "T": 4.506386193005153e-07,
+          "status": "noninferior_to_both_references",
+          "delta_final_minus_A": 0.0,
+          "delta_final_minus_M0": 0.0,
+          "absolute_distance_over_T": 33.26736619640261,
+          "absolute_within_T": false
+        },
+        "baseline_RMS_V": {
+          "A": 1.8529339937061005e-05,
+          "M0": 1.8529339937061005e-05,
+          "initial": 1.8529339937061005e-05,
+          "final": 1.8529339937061005e-05,
+          "bank_values": {
+            "A": [
+              1.865801752447836e-05,
+              1.840066234964365e-05
+            ],
+            "M0": [
+              1.865801752447836e-05,
+              1.840066234964365e-05
+            ],
+            "initial": [
+              1.865801752447836e-05,
+              1.840066234964365e-05
+            ],
+            "final": [
+              1.865801752447836e-05,
+              1.840066234964365e-05
+            ]
+          },
+          "T": 6.316818201581438e-05,
+          "status": "noninferior_to_both_references",
+          "delta_final_minus_A": 0.0,
+          "delta_final_minus_M0": 0.0,
+          "absolute_distance_over_T": 0.2933334369575828,
+          "absolute_within_T": true
+        },
+        "Q_nonpositive_rate": {
+          "A": 0.0,
+          "M0": 0.0,
+          "initial": 0.0,
+          "final": 0.0,
+          "bank_values": {
+            "A": [
+              0.0,
+              0.0
+            ],
+            "M0": [
+              0.0,
+              0.0
+            ],
+            "initial": [
+              0.0,
+              0.0
+            ],
+            "final": [
+              0.0,
+              0.0
+            ]
+          },
+          "T": null,
+          "status": "pending_not_calibrated",
+          "delta_final_minus_A": 0.0,
+          "delta_final_minus_M0": 0.0,
+          "absolute_distance_over_T": null,
+          "absolute_within_T": null
+        },
+        "PSD_undefined_rate": {
+          "A": 0.0,
+          "M0": 0.0,
+          "initial": 0.0,
+          "final": 0.0,
+          "bank_values": {
+            "A": [
+              0.0,
+              0.0
+            ],
+            "M0": [
+              0.0,
+              0.0
+            ],
+            "initial": [
+              0.0,
+              0.0
+            ],
+            "final": [
+              0.0,
+              0.0
+            ]
+          },
+          "T": null,
+          "status": "pending_not_calibrated",
+          "delta_final_minus_A": 0.0,
+          "delta_final_minus_M0": 0.0,
+          "absolute_distance_over_T": null,
+          "absolute_within_T": null
+        },
+        "PSD_guarded_rate": {
+          "A": 0.0,
+          "M0": 0.0,
+          "initial": 0.0,
+          "final": 0.0,
+          "bank_values": {
+            "A": [
+              0.0,
+              0.0
+            ],
+            "M0": [
+              0.0,
+              0.0
+            ],
+            "initial": [
+              0.0,
+              0.0
+            ],
+            "final": [
+              0.0,
+              0.0
+            ]
+          },
+          "T": null,
+          "status": "pending_not_calibrated",
+          "delta_final_minus_A": 0.0,
+          "delta_final_minus_M0": 0.0,
+          "absolute_distance_over_T": null,
+          "absolute_within_T": null
+        },
+        "rise_undefined_rate": {
+          "A": 0.005411706096798761,
+          "M0": 0.006814709281995181,
+          "initial": 0.0068715877895031445,
+          "final": 0.006890547292005798,
+          "bank_values": {
+            "A": [
+              0.005658179629333268,
+              0.005165232564264255
+            ],
+            "M0": [
+              0.007250777839556231,
+              0.006378640724434131
+            ],
+            "initial": [
+              0.007250777839556231,
+              0.006492397739450058
+            ],
+            "final": [
+              0.007174939829545614,
+              0.006606154754465983
+            ]
+          },
+          "T": 0.003173828125,
+          "status": "noninferior_to_both_references",
+          "delta_final_minus_A": 0.001478841195207037,
+          "delta_final_minus_M0": 7.583801001061728e-05,
+          "absolute_distance_over_T": 2.1710524390812114,
+          "absolute_within_T": false
+        },
+        "FWHM_undefined_rate": {
+          "A": 0.00023756354824915665,
+          "M0": 0.00023756354824915665,
+          "initial": 0.00023756354824915665,
+          "final": 0.00023756354824915665,
+          "bank_values": {
+            "A": [
+              0.00023756354824915665,
+              0.00023756354824915665
+            ],
+            "M0": [
+              0.00023756354824915665,
+              0.00023756354824915665
+            ],
+            "initial": [
+              0.00023756354824915665,
+              0.00023756354824915665
+            ],
+            "final": [
+              0.00023756354824915665,
+              0.00023756354824915665
+            ]
+          },
+          "T": null,
+          "status": "pending_not_calibrated",
+          "delta_final_minus_A": 0.0,
+          "delta_final_minus_M0": 0.0,
+          "absolute_distance_over_T": null,
+          "absolute_within_T": null
+        },
+        "temporal_nonpositive_peak_rate": {
+          "A": 0.0,
+          "M0": 0.0,
+          "initial": 0.0,
+          "final": 0.0,
+          "bank_values": {
+            "A": [
+              0.0,
+              0.0
+            ],
+            "M0": [
+              0.0,
+              0.0
+            ],
+            "initial": [
+              0.0,
+              0.0
+            ],
+            "final": [
+              0.0,
+              0.0
+            ]
+          },
+          "T": null,
+          "status": "pending_not_calibrated",
+          "delta_final_minus_A": 0.0,
+          "delta_final_minus_M0": 0.0,
+          "absolute_distance_over_T": null,
+          "absolute_within_T": null
+        },
+        "rise_prepeak_censored_rate": {
+          "A": 0.005411706096798761,
+          "M0": 0.006814709281995181,
+          "initial": 0.0068715877895031445,
+          "final": 0.006890547292005798,
+          "bank_values": {
+            "A": [
+              0.005658179629333268,
+              0.005165232564264255
+            ],
+            "M0": [
+              0.007250777839556231,
+              0.006378640724434131
+            ],
+            "initial": [
+              0.007250777839556231,
+              0.006492397739450058
+            ],
+            "final": [
+              0.007174939829545614,
+              0.006606154754465983
+            ]
+          },
+          "T": 0.003173828125,
+          "status": "noninferior_to_both_references",
+          "delta_final_minus_A": 0.001478841195207037,
+          "delta_final_minus_M0": 7.583801001061728e-05,
+          "absolute_distance_over_T": 2.1710524390812114,
+          "absolute_within_T": false
+        },
+        "FWHM_prepeak_censored_rate": {
+          "A": 0.00023756354824915665,
+          "M0": 0.00023756354824915665,
+          "initial": 0.00023756354824915665,
+          "final": 0.00023756354824915665,
+          "bank_values": {
+            "A": [
+              0.00023756354824915665,
+              0.00023756354824915665
+            ],
+            "M0": [
+              0.00023756354824915665,
+              0.00023756354824915665
+            ],
+            "initial": [
+              0.00023756354824915665,
+              0.00023756354824915665
+            ],
+            "final": [
+              0.00023756354824915665,
+              0.00023756354824915665
+            ]
+          },
+          "T": null,
+          "status": "pending_not_calibrated",
+          "delta_final_minus_A": 0.0,
+          "delta_final_minus_M0": 0.0,
+          "absolute_distance_over_T": null,
+          "absolute_within_T": null
+        },
+        "FWHM_postpeak_censored_rate": {
+          "A": 0.0,
+          "M0": 0.0,
+          "initial": 0.0,
+          "final": 0.0,
+          "bank_values": {
+            "A": [
+              0.0,
+              0.0
+            ],
+            "M0": [
+              0.0,
+              0.0
+            ],
+            "initial": [
+              0.0,
+              0.0
+            ],
+            "final": [
+              0.0,
+              0.0
+            ]
+          },
+          "T": null,
+          "status": "pending_not_calibrated",
+          "delta_final_minus_A": 0.0,
+          "delta_final_minus_M0": 0.0,
+          "absolute_distance_over_T": null,
+          "absolute_within_T": null
+        }
+      }
+    },
+    {
+      "candidate": "Q1",
+      "seed": 1,
+      "hypothesis": "slow",
+      "eligible_cell": true,
+      "required_pending": [],
+      "noninferiority_failures": [],
+      "pending_uncalibrated": [
+        "Q_nonpositive_rate",
+        "PSD_undefined_rate",
+        "PSD_guarded_rate",
+        "FWHM_undefined_rate",
+        "temporal_nonpositive_peak_rate",
+        "FWHM_prepeak_censored_rate",
+        "FWHM_postpeak_censored_rate"
+      ],
+      "wave_relative_improvement_vs_A": 0.02448951641690355,
+      "wave_relative_improvement_vs_M0": -0.00010205019391612472,
+      "wave_usefulness_2percent": true,
+      "absolute_T_all_positive_defined": false,
+      "absolute_T_failures": [
+        "QPSD",
+        "peak_voltage_V",
+        "rise10_90_ns",
+        "FWHM_ns",
+        "baseline_mean_V",
+        "rise_undefined_rate",
+        "rise_prepeak_censored_rate"
+      ],
+      "components": {
+        "wave": {
+          "A": 0.15467468442966842,
+          "M0": 0.15087137975248854,
+          "initial": 0.15092337607503836,
+          "final": 0.15088677620604868,
+          "bank_values": {
+            "A": [
+              0.1545519021747654,
+              0.15479746668457142
+            ],
+            "M0": [
+              0.15059772238834931,
+              0.15114503711662775
+            ],
+            "initial": [
+              0.15068563006314878,
+              0.15116112208692797
+            ],
+            "final": [
+              0.15053848897044347,
+              0.1512350634416539
+            ]
+          },
+          "T": 0.19015560932077008,
+          "status": "noninferior_to_both_references",
+          "delta_final_minus_A": -0.0037879082236197403,
+          "delta_final_minus_M0": 1.539645356013475e-05,
+          "absolute_distance_over_T": 0.7934910610578965,
+          "absolute_within_T": true
+        },
+        "QPSD": {
+          "A": 0.045074661304003415,
+          "M0": 0.0545872470292479,
+          "initial": 0.05457425384945344,
+          "final": 0.054447115819775,
+          "bank_values": {
+            "A": [
+              0.04479076701274412,
+              0.04535855559526271
+            ],
+            "M0": [
+              0.054253143224004055,
+              0.05492135083449174
+            ],
+            "initial": [
+              0.05420484669015609,
+              0.05494366100875078
+            ],
+            "final": [
+              0.054005645417371684,
+              0.05488858622217832
+            ]
+          },
+          "T": 0.045608667099154225,
+          "status": "noninferior_to_both_references",
+          "delta_final_minus_A": 0.009372454515771587,
+          "delta_final_minus_M0": -0.00014013120947289903,
+          "absolute_distance_over_T": 1.1937887967961396,
+          "absolute_within_T": false
+        },
+        "noise": {
+          "A": 0.1248250001820626,
+          "M0": 0.1248250001820626,
+          "initial": 0.1248250001820626,
+          "final": 0.1248250001820626,
+          "bank_values": {
+            "A": [
+              0.12488850382524291,
+              0.12476149653888231
+            ],
+            "M0": [
+              0.12488850382524291,
+              0.12476149653888231
+            ],
+            "initial": [
+              0.12488850382524291,
+              0.12476149653888231
+            ],
+            "final": [
+              0.12488850382524291,
+              0.12476149653888231
+            ]
+          },
+          "T": 0.24513525857737978,
+          "status": "noninferior_to_both_references",
+          "delta_final_minus_A": 0.0,
+          "delta_final_minus_M0": 0.0,
+          "absolute_distance_over_T": 0.5092086748616791,
+          "absolute_within_T": true
+        },
+        "Q_Vns": {
+          "A": 0.04528565412059833,
+          "M0": 0.04535752363376313,
+          "initial": 0.04537591933867085,
+          "final": 0.04538177450128905,
+          "bank_values": {
+            "A": [
+              0.045612231971173076,
+              0.04495907627002358
+            ],
+            "M0": [
+              0.045662227958341114,
+              0.045052819309185144
+            ],
+            "initial": [
+              0.04571208229478185,
+              0.045039756382559845
+            ],
+            "final": [
+              0.04572893731611656,
+              0.04503461168646155
+            ]
+          },
+          "T": 0.1400669323527055,
+          "status": "noninferior_to_both_references",
+          "delta_final_minus_A": 9.612038069072015e-05,
+          "delta_final_minus_M0": 2.4250867525922593e-05,
+          "absolute_distance_over_T": 0.32400063126257556,
+          "absolute_within_T": true
+        },
+        "front_Vns": {
+          "A": 0.10479047026275913,
+          "M0": 0.08954508301808092,
+          "initial": 0.08954023875348818,
+          "final": 0.08948833260375016,
+          "bank_values": {
+            "A": [
+              0.10477161025106524,
+              0.10480933027445302
+            ],
+            "M0": [
+              0.08815356777261985,
+              0.090936598263542
+            ],
+            "initial": [
+              0.08817351678531338,
+              0.090906960721663
+            ],
+            "final": [
+              0.08814078415097198,
+              0.09083588105652833
+            ]
+          },
+          "T": 0.10900203842445293,
+          "status": "noninferior_to_both_references",
+          "delta_final_minus_A": -0.015302137659008966,
+          "delta_final_minus_M0": -5.675041433075845e-05,
+          "absolute_distance_over_T": 0.8209785238628605,
+          "absolute_within_T": true
+        },
+        "tail_Vns": {
+          "A": 0.02146773826995517,
+          "M0": 0.016026320810850606,
+          "initial": 0.016033835998723423,
+          "final": 0.01604818809642587,
+          "bank_values": {
+            "A": [
+              0.021473590334557438,
+              0.0214618862053529
+            ],
+            "M0": [
+              0.014935855475156856,
+              0.01711678614654436
+            ],
+            "initial": [
+              0.014939611267007647,
+              0.0171280607304392
+            ],
+            "final": [
+              0.014945161871119182,
+              0.017151214321732555
+            ]
+          },
+          "T": 0.031110665638543,
+          "status": "noninferior_to_both_references",
+          "delta_final_minus_A": -0.005419550173529301,
+          "delta_final_minus_M0": 2.1867285575263157e-05,
+          "absolute_distance_over_T": 0.5158420036035414,
+          "absolute_within_T": true
+        },
+        "PSD_raw": {
+          "A": 0.00348509608517727,
+          "M0": 0.004280700250817047,
+          "initial": 0.0042828934874188235,
+          "final": 0.00427994038294993,
+          "bank_values": {
+            "A": [
+              0.0034730903913563213,
+              0.003497101778998219
+            ],
+            "M0": [
+              0.004167156409381027,
+              0.004394244092253067
+            ],
+            "initial": [
+              0.00417232156158138,
+              0.004393465413256267
+            ],
+            "final": [
+              0.0041626499181980385,
+              0.00439723084770182
+            ]
+          },
+          "T": 0.004280475598982037,
+          "status": "noninferior_to_both_references",
+          "delta_final_minus_A": 0.0007948442977726597,
+          "delta_final_minus_M0": -7.598678671170631e-07,
+          "absolute_distance_over_T": 0.9998749634194306,
+          "absolute_within_T": true
+        },
+        "PSD_guarded": {
+          "A": 0.00348509608517727,
+          "M0": 0.004280700250817047,
+          "initial": 0.0042828934874188235,
+          "final": 0.00427994038294993,
+          "bank_values": {
+            "A": [
+              0.0034730903913563213,
+              0.003497101778998219
+            ],
+            "M0": [
+              0.004167156409381027,
+              0.004394244092253067
+            ],
+            "initial": [
+              0.00417232156158138,
+              0.004393465413256267
+            ],
+            "final": [
+              0.0041626499181980385,
+              0.00439723084770182
+            ]
+          },
+          "T": 0.004280475598982037,
+          "status": "noninferior_to_both_references",
+          "delta_final_minus_A": 0.0007948442977726597,
+          "delta_final_minus_M0": -7.598678671170631e-07,
+          "absolute_distance_over_T": 0.9998749634194306,
+          "absolute_within_T": true
+        },
+        "peak_voltage_V": {
+          "A": 0.03672902378181478,
+          "M0": 0.03676710091273111,
+          "initial": 0.03676587721034637,
+          "final": 0.036765355472943,
+          "bank_values": {
+            "A": [
+              0.03672677447019469,
+              0.03673127309343487
+            ],
+            "M0": [
+              0.03679893382802586,
+              0.036735267997436365
+            ],
+            "initial": [
+              0.036797633017071424,
+              0.03673412140362131
+            ],
+            "final": [
+              0.036796943424911854,
+              0.03673376752097414
+            ]
+          },
+          "T": 0.005499869994334829,
+          "status": "noninferior_to_both_references",
+          "delta_final_minus_A": 3.6331691128217714e-05,
+          "delta_final_minus_M0": -1.74543978811309e-06,
+          "absolute_distance_over_T": 6.684768096484708,
+          "absolute_within_T": false
+        },
+        "rise10_90_ns": {
+          "A": 1.5561384967737797,
+          "M0": 1.5612605030296094,
+          "initial": 1.5611418077888248,
+          "final": 1.5612676012486433,
+          "bank_values": {
+            "A": [
+              1.5561498368014357,
+              1.5561271567461237
+            ],
+            "M0": [
+              1.5612511973459222,
+              1.5612698087132966
+            ],
+            "initial": [
+              1.5610673593710898,
+              1.5612162562065601
+            ],
+            "final": [
+              1.5614525251947815,
+              1.5610826773025053
+            ]
+          },
+          "T": 0.21101546028178209,
+          "status": "noninferior_to_both_references",
+          "delta_final_minus_A": 0.005129104474863588,
+          "delta_final_minus_M0": 7.0982190338853e-06,
+          "absolute_distance_over_T": 7.398830394530266,
+          "absolute_within_T": false
+        },
+        "FWHM_ns": {
+          "A": 2.573235242948971,
+          "M0": 2.4652751056681392,
+          "initial": 2.465273138648259,
+          "final": 2.4652354079263357,
+          "bank_values": {
+            "A": [
+              2.5731409568230696,
+              2.5733295290748726
+            ],
+            "M0": [
+              2.462215500500604,
+              2.468334710835675
+            ],
+            "initial": [
+              2.4622193526301848,
+              2.4683269246663335
+            ],
+            "final": [
+              2.4622849335655825,
+              2.468185882287089
+            ]
+          },
+          "T": 0.5149414509583063,
+          "status": "noninferior_to_both_references",
+          "delta_final_minus_A": -0.10799983502263544,
+          "delta_final_minus_M0": -3.969774180356822e-05,
+          "absolute_distance_over_T": 4.787409138142853,
+          "absolute_within_T": false
+        },
+        "baseline_mean_V": {
+          "A": 1.4991559970511508e-05,
+          "M0": 1.4991559970511508e-05,
+          "initial": 1.4991559970511508e-05,
+          "final": 1.4991559970511508e-05,
+          "bank_values": {
+            "A": [
+              1.484073547652114e-05,
+              1.5142384464501878e-05
+            ],
+            "M0": [
+              1.484073547652114e-05,
+              1.5142384464501878e-05
+            ],
+            "initial": [
+              1.484073547652114e-05,
+              1.5142384464501878e-05
+            ],
+            "final": [
+              1.484073547652114e-05,
+              1.5142384464501878e-05
+            ]
+          },
+          "T": 4.506386193005153e-07,
+          "status": "noninferior_to_both_references",
+          "delta_final_minus_A": 0.0,
+          "delta_final_minus_M0": 0.0,
+          "absolute_distance_over_T": 33.26736619640261,
+          "absolute_within_T": false
+        },
+        "baseline_RMS_V": {
+          "A": 1.8529339937061005e-05,
+          "M0": 1.8529339937061005e-05,
+          "initial": 1.8529339937061005e-05,
+          "final": 1.8529339937061005e-05,
+          "bank_values": {
+            "A": [
+              1.865801752447836e-05,
+              1.840066234964365e-05
+            ],
+            "M0": [
+              1.865801752447836e-05,
+              1.840066234964365e-05
+            ],
+            "initial": [
+              1.865801752447836e-05,
+              1.840066234964365e-05
+            ],
+            "final": [
+              1.865801752447836e-05,
+              1.840066234964365e-05
+            ]
+          },
+          "T": 6.316818201581438e-05,
+          "status": "noninferior_to_both_references",
+          "delta_final_minus_A": 0.0,
+          "delta_final_minus_M0": 0.0,
+          "absolute_distance_over_T": 0.2933334369575828,
+          "absolute_within_T": true
+        },
+        "Q_nonpositive_rate": {
+          "A": 0.0,
+          "M0": 0.0,
+          "initial": 0.0,
+          "final": 0.0,
+          "bank_values": {
+            "A": [
+              0.0,
+              0.0
+            ],
+            "M0": [
+              0.0,
+              0.0
+            ],
+            "initial": [
+              0.0,
+              0.0
+            ],
+            "final": [
+              0.0,
+              0.0
+            ]
+          },
+          "T": null,
+          "status": "pending_not_calibrated",
+          "delta_final_minus_A": 0.0,
+          "delta_final_minus_M0": 0.0,
+          "absolute_distance_over_T": null,
+          "absolute_within_T": null
+        },
+        "PSD_undefined_rate": {
+          "A": 0.0,
+          "M0": 0.0,
+          "initial": 0.0,
+          "final": 0.0,
+          "bank_values": {
+            "A": [
+              0.0,
+              0.0
+            ],
+            "M0": [
+              0.0,
+              0.0
+            ],
+            "initial": [
+              0.0,
+              0.0
+            ],
+            "final": [
+              0.0,
+              0.0
+            ]
+          },
+          "T": null,
+          "status": "pending_not_calibrated",
+          "delta_final_minus_A": 0.0,
+          "delta_final_minus_M0": 0.0,
+          "absolute_distance_over_T": null,
+          "absolute_within_T": null
+        },
+        "PSD_guarded_rate": {
+          "A": 0.0,
+          "M0": 0.0,
+          "initial": 0.0,
+          "final": 0.0,
+          "bank_values": {
+            "A": [
+              0.0,
+              0.0
+            ],
+            "M0": [
+              0.0,
+              0.0
+            ],
+            "initial": [
+              0.0,
+              0.0
+            ],
+            "final": [
+              0.0,
+              0.0
+            ]
+          },
+          "T": null,
+          "status": "pending_not_calibrated",
+          "delta_final_minus_A": 0.0,
+          "delta_final_minus_M0": 0.0,
+          "absolute_distance_over_T": null,
+          "absolute_within_T": null
+        },
+        "rise_undefined_rate": {
+          "A": 0.005373787091793453,
+          "M0": 0.006776790276989872,
+          "initial": 0.006833668784497836,
+          "final": 0.006814709281995181,
+          "bank_values": {
+            "A": [
+              0.005658179629333268,
+              0.0050893945542536375
+            ],
+            "M0": [
+              0.007137020824540304,
+              0.006416559729439441
+            ],
+            "initial": [
+              0.007174939829545614,
+              0.006492397739450058
+            ],
+            "final": [
+              0.007137020824540304,
+              0.006492397739450058
+            ]
+          },
+          "T": 0.0025634765625,
+          "status": "noninferior_to_both_references",
+          "delta_final_minus_A": 0.0014409221902017284,
+          "delta_final_minus_M0": 3.791900500530864e-05,
+          "absolute_distance_over_T": 2.6583856399097394,
+          "absolute_within_T": false
+        },
+        "FWHM_undefined_rate": {
+          "A": 0.00023756354824915665,
+          "M0": 0.00023756354824915665,
+          "initial": 0.00023756354824915665,
+          "final": 0.00023756354824915665,
+          "bank_values": {
+            "A": [
+              0.00023756354824915665,
+              0.00023756354824915665
+            ],
+            "M0": [
+              0.00023756354824915665,
+              0.00023756354824915665
+            ],
+            "initial": [
+              0.00023756354824915665,
+              0.00023756354824915665
+            ],
+            "final": [
+              0.00023756354824915665,
+              0.00023756354824915665
+            ]
+          },
+          "T": null,
+          "status": "pending_not_calibrated",
+          "delta_final_minus_A": 0.0,
+          "delta_final_minus_M0": 0.0,
+          "absolute_distance_over_T": null,
+          "absolute_within_T": null
+        },
+        "temporal_nonpositive_peak_rate": {
+          "A": 0.0,
+          "M0": 0.0,
+          "initial": 0.0,
+          "final": 0.0,
+          "bank_values": {
+            "A": [
+              0.0,
+              0.0
+            ],
+            "M0": [
+              0.0,
+              0.0
+            ],
+            "initial": [
+              0.0,
+              0.0
+            ],
+            "final": [
+              0.0,
+              0.0
+            ]
+          },
+          "T": null,
+          "status": "pending_not_calibrated",
+          "delta_final_minus_A": 0.0,
+          "delta_final_minus_M0": 0.0,
+          "absolute_distance_over_T": null,
+          "absolute_within_T": null
+        },
+        "rise_prepeak_censored_rate": {
+          "A": 0.005373787091793453,
+          "M0": 0.006776790276989872,
+          "initial": 0.006833668784497836,
+          "final": 0.006814709281995181,
+          "bank_values": {
+            "A": [
+              0.005658179629333268,
+              0.0050893945542536375
+            ],
+            "M0": [
+              0.007137020824540304,
+              0.006416559729439441
+            ],
+            "initial": [
+              0.007174939829545614,
+              0.006492397739450058
+            ],
+            "final": [
+              0.007137020824540304,
+              0.006492397739450058
+            ]
+          },
+          "T": 0.0025634765625,
+          "status": "noninferior_to_both_references",
+          "delta_final_minus_A": 0.0014409221902017284,
+          "delta_final_minus_M0": 3.791900500530864e-05,
+          "absolute_distance_over_T": 2.6583856399097394,
+          "absolute_within_T": false
+        },
+        "FWHM_prepeak_censored_rate": {
+          "A": 0.00023756354824915665,
+          "M0": 0.00023756354824915665,
+          "initial": 0.00023756354824915665,
+          "final": 0.00023756354824915665,
+          "bank_values": {
+            "A": [
+              0.00023756354824915665,
+              0.00023756354824915665
+            ],
+            "M0": [
+              0.00023756354824915665,
+              0.00023756354824915665
+            ],
+            "initial": [
+              0.00023756354824915665,
+              0.00023756354824915665
+            ],
+            "final": [
+              0.00023756354824915665,
+              0.00023756354824915665
+            ]
+          },
+          "T": null,
+          "status": "pending_not_calibrated",
+          "delta_final_minus_A": 0.0,
+          "delta_final_minus_M0": 0.0,
+          "absolute_distance_over_T": null,
+          "absolute_within_T": null
+        },
+        "FWHM_postpeak_censored_rate": {
+          "A": 0.0,
+          "M0": 0.0,
+          "initial": 0.0,
+          "final": 0.0,
+          "bank_values": {
+            "A": [
+              0.0,
+              0.0
+            ],
+            "M0": [
+              0.0,
+              0.0
+            ],
+            "initial": [
+              0.0,
+              0.0
+            ],
+            "final": [
+              0.0,
+              0.0
+            ]
+          },
+          "T": null,
+          "status": "pending_not_calibrated",
+          "delta_final_minus_A": 0.0,
+          "delta_final_minus_M0": 0.0,
+          "absolute_distance_over_T": null,
+          "absolute_within_T": null
+        }
+      }
+    },
+    {
+      "candidate": "Q1",
+      "seed": 1,
+      "hypothesis": "common_level",
+      "eligible_cell": true,
+      "required_pending": [],
+      "noninferiority_failures": [],
+      "pending_uncalibrated": [
+        "Q_nonpositive_rate",
+        "PSD_undefined_rate",
+        "PSD_guarded_rate",
+        "FWHM_undefined_rate",
+        "temporal_nonpositive_peak_rate",
+        "FWHM_prepeak_censored_rate",
+        "FWHM_postpeak_censored_rate"
+      ],
+      "wave_relative_improvement_vs_A": 0.032672996048599176,
+      "wave_relative_improvement_vs_M0": -0.00018033990015854035,
+      "wave_usefulness_2percent": true,
+      "absolute_T_all_positive_defined": false,
+      "absolute_T_failures": [
+        "QPSD",
+        "peak_voltage_V",
+        "rise10_90_ns",
+        "FWHM_ns",
+        "baseline_mean_V",
+        "rise_undefined_rate",
+        "rise_prepeak_censored_rate"
+      ],
+      "components": {
+        "wave": {
+          "A": 0.1546058587778235,
+          "M0": 0.14952745639832757,
+          "initial": 0.14956311166063424,
+          "final": 0.1495544221648854,
+          "bank_values": {
+            "A": [
+              0.15464364026544233,
+              0.15456807729020466
+            ],
+            "M0": [
+              0.14930012006724142,
+              0.14975479272941372
+            ],
+            "initial": [
+              0.14933673929604757,
+              0.1497894840252209
+            ],
+            "final": [
+              0.14929274965327216,
+              0.14981609467649867
+            ]
+          },
+          "T": 0.1905364603858985,
+          "status": "noninferior_to_both_references",
+          "delta_final_minus_A": -0.005051436612938109,
+          "delta_final_minus_M0": 2.696576655783489e-05,
+          "absolute_distance_over_T": 0.7849123567320864,
+          "absolute_within_T": true
+        },
+        "QPSD": {
+          "A": 0.05233928727482279,
+          "M0": 0.05206477311211269,
+          "initial": 0.05191062896380598,
+          "final": 0.051921586042299406,
+          "bank_values": {
+            "A": [
+              0.05220245090763409,
+              0.05247612364201148
+            ],
+            "M0": [
+              0.051723389529306885,
+              0.052406156694918486
+            ],
+            "initial": [
+              0.051527399096489866,
+              0.0522938588311221
+            ],
+            "final": [
+              0.05144416632619646,
+              0.05239900575840236
+            ]
+          },
+          "T": 0.046214249198750015,
+          "status": "noninferior_to_both_references",
+          "delta_final_minus_A": -0.000417701232523382,
+          "delta_final_minus_M0": -0.0001431870698132831,
+          "absolute_distance_over_T": 1.123497339943884,
+          "absolute_within_T": false
+        },
+        "noise": {
+          "A": 0.1248250001820626,
+          "M0": 0.1248250001820626,
+          "initial": 0.1248250001820626,
+          "final": 0.1248250001820626,
+          "bank_values": {
+            "A": [
+              0.12488850382524291,
+              0.12476149653888231
+            ],
+            "M0": [
+              0.12488850382524291,
+              0.12476149653888231
+            ],
+            "initial": [
+              0.12488850382524291,
+              0.12476149653888231
+            ],
+            "final": [
+              0.12488850382524291,
+              0.12476149653888231
+            ]
+          },
+          "T": 0.24513525857737978,
+          "status": "noninferior_to_both_references",
+          "delta_final_minus_A": 0.0,
+          "delta_final_minus_M0": 0.0,
+          "absolute_distance_over_T": 0.5092086748616791,
+          "absolute_within_T": true
+        },
+        "Q_Vns": {
+          "A": 0.045615343867289215,
+          "M0": 0.04568739068942759,
+          "initial": 0.04571007308735253,
+          "final": 0.045712716972423684,
+          "bank_values": {
+            "A": [
+              0.04575255529388937,
+              0.04547813244068906
+            ],
+            "M0": [
+              0.04579924282705755,
+              0.045575538551797634
+            ],
+            "initial": [
+              0.04585472135191292,
+              0.045565424822792154
+            ],
+            "final": [
+              0.04587109543164067,
+              0.0455543385132067
+            ]
+          },
+          "T": 0.14006769980934886,
+          "status": "noninferior_to_both_references",
+          "delta_final_minus_A": 9.73731051344684e-05,
+          "delta_final_minus_M0": 2.5326282996090965e-05,
+          "absolute_distance_over_T": 0.32636158825085937,
+          "absolute_within_T": true
+        },
+        "front_Vns": {
+          "A": 0.10517526759219559,
+          "M0": 0.08972908362382548,
+          "initial": 0.08970789544581112,
+          "final": 0.08968641291524727,
+          "bank_values": {
+            "A": [
+              0.10517207377982705,
+              0.1051784614045641
+            ],
+            "M0": [
+              0.08833608075414832,
+              0.09112208649350262
+            ],
+            "initial": [
+              0.08834805676140402,
+              0.09106773413021822
+            ],
+            "final": [
+              0.08835366741544756,
+              0.09101915841504699
+            ]
+          },
+          "T": 0.10901502706931349,
+          "status": "noninferior_to_both_references",
+          "delta_final_minus_A": -0.015488854676948313,
+          "delta_final_minus_M0": -4.267070857820465e-05,
+          "absolute_distance_over_T": 0.8226977080712298,
+          "absolute_within_T": true
+        },
+        "tail_Vns": {
+          "A": 0.023715589015557266,
+          "M0": 0.017481636397941522,
+          "initial": 0.017485388422503058,
+          "final": 0.017508192967285025,
+          "bank_values": {
+            "A": [
+              0.023768796197298298,
+              0.02366238183381623
+            ],
+            "M0": [
+              0.01634767760757405,
+              0.018615595188308992
+            ],
+            "initial": [
+              0.016344122496733435,
+              0.01862665434827268
+            ],
+            "final": [
+              0.016352609624912064,
+              0.018663776309657987
+            ]
+          },
+          "T": 0.031056340139645512,
+          "status": "noninferior_to_both_references",
+          "delta_final_minus_A": -0.006207396048272241,
+          "delta_final_minus_M0": 2.6556569343503394e-05,
+          "absolute_distance_over_T": 0.563755834994048,
+          "absolute_within_T": true
+        },
+        "PSD_raw": {
+          "A": 0.0042029936819828586,
+          "M0": 0.003530036080253353,
+          "initial": 0.0035344940863037237,
+          "final": 0.0035367299122975914,
+          "bank_values": {
+            "A": [
+              0.0042220577682965214,
+              0.004183929595669196
+            ],
+            "M0": [
+              0.003401139541382781,
+              0.003658932619123924
+            ],
+            "initial": [
+              0.0034041058415524143,
+              0.0036648823310550327
+            ],
+            "final": [
+              0.003407785956449987,
+              0.003665673868145196
+            ]
+          },
+          "T": 0.004264454906522381,
+          "status": "noninferior_to_both_references",
+          "delta_final_minus_A": -0.0006662637696852672,
+          "delta_final_minus_M0": 6.693832044238519e-06,
+          "absolute_distance_over_T": 0.8293509932273522,
+          "absolute_within_T": true
+        },
+        "PSD_guarded": {
+          "A": 0.0042029936819828586,
+          "M0": 0.003530036080253353,
+          "initial": 0.0035344940863037237,
+          "final": 0.0035367299122975914,
+          "bank_values": {
+            "A": [
+              0.0042220577682965214,
+              0.004183929595669196
+            ],
+            "M0": [
+              0.003401139541382781,
+              0.003658932619123924
+            ],
+            "initial": [
+              0.0034041058415524143,
+              0.0036648823310550327
+            ],
+            "final": [
+              0.003407785956449987,
+              0.003665673868145196
+            ]
+          },
+          "T": 0.004264454906522381,
+          "status": "noninferior_to_both_references",
+          "delta_final_minus_A": -0.0006662637696852672,
+          "delta_final_minus_M0": 6.693832044238519e-06,
+          "absolute_distance_over_T": 0.8293509932273522,
+          "absolute_within_T": true
+        },
+        "peak_voltage_V": {
+          "A": 0.036729590001711485,
+          "M0": 0.036767469839633915,
+          "initial": 0.036766164110959156,
+          "final": 0.036765721521001146,
+          "bank_values": {
+            "A": [
+              0.03672759448540586,
+              0.036731585518017106
+            ],
+            "M0": [
+              0.03679981256713162,
+              0.036735127112136216
+            ],
+            "initial": [
+              0.03679838283218734,
+              0.036733945389730974
+            ],
+            "final": [
+              0.03679788028957324,
+              0.036733562752429054
+            ]
+          },
+          "T": 0.00550009352539599,
+          "status": "noninferior_to_both_references",
+          "delta_final_minus_A": 3.613151928966163e-05,
+          "delta_final_minus_M0": -1.7483186327688083e-06,
+          "absolute_distance_over_T": 6.684562971745853,
+          "absolute_within_T": false
+        },
+        "rise10_90_ns": {
+          "A": 1.5556742942334532,
+          "M0": 1.5608749670371207,
+          "initial": 1.5610510582577855,
+          "final": 1.56080944301341,
+          "bank_values": {
+            "A": [
+              1.5556679373084676,
+              1.5556806511584387
+            ],
+            "M0": [
+              1.5609861421021987,
+              1.5607637919720427
+            ],
+            "initial": [
+              1.5612862591585064,
+              1.5608158573570645
+            ],
+            "final": [
+              1.5606627431711249,
+              1.5609561428556953
+            ]
+          },
+          "T": 0.21177797877203527,
+          "status": "noninferior_to_both_references",
+          "delta_final_minus_A": 0.005135148779956911,
+          "delta_final_minus_M0": -6.552402371062804e-05,
+          "absolute_distance_over_T": 7.370027101323487,
+          "absolute_within_T": false
+        },
+        "FWHM_ns": {
+          "A": 2.572747505853052,
+          "M0": 2.465709133043405,
+          "initial": 2.4656787895128947,
+          "final": 2.465653911291581,
+          "bank_values": {
+            "A": [
+              2.5728471112461753,
+              2.5726479004599287
+            ],
+            "M0": [
+              2.462662214055121,
+              2.468756052031689
+            ],
+            "initial": [
+              2.4625891910139526,
+              2.468768388011837
+            ],
+            "final": [
+              2.46277113304255,
+              2.468536689540612
+            ]
+          },
+          "T": 0.5147888093676196,
+          "status": "noninferior_to_both_references",
+          "delta_final_minus_A": -0.10709359456147105,
+          "delta_final_minus_M0": -5.5221751824152676e-05,
+          "absolute_distance_over_T": 4.789641628613599,
+          "absolute_within_T": false
+        },
+        "baseline_mean_V": {
+          "A": 1.4991559970511508e-05,
+          "M0": 1.4991559970511508e-05,
+          "initial": 1.4991559970511508e-05,
+          "final": 1.4991559970511508e-05,
+          "bank_values": {
+            "A": [
+              1.484073547652114e-05,
+              1.5142384464501878e-05
+            ],
+            "M0": [
+              1.484073547652114e-05,
+              1.5142384464501878e-05
+            ],
+            "initial": [
+              1.484073547652114e-05,
+              1.5142384464501878e-05
+            ],
+            "final": [
+              1.484073547652114e-05,
+              1.5142384464501878e-05
+            ]
+          },
+          "T": 4.506386193005153e-07,
+          "status": "noninferior_to_both_references",
+          "delta_final_minus_A": 0.0,
+          "delta_final_minus_M0": 0.0,
+          "absolute_distance_over_T": 33.26736619640261,
+          "absolute_within_T": false
+        },
+        "baseline_RMS_V": {
+          "A": 1.8529339937061005e-05,
+          "M0": 1.8529339937061005e-05,
+          "initial": 1.8529339937061005e-05,
+          "final": 1.8529339937061005e-05,
+          "bank_values": {
+            "A": [
+              1.865801752447836e-05,
+              1.840066234964365e-05
+            ],
+            "M0": [
+              1.865801752447836e-05,
+              1.840066234964365e-05
+            ],
+            "initial": [
+              1.865801752447836e-05,
+              1.840066234964365e-05
+            ],
+            "final": [
+              1.865801752447836e-05,
+              1.840066234964365e-05
+            ]
+          },
+          "T": 6.316818201581438e-05,
+          "status": "noninferior_to_both_references",
+          "delta_final_minus_A": 0.0,
+          "delta_final_minus_M0": 0.0,
+          "absolute_distance_over_T": 0.2933334369575828,
+          "absolute_within_T": true
+        },
+        "Q_nonpositive_rate": {
+          "A": 0.0,
+          "M0": 0.0,
+          "initial": 0.0,
+          "final": 0.0,
+          "bank_values": {
+            "A": [
+              0.0,
+              0.0
+            ],
+            "M0": [
+              0.0,
+              0.0
+            ],
+            "initial": [
+              0.0,
+              0.0
+            ],
+            "final": [
+              0.0,
+              0.0
+            ]
+          },
+          "T": null,
+          "status": "pending_not_calibrated",
+          "delta_final_minus_A": 0.0,
+          "delta_final_minus_M0": 0.0,
+          "absolute_distance_over_T": null,
+          "absolute_within_T": null
+        },
+        "PSD_undefined_rate": {
+          "A": 0.0,
+          "M0": 0.0,
+          "initial": 0.0,
+          "final": 0.0,
+          "bank_values": {
+            "A": [
+              0.0,
+              0.0
+            ],
+            "M0": [
+              0.0,
+              0.0
+            ],
+            "initial": [
+              0.0,
+              0.0
+            ],
+            "final": [
+              0.0,
+              0.0
+            ]
+          },
+          "T": null,
+          "status": "pending_not_calibrated",
+          "delta_final_minus_A": 0.0,
+          "delta_final_minus_M0": 0.0,
+          "absolute_distance_over_T": null,
+          "absolute_within_T": null
+        },
+        "PSD_guarded_rate": {
+          "A": 0.0,
+          "M0": 0.0,
+          "initial": 0.0,
+          "final": 0.0,
+          "bank_values": {
+            "A": [
+              0.0,
+              0.0
+            ],
+            "M0": [
+              0.0,
+              0.0
+            ],
+            "initial": [
+              0.0,
+              0.0
+            ],
+            "final": [
+              0.0,
+              0.0
+            ]
+          },
+          "T": null,
+          "status": "pending_not_calibrated",
+          "delta_final_minus_A": 0.0,
+          "delta_final_minus_M0": 0.0,
+          "absolute_distance_over_T": null,
+          "absolute_within_T": null
+        },
+        "rise_undefined_rate": {
+          "A": 0.005544422614317341,
+          "M0": 0.00685262828700049,
+          "initial": 0.006719911769481909,
+          "final": 0.006852628287000491,
+          "bank_values": {
+            "A": [
+              0.0058098556493545025,
+              0.00527898957928018
+            ],
+            "M0": [
+              0.007212858834550921,
+              0.006492397739450058
+            ],
+            "initial": [
+              0.006909506794508452,
+              0.006530316744455366
+            ],
+            "final": [
+              0.00728869684456154,
+              0.006416559729439441
+            ]
+          },
+          "T": 0.001953125,
+          "status": "noninferior_to_both_references",
+          "delta_final_minus_A": 0.0013082056726831494,
+          "delta_final_minus_M0": 8.673617379884035e-19,
+          "absolute_distance_over_T": 3.508545682944251,
+          "absolute_within_T": false
+        },
+        "FWHM_undefined_rate": {
+          "A": 0.00023756354824915665,
+          "M0": 0.00023756354824915665,
+          "initial": 0.00023756354824915665,
+          "final": 0.00023756354824915665,
+          "bank_values": {
+            "A": [
+              0.00023756354824915665,
+              0.00023756354824915665
+            ],
+            "M0": [
+              0.00023756354824915665,
+              0.00023756354824915665
+            ],
+            "initial": [
+              0.00023756354824915665,
+              0.00023756354824915665
+            ],
+            "final": [
+              0.00023756354824915665,
+              0.00023756354824915665
+            ]
+          },
+          "T": null,
+          "status": "pending_not_calibrated",
+          "delta_final_minus_A": 0.0,
+          "delta_final_minus_M0": 0.0,
+          "absolute_distance_over_T": null,
+          "absolute_within_T": null
+        },
+        "temporal_nonpositive_peak_rate": {
+          "A": 0.0,
+          "M0": 0.0,
+          "initial": 0.0,
+          "final": 0.0,
+          "bank_values": {
+            "A": [
+              0.0,
+              0.0
+            ],
+            "M0": [
+              0.0,
+              0.0
+            ],
+            "initial": [
+              0.0,
+              0.0
+            ],
+            "final": [
+              0.0,
+              0.0
+            ]
+          },
+          "T": null,
+          "status": "pending_not_calibrated",
+          "delta_final_minus_A": 0.0,
+          "delta_final_minus_M0": 0.0,
+          "absolute_distance_over_T": null,
+          "absolute_within_T": null
+        },
+        "rise_prepeak_censored_rate": {
+          "A": 0.005544422614317341,
+          "M0": 0.00685262828700049,
+          "initial": 0.006719911769481909,
+          "final": 0.006852628287000491,
+          "bank_values": {
+            "A": [
+              0.0058098556493545025,
+              0.00527898957928018
+            ],
+            "M0": [
+              0.007212858834550921,
+              0.006492397739450058
+            ],
+            "initial": [
+              0.006909506794508452,
+              0.006530316744455366
+            ],
+            "final": [
+              0.00728869684456154,
+              0.006416559729439441
+            ]
+          },
+          "T": 0.001953125,
+          "status": "noninferior_to_both_references",
+          "delta_final_minus_A": 0.0013082056726831494,
+          "delta_final_minus_M0": 8.673617379884035e-19,
+          "absolute_distance_over_T": 3.508545682944251,
+          "absolute_within_T": false
+        },
+        "FWHM_prepeak_censored_rate": {
+          "A": 0.00023756354824915665,
+          "M0": 0.00023756354824915665,
+          "initial": 0.00023756354824915665,
+          "final": 0.00023756354824915665,
+          "bank_values": {
+            "A": [
+              0.00023756354824915665,
+              0.00023756354824915665
+            ],
+            "M0": [
+              0.00023756354824915665,
+              0.00023756354824915665
+            ],
+            "initial": [
+              0.00023756354824915665,
+              0.00023756354824915665
+            ],
+            "final": [
+              0.00023756354824915665,
+              0.00023756354824915665
+            ]
+          },
+          "T": null,
+          "status": "pending_not_calibrated",
+          "delta_final_minus_A": 0.0,
+          "delta_final_minus_M0": 0.0,
+          "absolute_distance_over_T": null,
+          "absolute_within_T": null
+        },
+        "FWHM_postpeak_censored_rate": {
+          "A": 0.0,
+          "M0": 0.0,
+          "initial": 0.0,
+          "final": 0.0,
+          "bank_values": {
+            "A": [
+              0.0,
+              0.0
+            ],
+            "M0": [
+              0.0,
+              0.0
+            ],
+            "initial": [
+              0.0,
+              0.0
+            ],
+            "final": [
+              0.0,
+              0.0
+            ]
+          },
+          "T": null,
+          "status": "pending_not_calibrated",
+          "delta_final_minus_A": 0.0,
+          "delta_final_minus_M0": 0.0,
+          "absolute_distance_over_T": null,
+          "absolute_within_T": null
+        }
+      }
+    }
+  ],
+  "reference_scores_mean12": {
+    "A": 0.15432927983704245,
+    "M0": 0.15012505860962605,
+    "initial": 0.15012367005166385,
+    "final": 0.15011008209012994
+  },
+  "metric_sources": {
+    "seed0_Q1": {
+      "initial": {
+        "path": "runs/wp3_016_20261015/selected_collected_01/runs/primary/artifacts/seed0_Q1/initial_evaluation/METRICS.json",
+        "bytes": 129122,
+        "sha256": "87f8b88701f08836f01232a13414a85d9655c2de72621140bfa8cd7e9b4d67f3"
+      },
+      "final": {
+        "path": "runs/wp3_016_20261015/selected_collected_01/runs/primary/artifacts/seed0_Q1/final_evaluation/METRICS.json",
+        "bytes": 43524,
+        "sha256": "0d6b02bcbf664077703597795597e5bfbe3f5fe3cf4479485680a255e24e01d8"
+      }
+    },
+    "seed1_Q1": {
+      "initial": {
+        "path": "runs/wp3_016_20261015/selected_collected_01/runs/primary/artifacts/seed1_Q1/initial_evaluation/METRICS.json",
+        "bytes": 129124,
+        "sha256": "76ddb4246c2637faaa6d479cc36acd03128c5ffcdcb9744b3b91ce8d46ac5908"
+      },
+      "final": {
+        "path": "runs/wp3_016_20261015/selected_collected_01/runs/primary/artifacts/seed1_Q1/final_evaluation/METRICS.json",
+        "bytes": 43536,
+        "sha256": "e0e7a5cac886ae928d91841758840e2a8fc669785f76881cf7ccf3fc56966701"
+      }
+    }
+  },
+  "charge_semantics_producer_summaries": [
+    {
+      "trial": "seed0_Q1",
+      "snapshot": "initial_evaluation",
+      "bank": 0,
+      "producer_only_pending_array_QA": true,
+      "a_Vns": 7.396158916880037e-06,
+      "b": 1.1592439124125852e-06,
+      "A_repeat_absmax_V": 5.414821558150096e-09,
+      "mu_repeat_absmax_Vns": 2.220446049250313e-16,
+      "theory_mean_MCSE_RMS_Vns": 0.004179583599811332,
+      "moments_record": {
+        "path": "runs/primary/artifacts/seed0_Q1/initial_evaluation/bank0_CHARGE_PREADC_MOMENTS.npz",
+        "bytes": 16856961,
+        "sha256": "de44f39a52a48ca996254828f4d947792ea1f478a413b161352f3bbe0593ad2c"
+      }
+    },
+    {
+      "trial": "seed0_Q1",
+      "snapshot": "initial_evaluation",
+      "bank": 1,
+      "producer_only_pending_array_QA": true,
+      "a_Vns": 7.396158916880037e-06,
+      "b": 1.1592439124125852e-06,
+      "A_repeat_absmax_V": 5.414821558150096e-09,
+      "mu_repeat_absmax_Vns": 2.220446049250313e-16,
+      "theory_mean_MCSE_RMS_Vns": 0.004179583599811332,
+      "moments_record": {
+        "path": "runs/primary/artifacts/seed0_Q1/initial_evaluation/bank1_CHARGE_PREADC_MOMENTS.npz",
+        "bytes": 16857030,
+        "sha256": "34c8b7d4a40f1f4c0dff8eb7b73ff135d82b1bb6b2130f8a59e23b59a6af56a6"
+      }
+    },
+    {
+      "trial": "seed0_Q1",
+      "snapshot": "final_evaluation",
+      "bank": 0,
+      "producer_only_pending_array_QA": true,
+      "a_Vns": 5.8604159176536084e-05,
+      "b": 4.934797362602297e-06,
+      "A_repeat_absmax_V": 5.414821558150096e-09,
+      "mu_repeat_absmax_Vns": 2.220446049250313e-16,
+      "theory_mean_MCSE_RMS_Vns": 0.010276834952434475,
+      "moments_record": {
+        "path": "runs/primary/artifacts/seed0_Q1/final_evaluation/bank0_CHARGE_PREADC_MOMENTS.npz",
+        "bytes": 16857240,
+        "sha256": "14ad5acf44ceb6e7ae2cd7e13ba1a8610b1d03adfd3a7c68a0ea10bf4ac580a3"
+      }
+    },
+    {
+      "trial": "seed0_Q1",
+      "snapshot": "final_evaluation",
+      "bank": 1,
+      "producer_only_pending_array_QA": true,
+      "a_Vns": 5.8604159176536084e-05,
+      "b": 4.934797362602297e-06,
+      "A_repeat_absmax_V": 5.414821558150096e-09,
+      "mu_repeat_absmax_Vns": 2.220446049250313e-16,
+      "theory_mean_MCSE_RMS_Vns": 0.010276834952434475,
+      "moments_record": {
+        "path": "runs/primary/artifacts/seed0_Q1/final_evaluation/bank1_CHARGE_PREADC_MOMENTS.npz",
+        "bytes": 16857262,
+        "sha256": "3baf24a5090295fdb790d0843647cde48c0a67179add11d16eee326a3225db01"
+      }
+    },
+    {
+      "trial": "seed1_Q1",
+      "snapshot": "initial_evaluation",
+      "bank": 0,
+      "producer_only_pending_array_QA": true,
+      "a_Vns": 7.396158916880037e-06,
+      "b": 1.1592439124125852e-06,
+      "A_repeat_absmax_V": 5.414821558150096e-09,
+      "mu_repeat_absmax_Vns": 2.220446049250313e-16,
+      "theory_mean_MCSE_RMS_Vns": 0.004179583599811332,
+      "moments_record": {
+        "path": "runs/primary/artifacts/seed1_Q1/initial_evaluation/bank0_CHARGE_PREADC_MOMENTS.npz",
+        "bytes": 16856961,
+        "sha256": "de44f39a52a48ca996254828f4d947792ea1f478a413b161352f3bbe0593ad2c"
+      }
+    },
+    {
+      "trial": "seed1_Q1",
+      "snapshot": "initial_evaluation",
+      "bank": 1,
+      "producer_only_pending_array_QA": true,
+      "a_Vns": 7.396158916880037e-06,
+      "b": 1.1592439124125852e-06,
+      "A_repeat_absmax_V": 5.414821558150096e-09,
+      "mu_repeat_absmax_Vns": 2.220446049250313e-16,
+      "theory_mean_MCSE_RMS_Vns": 0.004179583599811332,
+      "moments_record": {
+        "path": "runs/primary/artifacts/seed1_Q1/initial_evaluation/bank1_CHARGE_PREADC_MOMENTS.npz",
+        "bytes": 16857030,
+        "sha256": "34c8b7d4a40f1f4c0dff8eb7b73ff135d82b1bb6b2130f8a59e23b59a6af56a6"
+      }
+    },
+    {
+      "trial": "seed1_Q1",
+      "snapshot": "final_evaluation",
+      "bank": 0,
+      "producer_only_pending_array_QA": true,
+      "a_Vns": 1.601902908239811e-05,
+      "b": 3.2142815731775036e-06,
+      "A_repeat_absmax_V": 5.414821558150096e-09,
+      "mu_repeat_absmax_Vns": 2.220446049250313e-16,
+      "theory_mean_MCSE_RMS_Vns": 0.006577579174660624,
+      "moments_record": {
+        "path": "runs/primary/artifacts/seed1_Q1/final_evaluation/bank0_CHARGE_PREADC_MOMENTS.npz",
+        "bytes": 16857105,
+        "sha256": "771645142c8b7fe826934af99e86e17b658e05ff40995853b1810a6facb8c0d6"
+      }
+    },
+    {
+      "trial": "seed1_Q1",
+      "snapshot": "final_evaluation",
+      "bank": 1,
+      "producer_only_pending_array_QA": true,
+      "a_Vns": 1.601902908239811e-05,
+      "b": 3.2142815731775036e-06,
+      "A_repeat_absmax_V": 5.414821558150096e-09,
+      "mu_repeat_absmax_Vns": 2.220446049250313e-16,
+      "theory_mean_MCSE_RMS_Vns": 0.006577579174660624,
+      "moments_record": {
+        "path": "runs/primary/artifacts/seed1_Q1/final_evaluation/bank1_CHARGE_PREADC_MOMENTS.npz",
+        "bytes": 16857377,
+        "sha256": "a484a668ced58645902cb3d8fc21f0f1ca1909f242abee6a70bd13f2affaacb1"
+      }
+    }
+  ],
+  "eligible_candidates": [
+    "Q1"
+  ],
+  "selected_research_reference": "Q1",
+  "provisional_selected_research_reference": "Q1",
+  "selected_mean_adapter_enabled": false,
+  "selected_charge_enabled": true,
+  "current_confirmed_research_reference": "016_Q1_mean_off_charge_on",
+  "development_selection_final": true,
+  "independent_raw_saved_array_readback_complete": true,
+  "frozen_rule": {
+    "bank_distance_aggregation": "mean2bank_distances_not_pooled8",
+    "noninferiority_cells": "ALL6_same_candidate_2seeds_x3hypotheses",
+    "noninferiority_components": "each_required_positive_defined_T",
+    "noninferiority_references": [
+      "paired_A",
+      "paired015_M0_charge_off"
+    ],
+    "noninferiority_bound": "mean2bank(final_distance-reference_distance)<=fixed_T",
+    "required_calibrated_metric_missing_or_undefined": "pending_not_eligible_not_pass",
+    "zero_or_undefined_T": "unresolved_never_automatic_PASS",
+    "score": "arithmetic_mean12_final_hard_wave_distances",
+    "reference_score": "arithmetic_mean12_paired_M0_hard_wave_distances",
+    "replace_M0_only_if_eligible_and_score_below_reference_by_more_than": 1e-12,
+    "ties": "retain_M0_charge_disabled",
+    "initial_charge_on_reference": "reported_separately",
+    "relative_wave_usefulness": "ALL6_mean2bank_improvement_vsA>=.02_report_separately",
+    "absolute_T_and_scientific_acceptance": "separate_not_implied",
+    "weights_promoted": false
+  },
+  "decision_scope": "Arithmetic aggregation of frozen producer JSON; full empirical distances not independently replayed.",
+  "independent_JSON_checks": {
+    "selected_noncheckpoint_file_hashes_verified": 93,
+    "checkpoint_inventory_entries_only": 6,
+    "checkpoint_payload_reads": 0,
+    "journal_records": 188498,
+    "operations_entered": 94249,
+    "operations_completed": 94249,
+    "unknown_inflight_ids": [],
+    "counts": {
+      "calibration_A_rows": 6593,
+      "old_A_rows": 4313569,
+      "head_actual_parameter_forward_rows": 4306976,
+      "head_total_kernel_rows": 4306976,
+      "noise005_rows": 4306976,
+      "charge_module_rows": 4306976,
+      "charge_latent_scalar_draws": 4306976,
+      "charge_initialization_fits": 1,
+      "hard_ADC_rows": 13553856,
+      "all_path_gather_rows": 13553856,
+      "checkpoint_loads": 4,
+      "optimizer_created": 2,
+      "optimizer_steps": 4000,
+      "G_updates": 4000,
+      "training_backward_queries": 4000,
+      "new_AD_queries": 4000,
+      "probe_AD_queries": 0,
+      "integral_statistics_fits": 0,
+      "mean_adapter_rows": 0,
+      "D_updates": 0,
+      "noise_updates": 0,
+      "population_updates": 0,
+      "C2ST_updates": 0,
+      "DEV_model_rows": 0
+    },
+    "all_rows_and_conditional_bins_retained": true,
+    "two_trial_coverage_complete": true
+  },
+  "expected_followup": "Proceed to WP4 known-response recovery under master plan; no extraWP3 trial. Scientific response-match acceptance remains separate.",
+  "cumulative_scientific_G": 179667,
+  "WP3_short_trials_used": 6,
+  "WP3_short_trial_limit": 6,
+  "total_short_trials_used": 10,
+  "six_work_packages_complete": false,
+  "weights_promoted": false,
+  "scientific_acceptance": false,
+  "scientific_status": "response_match_not_established",
+  "provisional": false,
+  "previous_provisional": {
+    "path": "receipts/wp3_016_20261015/postrun_independent_01/PROVISIONAL_DEVELOPMENT_SELECTION.json",
+    "bytes": 139226,
+    "sha256": "81f8bc0b8b3421d0a5ced3f5316b013130698e484b56e2007ed459dae55d9628"
+  },
+  "array_result": {
+    "path": "runs/wp3_016_20261015/readback_collected_01/artifacts/ARRAY_READBACK.json",
+    "bytes": 119756,
+    "sha256": "7337c5ab50929eb4381fc29ded4af138420b8257ba0c7b9945a7c82ca6be604a"
+  },
+  "CPU_collection": {
+    "path": "receipts/wp3_016_20261015/readback_collection_01/COLLECTION_RECEIPT.json",
+    "bytes": 544,
+    "sha256": "965ad3b0beaad6e86fe6534b857261e063191db37f64edda4a025acc037f121d"
+  }
+}

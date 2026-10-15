@@ -42,7 +42,7 @@ for name,row in source['files'].items():
     assert sha(ROOT/name)==row['sha256']
 summary_path=BASE/'readback_execution_01/START_VALIDATION_SUMMARY.json'
 summary=read(summary_path)
-assert summary_path.is_file()
+assert summary.get('passed') is True
 plan=read(OUT/'FOLLOWUP_PLAN.json')
 settings_path=Path('C:/Users/10629/.codex/automations/n01/automation.toml')
 settings=tomllib.loads(settings_path.read_text(encoding='utf-8'))
