@@ -1,0 +1,187 @@
+{
+  "schema": "n01/wp2-014-config/v1",
+  "run_id": "wp2_014_20261015",
+  "status": "draft",
+  "candidates": [
+    "C0",
+    "C1"
+  ],
+  "seed_sets": [
+    {
+      "initialization": 2026101540,
+      "source_sampler": 2026101541,
+      "real_sampler": 2026101542,
+      "train_shape": 2026101543,
+      "train_noise005": 2026101544,
+      "train_extension": 2026101545,
+      "train_projection": 2026101546,
+      "integral_projection": 2026101547,
+      "calibration_selection": 2026101548,
+      "calibration_shape": [
+        2026101549,
+        2026101550
+      ],
+      "probe_selection": 2026101551,
+      "probe_real": 2026101552,
+      "probe_banks": [
+        {
+          "shape": 2026101553,
+          "noise005": 2026101554,
+          "extension": 2026101555
+        },
+        {
+          "shape": 2026101556,
+          "noise005": 2026101557,
+          "extension": 2026101558
+        }
+      ]
+    },
+    {
+      "initialization": 2026101640,
+      "source_sampler": 2026101641,
+      "real_sampler": 2026101642,
+      "train_shape": 2026101643,
+      "train_noise005": 2026101644,
+      "train_extension": 2026101645,
+      "train_projection": 2026101646,
+      "integral_projection": 2026101647,
+      "calibration_selection": 2026101648,
+      "calibration_shape": [
+        2026101649,
+        2026101650
+      ],
+      "probe_selection": 2026101651,
+      "probe_real": 2026101652,
+      "probe_banks": [
+        {
+          "shape": 2026101653,
+          "noise005": 2026101654,
+          "extension": 2026101655
+        },
+        {
+          "shape": 2026101656,
+          "noise005": 2026101657,
+          "extension": 2026101658
+        }
+      ]
+    }
+  ],
+  "G_updates": 2000,
+  "TRAIN_counts": {
+    "source": 6593,
+    "real": 21047
+  },
+  "training": {
+    "source_parents_per_update": 512,
+    "draws_per_parent": 2,
+    "real_rows_per_update": 1024,
+    "forward_chunk_rows": 256,
+    "G_lr": 0.0002,
+    "G_weight_decay": 0.0001,
+    "clip_norm": 5.0,
+    "wave_weight": 1.0,
+    "distribution_weight": 2.0,
+    "regular_weight": 0.01,
+    "status_interval": 100,
+    "checkpoint_steps": [
+      1000,
+      2000
+    ]
+  },
+  "calibration": {
+    "parents": 128,
+    "draws": 4,
+    "banks": 2,
+    "RMS_upper_bound_ADC_LSB": 1.0,
+    "bisections": 16
+  },
+  "probe": {
+    "steps": [
+      0,
+      2000
+    ],
+    "parents": 64,
+    "draws": 2,
+    "banks": 2,
+    "strata": [
+      "all",
+      "SOURCE_Q_quartiles_4",
+      "output_Q_quartiles_4",
+      "predeclared_single_parents_4"
+    ],
+    "single_parent_positions": [
+      0,
+      16,
+      32,
+      48
+    ],
+    "scalar_AD_terms": 3,
+    "real_reference_rows": 128
+  },
+  "evaluation": {
+    "parents": 6593,
+    "draws": 4,
+    "banks": 2,
+    "chunk_rows": 128,
+    "bank_seeds": [],
+    "projection_seed": null,
+    "whole_population": true,
+    "snapshot_arms": {
+      "initial": [
+        "A",
+        "initial"
+      ],
+      "final": [
+        "final"
+      ]
+    }
+  },
+  "hypotheses": [
+    "fast",
+    "slow",
+    "common_level"
+  ],
+  "CPU_threads": 12,
+  "run_resource_limits": {
+    "GPU_GiB": 10,
+    "job_tree_RSS_GiB": 8,
+    "wall_seconds": 7200,
+    "output_MiB": 1536
+  },
+  "resource_limits": {
+    "GPU_GiB": 10,
+    "job_tree_RSS_GiB": 8,
+    "wall_seconds": 28800,
+    "output_MiB": 6144,
+    "poll_seconds": 10,
+    "TERM_grace_seconds": 20
+  },
+  "one_active_scientific_job": true,
+  "serial_runs": true,
+  "automatic_restart": false,
+  "overwrite_outputs": false,
+  "DEV_numeric_read": false,
+  "scientific_status": "response_match_not_established",
+  "budget_caps": {
+    "old_A_rows": 8616256,
+    "head_actual_parameter_forward_rows": 8616512,
+    "head_total_kernel_rows": 8653376,
+    "calibration_map_rows": 36864,
+    "noise005_rows": 8616000,
+    "hard_ADC_rows": 26480928,
+    "all_path_gather_rows": 26480928,
+    "checkpoint_loads": 2,
+    "optimizer_created": 4,
+    "optimizer_steps": 8000,
+    "G_updates": 8000,
+    "training_backward_queries": 8000,
+    "probe_AD_queries": 1872,
+    "new_AD_queries": 9872,
+    "integral_statistics_fits": 1,
+    "D_updates": 0,
+    "noise_updates": 0,
+    "population_updates": 0,
+    "C2ST_updates": 0,
+    "DEV_model_rows": 0
+  }
+}

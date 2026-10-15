@@ -1,0 +1,39 @@
+{
+  "schema": "n01/wp2-014-design-draft/v1",
+  "status": "draft_requires_root_freeze_before_any_scientific_operation",
+  "scope": "C0/C1 paired short trials, existing 1288-parameter head, no C2",
+  "proposals_for_root_once": {
+    "head_seeds": [2026101540, 2026101640],
+    "G_updates_per_run": 2000,
+    "candidates": ["C0", "C1"],
+    "segments_half_open": [[0,16],[16,46],[46,96],[96,256]],
+    "integral_joint_vector": ["Q", "T", "S0", "S1", "S2", "S3"],
+    "integral_transform": "asinh(raw / fixed_REAL_TRAIN_median_absolute_integral_with_ADC_quadrature_floor)",
+    "integral_distance": "0.5*coordinate_empirical_W1 + 0.5*16_direction_joint_empirical_W1; original outer weight 2",
+    "calibration": {
+      "TRAIN_source_parents": 128,
+      "draws_per_parent": 4,
+      "independent_shape_banks": 2,
+      "target_carrier_RMS_ADC_LSB": 1,
+      "aggregation": "sqrt(mean(all parent,bank,draw,384 samples of preADC random_shape squared))",
+      "solver": "Cache one frozen A decoded output per parent, fixed 16 bisections on initial weight multiplier [0,1], choose final midpoint; no loss or REAL access; fail if scale1 does not bracket target; report residual",
+      "future_voltage_gain": 0.05,
+      "capacity": "Only initial head weights are scaled; no persistent multiplier, gain, clipping or later restriction",
+      "paired_reuse": "Each seed calibrates once; C0/C1 share the same calibrated initial head bytes"
+    },
+    "gradient_probe": {
+      "steps": [0,1000,2000],
+      "fixed_source_parents": 64,
+      "draws_per_parent": 2,
+      "libraries": 2,
+      "strata": "fixed TRAIN canonical SOURCE Q quartiles plus four predeclared individual parents, all diagnostic only",
+      "terms": ["wave", "weighted_distribution", "weighted_regular", "total"],
+      "hypotheses": ["fast","slow","common_level"],
+      "requirement": "bounded stratum subbatch gradients, raw Q/PSD counts, parent lineage, peak switches vs initial probe; never per-event loss contribution percentages"
+    },
+    "evaluation": "Reuse WP1 full-population hard evaluator and frozen T table once root gives binding; 2 banks x 6593 parents x4 draws x3 hypotheses at initial and final, final old native QPSD plus all raw/hard metrics",
+    "resource_caps": {"CPU_threads":12,"GPU_GiB":10,"job_tree_RSS_GiB":8,"wall_seconds_per_run":7200,"output_MiB_per_run":1536}
+  },
+  "unresolved_for_launch": ["Root must supply frozen T path and SHA", "Root must freeze exact budgets/probe and evaluation scope before scientific access", "Root must supply isolated input/source bindings and serial supervisor protocol"],
+  "construction_only": {"private_data_reads":0,"checkpoint_loads":0,"real_model_forwards":0,"real_AD_queries":0,"G_updates":0,"SSH":0}
+}

@@ -1,0 +1,122 @@
+{
+  "schema": "n01/wp2-budget-resource-notes/v1",
+  "basis": "root fixed decisions before scientific registration",
+  "counting": {
+    "seeds": 2,
+    "candidates": 2,
+    "runs": 4,
+    "G_per_run": 2000,
+    "train_rows_per_G": 1024,
+    "H": 3,
+    "evaluation_rows_per_bank": 26372,
+    "evaluation_banks": 2,
+    "initial_evaluation_arms": 2,
+    "final_evaluation_arms": 1,
+    "probe_snapshots": 2,
+    "probe_banks": 2,
+    "probe_rows_per_bank": 128,
+    "probe_strata_maximum": 13,
+    "probe_scalar_AD_per_stratum": 3,
+    "probe_total_gradient": "sum of the three stored vectors; zero additional AD",
+    "calibration_unique_parents_per_seed": 128,
+    "calibration_draws": 4,
+    "calibration_banks": 2,
+    "calibration_A_cache_rows_per_seed": 128,
+    "calibration_actual_head_rows_per_seed": 256,
+    "calibration_voltage_map_evaluations_per_seed_minimum": 2,
+    "calibration_voltage_map_evaluations_per_seed_maximum": 18
+  },
+  "formulas": {
+    "old_A": "4*2000*1024 + 4*2snapshots*2banks*(6593*4) + 4*2steps*2banks*(64*2) + 2seeds*128",
+    "head_actual": "old_A - 2*128 + 2*256",
+    "calibration_maps": "2seeds*128*4draws*2banks*(16bisections+2)",
+    "head_total": "actual_head + actual_calibration_maps",
+    "noise005": "old_A - 2*128",
+    "ADC_and_gather": "3H*(4*2000*1024 + 4*2steps*2banks*128) + 3H*4runs*2banks*(6593*4)*3arms_across_snapshots",
+    "scalar_AD": "8000 training backwards + up to 4runs*2steps*2banks*3H*13strata*3terms=9872",
+    "checkpoint_loads": "2 total: deterministic A19k and 005; no old010 head CP"
+  },
+  "caps": {
+    "old_A_rows": 8616256,
+    "head_actual_parameter_forward_rows": 8616512,
+    "head_total_kernel_rows": 8653376,
+    "calibration_map_rows": 36864,
+    "noise005_rows": 8616000,
+    "hard_ADC_rows": 26480928,
+    "all_path_gather_rows": 26480928,
+    "checkpoint_loads": 2,
+    "optimizer_created": 4,
+    "optimizer_steps": 8000,
+    "G_updates": 8000,
+    "training_backward_queries": 8000,
+    "probe_AD_queries": 1872,
+    "new_AD_queries": 9872,
+    "integral_statistics_fits": 1,
+    "D_updates": 0,
+    "noise_updates": 0,
+    "population_updates": 0,
+    "C2ST_updates": 0,
+    "DEV_model_rows": 0
+  },
+  "cap_semantics": {
+    "mandatory_on_COMPLETE": [
+      "old_A_rows",
+      "head_actual_parameter_forward_rows",
+      "noise005_rows",
+      "hard_ADC_rows",
+      "all_path_gather_rows",
+      "checkpoint_loads",
+      "optimizer_created",
+      "optimizer_steps",
+      "G_updates",
+      "training_backward_queries",
+      "integral_statistics_fits"
+    ],
+    "may_be_below_cap": [
+      "calibration_map_rows",
+      "head_total_kernel_rows",
+      "probe_AD_queries",
+      "new_AD_queries"
+    ],
+    "already_below_initialization": "No bisection/no enlargement; actual head still verified",
+    "empty_gradient_stratum": "Keep denominator/reason; skip all 3 scalar AD calls"
+  },
+  "resources": {
+    "CPU_threads": 12,
+    "GPU_GiB": 10,
+    "job_tree_RSS_GiB": 8,
+    "wall_seconds_each_trial": 7200,
+    "batch_wall_seconds": 28800,
+    "output_MiB_each_trial": 1536,
+    "batch_output_MiB": 6144,
+    "single_process_tree": true,
+    "serial": true,
+    "automatic_restart": false
+  },
+  "output_estimate": {
+    "scope": "execution host, per trial; estimated before real run, not a measured result",
+    "lossless_uint16_hard_window_bytes_uncompressed": 243044352,
+    "exact_baseline100_bytes_uncompressed": 84390400,
+    "repeated_hard_wave_mean_and_variance_bytes_uncompressed": 486088704,
+    "optional_exact_IEEE754_XOR_bytes_uncompressed_maximum": 972177408,
+    "remaining": "Scalar repeat covariance, raw signed observables, flags, input trends, small parameter gradients/checkpoints/journals.",
+    "expected_compressed_MiB_range": [
+      600,
+      1200
+    ],
+    "uncertainty": "Compressed size is not guaranteed by the artificial test. Enforced cap is1536 MiB/trial; unexpected excess fails and preserves completed cost, never drops rows or silently changes precision.",
+    "local_collection": "Inventory-SHA-bound small receipts only. Leave raw NPZ/checkpoints on server until E/D space permits; no bulk tar+expand on local E.",
+    "current_local_free_bytes_readback": {
+      "E": 2711187456,
+      "D": 476479488
+    }
+  },
+  "memory_estimate": {
+    "scope": "unverified full-population estimate",
+    "training": "Frozen A chunked at256; only1288 head parameters accumulate gradients. Main saved head inputs about50 MiB/G.",
+    "evaluation": "Full-row weighted CDF/sorted lag projections dominate; several GiB expected, bounded by10 GiB CUDA and8 GiB RSS with supervisor enforcement.",
+    "artificial_focused_RSS_bytes": 534360064,
+    "native_full_population_peak": "not_yet_observed",
+    "wall_time_forecast": "not extrapolated from the artificial workload"
+  }
+}

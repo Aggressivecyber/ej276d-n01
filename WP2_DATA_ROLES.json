@@ -1,0 +1,58 @@
+{
+  "schema": "n01/wp2-data-roles/v1",
+  "run_id": "wp2_014_20261015",
+  "authority": "USER_MASTER_PLAN_20261015.txt",
+  "parent_role_contract": "DATA_ROLES.json",
+  "source": {
+    "TRAIN_parents": 6593,
+    "all_legal_TRAIN_retained": true,
+    "model_input": "original SOURCE carrier384 only",
+    "forbidden_neural_inputs": ["event_ID", "row", "file", "batch_number", "Q_bin", "audit_h", "PDG"],
+    "original_roles_preserved": true,
+    "original_INTERNAL_VAL_parents": 1599,
+    "historically_exposed_fixed_DEV_subset_of_INTERNAL_VAL": 512,
+    "remaining_INTERNAL_VAL_exposure": "unknown"
+  },
+  "real": {
+    "TRAIN_rows": 21047,
+    "original_logical_groups": 422,
+    "confirmed_acquisitions": 1,
+    "all_legal_TRAIN_retained": true,
+    "new_DEV_waveform_reads": 0,
+    "independent_acquisition_confirmation": "unverified"
+  },
+  "data_dependent_components": {
+    "deterministic_A19k": "frozen historical fit using original TRAIN; not a fold-refit component",
+    "noise005": "frozen historical TRAIN component with unchanged buffers and source bytes",
+    "new_head_C0_C1": "all legal SOURCE/REAL TRAIN via FullCoverageSampler, each seed/candidate reset independently",
+    "integral_scales": "one fit on all REAL TRAIN, before the four trials; median absolute raw integrals with ADC quadrature floor",
+    "SOURCE_Q_quartiles": "all SOURCE TRAIN canonical charge; diagnostic grouping only",
+    "output_Q_quartiles": "all REAL TRAIN output charge; fixed diagnostic boundaries, generated membership may vary",
+    "RMS_initialization": "128 SOURCE TRAIN parents per seed, 4 draws in each of 2 shape banks; no REAL objective or fit; paired candidates reuse identical calibrated head bytes",
+    "gradient_probe": "64 SOURCE TRAIN parents per seed, 2 draws and 2 separate banks; REAL reference128 TRAIN rows; step0/2000 only; subset gradient summaries are not additive event loss shares",
+    "SOURCE_information_archive": "reuse saved013 PARENT_INFORMATION.npz with historical roles; TRAIN IDs joined for descriptive audit; audit metadata never enters the neural network"
+  },
+  "evaluation": {
+    "split": "TRAIN_development",
+    "SOURCE_parents": 6593,
+    "REAL_rows": 21047,
+    "banks": 2,
+    "draws_per_parent_per_bank": 4,
+    "all_four_suites": ["full_population", "output_Q_condition", "SOURCE_input_trend", "same_parent_repeat"],
+    "paired_C0_C1_streams": true,
+    "MC_libraries_are_not_model_seeds": true,
+    "noise_hypotheses_are_not_independent_model_fits": true,
+    "original_A_fit_contains_these_TRAIN_parents": true,
+    "unseen_parent_generalization": "not_estimated",
+    "independent_acquisition_generalization": "unverified"
+  },
+  "future_confirmation": {
+    "outer_grouped_folds": 3,
+    "full_pipeline_seeds": 2,
+    "systems": 3,
+    "all_data_dependent_components_refit_per_fold": true,
+    "budget_separate_from_WP2": true,
+    "deployment_full_TRAIN_refit_is_not_new_unseen_test": true
+  },
+  "preserve": ["all IDs and parent membership", "original physical weight metadata including unknown", "Q<=0 rows", "PSD undefined and guarded flags", "all observation failures", "all prior negative results"]
+}
