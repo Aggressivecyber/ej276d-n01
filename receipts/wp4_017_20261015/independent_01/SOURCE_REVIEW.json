@@ -1,0 +1,550 @@
+{
+  "schema": "n01/wp4-017-independent-source-review/v1",
+  "recorded_UTC": "2026-10-15T11:41:24.975018+00:00",
+  "passed": true,
+  "blockers": [],
+  "reviewer_model": "gpt-6.1-sol",
+  "reasoning_effort": "max",
+  "review_round": "single requested source review with concentrated local corrections",
+  "status": "LOCAL_ONLY_SOURCE_AND_ARTIFICIAL_ENGINEERING_ACCEPTED",
+  "latest_user_boundary": "做好就行 不用推送服务器 服务器马上要关闭了",
+  "sources": {
+    "scripts/run_wp4_017.py": {
+      "sha256": "34e8604b7be53359f8b50ffc4de882845d561f49190063931614e25ec6bc5e62",
+      "bytes": 63149
+    },
+    "scripts/wp4_017_controller.py": {
+      "sha256": "eb15f3ba35844436f9b5ff3879332bd19046fcfd4f1fffe8459db2505333c38c",
+      "bytes": 31507
+    },
+    "src/n01/model017.py": {
+      "sha256": "5cba237812175c4bfa668c887b71051f520ce58e9d330dccd09ab1ca76781c5f",
+      "bytes": 8319
+    },
+    "src/n01/stats017.py": {
+      "sha256": "9dc33275b66257397e2382cd2989f74701026a897e847af76fa459c72859dd0a",
+      "bytes": 21447
+    },
+    "src/n01/saved_array_kernels017.py": {
+      "sha256": "fe1366f35f36e97974f1a4037a36ad858c03dd8453957c1b45b65080f0fee3ac",
+      "bytes": 3691
+    }
+  },
+  "accepted_proposal": {
+    "path": "receipts/wp4_017_20261015/planning_01/ENGINEERING_PROPOSAL.json",
+    "bytes": 61470,
+    "sha256": "b2db64dfd3549f6cd22cb5253a1e374738248012e22554308ec26885d2d42e8e"
+  },
+  "accepted_contract_review": {
+    "path": "receipts/wp4_017_20261015/planning_01/INDEPENDENT_CONTRACT_REVIEW.json",
+    "bytes": 52101,
+    "sha256": "31a0a106bf033ec7d363abc13811a7f0e6dd87e79d139ea7ad6c867a67927fd7"
+  },
+  "engineering_receipt": {
+    "path": "receipts/wp4_017_20261015/engineering_01/ENGINEERING_READY.json",
+    "bytes": 22813,
+    "sha256": "eaa0bba9a7f6c4be9c721bf7dac36b3fe67b722a18e989527b58cd2d64934885"
+  },
+  "configuration_document": {
+    "path": "docs/WP4_017_CONFIGURATION.md",
+    "bytes": 7619,
+    "sha256": "e803d3900999bbcba974e625677eaa4740dfa9652603dd8c2d935950715bc656"
+  },
+  "data_roles": {
+    "path": "WP4_017_DATA_ROLES.json",
+    "bytes": 3280,
+    "sha256": "4950914357e6c3974e1b8e18b046b22f9e6f95cbbe3e74103be8e238c3dfdb48"
+  },
+  "settings_draft": {
+    "path": "receipts/wp4_017_20261015/engineering_01/SETTINGS_DRAFT.json",
+    "bytes": 6834,
+    "sha256": "0878913308209ed020de429481ed5049435dc1b7d587336530d2d8e99cc40c2c"
+  },
+  "local_delivery": {
+    "source_freeze_permitted": true,
+    "raw_Git_blob_readback_and_D_backup_permitted": true,
+    "ready_for_native_dispatch": false,
+    "server_access_authorized": false,
+    "additional_review_layer_required": false,
+    "actual_scientific_execution": "NOT_RUN",
+    "known_teacher_recovery": "NOT_TESTED",
+    "source_or_main_metadata_modified_by_reviewer": false
+  },
+  "conclusion_zh": "本地源码及人工工程证据通过。固定已知A/005/M0条件下的两参数电荷方差恢复实现与已接受合同一致；第二阶段仅在两次T1 paired全部必需门resolved且通过后开放。当前没有真实教师恢复结果，不授予硬件或REAL响应的科学接受。",
+  "scope": {
+    "trainable_parameters": 2,
+    "frozen_A_005_M0": true,
+    "mean_adapter_enabled": false,
+    "shape_head_1288_recovery_claim": false,
+    "mean_or_timing_kernel_learning_claim": false,
+    "REAL_or_DEV_numeric_input": false,
+    "physical_weight_preservation_separate_from_comparison_weights": true,
+    "new_macro_protocol_or_scientific_gate": false
+  },
+  "budget_caps": {
+    "trial_slots": 8,
+    "G_updates": 16000,
+    "optimizer_steps": 16000,
+    "training_backward_queries": 16000,
+    "new_AD_queries": 16000,
+    "optimizers_created": 8,
+    "checkpoint_loads": 3,
+    "A_original_forward_rows": 6593,
+    "original_U_Net_decoded_rows": 6593,
+    "fixed_M0_head_actual_kernel_rows": 6593,
+    "student_charge_module_rows": 20181568,
+    "teacher_charge_module_rows": 17227904,
+    "shape_cached_basis_assembly_rows": 37409472,
+    "noise005_rows": 37409472,
+    "all_three_extensions_rows": 112228416,
+    "hard_ADC_rows": 112228416,
+    "hard_first_argmax_gather_rows": 112228416,
+    "training_student_rows": 16384000,
+    "training_teacher_rows": 16384000,
+    "evaluation_kernel_snapshots": 11,
+    "evaluation_signal_rows": 4641472,
+    "normal_shape_scalar_requests": 299275776,
+    "normal_charge_scalar_requests": 37409472,
+    "normal_noise005_scalar_requests": 3778356672,
+    "normal_extension284_scalar_requests": 10624290048,
+    "total_scalar_normal_requests": 14739331968,
+    "T2_teacher_sign_uniform_requests": 8613952,
+    "coverage_PIT_uniform_requests": 15190272,
+    "parent_sampler_streams": 20,
+    "parent_randint_calls": 40000,
+    "parent_randint_scalar_requests": 20480000,
+    "parent_randperm_calls": 0,
+    "paired_training_energy_pair_distances": 61440000,
+    "unpaired_training_energy_pair_distances": 50331648000,
+    "unpaired_training_cross_retained_pairs": 25165824000,
+    "unpaired_training_self_ordered_retained_pairs": 25141248000,
+    "unpaired_training_self_diagonal_computed_then_masked": 24576000,
+    "evaluation_energy_candidate_comparisons": 10,
+    "evaluation_energy_pair_distances": 931670016,
+    "checkpoint_saves_complete": 17,
+    "REAL_waveform_reads": 0,
+    "original_DEV_waveform_reads": 0,
+    "A_005_M0_updates": 0,
+    "mean_adapter_updates": 0,
+    "shape_head_updates": 0,
+    "teacher_parameter_updates": 0,
+    "noise_updates": 0,
+    "population_updates": 0,
+    "D_updates": 0,
+    "C2ST_updates": 0,
+    "probe_AD_queries": 0,
+    "integral_scale_fits": 0,
+    "charge_initialization_fits": 0,
+    "teacher_or_student_latent_in_deployment_inputs": 0,
+    "new_hardware_or_REAL_teacher_claims": 0
+  },
+  "stage1_budget_caps": {
+    "trial_slots": 2,
+    "G_updates": 4000,
+    "optimizer_steps": 4000,
+    "training_backward_queries": 4000,
+    "new_AD_queries": 4000,
+    "optimizers_created": 2,
+    "checkpoint_loads": 3,
+    "A_original_forward_rows": 6593,
+    "original_U_Net_decoded_rows": 6593,
+    "fixed_M0_head_actual_kernel_rows": 6593,
+    "student_charge_module_rows": 5361856,
+    "teacher_charge_module_rows": 4517952,
+    "shape_cached_basis_assembly_rows": 9879808,
+    "noise005_rows": 9879808,
+    "all_three_extensions_rows": 29639424,
+    "hard_ADC_rows": 29639424,
+    "hard_first_argmax_gather_rows": 29639424,
+    "training_student_rows": 4096000,
+    "training_teacher_rows": 4096000,
+    "evaluation_kernel_snapshots": 4,
+    "evaluation_signal_rows": 1687808,
+    "normal_shape_scalar_requests": 79038464,
+    "normal_charge_scalar_requests": 9879808,
+    "normal_noise005_scalar_requests": 997860608,
+    "normal_extension284_scalar_requests": 2805865472,
+    "total_scalar_normal_requests": 3892644352,
+    "T2_teacher_sign_uniform_requests": 0,
+    "coverage_PIT_uniform_requests": 7595136,
+    "parent_sampler_streams": 2,
+    "parent_randint_calls": 4000,
+    "parent_randint_scalar_requests": 2048000,
+    "parent_randperm_calls": 0,
+    "paired_training_energy_pair_distances": 30720000,
+    "unpaired_training_energy_pair_distances": 0,
+    "unpaired_training_cross_retained_pairs": 0,
+    "unpaired_training_self_ordered_retained_pairs": 0,
+    "unpaired_training_self_diagonal_computed_then_masked": 0,
+    "evaluation_energy_candidate_comparisons": 3,
+    "evaluation_energy_pair_distances": 303805440,
+    "checkpoint_saves_complete": 5,
+    "REAL_waveform_reads": 0,
+    "original_DEV_waveform_reads": 0,
+    "A_005_M0_updates": 0,
+    "mean_adapter_updates": 0,
+    "shape_head_updates": 0,
+    "teacher_parameter_updates": 0,
+    "noise_updates": 0,
+    "population_updates": 0,
+    "D_updates": 0,
+    "C2ST_updates": 0,
+    "probe_AD_queries": 0,
+    "integral_scale_fits": 0,
+    "charge_initialization_fits": 0,
+    "teacher_or_student_latent_in_deployment_inputs": 0,
+    "new_hardware_or_REAL_teacher_claims": 0
+  },
+  "budget_invariants": {
+    "trainable_parameters_per_optimizer": 2,
+    "teacher_parameters_updated": 0,
+    "original_checkpoint_loads_planned": 3,
+    "whole_job_failure_checkpoint_maximum": 1,
+    "failure_checkpoint_allowance_after_successful_stage1": 1,
+    "stage2_caps_are_full_minus_stage1_for_additive_counts_only": true,
+    "two_theta_dimension_and_failure_allowance_are_not_subtracted": true,
+    "actual_scientific_G_updates_in_this_work": 0,
+    "cumulative_preexisting_scientific_G_updates": 179667
+  },
+  "independent_checks": {
+    "prepared_core": {
+      "reference": {
+        "path": "receipts/wp4_017_20261015/independent_01/PREPARED_SEMANTIC_CHECKS.json",
+        "bytes": 7023,
+        "sha256": "705e4e47d8d6a33a880e56230edb47a45237a5b8622895cf16b04e3003a1c096"
+      },
+      "NumPy_cases": 25,
+      "Torch_CPU_cases": 10,
+      "reused_not_rerun": true,
+      "scope": [
+        "independent scalar HC1/ESS and finite PIT denominators",
+        "parent-first coverage and conditional covariance excluding between-parent scatter",
+        "teacher32 split MC_unresolved despite identical student/teacher",
+        "proper U energy, zero/duplicate distances and finite gradients",
+        "T2 exact fourth moment 1.6878 from deterministic quadrature",
+        "actual two-theta ES gradients versus finite differences and real AdamW update",
+        "A/B immutability, positive charge, exact disabled branch and shape not multiplied by q"
+      ]
+    },
+    "final_delta": {
+      "reference": {
+        "path": "receipts/wp4_017_20261015/independent_01/FINAL_SEMANTIC_DELTA_CHECKS.json",
+        "bytes": 5223,
+        "sha256": "1c5ee20dcb01ab0b8cc75942594cf36c1f1049e24f73a9ee950cdd3b4e4550c4"
+      },
+      "cases": 29,
+      "passed": true,
+      "torch_imported": false,
+      "actual_stage_gate_executed": true,
+      "scope": [
+        "1392 primary +1296 mandatory missingness cells =2688 total over two stage1 trials",
+        "one pending/fail closes stage2; omitted mandatory cause/duplicate primary rejected",
+        "nonmissing ADC/search/Q-sign diagnostic differences do not create gates",
+        "fit AND test fixed [Q/qref,(Q/qref)^2] Gram from scalar summation oracle",
+        "invalid analytic parent cannot hide inside95percent empirical support",
+        "40GiB disk/10GiB RAM/GPU-empty exact preflight; missing/old8GiB/weakRAM/GPU-false rejected",
+        "existing B0 zero/nonzero and unestablished T2 observed mechanism metadata"
+      ]
+    },
+    "source_binding": {
+      "reference": {
+        "path": "receipts/wp4_017_20261015/independent_01/SOURCE_BINDING_CHECKS.json",
+        "bytes": 26255,
+        "sha256": "5683c4424bc8e6bd135f1324e0f8cab178042d14ac019b45033d67223991c9a9"
+      },
+      "cases": 18,
+      "passed": true,
+      "original_controls_verified": 124,
+      "bound_small_references": 23,
+      "unchanged_heavy_AST": {
+        "Engine017.step": true,
+        "Runtime017.signals": true,
+        "Runtime017.training_window": true,
+        "budget_caps017": true,
+        "prepare_numeric017": true,
+        "energy_vectors017": true
+      },
+      "unchanged_statistical_AST": {
+        "partition017": true,
+        "groups_weights017": true,
+        "weighted017": true,
+        "support_cell017": true,
+        "scalar_banks017": true,
+        "coverage017": true,
+        "covariance_cell017": true,
+        "timing_cell017": true,
+        "energy_cell017": true,
+        "scalar_features017": true,
+        "pooled_wave017": true,
+        "waveform_cells017": true,
+        "coverage_cells017": true
+      },
+      "exact_reused_bytes": {
+        "scripts/wp4_017_controller.py": true,
+        "src/n01/model017.py": true,
+        "src/n01/saved_array_kernels017.py": true
+      },
+      "metadata_only_AST": {
+        "build_frozen_cache017": true,
+        "evaluate_kernel017": true,
+        "Engine017.checkpoint": true
+      }
+    }
+  },
+  "engineering_evidence": {
+    "core16_reused": {
+      "path": "receipts/wp4_017_20261015/engineering_01/artificial_model_03/ENGINEERING_RECEIPT.json",
+      "sha256": "9727edf39f33660c11b5c689f0203084900e50437b2465c9ecd8aaae10b1ff26",
+      "bytes": 1492
+    },
+    "independent_core25numpy10torch_reused": {
+      "path": "receipts/wp4_017_20261015/independent_01/PREPARED_SEMANTIC_CHECKS.json",
+      "sha256": "705e4e47d8d6a33a880e56230edb47a45237a5b8622895cf16b04e3003a1c096",
+      "bytes": 7023
+    },
+    "final_stdlib_factories": {
+      "path": "receipts/wp4_017_20261015/engineering_01/artificial_stdlib_final_01/ENGINEERING_RECEIPT.json",
+      "sha256": "6286cc00e283511497cac118eeac6bbe24d34443a57f1b84f1d708e7ad5cce53",
+      "bytes": 1078
+    },
+    "two_tiny_trial_end_to_end": {
+      "path": "receipts/wp4_017_20261015/engineering_01/artificial_driver_02/ENGINEERING_RECEIPT.json",
+      "sha256": "fefd2b541c9804e1d1c3fcbd2d509f5814717a176c63eff023d4f95843d82285",
+      "bytes": 1306449
+    },
+    "full1024_three_hypotheses_one_backward": {
+      "path": "receipts/wp4_017_20261015/engineering_01/artificial_full1024_02/ENGINEERING_RECEIPT.json",
+      "sha256": "c896dc1b4f9ceb2353a883f90d6055ffdb4ba524351b9c6a2fee311b370104b8",
+      "bytes": 6864
+    },
+    "serialization_and_new_formula_delta": {
+      "path": "receipts/wp4_017_20261015/engineering_01/artificial_storage_delta_03/ENGINEERING_RECEIPT.json",
+      "sha256": "c277fe13cd32080a2418f87a27cfc717f7522964297371d9940c9f8d983d643a",
+      "bytes": 3812
+    },
+    "actual_original_class_artificial_cache": {
+      "path": "receipts/wp4_017_20261015/engineering_01/artificial_actual_cache_01/ENGINEERING_RECEIPT.json",
+      "sha256": "2989d70a7d79cf9273ef2aa2b8b4a6f2d2b53168e9185a9b7019f5624d8b5171",
+      "bytes": 1230
+    },
+    "saved_format_reopen_and_own_CP_state": {
+      "path": "receipts/wp4_017_20261015/engineering_01/artificial_reopen_01/ENGINEERING_RECEIPT.json",
+      "sha256": "266369b90c3948923e31ebd9699e5bf26102c7c7db869df84a7e56f1da9497fa",
+      "bytes": 2723
+    },
+    "root_controller11positive42negative": {
+      "path": "receipts/wp4_017_20261015/engineering_01/artificial_controller_root_01/run_01/ENGINEERING_RECEIPT.json",
+      "sha256": "fe0b495e975c8e6e3630f05de749e049757d15946afbc7ec66ec2e9037699a2a",
+      "bytes": 8477
+    },
+    "focused_source_review_delta27": {
+      "path": "receipts/wp4_017_20261015/engineering_01/source_review_fix01/artificial_delta_01/ENGINEERING_RECEIPT.json",
+      "sha256": "76a3e8a020be6541a49179fff12928bd6d2c75bcd2fcbaa671801a3cb223e58e",
+      "bytes": 5437
+    },
+    "final_source_metadata_stdlib23": {
+      "path": "receipts/wp4_017_20261015/engineering_01/source_review_fix01/artificial_final_stdlib_01/ENGINEERING_RECEIPT.json",
+      "sha256": "8faccbbbc9f5e91c66285baa8d18355df2a6e11f1b842b5542eff4a72c993024",
+      "bytes": 2668
+    }
+  },
+  "evidence_assessment": {
+    "two_tiny_trials": {
+      "passed": true,
+      "manufactured_only": true,
+      "checks": 15,
+      "operations_entered": 226,
+      "operations_completed": 226,
+      "full_stage1_counter_equalities_verified": true,
+      "native_scientific_execution": false
+    },
+    "full1024_unpaired": {
+      "passed": true,
+      "manufactured_only": true,
+      "three_hypotheses": true,
+      "actual_backward_queries": 1,
+      "actual_optimizer_steps": 1,
+      "theta_gradients": [
+        -0.5506796206605035,
+        -0.03425447841302826
+      ],
+      "actual_theta_deltas": [
+        0.00999999981840638,
+        0.00999999708067456
+      ],
+      "elapsed_seconds": 3.2904049000062514,
+      "CPU_peak_RSS_bytes": 442200064,
+      "unique_saved_tensor_storage_bytes": 103156848,
+      "no_full1024x1024x257_difference_tensor": true,
+      "GPU_memory_measured": false,
+      "reuse_justification": "Exact unchanged Engine.step/Runtime observation and energy AST; model bytes unchanged"
+    },
+    "actual_original_classes": {
+      "manufactured_class_cache_and_comparator_checks": 10,
+      "original_scientific_CP_loaded": false,
+      "manufactured_original_class_forward_rows": 4,
+      "actual_A_B_Q_decoded_cache_interface_verified": true
+    },
+    "serialization": {
+      "manufactured_reopen_checks": 12,
+      "lossless_saved_Y_and_baseline_verified": true,
+      "own_small_CP_state_reopened": true,
+      "original_CP_reopened": false
+    },
+    "controller": {
+      "positive_cases": 11,
+      "negative_cases": 42,
+      "reused_exact_controller_bytes": true,
+      "same_snapshot_identity_resources_and_durable_chain": true,
+      "stage1_closed_native0_two_slot_branch": true,
+      "stage1_pass_full8_slot_branch": true,
+      "no_native_or_server_operations": true
+    },
+    "focused_corrections": {
+      "artificial_cases": 27,
+      "final_stdlib_binding_cases": 23,
+      "full_generator_initial_and_end_states_verified": true,
+      "complete_initial_namespace_seed_role_and_parent_seen_zero": true,
+      "checkpoint_binds_initial_receipt": true,
+      "state_metadata_does_not_add_RNG_forward_AD_CP_budget": true
+    },
+    "earlier_failed_test_attempts": {
+      "reference": {
+        "path": "receipts/wp4_017_20261015/engineering_01/TEST_ATTEMPTS.json",
+        "bytes": 4179,
+        "sha256": "545a6e437a73818fa382de90a67cbc5fb392cd01d047795c3121d257b9e5ec47"
+      },
+      "preserved": true,
+      "resolved_fixture_issues": [
+        "Windows WMI import stall handled only within private artificial fixture process",
+        "strict cdist versus manual norm bit equality replaced by128epsilon engineering oracle after5.329070518200751e-15 discrepancy"
+      ],
+      "scientific_thresholds_changed": false,
+      "production_environment_or_library_patched": false
+    }
+  },
+  "resolved_findings": [
+    {
+      "topic": "secondary identifiability",
+      "resolution": "Both fit and test use fixed dimensionless columns [Q/qref,(Q/qref)^2], Gram X.T@X/N, eigenvalues/ratio/condition retained; no separate column L2 normalization. Secondary25percent a/b criterion is undefined unless both ratios>=1e-4."
+    },
+    {
+      "topic": "initial provenance",
+      "resolution": "All latent and parent generators save complete initial states, namespace/seed/role and seen0 before training draw; normal end and1000/2000 checkpoint states retained. Checkpoints bind immutable initial receipt. No additional draws, NN or checkpoint-count operation."
+    },
+    {
+      "topic": "analytic variance max",
+      "resolution": "Analytic comparison covers ALL original group parents. Invalid model/reference or denominator gives pending/rejection, never deletion under empirical95percent support."
+    },
+    {
+      "topic": "mandatory missingness scope",
+      "resolution": "Exactly9 scalar undefined fractions plus9 registered undefined/censor flags use1percent gate. Other flags retain64-slot fractions/differences as diagnostics, never added to required cells or used to delete finite values."
+    },
+    {
+      "topic": "preflight binding",
+      "resolution": "Factory, draft, driver and controller validators bind free disk40GiB, available RAM10GiB and GPU empty; old014 default8GiB cannot silently replace017 disk contract. Underlying pinned native preflight already enforces RAM10GiB, CPU12 and empty GPU; no host check was performed."
+    },
+    {
+      "topic": "T2 interpretation",
+      "resolution": "Only existing B0 cache finite/nonzero/max/RMS metadata added. Zero/invalid is untestable; nonzero remains inconclusive for observed mixture distinguishability. Eta fourth moment1.6878 retained; no independent T1-T2 observed energy comparison computed, no mechanism recovery claim or replacement, no new gate/probe/bank/distance/random draw."
+    }
+  ],
+  "source_semantics": {
+    "charge_law": "a=qref*softplus(theta_a), b=softplus(theta_b); s2=log1p(a/Q+b); q=Q*exp(sqrt(s2)*Z-.5*s2). Actual canonical A Q must be strictly positive, no floor.",
+    "assembly": "M0 + A*expm1(log_multiplier); fixed B shape term never multiplied by q. Disabled charge returns exact M0 bytes and original zero prefix.",
+    "teacher_variance": "T1 a=.01*qref,b=.0025; initial a=.001*qref,b=.00025 yields exactly one tenth conditional q variance for every positive Q.",
+    "T2": "Only shape component0 changes to .9*independent_Rademacher+sqrt(.19)*independent_Normal; same mean and variance, fourth moment1.6878.",
+    "conditional_proper_score": "Paired2+2 uses4 cross +1 unique student self distance. Unpaired1024+1024 uses independent role streams and removes only student sample-index diagonals, retaining duplicate parent IDs with independent latents. Full257-dimensional injective hard256 feature; signed score not clamped.",
+    "gradient": "Actual STE hard-forward observation truth,256-row signal/ADC chunks,64-row cdist blocks, all3 hypotheses averaged into one backward. No loss detach; optimizer whitelist exactly two theta, AdamW .01/wd0/clip5.",
+    "parent_split": "Deterministic SHA-isolated5274 fit/1319 heldout parents; IID with replacement. Every required fit stream must cover all5274 by2000G or incomplete, no repair draws. Original physical weights preserved separately from comparison reweights.",
+    "random_provenance": "Teacher/student role streams independent for all shape/charge/noise005/extension/sign components. Matched mode/teacher Gaussian prefixes intentional; two evaluation banks independent; student initial/final share evaluation CRN. PIT uniforms reserved for all original teacher slots.",
+    "finite_support": "At least24 finite values/joint pairs in EACH native32 bank and48 combined64. Common group>=64 parents,>=95percent original count and mass, ESS>=half original N. Insufficient is pending, zero reference pending, no zero imputation.",
+    "PIT": "Actual n_student_finite+1 denominator; only defined teacher targets counted; parent finite-target rate first, then parent-weighted aggregation. All undefined/censor original64-slot fractions retained; zero-finite cannot become uniform PASS.",
+    "covariance": "Each parent finite-pair within covariance first, normalized by actual teacher64 SD or fixed feature floor, then group-weighted aggregate and Frobenius ratio. No between-parent mean scatter. Per-parent errors separate; teacher32 split<=.075 required for resolution.",
+    "timing": "Original1ns aggregate and2ns parent-RMSE gates; teacher32 split<=.5ns aggregate and1ns RMSE required for resolution, otherwise pending. This is empirical MC screening, not guaranteed64-draw oracle accuracy.",
+    "energy_gate": "Native32 bankwise ES_U averaged over2 banks. Opposite teacher-bank reference uses both directions. Same-parent final-initial mean+1.959963984540054*HC1SE<0 and same-parent excess reference criterion; no arbitrary unpaired SE.",
+    "population": "Nominal plus low/high fixed rank weights .5..2, original physical weights unchanged; full group/denominator/ESS retained. Pointwise HC1 is descriptive, not simultaneous familywise or physical model uncertainty.",
+    "staged_control": "Two T1 paired seeds first. ALL2688 required cells must pass, with1392 primary and1296 mandatory missing/censor cells. Fail OR pending closes stage2 normally after2 slots, native0 possible. Only PASS opens6 additional slots; full success requires8 actual trials.",
+    "accounting": "Exact stage1/full factories, durable entered/completed and no unknown inflight at terminal, original exclusive lock and partial failure preservation. First actual theta change plus same snapshot current identity/resource/durable chain or valid complete native0 endpoint.",
+    "saved_arrays": "Actual q/mu/v, IDs/parent/draw/bank, lossless code256 baseline mean and optional IEEE XOR, actual baseline100, all flags, native32 and derived64 moments. Full stochastic preADC carrier/latent replay not saved or claimed."
+  },
+  "resource_contract": {
+    "CPU_threads": 12,
+    "GPU_GiB": 10,
+    "job_tree_RSS_GiB": 8,
+    "per_trial_wall_seconds": 7200,
+    "per_trial_output_MiB": 1536,
+    "shared_wall_seconds": 7200,
+    "shared_output_MiB": 5120,
+    "full_job_wall_seconds": 64800,
+    "full_job_output_MiB": 17408,
+    "stage1_wall_seconds": 21600,
+    "stage1_output_MiB": 8192,
+    "selected_small_collection_MiB": 256,
+    "preflight": {
+      "minimum_free_disk_GiB": 40,
+      "minimum_available_RAM_GiB": 10,
+      "GPU_must_be_empty": true
+    },
+    "observed_artificial_CPU_peak_RSS_bytes": 442200064,
+    "observed_artificial_saved_storage_bytes": 103156848,
+    "GPU_peak_measured": false,
+    "server_available_capacity_checked": false,
+    "output_or_compression_estimate_is_guarantee": false,
+    "cap_exceeded_policy": "stop and preserve partial; never delete required metrics, silently shrink scope, restart or create replacement candidate"
+  },
+  "provenance_preservation": {
+    "original116_sources_plus2_training_controls_plus6_CPU_controls": 124,
+    "all124_actual_SHA_and_bytes_verified": true,
+    "original_native_arrays_or_CP_read": false,
+    "previous_READY_and_all5_previous_sources_preserved": true,
+    "intermediate27_fixture_source_bytes_preserved_and_bound": true,
+    "source_review_artifacts_only_in_E": true,
+    "root_metadata_or_original_sources_changed": false
+  },
+  "actual_scientific_operations": {
+    "original_CP_loads": 0,
+    "original_SOURCE_REAL_DEV_numeric_reads": 0,
+    "scientific_NN_forward_rows": 0,
+    "scientific_AD": 0,
+    "scientific_G": 0,
+    "scientific_new_RNG_requests": 0,
+    "GPU": 0
+  },
+  "actual_server_operations": {
+    "SSH": 0,
+    "SCP": 0,
+    "status": 0,
+    "deploy": 0,
+    "start": 0,
+    "server_queries": 0
+  },
+  "scientific_acceptance": false,
+  "weights_promoted": false,
+  "known_teacher_recovery_established": false,
+  "hardware_or_REAL_response_match_established": false,
+  "scientific_status": "response_match_not_established",
+  "remaining_boundary": "Local engineering acceptance permits the requested local frozen source delivery. A future scientific run needs a later explicit user authorization; no current native job or recovery outcome exists.",
+  "reviewer_scripts": {
+    "prepare_semantic_checks.py": {
+      "path": "receipts/wp4_017_20261015/independent_01/prepare_semantic_checks.py",
+      "bytes": 22460,
+      "sha256": "1a60ba1e87625ace906b8aa964c6d652af19a0c2ab4359727f989613bfb1cf90"
+    },
+    "final_semantic_delta.py": {
+      "path": "receipts/wp4_017_20261015/independent_01/final_semantic_delta.py",
+      "bytes": 14749,
+      "sha256": "835b104665e655e38c9706948a47921c6da4f36d8067000eb0db023539ede7bf"
+    },
+    "audit_source_binding.py": {
+      "path": "receipts/wp4_017_20261015/independent_01/audit_source_binding.py",
+      "bytes": 6126,
+      "sha256": "8655bfac639bb7879e61feb7b6afe0a9870951f9d9a1a0c61527e26a21ba3649"
+    },
+    "build_source_review.py": {
+      "path": "receipts/wp4_017_20261015/independent_01/build_source_review.py",
+      "bytes": 18523,
+      "sha256": "a2159facb2580cbc804b018db85c7824e761ed191400e5029a7c68a498508a10"
+    }
+  }
+}

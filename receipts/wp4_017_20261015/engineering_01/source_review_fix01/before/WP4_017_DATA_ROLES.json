@@ -1,0 +1,47 @@
+{
+  "schema": "n01/wp4-017-data-roles/v1",
+  "run_id": "wp4_017_20261015",
+  "accepted_proposal_sha256": "b2db64dfd3549f6cd22cb5253a1e374738248012e22554308ec26885d2d42e8e",
+  "source": {
+    "legal_role": "TRAIN",
+    "parents": 6593,
+    "allowed_numeric_members": ["source_carrier384", "source_ids", "source_role", "original_source_weights_if_present"],
+    "fit_parents": 5274,
+    "heldout_new_charge_fit_parents": 1319,
+    "split": "SHA256 N01-WP4-017-parent-split-v1|canonical parent ID; first1319 sorted hashes held out; stable ID tie break; original row index order retained",
+    "neural_input": "original clean384 source only during the one formal A pass; cached actual A/B/Q thereafter",
+    "ID_file_row_metadata_neural_inputs": false,
+    "original_dtype_bytes_preserved": true,
+    "original_physical_weights": "preserved separately if member exists; otherwise unknown",
+    "comparison_population_weights": "nominal/low/high frozen formula on heldout actual A-Q ranks; not overwrite original weights"
+  },
+  "known_fixed_bases": {
+    "A": "original deterministic19k",
+    "electronics": "original005",
+    "shape": "015 seed0 M0 final1288 head shared across all8trials",
+    "all_historically_used_SOURCE_TRAIN": true,
+    "heldout_is_full_pipeline_unseen_REAL_CV": false
+  },
+  "teacher": {
+    "T1": "known member of same2theta family; a=.01*qref,b=.0025",
+    "T2": "only first fixed shape coefficient .9*Rademacher+sqrt(.19)*Normal; centered unit variance",
+    "latent_deployment_input": false,
+    "teacher_student_all_latent_streams_independent": true,
+    "paired": "same legal x, independent teacher/student conditional draws",
+    "unpaired": "independent IID parent streams and all independent conditional latent streams"
+  },
+  "evaluation": {
+    "all_parents_retained": true,
+    "draws": "two native32 banks; derived64 explicitly labeled",
+    "required_heldout_groups": "all+three fit-Q tertiles, each nominal/low/high and3hyp",
+    "finite_support": "24+24 and48combined; group64,95percent count,95percent mass,ESS>=half original count",
+    "undefined": "preserve flags/counts/reasons; pending when insufficient, never0impute or call pass",
+    "saved_Y": "lossless code256 + actual producer baseline mean + optional IEEE XOR; actual baseline100 retained",
+    "full_random_preADC_carrier_saved": false,
+    "full_per_parent_moments_covariances_indices": "remote arrays; selected aggregate JSON is not full raw evidence"
+  },
+  "REAL_numeric_reads": 0,
+  "DEV_numeric_reads": 0,
+  "physical_hardware_acceptance": false,
+  "scientific_status": "response_match_not_established"
+}

@@ -1,0 +1,282 @@
+{
+  "schema": "n01/wp4-017-root-controller-engineering/v1",
+  "UTC": "2026-10-15T11:01:20.683300+00:00",
+  "passed": true,
+  "artificial_only": true,
+  "source_sha256": "eb15f3ba35844436f9b5ff3879332bd19046fcfd4f1fffe8459db2505333c38c",
+  "checks": [
+    {
+      "name": "live_first_update_and_current_health",
+      "result": "pass"
+    },
+    {
+      "name": "active_inflight_allowed_as_unknown_completed_G_stays_one",
+      "result": "pass"
+    },
+    {
+      "name": "stage1_fail_terminal_policy_exact_selected_caps",
+      "result": "pass"
+    },
+    {
+      "name": "stage1_fail_native0_complete_with_dead_processes",
+      "result": "pass"
+    },
+    {
+      "name": "stage1_fail_terminal_first_proof_preserved",
+      "result": "pass"
+    },
+    {
+      "name": "stage1_pending_terminal_policy_exact_selected_caps",
+      "result": "pass"
+    },
+    {
+      "name": "stage1_pending_native0_complete_with_dead_processes",
+      "result": "pass"
+    },
+    {
+      "name": "stage1_pending_terminal_first_proof_preserved",
+      "result": "pass"
+    },
+    {
+      "name": "full8_terminal_policy_exact_selected_caps",
+      "result": "pass"
+    },
+    {
+      "name": "full8_native0_complete_with_dead_processes",
+      "result": "pass"
+    },
+    {
+      "name": "full8_terminal_first_proof_preserved",
+      "result": "pass"
+    }
+  ],
+  "negative_cases": [
+    {
+      "name": "dead_worker",
+      "result": "rejected",
+      "reason": "017 historical firstG1 has no current owned process chain"
+    },
+    {
+      "name": "dead_supervisor",
+      "result": "rejected",
+      "reason": "017 historical firstG1 has no current owned process chain"
+    },
+    {
+      "name": "reused_worker_PID_new_start_ticks",
+      "result": "rejected",
+      "reason": "017 historical firstG1 has no current owned process chain"
+    },
+    {
+      "name": "stale_boot",
+      "result": "rejected",
+      "reason": "017 proof another boot"
+    },
+    {
+      "name": "wrong_parent_PID",
+      "result": "rejected",
+      "reason": "017 historical firstG1 has no current owned process chain"
+    },
+    {
+      "name": "wrong_worker_cwd",
+      "result": "rejected",
+      "reason": "017 current command/cwd/CPU identity differs"
+    },
+    {
+      "name": "wrong_worker_command",
+      "result": "rejected",
+      "reason": "017 current command/cwd/CPU identity differs"
+    },
+    {
+      "name": "wrong_CPU_affinity",
+      "result": "rejected",
+      "reason": "017 current command/cwd/CPU identity differs"
+    },
+    {
+      "name": "missing_current_resource_snapshot",
+      "result": "rejected",
+      "reason": "017 same snapshot resource health missing or outside limits"
+    },
+    {
+      "name": "stale_resource_timestamp",
+      "result": "rejected",
+      "reason": "017 same snapshot resource health missing or outside limits"
+    },
+    {
+      "name": "RSS_over_cap",
+      "result": "rejected",
+      "reason": "017 same snapshot resource health missing or outside limits"
+    },
+    {
+      "name": "GPU_over_cap",
+      "result": "rejected",
+      "reason": "017 same snapshot resource health missing or outside limits"
+    },
+    {
+      "name": "output_over_cap",
+      "result": "rejected",
+      "reason": "017 same snapshot resource health missing or outside limits"
+    },
+    {
+      "name": "wall_over_cap",
+      "result": "rejected",
+      "reason": "017 same snapshot resource health missing or outside limits"
+    },
+    {
+      "name": "durable_failed_operation",
+      "result": "rejected",
+      "reason": "017 same snapshot durable progress unhealthy or behind firstG1"
+    },
+    {
+      "name": "durable_truncated_tail",
+      "result": "rejected",
+      "reason": "017 same snapshot durable progress unhealthy or behind firstG1"
+    },
+    {
+      "name": "durable_first_update_not_complete",
+      "result": "rejected",
+      "reason": "017 same snapshot durable progress unhealthy or behind firstG1"
+    },
+    {
+      "name": "same_snapshot_FAILED",
+      "result": "rejected",
+      "reason": "same snapshot already failed; historical firstG1 proof is insufficient"
+    },
+    {
+      "name": "native_nonzero",
+      "result": "rejected",
+      "reason": "same snapshot already failed; historical firstG1 proof is insufficient"
+    },
+    {
+      "name": "native_zero_without_COMPLETE",
+      "result": "rejected",
+      "reason": "017 terminal firstG1 lacks exact gated/full native0 completion"
+    },
+    {
+      "name": "fail_gate_cannot_enter_remaining_six",
+      "result": "rejected",
+      "reason": "017 terminal trial set does not follow fixed gate"
+    },
+    {
+      "name": "pending_gate_cannot_enter_remaining_six",
+      "result": "rejected",
+      "reason": "017 terminal trial set does not follow fixed gate"
+    },
+    {
+      "name": "closed_gate_cannot_claim_full_trial_list",
+      "result": "rejected",
+      "reason": "017 terminal trial set does not follow fixed gate"
+    },
+    {
+      "name": "pass_gate_missing_one_trial",
+      "result": "rejected",
+      "reason": "017 terminal trial set does not follow fixed gate"
+    },
+    {
+      "name": "pass_gate_cannot_claim_only_two",
+      "result": "rejected",
+      "reason": "017 terminal trial set does not follow fixed gate"
+    },
+    {
+      "name": "closed_gate_needs_nonpass_reason",
+      "result": "rejected",
+      "reason": "017 stage1 result inconsistent"
+    },
+    {
+      "name": "false_gate_cannot_have_pass_status",
+      "result": "rejected",
+      "reason": "017 stage1 result inconsistent"
+    },
+    {
+      "name": "full_gate_cannot_be_pending",
+      "result": "rejected",
+      "reason": "017 stage1 result inconsistent"
+    },
+    {
+      "name": "trial_below_2000_G",
+      "result": "rejected",
+      "reason": "017 terminal trial set does not follow fixed gate"
+    },
+    {
+      "name": "entered_completed_mismatch",
+      "result": "rejected",
+      "reason": "017 terminal journal incomplete"
+    },
+    {
+      "name": "completed_count_missing_from_journal",
+      "result": "rejected",
+      "reason": "017 terminal journal incomplete"
+    },
+    {
+      "name": "terminal_inflight_unknown_not_complete",
+      "result": "rejected",
+      "reason": "017 terminal journal incomplete"
+    },
+    {
+      "name": "producer_inflight_not_complete",
+      "result": "rejected",
+      "reason": "017 terminal exact counters/inflight differ"
+    },
+    {
+      "name": "terminal_failed_operation",
+      "result": "rejected",
+      "reason": "017 same snapshot durable progress unhealthy or behind firstG1"
+    },
+    {
+      "name": "terminal_truncated_journal",
+      "result": "rejected",
+      "reason": "017 same snapshot durable progress unhealthy or behind firstG1"
+    },
+    {
+      "name": "terminal_native_nonzero",
+      "result": "rejected",
+      "reason": "same snapshot already failed; historical firstG1 proof is insufficient"
+    },
+    {
+      "name": "terminal_child_native_nonzero",
+      "result": "rejected",
+      "reason": "same snapshot already failed; historical firstG1 proof is insufficient"
+    },
+    {
+      "name": "terminal_resource_reason",
+      "result": "rejected",
+      "reason": "017 native failure/resource stop"
+    },
+    {
+      "name": "terminal_supervisor_PID_mismatch",
+      "result": "rejected",
+      "reason": "017 terminal firstG1 lacks exact gated/full native0 completion"
+    },
+    {
+      "name": "terminal_peak_RSS_over_cap",
+      "result": "rejected",
+      "reason": "017 terminal resources exceed cap"
+    },
+    {
+      "name": "terminal_immutable_control_changed",
+      "result": "rejected",
+      "reason": "017 final immutable bytes differ"
+    },
+    {
+      "name": "terminal_2000_only_cannot_claim_stage1_cap",
+      "result": "rejected",
+      "reason": "017 terminal exact counters/inflight differ"
+    }
+  ],
+  "positive_checks": 11,
+  "rejected_negative_cases": 42,
+  "elapsed_seconds": 0.10922720000962727,
+  "manufactured_state_fields_include_native_shaped_artificial_false_only_to_exercise_policy": true,
+  "actual_native_execution": false,
+  "CP_loads": 0,
+  "NN_rows": 0,
+  "AD_queries": 0,
+  "training_updates": 0,
+  "random_draws": 0,
+  "real_SOURCE_REAL_DEV_array_decodes": 0,
+  "SSH_calls": 0,
+  "processes_launched_or_stopped": 0,
+  "GPU_work": 0,
+  "numerical_imports": false,
+  "implementation_sources_modified": false,
+  "reused_engineering_method": "016 manufactured live/terminal identity and resource fixture;017 phase policy and counters adapted"
+}

@@ -1,0 +1,229 @@
+{
+  "schema": "n01/wp4-017-independent-semantic-preparation/v1",
+  "preparation_complete": true,
+  "overall_SOURCE_REVIEW_issued": false,
+  "sources": {
+    "src/n01/model017.py": {
+      "sha256": "b52112305cba978dd9936f95ebc3c8f5f7f796dbab96530dbc63265bf966d1c4",
+      "bytes": 7879
+    },
+    "src/n01/stats017.py": {
+      "sha256": "fba8da0c4eb147d9ac114189656c01c97036b9e1f68fce40521c23546a97ce9b",
+      "bytes": 9855
+    },
+    "src/n01/saved_array_kernels017.py": {
+      "sha256": "fe1366f35f36e97974f1a4037a36ad858c03dd8453957c1b45b65080f0fee3ac",
+      "bytes": 3691
+    },
+    "receipts/wp4_017_20261015/planning_01/ENGINEERING_PROPOSAL.json": {
+      "sha256": "b2db64dfd3549f6cd22cb5253a1e374738248012e22554308ec26885d2d42e8e",
+      "bytes": 61470
+    },
+    "receipts/wp4_017_20261015/planning_01/INDEPENDENT_CONTRACT_REVIEW.json": {
+      "sha256": "31a0a106bf033ec7d363abc13811a7f0e6dd87e79d139ea7ad6c867a67927fd7",
+      "bytes": 52101
+    }
+  },
+  "check_source": {
+    "path": "receipts/wp4_017_20261015/independent_01/prepare_semantic_checks.py",
+    "sha256": "1a60ba1e87625ace906b8aa964c6d652af19a0c2ab4359727f989613bfb1cf90",
+    "bytes": 22460
+  },
+  "NumPy_artificial": {
+    "checks": [
+      {
+        "name": "weighted_HC1_and_ESS_independent_three_parent_oracle",
+        "passed": true,
+        "actual": {
+          "mean": 3.666666666666667,
+          "SE": 1.018350154434631,
+          "ESS": 2.571428571428571,
+          "parents": 3
+        }
+      },
+      {
+        "name": "paired_constant_difference_has_zero_SE",
+        "passed": true
+      },
+      {
+        "name": "original_group_95_count_and_mass_support",
+        "passed": true
+      },
+      {
+        "name": "94_percent_support_pending",
+        "passed": true
+      },
+      {
+        "name": "95_percent_count_but_insufficient_original_weight_mass_pending",
+        "passed": true
+      },
+      {
+        "name": "63_original_parents_pending",
+        "passed": true
+      },
+      {
+        "name": "insufficient_ESS_pending",
+        "passed": true,
+        "fixture": "Deliberately illegal population skew tests the generic ESS guard; formal low/high weights remain bounded"
+      },
+      {
+        "name": "PIT_actual_48_plus1_rejects_fixed65_false_coverage",
+        "passed": true,
+        "correct_PIT": 0.9897959183673469,
+        "incorrect_fixed65_PIT": 0.7461538461538462
+      },
+      {
+        "name": "zero_prediction_or_undefined_target_not_uniform_PASS",
+        "passed": true
+      },
+      {
+        "name": "23_plus25_combined48_does_not_meet_per_bank24",
+        "passed": true
+      },
+      {
+        "name": "coverage_parent_average_not_pooled_valid_draws",
+        "passed": true,
+        "parent_weighted": 0.6875000000000003,
+        "pooled_draw_weighted": 0.7142857142857143
+      },
+      {
+        "name": "conditional_covariance_normalize_parent_then_group",
+        "passed": true,
+        "group_error": 1.0347278589506451e-13,
+        "parent_error_mean": 0.49999999999993816
+      },
+      {
+        "name": "between_parent_scatter_is_not_used_by_covariance_gate",
+        "passed": true,
+        "pooled_population_variance_error": 7.999903991551257
+      },
+      {
+        "name": "identical_student_teacher_still_pending_if_cov_MC_unresolved",
+        "passed": true,
+        "teacher_split": 1.2000000000000002
+      },
+      {
+        "name": "zero_covariance_reference_pending_not_zero_error_PASS",
+        "passed": true
+      },
+      {
+        "name": "identical_student_teacher_still_pending_if_time_MC_unresolved",
+        "passed": true,
+        "teacher_split_abs": 2.0
+      },
+      {
+        "name": "MC_unresolved_fixture_requires_closed_stage2_oracle",
+        "passed": true,
+        "driver_executed": false,
+        "driver_binding": "Deferred until final ENGINEERING_READY; no conclusion on unfinished driver"
+      },
+      {
+        "name": "same_parent_energy_delta_HC1_and_fixed_z",
+        "passed": true
+      },
+      {
+        "name": "zero_energy_improvement_not_strict_gate_PASS",
+        "passed": true
+      },
+      {
+        "name": "fullwave_energy_nonfinite_is_engineering_error",
+        "passed": true
+      },
+      {
+        "name": "pairwise_centered_covariance_uses_actual_joint_counts_no_PSD_clip",
+        "passed": true
+      },
+      {
+        "name": "parent_ID_split_isolation_full_union_and_order_invariance",
+        "passed": true
+      },
+      {
+        "name": "duplicate_parent_ID_rejected",
+        "passed": true
+      },
+      {
+        "name": "groups_use_fit_Q_cuts_and_all_parent_partition",
+        "passed": true
+      },
+      {
+        "name": "comparison_weights_positive_bounded_and_no_fitted_population",
+        "passed": true
+      }
+    ],
+    "count": 25,
+    "torch_imported": false,
+    "gate_fixture_expectations": {
+      "cov_MC_unresolved": "pending",
+      "time_MC_unresolved": "pending",
+      "zero_reference": "pending",
+      "stage2_expected_open": false,
+      "actual_driver_tested": false
+    }
+  },
+  "torch_artificial": {
+    "checks": [
+      {
+        "name": "actual_U_score_matches_independent_257D_oracle",
+        "passed": true
+      },
+      {
+        "name": "self_diagonal_and_offdiagonal_zero_distance_gradients_finite",
+        "passed": true
+      },
+      {
+        "name": "zero_distance_exact_zero_score_and_gradient",
+        "passed": true
+      },
+      {
+        "name": "actual_T2_function_centered_unit_variance_fourth_moment",
+        "passed": true,
+        "mean": 0.0,
+        "variance": 0.9999999999999999,
+        "fourth": 1.687799999999999
+      },
+      {
+        "name": "exactly_two_named_trainable_parameters_and_thin_state",
+        "passed": true
+      },
+      {
+        "name": "actual_two_theta_gradients_match_finite_differences",
+        "passed": true,
+        "gradients": [
+          -2.959228773754351,
+          -0.10402455126784645
+        ],
+        "finite_differences": [
+          -2.9592287736690532,
+          -0.10402455137281662
+        ]
+      },
+      {
+        "name": "actual_AdamW_changes_both_theta_and_no_cache_bytes",
+        "passed": true
+      },
+      {
+        "name": "off_exact_M0_bits_without_charge_latent",
+        "passed": true
+      },
+      {
+        "name": "shape_not_scaled_by_q",
+        "passed": true
+      },
+      {
+        "name": "no_global_CPU_RNG_advance",
+        "passed": true
+      }
+    ],
+    "count": 10,
+    "CPU_only": true,
+    "actual_scientific_operations": 0,
+    "Windows_fixture_process_platform_wmi_disabled": true,
+    "system_libraries_implementation_and_Linux_native_unchanged": true,
+    "driver_ADC_STE_streams_stage_gate_resource_memory_tests": "not yet executed; wait final ENGINEERING_READY"
+  },
+  "no_conclusion_on_unfinished_driver_controller": true,
+  "actual_scientific_work": {
+    "CP_SOURCE_REAL_DEV_NPZ_NN_AD_G_RNG_GPU_SSH": 0
+  },
+  "scope": "Artificial local preparation for the same final code review; no new protocol/gate/native or scientific acceptance"
+}

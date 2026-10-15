@@ -1,0 +1,184 @@
+{
+  "schema": "n01/wp4-017-independent-final-artificial-delta/v1",
+  "passed": true,
+  "source_review_layer": "same_requested_SOURCE_REVIEW",
+  "checks": [
+    {
+      "name": "exact_1392_primary_plus_1296_mandatory_causes",
+      "passed": true
+    },
+    {
+      "name": "actual_stage_gate_opens_only_complete_two_trial_matrix",
+      "passed": true
+    },
+    {
+      "name": "actual_stage_gate_conditional_cov9_pending_closes_stage2",
+      "passed": true
+    },
+    {
+      "name": "actual_stage_gate_time_peak_index_pending_closes_stage2",
+      "passed": true
+    },
+    {
+      "name": "actual_stage_gate_PIT_coverage_pending_closes_stage2",
+      "passed": true
+    },
+    {
+      "name": "actual_stage_gate_analytic_charge_variance_pending_closes_stage2",
+      "passed": true
+    },
+    {
+      "name": "one_primary_fail_closes_stage2",
+      "passed": true
+    },
+    {
+      "name": "one_required_missingness_cause_cannot_be_substituted_by_any_flag",
+      "passed": true
+    },
+    {
+      "name": "duplicate_primary_cell_rejected",
+      "passed": true
+    },
+    {
+      "name": "diagnostic_ADC_difference_does_not_add_scientific_gate",
+      "passed": true
+    },
+    {
+      "name": "only_literal18_undefined_censor_causes_are_required",
+      "passed": true
+    },
+    {
+      "name": "all_flag_fractions_preserve_original64_draw_denominator",
+      "passed": true
+    },
+    {
+      "name": "required_undefined_censor_point02_fails_existing_point01_gate",
+      "passed": true
+    },
+    {
+      "name": "missing_named_censor_cause_rejected",
+      "passed": true
+    },
+    {
+      "name": "fit_AND_test_fixed_Q_over_qref_Gram_matches_scalar_oracle",
+      "passed": true,
+      "actual": {
+        "fit": {
+          "Gram": [
+            [
+              1.525989057239057,
+              2.302556818181818
+            ],
+            [
+              2.302556818181818,
+              3.700950925334398
+            ]
+          ],
+          "eigenvalue_ratio": 0.012989532391177526
+        },
+        "test": {
+          "Gram": [
+            [
+              1.3766329966329964,
+              1.8808888888888888
+            ],
+            [
+              1.8808888888888888,
+              2.7238286909361613
+            ]
+          ],
+          "eigenvalue_ratio": 0.012935136296758505
+        }
+      }
+    },
+    {
+      "name": "unidentifiable_fit_cannot_be_rescued_by_broad_test",
+      "passed": true
+    },
+    {
+      "name": "teacher_exact_analytic_law_passes_original_all_parent_gate",
+      "passed": true
+    },
+    {
+      "name": "invalid_a_cannot_be_silently_dropped_by_empirical_support_rule",
+      "passed": true
+    },
+    {
+      "name": "one_invalid_original_analytic_parent_pending_not_99percent_PASS",
+      "passed": true
+    },
+    {
+      "name": "one_finite_original_parent_above_point20_max_cannot_be_removed",
+      "passed": true
+    },
+    {
+      "name": "preflight_binds_existing40GiB10GiB_GPUempty",
+      "passed": true
+    },
+    {
+      "name": "preflight_missing_rejected_by_driver_factory_validator",
+      "passed": true
+    },
+    {
+      "name": "preflight_disk8_rejected_by_driver_factory_validator",
+      "passed": true
+    },
+    {
+      "name": "preflight_RAM8_rejected_by_driver_factory_validator",
+      "passed": true
+    },
+    {
+      "name": "preflight_GPU_nonempty_allowed_rejected_by_driver_factory_validator",
+      "passed": true
+    },
+    {
+      "name": "full_and_stage1_fixed_scientific_costs_unchanged",
+      "passed": true
+    },
+    {
+      "name": "zero_fixed_B0_recorded_untestable_without_new_gate_or_component",
+      "passed": true
+    },
+    {
+      "name": "nonzero_B0_preserves_unestablished_observed_mechanism_boundary",
+      "passed": true
+    },
+    {
+      "name": "this_delta_check_never_imports_torch",
+      "passed": true
+    }
+  ],
+  "check_count": 29,
+  "script": {
+    "path": "receipts/wp4_017_20261015/independent_01/final_semantic_delta.py",
+    "sha256": "835b104665e655e38c9706948a47921c6da4f36d8067000eb0db023539ede7bf",
+    "bytes": 14749
+  },
+  "sources": {
+    "scripts/run_wp4_017.py": {
+      "sha256": "34e8604b7be53359f8b50ffc4de882845d561f49190063931614e25ec6bc5e62",
+      "bytes": 63149
+    },
+    "scripts/wp4_017_controller.py": {
+      "sha256": "eb15f3ba35844436f9b5ff3879332bd19046fcfd4f1fffe8459db2505333c38c",
+      "bytes": 31507
+    },
+    "src/n01/model017.py": {
+      "sha256": "5cba237812175c4bfa668c887b71051f520ce58e9d330dccd09ab1ca76781c5f",
+      "bytes": 8319
+    },
+    "src/n01/stats017.py": {
+      "sha256": "9dc33275b66257397e2382cd2989f74701026a897e847af76fa459c72859dd0a",
+      "bytes": 21447
+    },
+    "src/n01/saved_array_kernels017.py": {
+      "sha256": "fe1366f35f36e97974f1a4037a36ad858c03dd8453957c1b45b65080f0fee3ac",
+      "bytes": 3691
+    }
+  },
+  "fixture_scope": "deterministic manufactured NumPy arrays and literal source factories only",
+  "actual_CP_SOURCE_REAL_DEV_reads": 0,
+  "actual_NN_AD_G_RNG_GPU": 0,
+  "server_operations": 0,
+  "complete_scientific_acceptance": false
+}

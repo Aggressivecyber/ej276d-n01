@@ -1,0 +1,21 @@
+{
+  "UTC": "2026-10-15T10:37:03.825693+00:00",
+  "artificial_only": true,
+  "owned_pid": 33880,
+  "command_verified": "python -B receipts/wp4_017_20261015/engineering_01/check_model017.py receipts/wp4_017_20261015/engineering_01/artificial_model_02",
+  "native_stopped_without_receipt": true,
+  "faulthandler_stack": [
+    "check_model017.py:15 import torch",
+    "torch/__init__.py:239 _load_dll_libraries",
+    "platform.py:1110 machine",
+    "platform.py:999 uname",
+    "platform.py:450 win32_ver",
+    "platform.py:391 _win32_ver",
+    "platform.py:330 _wmi_query"
+  ],
+  "root_cause": "Python3.13 optional WMI platform probe blocked before Torch DLL import",
+  "local_fixture_workaround": "platform._wmi=None selects stdlib built-in Windows-version fallback only in artificial test launcher",
+  "OS_library_files_services_and_model_sources_changed": false,
+  "Torch_import_after_workaround": "completed",
+  "original_CP_SOURCE_REAL_DEV_GPU_SSH_work": 0
+}

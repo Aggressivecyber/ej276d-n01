@@ -1,0 +1,44 @@
+{
+  "schema": "n01/wp4-017-implementation-clarifications/v1",
+  "recorded_UTC": "2026-10-15 11:21:49 UTC",
+  "accepted_proposal_sha256": "b2db64dfd3549f6cd22cb5253a1e374738248012e22554308ec26885d2d42e8e",
+  "interpretation_of_existing_contract": true,
+  "scientific_contract_or_threshold_changed": false,
+  "remote_execution_authorized": false,
+  "flag_gate": {
+    "threshold_scope": "Required undefined/censor probabilities only, using all original64 draw slots and original parent weights.",
+    "required_scalar_undefined_features": [
+      "Q",
+      "tail",
+      "PSD_raw",
+      "baseline_mean",
+      "baseline_RMS",
+      "peak_voltage",
+      "rise10_90",
+      "FWHM",
+      "peak_index"
+    ],
+    "required_cause_flags": [
+      "flag__PSD_undefined",
+      "flag__rise_undefined",
+      "flag__FWHM_undefined",
+      "flag__temporal_nonpositive_peak",
+      "flag__rise_prepeak_censored",
+      "flag__rise_other_undefined",
+      "flag__FWHM_prepeak_censored",
+      "flag__FWHM_postpeak_censored",
+      "flag__FWHM_other_undefined"
+    ],
+    "other_flags": "Preserve original fractions, differences and denominators as diagnostics; do not impose a new1percent scientific pass/fail gate.",
+    "finite_rows": "Q_nonpositive/Q_negative/PSD_guarded and search/ADC/shape-floor flags do not delete otherwise finite feature values.",
+    "mandatory_completeness": "The explicit required cause set must be present; any arbitrary flag cannot replace a missing required cause."
+  },
+  "other_local_alignments": [
+    "Use the contract design columns [Q/qref,(Q/qref)^2] on fit and heldout groups for the secondary Gram identifiability report.",
+    "Save full initial training latent and parent-sampler generator states before their first draws; seeds or digests alone do not replace states. Save as ordinary RNG metadata, without adding model checkpoint counts or random draws.",
+    "Apply analytic variance max gate to every original group parent; unsupported/nonfinite parents cannot be removed under the95percent finite-MC support rule."
+  ],
+  "budget_caps_changed": false,
+  "new_scientific_operations": 0,
+  "new_review_layer_created": false
+}

@@ -1,0 +1,29 @@
+在本聊天单次苏醒，回收N01 WP4/017已知核电荷恢复试验，然后继续用户《N01从013到项目交付：主实施计划》的六工作包。用户最新明确模型指令是6.1solmax，覆盖此前Astra偏好：规划、施工、独审、后续调度均用gpt-6.1-sol / max。工程复用/root/wp3_015_solmax_execution，独审复用/root/wp3_015_solmax_review；仅确需重建时fork_turns none并显式同模型/effort。旧Astra和旧待初始化代理不恢复。所有新增本地源码/数据/缓存/临时/日志/权重/归档/图表留在E或D；服务器只使用原登记隔离root和只读原始输入。不持续监控：每个新长任务确认第一个真实更新加同一snapshot当前健康，设置同n01一次未来wake后立即休息。
+
+先读E:/GAN/research/N01/AGENTS.md、USER_MASTER_PLAN_20261015.txt、MASTER_EXECUTION_PLAN.json、PROGRAM.json、jobs.json、OBSERVATION_CONTRACT.json、DATA_ROLES.json、INPUT_INFORMATION_AUDIT.json、WP4_017_DATA_ROLES.json、docs/WP4_017_CONFIGURATION.md、wp4_017_config.json；再读receipts/wp4_017_20261015下planning_01/ENGINEERING_PROPOSAL.json、planning_01/ROOT_CONTRACT_DECISION.json、independent_01/SOURCE_REVIEW.json、SOURCE_COMMIT_READBACK.json、D_SOURCE_BACKUP_RECEIPT.json、SOURCE_BINDING_RECEIPT.json、EXECUTION_STARTED.json、CORRECT_START_AND_FOLLOWUP.json、FOLLOWUP_RECEIPT.json、start_native_01/START_RECEIPT.json、start_verification_01/START_VALIDATION.json和REMOTE_STATE.json、native_execution_01/NATIVE_START_SUMMARY.json。已保存启动事实不等于未来完成。
+
+017science source commit @@SOURCE_COMMIT@@，配置SHA @@CFG_SHA@@，MF SHA @@MF_SHA@@。冻结目录receipts/wp4_017_20261015/runtime_package_01，包/controller pins以FREEZE_RECEIPT为准。原124个保护文件保持；5个新运行source和完整import closure显式登记。远端root=/home/rylan/projects/ej276d-n01/wp4_017_20261015，SSH rylan@100.82.231.102，Python /home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python。禁止再次start已启动批次或自动科学重试。
+
+本次唯一当前状态命令：python -B scripts/wp4_017_controller.py --mode status --freeze receipts/wp4_017_20261015/runtime_package_01 --out receipts/wp4_017_20261015/wake_status_01。若该目录已存在先inspect并换新专属回执，不覆盖。健康未完时按当前进度/资源余量设置同n01一次未来wake后休息，不追加查询。SSH失败时保持unknown，不能把进程/费用记0或自动重启；历史G1/PID不能抵消同snapshot失败。
+
+若child/supervisor均native0、COMPLETE及实际执行试验清单齐，使用同controller --mode collect --freeze同目录 --out receipts/wp4_017_20261015/collection_01 --collected runs/wp4_017_20261015/selected_collected_01 --include-head-checkpoints选择回收至多256MiB，并核全库存/每个选收SHA。已有远端归档用collect-inspect和新本地目录。失败/限额用collect-failed或collect-failed-inspect保留FAILED、原生退出、partial、entered/completed/inflight；不自动科学重试。原hard/REPORT/BASELINE/cache等raw留远端，不全搬E/D或写C。完整数值接受前，按实际库存登记一次必要的独立CPU saved-array读回，复用成熟有限矩/ADC重建工程，所有新增读回工作预先计数；不把JSON查看当完整raw重放。
+
+017只检验已知固定A/005/015 seed0 M0形状核的两个电荷方差theta。不是1288形状/均值/时间恢复，也不是REAL交叉验证。原A/005/M0冻结、mean off；a=qref*softplus(theta_a)、b=softplus(theta_b)，qref=3.7103998046755806。T1 a=.01qref,b=.0025；student初始a=.001qref,b=.00025。实际A的Q严格正、不代floor；正值均值校正lognormal，E(q|x)=Q，Var(q|x)=aQ+bQ²，无电子学常数项。形状项B幅度来自A，不乘随机q。T2只把预定第0形状系数改成.9Rademacher+sqrt(.19)N，均值0、方差1、第四矩1.6878；若该机制零或不可检验，保留诊断，不换component。
+
+6593个SOURCE原父ID唯一，按SHA固定1319新参数留出/5274拟合；原A/005历史见过全TRAIN，不能称真正未见REAL父。formal仅解码SOURCE允许成员，不解码REAL/DEV；原计数/原物理权重原样保留，未给权重保持unknown，synthetic均匀及low/high比较权重另列。A/B/Q cache一次6593，decoded分块立即释放；原CP只载3次，不加016 CP或随机占位初始化。
+
+paired每步512 IID拟合父，每父student/teacher各2独立draw；unpaired每侧1024 IID行，四个独立512 sampler banks。教师/学生shape/charge/005/extension流独立；CRN仅用于匹配模式前缀与student初始/最终评价。训练三种电子学假设都用完整硬256波和电荷257维injective表示、无偏energy score：cross mean减ordered self/(2m(m−1))，明确除self diagonal，signed loss不clamp。只对两个theta每步一次backward/AdamW lr.01 wd0 clip5；每trial至多2000G。首次proof须两个真实有限非零梯度及两个实际theta变化，原A/005/M0字节未变。
+
+先执行T1_paired_seed0/1两次（至多4000G）。只有两seed全部必需门resolved pass才可由同一已冻结native继续其余六次T1 unpaired/T2 paired/T2 unpaired两seed，总至多16000G。pending/MC_unresolved/missing均不打开stage2；不增加bank、改阈值、重seed、追加candidate或继续真实长训练。阶段结束不能把未进入试验费用计为完成。
+
+评价每kernel×6593父×2bank×32draw×3hyp。每库distance先各算再平均，不pool64距离。T参考用独立opposite teacher bank。heldout全组及fit-Q三tertile、nominal/low/high三比较权重、三hyp、两seed逐格保留，不能总体均值掩盖缺口。标量每bank≥24/combined≥48有限draw；45协方差pair joint及common81矩阵父支持，group≥64父且原父数/权重质量各≥.95、ESS≥.5原父数。缺失/截尾cause按原64slots，student/teacher差≤.01；不删undefined换PASS。cov是父内pairwise有限n−1 covariance，按相同teacher64 SD/frozen floors标准化，先父加权均值再Frobenius，禁between-parent scatter。teacher32 split cov resolution>.075或time aggregate>.5ns/RMSE>1ns为pending MC_unresolved；不能补第三库。PIT每原target slot预预算独立U，实际nS finite+1为分母，nS0不是自动纯U/PASS，先父内实际nT平均再原父加权。
+
+必需门包含条件方差曲线RMS≤.10/max≤.20、hard wave条件均值标准化≤.30、条件trace≤.10、group covariance relative Frob≤.15、时间aggregate≤1ns/父RMSE≤2ns、50/90覆盖各±.04/±.03、同父weighted HC1 energy improvement U95<0及excess teacher reference≤max(.02abs(ref),3SE)。HC1固定z=1.959963984540054；这是固定cohort描述性逐格量，不是familywise或硬件CI。a/b系数误差为secondary，Gram ratio门不足则不可辨识。
+
+精确完整预算和stage1预算以config budget_caps/stage1_budget_caps及accepted proposal为唯一数字源。full最高G/AD16000、CP3、A/head6593、shape/00537409472、ADC/gather112228416、normal14739331968、T2sign8613952、PIT15190272、IID parent20480000；stage1最高G/AD4000、shape/0059879808、ADC29639424、normal3892644352、PIT7595136、IID parent2048000。完整native正常CP saves17/stage1=5，额外failure checkpoint全job至多1，不能分阶段重置。REAL/DEV/probe/D/C2ST/新尺度fit/A005M0更新全0。CPU12、GPU10GiB、RSS8GiB、每trial7200s、全job64800s，输出全17408MiB/首阶段8192MiB；选收256MiB。按实际journal保留entered/completed/inflight和原生资源，不把上限当实际。
+
+017前累计训练179667。唯一启动快照已记017 durable G=@@G_AT_SNAPSHOT@@，累计@@TOTAL_AT_SNAPSHOT@@。未来只加新durable G与该已记数的差，不能再加016、015或整个017两次；inflight保持unknown。WP3固定短候选10/12、WP3内6/6已闭合；WP4八教师trial是单独预算，不记为WP3追加候选。
+
+016已闭合且不要重训/重跑CPU：新4000G、112raw文件SHA/独立数组解码200ops/24pair/8charge读取均完成；报告reports/wp3_016_20261015/REPORT.md/HTML、最终回执receipts/wp3_016_20261015/FINAL_RESULT_RECEIPT.json。当前研究参考016Q1 meanoff chargeon，仅比015M0综合wave均值相对改善.009976029%，ALL6 dual非劣通过，用途6/6但absolute T七指标ALL6均未全过；weights_promoted=false，response_match_not_established。015、014、原full19k负结果保留。
+
+回收、独审、中文报告/必要英文图/代表渲染、SHA和E/D备份、主元数据闭合后按原主计划继续WP5/6。WP5需要三组隔离折×两全流程种子×三系统，A/005/尺度/响应头/人口/C2ST都折内重拟合；不能沿用见过留出父的A或把全TRAIN部署称新未见成绩。同族paired失败先修表达/优化/观察，不继续真实长训练；完整随机目标失败时交付独审最佳受限fallback并保留负结果。WP6提供sample接口/模型统计/适用卡/失败案例/中文报告/英文图/论文软件包，公开包无私有raw。单一实测采集、旧DEV曝光、其它pool未知边界保留；教师成功不等于硬件标定或跨采集物理复用。017启动或结束都不代表六工作包已完成。无待回收长任务时完成可交付工作后暂停n01。
