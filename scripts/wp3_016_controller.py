@@ -258,8 +258,9 @@ def complete_valid(state,p):
 def operations():
     global _OPS
     if _OPS is not None:return _OPS
-    path=SELF_ROOT/'scripts/wp2_controller.py'
-    require(path.is_file() and hashlib.sha256(path.read_bytes()).hexdigest()==BASE_SHA,'016 exact reused014 operations unavailable')
+    candidates=[SELF_ROOT/'scripts/wp2_controller.py',Path('/home/rylan/projects/ej276d-n01/wp2_014_20261015')/'scripts/wp2_controller.py']
+    path=next((p for p in candidates if p.is_file()),None)
+    require(path is not None and hashlib.sha256(path.read_bytes()).hexdigest()==BASE_SHA,'016 exact reused014 operations unavailable')
     tree=ast.parse(path.read_bytes(),filename=str(path))
     # Label adaptation is identical to015. The two archive trial indices are
     # generalized to the registered candidate count (one in016, two in014/015).

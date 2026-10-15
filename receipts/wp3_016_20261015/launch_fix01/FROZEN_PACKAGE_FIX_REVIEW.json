@@ -1,0 +1,162 @@
+{
+  "schema": "n01/wp3-016-frozen-launch-fix-independent-review/v1",
+  "UTC": "2026-10-15T07:14:18.600365+00:00",
+  "run_id": "wp3_016_20261015",
+  "status": "PASS_REFROZEN_LAUNCH_FIX_BINDING",
+  "passed": true,
+  "blockers": [],
+  "sources": {
+    "scripts/wp3_016_controller.py": {
+      "path": "scripts/wp3_016_controller.py",
+      "bytes": 26914,
+      "sha256": "ae9afe444a90acb4fabddf1d2bf643550a4cbf29c4b9130408b040abcc843b5b"
+    },
+    "scripts/run_wp3_016.py": {
+      "path": "scripts/run_wp3_016.py",
+      "bytes": 37310,
+      "sha256": "4729208d66c61c3b082827535719e72d8d7bb2ee60f390b688111ae3b4f12972"
+    },
+    "src/n01/model016.py": {
+      "path": "src/n01/model016.py",
+      "bytes": 9226,
+      "sha256": "04c63f91ea5405937a940a9aee6eaed876db79149c857bfbe6ed8cfe6dcb138b"
+    }
+  },
+  "budget_caps": {
+    "calibration_A_rows": 6593,
+    "old_A_rows": 4313569,
+    "head_actual_parameter_forward_rows": 4306976,
+    "head_total_kernel_rows": 4306976,
+    "noise005_rows": 4306976,
+    "charge_module_rows": 4306976,
+    "charge_latent_scalar_draws": 4306976,
+    "charge_initialization_fits": 1,
+    "hard_ADC_rows": 13553856,
+    "all_path_gather_rows": 13553856,
+    "checkpoint_loads": 4,
+    "optimizer_created": 2,
+    "optimizer_steps": 4000,
+    "G_updates": 4000,
+    "training_backward_queries": 4000,
+    "new_AD_queries": 4000,
+    "probe_AD_queries": 0,
+    "integral_statistics_fits": 0,
+    "mean_adapter_rows": 0,
+    "D_updates": 0,
+    "noise_updates": 0,
+    "population_updates": 0,
+    "C2ST_updates": 0,
+    "DEV_model_rows": 0
+  },
+  "config_sha256": "c0fe6408b53969da9f0bd70c01bf7649cfabfbf1864752dc5696bb8c9b6d5da9",
+  "source_manifest_sha256": "1488217be443fb49c60db4fcf3d852fcda8ba33507ce7e5ba2ee2f3d1e4d1327",
+  "source_package_sha256": "524ba471ac24d376211349280237e02562dfe797b2921fc25b01c46aac8e688e",
+  "reviewer": {
+    "agent": "/root/wp3_015_solmax_review",
+    "assigned_model": "GPT-6.1-Sol",
+    "assigned_effort": "Max",
+    "runtime_model_metadata_independently_exposed": false
+  },
+  "config": {
+    "path": "wp3_016_config.json",
+    "bytes": 208864,
+    "sha256": "c0fe6408b53969da9f0bd70c01bf7649cfabfbf1864752dc5696bb8c9b6d5da9"
+  },
+  "manifest": {
+    "path": "WP3_016_SOURCE_MANIFEST.json",
+    "bytes": 19460,
+    "sha256": "1488217be443fb49c60db4fcf3d852fcda8ba33507ce7e5ba2ee2f3d1e4d1327"
+  },
+  "package": {
+    "path": "receipts/wp3_016_20261015/runtime_package_fix01/wp3_016_source.tar.gz",
+    "bytes": 762155,
+    "sha256": "524ba471ac24d376211349280237e02562dfe797b2921fc25b01c46aac8e688e"
+  },
+  "source_files": 115,
+  "archive_controls": 117,
+  "protected_source_records": 475,
+  "config_delta": {
+    "added_launch_metadata": [
+      "launch_fix_reason",
+      "launch_revision",
+      "previous_deployment_failure",
+      "previous_launch_configuration_sha256"
+    ],
+    "changed_existing_keys": [
+      "source_files",
+      "frozen_UTC"
+    ],
+    "only_controller_source_record_changed": true,
+    "all_scientific_settings_inputs_contracts_budgets_and_roles_unchanged": true,
+    "candidate_trial_order_unchanged": true,
+    "job_identity_unchanged": true,
+    "new_candidate_trials": 0
+  },
+  "package_delta": {
+    "changed_members": [
+      "scripts/wp3_016_controller.py",
+      "wp3_016_config.json",
+      "WP3_016_SOURCE_MANIFEST.json"
+    ],
+    "other114_sources_match_current_local_bytes": true,
+    "all117_members_match_SHA_and_bytes": true,
+    "regular_members_only": true,
+    "scientific_payload_copied": false,
+    "original_runtime_package_01_retained_and_SHA_verified": true
+  },
+  "original105_and107_protection_evidence": "Original105 source subset and all475 protection records are unchanged from the independently passed original frozen binding; exact protection dictionary equality was checked in this delta review.",
+  "input_and_contract_evidence": "All11 input and12 contract records are JSON-identical to the original independently passed package. No raw input/checkpoint payload was re-read.",
+  "evidence": [
+    {
+      "path": "receipts/wp3_016_20261015/launch_fix01/INDEPENDENT_FIX_REVIEW.json",
+      "bytes": 8411,
+      "sha256": "c47dfec31ae36b2388dc0c8fc952165ef19d353610a403b1f8a083c8e36bb6b3"
+    },
+    {
+      "path": "receipts/wp3_016_20261015/CONTROL_PREPARATION_RECEIPT_FIX01.json",
+      "bytes": 864,
+      "sha256": "87cd3e757fc53d93c5eb7a28a524eb0a3421fc3047ce5e778a4d91e1f4efdd2f"
+    },
+    {
+      "path": "receipts/wp3_016_20261015/FROZEN_CONTROL_ADOPTION_FIX01.json",
+      "bytes": 522,
+      "sha256": "a551e5c9993f9a6f89afc8731e54f69197ef4476b120ca58d6be4244824c6af1"
+    },
+    {
+      "path": "receipts/wp3_016_20261015/runtime_package_fix01/FREEZE_RECEIPT.json",
+      "bytes": 20204,
+      "sha256": "6d78c1ca4f7c6fb7e2229eea3287004f0e69cab14eea3270209a66bc8cef6d06"
+    },
+    {
+      "path": "receipts/wp3_016_20261015/independent_01/FROZEN_PACKAGE_REVIEW.json",
+      "bytes": 14927,
+      "sha256": "a315e8fdaae7724cb25e7a81759bf01b52bdb7ec32daa59602f817a9449d156f"
+    },
+    {
+      "path": "receipts/wp3_016_20261015/launch_fix01/frozen_package_fix_review.py",
+      "bytes": 9483,
+      "sha256": "7a3b559f1cc83f9d9bfad5beabd70928a46aadbdb657187d84f5fe6a5bc310a9"
+    }
+  ],
+  "actual_review_operations": {
+    "stdlib_only": true,
+    "numeric_tests_repeated": false,
+    "original_NPZ_NPY_reads_or_decodes": 0,
+    "checkpoint_payload_reads_or_loads": 0,
+    "NN_rows": 0,
+    "AD_queries": 0,
+    "new_random_draws": 0,
+    "training_updates": 0,
+    "new_calibration_fits": 0,
+    "SSH_calls": 0,
+    "GPU_work": 0,
+    "canonical_source_config_manifest_or_meta_edits": 0,
+    "new_output_root": "E:/GAN/research/N01/receipts/wp3_016_20261015/launch_fix01"
+  },
+  "cumulative_training_before_and_after_review": 175667,
+  "scientific_started_by_review": false,
+  "weights_promoted": false,
+  "scientific_acceptance": false,
+  "scientific_status": "response_match_not_established",
+  "conclusion_zh": "修复版冻结绑定通过：新canonical配置和manifest与117成员包逐字一致，仅controller及两个控制文件更换；114其它源码、11输入、12合同、475保护、科学设置和两trial预算不变。旧包与首次失败证据保留，可由根代理完成同job源码修订登记、备份与单次部署。"
+}

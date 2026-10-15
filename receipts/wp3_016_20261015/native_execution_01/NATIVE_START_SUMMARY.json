@@ -1,0 +1,54 @@
+{
+  "schema": "n01/wp3-016-native-start-attempt/v1",
+  "UTC": "2026-10-15T07:04:24.444501+00:00",
+  "status": "DEPLOY_BOOTSTRAP_FAILED_BEFORE_INSTALL_OR_START",
+  "passed": false,
+  "source_commit": "450ebb086a465e0dcbd1c1081e71edcf51c405b9",
+  "pins": {
+    "config_sha256": "20884dc1a3916c2ac23820fa1ff7c47da21861a465a3f08fa5988cb71220281d",
+    "source_manifest_sha256": "9151ca1a9503cde85786c0623effe431e10fa706ec5b92895bc448714ed93789",
+    "source_package_sha256": "9d054aeb744cf35c0f50080ddebc0397574a66ac404dd2f68a5d4e9221cf6fb9",
+    "controller_sha256": "f1d5eceadb145d6a921c41055dd7a7e4d9fb05c36a150e99689e50e21358d02a"
+  },
+  "prelaunch_validation_sha256": "8f7023784058a08ba3e8df078d6a418f9bb0e589e85cd4005a2ac24b03e4ab1d",
+  "deploy_receipt": {
+    "path": "receipts/wp3_016_20261015/deploy_native_01/prepare_NATIVE_RECEIPT.json",
+    "sha256": "223ffccae19fcb21905f8e3668cb61c4b7babe8b8e2a4ceb8792c7aafaf081a1"
+  },
+  "actions": {
+    "deploy_CLI_calls": 1,
+    "SSH_bootstrap_prepare_calls": 1,
+    "SCP_source_transfers": 0,
+    "install_calls": 0,
+    "start_calls": 0,
+    "first_event_wait_calls": 0,
+    "verify_start_snapshot_calls": 0,
+    "collect_calls": 0,
+    "automatic_retry": false
+  },
+  "native_result": {
+    "SSH_exit_code": 1,
+    "stdout_empty": true,
+    "exception": "ValueError: 016 exact reused014 operations unavailable",
+    "failure_stage": "controller operations loader before dispatch to native prepare/install/start",
+    "reason": "stdin bootstrap SELF_ROOT points to the new016 directory; operations omitted the mature015 fallback to the existing pinned014 controller"
+  },
+  "actual_start_UTC": null,
+  "first_update_UTC": null,
+  "same_snapshot_UTC": null,
+  "supervisor_pid": null,
+  "child_pid": null,
+  "start_ticks": null,
+  "observed_scientific_counters": null,
+  "attempted_scientific_counters": null,
+  "unknown_inflight": null,
+  "scientific_launch_performed": false,
+  "scientific_cost_from_this_failed_bootstrap": 0,
+  "scope": "No scientific launch action was reached. No fresh server status snapshot was requested after the bootstrap exception.",
+  "resource_health": "not sampled; start preflight not reached",
+  "post_failure_remote_activity": "none",
+  "metadata_or_automation_modified": false,
+  "next_action": "Root to authorize a minimal bootstrap fallback source fix, refreeze/review/commit/back up new exact pins, then decide a new explicit deployment attempt.",
+  "weights_promoted": false,
+  "scientific_acceptance": false
+}

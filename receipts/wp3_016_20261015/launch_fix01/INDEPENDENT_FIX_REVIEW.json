@@ -1,0 +1,206 @@
+{
+  "schema": "n01/wp3-016-bootstrap-fix-independent-review/v1",
+  "UTC": "2026-10-15T07:10:58.319171+00:00",
+  "run_id": "wp3_016_20261015",
+  "status": "PASS_MINIMAL_BOOTSTRAP_FIX_PENDING_REFREEZE",
+  "passed": true,
+  "blockers": [],
+  "sources": {
+    "scripts/wp3_016_controller.py": {
+      "path": "scripts/wp3_016_controller.py",
+      "bytes": 26914,
+      "sha256": "ae9afe444a90acb4fabddf1d2bf643550a4cbf29c4b9130408b040abcc843b5b"
+    },
+    "scripts/run_wp3_016.py": {
+      "path": "scripts/run_wp3_016.py",
+      "bytes": 37310,
+      "sha256": "4729208d66c61c3b082827535719e72d8d7bb2ee60f390b688111ae3b4f12972"
+    },
+    "src/n01/model016.py": {
+      "path": "src/n01/model016.py",
+      "bytes": 9226,
+      "sha256": "04c63f91ea5405937a940a9aee6eaed876db79149c857bfbe6ed8cfe6dcb138b"
+    }
+  },
+  "budget_caps": {
+    "calibration_A_rows": 6593,
+    "old_A_rows": 4313569,
+    "head_actual_parameter_forward_rows": 4306976,
+    "head_total_kernel_rows": 4306976,
+    "noise005_rows": 4306976,
+    "charge_module_rows": 4306976,
+    "charge_latent_scalar_draws": 4306976,
+    "charge_initialization_fits": 1,
+    "hard_ADC_rows": 13553856,
+    "all_path_gather_rows": 13553856,
+    "checkpoint_loads": 4,
+    "optimizer_created": 2,
+    "optimizer_steps": 4000,
+    "G_updates": 4000,
+    "training_backward_queries": 4000,
+    "new_AD_queries": 4000,
+    "probe_AD_queries": 0,
+    "integral_statistics_fits": 0,
+    "mean_adapter_rows": 0,
+    "D_updates": 0,
+    "noise_updates": 0,
+    "population_updates": 0,
+    "C2ST_updates": 0,
+    "DEV_model_rows": 0
+  },
+  "reviewer": {
+    "agent": "/root/wp3_015_solmax_review",
+    "assigned_model": "GPT-6.1-Sol",
+    "assigned_effort": "Max",
+    "runtime_model_metadata_independently_exposed": false
+  },
+  "fix_READY": {
+    "path": "receipts/wp3_016_20261015/launch_fix01/CONTROLLER_FIX_READY.json",
+    "bytes": 4591,
+    "sha256": "3dea5b57b0d5961de2669226cc0311deffedf461de41ca4c4e339e66ae4f7b62"
+  },
+  "previous_source_review": {
+    "path": "receipts/wp3_016_20261015/independent_01/SOURCE_REVIEW.json",
+    "bytes": 14311,
+    "sha256": "4d286687cdd18e10515363c57837cf58233b8f12abbb1f1bc89c3b5af861ee7d"
+  },
+  "actual_delta": {
+    "previous_controller": {
+      "path": "receipts/wp3_016_20261015/launch_fix01/before/wp3_016_controller.py",
+      "bytes": 26760,
+      "sha256": "f1d5eceadb145d6a921c41055dd7a7e4d9fb05c36a150e99689e50e21358d02a"
+    },
+    "controller": {
+      "path": "scripts/wp3_016_controller.py",
+      "bytes": 26914,
+      "sha256": "ae9afe444a90acb4fabddf1d2bf643550a4cbf29c4b9130408b040abcc843b5b"
+    },
+    "changed_operations_loader_source": "candidates = [SELF_ROOT / 'scripts/wp2_controller.py', Path('/home/rylan/projects/ej276d-n01/wp2_014_20261015') / 'scripts/wp2_controller.py']\npath = next((p for p in candidates if p.is_file()), None)\nrequire(path is not None and hashlib.sha256(path.read_bytes()).hexdigest() == BASE_SHA, '016 exact reused014 operations unavailable')",
+    "all_other_controller_AST_identical": true,
+    "operations_prefix_and_remainder_AST_identical": true,
+    "other_frozen016_sources_unchanged": 114,
+    "model_driver_design_roles_contracts_and_budget_unchanged": true,
+    "candidate_order": [
+      "SELF_ROOT/scripts/wp2_controller.py",
+      "/home/rylan/projects/ej276d-n01/wp2_014_20261015/scripts/wp2_controller.py"
+    ],
+    "pinned_original014_sha256": "3480825e94e954a46c2c633e5df6ddef514e2b7def1332bb2e7688e78ae041a3",
+    "selection_semantics": "Select the first existing candidate, then require its exact BASE_SHA. A wrong installed primary never falls through to a valid fallback."
+  },
+  "independently_rerun_tests": {
+    "receipt": {
+      "path": "receipts/wp3_016_20261015/launch_fix01/independent_bootstrap_stdlib_01/ENGINEERING_RECEIPT.json",
+      "bytes": 1280,
+      "sha256": "6c06b319db6febf6addcab6dafbc1ed2c36d67ad62baf0e322097c966705af28"
+    },
+    "passed": true,
+    "cases": [
+      {
+        "name": "actual_stdin_controller_bytes_uncreated016_finds_exact_SHA014",
+        "passed": true,
+        "new_root_created": false
+      },
+      {
+        "name": "both_candidate_sources_missing_refused",
+        "passed": true
+      },
+      {
+        "name": "fallback014_wrong_SHA_refused",
+        "passed": true
+      },
+      {
+        "name": "installed016_exact_SHA_source_still_has_priority",
+        "passed": true
+      },
+      {
+        "name": "present_but_wrong_SHA016_refused_even_with_valid_old014",
+        "passed": true
+      }
+    ],
+    "execution_mode": "Unmodified current source compiled with filename and __file__=<stdin>; isolated E-drive root-routing import shim only.",
+    "private_payload_reads": 0,
+    "native_process_launches": 0,
+    "SSH_calls": 0
+  },
+  "preserved_original_failure": {
+    "receipt": {
+      "path": "receipts/wp3_016_20261015/native_execution_01/NATIVE_START_SUMMARY.json",
+      "bytes": 2551,
+      "sha256": "d69bcaa07b2baa8f842361c26b6bb362cd79f29e65f9793b32c4919493929d90"
+    },
+    "original_config_manifest_package_unchanged": true,
+    "bootstrap_prepare_attempts": 1,
+    "SCP_install_start_calls": 0,
+    "scientific_cost": 0,
+    "fresh_remote_state_after_failure_not_queried": true
+  },
+  "reused_evidence": {
+    "numeric": {
+      "path": "receipts/wp3_016_20261015/engineering_01/artificial_cpu_01/ENGINEERING_RECEIPT.json",
+      "bytes": 6972,
+      "sha256": "c715b937cb16325e1f95f54cc5476d3805eb84f27620f80fd82927ae690ef090"
+    },
+    "health": {
+      "path": "receipts/wp3_016_20261015/engineering_01/controller_stdlib_01/ENGINEERING_RECEIPT.json",
+      "bytes": 3909,
+      "sha256": "86fd68c302632ab99929ed6cabfba815454623d4bd406c37e05baaa7079b9846"
+    },
+    "reuse_reason": "Model/driver and all health/supervision/archive methods are AST-identical; only bootstrap file selection changed.",
+    "numeric_tests_repeated": false
+  },
+  "refreeze_required": true,
+  "old_runtime_package_01_is_historical_not_new_controller_binding": true,
+  "root_next_action": "Refreeze runtime_package_fix01 with the new exact controller hash, preserve scientific settings/costs and the original job identity, then perform a thin frozen binding review before any new native attempt.",
+  "actual_review_operations": {
+    "stdlib_only": true,
+    "original_NPZ_NPY_decodes": 0,
+    "checkpoint_loads": 0,
+    "NN_rows": 0,
+    "AD_queries": 0,
+    "new_random_draws": 0,
+    "training_updates": 0,
+    "new_calibration_fits": 0,
+    "SSH_calls": 0,
+    "GPU_work": 0,
+    "source_or_meta_edits": 0,
+    "new_output_root": "E:/GAN/research/N01/receipts/wp3_016_20261015/launch_fix01"
+  },
+  "evidence": [
+    {
+      "path": "receipts/wp3_016_20261015/launch_fix01/before/wp3_016_controller.py",
+      "bytes": 26760,
+      "sha256": "f1d5eceadb145d6a921c41055dd7a7e4d9fb05c36a150e99689e50e21358d02a"
+    },
+    {
+      "path": "receipts/wp3_016_20261015/launch_fix01/before/ENGINEERING_READY.json",
+      "bytes": 5680,
+      "sha256": "d66bf5c4bb3215622bc2b6aee09686468452cf409f31e096540421de95c1f3de"
+    },
+    {
+      "path": "receipts/wp3_016_20261015/launch_fix01/bootstrap_stdlib_01/ENGINEERING_RECEIPT.json",
+      "bytes": 1281,
+      "sha256": "97748ed1f7ff764123829e18d34bd88da5b3e2599a32e17290c74b4e97a6aee3"
+    },
+    {
+      "path": "receipts/wp3_016_20261015/launch_fix01/check_bootstrap016.py",
+      "bytes": 4773,
+      "sha256": "fc23403f677a6df24c9825521f2f717a61ce6a41f7cfd7ac7efb7c15515ab2c5"
+    },
+    {
+      "path": "receipts/wp3_016_20261015/launch_fix01/CONTROLLER_FIX.diff",
+      "bytes": 910,
+      "sha256": "f6253d7e59799681b6f94abf30962649ade19061f504feda3e45b064d1feb158"
+    },
+    {
+      "path": "receipts/wp3_016_20261015/launch_fix01/independent_fix_review.py",
+      "bytes": 9824,
+      "sha256": "0d96e268131aee1fcf6fa151f8e7401cfd24c472176333b3ad11c963c3b580eb"
+    }
+  ],
+  "cumulative_training_before_and_after_review": 175667,
+  "scientific_start_performed": false,
+  "weights_promoted": false,
+  "scientific_acceptance": false,
+  "scientific_status": "response_match_not_established",
+  "conclusion_zh": "最小bootstrap修复独审通过：仅恢复成熟015的两候选加载路径，所有候选仍强制原014源码SHA。其余AST、114份其它冻源、数值模型和科学条件均不变；5例stdin bootstrap测试独立复跑通过。原失败与旧包完整保留，待新包重新冻结及薄绑定核对。"
+}

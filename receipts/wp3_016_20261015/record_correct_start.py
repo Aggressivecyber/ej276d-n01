@@ -24,7 +24,8 @@ def write(path,value,new=False):
 
 def main():
     p=read(ROOT/'wp3_016_config.json')
-    source=read(OUT/'SOURCE_COMMIT_READBACK.json')
+    source_receipt=OUT/('SOURCE_COMMIT_READBACK_FIX01.json' if p.get('launch_revision')=='fix01' else 'SOURCE_COMMIT_READBACK.json')
+    source=read(source_receipt)
     start_dir,verify_dir=OUT/'start_native_01',OUT/'start_verification_01'
     launch=read(start_dir/'START_RECEIPT.json')
     state=read(verify_dir/'REMOTE_STATE.json')
@@ -49,7 +50,7 @@ def main():
     stamp=dt.datetime.now(dt.timezone.utc).isoformat()
     refs=copy.deepcopy(program['wp3_016_execution'])
     refs.update(status='native_running_last_verified',source_commit=source['source_commit'],source_commit_pending_local_readback=False,
-        source_commit_readback=ref(OUT/'SOURCE_COMMIT_READBACK.json'),start_receipt=ref(start_dir/'START_RECEIPT.json'),
+        source_commit_readback=ref(source_receipt),start_receipt=ref(start_dir/'START_RECEIPT.json'),
         startup_verification=ref(verify_dir/'START_VALIDATION.json'),startup_snapshot=ref(verify_dir/'REMOTE_STATE.json'),
         analysis_pid=verification['child_pid'],supervisor_pid=launch['supervisor_pid'],
         last_verified_UTC=state['UTC'],last_verified_completed_counts=counts,

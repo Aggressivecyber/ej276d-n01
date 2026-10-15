@@ -1,0 +1,113 @@
+{
+  "schema": "n01/wp3-016-controller-bootstrap-fix-ready/v1",
+  "UTC": "2026-10-15T07:08:18.886654+00:00",
+  "passed": true,
+  "status": "MINIMAL_BOOTSTRAP_LOADER_FIX_READY_PENDING_INDEPENDENT_REVIEW_AND_REFREEZE",
+  "previous_controller": {
+    "path": "receipts/wp3_016_20261015/launch_fix01/before/wp3_016_controller.py",
+    "bytes": 26760,
+    "sha256": "f1d5eceadb145d6a921c41055dd7a7e4d9fb05c36a150e99689e50e21358d02a"
+  },
+  "controller": {
+    "path": "scripts/wp3_016_controller.py",
+    "bytes": 26914,
+    "sha256": "ae9afe444a90acb4fabddf1d2bf643550a4cbf29c4b9130408b040abcc843b5b"
+  },
+  "previous_ENGINEERING_READY": {
+    "path": "receipts/wp3_016_20261015/launch_fix01/before/ENGINEERING_READY.json",
+    "bytes": 5680,
+    "sha256": "d66bf5c4bb3215622bc2b6aee09686468452cf409f31e096540421de95c1f3de"
+  },
+  "test": {
+    "path": "receipts/wp3_016_20261015/launch_fix01/bootstrap_stdlib_01/ENGINEERING_RECEIPT.json",
+    "bytes": 1281,
+    "sha256": "97748ed1f7ff764123829e18d34bd88da5b3e2599a32e17290c74b4e97a6aee3"
+  },
+  "test_script": {
+    "path": "receipts/wp3_016_20261015/launch_fix01/check_bootstrap016.py",
+    "bytes": 4773,
+    "sha256": "fc23403f677a6df24c9825521f2f717a61ce6a41f7cfd7ac7efb7c15515ab2c5"
+  },
+  "diff": {
+    "path": "receipts/wp3_016_20261015/launch_fix01/CONTROLLER_FIX.diff",
+    "bytes": 910,
+    "sha256": "f6253d7e59799681b6f94abf30962649ade19061f504feda3e45b064d1feb158"
+  },
+  "repair": "Restore the mature015 candidate order: SELF_ROOT/scripts/wp2_controller.py, then the original014 absolute controller. First existing candidate must still equal BASE_SHA.",
+  "scope_checks": {
+    "only_operations_loader_candidate_selection_changed": true,
+    "all_other_controller_functions_AST_identical": true,
+    "remainder_of_operations_AST_identical": true,
+    "driver_model_scientific_settings_identical": true,
+    "original105_sources_and107_controls_unchanged": true,
+    "other114_frozen016_sources_unchanged": true,
+    "original016_config_manifest_package_preserved": true,
+    "old_engineering_READY_preserved": true,
+    "original_deploy_and_native_failure_evidence_preserved": true
+  },
+  "sources": {
+    "scripts/wp3_016_controller.py": {
+      "path": "scripts/wp3_016_controller.py",
+      "bytes": 26914,
+      "sha256": "ae9afe444a90acb4fabddf1d2bf643550a4cbf29c4b9130408b040abcc843b5b"
+    },
+    "scripts/run_wp3_016.py": {
+      "path": "scripts/run_wp3_016.py",
+      "bytes": 37310,
+      "sha256": "4729208d66c61c3b082827535719e72d8d7bb2ee60f390b688111ae3b4f12972"
+    },
+    "src/n01/model016.py": {
+      "path": "src/n01/model016.py",
+      "bytes": 9226,
+      "sha256": "04c63f91ea5405937a940a9aee6eaed876db79149c857bfbe6ed8cfe6dcb138b"
+    }
+  },
+  "budget_caps": {
+    "calibration_A_rows": 6593,
+    "old_A_rows": 4313569,
+    "head_actual_parameter_forward_rows": 4306976,
+    "head_total_kernel_rows": 4306976,
+    "noise005_rows": 4306976,
+    "charge_module_rows": 4306976,
+    "charge_latent_scalar_draws": 4306976,
+    "charge_initialization_fits": 1,
+    "hard_ADC_rows": 13553856,
+    "all_path_gather_rows": 13553856,
+    "checkpoint_loads": 4,
+    "optimizer_created": 2,
+    "optimizer_steps": 4000,
+    "G_updates": 4000,
+    "training_backward_queries": 4000,
+    "new_AD_queries": 4000,
+    "probe_AD_queries": 0,
+    "integral_statistics_fits": 0,
+    "mean_adapter_rows": 0,
+    "D_updates": 0,
+    "noise_updates": 0,
+    "population_updates": 0,
+    "C2ST_updates": 0,
+    "DEV_model_rows": 0
+  },
+  "reused_numeric_engineering": {
+    "path": "receipts/wp3_016_20261015/engineering_01/artificial_cpu_01/ENGINEERING_RECEIPT.json",
+    "bytes": 6972,
+    "sha256": "c715b937cb16325e1f95f54cc5476d3805eb84f27620f80fd82927ae690ef090"
+  },
+  "reused_health_engineering": {
+    "path": "receipts/wp3_016_20261015/engineering_01/controller_stdlib_01/ENGINEERING_RECEIPT.json",
+    "bytes": 3909,
+    "sha256": "86fd68c302632ab99929ed6cabfba815454623d4bd406c37e05baaa7079b9846"
+  },
+  "new_tests": {
+    "stdlib_bootstrap_cases": 5,
+    "numeric_test_repeats": 0,
+    "private_arrays_or_CP_reads": 0,
+    "NN_AD_training_random_scientific": 0,
+    "native_process_launches": 0,
+    "SSH_calls": 0
+  },
+  "next_action": "Root independent delta review, runtime_package_fix01 exact refreeze, source commit and Dsource_02 backup before any separately authorized native attempt.",
+  "deploy_restart_or_retry_performed": false,
+  "weights_promoted": false,
+  "scientific_acceptance": false
+}
