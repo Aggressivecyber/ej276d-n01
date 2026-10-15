@@ -45,6 +45,7 @@ WP3两次剩余额度用完后推进WP4，不按近阈值追加候选。WP4两�
 
 每个新长任务正确启动并确认一个未来wake后立即休息，不持续监控。无待回收长任务时完成可交付工作后暂停n01。016训练结束或CPU启动都不代表六工作包全部完成。
 '''
+    text=text.strip()
     path=OUT/'FOLLOWUP_PROMPT.txt'
     with path.open('x',encoding='utf-8',newline='\n') as stream:stream.write(text)
     print(json.dumps(dict(status='016_single_wake_continuation_prompt_created',path=str(path),source_commit=source['source_commit'],snapshot_G=G,cumulative=total)))

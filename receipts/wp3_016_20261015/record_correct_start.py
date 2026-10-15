@@ -58,7 +58,8 @@ def main():
         last_verified_UTC=state['UTC'],last_verified_completed_counts=counts,
         unknown_inflight_ids=progress.get('unknown_inflight_ids',[]),actual_costs_are_durable_lower_bounds_while_running=True,
         correct_start_verified=True,new_training_updates=counts['G_updates'],new_AD_queries=counts['new_AD_queries'],
-        native_exit_code=None,supervisor_exit_code=None)
+        native_exit_code=None,supervisor_exit_code=None,actual_progress_unknown_after_dispatch=False,
+        actual_progress_after_saved_snapshot='unknown_not_polled')
     prior=p.get('runtime_repair',{}).get('prior_actual_cost',{})
     aggregate={k:prior.get(k,0)+counts.get(k,0) for k in set(prior)|set(counts)}
     refs.update(prior_native_actual_cost=prior,aggregate_completed_counts_last_verified=aggregate,
@@ -68,7 +69,10 @@ def main():
             active_research=p['run_id'],pending_run_id=None,current_stage='WP3_016_native_charge_trials',
             latest_run_id=p['run_id'],latest_training_run_id=p['run_id'],latest_training_source_commit=source['source_commit'],
             wp3_016_execution=refs,wp3_execution=refs,wp3_016_G_updates=counts['G_updates'],wp3_016_AD_queries=counts['new_AD_queries'],
-            cumulative_training_updates=175667+counts['G_updates'],wp3_total_completed_G_updates_lower_bound=8000+counts['G_updates'],
+            cumulative_training_updates=175667+counts['G_updates'],new_training_updates=175667+counts['G_updates'],
+            current_run_training_updates=counts['G_updates'],wp3_total_completed_G_updates_lower_bound=8000+counts['G_updates'],
+            wp3_G_updates=8000+counts['G_updates'],wp3_AD_queries=8000+counts['new_AD_queries'],
+            training_updates_after_dispatch='durable_counts_at_only_saved_snapshot_verified; subsequent_progress_unknown_not_polled',
             next_action='Set one future n01 wake, rest, then collect016 and continue WP4-WP6.',
             active_scientific_jobs_status_basis='one first real two-parameter update and current same-snapshot owned-process/resource health',
             latest_subagent_model_preference='GPT-6.1-Sol Max',updated_UTC=stamp)

@@ -83,7 +83,10 @@ def main():
     start_dir=OUT/started['start_receipt_directory'];verify_dir=OUT/started['startup_verification_directory']
     files=[OUT/'EXECUTION_STARTED.json',followup_path,tool_path,OUT/'FOLLOWUP_PROMPT.txt',summary_path,source_path,
         start_dir/'START_RECEIPT.json',verify_dir/'START_VALIDATION.json',verify_dir/'REMOTE_STATE.json',
-        OUT/'NATIVE_FAILURE_RECONCILIATION.json']+paths
+        OUT/'NATIVE_FAILURE_RECONCILIATION.json',OUT/'D_FAILURE_BACKUP_RECEIPT.json',
+        OUT/('D_SOURCE_BACKUP_RECEIPT'+suffix+'.json'),
+        OUT/('native_execution_03/NATIVE_START_SUMMARY.json' if suffix=='_FIX02' else 'native_execution_02/NATIVE_START_SUMMARY.json')]+paths
+    files.extend(OUT/name for name in ('FOLLOWUP_PROMPT_SENT.txt','FOLLOWUP_PROMPT_CANONICALIZATION.json') if (OUT/name).is_file())
     assert sum(path.stat().st_size for path in files)<8*1024**2
     inventory={}
     for path in files:
