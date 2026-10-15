@@ -1,0 +1,4249 @@
+{
+  "schema": "n01/wp4-019-static-dependencies/v1",
+  "method": "Python stdlib ast.parse only; no project module imported; Import and ImportFrom at all AST depths; relative n01 and bare script resolution",
+  "known_failure_import_closure": {
+    "root": "scripts/mechanism012_losses.py",
+    "nodes": [
+      "scripts/mechanism012_losses.py",
+      "src/n01/electronics_v3.py",
+      "src/n01/extension006.py",
+      "src/n01/losses008.py",
+      "src/n01/losses008_v2.py",
+      "src/n01/model.py",
+      "src/n01/model008.py",
+      "src/n01/observation008.py"
+    ],
+    "edges": [
+      {
+        "source": "src/n01/extension006.py",
+        "line": 15,
+        "scope": "<module>",
+        "module": "n01.electronics_v3",
+        "target": "src/n01/electronics_v3.py"
+      },
+      {
+        "source": "src/n01/extension006.py",
+        "line": 16,
+        "scope": "<module>",
+        "module": "n01.model",
+        "target": "src/n01/model.py"
+      },
+      {
+        "source": "src/n01/losses008_v2.py",
+        "line": 16,
+        "scope": "<module>",
+        "module": "n01.losses008",
+        "target": "src/n01/losses008.py"
+      },
+      {
+        "source": "src/n01/model008.py",
+        "line": 14,
+        "scope": "<module>",
+        "module": "n01.model",
+        "target": "src/n01/model.py"
+      },
+      {
+        "source": "src/n01/observation008.py",
+        "line": 19,
+        "scope": "<module>",
+        "module": "n01.electronics_v3",
+        "target": "src/n01/electronics_v3.py"
+      },
+      {
+        "source": "src/n01/observation008.py",
+        "line": 20,
+        "scope": "<module>",
+        "module": "n01.extension006",
+        "target": "src/n01/extension006.py"
+      },
+      {
+        "source": "src/n01/observation008.py",
+        "line": 21,
+        "scope": "<module>",
+        "module": "n01.model",
+        "target": "src/n01/model.py"
+      },
+      {
+        "source": "scripts/mechanism012_losses.py",
+        "line": 10,
+        "scope": "<module>",
+        "module": "n01.losses008",
+        "target": "src/n01/losses008.py"
+      },
+      {
+        "source": "scripts/mechanism012_losses.py",
+        "line": 11,
+        "scope": "<module>",
+        "module": "n01.losses008_v2",
+        "target": "src/n01/losses008_v2.py"
+      },
+      {
+        "source": "scripts/mechanism012_losses.py",
+        "line": 12,
+        "scope": "<module>",
+        "module": "n01.model",
+        "target": "src/n01/model.py"
+      },
+      {
+        "source": "scripts/mechanism012_losses.py",
+        "line": 13,
+        "scope": "<module>",
+        "module": "n01.model008",
+        "target": "src/n01/model008.py"
+      },
+      {
+        "source": "scripts/mechanism012_losses.py",
+        "line": 14,
+        "scope": "<module>",
+        "module": "n01.observation008",
+        "target": "src/n01/observation008.py"
+      }
+    ],
+    "missing_from019": [
+      "scripts/mechanism012_losses.py"
+    ],
+    "all_seven_recursive_project_dependencies_already_frozen": true
+  },
+  "actual019_path_minimal_source_inventory": {
+    "retain_original_30_science_sources": [
+      "scripts/run_wp4_019.py",
+      "scripts/run_wp4_018.py",
+      "scripts/run_wp4_017.py",
+      "scripts/run_wp2_014.py",
+      "scripts/run_wp1_013.py",
+      "scripts/wp1_ops.py",
+      "src/n01/ablation009.py",
+      "src/n01/data.py",
+      "src/n01/data008.py",
+      "src/n01/diagnose_mean_random009.py",
+      "src/n01/electronics_v3.py",
+      "src/n01/evaluate.py",
+      "src/n01/evaluate_window008.py",
+      "src/n01/extension006.py",
+      "src/n01/losses.py",
+      "src/n01/losses008.py",
+      "src/n01/losses008_v2.py",
+      "src/n01/model.py",
+      "src/n01/model008.py",
+      "src/n01/model008_fix01.py",
+      "src/n01/model010.py",
+      "src/n01/model014.py",
+      "src/n01/model016.py",
+      "src/n01/model017.py",
+      "src/n01/observation008.py",
+      "src/n01/response008.py",
+      "src/n01/saved_array_kernels017.py",
+      "src/n01/stats017.py",
+      "src/n01/stats018.py",
+      "src/n01/train.py"
+    ],
+    "append_only": [
+      "scripts/mechanism012_losses.py"
+    ],
+    "science_count": 31,
+    "all_package_members_count_if_other_38_retained": 39,
+    "scope": "minimal patch for registered019 call path; not a proof that every unused legacy branch can run"
+  },
+  "conservative_whole_module_static_superset": {
+    "roots": [
+      "scripts/run_wp4_019.py",
+      "scripts/run_wp4_018.py",
+      "scripts/run_wp4_017.py",
+      "scripts/run_wp2_014.py",
+      "scripts/run_wp1_013.py",
+      "scripts/wp1_ops.py",
+      "src/n01/ablation009.py",
+      "src/n01/data.py",
+      "src/n01/data008.py",
+      "src/n01/diagnose_mean_random009.py",
+      "src/n01/electronics_v3.py",
+      "src/n01/evaluate.py",
+      "src/n01/evaluate_window008.py",
+      "src/n01/extension006.py",
+      "src/n01/losses.py",
+      "src/n01/losses008.py",
+      "src/n01/losses008_v2.py",
+      "src/n01/model.py",
+      "src/n01/model008.py",
+      "src/n01/model008_fix01.py",
+      "src/n01/model010.py",
+      "src/n01/model014.py",
+      "src/n01/model016.py",
+      "src/n01/model017.py",
+      "src/n01/observation008.py",
+      "src/n01/response008.py",
+      "src/n01/saved_array_kernels017.py",
+      "src/n01/stats017.py",
+      "src/n01/stats018.py",
+      "src/n01/train.py",
+      "scripts/wp4_017_controller.py",
+      "scripts/wp2_controller.py",
+      "scripts/mechanism012_ops.py",
+      "scripts/supervise_mechanism012.py",
+      "receipts/wp4_019_20261016/execution_01/REMOTE_SUPERVISOR.py"
+    ],
+    "node_count": 43,
+    "nodes": [
+      "receipts/wp4_019_20261016/execution_01/REMOTE_SUPERVISOR.py",
+      "scripts/mechanism012_losses.py",
+      "scripts/mechanism012_ops.py",
+      "scripts/run_wp1_013.py",
+      "scripts/run_wp2_014.py",
+      "scripts/run_wp4_017.py",
+      "scripts/run_wp4_018.py",
+      "scripts/run_wp4_019.py",
+      "scripts/stability011_metrics.py",
+      "scripts/supervise_mechanism012.py",
+      "scripts/wp1_boundary_saved.py",
+      "scripts/wp1_evaluation.py",
+      "scripts/wp1_input_information.py",
+      "scripts/wp1_ops.py",
+      "scripts/wp1_parameter_probe.py",
+      "scripts/wp2_controller.py",
+      "scripts/wp4_017_controller.py",
+      "src/n01/ablation009.py",
+      "src/n01/data.py",
+      "src/n01/data008.py",
+      "src/n01/diagnose_mean_random009.py",
+      "src/n01/electronics_v3.py",
+      "src/n01/evaluate.py",
+      "src/n01/evaluate_window008.py",
+      "src/n01/extension006.py",
+      "src/n01/losses.py",
+      "src/n01/losses008.py",
+      "src/n01/losses008_v2.py",
+      "src/n01/losses014.py",
+      "src/n01/model.py",
+      "src/n01/model008.py",
+      "src/n01/model008_fix01.py",
+      "src/n01/model010.py",
+      "src/n01/model014.py",
+      "src/n01/model016.py",
+      "src/n01/model017.py",
+      "src/n01/observation008.py",
+      "src/n01/response008.py",
+      "src/n01/saved_array_kernels017.py",
+      "src/n01/stats017.py",
+      "src/n01/stats018.py",
+      "src/n01/train.py",
+      "src/n01/train_shape010.py"
+    ],
+    "extra_nodes": [
+      "scripts/mechanism012_losses.py",
+      "scripts/stability011_metrics.py",
+      "scripts/wp1_boundary_saved.py",
+      "scripts/wp1_evaluation.py",
+      "scripts/wp1_input_information.py",
+      "scripts/wp1_parameter_probe.py",
+      "src/n01/losses014.py",
+      "src/n01/train_shape010.py"
+    ],
+    "note": "The seven extra files beyond mechanism012_losses are imported only by other legacy branches; not added to the actual019 minimal repair.",
+    "edges": [
+      {
+        "source": "receipts/wp4_019_20261016/execution_01/REMOTE_SUPERVISOR.py",
+        "line": 28,
+        "scope": "<module>",
+        "module": "wp4_017_controller",
+        "target": "scripts/wp4_017_controller.py"
+      },
+      {
+        "source": "receipts/wp4_019_20261016/execution_01/REMOTE_SUPERVISOR.py",
+        "line": 39,
+        "scope": "<module>",
+        "module": "run_wp4_019",
+        "target": "scripts/run_wp4_019.py"
+      },
+      {
+        "source": "scripts/mechanism012_losses.py",
+        "line": 10,
+        "scope": "<module>",
+        "module": "n01.losses008",
+        "target": "src/n01/losses008.py"
+      },
+      {
+        "source": "scripts/mechanism012_losses.py",
+        "line": 11,
+        "scope": "<module>",
+        "module": "n01.losses008_v2",
+        "target": "src/n01/losses008_v2.py"
+      },
+      {
+        "source": "scripts/mechanism012_losses.py",
+        "line": 12,
+        "scope": "<module>",
+        "module": "n01.model",
+        "target": "src/n01/model.py"
+      },
+      {
+        "source": "scripts/mechanism012_losses.py",
+        "line": 13,
+        "scope": "<module>",
+        "module": "n01.model008",
+        "target": "src/n01/model008.py"
+      },
+      {
+        "source": "scripts/mechanism012_losses.py",
+        "line": 14,
+        "scope": "<module>",
+        "module": "n01.observation008",
+        "target": "src/n01/observation008.py"
+      },
+      {
+        "source": "scripts/run_wp1_013.py",
+        "line": 15,
+        "scope": "<module>",
+        "module": "wp1_ops",
+        "target": "scripts/wp1_ops.py"
+      },
+      {
+        "source": "scripts/run_wp1_013.py",
+        "line": 67,
+        "scope": "observation_rows",
+        "module": "mechanism012_losses",
+        "target": "scripts/mechanism012_losses.py"
+      },
+      {
+        "source": "scripts/run_wp1_013.py",
+        "line": 71,
+        "scope": "observation_rows",
+        "module": "n01.model",
+        "target": "src/n01/model.py"
+      },
+      {
+        "source": "scripts/run_wp1_013.py",
+        "line": 120,
+        "scope": "reference_snapshot",
+        "module": "n01.response008",
+        "target": "src/n01/response008.py"
+      },
+      {
+        "source": "scripts/run_wp1_013.py",
+        "line": 130,
+        "scope": "prepare_numeric",
+        "module": "n01.model008",
+        "target": "src/n01/model008.py"
+      },
+      {
+        "source": "scripts/run_wp1_013.py",
+        "line": 131,
+        "scope": "prepare_numeric",
+        "module": "n01.model010",
+        "target": "src/n01/model010.py"
+      },
+      {
+        "source": "scripts/run_wp1_013.py",
+        "line": 132,
+        "scope": "prepare_numeric",
+        "module": "n01.response008",
+        "target": "src/n01/response008.py"
+      },
+      {
+        "source": "scripts/run_wp1_013.py",
+        "line": 133,
+        "scope": "prepare_numeric",
+        "module": "n01.losses008_v2",
+        "target": "src/n01/losses008_v2.py"
+      },
+      {
+        "source": "scripts/run_wp1_013.py",
+        "line": 165,
+        "scope": "prepare_numeric",
+        "module": "wp1_parameter_probe",
+        "target": "scripts/wp1_parameter_probe.py"
+      },
+      {
+        "source": "scripts/run_wp1_013.py",
+        "line": 208,
+        "scope": "Runtime.__init__",
+        "module": "wp1_evaluation",
+        "target": "scripts/wp1_evaluation.py"
+      },
+      {
+        "source": "scripts/run_wp1_013.py",
+        "line": 219,
+        "scope": "Runtime.forward",
+        "module": "wp1_parameter_probe",
+        "target": "scripts/wp1_parameter_probe.py"
+      },
+      {
+        "source": "scripts/run_wp1_013.py",
+        "line": 220,
+        "scope": "Runtime.forward",
+        "module": "n01.model008",
+        "target": "src/n01/model008.py"
+      },
+      {
+        "source": "scripts/run_wp1_013.py",
+        "line": 238,
+        "scope": "Runtime.observe",
+        "module": "n01.observation008",
+        "target": "src/n01/observation008.py"
+      },
+      {
+        "source": "scripts/run_wp1_013.py",
+        "line": 239,
+        "scope": "Runtime.observe",
+        "module": "mechanism012_losses",
+        "target": "scripts/mechanism012_losses.py"
+      },
+      {
+        "source": "scripts/run_wp1_013.py",
+        "line": 248,
+        "scope": "Runtime.references_forward",
+        "module": "n01.train_shape010",
+        "target": "src/n01/train_shape010.py"
+      },
+      {
+        "source": "scripts/run_wp1_013.py",
+        "line": 249,
+        "scope": "Runtime.references_forward",
+        "module": "n01.response008",
+        "target": "src/n01/response008.py"
+      },
+      {
+        "source": "scripts/run_wp1_013.py",
+        "line": 289,
+        "scope": "Runtime.references_forward",
+        "module": "wp1_evaluation",
+        "target": "scripts/wp1_evaluation.py"
+      },
+      {
+        "source": "scripts/run_wp1_013.py",
+        "line": 296,
+        "scope": "Runtime.component",
+        "module": "wp1_evaluation",
+        "target": "scripts/wp1_evaluation.py"
+      },
+      {
+        "source": "scripts/run_wp1_013.py",
+        "line": 302,
+        "scope": "Runtime.complete_evaluations",
+        "module": "wp1_evaluation",
+        "target": "scripts/wp1_evaluation.py"
+      },
+      {
+        "source": "scripts/run_wp1_013.py",
+        "line": 365,
+        "scope": "Runtime.calibrate",
+        "module": "wp1_parameter_probe",
+        "target": "scripts/wp1_parameter_probe.py"
+      },
+      {
+        "source": "scripts/run_wp1_013.py",
+        "line": 421,
+        "scope": "Runtime.parameter_states",
+        "module": "wp1_parameter_probe",
+        "target": "scripts/wp1_parameter_probe.py"
+      },
+      {
+        "source": "scripts/run_wp1_013.py",
+        "line": 422,
+        "scope": "Runtime.parameter_states",
+        "module": "n01.model",
+        "target": "src/n01/model.py"
+      },
+      {
+        "source": "scripts/run_wp1_013.py",
+        "line": 423,
+        "scope": "Runtime.parameter_states",
+        "module": "wp1_evaluation",
+        "target": "scripts/wp1_evaluation.py"
+      },
+      {
+        "source": "scripts/run_wp1_013.py",
+        "line": 527,
+        "scope": "main",
+        "module": "wp1_input_information",
+        "target": "scripts/wp1_input_information.py"
+      },
+      {
+        "source": "scripts/run_wp1_013.py",
+        "line": 528,
+        "scope": "main",
+        "module": "wp1_boundary_saved",
+        "target": "scripts/wp1_boundary_saved.py"
+      },
+      {
+        "source": "scripts/run_wp2_014.py",
+        "line": 19,
+        "scope": "<module>",
+        "module": "wp1_ops",
+        "target": "scripts/wp1_ops.py"
+      },
+      {
+        "source": "scripts/run_wp2_014.py",
+        "line": 182,
+        "scope": "current_rss014",
+        "module": "n01.diagnose_mean_random009",
+        "target": "src/n01/diagnose_mean_random009.py"
+      },
+      {
+        "source": "scripts/run_wp2_014.py",
+        "line": 221,
+        "scope": "Runtime014.__init__",
+        "module": "n01.response008",
+        "target": "src/n01/response008.py"
+      },
+      {
+        "source": "scripts/run_wp2_014.py",
+        "line": 244,
+        "scope": "Runtime014.verify",
+        "module": "n01.response008",
+        "target": "src/n01/response008.py"
+      },
+      {
+        "source": "scripts/run_wp2_014.py",
+        "line": 268,
+        "scope": "Runtime014.noise",
+        "module": "n01.response008",
+        "target": "src/n01/response008.py"
+      },
+      {
+        "source": "scripts/run_wp2_014.py",
+        "line": 273,
+        "scope": "Runtime014.observe",
+        "module": "n01.observation008",
+        "target": "src/n01/observation008.py"
+      },
+      {
+        "source": "scripts/run_wp2_014.py",
+        "line": 293,
+        "scope": "Runtime014.calibrate",
+        "module": "n01.losses008",
+        "target": "src/n01/losses008.py"
+      },
+      {
+        "source": "scripts/run_wp2_014.py",
+        "line": 294,
+        "scope": "Runtime014.calibrate",
+        "module": "n01.model014",
+        "target": "src/n01/model014.py"
+      },
+      {
+        "source": "scripts/run_wp2_014.py",
+        "line": 295,
+        "scope": "Runtime014.calibrate",
+        "module": "n01.train_shape010",
+        "target": "src/n01/train_shape010.py"
+      },
+      {
+        "source": "scripts/run_wp2_014.py",
+        "line": 320,
+        "scope": "Engine014.__init__",
+        "module": "n01.data",
+        "target": "src/n01/data.py"
+      },
+      {
+        "source": "scripts/run_wp2_014.py",
+        "line": 321,
+        "scope": "Engine014.__init__",
+        "module": "n01.model014",
+        "target": "src/n01/model014.py"
+      },
+      {
+        "source": "scripts/run_wp2_014.py",
+        "line": 322,
+        "scope": "Engine014.__init__",
+        "module": "n01.losses014",
+        "target": "src/n01/losses014.py"
+      },
+      {
+        "source": "scripts/run_wp2_014.py",
+        "line": 323,
+        "scope": "Engine014.__init__",
+        "module": "n01.response008",
+        "target": "src/n01/response008.py"
+      },
+      {
+        "source": "scripts/run_wp2_014.py",
+        "line": 324,
+        "scope": "Engine014.__init__",
+        "module": "n01.train_shape010",
+        "target": "src/n01/train_shape010.py"
+      },
+      {
+        "source": "scripts/run_wp2_014.py",
+        "line": 349,
+        "scope": "Engine014.checkpoint",
+        "module": "n01.train_shape010",
+        "target": "src/n01/train_shape010.py"
+      },
+      {
+        "source": "scripts/run_wp2_014.py",
+        "line": 367,
+        "scope": "Engine014.step",
+        "module": "n01.response008",
+        "target": "src/n01/response008.py"
+      },
+      {
+        "source": "scripts/run_wp2_014.py",
+        "line": 447,
+        "scope": "Engine014.probe",
+        "module": "n01.train_shape010",
+        "target": "src/n01/train_shape010.py"
+      },
+      {
+        "source": "scripts/run_wp2_014.py",
+        "line": 448,
+        "scope": "Engine014.probe",
+        "module": "n01.response008",
+        "target": "src/n01/response008.py"
+      },
+      {
+        "source": "scripts/run_wp2_014.py",
+        "line": 449,
+        "scope": "Engine014.probe",
+        "module": "wp1_evaluation",
+        "target": "scripts/wp1_evaluation.py"
+      },
+      {
+        "source": "scripts/run_wp2_014.py",
+        "line": 450,
+        "scope": "Engine014.probe",
+        "module": "run_wp1_013",
+        "target": "scripts/run_wp1_013.py"
+      },
+      {
+        "source": "scripts/run_wp2_014.py",
+        "line": 567,
+        "scope": "Engine014.evaluate",
+        "module": "n01.train_shape010",
+        "target": "src/n01/train_shape010.py"
+      },
+      {
+        "source": "scripts/run_wp2_014.py",
+        "line": 568,
+        "scope": "Engine014.evaluate",
+        "module": "wp1_evaluation",
+        "target": "scripts/wp1_evaluation.py"
+      },
+      {
+        "source": "scripts/run_wp2_014.py",
+        "line": 569,
+        "scope": "Engine014.evaluate",
+        "module": "run_wp1_013",
+        "target": "scripts/run_wp1_013.py"
+      },
+      {
+        "source": "scripts/run_wp2_014.py",
+        "line": 681,
+        "scope": "prepare_numeric014",
+        "module": "n01.model008",
+        "target": "src/n01/model008.py"
+      },
+      {
+        "source": "scripts/run_wp2_014.py",
+        "line": 682,
+        "scope": "prepare_numeric014",
+        "module": "n01.response008",
+        "target": "src/n01/response008.py"
+      },
+      {
+        "source": "scripts/run_wp2_014.py",
+        "line": 683,
+        "scope": "prepare_numeric014",
+        "module": "n01.diagnose_mean_random009",
+        "target": "src/n01/diagnose_mean_random009.py"
+      },
+      {
+        "source": "scripts/run_wp2_014.py",
+        "line": 684,
+        "scope": "prepare_numeric014",
+        "module": "n01.losses014",
+        "target": "src/n01/losses014.py"
+      },
+      {
+        "source": "scripts/run_wp2_014.py",
+        "line": 685,
+        "scope": "prepare_numeric014",
+        "module": "run_wp1_013",
+        "target": "scripts/run_wp1_013.py"
+      },
+      {
+        "source": "scripts/run_wp2_014.py",
+        "line": 732,
+        "scope": "run014",
+        "module": "n01.evaluate_window008",
+        "target": "src/n01/evaluate_window008.py"
+      },
+      {
+        "source": "scripts/run_wp4_017.py",
+        "line": 12,
+        "scope": "<module>",
+        "module": "wp1_ops",
+        "target": "scripts/wp1_ops.py"
+      },
+      {
+        "source": "scripts/run_wp4_017.py",
+        "line": 154,
+        "scope": "prepare_numeric017",
+        "module": "n01.model008",
+        "target": "src/n01/model008.py"
+      },
+      {
+        "source": "scripts/run_wp4_017.py",
+        "line": 155,
+        "scope": "prepare_numeric017",
+        "module": "n01.model014",
+        "target": "src/n01/model014.py"
+      },
+      {
+        "source": "scripts/run_wp4_017.py",
+        "line": 156,
+        "scope": "prepare_numeric017",
+        "module": "n01.model017",
+        "target": "src/n01/model017.py"
+      },
+      {
+        "source": "scripts/run_wp4_017.py",
+        "line": 157,
+        "scope": "prepare_numeric017",
+        "module": "n01.response008",
+        "target": "src/n01/response008.py"
+      },
+      {
+        "source": "scripts/run_wp4_017.py",
+        "line": 201,
+        "scope": "build_frozen_cache017",
+        "module": "n01.model008",
+        "target": "src/n01/model008.py"
+      },
+      {
+        "source": "scripts/run_wp4_017.py",
+        "line": 202,
+        "scope": "build_frozen_cache017",
+        "module": "n01.model010",
+        "target": "src/n01/model010.py"
+      },
+      {
+        "source": "scripts/run_wp4_017.py",
+        "line": 203,
+        "scope": "build_frozen_cache017",
+        "module": "n01.stats017",
+        "target": "src/n01/stats017.py"
+      },
+      {
+        "source": "scripts/run_wp4_017.py",
+        "line": 273,
+        "scope": "Runtime017.noises",
+        "module": "n01.response008",
+        "target": "src/n01/response008.py"
+      },
+      {
+        "source": "scripts/run_wp4_017.py",
+        "line": 276,
+        "scope": "Runtime017.observe",
+        "module": "n01.observation008",
+        "target": "src/n01/observation008.py"
+      },
+      {
+        "source": "scripts/run_wp4_017.py",
+        "line": 281,
+        "scope": "Runtime017.signals",
+        "module": "n01.model017",
+        "target": "src/n01/model017.py"
+      },
+      {
+        "source": "scripts/run_wp4_017.py",
+        "line": 309,
+        "scope": "Runtime017.guard",
+        "module": "run_wp2_014",
+        "target": "scripts/run_wp2_014.py"
+      },
+      {
+        "source": "scripts/run_wp4_017.py",
+        "line": 330,
+        "scope": "Engine017.__init__",
+        "module": "n01.model017",
+        "target": "src/n01/model017.py"
+      },
+      {
+        "source": "scripts/run_wp4_017.py",
+        "line": 374,
+        "scope": "Engine017.checkpoint",
+        "module": "run_wp2_014",
+        "target": "scripts/run_wp2_014.py"
+      },
+      {
+        "source": "scripts/run_wp4_017.py",
+        "line": 392,
+        "scope": "Engine017.step",
+        "module": "n01.model017",
+        "target": "src/n01/model017.py"
+      },
+      {
+        "source": "scripts/run_wp4_017.py",
+        "line": 455,
+        "scope": "evaluate_kernel017",
+        "module": "n01.stats017",
+        "target": "src/n01/stats017.py"
+      },
+      {
+        "source": "scripts/run_wp4_017.py",
+        "line": 456,
+        "scope": "evaluate_kernel017",
+        "module": "n01.saved_array_kernels017",
+        "target": "src/n01/saved_array_kernels017.py"
+      },
+      {
+        "source": "scripts/run_wp4_017.py",
+        "line": 457,
+        "scope": "evaluate_kernel017",
+        "module": "run_wp1_013",
+        "target": "scripts/run_wp1_013.py"
+      },
+      {
+        "source": "scripts/run_wp4_017.py",
+        "line": 541,
+        "scope": "energy_vectors017",
+        "module": "n01.model017",
+        "target": "src/n01/model017.py"
+      },
+      {
+        "source": "scripts/run_wp4_017.py",
+        "line": 552,
+        "scope": "energy_vectors017",
+        "module": "n01.model017",
+        "target": "src/n01/model017.py"
+      },
+      {
+        "source": "scripts/run_wp4_017.py",
+        "line": 579,
+        "scope": "derived_hypothesis017",
+        "module": "n01.stats017",
+        "target": "src/n01/stats017.py"
+      },
+      {
+        "source": "scripts/run_wp4_017.py",
+        "line": 602,
+        "scope": "evaluation_axes017",
+        "module": "n01.stats017",
+        "target": "src/n01/stats017.py"
+      },
+      {
+        "source": "scripts/run_wp4_017.py",
+        "line": 644,
+        "scope": "compare_kernel017",
+        "module": "n01.stats017",
+        "target": "src/n01/stats017.py"
+      },
+      {
+        "source": "scripts/run_wp4_017.py",
+        "line": 678,
+        "scope": "compare_kernel017",
+        "module": "n01.stats017",
+        "target": "src/n01/stats017.py"
+      },
+      {
+        "source": "scripts/run_wp4_017.py",
+        "line": 696,
+        "scope": "frozen_verify017",
+        "module": "n01.response008",
+        "target": "src/n01/response008.py"
+      },
+      {
+        "source": "scripts/run_wp4_017.py",
+        "line": 697,
+        "scope": "frozen_verify017",
+        "module": "n01.model010",
+        "target": "src/n01/model010.py"
+      },
+      {
+        "source": "scripts/run_wp4_017.py",
+        "line": 723,
+        "scope": "run017",
+        "module": "n01.model017",
+        "target": "src/n01/model017.py"
+      },
+      {
+        "source": "scripts/run_wp4_017.py",
+        "line": 724,
+        "scope": "run017",
+        "module": "n01.stats017",
+        "target": "src/n01/stats017.py"
+      },
+      {
+        "source": "scripts/run_wp4_017.py",
+        "line": 725,
+        "scope": "run017",
+        "module": "n01.evaluate_window008",
+        "target": "src/n01/evaluate_window008.py"
+      },
+      {
+        "source": "scripts/run_wp4_017.py",
+        "line": 726,
+        "scope": "run017",
+        "module": "run_wp2_014",
+        "target": "scripts/run_wp2_014.py"
+      },
+      {
+        "source": "scripts/run_wp4_018.py",
+        "line": 19,
+        "scope": "<module>",
+        "module": "n01.saved_array_kernels017",
+        "target": "src/n01/saved_array_kernels017.py"
+      },
+      {
+        "source": "scripts/run_wp4_018.py",
+        "line": 20,
+        "scope": "<module>",
+        "module": "n01.stats017",
+        "target": "src/n01/stats017.py"
+      },
+      {
+        "source": "scripts/run_wp4_018.py",
+        "line": 24,
+        "scope": "<module>",
+        "module": "n01.stats018",
+        "target": "src/n01/stats018.py"
+      },
+      {
+        "source": "scripts/run_wp4_018.py",
+        "line": 27,
+        "scope": "<module>",
+        "module": "run_wp4_017",
+        "target": "scripts/run_wp4_017.py"
+      },
+      {
+        "source": "scripts/run_wp4_018.py",
+        "line": 28,
+        "scope": "<module>",
+        "module": "wp1_ops",
+        "target": "scripts/wp1_ops.py"
+      },
+      {
+        "source": "scripts/run_wp4_019.py",
+        "line": 13,
+        "scope": "<module>",
+        "module": "wp1_ops",
+        "target": "scripts/wp1_ops.py"
+      },
+      {
+        "source": "scripts/run_wp4_019.py",
+        "line": 14,
+        "scope": "<module>",
+        "module": "run_wp4_017",
+        "target": "scripts/run_wp4_017.py"
+      },
+      {
+        "source": "scripts/run_wp4_019.py",
+        "line": 172,
+        "scope": "verify019",
+        "module": "n01.response008",
+        "target": "src/n01/response008.py"
+      },
+      {
+        "source": "scripts/run_wp4_019.py",
+        "line": 181,
+        "scope": "checkpoint019",
+        "module": "run_wp2_014",
+        "target": "scripts/run_wp2_014.py"
+      },
+      {
+        "source": "scripts/run_wp4_019.py",
+        "line": 203,
+        "scope": "teacher_data019",
+        "module": "run_wp4_017",
+        "target": "scripts/run_wp4_017.py"
+      },
+      {
+        "source": "scripts/run_wp4_019.py",
+        "line": 204,
+        "scope": "teacher_data019",
+        "module": "n01.stats017",
+        "target": "src/n01/stats017.py"
+      },
+      {
+        "source": "scripts/run_wp4_019.py",
+        "line": 228,
+        "scope": "gate_trials019",
+        "module": "n01.stats017",
+        "target": "src/n01/stats017.py"
+      },
+      {
+        "source": "scripts/run_wp4_019.py",
+        "line": 268,
+        "scope": "run019",
+        "module": "run_wp4_018",
+        "target": "scripts/run_wp4_018.py"
+      },
+      {
+        "source": "scripts/run_wp4_019.py",
+        "line": 269,
+        "scope": "run019",
+        "module": "run_wp4_017",
+        "target": "scripts/run_wp4_017.py"
+      },
+      {
+        "source": "scripts/run_wp4_019.py",
+        "line": 270,
+        "scope": "run019",
+        "module": "n01.stats018",
+        "target": "src/n01/stats018.py"
+      },
+      {
+        "source": "scripts/run_wp4_019.py",
+        "line": 271,
+        "scope": "run019",
+        "module": "n01.stats017",
+        "target": "src/n01/stats017.py"
+      },
+      {
+        "source": "scripts/run_wp4_019.py",
+        "line": 273,
+        "scope": "run019",
+        "module": "n01.model017",
+        "target": "src/n01/model017.py"
+      },
+      {
+        "source": "scripts/run_wp4_019.py",
+        "line": 274,
+        "scope": "run019",
+        "module": "n01.response008",
+        "target": "src/n01/response008.py"
+      },
+      {
+        "source": "scripts/run_wp4_019.py",
+        "line": 275,
+        "scope": "run019",
+        "module": "n01.evaluate_window008",
+        "target": "src/n01/evaluate_window008.py"
+      },
+      {
+        "source": "scripts/supervise_mechanism012.py",
+        "line": 12,
+        "scope": "<module>",
+        "module": "mechanism012_ops",
+        "target": "scripts/mechanism012_ops.py"
+      },
+      {
+        "source": "scripts/wp1_boundary_saved.py",
+        "line": 13,
+        "scope": "<module>",
+        "module": "wp1_input_information",
+        "target": "scripts/wp1_input_information.py"
+      },
+      {
+        "source": "scripts/wp1_evaluation.py",
+        "line": 29,
+        "scope": "observable_features",
+        "module": "n01.diagnose_mean_random009",
+        "target": "src/n01/diagnose_mean_random009.py"
+      },
+      {
+        "source": "scripts/wp1_evaluation.py",
+        "line": 48,
+        "scope": "raw_distance",
+        "module": "stability011_metrics",
+        "target": "scripts/stability011_metrics.py"
+      },
+      {
+        "source": "scripts/wp1_evaluation.py",
+        "line": 70,
+        "scope": "native_metrics",
+        "module": "n01.losses008_v2",
+        "target": "src/n01/losses008_v2.py"
+      },
+      {
+        "source": "scripts/wp1_evaluation.py",
+        "line": 152,
+        "scope": "repeated_parent_statistics",
+        "module": "n01.diagnose_mean_random009",
+        "target": "src/n01/diagnose_mean_random009.py"
+      },
+      {
+        "source": "scripts/wp1_ops.py",
+        "line": 146,
+        "scope": "reused_supervision",
+        "module": "supervise_mechanism012",
+        "target": "scripts/supervise_mechanism012.py"
+      },
+      {
+        "source": "scripts/wp1_parameter_probe.py",
+        "line": 114,
+        "scope": "analytic_head_direction_map",
+        "module": "n01.model008",
+        "target": "src/n01/model008.py"
+      },
+      {
+        "source": "src/n01/ablation009.py",
+        "line": 20,
+        "scope": "<module>",
+        "module": "n01.model",
+        "target": "src/n01/model.py"
+      },
+      {
+        "source": "src/n01/ablation009.py",
+        "line": 21,
+        "scope": "<module>",
+        "module": "n01.model008",
+        "target": "src/n01/model008.py"
+      },
+      {
+        "source": "src/n01/ablation009.py",
+        "line": 25,
+        "scope": "<module>",
+        "module": "n01.model008_fix01",
+        "target": "src/n01/model008_fix01.py"
+      },
+      {
+        "source": "src/n01/data008.py",
+        "line": 13,
+        "scope": "<module>",
+        "module": "n01.data",
+        "target": "src/n01/data.py"
+      },
+      {
+        "source": "src/n01/data008.py",
+        "line": 68,
+        "scope": "transform_domain",
+        "module": "n01.observation008",
+        "target": "src/n01/observation008.py"
+      },
+      {
+        "source": "src/n01/data008.py",
+        "line": 75,
+        "scope": "transform_domain",
+        "module": "n01.observation008",
+        "target": "src/n01/observation008.py"
+      },
+      {
+        "source": "src/n01/diagnose_mean_random009.py",
+        "line": 22,
+        "scope": "<module>",
+        "module": "n01.data",
+        "target": "src/n01/data.py"
+      },
+      {
+        "source": "src/n01/diagnose_mean_random009.py",
+        "line": 23,
+        "scope": "<module>",
+        "module": "n01.evaluate_window008",
+        "target": "src/n01/evaluate_window008.py"
+      },
+      {
+        "source": "src/n01/diagnose_mean_random009.py",
+        "line": 27,
+        "scope": "<module>",
+        "module": "n01.losses008_v2",
+        "target": "src/n01/losses008_v2.py"
+      },
+      {
+        "source": "src/n01/diagnose_mean_random009.py",
+        "line": 28,
+        "scope": "<module>",
+        "module": "n01.model008",
+        "target": "src/n01/model008.py"
+      },
+      {
+        "source": "src/n01/diagnose_mean_random009.py",
+        "line": 29,
+        "scope": "<module>",
+        "module": "n01.model008_fix01",
+        "target": "src/n01/model008_fix01.py"
+      },
+      {
+        "source": "src/n01/diagnose_mean_random009.py",
+        "line": 30,
+        "scope": "<module>",
+        "module": "n01.observation008",
+        "target": "src/n01/observation008.py"
+      },
+      {
+        "source": "src/n01/diagnose_mean_random009.py",
+        "line": 31,
+        "scope": "<module>",
+        "module": "n01.response008",
+        "target": "src/n01/response008.py"
+      },
+      {
+        "source": "src/n01/diagnose_mean_random009.py",
+        "line": 35,
+        "scope": "<module>",
+        "module": "n01.train",
+        "target": "src/n01/train.py"
+      },
+      {
+        "source": "src/n01/diagnose_mean_random009.py",
+        "line": 846,
+        "scope": "load_frozen_models",
+        "module": "n01.ablation009",
+        "target": "src/n01/ablation009.py"
+      },
+      {
+        "source": "src/n01/evaluate.py",
+        "line": 22,
+        "scope": "<module>",
+        "module": "n01.data",
+        "target": "src/n01/data.py"
+      },
+      {
+        "source": "src/n01/evaluate.py",
+        "line": 23,
+        "scope": "<module>",
+        "module": "n01.losses",
+        "target": "src/n01/losses.py"
+      },
+      {
+        "source": "src/n01/evaluate.py",
+        "line": 24,
+        "scope": "<module>",
+        "module": "n01.model",
+        "target": "src/n01/model.py"
+      },
+      {
+        "source": "src/n01/evaluate_window008.py",
+        "line": 19,
+        "scope": "<module>",
+        "module": "n01.data",
+        "target": "src/n01/data.py"
+      },
+      {
+        "source": "src/n01/evaluate_window008.py",
+        "line": 20,
+        "scope": "<module>",
+        "module": "n01.data008",
+        "target": "src/n01/data008.py"
+      },
+      {
+        "source": "src/n01/evaluate_window008.py",
+        "line": 21,
+        "scope": "<module>",
+        "module": "n01.losses008",
+        "target": "src/n01/losses008.py"
+      },
+      {
+        "source": "src/n01/evaluate_window008.py",
+        "line": 22,
+        "scope": "<module>",
+        "module": "n01.losses008_v2",
+        "target": "src/n01/losses008_v2.py"
+      },
+      {
+        "source": "src/n01/evaluate_window008.py",
+        "line": 23,
+        "scope": "<module>",
+        "module": "n01.model008",
+        "target": "src/n01/model008.py"
+      },
+      {
+        "source": "src/n01/evaluate_window008.py",
+        "line": 24,
+        "scope": "<module>",
+        "module": "n01.observation008",
+        "target": "src/n01/observation008.py"
+      },
+      {
+        "source": "src/n01/evaluate_window008.py",
+        "line": 25,
+        "scope": "<module>",
+        "module": "n01.response008",
+        "target": "src/n01/response008.py"
+      },
+      {
+        "source": "src/n01/evaluate_window008.py",
+        "line": 26,
+        "scope": "<module>",
+        "module": "n01.train",
+        "target": "src/n01/train.py"
+      },
+      {
+        "source": "src/n01/extension006.py",
+        "line": 15,
+        "scope": "<module>",
+        "module": "n01.electronics_v3",
+        "target": "src/n01/electronics_v3.py"
+      },
+      {
+        "source": "src/n01/extension006.py",
+        "line": 16,
+        "scope": "<module>",
+        "module": "n01.model",
+        "target": "src/n01/model.py"
+      },
+      {
+        "source": "src/n01/losses008_v2.py",
+        "line": 16,
+        "scope": "<module>",
+        "module": "n01.losses008",
+        "target": "src/n01/losses008.py"
+      },
+      {
+        "source": "src/n01/losses014.py",
+        "line": 13,
+        "scope": "<module>",
+        "module": "n01.losses008",
+        "target": "src/n01/losses008.py"
+      },
+      {
+        "source": "src/n01/losses014.py",
+        "line": 14,
+        "scope": "<module>",
+        "module": "n01.losses008_v2",
+        "target": "src/n01/losses008_v2.py"
+      },
+      {
+        "source": "src/n01/model008.py",
+        "line": 14,
+        "scope": "<module>",
+        "module": "n01.model",
+        "target": "src/n01/model.py"
+      },
+      {
+        "source": "src/n01/model008_fix01.py",
+        "line": 16,
+        "scope": "<module>",
+        "module": "n01.model",
+        "target": "src/n01/model.py"
+      },
+      {
+        "source": "src/n01/model008_fix01.py",
+        "line": 17,
+        "scope": "<module>",
+        "module": "n01.model008",
+        "target": "src/n01/model008.py"
+      },
+      {
+        "source": "src/n01/model010.py",
+        "line": 18,
+        "scope": "<module>",
+        "module": "n01.model008",
+        "target": "src/n01/model008.py"
+      },
+      {
+        "source": "src/n01/model014.py",
+        "line": 12,
+        "scope": "<module>",
+        "module": "n01.model008",
+        "target": "src/n01/model008.py"
+      },
+      {
+        "source": "src/n01/model014.py",
+        "line": 13,
+        "scope": "<module>",
+        "module": "n01.model010",
+        "target": "src/n01/model010.py"
+      },
+      {
+        "source": "src/n01/model016.py",
+        "line": 11,
+        "scope": "<module>",
+        "module": "n01.model008",
+        "target": "src/n01/model008.py"
+      },
+      {
+        "source": "src/n01/model016.py",
+        "line": 12,
+        "scope": "<module>",
+        "module": "n01.model010",
+        "target": "src/n01/model010.py"
+      },
+      {
+        "source": "src/n01/model016.py",
+        "line": 13,
+        "scope": "<module>",
+        "module": "n01.model014",
+        "target": "src/n01/model014.py"
+      },
+      {
+        "source": "src/n01/model017.py",
+        "line": 13,
+        "scope": "<module>",
+        "module": "n01.model016",
+        "target": "src/n01/model016.py"
+      },
+      {
+        "source": "src/n01/model017.py",
+        "line": 14,
+        "scope": "<module>",
+        "module": "n01.model008",
+        "target": "src/n01/model008.py"
+      },
+      {
+        "source": "src/n01/observation008.py",
+        "line": 19,
+        "scope": "<module>",
+        "module": "n01.electronics_v3",
+        "target": "src/n01/electronics_v3.py"
+      },
+      {
+        "source": "src/n01/observation008.py",
+        "line": 20,
+        "scope": "<module>",
+        "module": "n01.extension006",
+        "target": "src/n01/extension006.py"
+      },
+      {
+        "source": "src/n01/observation008.py",
+        "line": 21,
+        "scope": "<module>",
+        "module": "n01.model",
+        "target": "src/n01/model.py"
+      },
+      {
+        "source": "src/n01/response008.py",
+        "line": 18,
+        "scope": "<module>",
+        "module": "n01.data",
+        "target": "src/n01/data.py"
+      },
+      {
+        "source": "src/n01/response008.py",
+        "line": 19,
+        "scope": "<module>",
+        "module": "n01.electronics_v3",
+        "target": "src/n01/electronics_v3.py"
+      },
+      {
+        "source": "src/n01/response008.py",
+        "line": 20,
+        "scope": "<module>",
+        "module": "n01.extension006",
+        "target": "src/n01/extension006.py"
+      },
+      {
+        "source": "src/n01/response008.py",
+        "line": 21,
+        "scope": "<module>",
+        "module": "n01.observation008",
+        "target": "src/n01/observation008.py"
+      },
+      {
+        "source": "src/n01/response008.py",
+        "line": 22,
+        "scope": "<module>",
+        "module": "n01.losses008",
+        "target": "src/n01/losses008.py"
+      },
+      {
+        "source": "src/n01/response008.py",
+        "line": 23,
+        "scope": "<module>",
+        "module": "n01.losses008_v2",
+        "target": "src/n01/losses008_v2.py"
+      },
+      {
+        "source": "src/n01/response008.py",
+        "line": 24,
+        "scope": "<module>",
+        "module": "n01.model008",
+        "target": "src/n01/model008.py"
+      },
+      {
+        "source": "src/n01/response008.py",
+        "line": 25,
+        "scope": "<module>",
+        "module": "n01.model",
+        "target": "src/n01/model.py"
+      },
+      {
+        "source": "src/n01/response008.py",
+        "line": 26,
+        "scope": "<module>",
+        "module": "n01.train",
+        "target": "src/n01/train.py"
+      },
+      {
+        "source": "src/n01/stats017.py",
+        "line": 5,
+        "scope": "<module>",
+        "module": "n01.saved_array_kernels017",
+        "target": "src/n01/saved_array_kernels017.py"
+      },
+      {
+        "source": "src/n01/stats018.py",
+        "line": 6,
+        "scope": "<module>",
+        "module": "n01.stats017",
+        "target": "src/n01/stats017.py"
+      },
+      {
+        "source": "src/n01/train.py",
+        "line": 17,
+        "scope": "<module>",
+        "module": "n01.data",
+        "target": "src/n01/data.py"
+      },
+      {
+        "source": "src/n01/train.py",
+        "line": 19,
+        "scope": "<module>",
+        "module": "n01.losses",
+        "target": "src/n01/losses.py"
+      },
+      {
+        "source": "src/n01/train.py",
+        "line": 21,
+        "scope": "<module>",
+        "module": "n01.model",
+        "target": "src/n01/model.py"
+      },
+      {
+        "source": "src/n01/train.py",
+        "line": 459,
+        "scope": "main",
+        "module": "n01.evaluate",
+        "target": "src/n01/evaluate.py"
+      },
+      {
+        "source": "src/n01/train_shape010.py",
+        "line": 19,
+        "scope": "<module>",
+        "module": "n01.data",
+        "target": "src/n01/data.py"
+      },
+      {
+        "source": "src/n01/train_shape010.py",
+        "line": 20,
+        "scope": "<module>",
+        "module": "n01.diagnose_mean_random009",
+        "target": "src/n01/diagnose_mean_random009.py"
+      },
+      {
+        "source": "src/n01/train_shape010.py",
+        "line": 24,
+        "scope": "<module>",
+        "module": "n01.evaluate_window008",
+        "target": "src/n01/evaluate_window008.py"
+      },
+      {
+        "source": "src/n01/train_shape010.py",
+        "line": 25,
+        "scope": "<module>",
+        "module": "n01.electronics_v3",
+        "target": "src/n01/electronics_v3.py"
+      },
+      {
+        "source": "src/n01/train_shape010.py",
+        "line": 26,
+        "scope": "<module>",
+        "module": "n01.losses008_v2",
+        "target": "src/n01/losses008_v2.py"
+      },
+      {
+        "source": "src/n01/train_shape010.py",
+        "line": 27,
+        "scope": "<module>",
+        "module": "n01.model008",
+        "target": "src/n01/model008.py"
+      },
+      {
+        "source": "src/n01/train_shape010.py",
+        "line": 28,
+        "scope": "<module>",
+        "module": "n01.observation008",
+        "target": "src/n01/observation008.py"
+      },
+      {
+        "source": "src/n01/train_shape010.py",
+        "line": 29,
+        "scope": "<module>",
+        "module": "n01.response008",
+        "target": "src/n01/response008.py"
+      },
+      {
+        "source": "src/n01/train_shape010.py",
+        "line": 30,
+        "scope": "<module>",
+        "module": "n01.train",
+        "target": "src/n01/train.py"
+      },
+      {
+        "source": "src/n01/train_shape010.py",
+        "line": 511,
+        "scope": "run",
+        "module": "n01.model010",
+        "target": "src/n01/model010.py"
+      }
+    ],
+    "external_imports": [
+      {
+        "source": "scripts/run_wp4_019.py",
+        "line": 2,
+        "scope": "<module>",
+        "module": "__future__"
+      },
+      {
+        "source": "scripts/run_wp4_019.py",
+        "line": 4,
+        "scope": "<module>",
+        "module": "argparse"
+      },
+      {
+        "source": "scripts/run_wp4_019.py",
+        "line": 5,
+        "scope": "<module>",
+        "module": "copy"
+      },
+      {
+        "source": "scripts/run_wp4_019.py",
+        "line": 6,
+        "scope": "<module>",
+        "module": "json"
+      },
+      {
+        "source": "scripts/run_wp4_019.py",
+        "line": 7,
+        "scope": "<module>",
+        "module": "os"
+      },
+      {
+        "source": "scripts/run_wp4_019.py",
+        "line": 8,
+        "scope": "<module>",
+        "module": "pathlib"
+      },
+      {
+        "source": "scripts/run_wp4_019.py",
+        "line": 9,
+        "scope": "<module>",
+        "module": "signal"
+      },
+      {
+        "source": "scripts/run_wp4_019.py",
+        "line": 10,
+        "scope": "<module>",
+        "module": "sys"
+      },
+      {
+        "source": "scripts/run_wp4_019.py",
+        "line": 11,
+        "scope": "<module>",
+        "module": "time"
+      },
+      {
+        "source": "scripts/run_wp4_019.py",
+        "line": 202,
+        "scope": "teacher_data019",
+        "module": "numpy"
+      },
+      {
+        "source": "scripts/run_wp4_019.py",
+        "line": 264,
+        "scope": "run019",
+        "module": "functools"
+      },
+      {
+        "source": "scripts/run_wp4_019.py",
+        "line": 265,
+        "scope": "run019",
+        "module": "numpy"
+      },
+      {
+        "source": "scripts/run_wp4_019.py",
+        "line": 272,
+        "scope": "run019",
+        "module": "torch"
+      },
+      {
+        "source": "scripts/run_wp4_018.py",
+        "line": 2,
+        "scope": "<module>",
+        "module": "__future__"
+      },
+      {
+        "source": "scripts/run_wp4_018.py",
+        "line": 4,
+        "scope": "<module>",
+        "module": "argparse"
+      },
+      {
+        "source": "scripts/run_wp4_018.py",
+        "line": 5,
+        "scope": "<module>",
+        "module": "hashlib"
+      },
+      {
+        "source": "scripts/run_wp4_018.py",
+        "line": 6,
+        "scope": "<module>",
+        "module": "json"
+      },
+      {
+        "source": "scripts/run_wp4_018.py",
+        "line": 7,
+        "scope": "<module>",
+        "module": "os"
+      },
+      {
+        "source": "scripts/run_wp4_018.py",
+        "line": 8,
+        "scope": "<module>",
+        "module": "pathlib"
+      },
+      {
+        "source": "scripts/run_wp4_018.py",
+        "line": 9,
+        "scope": "<module>",
+        "module": "sys"
+      },
+      {
+        "source": "scripts/run_wp4_018.py",
+        "line": 10,
+        "scope": "<module>",
+        "module": "time"
+      },
+      {
+        "source": "scripts/run_wp4_018.py",
+        "line": 11,
+        "scope": "<module>",
+        "module": "types"
+      },
+      {
+        "source": "scripts/run_wp4_018.py",
+        "line": 13,
+        "scope": "<module>",
+        "module": "numpy"
+      },
+      {
+        "source": "scripts/run_wp4_018.py",
+        "line": 274,
+        "scope": "run018",
+        "module": "resource"
+      },
+      {
+        "source": "scripts/run_wp4_018.py",
+        "line": 411,
+        "scope": "run018",
+        "module": "resource"
+      },
+      {
+        "source": "scripts/run_wp4_017.py",
+        "line": 2,
+        "scope": "<module>",
+        "module": "__future__"
+      },
+      {
+        "source": "scripts/run_wp4_017.py",
+        "line": 3,
+        "scope": "<module>",
+        "module": "argparse"
+      },
+      {
+        "source": "scripts/run_wp4_017.py",
+        "line": 4,
+        "scope": "<module>",
+        "module": "copy"
+      },
+      {
+        "source": "scripts/run_wp4_017.py",
+        "line": 5,
+        "scope": "<module>",
+        "module": "hashlib"
+      },
+      {
+        "source": "scripts/run_wp4_017.py",
+        "line": 6,
+        "scope": "<module>",
+        "module": "json"
+      },
+      {
+        "source": "scripts/run_wp4_017.py",
+        "line": 7,
+        "scope": "<module>",
+        "module": "os"
+      },
+      {
+        "source": "scripts/run_wp4_017.py",
+        "line": 8,
+        "scope": "<module>",
+        "module": "pathlib"
+      },
+      {
+        "source": "scripts/run_wp4_017.py",
+        "line": 9,
+        "scope": "<module>",
+        "module": "signal"
+      },
+      {
+        "source": "scripts/run_wp4_017.py",
+        "line": 10,
+        "scope": "<module>",
+        "module": "sys"
+      },
+      {
+        "source": "scripts/run_wp4_017.py",
+        "line": 11,
+        "scope": "<module>",
+        "module": "time"
+      },
+      {
+        "source": "scripts/run_wp4_017.py",
+        "line": 152,
+        "scope": "prepare_numeric017",
+        "module": "numpy"
+      },
+      {
+        "source": "scripts/run_wp4_017.py",
+        "line": 153,
+        "scope": "prepare_numeric017",
+        "module": "torch"
+      },
+      {
+        "source": "scripts/run_wp4_017.py",
+        "line": 199,
+        "scope": "build_frozen_cache017",
+        "module": "numpy"
+      },
+      {
+        "source": "scripts/run_wp4_017.py",
+        "line": 200,
+        "scope": "build_frozen_cache017",
+        "module": "torch"
+      },
+      {
+        "source": "scripts/run_wp4_017.py",
+        "line": 447,
+        "scope": "save_npz017",
+        "module": "numpy"
+      },
+      {
+        "source": "scripts/run_wp4_017.py",
+        "line": 453,
+        "scope": "evaluate_kernel017",
+        "module": "numpy"
+      },
+      {
+        "source": "scripts/run_wp4_017.py",
+        "line": 454,
+        "scope": "evaluate_kernel017",
+        "module": "torch"
+      },
+      {
+        "source": "scripts/run_wp4_017.py",
+        "line": 529,
+        "scope": "decode_hard017",
+        "module": "numpy"
+      },
+      {
+        "source": "scripts/run_wp4_017.py",
+        "line": 539,
+        "scope": "energy_vectors017",
+        "module": "numpy"
+      },
+      {
+        "source": "scripts/run_wp4_017.py",
+        "line": 540,
+        "scope": "energy_vectors017",
+        "module": "torch"
+      },
+      {
+        "source": "scripts/run_wp4_017.py",
+        "line": 578,
+        "scope": "derived_hypothesis017",
+        "module": "numpy"
+      },
+      {
+        "source": "scripts/run_wp4_017.py",
+        "line": 601,
+        "scope": "evaluation_axes017",
+        "module": "numpy"
+      },
+      {
+        "source": "scripts/run_wp4_017.py",
+        "line": 630,
+        "scope": "compact_report017",
+        "module": "numpy"
+      },
+      {
+        "source": "scripts/run_wp4_017.py",
+        "line": 643,
+        "scope": "compare_kernel017",
+        "module": "numpy"
+      },
+      {
+        "source": "scripts/run_wp4_017.py",
+        "line": 112,
+        "scope": "Streams017.__init__",
+        "module": "torch"
+      },
+      {
+        "source": "scripts/run_wp4_017.py",
+        "line": 118,
+        "scope": "Streams017.draw",
+        "module": "torch"
+      },
+      {
+        "source": "scripts/run_wp4_017.py",
+        "line": 132,
+        "scope": "Streams017.PIT",
+        "module": "torch"
+      },
+      {
+        "source": "scripts/run_wp4_017.py",
+        "line": 138,
+        "scope": "ParentSampler017.__init__",
+        "module": "numpy"
+      },
+      {
+        "source": "scripts/run_wp4_017.py",
+        "line": 139,
+        "scope": "ParentSampler017.__init__",
+        "module": "torch"
+      },
+      {
+        "source": "scripts/run_wp4_017.py",
+        "line": 144,
+        "scope": "ParentSampler017.draw",
+        "module": "torch"
+      },
+      {
+        "source": "scripts/run_wp4_017.py",
+        "line": 256,
+        "scope": "Runtime017.__init__",
+        "module": "torch"
+      },
+      {
+        "source": "scripts/run_wp4_017.py",
+        "line": 257,
+        "scope": "Runtime017.__init__",
+        "module": "types"
+      },
+      {
+        "source": "scripts/run_wp4_017.py",
+        "line": 269,
+        "scope": "Runtime017.cache_rows",
+        "module": "numpy"
+      },
+      {
+        "source": "scripts/run_wp4_017.py",
+        "line": 270,
+        "scope": "Runtime017.cache_rows",
+        "module": "torch"
+      },
+      {
+        "source": "scripts/run_wp4_017.py",
+        "line": 280,
+        "scope": "Runtime017.signals",
+        "module": "torch"
+      },
+      {
+        "source": "scripts/run_wp4_017.py",
+        "line": 304,
+        "scope": "Runtime017.training_window",
+        "module": "torch"
+      },
+      {
+        "source": "scripts/run_wp4_017.py",
+        "line": 329,
+        "scope": "Engine017.__init__",
+        "module": "torch"
+      },
+      {
+        "source": "scripts/run_wp4_017.py",
+        "line": 350,
+        "scope": "Engine017.save_stream_states",
+        "module": "numpy"
+      },
+      {
+        "source": "scripts/run_wp4_017.py",
+        "line": 390,
+        "scope": "Engine017.step",
+        "module": "numpy"
+      },
+      {
+        "source": "scripts/run_wp4_017.py",
+        "line": 391,
+        "scope": "Engine017.step",
+        "module": "torch"
+      },
+      {
+        "source": "scripts/run_wp4_017.py",
+        "line": 722,
+        "scope": "run017",
+        "module": "torch"
+      },
+      {
+        "source": "scripts/run_wp4_017.py",
+        "line": 264,
+        "scope": "Runtime017.call.run",
+        "module": "torch"
+      },
+      {
+        "source": "scripts/run_wp2_014.py",
+        "line": 7,
+        "scope": "<module>",
+        "module": "__future__"
+      },
+      {
+        "source": "scripts/run_wp2_014.py",
+        "line": 9,
+        "scope": "<module>",
+        "module": "argparse"
+      },
+      {
+        "source": "scripts/run_wp2_014.py",
+        "line": 10,
+        "scope": "<module>",
+        "module": "copy"
+      },
+      {
+        "source": "scripts/run_wp2_014.py",
+        "line": 11,
+        "scope": "<module>",
+        "module": "json"
+      },
+      {
+        "source": "scripts/run_wp2_014.py",
+        "line": 12,
+        "scope": "<module>",
+        "module": "math"
+      },
+      {
+        "source": "scripts/run_wp2_014.py",
+        "line": 13,
+        "scope": "<module>",
+        "module": "os"
+      },
+      {
+        "source": "scripts/run_wp2_014.py",
+        "line": 14,
+        "scope": "<module>",
+        "module": "pathlib"
+      },
+      {
+        "source": "scripts/run_wp2_014.py",
+        "line": 15,
+        "scope": "<module>",
+        "module": "signal"
+      },
+      {
+        "source": "scripts/run_wp2_014.py",
+        "line": 16,
+        "scope": "<module>",
+        "module": "sys"
+      },
+      {
+        "source": "scripts/run_wp2_014.py",
+        "line": 17,
+        "scope": "<module>",
+        "module": "time"
+      },
+      {
+        "source": "scripts/run_wp2_014.py",
+        "line": 186,
+        "scope": "current_rss014",
+        "module": "ctypes"
+      },
+      {
+        "source": "scripts/run_wp2_014.py",
+        "line": 187,
+        "scope": "current_rss014",
+        "module": "ctypes"
+      },
+      {
+        "source": "scripts/run_wp2_014.py",
+        "line": 206,
+        "scope": "atomic_checkpoint",
+        "module": "torch"
+      },
+      {
+        "source": "scripts/run_wp2_014.py",
+        "line": 679,
+        "scope": "prepare_numeric014",
+        "module": "numpy"
+      },
+      {
+        "source": "scripts/run_wp2_014.py",
+        "line": 680,
+        "scope": "prepare_numeric014",
+        "module": "torch"
+      },
+      {
+        "source": "scripts/run_wp2_014.py",
+        "line": 731,
+        "scope": "run014",
+        "module": "torch"
+      },
+      {
+        "source": "scripts/run_wp2_014.py",
+        "line": 219,
+        "scope": "Runtime014.__init__",
+        "module": "numpy"
+      },
+      {
+        "source": "scripts/run_wp2_014.py",
+        "line": 220,
+        "scope": "Runtime014.__init__",
+        "module": "torch"
+      },
+      {
+        "source": "scripts/run_wp2_014.py",
+        "line": 235,
+        "scope": "Runtime014.call",
+        "module": "torch"
+      },
+      {
+        "source": "scripts/run_wp2_014.py",
+        "line": 279,
+        "scope": "Runtime014.guard",
+        "module": "torch"
+      },
+      {
+        "source": "scripts/run_wp2_014.py",
+        "line": 291,
+        "scope": "Runtime014.calibrate",
+        "module": "numpy"
+      },
+      {
+        "source": "scripts/run_wp2_014.py",
+        "line": 292,
+        "scope": "Runtime014.calibrate",
+        "module": "torch"
+      },
+      {
+        "source": "scripts/run_wp2_014.py",
+        "line": 319,
+        "scope": "Engine014.__init__",
+        "module": "torch"
+      },
+      {
+        "source": "scripts/run_wp2_014.py",
+        "line": 365,
+        "scope": "Engine014.step",
+        "module": "numpy"
+      },
+      {
+        "source": "scripts/run_wp2_014.py",
+        "line": 366,
+        "scope": "Engine014.step",
+        "module": "torch"
+      },
+      {
+        "source": "scripts/run_wp2_014.py",
+        "line": 445,
+        "scope": "Engine014.probe",
+        "module": "numpy"
+      },
+      {
+        "source": "scripts/run_wp2_014.py",
+        "line": 446,
+        "scope": "Engine014.probe",
+        "module": "torch"
+      },
+      {
+        "source": "scripts/run_wp2_014.py",
+        "line": 565,
+        "scope": "Engine014.evaluate",
+        "module": "numpy"
+      },
+      {
+        "source": "scripts/run_wp2_014.py",
+        "line": 566,
+        "scope": "Engine014.evaluate",
+        "module": "torch"
+      },
+      {
+        "source": "scripts/run_wp1_013.py",
+        "line": 6,
+        "scope": "<module>",
+        "module": "__future__"
+      },
+      {
+        "source": "scripts/run_wp1_013.py",
+        "line": 7,
+        "scope": "<module>",
+        "module": "argparse"
+      },
+      {
+        "source": "scripts/run_wp1_013.py",
+        "line": 8,
+        "scope": "<module>",
+        "module": "json"
+      },
+      {
+        "source": "scripts/run_wp1_013.py",
+        "line": 9,
+        "scope": "<module>",
+        "module": "os"
+      },
+      {
+        "source": "scripts/run_wp1_013.py",
+        "line": 10,
+        "scope": "<module>",
+        "module": "pathlib"
+      },
+      {
+        "source": "scripts/run_wp1_013.py",
+        "line": 11,
+        "scope": "<module>",
+        "module": "sys"
+      },
+      {
+        "source": "scripts/run_wp1_013.py",
+        "line": 12,
+        "scope": "<module>",
+        "module": "time"
+      },
+      {
+        "source": "scripts/run_wp1_013.py",
+        "line": 13,
+        "scope": "<module>",
+        "module": "zipfile"
+      },
+      {
+        "source": "scripts/run_wp1_013.py",
+        "line": 31,
+        "scope": "A_numerical_residual",
+        "module": "numpy"
+      },
+      {
+        "source": "scripts/run_wp1_013.py",
+        "line": 90,
+        "scope": "lossless_window_codes",
+        "module": "numpy"
+      },
+      {
+        "source": "scripts/run_wp1_013.py",
+        "line": 106,
+        "scope": "save_report",
+        "module": "numpy"
+      },
+      {
+        "source": "scripts/run_wp1_013.py",
+        "line": 128,
+        "scope": "prepare_numeric",
+        "module": "numpy"
+      },
+      {
+        "source": "scripts/run_wp1_013.py",
+        "line": 129,
+        "scope": "prepare_numeric",
+        "module": "torch"
+      },
+      {
+        "source": "scripts/run_wp1_013.py",
+        "line": 177,
+        "scope": "information_join",
+        "module": "numpy"
+      },
+      {
+        "source": "scripts/run_wp1_013.py",
+        "line": 187,
+        "scope": "group_real_control",
+        "module": "numpy"
+      },
+      {
+        "source": "scripts/run_wp1_013.py",
+        "line": 203,
+        "scope": "Runtime.__init__",
+        "module": "numpy"
+      },
+      {
+        "source": "scripts/run_wp1_013.py",
+        "line": 212,
+        "scope": "Runtime.native_call",
+        "module": "torch"
+      },
+      {
+        "source": "scripts/run_wp1_013.py",
+        "line": 246,
+        "scope": "Runtime.references_forward",
+        "module": "numpy"
+      },
+      {
+        "source": "scripts/run_wp1_013.py",
+        "line": 247,
+        "scope": "Runtime.references_forward",
+        "module": "torch"
+      },
+      {
+        "source": "scripts/run_wp1_013.py",
+        "line": 301,
+        "scope": "Runtime.complete_evaluations",
+        "module": "numpy"
+      },
+      {
+        "source": "scripts/run_wp1_013.py",
+        "line": 363,
+        "scope": "Runtime.calibrate",
+        "module": "numpy"
+      },
+      {
+        "source": "scripts/run_wp1_013.py",
+        "line": 364,
+        "scope": "Runtime.calibrate",
+        "module": "torch"
+      },
+      {
+        "source": "scripts/run_wp1_013.py",
+        "line": 419,
+        "scope": "Runtime.parameter_states",
+        "module": "numpy"
+      },
+      {
+        "source": "scripts/run_wp1_013.py",
+        "line": 420,
+        "scope": "Runtime.parameter_states",
+        "module": "torch"
+      },
+      {
+        "source": "scripts/run_wp1_013.py",
+        "line": 531,
+        "scope": "main",
+        "module": "torch"
+      },
+      {
+        "source": "scripts/run_wp1_013.py",
+        "line": 547,
+        "scope": "main",
+        "module": "numpy"
+      },
+      {
+        "source": "scripts/wp1_ops.py",
+        "line": 6,
+        "scope": "<module>",
+        "module": "__future__"
+      },
+      {
+        "source": "scripts/wp1_ops.py",
+        "line": 7,
+        "scope": "<module>",
+        "module": "argparse"
+      },
+      {
+        "source": "scripts/wp1_ops.py",
+        "line": 8,
+        "scope": "<module>",
+        "module": "base64"
+      },
+      {
+        "source": "scripts/wp1_ops.py",
+        "line": 9,
+        "scope": "<module>",
+        "module": "datetime"
+      },
+      {
+        "source": "scripts/wp1_ops.py",
+        "line": 10,
+        "scope": "<module>",
+        "module": "hashlib"
+      },
+      {
+        "source": "scripts/wp1_ops.py",
+        "line": 11,
+        "scope": "<module>",
+        "module": "importlib.util"
+      },
+      {
+        "source": "scripts/wp1_ops.py",
+        "line": 12,
+        "scope": "<module>",
+        "module": "json"
+      },
+      {
+        "source": "scripts/wp1_ops.py",
+        "line": 13,
+        "scope": "<module>",
+        "module": "os"
+      },
+      {
+        "source": "scripts/wp1_ops.py",
+        "line": 14,
+        "scope": "<module>",
+        "module": "pathlib"
+      },
+      {
+        "source": "scripts/wp1_ops.py",
+        "line": 15,
+        "scope": "<module>",
+        "module": "shutil"
+      },
+      {
+        "source": "scripts/wp1_ops.py",
+        "line": 16,
+        "scope": "<module>",
+        "module": "subprocess"
+      },
+      {
+        "source": "scripts/wp1_ops.py",
+        "line": 17,
+        "scope": "<module>",
+        "module": "sys"
+      },
+      {
+        "source": "scripts/wp1_ops.py",
+        "line": 18,
+        "scope": "<module>",
+        "module": "tarfile"
+      },
+      {
+        "source": "scripts/wp1_ops.py",
+        "line": 19,
+        "scope": "<module>",
+        "module": "time"
+      },
+      {
+        "source": "scripts/wp1_ops.py",
+        "line": 20,
+        "scope": "<module>",
+        "module": "uuid"
+      },
+      {
+        "source": "scripts/wp1_ops.py",
+        "line": 150,
+        "scope": "supervise",
+        "module": "fcntl"
+      },
+      {
+        "source": "scripts/wp1_ops.py",
+        "line": 153,
+        "scope": "supervise",
+        "module": "signal"
+      },
+      {
+        "source": "scripts/wp1_ops.py",
+        "line": 110,
+        "scope": "Store.npz",
+        "module": "numpy"
+      },
+      {
+        "source": "src/n01/ablation009.py",
+        "line": 8,
+        "scope": "<module>",
+        "module": "__future__"
+      },
+      {
+        "source": "src/n01/ablation009.py",
+        "line": 10,
+        "scope": "<module>",
+        "module": "collections.abc"
+      },
+      {
+        "source": "src/n01/ablation009.py",
+        "line": 11,
+        "scope": "<module>",
+        "module": "dataclasses"
+      },
+      {
+        "source": "src/n01/ablation009.py",
+        "line": 12,
+        "scope": "<module>",
+        "module": "hashlib"
+      },
+      {
+        "source": "src/n01/ablation009.py",
+        "line": 13,
+        "scope": "<module>",
+        "module": "json"
+      },
+      {
+        "source": "src/n01/ablation009.py",
+        "line": 14,
+        "scope": "<module>",
+        "module": "math"
+      },
+      {
+        "source": "src/n01/ablation009.py",
+        "line": 16,
+        "scope": "<module>",
+        "module": "torch"
+      },
+      {
+        "source": "src/n01/ablation009.py",
+        "line": 17,
+        "scope": "<module>",
+        "module": "torch"
+      },
+      {
+        "source": "src/n01/ablation009.py",
+        "line": 18,
+        "scope": "<module>",
+        "module": "torch.nn.functional"
+      },
+      {
+        "source": "src/n01/data.py",
+        "line": 2,
+        "scope": "<module>",
+        "module": "__future__"
+      },
+      {
+        "source": "src/n01/data.py",
+        "line": 4,
+        "scope": "<module>",
+        "module": "hashlib"
+      },
+      {
+        "source": "src/n01/data.py",
+        "line": 5,
+        "scope": "<module>",
+        "module": "json"
+      },
+      {
+        "source": "src/n01/data.py",
+        "line": 6,
+        "scope": "<module>",
+        "module": "pathlib"
+      },
+      {
+        "source": "src/n01/data.py",
+        "line": 8,
+        "scope": "<module>",
+        "module": "numpy"
+      },
+      {
+        "source": "src/n01/data.py",
+        "line": 9,
+        "scope": "<module>",
+        "module": "torch"
+      },
+      {
+        "source": "src/n01/data008.py",
+        "line": 6,
+        "scope": "<module>",
+        "module": "__future__"
+      },
+      {
+        "source": "src/n01/data008.py",
+        "line": 8,
+        "scope": "<module>",
+        "module": "copy"
+      },
+      {
+        "source": "src/n01/data008.py",
+        "line": 9,
+        "scope": "<module>",
+        "module": "pathlib"
+      },
+      {
+        "source": "src/n01/data008.py",
+        "line": 11,
+        "scope": "<module>",
+        "module": "numpy"
+      },
+      {
+        "source": "src/n01/diagnose_mean_random009.py",
+        "line": 8,
+        "scope": "<module>",
+        "module": "__future__"
+      },
+      {
+        "source": "src/n01/diagnose_mean_random009.py",
+        "line": 10,
+        "scope": "<module>",
+        "module": "argparse"
+      },
+      {
+        "source": "src/n01/diagnose_mean_random009.py",
+        "line": 11,
+        "scope": "<module>",
+        "module": "copy"
+      },
+      {
+        "source": "src/n01/diagnose_mean_random009.py",
+        "line": 12,
+        "scope": "<module>",
+        "module": "hashlib"
+      },
+      {
+        "source": "src/n01/diagnose_mean_random009.py",
+        "line": 13,
+        "scope": "<module>",
+        "module": "json"
+      },
+      {
+        "source": "src/n01/diagnose_mean_random009.py",
+        "line": 14,
+        "scope": "<module>",
+        "module": "os"
+      },
+      {
+        "source": "src/n01/diagnose_mean_random009.py",
+        "line": 15,
+        "scope": "<module>",
+        "module": "pathlib"
+      },
+      {
+        "source": "src/n01/diagnose_mean_random009.py",
+        "line": 16,
+        "scope": "<module>",
+        "module": "platform"
+      },
+      {
+        "source": "src/n01/diagnose_mean_random009.py",
+        "line": 17,
+        "scope": "<module>",
+        "module": "time"
+      },
+      {
+        "source": "src/n01/diagnose_mean_random009.py",
+        "line": 19,
+        "scope": "<module>",
+        "module": "numpy"
+      },
+      {
+        "source": "src/n01/diagnose_mean_random009.py",
+        "line": 20,
+        "scope": "<module>",
+        "module": "torch"
+      },
+      {
+        "source": "src/n01/diagnose_mean_random009.py",
+        "line": 398,
+        "scope": "current_rss",
+        "module": "psutil"
+      },
+      {
+        "source": "src/n01/electronics_v3.py",
+        "line": 7,
+        "scope": "<module>",
+        "module": "__future__"
+      },
+      {
+        "source": "src/n01/electronics_v3.py",
+        "line": 9,
+        "scope": "<module>",
+        "module": "math"
+      },
+      {
+        "source": "src/n01/electronics_v3.py",
+        "line": 10,
+        "scope": "<module>",
+        "module": "typing"
+      },
+      {
+        "source": "src/n01/electronics_v3.py",
+        "line": 12,
+        "scope": "<module>",
+        "module": "torch"
+      },
+      {
+        "source": "src/n01/electronics_v3.py",
+        "line": 13,
+        "scope": "<module>",
+        "module": "torch"
+      },
+      {
+        "source": "src/n01/electronics_v3.py",
+        "line": 14,
+        "scope": "<module>",
+        "module": "torch.nn.functional"
+      },
+      {
+        "source": "src/n01/evaluate.py",
+        "line": 6,
+        "scope": "<module>",
+        "module": "__future__"
+      },
+      {
+        "source": "src/n01/evaluate.py",
+        "line": 8,
+        "scope": "<module>",
+        "module": "argparse"
+      },
+      {
+        "source": "src/n01/evaluate.py",
+        "line": 9,
+        "scope": "<module>",
+        "module": "datetime"
+      },
+      {
+        "source": "src/n01/evaluate.py",
+        "line": 10,
+        "scope": "<module>",
+        "module": "json"
+      },
+      {
+        "source": "src/n01/evaluate.py",
+        "line": 11,
+        "scope": "<module>",
+        "module": "math"
+      },
+      {
+        "source": "src/n01/evaluate.py",
+        "line": 12,
+        "scope": "<module>",
+        "module": "os"
+      },
+      {
+        "source": "src/n01/evaluate.py",
+        "line": 13,
+        "scope": "<module>",
+        "module": "pathlib"
+      },
+      {
+        "source": "src/n01/evaluate.py",
+        "line": 14,
+        "scope": "<module>",
+        "module": "typing"
+      },
+      {
+        "source": "src/n01/evaluate.py",
+        "line": 16,
+        "scope": "<module>",
+        "module": "numpy"
+      },
+      {
+        "source": "src/n01/evaluate.py",
+        "line": 17,
+        "scope": "<module>",
+        "module": "scipy.special"
+      },
+      {
+        "source": "src/n01/evaluate.py",
+        "line": 18,
+        "scope": "<module>",
+        "module": "torch"
+      },
+      {
+        "source": "src/n01/evaluate.py",
+        "line": 19,
+        "scope": "<module>",
+        "module": "torch"
+      },
+      {
+        "source": "src/n01/evaluate.py",
+        "line": 20,
+        "scope": "<module>",
+        "module": "torch.nn.functional"
+      },
+      {
+        "source": "src/n01/evaluate_window008.py",
+        "line": 6,
+        "scope": "<module>",
+        "module": "__future__"
+      },
+      {
+        "source": "src/n01/evaluate_window008.py",
+        "line": 8,
+        "scope": "<module>",
+        "module": "argparse"
+      },
+      {
+        "source": "src/n01/evaluate_window008.py",
+        "line": 9,
+        "scope": "<module>",
+        "module": "copy"
+      },
+      {
+        "source": "src/n01/evaluate_window008.py",
+        "line": 10,
+        "scope": "<module>",
+        "module": "hashlib"
+      },
+      {
+        "source": "src/n01/evaluate_window008.py",
+        "line": 11,
+        "scope": "<module>",
+        "module": "json"
+      },
+      {
+        "source": "src/n01/evaluate_window008.py",
+        "line": 12,
+        "scope": "<module>",
+        "module": "os"
+      },
+      {
+        "source": "src/n01/evaluate_window008.py",
+        "line": 13,
+        "scope": "<module>",
+        "module": "platform"
+      },
+      {
+        "source": "src/n01/evaluate_window008.py",
+        "line": 14,
+        "scope": "<module>",
+        "module": "pathlib"
+      },
+      {
+        "source": "src/n01/evaluate_window008.py",
+        "line": 16,
+        "scope": "<module>",
+        "module": "numpy"
+      },
+      {
+        "source": "src/n01/evaluate_window008.py",
+        "line": 17,
+        "scope": "<module>",
+        "module": "torch"
+      },
+      {
+        "source": "src/n01/extension006.py",
+        "line": 7,
+        "scope": "<module>",
+        "module": "__future__"
+      },
+      {
+        "source": "src/n01/extension006.py",
+        "line": 9,
+        "scope": "<module>",
+        "module": "copy"
+      },
+      {
+        "source": "src/n01/extension006.py",
+        "line": 10,
+        "scope": "<module>",
+        "module": "collections.abc"
+      },
+      {
+        "source": "src/n01/extension006.py",
+        "line": 12,
+        "scope": "<module>",
+        "module": "torch"
+      },
+      {
+        "source": "src/n01/extension006.py",
+        "line": 13,
+        "scope": "<module>",
+        "module": "torch"
+      },
+      {
+        "source": "src/n01/losses.py",
+        "line": 6,
+        "scope": "<module>",
+        "module": "__future__"
+      },
+      {
+        "source": "src/n01/losses.py",
+        "line": 8,
+        "scope": "<module>",
+        "module": "typing"
+      },
+      {
+        "source": "src/n01/losses.py",
+        "line": 10,
+        "scope": "<module>",
+        "module": "torch"
+      },
+      {
+        "source": "src/n01/losses.py",
+        "line": 11,
+        "scope": "<module>",
+        "module": "torch"
+      },
+      {
+        "source": "src/n01/losses.py",
+        "line": 12,
+        "scope": "<module>",
+        "module": "torch.nn.functional"
+      },
+      {
+        "source": "src/n01/losses.py",
+        "line": 13,
+        "scope": "<module>",
+        "module": "torch.nn.utils"
+      },
+      {
+        "source": "src/n01/losses008.py",
+        "line": 6,
+        "scope": "<module>",
+        "module": "__future__"
+      },
+      {
+        "source": "src/n01/losses008.py",
+        "line": 8,
+        "scope": "<module>",
+        "module": "typing"
+      },
+      {
+        "source": "src/n01/losses008.py",
+        "line": 10,
+        "scope": "<module>",
+        "module": "torch"
+      },
+      {
+        "source": "src/n01/losses008.py",
+        "line": 11,
+        "scope": "<module>",
+        "module": "torch"
+      },
+      {
+        "source": "src/n01/losses008.py",
+        "line": 12,
+        "scope": "<module>",
+        "module": "torch.nn.functional"
+      },
+      {
+        "source": "src/n01/losses008.py",
+        "line": 13,
+        "scope": "<module>",
+        "module": "torch.nn.utils"
+      },
+      {
+        "source": "src/n01/losses008_v2.py",
+        "line": 6,
+        "scope": "<module>",
+        "module": "__future__"
+      },
+      {
+        "source": "src/n01/losses008_v2.py",
+        "line": 8,
+        "scope": "<module>",
+        "module": "dataclasses"
+      },
+      {
+        "source": "src/n01/losses008_v2.py",
+        "line": 9,
+        "scope": "<module>",
+        "module": "hashlib"
+      },
+      {
+        "source": "src/n01/losses008_v2.py",
+        "line": 10,
+        "scope": "<module>",
+        "module": "types"
+      },
+      {
+        "source": "src/n01/losses008_v2.py",
+        "line": 11,
+        "scope": "<module>",
+        "module": "typing"
+      },
+      {
+        "source": "src/n01/losses008_v2.py",
+        "line": 13,
+        "scope": "<module>",
+        "module": "torch"
+      },
+      {
+        "source": "src/n01/losses008_v2.py",
+        "line": 14,
+        "scope": "<module>",
+        "module": "torch"
+      },
+      {
+        "source": "src/n01/model.py",
+        "line": 6,
+        "scope": "<module>",
+        "module": "__future__"
+      },
+      {
+        "source": "src/n01/model.py",
+        "line": 8,
+        "scope": "<module>",
+        "module": "math"
+      },
+      {
+        "source": "src/n01/model.py",
+        "line": 9,
+        "scope": "<module>",
+        "module": "typing"
+      },
+      {
+        "source": "src/n01/model.py",
+        "line": 11,
+        "scope": "<module>",
+        "module": "torch"
+      },
+      {
+        "source": "src/n01/model.py",
+        "line": 12,
+        "scope": "<module>",
+        "module": "torch"
+      },
+      {
+        "source": "src/n01/model.py",
+        "line": 13,
+        "scope": "<module>",
+        "module": "torch.nn.functional"
+      },
+      {
+        "source": "src/n01/model008.py",
+        "line": 6,
+        "scope": "<module>",
+        "module": "__future__"
+      },
+      {
+        "source": "src/n01/model008.py",
+        "line": 8,
+        "scope": "<module>",
+        "module": "math"
+      },
+      {
+        "source": "src/n01/model008.py",
+        "line": 9,
+        "scope": "<module>",
+        "module": "collections.abc"
+      },
+      {
+        "source": "src/n01/model008.py",
+        "line": 10,
+        "scope": "<module>",
+        "module": "torch"
+      },
+      {
+        "source": "src/n01/model008.py",
+        "line": 11,
+        "scope": "<module>",
+        "module": "torch"
+      },
+      {
+        "source": "src/n01/model008.py",
+        "line": 12,
+        "scope": "<module>",
+        "module": "torch.nn.functional"
+      },
+      {
+        "source": "src/n01/model008_fix01.py",
+        "line": 7,
+        "scope": "<module>",
+        "module": "__future__"
+      },
+      {
+        "source": "src/n01/model008_fix01.py",
+        "line": 9,
+        "scope": "<module>",
+        "module": "math"
+      },
+      {
+        "source": "src/n01/model008_fix01.py",
+        "line": 10,
+        "scope": "<module>",
+        "module": "collections.abc"
+      },
+      {
+        "source": "src/n01/model008_fix01.py",
+        "line": 12,
+        "scope": "<module>",
+        "module": "torch"
+      },
+      {
+        "source": "src/n01/model008_fix01.py",
+        "line": 13,
+        "scope": "<module>",
+        "module": "torch"
+      },
+      {
+        "source": "src/n01/model008_fix01.py",
+        "line": 14,
+        "scope": "<module>",
+        "module": "torch.nn.functional"
+      },
+      {
+        "source": "src/n01/model010.py",
+        "line": 9,
+        "scope": "<module>",
+        "module": "__future__"
+      },
+      {
+        "source": "src/n01/model010.py",
+        "line": 11,
+        "scope": "<module>",
+        "module": "collections.abc"
+      },
+      {
+        "source": "src/n01/model010.py",
+        "line": 12,
+        "scope": "<module>",
+        "module": "hashlib"
+      },
+      {
+        "source": "src/n01/model010.py",
+        "line": 13,
+        "scope": "<module>",
+        "module": "json"
+      },
+      {
+        "source": "src/n01/model010.py",
+        "line": 15,
+        "scope": "<module>",
+        "module": "torch"
+      },
+      {
+        "source": "src/n01/model010.py",
+        "line": 16,
+        "scope": "<module>",
+        "module": "torch"
+      },
+      {
+        "source": "src/n01/model014.py",
+        "line": 7,
+        "scope": "<module>",
+        "module": "__future__"
+      },
+      {
+        "source": "src/n01/model014.py",
+        "line": 9,
+        "scope": "<module>",
+        "module": "torch"
+      },
+      {
+        "source": "src/n01/model014.py",
+        "line": 10,
+        "scope": "<module>",
+        "module": "torch"
+      },
+      {
+        "source": "src/n01/model016.py",
+        "line": 6,
+        "scope": "<module>",
+        "module": "__future__"
+      },
+      {
+        "source": "src/n01/model016.py",
+        "line": 7,
+        "scope": "<module>",
+        "module": "math"
+      },
+      {
+        "source": "src/n01/model016.py",
+        "line": 8,
+        "scope": "<module>",
+        "module": "torch"
+      },
+      {
+        "source": "src/n01/model016.py",
+        "line": 9,
+        "scope": "<module>",
+        "module": "torch"
+      },
+      {
+        "source": "src/n01/model016.py",
+        "line": 10,
+        "scope": "<module>",
+        "module": "torch.nn.functional"
+      },
+      {
+        "source": "src/n01/model017.py",
+        "line": 6,
+        "scope": "<module>",
+        "module": "__future__"
+      },
+      {
+        "source": "src/n01/model017.py",
+        "line": 8,
+        "scope": "<module>",
+        "module": "contextlib"
+      },
+      {
+        "source": "src/n01/model017.py",
+        "line": 9,
+        "scope": "<module>",
+        "module": "threading"
+      },
+      {
+        "source": "src/n01/model017.py",
+        "line": 10,
+        "scope": "<module>",
+        "module": "torch"
+      },
+      {
+        "source": "src/n01/model017.py",
+        "line": 11,
+        "scope": "<module>",
+        "module": "torch"
+      },
+      {
+        "source": "src/n01/observation008.py",
+        "line": 9,
+        "scope": "<module>",
+        "module": "__future__"
+      },
+      {
+        "source": "src/n01/observation008.py",
+        "line": 11,
+        "scope": "<module>",
+        "module": "copy"
+      },
+      {
+        "source": "src/n01/observation008.py",
+        "line": 12,
+        "scope": "<module>",
+        "module": "math"
+      },
+      {
+        "source": "src/n01/observation008.py",
+        "line": 13,
+        "scope": "<module>",
+        "module": "collections.abc"
+      },
+      {
+        "source": "src/n01/observation008.py",
+        "line": 15,
+        "scope": "<module>",
+        "module": "numpy"
+      },
+      {
+        "source": "src/n01/observation008.py",
+        "line": 16,
+        "scope": "<module>",
+        "module": "torch"
+      },
+      {
+        "source": "src/n01/observation008.py",
+        "line": 17,
+        "scope": "<module>",
+        "module": "torch"
+      },
+      {
+        "source": "src/n01/response008.py",
+        "line": 6,
+        "scope": "<module>",
+        "module": "__future__"
+      },
+      {
+        "source": "src/n01/response008.py",
+        "line": 8,
+        "scope": "<module>",
+        "module": "copy"
+      },
+      {
+        "source": "src/n01/response008.py",
+        "line": 9,
+        "scope": "<module>",
+        "module": "hashlib"
+      },
+      {
+        "source": "src/n01/response008.py",
+        "line": 10,
+        "scope": "<module>",
+        "module": "json"
+      },
+      {
+        "source": "src/n01/response008.py",
+        "line": 11,
+        "scope": "<module>",
+        "module": "pathlib"
+      },
+      {
+        "source": "src/n01/response008.py",
+        "line": 13,
+        "scope": "<module>",
+        "module": "numpy"
+      },
+      {
+        "source": "src/n01/response008.py",
+        "line": 14,
+        "scope": "<module>",
+        "module": "torch"
+      },
+      {
+        "source": "src/n01/response008.py",
+        "line": 15,
+        "scope": "<module>",
+        "module": "torch"
+      },
+      {
+        "source": "src/n01/response008.py",
+        "line": 16,
+        "scope": "<module>",
+        "module": "torch.nn.functional"
+      },
+      {
+        "source": "src/n01/response008.py",
+        "line": 216,
+        "scope": "Response008Engine.step",
+        "module": "time"
+      },
+      {
+        "source": "src/n01/saved_array_kernels017.py",
+        "line": 3,
+        "scope": "<module>",
+        "module": "numpy"
+      },
+      {
+        "source": "src/n01/stats017.py",
+        "line": 2,
+        "scope": "<module>",
+        "module": "__future__"
+      },
+      {
+        "source": "src/n01/stats017.py",
+        "line": 3,
+        "scope": "<module>",
+        "module": "hashlib"
+      },
+      {
+        "source": "src/n01/stats017.py",
+        "line": 4,
+        "scope": "<module>",
+        "module": "numpy"
+      },
+      {
+        "source": "src/n01/stats018.py",
+        "line": 2,
+        "scope": "<module>",
+        "module": "__future__"
+      },
+      {
+        "source": "src/n01/stats018.py",
+        "line": 4,
+        "scope": "<module>",
+        "module": "numpy"
+      },
+      {
+        "source": "src/n01/train.py",
+        "line": 2,
+        "scope": "<module>",
+        "module": "__future__"
+      },
+      {
+        "source": "src/n01/train.py",
+        "line": 4,
+        "scope": "<module>",
+        "module": "argparse"
+      },
+      {
+        "source": "src/n01/train.py",
+        "line": 5,
+        "scope": "<module>",
+        "module": "copy"
+      },
+      {
+        "source": "src/n01/train.py",
+        "line": 6,
+        "scope": "<module>",
+        "module": "datetime"
+      },
+      {
+        "source": "src/n01/train.py",
+        "line": 7,
+        "scope": "<module>",
+        "module": "json"
+      },
+      {
+        "source": "src/n01/train.py",
+        "line": 8,
+        "scope": "<module>",
+        "module": "os"
+      },
+      {
+        "source": "src/n01/train.py",
+        "line": 9,
+        "scope": "<module>",
+        "module": "pathlib"
+      },
+      {
+        "source": "src/n01/train.py",
+        "line": 10,
+        "scope": "<module>",
+        "module": "random"
+      },
+      {
+        "source": "src/n01/train.py",
+        "line": 11,
+        "scope": "<module>",
+        "module": "time"
+      },
+      {
+        "source": "src/n01/train.py",
+        "line": 12,
+        "scope": "<module>",
+        "module": "traceback"
+      },
+      {
+        "source": "src/n01/train.py",
+        "line": 14,
+        "scope": "<module>",
+        "module": "numpy"
+      },
+      {
+        "source": "src/n01/train.py",
+        "line": 15,
+        "scope": "<module>",
+        "module": "torch"
+      },
+      {
+        "source": "scripts/wp4_017_controller.py",
+        "line": 6,
+        "scope": "<module>",
+        "module": "__future__"
+      },
+      {
+        "source": "scripts/wp4_017_controller.py",
+        "line": 7,
+        "scope": "<module>",
+        "module": "ast"
+      },
+      {
+        "source": "scripts/wp4_017_controller.py",
+        "line": 8,
+        "scope": "<module>",
+        "module": "copy"
+      },
+      {
+        "source": "scripts/wp4_017_controller.py",
+        "line": 9,
+        "scope": "<module>",
+        "module": "hashlib"
+      },
+      {
+        "source": "scripts/wp4_017_controller.py",
+        "line": 10,
+        "scope": "<module>",
+        "module": "json"
+      },
+      {
+        "source": "scripts/wp4_017_controller.py",
+        "line": 11,
+        "scope": "<module>",
+        "module": "os"
+      },
+      {
+        "source": "scripts/wp4_017_controller.py",
+        "line": 12,
+        "scope": "<module>",
+        "module": "pathlib"
+      },
+      {
+        "source": "scripts/wp4_017_controller.py",
+        "line": 13,
+        "scope": "<module>",
+        "module": "tarfile"
+      },
+      {
+        "source": "scripts/wp4_017_controller.py",
+        "line": 14,
+        "scope": "<module>",
+        "module": "time"
+      },
+      {
+        "source": "scripts/wp4_017_controller.py",
+        "line": 15,
+        "scope": "<module>",
+        "module": "types"
+      },
+      {
+        "source": "scripts/wp2_controller.py",
+        "line": 7,
+        "scope": "<module>",
+        "module": "__future__"
+      },
+      {
+        "source": "scripts/wp2_controller.py",
+        "line": 9,
+        "scope": "<module>",
+        "module": "argparse"
+      },
+      {
+        "source": "scripts/wp2_controller.py",
+        "line": 10,
+        "scope": "<module>",
+        "module": "ast"
+      },
+      {
+        "source": "scripts/wp2_controller.py",
+        "line": 11,
+        "scope": "<module>",
+        "module": "base64"
+      },
+      {
+        "source": "scripts/wp2_controller.py",
+        "line": 12,
+        "scope": "<module>",
+        "module": "copy"
+      },
+      {
+        "source": "scripts/wp2_controller.py",
+        "line": 13,
+        "scope": "<module>",
+        "module": "hashlib"
+      },
+      {
+        "source": "scripts/wp2_controller.py",
+        "line": 14,
+        "scope": "<module>",
+        "module": "importlib.util"
+      },
+      {
+        "source": "scripts/wp2_controller.py",
+        "line": 15,
+        "scope": "<module>",
+        "module": "json"
+      },
+      {
+        "source": "scripts/wp2_controller.py",
+        "line": 16,
+        "scope": "<module>",
+        "module": "os"
+      },
+      {
+        "source": "scripts/wp2_controller.py",
+        "line": 17,
+        "scope": "<module>",
+        "module": "pathlib"
+      },
+      {
+        "source": "scripts/wp2_controller.py",
+        "line": 18,
+        "scope": "<module>",
+        "module": "re"
+      },
+      {
+        "source": "scripts/wp2_controller.py",
+        "line": 19,
+        "scope": "<module>",
+        "module": "shlex"
+      },
+      {
+        "source": "scripts/wp2_controller.py",
+        "line": 20,
+        "scope": "<module>",
+        "module": "shutil"
+      },
+      {
+        "source": "scripts/wp2_controller.py",
+        "line": 21,
+        "scope": "<module>",
+        "module": "signal"
+      },
+      {
+        "source": "scripts/wp2_controller.py",
+        "line": 22,
+        "scope": "<module>",
+        "module": "subprocess"
+      },
+      {
+        "source": "scripts/wp2_controller.py",
+        "line": 23,
+        "scope": "<module>",
+        "module": "sys"
+      },
+      {
+        "source": "scripts/wp2_controller.py",
+        "line": 24,
+        "scope": "<module>",
+        "module": "tarfile"
+      },
+      {
+        "source": "scripts/wp2_controller.py",
+        "line": 25,
+        "scope": "<module>",
+        "module": "time"
+      },
+      {
+        "source": "scripts/wp2_controller.py",
+        "line": 26,
+        "scope": "<module>",
+        "module": "uuid"
+      },
+      {
+        "source": "scripts/wp2_controller.py",
+        "line": 459,
+        "scope": "supervise",
+        "module": "fcntl"
+      },
+      {
+        "source": "scripts/wp2_controller.py",
+        "line": 500,
+        "scope": "native_start",
+        "module": "fcntl"
+      },
+      {
+        "source": "scripts/mechanism012_ops.py",
+        "line": 6,
+        "scope": "<module>",
+        "module": "__future__"
+      },
+      {
+        "source": "scripts/mechanism012_ops.py",
+        "line": 7,
+        "scope": "<module>",
+        "module": "argparse"
+      },
+      {
+        "source": "scripts/mechanism012_ops.py",
+        "line": 8,
+        "scope": "<module>",
+        "module": "base64"
+      },
+      {
+        "source": "scripts/mechanism012_ops.py",
+        "line": 9,
+        "scope": "<module>",
+        "module": "datetime"
+      },
+      {
+        "source": "scripts/mechanism012_ops.py",
+        "line": 10,
+        "scope": "<module>",
+        "module": "hashlib"
+      },
+      {
+        "source": "scripts/mechanism012_ops.py",
+        "line": 11,
+        "scope": "<module>",
+        "module": "importlib.util"
+      },
+      {
+        "source": "scripts/mechanism012_ops.py",
+        "line": 12,
+        "scope": "<module>",
+        "module": "io"
+      },
+      {
+        "source": "scripts/mechanism012_ops.py",
+        "line": 13,
+        "scope": "<module>",
+        "module": "json"
+      },
+      {
+        "source": "scripts/mechanism012_ops.py",
+        "line": 14,
+        "scope": "<module>",
+        "module": "os"
+      },
+      {
+        "source": "scripts/mechanism012_ops.py",
+        "line": 15,
+        "scope": "<module>",
+        "module": "pathlib"
+      },
+      {
+        "source": "scripts/mechanism012_ops.py",
+        "line": 16,
+        "scope": "<module>",
+        "module": "re"
+      },
+      {
+        "source": "scripts/mechanism012_ops.py",
+        "line": 17,
+        "scope": "<module>",
+        "module": "shutil"
+      },
+      {
+        "source": "scripts/mechanism012_ops.py",
+        "line": 18,
+        "scope": "<module>",
+        "module": "subprocess"
+      },
+      {
+        "source": "scripts/mechanism012_ops.py",
+        "line": 19,
+        "scope": "<module>",
+        "module": "sys"
+      },
+      {
+        "source": "scripts/mechanism012_ops.py",
+        "line": 20,
+        "scope": "<module>",
+        "module": "tarfile"
+      },
+      {
+        "source": "scripts/mechanism012_ops.py",
+        "line": 21,
+        "scope": "<module>",
+        "module": "uuid"
+      },
+      {
+        "source": "scripts/mechanism012_ops.py",
+        "line": 368,
+        "scope": "native_start",
+        "module": "fcntl"
+      },
+      {
+        "source": "scripts/supervise_mechanism012.py",
+        "line": 2,
+        "scope": "<module>",
+        "module": "__future__"
+      },
+      {
+        "source": "scripts/supervise_mechanism012.py",
+        "line": 3,
+        "scope": "<module>",
+        "module": "argparse"
+      },
+      {
+        "source": "scripts/supervise_mechanism012.py",
+        "line": 4,
+        "scope": "<module>",
+        "module": "json"
+      },
+      {
+        "source": "scripts/supervise_mechanism012.py",
+        "line": 5,
+        "scope": "<module>",
+        "module": "os"
+      },
+      {
+        "source": "scripts/supervise_mechanism012.py",
+        "line": 6,
+        "scope": "<module>",
+        "module": "pathlib"
+      },
+      {
+        "source": "scripts/supervise_mechanism012.py",
+        "line": 7,
+        "scope": "<module>",
+        "module": "signal"
+      },
+      {
+        "source": "scripts/supervise_mechanism012.py",
+        "line": 8,
+        "scope": "<module>",
+        "module": "subprocess"
+      },
+      {
+        "source": "scripts/supervise_mechanism012.py",
+        "line": 9,
+        "scope": "<module>",
+        "module": "sys"
+      },
+      {
+        "source": "scripts/supervise_mechanism012.py",
+        "line": 10,
+        "scope": "<module>",
+        "module": "time"
+      },
+      {
+        "source": "scripts/supervise_mechanism012.py",
+        "line": 59,
+        "scope": "main",
+        "module": "fcntl"
+      },
+      {
+        "source": "receipts/wp4_019_20261016/execution_01/REMOTE_SUPERVISOR.py",
+        "line": 2,
+        "scope": "<module>",
+        "module": "argparse"
+      },
+      {
+        "source": "receipts/wp4_019_20261016/execution_01/REMOTE_SUPERVISOR.py",
+        "line": 3,
+        "scope": "<module>",
+        "module": "hashlib"
+      },
+      {
+        "source": "receipts/wp4_019_20261016/execution_01/REMOTE_SUPERVISOR.py",
+        "line": 4,
+        "scope": "<module>",
+        "module": "json"
+      },
+      {
+        "source": "receipts/wp4_019_20261016/execution_01/REMOTE_SUPERVISOR.py",
+        "line": 5,
+        "scope": "<module>",
+        "module": "os"
+      },
+      {
+        "source": "receipts/wp4_019_20261016/execution_01/REMOTE_SUPERVISOR.py",
+        "line": 6,
+        "scope": "<module>",
+        "module": "pathlib"
+      },
+      {
+        "source": "receipts/wp4_019_20261016/execution_01/REMOTE_SUPERVISOR.py",
+        "line": 7,
+        "scope": "<module>",
+        "module": "sys"
+      },
+      {
+        "source": "receipts/wp4_019_20261016/execution_01/REMOTE_SUPERVISOR.py",
+        "line": 47,
+        "scope": "<module>",
+        "module": "fcntl"
+      },
+      {
+        "source": "src/n01/losses014.py",
+        "line": 6,
+        "scope": "<module>",
+        "module": "__future__"
+      },
+      {
+        "source": "src/n01/losses014.py",
+        "line": 8,
+        "scope": "<module>",
+        "module": "copy"
+      },
+      {
+        "source": "src/n01/losses014.py",
+        "line": 9,
+        "scope": "<module>",
+        "module": "hashlib"
+      },
+      {
+        "source": "src/n01/losses014.py",
+        "line": 11,
+        "scope": "<module>",
+        "module": "torch"
+      },
+      {
+        "source": "src/n01/train_shape010.py",
+        "line": 7,
+        "scope": "<module>",
+        "module": "__future__"
+      },
+      {
+        "source": "src/n01/train_shape010.py",
+        "line": 8,
+        "scope": "<module>",
+        "module": "argparse"
+      },
+      {
+        "source": "src/n01/train_shape010.py",
+        "line": 9,
+        "scope": "<module>",
+        "module": "copy"
+      },
+      {
+        "source": "src/n01/train_shape010.py",
+        "line": 10,
+        "scope": "<module>",
+        "module": "json"
+      },
+      {
+        "source": "src/n01/train_shape010.py",
+        "line": 11,
+        "scope": "<module>",
+        "module": "os"
+      },
+      {
+        "source": "src/n01/train_shape010.py",
+        "line": 12,
+        "scope": "<module>",
+        "module": "pathlib"
+      },
+      {
+        "source": "src/n01/train_shape010.py",
+        "line": 13,
+        "scope": "<module>",
+        "module": "signal"
+      },
+      {
+        "source": "src/n01/train_shape010.py",
+        "line": 14,
+        "scope": "<module>",
+        "module": "time"
+      },
+      {
+        "source": "src/n01/train_shape010.py",
+        "line": 16,
+        "scope": "<module>",
+        "module": "numpy"
+      },
+      {
+        "source": "src/n01/train_shape010.py",
+        "line": 17,
+        "scope": "<module>",
+        "module": "torch"
+      },
+      {
+        "source": "scripts/wp1_evaluation.py",
+        "line": 7,
+        "scope": "<module>",
+        "module": "__future__"
+      },
+      {
+        "source": "scripts/wp1_evaluation.py",
+        "line": 8,
+        "scope": "<module>",
+        "module": "copy"
+      },
+      {
+        "source": "scripts/wp1_evaluation.py",
+        "line": 18,
+        "scope": "summary",
+        "module": "numpy"
+      },
+      {
+        "source": "scripts/wp1_evaluation.py",
+        "line": 28,
+        "scope": "observable_features",
+        "module": "numpy"
+      },
+      {
+        "source": "scripts/wp1_evaluation.py",
+        "line": 47,
+        "scope": "raw_distance",
+        "module": "numpy"
+      },
+      {
+        "source": "scripts/wp1_evaluation.py",
+        "line": 59,
+        "scope": "flag_rates",
+        "module": "numpy"
+      },
+      {
+        "source": "scripts/wp1_evaluation.py",
+        "line": 69,
+        "scope": "native_metrics",
+        "module": "torch"
+      },
+      {
+        "source": "scripts/wp1_evaluation.py",
+        "line": 92,
+        "scope": "component_distances",
+        "module": "numpy"
+      },
+      {
+        "source": "scripts/wp1_evaluation.py",
+        "line": 111,
+        "scope": "output_q_bins",
+        "module": "numpy"
+      },
+      {
+        "source": "scripts/wp1_evaluation.py",
+        "line": 120,
+        "scope": "output_q_conditions",
+        "module": "numpy"
+      },
+      {
+        "source": "scripts/wp1_evaluation.py",
+        "line": 137,
+        "scope": "repeat_grid",
+        "module": "numpy"
+      },
+      {
+        "source": "scripts/wp1_evaluation.py",
+        "line": 151,
+        "scope": "repeated_parent_statistics",
+        "module": "numpy"
+      },
+      {
+        "source": "scripts/wp1_evaluation.py",
+        "line": 176,
+        "scope": "source_input_trends",
+        "module": "numpy"
+      },
+      {
+        "source": "scripts/wp1_evaluation.py",
+        "line": 205,
+        "scope": "evaluate_hard_population",
+        "module": "numpy"
+      },
+      {
+        "source": "scripts/mechanism012_losses.py",
+        "line": 7,
+        "scope": "<module>",
+        "module": "__future__"
+      },
+      {
+        "source": "scripts/mechanism012_losses.py",
+        "line": 8,
+        "scope": "<module>",
+        "module": "dataclasses"
+      },
+      {
+        "source": "scripts/mechanism012_losses.py",
+        "line": 9,
+        "scope": "<module>",
+        "module": "torch"
+      },
+      {
+        "source": "scripts/wp1_parameter_probe.py",
+        "line": 6,
+        "scope": "<module>",
+        "module": "__future__"
+      },
+      {
+        "source": "scripts/wp1_parameter_probe.py",
+        "line": 7,
+        "scope": "<module>",
+        "module": "math"
+      },
+      {
+        "source": "scripts/wp1_parameter_probe.py",
+        "line": 18,
+        "scope": "numpy_copy",
+        "module": "numpy"
+      },
+      {
+        "source": "scripts/wp1_parameter_probe.py",
+        "line": 24,
+        "scope": "validated_head_state",
+        "module": "numpy"
+      },
+      {
+        "source": "scripts/wp1_parameter_probe.py",
+        "line": 41,
+        "scope": "prospective_adamw_direction",
+        "module": "numpy"
+      },
+      {
+        "source": "scripts/wp1_parameter_probe.py",
+        "line": 71,
+        "scope": "parameter_directions_from_saved_state",
+        "module": "numpy"
+      },
+      {
+        "source": "scripts/wp1_parameter_probe.py",
+        "line": 89,
+        "scope": "split_parameter_vector",
+        "module": "numpy"
+      },
+      {
+        "source": "scripts/wp1_parameter_probe.py",
+        "line": 96,
+        "scope": "parameter_forward",
+        "module": "torch"
+      },
+      {
+        "source": "scripts/wp1_parameter_probe.py",
+        "line": 97,
+        "scope": "parameter_forward",
+        "module": "numpy"
+      },
+      {
+        "source": "scripts/wp1_parameter_probe.py",
+        "line": 112,
+        "scope": "analytic_head_direction_map",
+        "module": "torch"
+      },
+      {
+        "source": "scripts/wp1_parameter_probe.py",
+        "line": 113,
+        "scope": "analytic_head_direction_map",
+        "module": "torch.nn"
+      },
+      {
+        "source": "scripts/wp1_parameter_probe.py",
+        "line": 156,
+        "scope": "apply_sensitivity",
+        "module": "torch"
+      },
+      {
+        "source": "scripts/wp1_parameter_probe.py",
+        "line": 157,
+        "scope": "apply_sensitivity",
+        "module": "torch.nn"
+      },
+      {
+        "source": "scripts/wp1_input_information.py",
+        "line": 6,
+        "scope": "<module>",
+        "module": "__future__"
+      },
+      {
+        "source": "scripts/wp1_input_information.py",
+        "line": 8,
+        "scope": "<module>",
+        "module": "argparse"
+      },
+      {
+        "source": "scripts/wp1_input_information.py",
+        "line": 9,
+        "scope": "<module>",
+        "module": "ast"
+      },
+      {
+        "source": "scripts/wp1_input_information.py",
+        "line": 10,
+        "scope": "<module>",
+        "module": "hashlib"
+      },
+      {
+        "source": "scripts/wp1_input_information.py",
+        "line": 11,
+        "scope": "<module>",
+        "module": "json"
+      },
+      {
+        "source": "scripts/wp1_input_information.py",
+        "line": 12,
+        "scope": "<module>",
+        "module": "os"
+      },
+      {
+        "source": "scripts/wp1_input_information.py",
+        "line": 13,
+        "scope": "<module>",
+        "module": "pathlib"
+      },
+      {
+        "source": "scripts/wp1_input_information.py",
+        "line": 14,
+        "scope": "<module>",
+        "module": "struct"
+      },
+      {
+        "source": "scripts/wp1_input_information.py",
+        "line": 15,
+        "scope": "<module>",
+        "module": "time"
+      },
+      {
+        "source": "scripts/wp1_input_information.py",
+        "line": 16,
+        "scope": "<module>",
+        "module": "zipfile"
+      },
+      {
+        "source": "scripts/wp1_input_information.py",
+        "line": 124,
+        "scope": "npz_exclusive",
+        "module": "numpy"
+      },
+      {
+        "source": "scripts/wp1_input_information.py",
+        "line": 133,
+        "scope": "load_members",
+        "module": "numpy"
+      },
+      {
+        "source": "scripts/wp1_input_information.py",
+        "line": 146,
+        "scope": "canonical_charge_source_np",
+        "module": "numpy"
+      },
+      {
+        "source": "scripts/wp1_input_information.py",
+        "line": 154,
+        "scope": "analytic_source480",
+        "module": "numpy"
+      },
+      {
+        "source": "scripts/wp1_input_information.py",
+        "line": 178,
+        "scope": "finite_summary",
+        "module": "numpy"
+      },
+      {
+        "source": "scripts/wp1_input_information.py",
+        "line": 188,
+        "scope": "average_ranks",
+        "module": "numpy"
+      },
+      {
+        "source": "scripts/wp1_input_information.py",
+        "line": 200,
+        "scope": "association",
+        "module": "numpy"
+      },
+      {
+        "source": "scripts/wp1_input_information.py",
+        "line": 212,
+        "scope": "pca_information",
+        "module": "numpy"
+      },
+      {
+        "source": "scripts/wp1_input_information.py",
+        "line": 243,
+        "scope": "normalized_views",
+        "module": "numpy"
+      },
+      {
+        "source": "scripts/wp1_input_information.py",
+        "line": 271,
+        "scope": "numeric_pattern_counts",
+        "module": "numpy"
+      },
+      {
+        "source": "scripts/wp1_input_information.py",
+        "line": 287,
+        "scope": "same_charge_pairs",
+        "module": "numpy"
+      },
+      {
+        "source": "scripts/wp1_input_information.py",
+        "line": 341,
+        "scope": "audit_source_information",
+        "module": "numpy"
+      },
+      {
+        "source": "scripts/wp1_input_information.py",
+        "line": 456,
+        "scope": "run_information",
+        "module": "numpy"
+      },
+      {
+        "source": "scripts/wp1_boundary_saved.py",
+        "line": 6,
+        "scope": "<module>",
+        "module": "__future__"
+      },
+      {
+        "source": "scripts/wp1_boundary_saved.py",
+        "line": 8,
+        "scope": "<module>",
+        "module": "argparse"
+      },
+      {
+        "source": "scripts/wp1_boundary_saved.py",
+        "line": 9,
+        "scope": "<module>",
+        "module": "json"
+      },
+      {
+        "source": "scripts/wp1_boundary_saved.py",
+        "line": 10,
+        "scope": "<module>",
+        "module": "pathlib"
+      },
+      {
+        "source": "scripts/wp1_boundary_saved.py",
+        "line": 11,
+        "scope": "<module>",
+        "module": "time"
+      },
+      {
+        "source": "scripts/wp1_boundary_saved.py",
+        "line": 30,
+        "scope": "scalar",
+        "module": "numpy"
+      },
+      {
+        "source": "scripts/wp1_boundary_saved.py",
+        "line": 55,
+        "scope": "row_identities",
+        "module": "numpy"
+      },
+      {
+        "source": "scripts/wp1_boundary_saved.py",
+        "line": 69,
+        "scope": "comparison_summary",
+        "module": "numpy"
+      },
+      {
+        "source": "scripts/wp1_boundary_saved.py",
+        "line": 79,
+        "scope": "boundary_saved_analysis",
+        "module": "numpy"
+      },
+      {
+        "source": "scripts/stability011_metrics.py",
+        "line": 8,
+        "scope": "<module>",
+        "module": "__future__"
+      },
+      {
+        "source": "scripts/stability011_metrics.py",
+        "line": 9,
+        "scope": "<module>",
+        "module": "dataclasses"
+      },
+      {
+        "source": "scripts/stability011_metrics.py",
+        "line": 10,
+        "scope": "<module>",
+        "module": "numpy"
+      }
+    ],
+    "dynamic_calls": [
+      {
+        "source": "scripts/wp4_017_controller.py",
+        "line": 130,
+        "scope": "factory_contract",
+        "call": "exec(compile(ast.Module(body=nodes, type_ignores=[]), '<017-stdlib-factories>', 'exec'), scope)",
+        "classification": "manual call-path review required; static import graph is not an execution proof"
+      },
+      {
+        "source": "scripts/wp4_017_controller.py",
+        "line": 299,
+        "scope": "operations",
+        "call": "exec(compile(ast.fix_missing_locations(tree), str(path), 'exec'), module.__dict__)",
+        "classification": "manual call-path review required; static import graph is not an execution proof"
+      },
+      {
+        "source": "scripts/wp2_controller.py",
+        "line": 74,
+        "scope": "load_module",
+        "call": "importlib.util.spec_from_file_location(name, path)",
+        "classification": "manual call-path review required; static import graph is not an execution proof"
+      },
+      {
+        "source": "scripts/wp2_controller.py",
+        "line": 141,
+        "scope": "factory_contract",
+        "call": "exec(compile(ast.Module(body=nodes, type_ignores=[]), '<verified014-pure-factories>', 'exec'), namespace)",
+        "classification": "manual call-path review required; static import graph is not an execution proof"
+      },
+      {
+        "source": "scripts/mechanism012_ops.py",
+        "line": 663,
+        "scope": "self_check",
+        "call": "importlib.util.spec_from_file_location('mechanism012_artificial_producer', ROOT / 'scripts/run_mechanism012.py')",
+        "classification": "manual call-path review required; static import graph is not an execution proof"
+      },
+      {
+        "source": "scripts/mechanism012_ops.py",
+        "line": 710,
+        "scope": "self_check",
+        "call": "importlib.util.spec_from_file_location('mechanism012_artificial_supervisor', ROOT / 'scripts/supervise_mechanism012.py')",
+        "classification": "manual call-path review required; static import graph is not an execution proof"
+      }
+    ]
+  },
+  "package_initialization": "019 run_wp4_018 creates a minimal n01 namespace before model imports, preserving reviewed019 behavior; original n01/__init__.py is not executed by this path",
+  "scientific_execution": false
+}

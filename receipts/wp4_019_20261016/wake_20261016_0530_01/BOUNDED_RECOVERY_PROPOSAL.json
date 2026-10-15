@@ -1,0 +1,67 @@
+{
+  "schema": "n01/wp4-019-postfailure-recovery-proposal/v1",
+  "UTC": "2026-10-15T21:38:29.513903+00:00",
+  "status": "draft_for_explicit_user_decision_no_execution",
+  "proposed_run_id": "wp4_020_20261016",
+  "reason": "Complete the original019 T1 unpaired question after a packaging-only failure; do not repeat completed seed0 training or add a teacher/candidate.",
+  "requires_explicit_new_user_execution_authorization": true,
+  "not_an_automatic_restart": true,
+  "saved_seed0_final_checkpoint": {
+    "path": "/home/rylan/projects/ej276d-n01/wp4_019_20261016/runs/primary/artifacts/T1_unpaired_seed0/final.pt",
+    "bytes": 114968,
+    "sha256": "ad285f938745d906df7295433ea9d1c3bc83d181e1c26db16375df7f2af48b79"
+  },
+  "proposed_actions": [
+    "Preserve frozen019 and all failure evidence without modification.",
+    "Add the one missing unchanged017 evaluation dependency to a separately versioned source package and audit only the new entry path.",
+    "Load saved seed0 final2theta checkpoint and regenerate its originally registered final evaluation from the original fixed evaluation namespaces.",
+    "Train only the originally unstarted T1_unpaired_seed1 for <=2000G/AD using original seeds/settings, then perform its fixed final evaluation.",
+    "Apply unchanged018 full1272x2 gate and independent saved-result readback; stop after this bounded recovery."
+  ],
+  "new_G_AD_max": 2000,
+  "seed0_retraining_G_AD": 0,
+  "new_teacher_or_short_candidate_slots": 0,
+  "original_teacher_slots_after_both019_seeds_completed_max": 4,
+  "project_G_before_recovery": 185667,
+  "project_G_after_recovery_max": 187667,
+  "same_A_B_charge005_and_metric_gates": true,
+  "new_SOURCE_REAL_DEV_reads": 0,
+  "additional_work_requires_new_NN_and_RNG": true,
+  "known_computable_prospective_caps": {
+    "student_training_rows": 2048000,
+    "teacher_training_rows": 2048000,
+    "final_evaluation_signal_rows": 843904,
+    "noise005_rows": 4939904,
+    "all_three_extensions_rows": 14819712,
+    "hard_ADC_rows": 14819712,
+    "normal_scalar_requests": 1946322176,
+    "unpaired_training_ordered_pair_distances": 12582912000,
+    "new257_evaluation_pair_distances": 162029568,
+    "O19_evaluation_pair_distances": 405073920,
+    "005_CP_loads": 1,
+    "saved_seed0_final_CP_loads": 1,
+    "A_M0_CP_loads": 0,
+    "new_A_M0_forward_rows": 0
+  },
+  "extra_computation_vs_original019_budget": {
+    "reason": "first128 evaluation rows were computed but no REPORT or final kernel snapshot was saved; original fixed full final evaluation would regenerate this prefix",
+    "repeated_evaluation_signal_rows": 128,
+    "repeated_noise005_rows": 128,
+    "repeated_normal_scalar_requests": 50432,
+    "repeated_three_extension_rows": 384,
+    "repeated_fast_hard_ADC_rows": 128,
+    "extra_training_updates": 0
+  },
+  "not_yet_final_runtime_registration": [
+    "Exact source files/config/manifest hashes and full operation-counter factory",
+    "Checkpoint save/resource limits and one future wake after a verified real start",
+    "Final minimal new entry-path engineering and independent source review"
+  ],
+  "this_closeout_execution": {
+    "new_NN_AD_G_RNG": 0,
+    "checkpoint_deserialization": 0,
+    "restart": false,
+    "scientific_decision": "unknown_incomplete_evaluation"
+  },
+  "authorization_boundary_source": "Current user heartbeat says no restart, no newNN/AD/G/RNG for saved-result verification, and no automatic additional scientific execution."
+}

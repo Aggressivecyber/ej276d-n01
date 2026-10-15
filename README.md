@@ -1,10 +1,12 @@
-# N01 当前执行：WP4/019 无配对两种子已正确启动
+# N01 当前状态：019 训练部分完成，评价因漏依赖失败
 
-019已完成前瞻登记、冻结和Sol Max独审。04:38:28（新加坡）的实际快照确认T1_unpaired_seed0两theta真实更新、005 CP1/只读缓存身份、进程与同快照资源健康通过。持久G/AD完成64/4000，项目累计G下界183731；在途完成数unknown，未计入。已设置2026-10-16 05:30单次苏醒，当前休息、不持续查询远端。
+019已native1退出：seed0完成2000G/AD，seed1未启动；首次评价缺少mechanism012_losses，完整评价与2544格主门未生成，科学判定未知。本次只补记新增1936G，项目累计下界185667。完整日志、三份检查点及64文件清单已核SHA、选回并备份；未重启或新增NN/AD/G/RNG。
 
-018已native0并完成独立数值复核：旧2688格保持2616pass+72pending；前瞻新2544格全pass。019沿用同门，只运行原WP4教师槽中的两项T1 unpaired，不自动进入T2、均值候选或REAL长训练。当前仍未取得019无配对终点资格，scientific_status=response_match_not_established，六WP未全部完成。
+源码打包和独审已更正此前“38成员闭包完整、足以执行”的工程结论，原件保留。最小修复草案仅补一份旧已冻依赖，尚未应用。后续可另行登记复用seed0检查点补评价、仅训练未启动seed1≤2000G/AD的有界恢复，需用户明确授权；原单次苏醒已履行，无活动科学作业或未来苏醒。
 
-[019报告与启动证据](reports/wp4_019_20261016/REPORT.md) · [019冻结合同](docs/WP4_019_CONFIGURATION.md) · [单次苏醒](receipts/wp4_019_20261016/FOLLOWUP_RECEIPT.json) · [018完成报告](reports/wp4_018_20261016/REPORT.md) · [018最终回执](receipts/wp4_018_20261016/FINAL_RESULT_RECEIPT.json) · [015诊断](receipts/review_017_20261016/mean_015_diagnostic_01/REVIEW.md)
+018新2544格合格及017旧72pending保持，T2/均值新候选/REAL长训练均未启动。scientific_status=response_match_not_established，六WP未全部完成。
+
+[019失败结论与证据](reports/wp4_019_20261016/REPORT.md) · [最终回执](receipts/wp4_019_20261016/FINAL_RESULT_RECEIPT.json) · [终点独审](receipts/wp4_019_20261016/wake_20261016_0530_01/independent_result_01/REVIEW.md) · [未执行恢复方案](receipts/wp4_019_20261016/wake_20261016_0530_01/BOUNDED_RECOVERY_PROPOSAL.json) · [018报告](reports/wp4_018_20261016/REPORT.md)
 
 以下保留此前阶段说明。
 

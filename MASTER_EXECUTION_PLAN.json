@@ -10,9 +10,9 @@
   },
   "objective": "Deliver a usable and verifiable conditional effective stochastic response kernel with explicit data and physical scope; assess engineering, in-domain effectiveness and cross-condition reuse separately.",
   "mainline": "protected deterministic A plus input-dependent stochastic response, fixed256 hard output/384 carrier/100 baseline/1ns software sampling; originalfull19k retained as negative control",
-  "status": "WP4_019_unpaired_correct_start_verified",
+  "status": "WP4_019_native1_failure_closed_scientific_unknown",
   "active_work_package": "WP4",
-  "active_scientific_jobs": 1,
+  "active_scientific_jobs": 0,
   "work_packages": [
     {
       "id": "WP1",
@@ -2113,7 +2113,7 @@
     },
     {
       "id": "WP4",
-      "status": "019_T1_unpaired_actual_start_verified",
+      "status": "019_training_partial_native1_evaluation_unknown_recovery_decision",
       "scope": [
         "one_in_family_teacher",
         "one_fixed_out_of_family_teacher",
@@ -3642,7 +3642,7 @@
       },
       "next019_scope": "separately register two T1 unpaired trials only, <=4000 G/AD; original017stage2 remains closed",
       "execution019": {
-        "status": "unpaired_actual_first_update_and_same_snapshot_health_verified",
+        "status": "native1_failure_closed_scientific_unknown",
         "run_id": "wp4_019_20261016",
         "remote_root": "/home/rylan/projects/ej276d-n01/wp4_019_20261016",
         "source_commit": "5585b11b79d975989221da287b031bb001cef930",
@@ -3657,12 +3657,12 @@
         ],
         "G_AD_per_trial_max": 2000,
         "G_AD_total_max": 4000,
-        "completed_G_AD_accounted": 64,
+        "completed_G_AD_accounted": 2000,
         "project_completed_G_before019": 183667,
-        "project_completed_G_lower_bound": 183731,
+        "project_completed_G_lower_bound": 185667,
         "native_started": true,
-        "active": true,
-        "source_review_no_blockers": true,
+        "active": false,
+        "source_review_no_blockers": false,
         "new_A_M0_forward_rows": 0,
         "noise005_checkpoint_loads_planned": 1,
         "no_real_T2_automatic": true,
@@ -3681,20 +3681,20 @@
           "bytes": 17581,
           "sha256": "7dc0bcd2ff069121f37aecde4b7a73bb3bb53c0f05443e79ca53ec77c6d02ff3"
         },
-        "supervisor_pid": 38792,
-        "worker_pid": 38806,
+        "supervisor_pid": null,
+        "worker_pid": null,
         "boot_id": "06177e53-90a1-4d8c-a942-03b487a0684d",
-        "last_verified_UTC": "2026-10-15T20:38:28.662199+00:00",
+        "last_verified_UTC": "2026-10-15T21:31:01.016960+00:00",
         "last_verified_trial": "T1_unpaired_seed0",
         "last_verified_phase": "training_one_training_backward_inflight",
         "correct_start_verified": true,
-        "inflight_completion": "unknown_not_credited",
+        "inflight_completion": "none_in_recorded_operations_evaluation_stage_incomplete",
         "followup": {
           "schema": "n01/wp4-019-single-followup/v1",
           "UTC": "2026-10-15T20:41:01.970520+00:00",
           "automation_id": "n01",
           "kind": "heartbeat",
-          "status": "ACTIVE",
+          "status": "DELIVERED_then_PAUSED",
           "count": 1,
           "next_wake_local": "2026-10-16T05:30:00+08:00",
           "next_wake_UTC": "2026-10-15T21:30:00+00:00",
@@ -3709,7 +3709,12 @@
           "private_remote_queries_after_start_snapshot": 0,
           "project_G_lower_bound": 183731,
           "n01_thread_target_verified": true,
-          "policy_reference": "https://learn.chatgpt.com/docs/automations"
+          "policy_reference": "https://learn.chatgpt.com/docs/automations",
+          "terminal_receipt": {
+            "path": "receipts/wp4_019_20261016/wake_20261016_0530_01/AUTOMATION_TERMINAL_RECEIPT.json",
+            "bytes": 587,
+            "sha256": "cb8e5b5036429384bcda398236e0548e913c7e5231ce16e6ff66d93b2bbe6702"
+          }
         },
         "start_receipt": {
           "path": "receipts/wp4_019_20261016/EXECUTION_STARTED.json",
@@ -3728,8 +3733,45 @@
         },
         "report": {
           "path": "reports/wp4_019_20261016/REPORT.md",
-          "bytes": 3653,
-          "sha256": "c92a7a8d365ae3b6efcba63182a0dce4757d60c9c7b3c871a757bd5d9237fedf"
+          "bytes": 5146,
+          "sha256": "05b5f4aca02c78ede7cab01e37dc97f8fa91ce41137600df9ec34663ab905ba3"
+        },
+        "native_exit_code": 1,
+        "completed_UTC": "2026-10-15T20:54:18.584212+00:00",
+        "historical_supervisor_pid": 38792,
+        "historical_worker_pid": 38806,
+        "new_G_AD_credit_this_wake": 1936,
+        "independent_result_review_complete": true,
+        "failure_reason": "ModuleNotFoundError: mechanism012_losses at first native evaluation diagnostics",
+        "seed0_training_completed_G_AD": 2000,
+        "seed1_started": false,
+        "scientific_gate_generated": false,
+        "scientific_qualification": "unknown_due_incomplete_evaluation",
+        "automatic_restart": false,
+        "future_scientific_execution_authorized_by_this_closeout": false,
+        "followup_status": "PAUSED_terminal_no_long_job",
+        "original_source_review_no_blockers_withdrawn": true,
+        "source_package_execution_ready": false,
+        "repair_patch_applied": false,
+        "result": {
+          "path": "receipts/wp4_019_20261016/FINAL_RESULT_RECEIPT.json",
+          "bytes": 9955,
+          "sha256": "2eabd633e20b158017d90061062fa85568038d30d961e9e29d303e27f314e04c"
+        },
+        "independent_result_review": {
+          "path": "receipts/wp4_019_20261016/wake_20261016_0530_01/independent_result_01/RESULT_REVIEW.json",
+          "bytes": 19290,
+          "sha256": "88dec3968a6a21b77985771b7cf98109d0f9b1f3fd06c4ff9a36bb52d6eb9131"
+        },
+        "dependency_diagnosis": {
+          "path": "receipts/wp4_019_20261016/wake_20261016_0530_01/dependency_diagnosis_01/DIAGNOSIS_RECEIPT.json",
+          "bytes": 1971,
+          "sha256": "96072b54ef03b4ae473ff57eccecd3c2e7d14d22ec0ee6875cc8bb8878d5bd65"
+        },
+        "proposed_recovery": {
+          "path": "receipts/wp4_019_20261016/wake_20261016_0530_01/BOUNDED_RECOVERY_PROPOSAL.json",
+          "bytes": 3458,
+          "sha256": "08ef80ae1e9262bbcb2c5a95862df4b721f6ca3e1c8bd8ff5cfd3bcae8f2f62e"
         }
       }
     },
@@ -3794,7 +3836,9 @@
         "T1_unpaired_seed1"
       ],
       "remaining_after_completed019_maximum": 4,
-      "actual_scientific_G_AD_lower_bound": 4064
+      "actual_scientific_G_AD_lower_bound": 6000,
+      "019_training_completed_slots": 1,
+      "019_fully_evaluated_completed_slots": 0
     },
     "final_confirmation": {
       "outer_grouped_folds": 3,
@@ -4507,7 +4551,7 @@
         "output_MiB": 1536
       },
       "new_REAL_T2_trials": 0,
-      "actual_scientific_G_AD_lower_bound": 64
+      "actual_scientific_G_AD_lower_bound": 2000
     }
   },
   "evaluation_axes": {
@@ -4536,14 +4580,14 @@
     "root_planning_SolMax_implementation_and_review": true,
     "scientific_success_not_guaranteed_by_state_fields": true
   },
-  "current_action": "019 actual first unpaired two-theta update and current resources verified; single05:30 Singapore wake saved; rest without ongoing remote queries.",
-  "updated_UTC": "2026-10-15T20:42:26.882424+00:00",
+  "current_action": "019 native1 failure closed with independent saved metadata readback and minimal dependency diagnosis; preserve2000G seed0 and all failure evidence. No new scientific execution.",
+  "updated_UTC": "2026-10-15T21:42:42.976570+00:00",
   "followup": {
     "schema": "n01/wp4-019-single-followup/v1",
     "UTC": "2026-10-15T20:41:01.970520+00:00",
     "automation_id": "n01",
     "kind": "heartbeat",
-    "status": "ACTIVE",
+    "status": "DELIVERED_then_PAUSED",
     "count": 1,
     "next_wake_local": "2026-10-16T05:30:00+08:00",
     "next_wake_UTC": "2026-10-15T21:30:00+00:00",
@@ -4558,7 +4602,13 @@
     "private_remote_queries_after_start_snapshot": 0,
     "project_G_lower_bound": 183731,
     "n01_thread_target_verified": true,
-    "policy_reference": "https://learn.chatgpt.com/docs/automations"
+    "policy_reference": "https://learn.chatgpt.com/docs/automations",
+    "delivered_heartbeat_UTC": "2026-10-15T21:30:17.961Z",
+    "terminal_receipt": {
+      "path": "receipts/wp4_019_20261016/wake_20261016_0530_01/AUTOMATION_TERMINAL_RECEIPT.json",
+      "bytes": 587,
+      "sha256": "cb8e5b5036429384bcda398236e0548e913c7e5231ce16e6ff66d93b2bbe6702"
+    }
   },
   "runtime_repair": {
     "failed_attempt": 1,
@@ -4847,10 +4897,10 @@
     "independent_saved_array_scope": "36pairs/176NPZ/1898784hard_rows; not complete loss replay"
   },
   "current_work_package": "WP4",
-  "current_stage": "WP4_019_T1_unpaired_training_single_followup_set",
+  "current_stage": "WP4_019_closeout_complete_bounded_recovery_decision",
   "active_research": null,
-  "next_action": "At next wake inspect actual019 stage once; if running reschedule once and rest, if exited verify native/counters/gates then select <=128MiB and read saved arrays.",
-  "last_verified_UTC": "2026-10-15T20:38:28.662199+00:00",
+  "next_action": "Await explicit user decision on separately registered bounded recovery: seed0 final evaluation from saved CP, only originally unstarted seed1<=2000G/AD; preserve same metrics and no seed0 retraining.",
+  "last_verified_UTC": "2026-10-15T21:31:01.016960+00:00",
   "wp2_collection": {
     "path": "receipts\\wp2_014_20261015\\collection_01\\COLLECTION_RECEIPT.json",
     "sha256": "6e333a4e5a6bde1744a406a41a00ffadcec97637b9c4adc6640661181cf54fc7",
@@ -5022,7 +5072,7 @@
     },
     "role": "historical provisional record retained"
   },
-  "active_scientific_jobs_status_basis": "Collected native0 stage1:4000G/AD and bounded saved-support CPU readback exit0; no active scientific process.",
+  "active_scientific_jobs_status_basis": "019 native1 exit and both owned processes absent verified2026-10-15T21:31:01.016960Z;2000G/AD durable, no new job or restart.",
   "latest_source_commit": "56aafccbb88b206aaf2ce68a6df8126477078756",
   "wp2_readback_prepare_failure": {
     "path": "receipts\\wp2_014_20261015\\readback_registration_01\\ROOT_PREPARE_FAILURE_RECEIPT.json",
@@ -5056,8 +5106,8 @@
   "current_run_training_updates": 0,
   "latest_training_run_id": "wp4_017_20261015",
   "followup_automation_id": "n01",
-  "followup_automation_status": "ACTIVE",
-  "followup_next_run_local": "2026-10-16T05:30:00+08:00",
+  "followup_automation_status": "PAUSED",
+  "followup_next_run_local": null,
   "followup_receipt": {
     "path": "receipts/wp4_017_20261015/wake_20261016_0223_01/AUTOMATION_PAUSE_RECEIPT.json",
     "bytes": 251,
@@ -5485,7 +5535,7 @@
     }
   },
   "followup_last_delivered_UTC": "2026-10-15T08:45:06.316Z",
-  "current_followup_status": "single_0530_wake_saved_after_actual_start_verification",
+  "current_followup_status": "single0530_delivered_terminal_no_future_scientific_job",
   "wp3_terminal_readback": {
     "path": "receipts/wp3_015_20261015/postrun_root_01/NATIVE_COMPLETION_READBACK.json",
     "sha256": "a9bbc3a9f1694d649b352ad2fd96dc4fa05470bab2856107fe5e35fe6036136f",
@@ -5530,7 +5580,7 @@
     "independent_saved_array_scope": "36pairs/161SHA/160evaluationNPZ/1898784hardrows; no full distance replay"
   },
   "new_training_updates": 183667,
-  "cumulative_training_updates": 183731,
+  "cumulative_training_updates": 185667,
   "wp3_G_updates": 12000,
   "wp3_AD_queries": 12000,
   "short_candidate_runs_completed": 10,
@@ -8293,7 +8343,7 @@
     }
   },
   "wp3_completed": true,
-  "active_run_id": "wp4_019_20261016",
+  "active_run_id": null,
   "wp4_017_local_delivery": {
     "document": {
       "path": "receipts/wp4_017_20261015/LOCAL_DELIVERY.md",
@@ -8460,7 +8510,7 @@
     "sha256": "4dd62d18d87ae45179a9aac3cd0b36255471313a2bd35afa16b7e0d4e05b6fc6"
   },
   "wp4_019_execution": {
-    "status": "unpaired_actual_first_update_and_same_snapshot_health_verified",
+    "status": "native1_failure_closed_scientific_unknown",
     "run_id": "wp4_019_20261016",
     "remote_root": "/home/rylan/projects/ej276d-n01/wp4_019_20261016",
     "source_commit": "5585b11b79d975989221da287b031bb001cef930",
@@ -8475,12 +8525,12 @@
     ],
     "G_AD_per_trial_max": 2000,
     "G_AD_total_max": 4000,
-    "completed_G_AD_accounted": 64,
+    "completed_G_AD_accounted": 2000,
     "project_completed_G_before019": 183667,
-    "project_completed_G_lower_bound": 183731,
+    "project_completed_G_lower_bound": 185667,
     "native_started": true,
-    "active": true,
-    "source_review_no_blockers": true,
+    "active": false,
+    "source_review_no_blockers": false,
     "new_A_M0_forward_rows": 0,
     "noise005_checkpoint_loads_planned": 1,
     "no_real_T2_automatic": true,
@@ -8499,20 +8549,20 @@
       "bytes": 17581,
       "sha256": "7dc0bcd2ff069121f37aecde4b7a73bb3bb53c0f05443e79ca53ec77c6d02ff3"
     },
-    "supervisor_pid": 38792,
-    "worker_pid": 38806,
+    "supervisor_pid": null,
+    "worker_pid": null,
     "boot_id": "06177e53-90a1-4d8c-a942-03b487a0684d",
-    "last_verified_UTC": "2026-10-15T20:38:28.662199+00:00",
+    "last_verified_UTC": "2026-10-15T21:31:01.016960+00:00",
     "last_verified_trial": "T1_unpaired_seed0",
     "last_verified_phase": "training_one_training_backward_inflight",
     "correct_start_verified": true,
-    "inflight_completion": "unknown_not_credited",
+    "inflight_completion": "none_in_recorded_operations_evaluation_stage_incomplete",
     "followup": {
       "schema": "n01/wp4-019-single-followup/v1",
       "UTC": "2026-10-15T20:41:01.970520+00:00",
       "automation_id": "n01",
       "kind": "heartbeat",
-      "status": "ACTIVE",
+      "status": "DELIVERED_then_PAUSED",
       "count": 1,
       "next_wake_local": "2026-10-16T05:30:00+08:00",
       "next_wake_UTC": "2026-10-15T21:30:00+00:00",
@@ -8527,7 +8577,12 @@
       "private_remote_queries_after_start_snapshot": 0,
       "project_G_lower_bound": 183731,
       "n01_thread_target_verified": true,
-      "policy_reference": "https://learn.chatgpt.com/docs/automations"
+      "policy_reference": "https://learn.chatgpt.com/docs/automations",
+      "terminal_receipt": {
+        "path": "receipts/wp4_019_20261016/wake_20261016_0530_01/AUTOMATION_TERMINAL_RECEIPT.json",
+        "bytes": 587,
+        "sha256": "cb8e5b5036429384bcda398236e0548e913c7e5231ce16e6ff66d93b2bbe6702"
+      }
     },
     "start_receipt": {
       "path": "receipts/wp4_019_20261016/EXECUTION_STARTED.json",
@@ -8546,10 +8601,67 @@
     },
     "report": {
       "path": "reports/wp4_019_20261016/REPORT.md",
-      "bytes": 3653,
-      "sha256": "c92a7a8d365ae3b6efcba63182a0dce4757d60c9c7b3c871a757bd5d9237fedf"
+      "bytes": 5146,
+      "sha256": "05b5f4aca02c78ede7cab01e37dc97f8fa91ce41137600df9ec34663ab905ba3"
+    },
+    "native_exit_code": 1,
+    "completed_UTC": "2026-10-15T20:54:18.584212+00:00",
+    "historical_supervisor_pid": 38792,
+    "historical_worker_pid": 38806,
+    "new_G_AD_credit_this_wake": 1936,
+    "independent_result_review_complete": true,
+    "failure_reason": "ModuleNotFoundError: mechanism012_losses at first native evaluation diagnostics",
+    "seed0_training_completed_G_AD": 2000,
+    "seed1_started": false,
+    "scientific_gate_generated": false,
+    "scientific_qualification": "unknown_due_incomplete_evaluation",
+    "automatic_restart": false,
+    "future_scientific_execution_authorized_by_this_closeout": false,
+    "followup_status": "PAUSED_terminal_no_long_job",
+    "original_source_review_no_blockers_withdrawn": true,
+    "source_package_execution_ready": false,
+    "repair_patch_applied": false,
+    "result": {
+      "path": "receipts/wp4_019_20261016/FINAL_RESULT_RECEIPT.json",
+      "bytes": 9955,
+      "sha256": "2eabd633e20b158017d90061062fa85568038d30d961e9e29d303e27f314e04c"
+    },
+    "independent_result_review": {
+      "path": "receipts/wp4_019_20261016/wake_20261016_0530_01/independent_result_01/RESULT_REVIEW.json",
+      "bytes": 19290,
+      "sha256": "88dec3968a6a21b77985771b7cf98109d0f9b1f3fd06c4ff9a36bb52d6eb9131"
+    },
+    "dependency_diagnosis": {
+      "path": "receipts/wp4_019_20261016/wake_20261016_0530_01/dependency_diagnosis_01/DIAGNOSIS_RECEIPT.json",
+      "bytes": 1971,
+      "sha256": "96072b54ef03b4ae473ff57eccecd3c2e7d14d22ec0ee6875cc8bb8878d5bd65"
+    },
+    "proposed_recovery": {
+      "path": "receipts/wp4_019_20261016/wake_20261016_0530_01/BOUNDED_RECOVERY_PROPOSAL.json",
+      "bytes": 3458,
+      "sha256": "08ef80ae1e9262bbcb2c5a95862df4b721f6ca3e1c8bd8ff5cfd3bcae8f2f62e"
     }
   },
-  "wp4_019_G_updates": 64,
-  "wp4_019_AD_queries": 64
+  "wp4_019_G_updates": 2000,
+  "wp4_019_AD_queries": 2000,
+  "wp4_019_result": {
+    "path": "receipts/wp4_019_20261016/FINAL_RESULT_RECEIPT.json",
+    "bytes": 9955,
+    "sha256": "2eabd633e20b158017d90061062fa85568038d30d961e9e29d303e27f314e04c"
+  },
+  "wp4_019_report": {
+    "path": "reports/wp4_019_20261016/REPORT.md",
+    "bytes": 5146,
+    "sha256": "05b5f4aca02c78ede7cab01e37dc97f8fa91ce41137600df9ec34663ab905ba3"
+  },
+  "wp4_019_independent_result_review": {
+    "path": "receipts/wp4_019_20261016/wake_20261016_0530_01/independent_result_01/RESULT_REVIEW.json",
+    "bytes": 19290,
+    "sha256": "88dec3968a6a21b77985771b7cf98109d0f9b1f3fd06c4ff9a36bb52d6eb9131"
+  },
+  "wp4_019_recovery_decision_proposal": {
+    "path": "receipts/wp4_019_20261016/wake_20261016_0530_01/BOUNDED_RECOVERY_PROPOSAL.json",
+    "bytes": 3458,
+    "sha256": "08ef80ae1e9262bbcb2c5a95862df4b721f6ca3e1c8bd8ff5cfd3bcae8f2f62e"
+  }
 }
