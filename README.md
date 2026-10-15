@@ -1,3 +1,15 @@
+# N01 当前执行：WP2/014 保存数组独立复核准备
+
+014 四次配对短试全部完成，每次 2000G，总计 8000G / 9872AD，原生计算与监督均退出0。累计训练167667，已含启动197G，搜索短试已用4次；WP3保留原定最多6次。
+
+保存指标按冻结规则选择 C1 作为待复核的开发表示。C0/C1均满足已标定分量ALL6非劣；12个final完整wave距离均值分别为0.15255321144257886 / 0.15042006897712382。C1的seed1-fast相对A改善1.9887788589535327%，因此全部6格至少2%的用途门未通过；权重未晋级，科学状态仍为response_match_not_established。
+
+选择性回收142/318文件，176个原始NPZ仍在服务器。下一项是已登记的36对保存数组CPU复核，新增CP/NN/AD/训练/新随机库均0；当前仅已准备，真实启动以回执为准。
+
+[开发比较](receipts/wp2_014_20261015/postrun_engineering_01/DEVELOPMENT_SUMMARY.md) · [原生终点与计数](receipts/wp2_014_20261015/postrun_root_01/NATIVE_COMPLETION_READBACK.json) · [选择性回收](receipts/wp2_014_20261015/collection_01/COLLECTION_RECEIPT.json) · [读回配置](receipts/wp2_014_20261015/readback_registration_01/READBACK_EXECUTION.json)
+
+以下保留此前阶段说明。
+
 <!-- WP2_014_STARTED_20261015 -->
 ## 当前作业：WP2/014 C0/C1两种子配对短试
 

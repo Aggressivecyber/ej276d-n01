@@ -1,0 +1,173 @@
+{
+  "schema": "n01/wp2-independent-readback-design/v1",
+  "UTC": "2026-10-15T02:39:03.433788+00:00",
+  "status": "prepared_local_only_not_authorized_remote_execution",
+  "assigned_reviewer": {
+    "model": "GPT-6.1-Sol",
+    "effort": "Max",
+    "evidence": "existing parent dispatch role; current list_agents provides no runtime model/effort fields",
+    "runtime_model_and_effort_independently_exposed": false
+  },
+  "frozen_configuration": {
+    "path": "E:\\GAN\\research\\N01\\wp2_014_config.json",
+    "bytes": 131481,
+    "sha256": "abb1de68d5ca312d1dbaf14dc058d7514429321b0813aa00c70ff37b20e92e32"
+  },
+  "frozen_manifest": {
+    "path": "E:\\GAN\\research\\N01\\WP2_SOURCE_MANIFEST.json",
+    "bytes": 16185,
+    "sha256": "14db81d3a08a0edede97f544ed8ec4c63147138223c00fc38d833bbc278e2684"
+  },
+  "source_schema_files": {
+    "scripts/run_wp2_014.py": {
+      "path": "E:\\GAN\\research\\N01\\scripts\\run_wp2_014.py",
+      "bytes": 55851,
+      "sha256": "e38616e88bd4e98dfc0c9605a0d0405dd9327abcd152b992ff07967dc629c2bc"
+    },
+    "scripts/run_wp1_013.py": {
+      "path": "E:\\GAN\\research\\N01\\scripts\\run_wp1_013.py",
+      "bytes": 49484,
+      "sha256": "e7cbcf782e19e139c02260bbe1d67e0a50108785ed5b093975800a28b103657d"
+    },
+    "scripts/wp1_evaluation.py": {
+      "path": "E:\\GAN\\research\\N01\\scripts\\wp1_evaluation.py",
+      "bytes": 15891,
+      "sha256": "3f5e4f9e8ca147cfbad8b75085c59d9c2081deda9b7532f1732f1d5e932cc895"
+    },
+    "src/n01/diagnose_mean_random009.py": {
+      "path": "E:\\GAN\\research\\N01\\src\\n01\\diagnose_mean_random009.py",
+      "bytes": 53768,
+      "sha256": "31a07360e9ab53e987fe6d2bec3b466398a2c7125e64c1c94b712708ae62dfc4"
+    },
+    "src/n01/losses014.py": {
+      "path": "E:\\GAN\\research\\N01\\src\\n01\\losses014.py",
+      "bytes": 7155,
+      "sha256": "86fded3226ae86a5aaae6d9066220923fb6b0aebfeaa09cb638642498e4f4114"
+    },
+    "src/n01/observation008.py": {
+      "path": "E:\\GAN\\research\\N01\\src\\n01\\observation008.py",
+      "bytes": 19023,
+      "sha256": "9f7b6c0a266c420af8c6c155103774bae1ed949cfe05ee6a1f19b75f9254c4ec"
+    }
+  },
+  "mature_reference_readback": {
+    "path": "E:\\GAN\\research\\N01\\receipts\\wp1_013_20261015\\postrun_independent_01\\read_reference_arrays.py",
+    "bytes": 13435,
+    "sha256": "ce20c4948d6f0e5ccf4f4e0ad4e876c20456db3cd46c58ccb21fe8b7f2e87698"
+  },
+  "pure_statistical_kernel": {
+    "path": "E:\\GAN\\research\\N01\\receipts\\wp2_014_20261015\\postrun_independent_01\\saved_array_kernels.py",
+    "bytes": 3691,
+    "sha256": "fe1366f35f36e97974f1a4037a36ad858c03dd8453957c1b45b65080f0fee3ac"
+  },
+  "kernel_provenance": [
+    {
+      "source": {
+        "path": "E:\\GAN\\research\\N01\\src\\n01\\diagnose_mean_random009.py",
+        "bytes": 53768,
+        "sha256": "31a07360e9ab53e987fe6d2bec3b466398a2c7125e64c1c94b712708ae62dfc4"
+      },
+      "function": "_crossing",
+      "first_line": 329,
+      "final_line": 339
+    },
+    {
+      "source": {
+        "path": "E:\\GAN\\research\\N01\\src\\n01\\diagnose_mean_random009.py",
+        "bytes": 53768,
+        "sha256": "31a07360e9ab53e987fe6d2bec3b466398a2c7125e64c1c94b712708ae62dfc4"
+      },
+      "function": "morphology",
+      "first_line": 342,
+      "final_line": 368
+    },
+    {
+      "source": {
+        "path": "E:\\GAN\\research\\N01\\receipts\\wp1_013_20261015\\postrun_independent_01\\read_reference_arrays.py",
+        "bytes": 13435,
+        "sha256": "ce20c4948d6f0e5ccf4f4e0ad4e876c20456db3cd46c58ccb21fe8b7f2e87698"
+      },
+      "function": "scalar_moments",
+      "first_line": 36,
+      "final_line": 53
+    }
+  ],
+  "expected_raw_files": {
+    "hard_rows_npz": 72,
+    "report_npz": 72,
+    "baseline100_npz": 16,
+    "probe_raw_parent_npz": 8,
+    "probe_gradient_vectors_npz": 8,
+    "total_npz": 176,
+    "bank_pairs": 36,
+    "response_rows_per_hard_file": 26372,
+    "SOURCE_parents": 6593,
+    "per_bank_draws": 4,
+    "merged_draws": 8,
+    "source_population": "same original TRAIN parents; no new independent sources"
+  },
+  "finite_resource_budget": {
+    "CPU_threads": 2,
+    "process_RSS_MiB": 1536,
+    "virtual_memory_backstop_MiB": 3072,
+    "wall_seconds": 1800,
+    "output_MiB": 64,
+    "expected_output_MiB_upper_estimate": 8,
+    "raw_file_SHA_passes": 1,
+    "raw_decode_passes": 1,
+    "fixed_input_compressed_envelope_MiB": 6160,
+    "input_IO_upper_envelope_MiB": 12320,
+    "maximum_simultaneous_bank_pairs": 1,
+    "covariance_parent_block": 64,
+    "dense256x256_covariance_matrices": 0,
+    "automatic_retry": false,
+    "empty_or_failed_readback": "preserve partial receipt and stop, no scope or tolerance expansion"
+  },
+  "scientific_budget": {
+    "CP_loads": 0,
+    "original_TRAIN_waveform_reads": 0,
+    "original_DEV_waveform_reads": 0,
+    "model_forwards": 0,
+    "AD_queries": 0,
+    "optimizer_or_sampler_created": 0,
+    "training_updates": 0,
+    "random_library_draws": 0,
+    "new_CDF_or_loss_replays": 0,
+    "bootstrap_replicates": 0,
+    "GPU_work": 0
+  },
+  "planned_checks": [
+    "Before raw decode, verify frozen config/MF/six used schema sourceSHA and full-remote inventory binding. Hash only176 authorized NPZ plus relevant smallJSON/logs; no checkpoint decode.",
+    "For each of36 fixed trial/snapshot/arm/hyp pairs, verify two banks:26372rows=6593original parents x4, exact parent/bank/draw/ID order, seed/trial address and no row loss or duplicates.",
+    "Decode ADCuint16/16383-.5-exactdoublemean, then optional uint64IEEE XOR. Re-encode codes exactly; check saved actual baseline mean, baseline100 lineage and native writer roundtrip claim separately.",
+    "Recompute all nine scalar rows from decoded window+actual baseline where available, morphology with copied frozen NumPy-only helper, and NaN/guard/censor/selected-peak flags. Cross-check all preserved flags and reportcounts; identify unreconstructible full-carrier/preADC flags honestly.",
+    "Recompute every parent r4 mean, centered factor, variance diagonal, MCSE and full9x9 pairwise-finite scalar covariance/joint counts, compare actual saved REPORT members using013 established tolerances.",
+    "Derive r8 from actual two-bank rows; compare direct centered-factor/9x9 computations with the4+4 merge formula, retain sample denominator7. Native014 has no saved combined8 report: mark these as new readback statistics derived from saved rows, not native replay.",
+    "Do not materialize6593 dense256x256 matrices. Wave covariance is represented by the8x256 centered factor, whose rank is<=7. Pairwise-missing scalar covariance need not be PSD or obey a single complete-case rank7 claim.",
+    "Check 8 probe RAW identities/flags and stored scalar-AD vectors, length1288, total=sum3, norms/cosines/empty strata; no new autograd. Compare saved G0/G2000 strata with explicit boundaries and changed masks.",
+    "Locally audit JSON/logs: native PID/exit chain, fourG2000 trials, entered/completed/inflight, kernel and AD equalities, same calibrated-head SHA chain, explicit paired streams, periodic parent rows, complete TRAIN visit counts, G/update budgets and failure flags.",
+    "Fit statistics: hash INTEGRAL_TRAIN_STATISTICS.json, fit21047/TRAIN/sixfeatures/floor formula and scale positivity/metadata use chain. Do not independently refit median or read original REAL TRAIN.",
+    "Recompute frozen development selection from unrounded saved scalars: mean2bank perseed/hyp, ALL6 positive-definedT noninferiority; score mean12 finalwave; tie1e-12 C0; undefinedpending. Separately test ALL6 wave>=2%, absoluteT and response acceptance. Never round-to-pass or extend training."
+  ],
+  "limitations": [
+    "Local142 selected files do not include176 rawNPZ. Remote inventory SHA verification is not array numerical readback; record numeric raw statuspending until separately registered bounded execution.",
+    "No second originalY copy is saved. Native writer checks originalY bytes; independent code and scalar/moment roundtrip does not create such a copy.",
+    "No raw preADC384 signals or full carrier are saved by014 evaluation. Signal-only covariance/canonicalzero or preADCrail/halftie/search-complete diagnostics cannot be independently reconstructed; preserve native guards and saved flags as bounded evidence.",
+    "The8draw conditional response spread is finiteMC within a fixed TRAIN system, not true paired physical target or new source/group uncertainty; no bootstrap or external claim.",
+    "Initialhead paired bytes are checked through saved state-hash/calibration/code chain only. No .pt tensor load in this bounded raw task. Sampling order can be checked on saved periodic rows and counters, not asserted independently reconstructed for everyG.",
+    "Original C1 median scales are not independently refit; root explicitly chose JSON/SHA/fitcount/floor/use-chain verification only."
+  ],
+  "execution_authority": "Root must register sourceSHA and this fixed resource scope, then explicitly authorize one rawCPU execution. This preparation calls no SSH/deploy/status.",
+  "actual_preparation": {
+    "stdlib_only": true,
+    "numeric_package_imports": 0,
+    "scientific_array_decodes": 0,
+    "CP_reads": 0,
+    "NN_rows": 0,
+    "AD_queries": 0,
+    "training_updates": 0,
+    "SSH_calls": 0
+  },
+  "scientific_status": "response_match_not_established",
+  "scientific_acceptance": false
+}

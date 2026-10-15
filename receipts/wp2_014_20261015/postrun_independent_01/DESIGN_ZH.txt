@@ -1,0 +1,4 @@
+014独立保存数组读回：固定36个bank pair，72 HARD_ROWS+72REPORT+16baseline+8probeRAW+8gradient，共176NPZ。逐pair解码，64父分块；CPU2/RSS1536MiB/虚拟内存3072MiB后备/墙钟1800s/输出64MiB。
+复用013已通过的解码、pairwise covariance与冻结NumPy形态核；不导入神经模块。r4逐父矩与REPORT核对，r8由保存4+4行独立派生并核merge公式，不展开dense256cov。
+拟合统计只核JSON/SHA、fit21047、ADC积分floor和使用链；不重拟合median。不读CP、原TRAIN/DEV，不NN/AD/随机/CDF/bootstrap/GPU/训练。
+先做本地已收小JSON/log核查，raw数值审核保持pending。根登记并授权后才可单次执行CPU读回；本准备没有SSH/状态轮询。
