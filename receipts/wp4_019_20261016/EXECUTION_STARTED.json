@@ -1,0 +1,145 @@
+{
+  "schema": "n01/wp4-019-start-validation/v1",
+  "status": "actual_first_unpaired_2theta_update_CP1_cached_kernel_and_same_snapshot_health_verified",
+  "run_id": "wp4_019_20261016",
+  "snapshot_UTC": "2026-10-15T20:38:28.662199+00:00",
+  "source_commit": "5585b11b79d975989221da287b031bb001cef930",
+  "config_sha256": "e00ad2564dbf00bff0e210fc6b5425d8b7158662a07d7a5acca634b11c3e13d3",
+  "boot_id": "06177e53-90a1-4d8c-a942-03b487a0684d",
+  "supervisor_pid": 38792,
+  "worker_pid": 38806,
+  "supervisor_start_ticks": 1069418,
+  "worker_start_ticks": 1069461,
+  "worker_CPU_affinity": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "actual_first_G1_verified": true,
+  "first_gradients": [
+    -0.021242469969373484,
+    -0.005428057846449658
+  ],
+  "first_parameter_deltas": [
+    0.009999995292451658,
+    0.009999981577237804
+  ],
+  "noise005_checkpoint_loads": 1,
+  "A_M0_checkpoint_loads": 0,
+  "new_A_M0_forward_rows": 0,
+  "cache_reused_read_only": true,
+  "same_snapshot_health": {
+    "collected_by_native_snapshot": true,
+    "snapshot_UTC": "2026-10-15T20:38:28.662199+00:00",
+    "owned_process_tree": [
+      38792,
+      38806
+    ],
+    "RSS_bytes": 2288947200,
+    "GPU_bytes": 719323136,
+    "output_bytes": 2077014,
+    "elapsed_seconds": 34.097388590000264,
+    "resource_limits": {
+      "GPU_GiB": 10,
+      "job_tree_RSS_GiB": 8,
+      "wall_seconds": 21600,
+      "output_MiB": 5120,
+      "poll_seconds": 10,
+      "TERM_grace_seconds": 20
+    }
+  },
+  "native_running_at_snapshot": true,
+  "G_AD_completed_durable": 64,
+  "new_project_G_credit": 64,
+  "project_G_lower_bound_before019": 183667,
+  "project_G_lower_bound_now": 183731,
+  "unknown_inflight_ids": [
+    3324
+  ],
+  "inflight_completion": "unknown_not_credited",
+  "scientific_acceptance": false,
+  "source_snapshot": {
+    "path": "receipts/wp4_019_20261016/start_verification_01/REMOTE_STATE.json",
+    "bytes": 81547,
+    "sha256": "be7dccf4d052b40988f5c21874cdcf391bd1c230c169ced7962868c9d286bba7"
+  },
+  "automatic_restart": false,
+  "continuous_agent_monitoring": false,
+  "start_receipt": {
+    "schema": "n01/wp4-019-start/v1",
+    "run_id": "wp4_019_20261016",
+    "UTC": "2026-10-15T20:37:54.290681+00:00",
+    "config_sha256": "e00ad2564dbf00bff0e210fc6b5425d8b7158662a07d7a5acca634b11c3e13d3",
+    "source_manifest_sha256": "19deb7a547ccd47b4ddeac710c20569e83f54349a78546b51aaf447b7caed3bc",
+    "controller_sha256": "fe23d2bd5ae53b45ac40f678eeea1311eccd55cd563a53cf62bc2196c14a24db",
+    "supervisor_pid": 38792,
+    "supervisor_start_ticks": 1069418,
+    "command": [
+      "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+      "-B",
+      "/home/rylan/projects/ej276d-n01/wp4_019_20261016/REMOTE_SUPERVISOR.py",
+      "--config",
+      "/home/rylan/projects/ej276d-n01/wp4_019_20261016/wp4_019_config.json",
+      "--config-sha256",
+      "e00ad2564dbf00bff0e210fc6b5425d8b7158662a07d7a5acca634b11c3e13d3"
+    ],
+    "boot_id": "06177e53-90a1-4d8c-a942-03b487a0684d",
+    "exclusive_scientific_lock": "/home/rylan/projects/ej276d-n01/.n01_scientific_dispatch.lock",
+    "lock_held_by_supervisor": true,
+    "actual_G1_verified": false,
+    "automatic_restart": false,
+    "scientific_acceptance": false,
+    "preflight": {
+      "boot_id": "06177e53-90a1-4d8c-a942-03b487a0684d",
+      "RAM_available_bytes": 62408130560,
+      "disk_free_bytes": 89969291264,
+      "CPU_affinity_count": 16,
+      "GPU0_free_MiB": 11530,
+      "active_project_jobs_before": [],
+      "GPU_apps_before": ""
+    },
+    "reused_supervision_record_format": "n01/wp4-017; actual run identity is wp4_019_20261016",
+    "readonly_supervision_dependencies": {
+      "/home/rylan/projects/ej276d-n01/wp4_017_20261015/scripts/wp4_017_controller.py": "eb15f3ba35844436f9b5ff3879332bd19046fcfd4f1fffe8459db2505333c38c",
+      "/home/rylan/projects/ej276d-n01/wp4_017_20261015/scripts/wp2_controller.py": "3480825e94e954a46c2c633e5df6ddef514e2b7def1332bb2e7688e78ae041a3",
+      "/home/rylan/projects/ej276d-n01/wp4_017_20261015/scripts/mechanism012_ops.py": "98a18eef018beebff82565da9ed5b31208cf2bff6db6bff0c492eff9bf2a7816",
+      "/home/rylan/projects/ej276d-n01/wp4_017_20261015/scripts/wp1_ops.py": "f8ddbbdb2f2f6df033e964f27bf03dcbda07055cc7378775591ef69b9caf85b5",
+      "/home/rylan/projects/ej276d-n01/wp4_017_20261015/scripts/supervise_mechanism012.py": "43b6fffd076a1e6d57db67e85e433e71d3f2cda91f3a3d5fe31f0fcb430486a4"
+    }
+  },
+  "launch_receipt": {
+    "schema": "n01/wp4-017-launch/v1",
+    "run_id": "wp4_019_20261016",
+    "supervisor_pid": 38792,
+    "child_pid": 38806,
+    "command": [
+      "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+      "-B",
+      "/home/rylan/projects/ej276d-n01/wp4_019_20261016/scripts/run_wp4_019.py",
+      "--config",
+      "/home/rylan/projects/ej276d-n01/wp4_019_20261016/wp4_019_config.json",
+      "--config-sha256",
+      "e00ad2564dbf00bff0e210fc6b5425d8b7158662a07d7a5acca634b11c3e13d3",
+      "--output",
+      "/home/rylan/projects/ej276d-n01/wp4_019_20261016/runs/primary/artifacts",
+      "--device",
+      "cuda:0"
+    ],
+    "UTC": "2026-10-15T20:37:54.597521+00:00",
+    "boot_id": "06177e53-90a1-4d8c-a942-03b487a0684d",
+    "supervisor_start_ticks": 1069418,
+    "child_start_ticks": 1069461,
+    "supervisor_started_monotonic": 10694.613481583
+  },
+  "selected_collection_MiB": 128,
+  "future_action": "save one reasonable future wake then rest"
+}

@@ -1,10 +1,10 @@
-# N01 当前执行：WP4/018 资格通过，019 已冻结并独审放行
+# N01 当前执行：WP4/019 无配对两种子已正确启动
 
-018已native0终结，保存数组重放与独立数值复核通过：旧2688格保持2616 pass、72 pending；新登记2544格全部pass。teacher阴性最大上界0.02447，候选O19最大上界0.00795，均满足冻结门。此次无NN/AD/G/CP或新随机抽样，累计训练仍183667。
+019已完成前瞻登记、冻结和Sol Max独审。04:38:28（新加坡）的实际快照确认T1_unpaired_seed0两theta真实更新、005 CP1/只读缓存身份、进程与同快照资源健康通过。持久G/AD完成64/4000，项目累计G下界183731；在途完成数unknown，未计入。已设置2026-10-16 05:30单次苏醒，当前休息、不持续查询远端。
 
-019已单独登记并完成冻结、Sol Max独审无blocker，待单次原生启动。仅T1无配对两种子，每个最多2000 G/AD，总4000，复用固定A/B/Q缓存与005，占用原WP4教师槽。实际teacher局部Q置换的低于门结果未证明关联缺陷检出。结论仍限两参数电荷核；REAL响应匹配、硬件有效性及六WP整体完成均未建立。015均值time-warp仍为草案，未分配训练预算。
+018已native0并完成独立数值复核：旧2688格保持2616pass+72pending；前瞻新2544格全pass。019沿用同门，只运行原WP4教师槽中的两项T1 unpaired，不自动进入T2、均值候选或REAL长训练。当前仍未取得019无配对终点资格，scientific_status=response_match_not_established，六WP未全部完成。
 
-[018完成报告](reports/wp4_018_20261016/REPORT.md) · [最终回执](receipts/wp4_018_20261016/FINAL_RESULT_RECEIPT.json) · [结果独审](receipts/wp4_018_20261016/wake_20261016_0400_01/independent_result_01/REVIEW.md) · [015诊断](receipts/review_017_20261016/mean_015_diagnostic_01/REVIEW.md) · [017报告](reports/wp4_017_20261015/REPORT.md)
+[019报告与启动证据](reports/wp4_019_20261016/REPORT.md) · [019冻结合同](docs/WP4_019_CONFIGURATION.md) · [单次苏醒](receipts/wp4_019_20261016/FOLLOWUP_RECEIPT.json) · [018完成报告](reports/wp4_018_20261016/REPORT.md) · [018最终回执](receipts/wp4_018_20261016/FINAL_RESULT_RECEIPT.json) · [015诊断](receipts/review_017_20261016/mean_015_diagnostic_01/REVIEW.md)
 
 以下保留此前阶段说明。
 
