@@ -1,0 +1,115 @@
+{
+  "schema": "n01/wp4-018-config/v1",
+  "run_id": "wp4_018_20261016",
+  "status": "draft",
+  "saved_root": "/home/rylan/projects/ej276d-n01/wp4_017_20261015",
+  "remote_output": "/home/rylan/projects/ej276d-n01/wp4_018_20261016/runs/primary/artifacts",
+  "saved_input_manifest": "WP4_018_SAVED_INPUTS.json",
+  "saved_input_manifest_sha256": "a7bfd9e522b47332afc11bbc276954c6f85036b18a834d17e2e91ef0bac89f2a",
+  "source_commit_before018": "45a8a15f2a3ac899e14e9fb2db6521ccdd55b2e3",
+  "hypotheses": [
+    "fast",
+    "slow",
+    "common_level"
+  ],
+  "kernels": {
+    "T1": "T1",
+    "initial": "initial",
+    "T1_paired_seed0": "T1_paired_seed0/evaluation",
+    "T1_paired_seed1": "T1_paired_seed1/evaluation"
+  },
+  "parents": 6593,
+  "banks": 2,
+  "draws_per_bank": 32,
+  "fit_parents": 5274,
+  "heldout_parents": 1319,
+  "scales": {
+    "fast": {
+      "Q_Vns": 0.14006821393078955,
+      "peak_voltage_V": 0.005499862543299458,
+      "FWHM_ns": 0.5129398878764326
+    },
+    "slow": {
+      "Q_Vns": 0.1400669323527055,
+      "peak_voltage_V": 0.005499869994334829,
+      "FWHM_ns": 0.5149414509583063
+    },
+    "common_level": {
+      "Q_Vns": 0.14006769980934886,
+      "peak_voltage_V": 0.00550009352539599,
+      "FWHM_ns": 0.5147888093676196
+    }
+  },
+  "time_scale_software_ns": 1.0,
+  "state_and_mask_scale": 1.0,
+  "new_observable_energy_tolerance": 0.1,
+  "new_observable_MC_half_width_limit": 0.05,
+  "normal_multiplier": 1.959963984540054,
+  "teacher_null": "independent_native32_bank0_vs_bank1; abs(weighted_mean)+z*HC1_parent_SE<=.05",
+  "candidate_rule": "teacher null resolved; fail if lower95>.10; otherwise pending if halfwidth>.05; pass only if upper95<=.10; remaining pending",
+  "old_scalar_covariance_dimensions": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    7,
+    8
+  ],
+  "old_gates_unchanged_except": [
+    "cov9 replaced by cov8",
+    "rise time and rise PIT become selection diagnostics; O19 joint energy is primary"
+  ],
+  "required_cells_per_trial": 1272,
+  "required_cells_total": 2544,
+  "legacy_cells_per_trial": 1344,
+  "legacy_cells_total": 2688,
+  "representation_dimension": 19,
+  "all_original_slots_retained": true,
+  "new_thresholds_calibrated_by013": false,
+  "new_thresholds_hardware_acceptance": false,
+  "scientific_acceptance": false,
+  "stage2_training_authorized_by_this_job": false,
+  "scientific_budget": {
+    "G_updates": 0,
+    "new_AD_queries": 0,
+    "NN_forward_rows": 0,
+    "new_RNG_requests": 0,
+    "checkpoint_loads": 0,
+    "SOURCE_numeric_reads": 0,
+    "REAL_numeric_reads": 0,
+    "DEV_numeric_reads": 0
+  },
+  "resource_caps": {
+    "CPU_threads": 12,
+    "address_space_GiB": 6,
+    "wall_seconds": 7200,
+    "CPU_seconds_soft": 21590,
+    "CPU_seconds_hard": 21600,
+    "output_MiB": 1536,
+    "selected_collection_MiB": 128,
+    "scientific_jobs": 1,
+    "automatic_restart": false
+  },
+  "legacy_numeric_recheck": {
+    "all_2688_cells": true,
+    "all_parent_energy_vectors_from_hard256": true,
+    "energy_rtol": 1e-10,
+    "energy_atol": 1e-09,
+    "other_rtol": 5e-12,
+    "other_atol": 5e-14,
+    "integer_boolean_status_support_exact": true,
+    "negative_U_scores_retained": true
+  },
+  "source_files": {},
+  "distance_budget": {
+    "fullwave257_ordered_pair_distances": 303805440,
+    "O19_ordered_pair_distances": 870908928,
+    "fullwave_dimension": 257,
+    "observable_dimension": 19,
+    "new_private_hard256_rows_decoded": 5063424,
+    "new_model_hard_observation_calls": 0,
+    "new_scientific_training": 0
+  }
+}

@@ -1,0 +1,2373 @@
+{
+  "schema": "n01/review017-mean015-local-diagnostic/v1",
+  "generated_UTC": "2026-10-15T19:23:24.740145+00:00",
+  "status": "local_saved_text_diagnostic_complete_reachability_not_executed_candidate_draft_unregistered",
+  "scope": {
+    "outputs_directory": "E:\\GAN\\research\\N01\\receipts\\review_017_20261016\\mean_015_diagnostic_01",
+    "new_training_updates": 0,
+    "new_model_forwards": 0,
+    "new_AD_or_probe_queries": 0,
+    "checkpoint_tensor_decodes": 0,
+    "new_RNG_draws": 0,
+    "NPZ_decodes": 0,
+    "raw_SOURCE_REAL_waveform_reads": 0,
+    "remote_SSH_operations": 0,
+    "shared_state_mutations": 0,
+    "commits": 0,
+    "derived_arithmetic": "JSON/CSV selection, finite scalar reductions, tanh coefficient envelopes, SHA256 only"
+  },
+  "conclusion": {
+    "moved": "supported_by_nonzero_final_theta_42_saved_updates_and_nonzero_saved_mean_RMS",
+    "trust_saturation": "not_observed_in_42_logged_training_batches; every_saved_minimum_is_1",
+    "coefficient_saturation": "final_and_sampled_theta_imply_small_algebraic_envelopes_far_inside_0.1; actual_per_event_quantiles_unknown",
+    "basis_insufficiency": "not_numerically_established; no_hard_sensitivity_rank_or_residual_projection_computed",
+    "objective_effect": "M1_hard_wave_and_peak_FWHM_distribution_distances_worsened_vs_common_initial_while_QPSD_and_rise_distances_improved; this_identifies_a_tradeoff_not_its_cause",
+    "scientific_status": "response_match_not_established"
+  },
+  "code_structure": {
+    "mean_parameters": 6,
+    "per_event_basis_count": 3,
+    "directions": [
+      "A",
+      "gate_and_canonical_zeroQ_projected_then_RMS_normalized_(Gaussian_sigma2_length13(A)-A)",
+      "gate_and_canonical_zeroQ_projected_then_RMS_normalized_(causal_exp_tau16_length64(A)-A)"
+    ],
+    "controls": {
+      "gain": "cq=tanh(log1p(abs(SOURCE_canonicalQ)/q_reference)-log(2))",
+      "smoothing_and_tail": "cs=tanh(2*(SOURCE[156:366].sum/(sign(Q)*max(abs(Q),q_floor))-.5))"
+    },
+    "coefficients": "0.1*tanh(theta_intercept+theta_slope*cq_or_cs)",
+    "trust_fraction": 0.1,
+    "prefix_zero_samples": 100,
+    "canonical_Q_interval": [
+      110,
+      366
+    ],
+    "canonical_Q_preservation": "smoothing_and_tail_bases_are_projected_to_zeroQ; gain_direction_A_can_change_total_mean_Q",
+    "local_tangent_dimension": "at_most_6_over_population_and_at_most_3_for_fixed_input; numerical_rank_not_computed",
+    "independent_front_back_time_scales": false,
+    "stochastic_head_amplitude_reference": "original_A",
+    "source_binding": [
+      {
+        "path": "E:\\GAN\\research\\N01\\src\\n01\\model015.py",
+        "actual_sha256": "149f7faefc9ca982700eea8c7ce7850e9c679d74985cb4fce90708743299dadc",
+        "frozen015_config_sha256": "149f7faefc9ca982700eea8c7ce7850e9c679d74985cb4fce90708743299dadc",
+        "matches": true
+      },
+      {
+        "path": "E:\\GAN\\research\\N01\\scripts\\run_wp3_015.py",
+        "actual_sha256": "5f688f828fdc563822f3fb28ddf1da2d558654280d4756798bd642f5a6445676",
+        "frozen015_config_sha256": "5f688f828fdc563822f3fb28ddf1da2d558654280d4756798bd642f5a6445676",
+        "matches": true
+      }
+    ]
+  },
+  "training_log_evidence": [
+    {
+      "seed": 0,
+      "logged_records": 21,
+      "logged_steps": [
+        1,
+        100,
+        200,
+        300,
+        400,
+        500,
+        600,
+        700,
+        800,
+        900,
+        1000,
+        1100,
+        1200,
+        1300,
+        1400,
+        1500,
+        1600,
+        1700,
+        1800,
+        1900,
+        2000
+      ],
+      "initial_theta": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "final_theta": [
+        0.06914410727661462,
+        -0.09379557062378545,
+        -0.0010569640851305318,
+        0.0049512511929895526,
+        -0.04194218034226604,
+        0.05781443164468181
+      ],
+      "final_theta_l2": 0.1367691620923211,
+      "parameters_changed_records": 21,
+      "mean_trust_scale_min_range": [
+        1.0,
+        1.0
+      ],
+      "mean_relative_RMS_max_range": [
+        0.0,
+        0.01746620923217802
+      ],
+      "final_logged_preupdate_mean_relative_RMS_max": 0.01746620923217802,
+      "final_logged_preupdate_weighted_mean_regular": 1.8192845975709246e-06,
+      "final_coefficient_envelopes": [
+        {
+          "basis": "A_gain",
+          "lower": -0.0024646471039929552,
+          "upper": 0.016151284831125098,
+          "maximum_abs_over_control_interval": 0.016151284831125098,
+          "type": "algebraic_envelope_for_control_in_minus1_plus1_not_observed_event_quantiles"
+        },
+        {
+          "basis": "projected_normalized_Gaussian_difference",
+          "lower": -0.0006008142983008845,
+          "upper": 0.00038942674217443075,
+          "maximum_abs_over_control_interval": 0.0006008142983008845,
+          "type": "algebraic_envelope_for_control_in_minus1_plus1_not_observed_event_quantiles"
+        },
+        {
+          "basis": "projected_normalized_causal_difference",
+          "lower": -0.009942701851679758,
+          "upper": 0.0015870918546631715,
+          "maximum_abs_over_control_interval": 0.009942701851679758,
+          "type": "algebraic_envelope_for_control_in_minus1_plus1_not_observed_event_quantiles"
+        }
+      ],
+      "all_logged_postupdate_coefficient_envelope_absmax": 0.016151284831125098,
+      "protected_C1_shape_unchanged_saved_flag": true,
+      "frozen_A_005_unchanged_saved_flag": true,
+      "timing_caveat": "theta/update fields are post-optimizer; RMS/trust/gradient/objective fields describe the preceding training forward; evaluation-event coefficients/trust arrays were not read or reconstructed"
+    },
+    {
+      "seed": 1,
+      "logged_records": 21,
+      "logged_steps": [
+        1,
+        100,
+        200,
+        300,
+        400,
+        500,
+        600,
+        700,
+        800,
+        900,
+        1000,
+        1100,
+        1200,
+        1300,
+        1400,
+        1500,
+        1600,
+        1700,
+        1800,
+        1900,
+        2000
+      ],
+      "initial_theta": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "final_theta": [
+        0.06436356182994457,
+        -0.09300065380971469,
+        -0.0012253376559396996,
+        0.0031037689986251815,
+        -0.04478870025993785,
+        0.060327932526884884
+      ],
+      "final_theta_l2": 0.1358249301445884,
+      "parameters_changed_records": 21,
+      "mean_trust_scale_min_range": [
+        1.0,
+        1.0
+      ],
+      "mean_relative_RMS_max_range": [
+        0.0,
+        0.01729647784566007
+      ],
+      "final_logged_preupdate_mean_relative_RMS_max": 0.01729647784566007,
+      "final_logged_preupdate_weighted_mean_regular": 1.755372620077217e-06,
+      "final_coefficient_envelopes": [
+        {
+          "basis": "A_gain",
+          "lower": -0.0028629266282394336,
+          "upper": 0.01560779919697295,
+          "maximum_abs_over_control_interval": 0.01560779919697295,
+          "type": "algebraic_envelope_for_control_in_minus1_plus1_not_observed_event_quantiles"
+        },
+        {
+          "basis": "projected_normalized_Gaussian_difference",
+          "lower": -0.00043290796106010705,
+          "upper": 0.00018784291333375712,
+          "maximum_abs_over_control_interval": 0.00043290796106010705,
+          "type": "algebraic_envelope_for_control_in_minus1_plus1_not_observed_event_quantiles"
+        },
+        {
+          "basis": "projected_normalized_causal_difference",
+          "lower": -0.010473117404344033,
+          "upper": 0.0015537981646644604,
+          "maximum_abs_over_control_interval": 0.010473117404344033,
+          "type": "algebraic_envelope_for_control_in_minus1_plus1_not_observed_event_quantiles"
+        }
+      ],
+      "all_logged_postupdate_coefficient_envelope_absmax": 0.01560779919697295,
+      "protected_C1_shape_unchanged_saved_flag": true,
+      "frozen_A_005_unchanged_saved_flag": true,
+      "timing_caveat": "theta/update fields are post-optimizer; RMS/trust/gradient/objective fields describe the preceding training forward; evaluation-event coefficients/trust arrays were not read or reconstructed"
+    }
+  ],
+  "hard_component_evidence": [
+    {
+      "stage": "015",
+      "candidate": "M0",
+      "component": "wave",
+      "T": 0.18835690066187133,
+      "distance_range": [
+        0.14927184045228903,
+        0.15087137975248854
+      ],
+      "distance_over_T_range": [
+        0.7834292720142111,
+        0.7985176511445897
+      ],
+      "mean_distance_change_from_reference": -0.0002950103674977759,
+      "reference": "common_initial_C1",
+      "absolute_failed_cells": 0,
+      "cells": 6,
+      "distance_is_not_signed_event_bias": true
+    },
+    {
+      "stage": "015",
+      "candidate": "M0",
+      "component": "QPSD",
+      "T": 0.048271307926588014,
+      "distance_range": [
+        0.050896931365681686,
+        0.054681048772851015
+      ],
+      "distance_over_T_range": [
+        1.054393045307303,
+        1.1989179305322217
+      ],
+      "mean_distance_change_from_reference": 0.0027758523017792427,
+      "reference": "common_initial_C1",
+      "absolute_failed_cells": 6,
+      "cells": 6,
+      "distance_is_not_signed_event_bias": true
+    },
+    {
+      "stage": "015",
+      "candidate": "M0",
+      "component": "Q_Vns",
+      "T": 0.14006821393078955,
+      "distance_range": [
+        0.045324852987728835,
+        0.04568739068942759
+      ],
+      "distance_over_T_range": [
+        0.3235942433121571,
+        0.3261807736659796
+      ],
+      "mean_distance_change_from_reference": 9.516542213092635e-06,
+      "reference": "common_initial_C1",
+      "absolute_failed_cells": 0,
+      "cells": 6,
+      "distance_is_not_signed_event_bias": true
+    },
+    {
+      "stage": "015",
+      "candidate": "M0",
+      "component": "PSD_raw",
+      "T": 0.0042836374482436,
+      "distance_range": [
+        0.0034992389642882838,
+        0.004280700250817047
+      ],
+      "distance_over_T_range": [
+        0.8205594949395015,
+        1.00005248291453
+      ],
+      "mean_distance_change_from_reference": 0.00023514638219547176,
+      "reference": "common_initial_C1",
+      "absolute_failed_cells": 1,
+      "cells": 6,
+      "distance_is_not_signed_event_bias": true
+    },
+    {
+      "stage": "015",
+      "candidate": "M0",
+      "component": "peak_voltage_V",
+      "T": 0.005499862543299458,
+      "distance_range": [
+        0.036759201639267464,
+        0.03680466333719482
+      ],
+      "distance_over_T_range": [
+        6.683658245977728,
+        6.69184629947084
+      ],
+      "mean_distance_change_from_reference": -5.5140454843227715e-06,
+      "reference": "common_initial_C1",
+      "absolute_failed_cells": 6,
+      "cells": 6,
+      "distance_is_not_signed_event_bias": true
+    },
+    {
+      "stage": "015",
+      "candidate": "M0",
+      "component": "rise10_90_ns",
+      "T": 0.21159366879623287,
+      "distance_range": [
+        1.5608749670371207,
+        1.5649712489281418
+      ],
+      "distance_over_T_range": [
+        7.370336500931938,
+        7.402768921377236
+      ],
+      "mean_distance_change_from_reference": 0.001830397982739873,
+      "reference": "common_initial_C1",
+      "absolute_failed_cells": 6,
+      "cells": 6,
+      "distance_is_not_signed_event_bias": true
+    },
+    {
+      "stage": "015",
+      "candidate": "M0",
+      "component": "FWHM_ns",
+      "T": 0.5129398878764326,
+      "distance_range": [
+        2.4569308127211964,
+        2.469897063532409
+      ],
+      "distance_over_T_range": [
+        4.7713754214140955,
+        4.815178390118509
+      ],
+      "mean_distance_change_from_reference": -0.0008739641430290194,
+      "reference": "common_initial_C1",
+      "absolute_failed_cells": 6,
+      "cells": 6,
+      "distance_is_not_signed_event_bias": true
+    },
+    {
+      "stage": "015",
+      "candidate": "M0",
+      "component": "baseline_mean_V",
+      "T": 4.506386193005153e-07,
+      "distance_range": [
+        1.4991559970511508e-05,
+        1.4991559970511508e-05
+      ],
+      "distance_over_T_range": [
+        33.26736619640261,
+        33.26736619640261
+      ],
+      "mean_distance_change_from_reference": 0.0,
+      "reference": "common_initial_C1",
+      "absolute_failed_cells": 6,
+      "cells": 6,
+      "distance_is_not_signed_event_bias": true
+    },
+    {
+      "stage": "015",
+      "candidate": "M1",
+      "component": "wave",
+      "T": 0.18835690066187133,
+      "distance_range": [
+        0.15175687580052205,
+        0.15320470560810787
+      ],
+      "distance_over_T_range": [
+        0.7964715807838818,
+        0.8094738706279365
+      ],
+      "mean_distance_change_from_reference": 0.0020118459903420566,
+      "reference": "common_initial_C1",
+      "absolute_failed_cells": 0,
+      "cells": 6,
+      "distance_is_not_signed_event_bias": true
+    },
+    {
+      "stage": "015",
+      "candidate": "M1",
+      "component": "QPSD",
+      "T": 0.048271307926588014,
+      "distance_range": [
+        0.04572819155492206,
+        0.050901578220669694
+      ],
+      "distance_over_T_range": [
+        0.9473161909030189,
+        1.1160505548212705
+      ],
+      "mean_distance_change_from_reference": -0.0019085553004785129,
+      "reference": "common_initial_C1",
+      "absolute_failed_cells": 4,
+      "cells": 6,
+      "distance_is_not_signed_event_bias": true
+    },
+    {
+      "stage": "015",
+      "candidate": "M1",
+      "component": "Q_Vns",
+      "T": 0.14006821393078955,
+      "distance_range": [
+        0.04120468297655791,
+        0.04196010720161373
+      ],
+      "distance_over_T_range": [
+        0.29417852082888146,
+        0.2995701882641546
+      ],
+      "mean_distance_change_from_reference": -0.003862247463128736,
+      "reference": "common_initial_C1",
+      "absolute_failed_cells": 0,
+      "cells": 6,
+      "distance_is_not_signed_event_bias": true
+    },
+    {
+      "stage": "015",
+      "candidate": "M1",
+      "component": "PSD_raw",
+      "T": 0.0042836374482436,
+      "distance_range": [
+        0.0025343214743705515,
+        0.0034145480862186025
+      ],
+      "distance_over_T_range": [
+        0.5942896641946824,
+        0.797702967172768
+      ],
+      "mean_distance_change_from_reference": -0.0006580559059555087,
+      "reference": "common_initial_C1",
+      "absolute_failed_cells": 0,
+      "cells": 6,
+      "distance_is_not_signed_event_bias": true
+    },
+    {
+      "stage": "015",
+      "candidate": "M1",
+      "component": "peak_voltage_V",
+      "T": 0.005499862543299458,
+      "distance_range": [
+        0.03801294895264009,
+        0.038049621860515845
+      ],
+      "distance_over_T_range": [
+        6.911618000153782,
+        6.918191080512758
+      ],
+      "mean_distance_change_from_reference": 0.001243873538562739,
+      "reference": "common_initial_C1",
+      "absolute_failed_cells": 6,
+      "cells": 6,
+      "distance_is_not_signed_event_bias": true
+    },
+    {
+      "stage": "015",
+      "candidate": "M1",
+      "component": "rise10_90_ns",
+      "T": 0.21159366879623287,
+      "distance_range": [
+        1.5539339047119876,
+        1.5568115652275385
+      ],
+      "distance_over_T_range": [
+        7.337561316442125,
+        7.368168135564594
+      ],
+      "mean_distance_change_from_reference": -0.005498917889634229,
+      "reference": "common_initial_C1",
+      "absolute_failed_cells": 6,
+      "cells": 6,
+      "distance_is_not_signed_event_bias": true
+    },
+    {
+      "stage": "015",
+      "candidate": "M1",
+      "component": "FWHM_ns",
+      "T": 0.5129398878764326,
+      "distance_range": [
+        2.512638968392608,
+        2.521857366605597
+      ],
+      "distance_over_T_range": [
+        4.879465352258174,
+        4.916477400589897
+      ],
+      "mean_distance_change_from_reference": 0.0531197684820679,
+      "reference": "common_initial_C1",
+      "absolute_failed_cells": 6,
+      "cells": 6,
+      "distance_is_not_signed_event_bias": true
+    },
+    {
+      "stage": "015",
+      "candidate": "M1",
+      "component": "baseline_mean_V",
+      "T": 4.506386193005153e-07,
+      "distance_range": [
+        1.4991559970511508e-05,
+        1.4991559970511508e-05
+      ],
+      "distance_over_T_range": [
+        33.26736619640261,
+        33.26736619640261
+      ],
+      "mean_distance_change_from_reference": 0.0,
+      "reference": "common_initial_C1",
+      "absolute_failed_cells": 6,
+      "cells": 6,
+      "distance_is_not_signed_event_bias": true
+    },
+    {
+      "stage": "016",
+      "candidate": "Q1",
+      "component": "wave",
+      "T": 0.18835690066187133,
+      "distance_range": [
+        0.14922981100688426,
+        0.15088677620604868
+      ],
+      "distance_over_T_range": [
+        0.7832086872226198,
+        0.798437219391706
+      ],
+      "mean_distance_change_from_reference": -1.4976519496108046e-05,
+      "reference": "015_M0",
+      "absolute_failed_cells": 0,
+      "cells": 6,
+      "distance_is_not_signed_event_bias": true
+    },
+    {
+      "stage": "016",
+      "candidate": "Q1",
+      "component": "QPSD",
+      "T": 0.048271307926588014,
+      "distance_range": [
+        0.050900740123504803,
+        0.054594017104490876
+      ],
+      "distance_over_T_range": [
+        1.054471948448459,
+        1.1970097040065282
+      ],
+      "mean_distance_change_from_reference": -8.110719838471646e-05,
+      "reference": "015_M0",
+      "absolute_failed_cells": 6,
+      "cells": 6,
+      "distance_is_not_signed_event_bias": true
+    },
+    {
+      "stage": "016",
+      "candidate": "Q1",
+      "component": "Q_Vns",
+      "T": 0.14006821393078955,
+      "distance_range": [
+        0.04533973746018165,
+        0.045712716972423684
+      ],
+      "distance_over_T_range": [
+        0.3237005101676011,
+        0.32636158825085937
+      ],
+      "mean_distance_change_from_reference": 2.6850532181479e-05,
+      "reference": "015_M0",
+      "absolute_failed_cells": 0,
+      "cells": 6,
+      "distance_is_not_signed_event_bias": true
+    },
+    {
+      "stage": "016",
+      "candidate": "Q1",
+      "component": "PSD_raw",
+      "T": 0.0042836374482436,
+      "distance_range": [
+        0.00350084148858137,
+        0.00427994038294993
+      ],
+      "distance_over_T_range": [
+        0.8209352813713466,
+        0.9998749634194306
+      ],
+      "mean_distance_change_from_reference": 2.47347036865586e-06,
+      "reference": "015_M0",
+      "absolute_failed_cells": 0,
+      "cells": 6,
+      "distance_is_not_signed_event_bias": true
+    },
+    {
+      "stage": "016",
+      "candidate": "Q1",
+      "component": "peak_voltage_V",
+      "T": 0.005499862543299458,
+      "distance_range": [
+        0.036757577560250165,
+        0.03680283466120184
+      ],
+      "distance_over_T_range": [
+        6.6833629515036375,
+        6.6914964753133015
+      ],
+      "mean_distance_change_from_reference": -1.7589180328660137e-06,
+      "reference": "015_M0",
+      "absolute_failed_cells": 6,
+      "cells": 6,
+      "distance_is_not_signed_event_bias": true
+    },
+    {
+      "stage": "016",
+      "candidate": "Q1",
+      "component": "rise10_90_ns",
+      "T": 0.21159366879623287,
+      "distance_range": [
+        1.56080944301341,
+        1.5643824945997484
+      ],
+      "distance_over_T_range": [
+        7.370027101323487,
+        7.404591172221825
+      ],
+      "mean_distance_change_from_reference": -7.404653731143036e-05,
+      "reference": "015_M0",
+      "absolute_failed_cells": 6,
+      "cells": 6,
+      "distance_is_not_signed_event_bias": true
+    },
+    {
+      "stage": "016",
+      "candidate": "Q1",
+      "component": "FWHM_ns",
+      "T": 0.5129398878764326,
+      "distance_range": [
+        2.4568612566865617,
+        2.469940678219666
+      ],
+      "distance_over_T_range": [
+        4.771443167813016,
+        4.815263418965529
+      ],
+      "mean_distance_change_from_reference": -1.5345691441422577e-05,
+      "reference": "015_M0",
+      "absolute_failed_cells": 6,
+      "cells": 6,
+      "distance_is_not_signed_event_bias": true
+    },
+    {
+      "stage": "016",
+      "candidate": "Q1",
+      "component": "baseline_mean_V",
+      "T": 4.506386193005153e-07,
+      "distance_range": [
+        1.4991559970511508e-05,
+        1.4991559970511508e-05
+      ],
+      "distance_over_T_range": [
+        33.26736619640261,
+        33.26736619640261
+      ],
+      "mean_distance_change_from_reference": 0.0,
+      "reference": "015_M0",
+      "absolute_failed_cells": 6,
+      "cells": 6,
+      "distance_is_not_signed_event_bias": true
+    }
+  ],
+  "grouped_hard_evidence": {
+    "summary": [
+      {
+        "stage": "015",
+        "candidate": "M0",
+        "output_Q_bin": 0,
+        "bank_seed_hypothesis_rows": 12,
+        "minimum_fake_rows": 3171,
+        "minimum_real_rows": 2631,
+        "mean_residual_ranges": {
+          "peak_voltage_V": [
+            -0.026734470418791755,
+            -0.026374882555430565
+          ],
+          "rise10_90_ns": [
+            -1.0616166456903873,
+            -1.0281777288337794
+          ],
+          "FWHM_ns": [
+            13.146273828286727,
+            13.199735872136173
+          ],
+          "front_Vns": [
+            0.016874529494403157,
+            0.022568050015565166
+          ],
+          "tail_Vns": [
+            -0.013572678668421573,
+            -0.008576530174129515
+          ]
+        }
+      },
+      {
+        "stage": "015",
+        "candidate": "M0",
+        "output_Q_bin": 1,
+        "bank_seed_hypothesis_rows": 12,
+        "minimum_fake_rows": 3484,
+        "minimum_real_rows": 2631,
+        "mean_residual_ranges": {
+          "peak_voltage_V": [
+            -0.018774090355898387,
+            -0.018609268513457067
+          ],
+          "rise10_90_ns": [
+            0.19240766520230856,
+            0.21183891485726036
+          ],
+          "FWHM_ns": [
+            5.680812134593845,
+            5.756562863819292
+          ],
+          "front_Vns": [
+            -0.015986523827528076,
+            -0.013687995474715997
+          ],
+          "tail_Vns": [
+            0.015367503818975281,
+            0.01909922610559711
+          ]
+        }
+      },
+      {
+        "stage": "015",
+        "candidate": "M0",
+        "output_Q_bin": 2,
+        "bank_seed_hypothesis_rows": 12,
+        "minimum_fake_rows": 3262,
+        "minimum_real_rows": 2631,
+        "mean_residual_ranges": {
+          "peak_voltage_V": [
+            -0.015327560994663508,
+            -0.01482964120517985
+          ],
+          "rise10_90_ns": [
+            2.7735338202659827,
+            2.795644967727106
+          ],
+          "FWHM_ns": [
+            3.569186186283112,
+            3.6149908423802444
+          ],
+          "front_Vns": [
+            0.003855492392741189,
+            0.011892535797748183
+          ],
+          "tail_Vns": [
+            -0.004513916631884829,
+            0.0005103306404006247
+          ]
+        }
+      },
+      {
+        "stage": "015",
+        "candidate": "M0",
+        "output_Q_bin": 3,
+        "bank_seed_hypothesis_rows": 12,
+        "minimum_fake_rows": 3299,
+        "minimum_real_rows": 2631,
+        "mean_residual_ranges": {
+          "peak_voltage_V": [
+            0.005582644057133601,
+            0.006349339171850127
+          ],
+          "rise10_90_ns": [
+            1.636027891245968,
+            1.645203582110904
+          ],
+          "FWHM_ns": [
+            -0.8586264082479325,
+            -0.7861055818934837
+          ],
+          "front_Vns": [
+            -0.004937484443781948,
+            0.0032038054145346884
+          ],
+          "tail_Vns": [
+            -0.0012463265337309126,
+            0.0024198072644993074
+          ]
+        }
+      },
+      {
+        "stage": "015",
+        "candidate": "M0",
+        "output_Q_bin": 4,
+        "bank_seed_hypothesis_rows": 12,
+        "minimum_fake_rows": 3214,
+        "minimum_real_rows": 2630,
+        "mean_residual_ranges": {
+          "peak_voltage_V": [
+            0.024647810572473644,
+            0.02516050721481697
+          ],
+          "rise10_90_ns": [
+            1.5555646639167335,
+            1.5591530543230316
+          ],
+          "FWHM_ns": [
+            -3.317027453824071,
+            -3.291510575515165
+          ],
+          "front_Vns": [
+            -0.0031364577591994625,
+            0.0025699564297885225
+          ],
+          "tail_Vns": [
+            -0.002934882109393966,
+            0.0029901505845699727
+          ]
+        }
+      },
+      {
+        "stage": "015",
+        "candidate": "M0",
+        "output_Q_bin": 5,
+        "bank_seed_hypothesis_rows": 12,
+        "minimum_fake_rows": 3331,
+        "minimum_real_rows": 2631,
+        "mean_residual_ranges": {
+          "peak_voltage_V": [
+            0.04340098794529862,
+            0.04398675833837068
+          ],
+          "rise10_90_ns": [
+            1.6064240593085826,
+            1.611160108747379
+          ],
+          "FWHM_ns": [
+            -5.254734905640138,
+            -5.222270719564936
+          ],
+          "front_Vns": [
+            -0.010218628606121882,
+            -0.0030395772479989702
+          ],
+          "tail_Vns": [
+            0.00250571584146031,
+            0.010562114086792862
+          ]
+        }
+      },
+      {
+        "stage": "015",
+        "candidate": "M0",
+        "output_Q_bin": 6,
+        "bank_seed_hypothesis_rows": 12,
+        "minimum_fake_rows": 3301,
+        "minimum_real_rows": 2631,
+        "mean_residual_ranges": {
+          "peak_voltage_V": [
+            0.0708073874698757,
+            0.07137502780912658
+          ],
+          "rise10_90_ns": [
+            2.6203738831837935,
+            2.6296990187526994
+          ],
+          "FWHM_ns": [
+            -7.14386942263592,
+            -7.02841573150355
+          ],
+          "front_Vns": [
+            0.007438794569965879,
+            0.01501594047185062
+          ],
+          "tail_Vns": [
+            -0.003323826049144829,
+            0.0006062303249201317
+          ]
+        }
+      },
+      {
+        "stage": "015",
+        "candidate": "M0",
+        "output_Q_bin": 7,
+        "bank_seed_hypothesis_rows": 12,
+        "minimum_fake_rows": 3211,
+        "minimum_real_rows": 2631,
+        "mean_residual_ranges": {
+          "peak_voltage_V": [
+            0.08549758701219995,
+            0.08617789356413869
+          ],
+          "rise10_90_ns": [
+            2.308561101096675,
+            2.3175062435981744
+          ],
+          "FWHM_ns": [
+            -10.195821420828679,
+            -10.168081406768234
+          ],
+          "front_Vns": [
+            -0.11544322249148475,
+            -0.09151253705086315
+          ],
+          "tail_Vns": [
+            0.006647964552721319,
+            0.029931462318693036
+          ]
+        }
+      },
+      {
+        "stage": "015",
+        "candidate": "M1",
+        "output_Q_bin": 0,
+        "bank_seed_hypothesis_rows": 12,
+        "minimum_fake_rows": 3075,
+        "minimum_real_rows": 2631,
+        "mean_residual_ranges": {
+          "peak_voltage_V": [
+            -0.026548019521202587,
+            -0.026219851662807707
+          ],
+          "rise10_90_ns": [
+            -1.1011451667298315,
+            -1.0672556705841734
+          ],
+          "FWHM_ns": [
+            13.06791950120547,
+            13.143947378157826
+          ],
+          "front_Vns": [
+            0.019250711890846928,
+            0.024614020549561744
+          ],
+          "tail_Vns": [
+            -0.013369555699638519,
+            -0.008122611611783709
+          ]
+        }
+      },
+      {
+        "stage": "015",
+        "candidate": "M1",
+        "output_Q_bin": 1,
+        "bank_seed_hypothesis_rows": 12,
+        "minimum_fake_rows": 3469,
+        "minimum_real_rows": 2631,
+        "mean_residual_ranges": {
+          "peak_voltage_V": [
+            -0.0176874518218179,
+            -0.017525847866769376
+          ],
+          "rise10_90_ns": [
+            0.10955298653773937,
+            0.1310516616346309
+          ],
+          "FWHM_ns": [
+            5.545640070925222,
+            5.6162527073733255
+          ],
+          "front_Vns": [
+            -0.0017013158675844853,
+            0.0007494937077257013
+          ],
+          "tail_Vns": [
+            0.004147374546919436,
+            0.007207717052171603
+          ]
+        }
+      },
+      {
+        "stage": "015",
+        "candidate": "M1",
+        "output_Q_bin": 2,
+        "bank_seed_hypothesis_rows": 12,
+        "minimum_fake_rows": 3249,
+        "minimum_real_rows": 2631,
+        "mean_residual_ranges": {
+          "peak_voltage_V": [
+            -0.015056454687505869,
+            -0.014481824435470345
+          ],
+          "rise10_90_ns": [
+            2.778342670612404,
+            2.80351978093545
+          ],
+          "FWHM_ns": [
+            3.54921899955459,
+            3.5958928247846558
+          ],
+          "front_Vns": [
+            0.009063316240354835,
+            0.01921359457005667
+          ],
+          "tail_Vns": [
+            -0.010013843388464061,
+            -0.003088700400223632
+          ]
+        }
+      },
+      {
+        "stage": "015",
+        "candidate": "M1",
+        "output_Q_bin": 3,
+        "bank_seed_hypothesis_rows": 12,
+        "minimum_fake_rows": 3300,
+        "minimum_real_rows": 2631,
+        "mean_residual_ranges": {
+          "peak_voltage_V": [
+            0.0063254356238555964,
+            0.007346648399194661
+          ],
+          "rise10_90_ns": [
+            1.654749919165253,
+            1.6679430876715848
+          ],
+          "FWHM_ns": [
+            -0.953528951150183,
+            -0.8716689686347898
+          ],
+          "front_Vns": [
+            -0.0014515601326983152,
+            0.010687421539822939
+          ],
+          "tail_Vns": [
+            -0.0038043825711662205,
+            -0.00038728608527049957
+          ]
+        }
+      },
+      {
+        "stage": "015",
+        "candidate": "M1",
+        "output_Q_bin": 4,
+        "bank_seed_hypothesis_rows": 12,
+        "minimum_fake_rows": 3244,
+        "minimum_real_rows": 2630,
+        "mean_residual_ranges": {
+          "peak_voltage_V": [
+            0.026242348566514417,
+            0.026500666565305225
+          ],
+          "rise10_90_ns": [
+            1.5557918687945085,
+            1.561320998304069
+          ],
+          "FWHM_ns": [
+            -3.4003977453230796,
+            -3.3884734631036757
+          ],
+          "front_Vns": [
+            0.008543954722186164,
+            0.011661629183090216
+          ],
+          "tail_Vns": [
+            -0.009600748052227104,
+            -0.005417961533936921
+          ]
+        }
+      },
+      {
+        "stage": "015",
+        "candidate": "M1",
+        "output_Q_bin": 5,
+        "bank_seed_hypothesis_rows": 12,
+        "minimum_fake_rows": 3342,
+        "minimum_real_rows": 2631,
+        "mean_residual_ranges": {
+          "peak_voltage_V": [
+            0.045971038557743565,
+            0.046293130941896105
+          ],
+          "rise10_90_ns": [
+            1.6114808066429438,
+            1.614772534311201
+          ],
+          "FWHM_ns": [
+            -5.332518670211698,
+            -5.300208468499772
+          ],
+          "front_Vns": [
+            0.014957221455974334,
+            0.01829393905595378
+          ],
+          "tail_Vns": [
+            -0.014181732942451841,
+            -0.009967340501954913
+          ]
+        }
+      },
+      {
+        "stage": "015",
+        "candidate": "M1",
+        "output_Q_bin": 6,
+        "bank_seed_hypothesis_rows": 12,
+        "minimum_fake_rows": 3354,
+        "minimum_real_rows": 2631,
+        "mean_residual_ranges": {
+          "peak_voltage_V": [
+            0.07369910770672022,
+            0.07415803450857389
+          ],
+          "rise10_90_ns": [
+            2.5951648832983736,
+            2.6012247852871226
+          ],
+          "FWHM_ns": [
+            -7.277558568017291,
+            -7.2338179935235765
+          ],
+          "front_Vns": [
+            0.025516901255961066,
+            0.031539680429663264
+          ],
+          "tail_Vns": [
+            -0.01792007020543651,
+            -0.012406362922033898
+          ]
+        }
+      },
+      {
+        "stage": "015",
+        "candidate": "M1",
+        "output_Q_bin": 7,
+        "bank_seed_hypothesis_rows": 12,
+        "minimum_fake_rows": 3210,
+        "minimum_real_rows": 2631,
+        "mean_residual_ranges": {
+          "peak_voltage_V": [
+            0.08833112008608124,
+            0.0890395880130751
+          ],
+          "rise10_90_ns": [
+            2.300214142319752,
+            2.308094018808058
+          ],
+          "FWHM_ns": [
+            -10.356063941836297,
+            -10.319526715959949
+          ],
+          "front_Vns": [
+            -0.1036166215344343,
+            -0.07941727975677271
+          ],
+          "tail_Vns": [
+            -0.02002644996886893,
+            0.002827717127483087
+          ]
+        }
+      },
+      {
+        "stage": "016",
+        "candidate": "Q1",
+        "output_Q_bin": 0,
+        "bank_seed_hypothesis_rows": 12,
+        "minimum_fake_rows": 3172,
+        "minimum_real_rows": 2631,
+        "mean_residual_ranges": {
+          "peak_voltage_V": [
+            -0.02669417410030296,
+            -0.026387342867064047
+          ],
+          "rise10_90_ns": [
+            -1.0602295817894838,
+            -1.029554022404449
+          ],
+          "FWHM_ns": [
+            13.152546204314259,
+            13.206466998741945
+          ],
+          "front_Vns": [
+            0.017571119797172186,
+            0.022363641941787527
+          ],
+          "tail_Vns": [
+            -0.013465562572754164,
+            -0.008570959998593863
+          ]
+        }
+      },
+      {
+        "stage": "016",
+        "candidate": "Q1",
+        "output_Q_bin": 1,
+        "bank_seed_hypothesis_rows": 12,
+        "minimum_fake_rows": 3481,
+        "minimum_real_rows": 2631,
+        "mean_residual_ranges": {
+          "peak_voltage_V": [
+            -0.01877358105477535,
+            -0.01865329108115714
+          ],
+          "rise10_90_ns": [
+            0.19227247705635797,
+            0.2096379931393999
+          ],
+          "FWHM_ns": [
+            5.68975402732516,
+            5.75393229161382
+          ],
+          "front_Vns": [
+            -0.016236432750540875,
+            -0.013766043704756648
+          ],
+          "tail_Vns": [
+            0.015436266301482038,
+            0.017830727640410826
+          ]
+        }
+      },
+      {
+        "stage": "016",
+        "candidate": "Q1",
+        "output_Q_bin": 2,
+        "bank_seed_hypothesis_rows": 12,
+        "minimum_fake_rows": 3255,
+        "minimum_real_rows": 2631,
+        "mean_residual_ranges": {
+          "peak_voltage_V": [
+            -0.01521179826409548,
+            -0.014895560919591988
+          ],
+          "rise10_90_ns": [
+            2.773842972274502,
+            2.79374693658482
+          ],
+          "FWHM_ns": [
+            3.575049587500729,
+            3.6111607393890495
+          ],
+          "front_Vns": [
+            0.004385160238959296,
+            0.011599173421245057
+          ],
+          "tail_Vns": [
+            -0.004845314286960167,
+            0.0005556728216303819
+          ]
+        }
+      },
+      {
+        "stage": "016",
+        "candidate": "Q1",
+        "output_Q_bin": 3,
+        "bank_seed_hypothesis_rows": 12,
+        "minimum_fake_rows": 3306,
+        "minimum_real_rows": 2631,
+        "mean_residual_ranges": {
+          "peak_voltage_V": [
+            0.00561344013784848,
+            0.0063196547300199135
+          ],
+          "rise10_90_ns": [
+            1.6359800683212438,
+            1.646497503618889
+          ],
+          "FWHM_ns": [
+            -0.8564137779476191,
+            -0.7858224624893779
+          ],
+          "front_Vns": [
+            -0.004296473244351784,
+            0.002773736466291421
+          ],
+          "tail_Vns": [
+            -0.0009763335916976867,
+            0.002825621050318805
+          ]
+        }
+      },
+      {
+        "stage": "016",
+        "candidate": "Q1",
+        "output_Q_bin": 4,
+        "bank_seed_hypothesis_rows": 12,
+        "minimum_fake_rows": 3204,
+        "minimum_real_rows": 2630,
+        "mean_residual_ranges": {
+          "peak_voltage_V": [
+            0.024727227339969737,
+            0.025163550416611724
+          ],
+          "rise10_90_ns": [
+            1.5550803674113656,
+            1.5593401646926726
+          ],
+          "FWHM_ns": [
+            -3.315963268525195,
+            -3.2921072620043006
+          ],
+          "front_Vns": [
+            -0.0024428931882627403,
+            0.002546071614460299
+          ],
+          "tail_Vns": [
+            -0.002563661957293628,
+            0.002444821093900318
+          ]
+        }
+      },
+      {
+        "stage": "016",
+        "candidate": "Q1",
+        "output_Q_bin": 5,
+        "bank_seed_hypothesis_rows": 12,
+        "minimum_fake_rows": 3331,
+        "minimum_real_rows": 2631,
+        "mean_residual_ranges": {
+          "peak_voltage_V": [
+            0.043379258193163156,
+            0.043898230939823424
+          ],
+          "rise10_90_ns": [
+            1.6068759267983364,
+            1.6114844726308455
+          ],
+          "FWHM_ns": [
+            -5.252824404407193,
+            -5.2184828873815015
+          ],
+          "front_Vns": [
+            -0.010843104752198407,
+            -0.004206458260920698
+          ],
+          "tail_Vns": [
+            0.003903505939004015,
+            0.009363796495849286
+          ]
+        }
+      },
+      {
+        "stage": "016",
+        "candidate": "Q1",
+        "output_Q_bin": 6,
+        "bank_seed_hypothesis_rows": 12,
+        "minimum_fake_rows": 3303,
+        "minimum_real_rows": 2631,
+        "mean_residual_ranges": {
+          "peak_voltage_V": [
+            0.07082840359917042,
+            0.07125715016263084
+          ],
+          "rise10_90_ns": [
+            2.619165534164038,
+            2.629000860671221
+          ],
+          "FWHM_ns": [
+            -7.144604419966729,
+            -7.030933841490214
+          ],
+          "front_Vns": [
+            0.006058738941888464,
+            0.01532600493979519
+          ],
+          "tail_Vns": [
+            -0.003682566490217587,
+            0.0010325667117241366
+          ]
+        }
+      },
+      {
+        "stage": "016",
+        "candidate": "Q1",
+        "output_Q_bin": 7,
+        "bank_seed_hypothesis_rows": 12,
+        "minimum_fake_rows": 3206,
+        "minimum_real_rows": 2631,
+        "mean_residual_ranges": {
+          "peak_voltage_V": [
+            0.08550514607558679,
+            0.0861814857706712
+          ],
+          "rise10_90_ns": [
+            2.3074972649417473,
+            2.3175122875602794
+          ],
+          "FWHM_ns": [
+            -10.194175359117722,
+            -10.164395366114658
+          ],
+          "front_Vns": [
+            -0.11410077808824237,
+            -0.09012819254422055
+          ],
+          "tail_Vns": [
+            0.0054116320803920814,
+            0.028816540365071752
+          ]
+        }
+      }
+    ],
+    "domains": "fake_minus_REAL_empirical_means_in_frozen_observed_outputQ_bins",
+    "support": "all_288_selected_bank_bin_rows_supported; undefined_counts_retained",
+    "available": "peak,rise,FWHM,front_integral,tail_integral",
+    "not_saved_in_these_reports": [
+      "separate_left_and_right_halfheight_widths",
+      "SNR_strata",
+      "REAL_groups_matching_SOURCE_shape_h"
+    ],
+    "interpretation": "sign_changes_across_Q_bins_require_both_direction_choices_for_a_flexible_candidate; output_Q_membership_and_population_composition_preclude_eventwise_truth_or_unique_physical_cause"
+  },
+  "missing_evidence_and_stop": {
+    "actual_event_coefficients": "not_present_in_selected_local_JSON_CSV_logs; coefficient_envelopes_are_not_event_quantiles",
+    "all_step_or_final_evaluation_trust_distribution": "only_21_sampled_training_records_per_seed; no_claim_about_every_step_or_final_hard_evaluation",
+    "numerical_reachability": [
+      "no_saved_parametric_hard_observable_Jacobian_read",
+      "no_finite_difference_of_existing_or_proposed_warp_parameters",
+      "no_population_residual_projection_or_numerical_rank_computed"
+    ],
+    "checkpoint_policy": "no_checkpoint_decode; missing_event_or_sensitivity_evidence_reported_to_root_before_any_proposed_new_load",
+    "root_notification_delivered": true
+  },
+  "candidate_contract_draft": {
+    "registration_status": "draft_only_not_implemented_not_registered_not_authorized_as_run_by_this_receipt",
+    "new_scientific_question": "whether_two_independent_smooth_bidirectional_front_and_back_time_scales_conditioned_on_logQ_and_verified_SOURCE_shape_can_reach_the_observed_opposite_signed_shape_residuals_with_canonical_Q_protected_under_fullwave_plus_C1",
+    "primary_reference": "fixed_015_M0_per_seed; charge_disabled_as_in_M0",
+    "secondary_reference": "016_Q1_frozen_research_reference_only",
+    "trainable": "one_small_mean_timewarp_adapter_only; proposed_six_parameters_two_affine_functions_of_1_logQ_and_shape",
+    "frozen": [
+      "A_weights",
+      "M0_stochastic_shape_head_and_original_A_amplitude_rule",
+      "charge_law_in_predeclared_fixed_state",
+      "005_weights_and_noise_extension",
+      "observation_chain_and_original_T",
+      "population_and_data_roles"
+    ],
+    "identity_initialization": "all_warp_coefficients_zero; bitwise_identity_path_to_fixed_reference_required_before_training",
+    "parameterization": "positive_front_and_back_scales_exp(bounded_alpha), each_can_compress_or_expand; monotone_warp_with_one_fixed_smooth_peak_join; no_new_random_time_branch",
+    "shape_condition": "SOURCE_h=.15*edep_hadron/(edep_ee+.15*edep_hadron) is verified SOURCE proxy; bind waveform_derived_equivalent_or_exact_input_availability_before_implementation; no_REAL_truth_label_or_ID_input",
+    "charge_and_carrier": "normalize_warped_A_by_its_canonical_[110:366]_integral_to_original_A_Q; preserve_zero_prefix100_and_legal384_carrier; fail_if_normalization_not_defined",
+    "proposed_parameter_limits": {
+      "log_scale_absmax": "log(1.10), draft choice to bind before sensitivity results",
+      "relative_mean_RMS_limit_to_A": 0.1,
+      "peak_join_and_interpolation": "exact_formula_width_endpoint_rule_and_gradient_semantics_to_bind_in_registered_contract"
+    },
+    "loss": "retain_fullwave+2*C1_integral_distribution+.01*trust; add_one_finite_predeclared_differentiable_morphology_representation_covering_front_peak_and_halfheight_regions; normalization_and_weight_must_be_frozen_before_candidate_results",
+    "hard_acceptance": "original_hard_observation_chain; censor-aware_time_representation_from_separately_registered018_when_available; original_017_pending_retained",
+    "prospective_reachability": "one_common_random_number_bounded_two_sided_step_per_old_six_parameter_and_new_warp_parameter; frozen_population/banks/noise/steps/row_caps_and_projection_rule_to_register; no_scan; diagnostics_are_population_not_event_pairs",
+    "proposed_training_cap": {
+      "candidates": 1,
+      "seeds": 2,
+      "G_per_seed": 2000,
+      "G_total_maximum": 4000,
+      "status": "proposed_new_budget_not_allocated_or_run"
+    },
+    "promotion_rule": "preregister_physical_effect_size_and_paired_uncertainty_rule; shape_improvement_must_repeat_across_two_training_seeds_and_two_independent_libraries_without_Q_PSD_QPSD_or_fullwave_noninferiority_failure; compare_same_parents_and_random_libraries; 1e-12_is_tie_tolerance_only",
+    "missing_numeric_acceptance_bindings": [
+      "minimum_useful_V_ns_or_T_effect",
+      "paired_CI_rule_and_resampling_unit",
+      "noninferiority_margins",
+      "soft_morphology_features_weight_and_scale",
+      "finite_sensitivity_step_and_row_resource_caps"
+    ],
+    "failure_rule": "preserve_negative_result_and_decide_from_reachability_or_composition; no_automatic_step_extension_or_new_candidate"
+  },
+  "budget_boundary": {
+    "WP3_short_trials": "6/6_consumed_by_015_four_plus_016_two",
+    "global_short_trials": "10/12_used; remaining_two_belong_to_unused_WP2_allocation",
+    "automatic_reallocation": false,
+    "new_mean_trial_requires": "new_named_scientific_question_and_explicit_bounded_prospective_registration; original_WP3_slots_not_available",
+    "authority": "root_instruction_for_this_delegated_diagnostic_and_existing_MASTER_budget"
+  },
+  "evidence_inputs": [
+    {
+      "path": "E:\\GAN\\AGENTS.md",
+      "bytes": 1373,
+      "sha256": "b3155f743ec60992a7222074b82809d341bbf94c6336d3cbe2fa396e14d8a9cb"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\AGENTS.md",
+      "bytes": 2096,
+      "sha256": "3bbde0946b9e78fca82663f25be0969afac8c7501d4c56584684f64913c1b735"
+    },
+    {
+      "path": "C:\\Users\\10629\\.codex\\skills\\anti-defensive-writing\\SKILL.md",
+      "bytes": 19793,
+      "sha256": "ef055917cc1407064cd0deaffd78264c251e8a27c30c112c54c64fb5ca46ef7a"
+    },
+    {
+      "path": "C:\\Users\\10629\\.codex\\memories\\MEMORY.md",
+      "bytes": 275196,
+      "sha256": "41e04eb243830571a9353b7e415c64b6e0d91e3bc83a5ccf64f2a7032933f71e"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\receipts\\review_017_20261016\\input_01\\N01_017_review_and_next_actions.md",
+      "bytes": 9276,
+      "sha256": "a0e29006f9f188a42b522d76426922a232468f782a18736c79e4d4da2035cc67"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\receipts\\review_017_20261016\\input_01\\USER_PASTED_REVIEW.txt",
+      "bytes": 17694,
+      "sha256": "ea184bd7a0a896885283ebd8e3cfcf99e98b997519ab6701a8bc9c46c814e1d4"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\src\\n01\\model015.py",
+      "bytes": 10621,
+      "sha256": "149f7faefc9ca982700eea8c7ce7850e9c679d74985cb4fce90708743299dadc"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\scripts\\run_wp3_015.py",
+      "bytes": 35115,
+      "sha256": "5f688f828fdc563822f3fb28ddf1da2d558654280d4756798bd642f5a6445676"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\docs\\WP3_015_CONFIGURATION.md",
+      "bytes": 4341,
+      "sha256": "4268ae699fce9e5e7bfaa1a0635e334b11eeb4e3fe6d33b6fb2bfcd5a9b8abd8"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\wp3_015_config.json",
+      "bytes": 173633,
+      "sha256": "54c096ad1a5e112493798e5c6c8db481cd3c79b78747200af0bbd47bccba5394"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\reports\\wp3_015_20261015\\REPORT.md",
+      "bytes": 14470,
+      "sha256": "0bef141eb57ca1bd8335c6cdf0f408f0b71ac5e9edfecfd17c91bbe9fd6f6116"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\reports\\wp3_016_20261015\\REPORT.md",
+      "bytes": 15212,
+      "sha256": "6363aeb4cbf37fce2797cfeaea2c7480334f37853a39a91889f27e766bc006e7"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\reports\\wp3_015_20261015\\REPORT_DATA.json",
+      "bytes": 11626527,
+      "sha256": "59da4b1597c3be0fa6e9b98095330a89c47c1ffcec86b395e81aa53e4cc82402"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\reports\\wp3_016_20261015\\REPORT_DATA.json",
+      "bytes": 7502106,
+      "sha256": "9fe0d38bc8069ce4a9a582c69628a91a6cf40ea5184c86d57f7c595051e40010"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\reports\\wp3_015_20261015\\tables\\OUTPUT_Q_FINAL_SUMMARY.csv",
+      "bytes": 1379,
+      "sha256": "c8cb4048ba8fd5e778b3146d558d829ffd750f874cf2fa20b48a16c954a54c0e"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\reports\\wp3_016_20261015\\tables\\ABSOLUTE_T.csv",
+      "bytes": 814,
+      "sha256": "2645a47e93b31e9aa24d63ceb829ad2f9adb8b1853489aee0ffcd00bccc69d48"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\USER_MASTER_PLAN_20261015.txt",
+      "bytes": 20974,
+      "sha256": "56190995374eb2a765a3c8589736514154dba7ff33aa1309b8b1de493e846ebb"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\INPUT_INFORMATION_AUDIT.json",
+      "bytes": 621048,
+      "sha256": "6a72cbc0a3f2f23e9898e00f55c99698d73b36ffaaeb697a9f6b0affd52d8dab"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed0_M1\\RUN_INPUTS.json",
+      "bytes": 1349,
+      "sha256": "d5063b83589ac2670a62a470bd04f34f57fe8b0a4759c61b9aa9dcd2f31864ad"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed0_M1\\COMPLETE.json",
+      "bytes": 82956,
+      "sha256": "26bdbd6b66a3c7affbf88d15a3d2c2cce5ffd08cea3b7de9b7c3d7790b9ce103"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed0_M1\\training.jsonl",
+      "bytes": 234997,
+      "sha256": "4c7a3ccd22b934e7050e41f03dec74b075dca98df98cf0c9342b94507d9c2067"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed1_M1\\RUN_INPUTS.json",
+      "bytes": 1349,
+      "sha256": "af6725bfb93eca0ad427d943922924f38d80d306fb727ecf7d6daafb306ac038"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed1_M1\\COMPLETE.json",
+      "bytes": 82708,
+      "sha256": "7b2e79ead730ec688afd30fbae327469f1f4fc3dc523dc89a115a72b35a1d5f1"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed1_M1\\training.jsonl",
+      "bytes": 234960,
+      "sha256": "3aa679d9bcd663c307943ceaa2280d6c231c56a3417dcee263c214a22cf3f403"
+    }
+  ],
+  "bounded_local_text_search_inventory": [
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\DISPATCH_ATTEMPT.json",
+      "bytes": 1588,
+      "sha256": "b4a094af7dbd6d8aab1ef9aac0a5cabbee379502fa3ce50f1d1da57821765f37",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\REMOTE_INSTALL_RECEIPT.json",
+      "bytes": 461,
+      "sha256": "a4501248a76f7d19fd58c88e024a3a0d858f6a5c50470442a123ec814709ecfc",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\ARTIFACT_INVENTORY.json",
+      "bytes": 50526,
+      "sha256": "d0364f41cfa4a53d4378ffb21b5e0da25742cbdcdbb792553e5033c0546a4e01",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\BINDING.json",
+      "bytes": 79499,
+      "sha256": "6ab4ebd5ebdd3b42d96b05cc7423de3511f0e7c13dae765f023b35e9e2dac80e",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\COMPLETE.json",
+      "bytes": 81910,
+      "sha256": "1fe5a06e7690327a1cced206d9d56c774e7d1017ee80de36d91186351cd53457",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\FIRST_UPDATE_PROOF.json",
+      "bytes": 100864,
+      "sha256": "0ea5b356e8854d94265898131827c38f88cb79750579056c2084cb1813cf47b1",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\INIT_PROOF.json",
+      "bytes": 81544,
+      "sha256": "3702a32e9cd1ca5ce147487ed6d03960463b85eb4a3000cb7ff52aa28bce7483",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\INTEGRAL_TRAIN_STATISTICS_REFERENCE.json",
+      "bytes": 1028,
+      "sha256": "5b8a20ddfc2475ab275966e715fedd549f94140be0d5c4703fe0717dad077f07",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\MEAN_RESIDUAL_GATE.json",
+      "bytes": 3924,
+      "sha256": "ff14f0edb142ef61b4c9f7d495a40223a8c102e982ec52004b316f298354b493",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed0_M0\\COMPLETE.json",
+      "bytes": 82761,
+      "sha256": "64be3b0152f98eaa148ca25aadb0932fda995794f0799eaa7e813c73ec3facba",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed0_M0\\final_evaluation\\bank0_final_common_level_REPORT.json",
+      "bytes": 132484,
+      "sha256": "a2102d2d9212d5751fe715852395e15ec36862609999fc8daed41317fe38ed37",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed0_M0\\final_evaluation\\bank0_final_fast_REPORT.json",
+      "bytes": 131903,
+      "sha256": "dae599ce6cf8175b0a1eb8c29de076892a70e8f9c1eafb7a99f19da1c70cd1ef",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed0_M0\\final_evaluation\\bank0_final_slow_REPORT.json",
+      "bytes": 131890,
+      "sha256": "7b0b1401a473973ced55955c5947c7b0f9752dec7368e7e6a743937009daea1d",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed0_M0\\final_evaluation\\bank1_final_common_level_REPORT.json",
+      "bytes": 132504,
+      "sha256": "14675b944ad719f27bf7c3393e165ebbc05be95101feb2dca5477ad033d26903",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed0_M0\\final_evaluation\\bank1_final_fast_REPORT.json",
+      "bytes": 131929,
+      "sha256": "d1eb1368ff1e9e8c27388babe6fd2a27a30637eff3a2632dc16732d1f1e29723",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed0_M0\\final_evaluation\\bank1_final_slow_REPORT.json",
+      "bytes": 131925,
+      "sha256": "9da428b68ba84c194ff177426e51390409142609dd203c3d4ac29f2ef63e2d97",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed0_M0\\final_evaluation\\ELECTRONICS_LIMITS.json",
+      "bytes": 7314,
+      "sha256": "f944175a726ef3fd487c2ebf84a0a73e363fc54250155d208f99c8bd0cd0292e",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed0_M0\\final_evaluation\\METRICS.json",
+      "bytes": 43523,
+      "sha256": "a4930aac0fffbf6d757a5b19d7cb3a6e12dedbdc0c7d368374918e21fdf0f6b1",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed0_M0\\FIRST_UPDATE_PROOF.json",
+      "bytes": 100864,
+      "sha256": "0ea5b356e8854d94265898131827c38f88cb79750579056c2084cb1813cf47b1",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed0_M0\\HARD_COMPARISON.json",
+      "bytes": 62468,
+      "sha256": "e4121c3742ec03d1f9901bc49458e48e069e0024bde901d1a0412a147bf8a0bc",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed0_M0\\initial_evaluation\\bank0_A_common_level_REPORT.json",
+      "bytes": 132204,
+      "sha256": "ec5b8e26e75c8006b6adc593fb8575bc7160eb7fa676f071fb6569211a1a64bd",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed0_M0\\initial_evaluation\\bank0_A_fast_REPORT.json",
+      "bytes": 131621,
+      "sha256": "77b2a538318948477b93e53f33f9cfbdd2663bde70516d0436bda8d11ef92bd7",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed0_M0\\initial_evaluation\\bank0_A_slow_REPORT.json",
+      "bytes": 131628,
+      "sha256": "c674141daefb84a0a320ec9b2711f0c566b8e9555a6059e745f9f79e864a1d7d",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed0_M0\\initial_evaluation\\bank0_initial_common_level_REPORT.json",
+      "bytes": 132678,
+      "sha256": "7491acf06a14d75d766cee46cf384662447fdcfbaa286c4c1583a13d734ef6d8",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed0_M0\\initial_evaluation\\bank0_initial_fast_REPORT.json",
+      "bytes": 132111,
+      "sha256": "e6b741ab399e0adf24c09d5145cd7829faab2e096219bfeccb1b36132eb74db0",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed0_M0\\initial_evaluation\\bank0_initial_slow_REPORT.json",
+      "bytes": 132086,
+      "sha256": "7854efbdbb55e4e62b2d090281b4b823796d74f5bb556ad1a7837bdecc1460b7",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed0_M0\\initial_evaluation\\bank1_A_common_level_REPORT.json",
+      "bytes": 132204,
+      "sha256": "94f700d1e61571fcc76d99c0f5e4ef50c2fca78e67fecfdbb5680fe8c0032e2f",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed0_M0\\initial_evaluation\\bank1_A_fast_REPORT.json",
+      "bytes": 131622,
+      "sha256": "fc167a4f3fadd4e444b638a736e9ca447441ba317439708672e9fe3accb51730",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed0_M0\\initial_evaluation\\bank1_A_slow_REPORT.json",
+      "bytes": 131594,
+      "sha256": "d6f49dd8496c7f7bc628353c675f5d2b0045fa41132b9c70d6b19cba28fe7748",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed0_M0\\initial_evaluation\\bank1_initial_common_level_REPORT.json",
+      "bytes": 132644,
+      "sha256": "c9c269a76c2d1972de3fabd1c17be209db82121286a5a320d480732873b4333b",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed0_M0\\initial_evaluation\\bank1_initial_fast_REPORT.json",
+      "bytes": 132084,
+      "sha256": "cdeac81b59f0d96c71dadfeb02315296112b4c5c758d2b1156e7b9aba27139de",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed0_M0\\initial_evaluation\\bank1_initial_slow_REPORT.json",
+      "bytes": 132057,
+      "sha256": "bc9abca9028b0297fe225fb01b255cc2ccafe0ac24231d85a87593cf5f309008",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed0_M0\\initial_evaluation\\ELECTRONICS_LIMITS.json",
+      "bytes": 14458,
+      "sha256": "231ff6e4dca35247083282e9b28004745055c3d2d559eb89cd59a35f93c59134",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed0_M0\\initial_evaluation\\METRICS.json",
+      "bytes": 86315,
+      "sha256": "6760bc70e2ad8ea835c260e03e135b85e95f012a16b48b737d8e289dbfeebe54",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed0_M0\\RUN_INPUTS.json",
+      "bytes": 1382,
+      "sha256": "adcfe94db0e9fd19eda9a61ea92f2fb9fc17305561cda264e1d68b80262f2ee0",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed0_M0\\training.jsonl",
+      "bytes": 232176,
+      "sha256": "090c63f5633bf2bf7279368c8b288bdbddaec96413afc4878ca488e589941fd5",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed0_M1\\COMPLETE.json",
+      "bytes": 82956,
+      "sha256": "26bdbd6b66a3c7affbf88d15a3d2c2cce5ffd08cea3b7de9b7c3d7790b9ce103",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed0_M1\\final_evaluation\\bank0_final_common_level_REPORT.json",
+      "bytes": 132537,
+      "sha256": "0252524665bbb21684d3e08650d6f488cfb566b99c7baebf9e71e88b5317f249",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed0_M1\\final_evaluation\\bank0_final_fast_REPORT.json",
+      "bytes": 131954,
+      "sha256": "6b0c0935dd5e60651e0b9af2109dcdde45aa82b81fb591bca28a3eb0d0acf62e",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed0_M1\\final_evaluation\\bank0_final_slow_REPORT.json",
+      "bytes": 131956,
+      "sha256": "e0e3fda744d68bec223a6300a77c9c39e49cd80119122c85f6258caa40976e1e",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed0_M1\\final_evaluation\\bank1_final_common_level_REPORT.json",
+      "bytes": 132518,
+      "sha256": "a64b64316f1b2fd12a3dda1cb656e3be8c7e4c49a4bb48a05ce9212537658037",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed0_M1\\final_evaluation\\bank1_final_fast_REPORT.json",
+      "bytes": 131917,
+      "sha256": "430df0e616b52f4b299ed0a7babbe351c2aae431316c27f2e239865ceb76f01c",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed0_M1\\final_evaluation\\bank1_final_slow_REPORT.json",
+      "bytes": 131913,
+      "sha256": "29bfa6396a35a89de0065c27df4df40d3b4b9b8158cfc1fb67e423a7558265fa",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed0_M1\\final_evaluation\\ELECTRONICS_LIMITS.json",
+      "bytes": 7314,
+      "sha256": "f944175a726ef3fd487c2ebf84a0a73e363fc54250155d208f99c8bd0cd0292e",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed0_M1\\final_evaluation\\METRICS.json",
+      "bytes": 43520,
+      "sha256": "5b2702067c2420f373a09969e5fd075a951e689208eb5bf8cdeb8baed007457e",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed0_M1\\FIRST_UPDATE_PROOF.json",
+      "bytes": 101009,
+      "sha256": "eb6882cba99c03119c63f8172794a1af45405ef25fcf1c3e8ffafe170ea6f944",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed0_M1\\HARD_COMPARISON.json",
+      "bytes": 62456,
+      "sha256": "adbf065900a9818055fc480619a8b3731777b283ac852285c813f90e5a999ee2",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed0_M1\\initial_evaluation\\bank0_A_common_level_REPORT.json",
+      "bytes": 132204,
+      "sha256": "ec5b8e26e75c8006b6adc593fb8575bc7160eb7fa676f071fb6569211a1a64bd",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed0_M1\\initial_evaluation\\bank0_A_fast_REPORT.json",
+      "bytes": 131621,
+      "sha256": "77b2a538318948477b93e53f33f9cfbdd2663bde70516d0436bda8d11ef92bd7",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed0_M1\\initial_evaluation\\bank0_A_slow_REPORT.json",
+      "bytes": 131628,
+      "sha256": "c674141daefb84a0a320ec9b2711f0c566b8e9555a6059e745f9f79e864a1d7d",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed0_M1\\initial_evaluation\\bank0_initial_common_level_REPORT.json",
+      "bytes": 132678,
+      "sha256": "7491acf06a14d75d766cee46cf384662447fdcfbaa286c4c1583a13d734ef6d8",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed0_M1\\initial_evaluation\\bank0_initial_fast_REPORT.json",
+      "bytes": 132111,
+      "sha256": "e6b741ab399e0adf24c09d5145cd7829faab2e096219bfeccb1b36132eb74db0",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed0_M1\\initial_evaluation\\bank0_initial_slow_REPORT.json",
+      "bytes": 132086,
+      "sha256": "7854efbdbb55e4e62b2d090281b4b823796d74f5bb556ad1a7837bdecc1460b7",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed0_M1\\initial_evaluation\\bank1_A_common_level_REPORT.json",
+      "bytes": 132204,
+      "sha256": "94f700d1e61571fcc76d99c0f5e4ef50c2fca78e67fecfdbb5680fe8c0032e2f",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed0_M1\\initial_evaluation\\bank1_A_fast_REPORT.json",
+      "bytes": 131622,
+      "sha256": "fc167a4f3fadd4e444b638a736e9ca447441ba317439708672e9fe3accb51730",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed0_M1\\initial_evaluation\\bank1_A_slow_REPORT.json",
+      "bytes": 131594,
+      "sha256": "d6f49dd8496c7f7bc628353c675f5d2b0045fa41132b9c70d6b19cba28fe7748",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed0_M1\\initial_evaluation\\bank1_initial_common_level_REPORT.json",
+      "bytes": 132644,
+      "sha256": "c9c269a76c2d1972de3fabd1c17be209db82121286a5a320d480732873b4333b",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed0_M1\\initial_evaluation\\bank1_initial_fast_REPORT.json",
+      "bytes": 132084,
+      "sha256": "cdeac81b59f0d96c71dadfeb02315296112b4c5c758d2b1156e7b9aba27139de",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed0_M1\\initial_evaluation\\bank1_initial_slow_REPORT.json",
+      "bytes": 132057,
+      "sha256": "bc9abca9028b0297fe225fb01b255cc2ccafe0ac24231d85a87593cf5f309008",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed0_M1\\initial_evaluation\\ELECTRONICS_LIMITS.json",
+      "bytes": 14458,
+      "sha256": "231ff6e4dca35247083282e9b28004745055c3d2d559eb89cd59a35f93c59134",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed0_M1\\initial_evaluation\\METRICS.json",
+      "bytes": 86315,
+      "sha256": "6760bc70e2ad8ea835c260e03e135b85e95f012a16b48b737d8e289dbfeebe54",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed0_M1\\RUN_INPUTS.json",
+      "bytes": 1349,
+      "sha256": "d5063b83589ac2670a62a470bd04f34f57fe8b0a4759c61b9aa9dcd2f31864ad",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed0_M1\\training.jsonl",
+      "bytes": 234997,
+      "sha256": "4c7a3ccd22b934e7050e41f03dec74b075dca98df98cf0c9342b94507d9c2067",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed1_M0\\COMPLETE.json",
+      "bytes": 82488,
+      "sha256": "f1fd8d6f82b7c8370655c5df5af996491fc942b8f5540611f137f23fc4d2d081",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed1_M0\\final_evaluation\\bank0_final_common_level_REPORT.json",
+      "bytes": 132500,
+      "sha256": "72fb8315db1972f168136ccd1dff7f8397e3fe722ee2d02832544659c9ce5bc5",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed1_M0\\final_evaluation\\bank0_final_fast_REPORT.json",
+      "bytes": 131924,
+      "sha256": "e9bc4493bf562c7de9f5a6d4f6e781b2d0584f8f784a6717589b3c157e57fdca",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed1_M0\\final_evaluation\\bank0_final_slow_REPORT.json",
+      "bytes": 131926,
+      "sha256": "daae7438d70b7c2c16a2debb5b253e21a8501f6ada857903d070d8ed6f44e9a8",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed1_M0\\final_evaluation\\bank1_final_common_level_REPORT.json",
+      "bytes": 132497,
+      "sha256": "409d8b09f6b34d8dd36d239f255d43c10cb2ec734688059eba5feffb6eb0ad43",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed1_M0\\final_evaluation\\bank1_final_fast_REPORT.json",
+      "bytes": 131934,
+      "sha256": "f27d64335c115d35cd217053e47a9195f65947ac6c63526940800d31eed0a08e",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed1_M0\\final_evaluation\\bank1_final_slow_REPORT.json",
+      "bytes": 131917,
+      "sha256": "4959204326e18c310fcb44aa25124148d11086a74fc782dac648ef5244b034bd",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed1_M0\\final_evaluation\\ELECTRONICS_LIMITS.json",
+      "bytes": 7314,
+      "sha256": "f944175a726ef3fd487c2ebf84a0a73e363fc54250155d208f99c8bd0cd0292e",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed1_M0\\final_evaluation\\METRICS.json",
+      "bytes": 43524,
+      "sha256": "38f2c6a159ea30d4b5ed72ebf64a78f956b28a812fa2e0e3bea50646f310be96",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed1_M0\\FIRST_UPDATE_PROOF.json",
+      "bytes": 100938,
+      "sha256": "a57321e3f3b91d8433f38d4a2c322a4df7550b87edee5f186179f3b947f2a88d",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed1_M0\\HARD_COMPARISON.json",
+      "bytes": 62180,
+      "sha256": "1be092586d73fe9ce45384bce6ae954b7c98bb01b611b2e0fe725255ccf6f0f5",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed1_M0\\initial_evaluation\\bank0_A_common_level_REPORT.json",
+      "bytes": 132204,
+      "sha256": "ec5b8e26e75c8006b6adc593fb8575bc7160eb7fa676f071fb6569211a1a64bd",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed1_M0\\initial_evaluation\\bank0_A_fast_REPORT.json",
+      "bytes": 131621,
+      "sha256": "77b2a538318948477b93e53f33f9cfbdd2663bde70516d0436bda8d11ef92bd7",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed1_M0\\initial_evaluation\\bank0_A_slow_REPORT.json",
+      "bytes": 131628,
+      "sha256": "c674141daefb84a0a320ec9b2711f0c566b8e9555a6059e745f9f79e864a1d7d",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed1_M0\\initial_evaluation\\bank0_initial_common_level_REPORT.json",
+      "bytes": 132670,
+      "sha256": "a5a8c760e207e223d20793cf074a64a2d7e1efa69e82e859d2a52d5f616a3a35",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed1_M0\\initial_evaluation\\bank0_initial_fast_REPORT.json",
+      "bytes": 132070,
+      "sha256": "fd2e72f9f820c75d1c8f850d4af6e102334e800dc1aa0c558face8819a0dd544",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed1_M0\\initial_evaluation\\bank0_initial_slow_REPORT.json",
+      "bytes": 132085,
+      "sha256": "90e7e85a662f63873d053228d00fa4db7315ea56da80636e19a30e00e69f4711",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed1_M0\\initial_evaluation\\bank1_A_common_level_REPORT.json",
+      "bytes": 132204,
+      "sha256": "94f700d1e61571fcc76d99c0f5e4ef50c2fca78e67fecfdbb5680fe8c0032e2f",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed1_M0\\initial_evaluation\\bank1_A_fast_REPORT.json",
+      "bytes": 131622,
+      "sha256": "fc167a4f3fadd4e444b638a736e9ca447441ba317439708672e9fe3accb51730",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed1_M0\\initial_evaluation\\bank1_A_slow_REPORT.json",
+      "bytes": 131594,
+      "sha256": "d6f49dd8496c7f7bc628353c675f5d2b0045fa41132b9c70d6b19cba28fe7748",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed1_M0\\initial_evaluation\\bank1_initial_common_level_REPORT.json",
+      "bytes": 132600,
+      "sha256": "c52259213fc9d3413e0103732797e38d2ba8ad1fde608d39d7a50b0a6fd3fc6c",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed1_M0\\initial_evaluation\\bank1_initial_fast_REPORT.json",
+      "bytes": 132035,
+      "sha256": "982665eeb3c68ed6c542b8c31f098d17aed0199dd9012e6d37c54ba07bc57aeb",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed1_M0\\initial_evaluation\\bank1_initial_slow_REPORT.json",
+      "bytes": 132033,
+      "sha256": "229769e4e7ab3ca6f99b4a2793c77f7462564afc1eb1103165e637f891daf2c0",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed1_M0\\initial_evaluation\\ELECTRONICS_LIMITS.json",
+      "bytes": 14458,
+      "sha256": "231ff6e4dca35247083282e9b28004745055c3d2d559eb89cd59a35f93c59134",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed1_M0\\initial_evaluation\\METRICS.json",
+      "bytes": 86301,
+      "sha256": "4cd47acec1149f406d1b163c90111b96fe46230172044ac1c32ea9518cc05e7e",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed1_M0\\RUN_INPUTS.json",
+      "bytes": 1382,
+      "sha256": "5ea7447aeb4e48a7eae7c2ef85a4b7004217c7cbef20a914bbc4112808f82f48",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed1_M0\\training.jsonl",
+      "bytes": 232099,
+      "sha256": "45b157e1f1a86ecd41c84316d386509790deb36a9dd1f991aadf46cec0473b11",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed1_M1\\COMPLETE.json",
+      "bytes": 82708,
+      "sha256": "7b2e79ead730ec688afd30fbae327469f1f4fc3dc523dc89a115a72b35a1d5f1",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed1_M1\\final_evaluation\\bank0_final_common_level_REPORT.json",
+      "bytes": 132528,
+      "sha256": "f156506ed70e1bf1c9ee74420d196593e3dc3e80ce18849d4e76467578394073",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed1_M1\\final_evaluation\\bank0_final_fast_REPORT.json",
+      "bytes": 131927,
+      "sha256": "1019ee1137fc350b94bf9553d3a3e61e9cbd1724f3cec8bcaa414fb03cd9bec1",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed1_M1\\final_evaluation\\bank0_final_slow_REPORT.json",
+      "bytes": 131939,
+      "sha256": "8b9146996ae6f47be9c9ca1a5c2e329b5a3ac9e3c7881c48c22ae6ed2e6e629a",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed1_M1\\final_evaluation\\bank1_final_common_level_REPORT.json",
+      "bytes": 132463,
+      "sha256": "2af29c5366fcdc59855208bb1cbe5f2246c33e0ab474dc394bd891a7b3bf82d3",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed1_M1\\final_evaluation\\bank1_final_fast_REPORT.json",
+      "bytes": 131882,
+      "sha256": "6b41e73a7fba1c088fce17a9c585b5098ec228fe9797ca7468286775615d17b2",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed1_M1\\final_evaluation\\bank1_final_slow_REPORT.json",
+      "bytes": 131866,
+      "sha256": "19d05f86faa680cffc56fa9914a1ce6b2d13a7dfe4f2e5a3f771cb31802973d8",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed1_M1\\final_evaluation\\ELECTRONICS_LIMITS.json",
+      "bytes": 7314,
+      "sha256": "f944175a726ef3fd487c2ebf84a0a73e363fc54250155d208f99c8bd0cd0292e",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed1_M1\\final_evaluation\\METRICS.json",
+      "bytes": 43519,
+      "sha256": "2ae51e141c91283dd75769ddc0be39739145a3867349ac62a18dd8252f39d21a",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed1_M1\\FIRST_UPDATE_PROOF.json",
+      "bytes": 101025,
+      "sha256": "007a74b7a78274727e1c171d5a73eee96ca9a3613502d76c8291d86009d874aa",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed1_M1\\HARD_COMPARISON.json",
+      "bytes": 62188,
+      "sha256": "6f76c7f2cd6250bd9f80f7aa074ba0e504b1a707bcb069b7a087a4553c0ae2f0",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed1_M1\\initial_evaluation\\bank0_A_common_level_REPORT.json",
+      "bytes": 132204,
+      "sha256": "ec5b8e26e75c8006b6adc593fb8575bc7160eb7fa676f071fb6569211a1a64bd",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed1_M1\\initial_evaluation\\bank0_A_fast_REPORT.json",
+      "bytes": 131621,
+      "sha256": "77b2a538318948477b93e53f33f9cfbdd2663bde70516d0436bda8d11ef92bd7",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed1_M1\\initial_evaluation\\bank0_A_slow_REPORT.json",
+      "bytes": 131628,
+      "sha256": "c674141daefb84a0a320ec9b2711f0c566b8e9555a6059e745f9f79e864a1d7d",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed1_M1\\initial_evaluation\\bank0_initial_common_level_REPORT.json",
+      "bytes": 132670,
+      "sha256": "a5a8c760e207e223d20793cf074a64a2d7e1efa69e82e859d2a52d5f616a3a35",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed1_M1\\initial_evaluation\\bank0_initial_fast_REPORT.json",
+      "bytes": 132070,
+      "sha256": "fd2e72f9f820c75d1c8f850d4af6e102334e800dc1aa0c558face8819a0dd544",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed1_M1\\initial_evaluation\\bank0_initial_slow_REPORT.json",
+      "bytes": 132085,
+      "sha256": "90e7e85a662f63873d053228d00fa4db7315ea56da80636e19a30e00e69f4711",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed1_M1\\initial_evaluation\\bank1_A_common_level_REPORT.json",
+      "bytes": 132204,
+      "sha256": "94f700d1e61571fcc76d99c0f5e4ef50c2fca78e67fecfdbb5680fe8c0032e2f",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed1_M1\\initial_evaluation\\bank1_A_fast_REPORT.json",
+      "bytes": 131622,
+      "sha256": "fc167a4f3fadd4e444b638a736e9ca447441ba317439708672e9fe3accb51730",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed1_M1\\initial_evaluation\\bank1_A_slow_REPORT.json",
+      "bytes": 131594,
+      "sha256": "d6f49dd8496c7f7bc628353c675f5d2b0045fa41132b9c70d6b19cba28fe7748",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed1_M1\\initial_evaluation\\bank1_initial_common_level_REPORT.json",
+      "bytes": 132600,
+      "sha256": "c52259213fc9d3413e0103732797e38d2ba8ad1fde608d39d7a50b0a6fd3fc6c",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed1_M1\\initial_evaluation\\bank1_initial_fast_REPORT.json",
+      "bytes": 132035,
+      "sha256": "982665eeb3c68ed6c542b8c31f098d17aed0199dd9012e6d37c54ba07bc57aeb",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed1_M1\\initial_evaluation\\bank1_initial_slow_REPORT.json",
+      "bytes": 132033,
+      "sha256": "229769e4e7ab3ca6f99b4a2793c77f7462564afc1eb1103165e637f891daf2c0",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed1_M1\\initial_evaluation\\ELECTRONICS_LIMITS.json",
+      "bytes": 14458,
+      "sha256": "231ff6e4dca35247083282e9b28004745055c3d2d559eb89cd59a35f93c59134",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed1_M1\\initial_evaluation\\METRICS.json",
+      "bytes": 86301,
+      "sha256": "4cd47acec1149f406d1b163c90111b96fe46230172044ac1c32ea9518cc05e7e",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed1_M1\\RUN_INPUTS.json",
+      "bytes": 1349,
+      "sha256": "af6725bfb93eca0ad427d943922924f38d80d306fb727ecf7d6daafb306ac038",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed1_M1\\training.jsonl",
+      "bytes": 234960,
+      "sha256": "3aa679d9bcd663c307943ceaa2280d6c231c56a3417dcee263c214a22cf3f403",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\status.json",
+      "bytes": 80756,
+      "sha256": "b869dee5513bd65f1192904ee45ac1c34e0bc1383f21752e36387d68732b7419",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\supervisor\\exit_receipt.json",
+      "bytes": 1803,
+      "sha256": "329943a65ccea6d13c766563249ee0e0fb6daa26cbd4e8c49693de2bcab0319f",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\supervisor\\launch.json",
+      "bytes": 660,
+      "sha256": "0b0e088cac08eafd6e8b678b273ef7209fb52abffc3231e10e10b0cd25b74010",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\supervisor\\resource_status.json",
+      "bytes": 1566,
+      "sha256": "e04e63fe41cae4b53684705f92a3f778dad0bb5e78043681876a1360b82b2dd6",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\START_RECEIPT.json",
+      "bytes": 1427,
+      "sha256": "423526e64fc0e472fa4efab0884518c7e59f730377bbaebb886752b0739140f0",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\wp3_015_config.json",
+      "bytes": 173633,
+      "sha256": "54c096ad1a5e112493798e5c6c8db481cd3c79b78747200af0bbd47bccba5394",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\WP3_SOURCE_MANIFEST.json",
+      "bytes": 17769,
+      "sha256": "f1255dbff0e47edb7ec20e76c7d90057201f9a56f1184b7896f0c8cb0a67825a",
+      "use": "bounded_text_search_only_unless_also_listed_as_evidence_input"
+    }
+  ],
+  "derived_evidence_tables": [
+    {
+      "path": "E:\\GAN\\research\\N01\\receipts\\review_017_20261016\\mean_015_diagnostic_01\\TRAINING_DIAGNOSTICS.csv",
+      "rows": 42,
+      "bytes": 13376,
+      "sha256": "276e99427f3ba7a2f9b4295cb86db889e1c68c9e221345218c3f9d52003e460f"
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\receipts\\review_017_20261016\\mean_015_diagnostic_01\\GROUPED_RESIDUALS.csv",
+      "rows": 288,
+      "bytes": 244720,
+      "sha256": "86a9fe46aeb8aab8e1d0caab8e55a4a9765ac3184352f409e436a5b8d10b6c74"
+    }
+  ],
+  "verification": {
+    "source_hash_binding": true,
+    "theta_complete_matches_last_saved_training_record": true,
+    "saved_training_rows": 42,
+    "selected_final_outputQ_rows": 288,
+    "CSV_and_JSON_reopen_pending": false,
+    "CSV_and_JSON_reopen_passed": true
+  }
+}

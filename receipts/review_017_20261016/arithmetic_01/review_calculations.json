@@ -1,0 +1,68 @@
+{
+  "scope": "Derived arithmetic and synthetic counterexamples only; no NN forward, no private data, no retraining.",
+  "commit": "45a8a15f2a3ac899e14e9fb2db6521ccdd55b2e3",
+  "support": {
+    "original_parents": 435,
+    "minimum_required": 414,
+    "teacher_count": {
+      "fast": 407,
+      "slow": 407,
+      "common_level": 408
+    },
+    "student_count": {
+      "fast": 404,
+      "slow": 405,
+      "common_level": 405
+    },
+    "common_count": {
+      "fast": 402,
+      "slow": 403,
+      "common_level": 404
+    },
+    "teacher_fraction": {
+      "fast": 0.9356321839080459,
+      "slow": 0.9356321839080459,
+      "common_level": 0.9379310344827586
+    },
+    "common_fraction": {
+      "fast": 0.9241379310344827,
+      "slow": 0.9264367816091954,
+      "common_level": 0.9287356321839081
+    },
+    "teacher_support_ceiling_fails": true
+  },
+  "effect_sizes": {
+    "M0_wave": 0.15012505860962605,
+    "Q1_wave": 0.15011008209012994,
+    "absolute_improvement": 1.4976519496112672e-05,
+    "relative_improvement_percent": 0.009976029075236861,
+    "Q1_over_A_improvement_percent": 2.7338932387733537,
+    "real_fit_a_seed_ratio": 3.6584089389767183,
+    "real_fit_b_seed_ratio": 1.5352722687559022
+  },
+  "approximate_units_from_rounded_D_over_T": {
+    "adc_LSB_uV": 61.038881767686014,
+    "baseline_T_uV": 0.4506386193005153,
+    "baseline_distance_uV_approx": 14.991575203717963,
+    "baseline_distance_LSB_approx": 0.2456069765625114,
+    "peak_distance_mV_approx": 36.794080414673374,
+    "rise_distance_software_ns_approx": 1.5657931490921233,
+    "FWHM_distance_software_ns_approx": 2.4621114618068765
+  },
+  "synthetic_censoring": {
+    "waveform": "positive Gaussian centered at sample16, sigma10 samples",
+    "t10_defined_in_window": false,
+    "t90_in_window": 11.430904408753262,
+    "t10_exact_on_extended_domain": -5.459660262893472,
+    "true_rise_on_extended_domain": 16.869224212629263,
+    "prepeak_censored": true,
+    "interpretation": "Missing 10% crossing is not itself an invalid waveform; it is a coarsened observation."
+  },
+  "common_DC_preADC_invariance_absmax_V": 2.7755575615628914e-17,
+  "caveats": [
+    "D/T-derived values above are distribution distances, not necessarily signed mean biases.",
+    "Sub-LSB population differences can be statistically meaningful. Quantization is not a hard lower bound on estimating averages.",
+    "ADC phase, clipping, time-varying drift and prefix-only changes do not share exact common-DC invariance.",
+    "A single finite synthetic check is not a scientific evaluation of N01."
+  ]
+}

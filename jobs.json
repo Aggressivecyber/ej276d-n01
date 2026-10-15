@@ -1,6 +1,6 @@
 {
   "experiment_id": "N01",
-  "updated_UTC": "2026-10-15T18:44:44.321820+00:00",
+  "updated_UTC": "2026-10-15T19:18:17.487235+00:00",
   "active_scientific_jobs": 0,
   "jobs": [
     {
@@ -6994,6 +6994,68 @@
         "bytes": 3424,
         "sha256": "351f583c555e06acc181986fd05f6f8c2c77e8ad1809054116b0234e2733425d"
       }
+    },
+    {
+      "schema": "n01/wp4-018-saved-evaluation-job/v1",
+      "job_id": "N01_WP4_018_SAVED_CENSOR_EVALUATION_20261016",
+      "run_id": "wp4_018_20261016",
+      "registered_UTC": "2026-10-15T19:40:02.745618+00:00",
+      "status": "frozen_ready_for_native_execution",
+      "scientific_job": true,
+      "active": false,
+      "remote_root": "/home/rylan/projects/ej276d-n01/wp4_018_20261016",
+      "saved_source_run": "wp4_017_20261015",
+      "configuration": "wp4_018_config.json",
+      "contract": "docs/WP4_018_CONFIGURATION.md",
+      "scientific_budget": {
+        "G_updates": 0,
+        "new_AD_queries": 0,
+        "NN_forward_rows": 0,
+        "new_RNG_requests": 0,
+        "checkpoint_loads": 0,
+        "SOURCE_numeric_reads": 0,
+        "REAL_numeric_reads": 0,
+        "DEV_numeric_reads": 0
+      },
+      "distance_budget": {
+        "fullwave257_ordered_pair_distances": 303805440,
+        "O19_ordered_pair_distances": 870908928,
+        "fullwave_dimension": 257,
+        "observable_dimension": 19,
+        "new_private_hard256_rows_decoded": 5063424,
+        "new_model_hard_observation_calls": 0,
+        "new_scientific_training": 0
+      },
+      "resource_caps": {
+        "CPU_threads": 12,
+        "address_space_GiB": 6,
+        "wall_seconds": 7200,
+        "CPU_seconds_soft": 21590,
+        "CPU_seconds_hard": 21600,
+        "output_MiB": 1536,
+        "selected_collection_MiB": 128,
+        "scientific_jobs": 1,
+        "automatic_restart": false
+      },
+      "G_updates": 0,
+      "new_AD_queries": 0,
+      "training_retry_allowed": false,
+      "stage2_training_authorized": false,
+      "source_inputs": {
+        "manifest": "WP4_018_SAVED_INPUTS.json",
+        "sha256": "a7bfd9e522b47332afc11bbc276954c6f85036b18a834d17e2e91ef0bac89f2a",
+        "files": 75,
+        "arrays": 68,
+        "compressed_bytes": 3364811496
+      },
+      "authority": "receipts/review_017_20261016/ACCEPTED_NEXT_ACTIONS.json",
+      "project_completed_G_before": 183667,
+      "old017_relabel_allowed": false,
+      "qualification": "new018 contract only; 2544 required primary cells; any pending/fail closes T1 paired qualification",
+      "native_started": false,
+      "configuration_sha256": "3eb6d180e63a7cbd4560da5cb4b2e99e10054ff5504aef1b96212c58cc8acc8a",
+      "freeze_receipt": "receipts/wp4_018_20261016/runtime_package_01/FREEZE_RECEIPT.json",
+      "independent_source_review": "receipts/wp4_018_20261016/independent_01/FINAL_SOURCE_REVIEW.json"
     }
   ],
   "user_requested_pause": false,
@@ -7059,5 +7121,14 @@
     "bytes": 83119,
     "sha256": "b24f3bb1e5644fc8db29b2db1b3b82b05a8793248b7c99af81b23fb4dc3d1e24"
   },
-  "status": "no_active_scientific_job_WP4_stage1_support_pending_reviewed"
+  "status": "WP4_018_censor_aware_evaluation_preparation",
+  "current_action": "Implement and review prospective018 censor-aware observable-time scoring, then bounded saved017-array numerical replay; preserve017 pending and closed stage2. In parallel read existing015 mean-adapter diagnostics only. No new training in this phase.",
+  "next_action": "Implement and review prospective018 censor-aware observable-time scoring, then bounded saved017-array numerical replay; preserve017 pending and closed stage2. In parallel read existing015 mean-adapter diagnostics only. No new training in this phase.",
+  "latest_user_review_direction": {
+    "path": "receipts/review_017_20261016/ACCEPTED_NEXT_ACTIONS.json",
+    "bytes": 3271,
+    "sha256": "8c1fe73b73b7376a3299e6c43f8493a41f2cd45a5e1a2d33a82c961ab22642c2"
+  },
+  "pending_run_id": "wp4_018_20261016",
+  "latest_run_id": "wp4_018_20261016"
 }

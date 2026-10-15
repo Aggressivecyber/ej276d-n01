@@ -1,0 +1,40 @@
+{
+  "schema": "n01/wp4-018-local-check-environment/v1",
+  "python_executable": "C:\\Users\\10629\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+  "python_version": "3.13.3; MSC v.1943 64 bit AMD64",
+  "numpy_version": "2.2.6",
+  "first_two_artificial_attempts": {
+    "status": "NOT_COMPLETED_TERMINATED",
+    "owned_python_processes": [
+      {"PID": 53516, "local_start": "2026-10-16 03:33:22", "CPU_seconds_at_inspection": 0.421875},
+      {"PID": 17532, "local_start": "2026-10-16 03:36:02", "CPU_seconds_at_inspection": 0.375}
+    ],
+    "cause_from_20second_faulthandler": [
+      "check_semantics018.py first np.testing.assert_array_equal",
+      "numpy/testing/_private/utils.py line92 imports platform.machine",
+      "Python313/Lib/platform.py machine -> uname -> win32_ver -> _win32_ver -> _wmi_query line330",
+      "Windows WMI query remained blocked; this was not numerical work"
+    ],
+    "native_exit_after_owned_termination": [1, 1],
+    "diagnostic_GetCimInstance_session_cancelled_exit": 1,
+    "counted_as_pass": false,
+    "global_environment_or_WMI_service_modified": false
+  },
+  "execution_fix": "The artificial test uses direct numpy.array_equal/allclose assertions, avoiding the np.testing Windows machine-identification import. No scientific code, scale, threshold or RNG changed for this fix.",
+  "intermediate_artificial_pass": {
+    "native_exit": 0,
+    "elapsed_seconds": 1.3624943,
+    "receipt": "SEMANTIC_CHECK_before_toy_FWHM_unit_fix.json",
+    "not_final_evidence": "Independent review then required the feature-space FWHM channel to use the already-frozen FWHM/T units. The scientific driver already used these units."
+  },
+  "final_artificial_check": {
+    "native_exit": 0,
+    "elapsed_seconds": 1.1954871,
+    "receipt": "SEMANTIC_CHECK.json",
+    "status": "PASS",
+    "four_predeclared_controls_detected": true,
+    "private_array_reads": 0,
+    "NN_AD_G_CP_SOURCE_REAL_DEV_new_RNG": 0,
+    "old_full_engineering_suite_rerun": false
+  }
+}

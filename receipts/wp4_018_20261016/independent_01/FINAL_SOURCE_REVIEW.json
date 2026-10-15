@@ -1,0 +1,156 @@
+{
+  "schema": "n01/wp4-018-independent-source-review/v1",
+  "reviewed_UTC": "2026-10-15T19:40:54Z",
+  "reviewer": "wp4_018_independent_review",
+  "status": "no_blockers",
+  "blockers": [],
+  "root_may_freeze": true,
+  "scope": "Prospective zero-generation saved-array evaluator, exact primary signatures, necessary artificial examples, and minimal native supervisor/deployment recipe review before private replay.",
+  "reviewed_files": {
+    "src/n01/stats018.py": {"bytes": 12775, "sha256": "7a5e31ef5c8c7074a2cd826849c76ebbf485168f5cecc0d64e16fba343767cc8"},
+    "scripts/run_wp4_018.py": {"bytes": 28128, "sha256": "4903798a66adef3e664103d94b604191c8180e9ca6d52cd56088da9e7259a0bb"},
+    "src/n01/stats017.py": {"bytes": 21447, "sha256": "9dc33275b66257397e2382cd2989f74701026a897e847af76fa459c72859dd0a"},
+    "src/n01/saved_array_kernels017.py": {"bytes": 3691, "sha256": "fe1366f35f36e97974f1a4037a36ad858c03dd8453957c1b45b65080f0fee3ac"},
+    "scripts/run_wp4_017.py": {"bytes": 63149, "sha256": "34e8604b7be53359f8b50ffc4de882845d561f49190063931614e25ec6bc5e62"},
+    "scripts/wp1_ops.py": {"bytes": 12872, "sha256": "f8ddbbdb2f2f6df033e964f27bf03dcbda07055cc7378775591ef69b9caf85b5"},
+    "docs/WP4_018_CONFIGURATION.md": {"bytes": 10869, "sha256": "f10340e28dd943a1e00d2b5969ae63321017e14f8d88c037e916d82d7b988176"},
+    "wp4_018_config.json": {"bytes": 3507, "sha256": "0f82b00050dd03ebedff6357e771ae621f16b477c2a213edc48f871ba9a876e5"},
+    "WP4_018_SAVED_INPUTS.json": {"bytes": 14570, "sha256": "a7bfd9e522b47332afc11bbc276954c6f85036b18a834d17e2e91ef0bac89f2a"},
+    "receipts/wp4_018_20261016/engineering_01/check_semantics018.py": {"bytes": 8845, "sha256": "4a4cd59d02ed1564c0f25d213b763d9d3835932bcb3f7458b3380da65a03cc46"},
+    "receipts/wp4_018_20261016/engineering_01/SEMANTIC_CHECK.json": {"bytes": 3759, "sha256": "4fe1e5303408f8486ae877e29b5dff374cfb4612ba77ea7e88d262b5d6e4b77b"},
+    "receipts/wp4_018_20261016/execution_01/REMOTE_SUPERVISOR.py": {"bytes": 6147, "sha256": "f02132a68b738fdfb83dd9673dcb6f2c2fb3ea6c01ef5d6c5055da176f79dd1c"},
+    "receipts/wp4_018_20261016/execution_01/DEPLOY_LAUNCH.md": {"bytes": 6561, "sha256": "33627c0dab3f6791815954e66720cc010c8831b5f5522031c11bafe4f46bae4c"}
+  },
+  "permitted_freeze_metadata_changes": {
+    "configuration_status": "draft -> frozen",
+    "configuration_source_files": "Fill exactly the six reviewed runtime source files with actual remote paths, bytes, and the reviewed SHA256 values.",
+    "scientific_values_must_remain_equal_to_reviewed_draft": true,
+    "data_whitelist_must_remain_equal_to_reviewed_manifest": true,
+    "new_approval_layer_added": false
+  },
+  "source_findings": {
+    "all_original_parents": 6593,
+    "fit_parents": 5274,
+    "heldout_parents": 1319,
+    "original_banks": 2,
+    "draws_per_bank": 32,
+    "noise_hypotheses": 3,
+    "all_parent_arrays_and_original_weights_preserved": true,
+    "fixed_input_Q_groups_and_nominal_low_high_comparison_weights_preserved": true,
+    "exact_nearest_crossings_match017": true,
+    "state_partition_exhaustive": true,
+    "explicit_defined_masks_and_no_imputed_time": true,
+    "lower_bound_only_when_left10_missing_left_endpoint_above_threshold_and_left90_visible": true,
+    "lower_bound_conditional_on_unseen_left10_existence": true,
+    "cov8_preserves_old_support_and_MC_rules": true,
+    "original_95percent_support_rule_lowered": false,
+    "full_observable_joint_state_time_Q_peak_FWHM_score_present": true,
+    "new_thresholds_fixed_before_private_student_scores": true,
+    "energy_self_U_denominator_and_finite_negative_values_preserved": true,
+    "independent_teacher_native32_null_required_at_runtime": true,
+    "legacy_fullwave257_energy_recomputed_from_decoded_hard256": true,
+    "all_nine_scalars_native32_moments_derived64_moments_and_PIT_recomputed": true,
+    "producer_REPORT_and_PARENT_COMPARISON_used_only_for_checks": true,
+    "legacy_primary_cells_expected": 2688,
+    "new_primary_cells_expected": 2544,
+    "missing_or_duplicate_primary_signatures_rejected": true,
+    "legacy_all_cell_fields_and_all_parent_energy_vectors_checked": true,
+    "legacy_statistics_reuse_explicitly_declared": true,
+    "independent_full_statistical_reimplementation_claimed": false,
+    "pure_numerical_driver_entry_avoids_n01_init_model_imports": true,
+    "declared_saved_hard_rows_to_decode": 5063424,
+    "new_hard_observation_operations": 0,
+    "fullwave257_ordered_distance_budget": 303805440,
+    "O19_ordered_distance_budget": 870908928
+  },
+  "closed_findings": [
+    {
+      "finding": "Unassessable fixed-censor Q/time covariance was initialized to zero.",
+      "resolution": "NaN initialization plus eligible_slots_per_parent, covariance_defined, and evaluable/inelegible counts; no added scientific gate.",
+      "verified": true
+    },
+    {
+      "finding": "Feature-space toy FWHM column initially omitted division by its frozen scale.",
+      "resolution": "Final toy divides by scales['FWHM_ns'] and checks consistency with right50-left50; fixed effects and scientific thresholds unchanged.",
+      "verified": true
+    }
+  ],
+  "independent_artificial_execution": {
+    "script": "receipts/wp4_018_20261016/independent_01/check_module_semantics.py",
+    "script_sha256": "bafc2c9ae50839ac668a544985c1c988ffbc26455d6004876ee8c5d9f73cdbc3",
+    "receipt": "receipts/wp4_018_20261016/independent_01/INDEPENDENT_MODULE_SEMANTICS.json",
+    "receipt_sha256": "49bccd7e65e8670cbe722ec44ea2c58a17985e3b79dddf603c848515b021c122",
+    "native_exit": 0,
+    "status": "pass",
+    "checks": [
+      "Nine fixed waveform rows: all old morphology fields exactly match; legal lower bound and peak-relative t90 distinguished; masks preserve undefined values.",
+      "Same-array U equals -self_U/m, empirical V identity is zero, and deterministic shift distance is correct.",
+      "Five prospective observable-cell pass/fail/pending branches preserve teacher-null priority.",
+      "With all rise absent, cov8 retains 64/64 parents and passes while original cov9 remains 0/64 pending.",
+      "Independent exact signature construction gives 1272 cells/trial; any pending closes qualification; omission and equal-length duplicate replacement are rejected."
+    ],
+    "startup_note": "An initial direct-package import followed n01/__init__ toward torch and was interrupted before model construction or forward. The successful numerical-only test isolates the n01 package path. No NN/AD/G/CP operation occurred."
+  },
+  "engineering_control_receipt_review": {
+    "independently_rerun_after_final_unit_fix": false,
+    "final_script_and_receipt_reviewed_and_SHA_matched": true,
+    "feature_space_artificial_only": true,
+    "identity_U": -0.2567266708751994,
+    "controls": {
+      "censor_rate_plus025": 0.9192500101353005,
+      "censored_Q_visible_time_coupling": 1.2388455011572574,
+      "measurable_rise_plus4ns": 1.1431018560232928,
+      "state_Q_dependence": 1.2242670437454706
+    },
+    "all_controls_D_and_increase_above010": true,
+    "within_censored_Q_time_and_cross_state_Q_effects_distinguished": true,
+    "real_independent_teacher_null_established_by_toys": false
+  },
+  "ops_review": {
+    "scope": "Static review only; no Linux/SSH/native launch by reviewer.",
+    "status": "no_blockers",
+    "fixed_owned_paths_fresh_outputs_and_source_SHA_checks": true,
+    "same_nonblocking_project_flock_inherited_by_driver": true,
+    "single_direct_child_new_session_owned_process_group": true,
+    "exact_child_native_exit_signal_and_resource_receipts": true,
+    "timeout_TERM_KILL_only_owned_group_no_retry": true,
+    "twelve_CPU_affinity_and_thread_environment": true,
+    "process_exit_races_explicitly_recorded": true,
+    "deploy_recipe_structured_argv_and_remote_shlex_join": true,
+    "deploy_recipe_fresh_staging_exact_six_regular_source_members": true
+  },
+  "interpretation_limits": [
+    "The O19 score identifies the induced current-window observable distribution. Proper transformed energy does not identify complete rise outside the window.",
+    "The new delta=.10 and half-width=.05 are prospective score-unit choices. They are not the old 013 calibration or a hardware/time-error tolerance.",
+    "cov8 retains teacher64-derived standardization and a related two-bank empirical MC screen. Self-normalization and selection limit interpretation as an independent unbiased covariance-oracle test.",
+    "Parent HC1 intervals and native-bank resolution are fixed-library empirical screens. They do not include retraining, independent acquisition, or simultaneous-coverage uncertainty.",
+    "The four strong feature-space controls establish sensitivity at their declared effects. They do not establish arbitrary small-effect power. The saved-teacher Q permutation remains a diagnostic with its own support/effect report.",
+    "The experiment retains the fixed correct A/B/005 mechanisms and only concerns the old conditional charge task. It does not validate learning mean shape, shape covariance mechanisms, time response, or REAL/hardware response."
+  ],
+  "execution_not_yet_established": [
+    "Current remote hashes and schemas of all 75 saved inputs.",
+    "Actual 2688-cell saved-array numeric replay and runtime resource/native exit receipts.",
+    "Independent native32 teacher null, cov8 MC resolution, actual 2544-cell 018 qualification, and fixed-teacher permutation effects."
+  ],
+  "old017_preservation": {
+    "checked_source_model_controller_config_manifest_and_configuration_no_git_diff": true,
+    "old_pending_is_rewritten": false,
+    "old_records_are_outputs_of_this_review": false,
+    "runtime_will_verify_all_75_input_hashes_before_and_after": true
+  },
+  "reviewer_scientific_operations": {
+    "new_NN_forward_rows": 0,
+    "AD": 0,
+    "G": 0,
+    "new_RNG_requests": 0,
+    "checkpoint_decodes": 0,
+    "original_SOURCE_REAL_DEV_reads": 0,
+    "private_saved_array_decodes": 0,
+    "SSH": 0,
+    "old_full_engineering_suite_runs": 0
+  },
+  "full_saved_array_replay_completed": false,
+  "T1_paired_018_qualified": null,
+  "stage2_training_authorized": false,
+  "scientific_acceptance": false
+}

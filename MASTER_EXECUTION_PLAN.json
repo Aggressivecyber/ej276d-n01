@@ -10,7 +10,7 @@
   },
   "objective": "Deliver a usable and verifiable conditional effective stochastic response kernel with explicit data and physical scope; assess engineering, in-domain effectiveness and cross-condition reuse separately.",
   "mainline": "protected deterministic A plus input-dependent stochastic response, fixed256 hard output/384 carrier/100 baseline/1ns software sampling; originalfull19k retained as negative control",
-  "status": "WP4_017_closed_support_pending_saved_array_reviewed",
+  "status": "WP4_018_censor_aware_evaluation_preparation",
   "active_work_package": "WP4",
   "active_scientific_jobs": 0,
   "work_packages": [
@@ -3684,12 +3684,13 @@
     },
     "teacher_runs": {
       "maximum": 8,
-      "completed": 0,
+      "completed": 2,
       "teachers": 2,
       "training_modes": 2,
       "seeds": 2,
       "G_steps_per_run_maximum": 2000,
-      "budget_separate_from_short_candidates": true
+      "budget_separate_from_short_candidates": true,
+      "completed_scope": "Two017 T1 paired native trials; scientific017 stage1 remains support-pending."
     },
     "final_confirmation": {
       "outer_grouped_folds": 3,
@@ -4348,8 +4349,8 @@
     "root_planning_SolMax_implementation_and_review": true,
     "scientific_success_not_guaranteed_by_state_fields": true
   },
-  "current_action": "Keep the fixed256-point hard observation; define a prospective joint representation and score for prepeak-censored rise before a future protocol. Do not reopen017 or start real long training.",
-  "updated_UTC": "2026-10-15T18:44:44.321820+00:00",
+  "current_action": "Implement and review prospective018 censor-aware observable-time scoring, then bounded saved017-array numerical replay; preserve017 pending and closed stage2. In parallel read existing015 mean-adapter diagnostics only. No new training in this phase.",
+  "updated_UTC": "2026-10-15T19:18:17.487235+00:00",
   "followup": {
     "path": "receipts/wp4_017_20261015/wake_20261016_0223_01/AUTOMATION_PAUSE_RECEIPT.json",
     "bytes": 251,
@@ -4642,9 +4643,9 @@
     "independent_saved_array_scope": "36pairs/176NPZ/1898784hard_rows; not complete loss replay"
   },
   "current_work_package": "WP4",
-  "current_stage": "WP4_017_closed_primary_support_pending",
+  "current_stage": "WP4_018_prospective_contract_and_saved_array_evaluator",
   "active_research": null,
-  "next_action": "Keep the fixed256-point hard observation; define a prospective joint representation and score for prepeak-censored rise before a future protocol. Do not reopen017 or start real long training.",
+  "next_action": "Implement and review prospective018 censor-aware observable-time scoring, then bounded saved017-array numerical replay; preserve017 pending and closed stage2. In parallel read existing015 mean-adapter diagnostics only. No new training in this phase.",
   "last_verified_UTC": "2026-10-15T18:24:20.021059+00:00",
   "wp2_collection": {
     "path": "receipts\\wp2_014_20261015\\collection_01\\COLLECTION_RECEIPT.json",
@@ -4847,9 +4848,9 @@
     "scientific_status": "response_match_not_established",
     "source_commit": "dfddb7a2eef45b4e7f4253fcb89ef2ec3b608b4a"
   },
-  "latest_run_id": "wp3_016_20261015",
+  "latest_run_id": "wp4_018_20261016",
   "current_run_training_updates": 0,
-  "latest_training_run_id": "wp3_016_20261015",
+  "latest_training_run_id": "wp4_017_20261015",
   "followup_automation_id": "n01",
   "followup_automation_status": "PAUSED",
   "followup_next_run_local": null,
@@ -5783,7 +5784,7 @@
       "scientific_acceptance": false
     }
   },
-  "pending_run_id": null,
+  "pending_run_id": "wp4_018_20261016",
   "wp3_016_execution": {
     "configuration": "wp3_016_config.json",
     "configuration_sha256": "5279597aed74feae87448bfc71aa1387bd711609591eabde775142fa6d1303ab",
@@ -8143,5 +8144,19 @@
     "path": "reports/wp4_017_20261015/REPORT.md",
     "bytes": 6413,
     "sha256": "ec6fc5ce3a2ce1be0e024f8a82794670f19e29eff6ebb4db3083bba1e013c7cb"
+  },
+  "latest_user_review_direction": {
+    "path": "receipts/review_017_20261016/ACCEPTED_NEXT_ACTIONS.json",
+    "bytes": 3271,
+    "sha256": "8c1fe73b73b7376a3299e6c43f8493a41f2cd45a5e1a2d33a82c961ab22642c2"
+  },
+  "wp4_018_execution": {
+    "status": "registered_awaiting_final_source_review_and_freeze",
+    "registration": "receipts/wp4_018_20261016/registration_01/JOB_REGISTRATION.json",
+    "new_G": 0,
+    "new_AD": 0,
+    "new_NN": 0,
+    "new_RNG": 0,
+    "cumulative_G_lower_bound": 183667
   }
 }

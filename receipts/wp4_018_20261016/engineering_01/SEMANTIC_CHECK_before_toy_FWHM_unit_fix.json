@@ -1,0 +1,92 @@
+{
+  "schema": "n01/wp4-018-semantic-check/v1",
+  "status": "PASS",
+  "scope": "9 fixed artificial hard256 rows and four fixed feature-space distribution controls only",
+  "private_arrays_read": 0,
+  "SOURCE_REAL_DEV_CP_reads": 0,
+  "NN_AD_G_new_RNG": 0,
+  "old_full_engineering_suite_rerun": false,
+  "pure_NumPy_import_no_torch": true,
+  "vectorized_crossings_old_definition_all_fields_exact": true,
+  "boundary_rows": 9,
+  "conditional_bound_does_not_assert_unseen_crossing_exists": true,
+  "cov8_pass_with_all_rise_missing_and_original_denominator": true,
+  "same_array_U_analytic_negative_verified": true,
+  "identity_U": -0.23949916534264126,
+  "controls": [
+    {
+      "name": "censor_rate_plus025",
+      "effect": {
+        "censor_rate_before": 0.5,
+        "censor_rate_after": 0.75,
+        "rate_difference": 0.25
+      },
+      "D_U": 0.9376902870918435,
+      "D_U_increase_from_identity": 1.1771894524344848,
+      "detected": true,
+      "independent_teacher_precision_test": false,
+      "feature_space_artificial_only": true
+    },
+    {
+      "name": "censored_Q_visible_time_coupling",
+      "effect": {
+        "Q_separation_in_T_units": 20.0,
+        "t90_separation_ns": 8.0,
+        "censored_Q_t90_covariance_before": 40.0,
+        "censored_Q_t90_covariance_after": -40.0,
+        "overall_Q_marginal_exact": true,
+        "censored_Q_marginal_exact": true,
+        "state_marginal_exact": true,
+        "measurable_rows_exact": true,
+        "state_Q_dependence_unchanged": true,
+        "tested": "Q and visible time within the censored state"
+      },
+      "D_U": 1.0579776518107806,
+      "D_U_increase_from_identity": 1.297476817153422,
+      "detected": true,
+      "independent_teacher_precision_test": false,
+      "feature_space_artificial_only": true
+    },
+    {
+      "name": "measurable_rise_plus4ns",
+      "effect": {
+        "measurable_rise_shift_ns": 4.0,
+        "left10_shift_ns": -4.0,
+        "crossing_identity_preserved": true,
+        "state_Q_peak_FWHM_unchanged": true
+      },
+      "D_U": 1.1594150542488642,
+      "D_U_increase_from_identity": 1.3989142195915054,
+      "detected": true,
+      "independent_teacher_precision_test": false,
+      "feature_space_artificial_only": true
+    },
+    {
+      "name": "state_Q_dependence",
+      "effect": {
+        "overall_Q_marginal_exact": true,
+        "state_marginal_exact": true,
+        "measurable_Q_mean_before": 2.0,
+        "measurable_Q_mean_after": 12.0,
+        "censored_Q_mean_before": 12.0,
+        "censored_Q_mean_after": 2.0,
+        "tested": "state and Q dependence at fixed marginals"
+      },
+      "D_U": 1.2328636106542064,
+      "D_U_increase_from_identity": 1.4723627759968476,
+      "detected": true,
+      "independent_teacher_precision_test": false,
+      "feature_space_artificial_only": true
+    }
+  ],
+  "artificial_ordered_distance_counts": {
+    "19": 5242880
+  },
+  "source_files": {
+    "src/n01/stats018.py": "7a5e31ef5c8c7074a2cd826849c76ebbf485168f5cecc0d64e16fba343767cc8",
+    "scripts/run_wp4_018.py": "4903798a66adef3e664103d94b604191c8180e9ca6d52cd56088da9e7259a0bb",
+    "wp4_018_config.json": "0f82b00050dd03ebedff6357e771ae621f16b477c2a213edc48f871ba9a876e5",
+    "WP4_018_SAVED_INPUTS.json": "a7bfd9e522b47332afc11bbc276954c6f85036b18a834d17e2e91ef0bac89f2a",
+    "docs/WP4_018_CONFIGURATION.md": "895acb885b2b566cccdfc0a6449da574e7e1f979560eea8bf651b003d67c7e7b"
+  }
+}
