@@ -1,0 +1,313 @@
+{
+  "schema": "n01/wp3-016-frozen-package-independent-review/v1",
+  "UTC": "2026-10-15T06:56:17.799507+00:00",
+  "run_id": "wp3_016_20261015",
+  "status": "PASS_FROZEN_BINDING",
+  "passed": true,
+  "blockers": [],
+  "reviewer": {
+    "agent": "/root/wp3_015_solmax_review",
+    "assigned_model": "GPT-6.1-Sol",
+    "assigned_effort": "Max",
+    "runtime_model_metadata_independently_exposed": false
+  },
+  "sources": {
+    "scripts/wp3_016_controller.py": {
+      "path": "scripts/wp3_016_controller.py",
+      "bytes": 26760,
+      "sha256": "f1d5eceadb145d6a921c41055dd7a7e4d9fb05c36a150e99689e50e21358d02a"
+    },
+    "scripts/run_wp3_016.py": {
+      "path": "scripts/run_wp3_016.py",
+      "bytes": 37310,
+      "sha256": "4729208d66c61c3b082827535719e72d8d7bb2ee60f390b688111ae3b4f12972"
+    },
+    "src/n01/model016.py": {
+      "path": "src/n01/model016.py",
+      "bytes": 9226,
+      "sha256": "04c63f91ea5405937a940a9aee6eaed876db79149c857bfbe6ed8cfe6dcb138b"
+    }
+  },
+  "configSHA": "20884dc1a3916c2ac23820fa1ff7c47da21861a465a3f08fa5988cb71220281d",
+  "config_sha256": "20884dc1a3916c2ac23820fa1ff7c47da21861a465a3f08fa5988cb71220281d",
+  "source_manifest_sha256": "9151ca1a9503cde85786c0623effe431e10fa706ec5b92895bc448714ed93789",
+  "source_package_sha256": "9d054aeb744cf35c0f50080ddebc0397574a66ac404dd2f68a5d4e9221cf6fb9",
+  "config": {
+    "path": "wp3_016_config.json",
+    "bytes": 208380,
+    "sha256": "20884dc1a3916c2ac23820fa1ff7c47da21861a465a3f08fa5988cb71220281d"
+  },
+  "manifest": {
+    "path": "WP3_016_SOURCE_MANIFEST.json",
+    "bytes": 19460,
+    "sha256": "9151ca1a9503cde85786c0623effe431e10fa706ec5b92895bc448714ed93789"
+  },
+  "package": {
+    "path": "receipts/wp3_016_20261015/runtime_package_01/wp3_016_source.tar.gz",
+    "bytes": 761934,
+    "sha256": "9d054aeb744cf35c0f50080ddebc0397574a66ac404dd2f68a5d4e9221cf6fb9"
+  },
+  "budget_caps": {
+    "calibration_A_rows": 6593,
+    "old_A_rows": 4313569,
+    "head_actual_parameter_forward_rows": 4306976,
+    "head_total_kernel_rows": 4306976,
+    "noise005_rows": 4306976,
+    "charge_module_rows": 4306976,
+    "charge_latent_scalar_draws": 4306976,
+    "charge_initialization_fits": 1,
+    "hard_ADC_rows": 13553856,
+    "all_path_gather_rows": 13553856,
+    "checkpoint_loads": 4,
+    "optimizer_created": 2,
+    "optimizer_steps": 4000,
+    "G_updates": 4000,
+    "training_backward_queries": 4000,
+    "new_AD_queries": 4000,
+    "probe_AD_queries": 0,
+    "integral_statistics_fits": 0,
+    "mean_adapter_rows": 0,
+    "D_updates": 0,
+    "noise_updates": 0,
+    "population_updates": 0,
+    "C2ST_updates": 0,
+    "DEV_model_rows": 0
+  },
+  "checks": {
+    "canonical_controls_match_frozen_package_exact_bytes": true,
+    "all115_source_files_SHA_and_bytes_match": true,
+    "all117_archive_members_regular_safe_public_source_only": true,
+    "exact_reviewed_three_sources_unchanged": true,
+    "original105_sources_preserved": true,
+    "original015_107_protections_exact": true,
+    "total475_protections_preserve_inherited_records": true,
+    "original9_inputs_unchanged_and_two015_M0_final_inputs_bound": true,
+    "input_explicit_local_E_D_size_verified": 11,
+    "root_local_SHA_verified_input_receipt_bound": 11,
+    "all12_contracts_local_SHA_and_package_bound": true,
+    "config_budget_and_selection_match_approved_design": true,
+    "latest_SolMax_policy_in_package": true
+  },
+  "input_bindings": {
+    "dataset": {
+      "path": "/home/rylan/projects/ej276d-n01/window008_resume01_20261013/data/window008/DATASET008.npz",
+      "sha256": "8d43418595f4fa992a9b83735c4bf50863a659584d58888f8f965ec1339a1993",
+      "local_path": "E:\\GAN\\research\\N01\\data\\window008\\DATASET008.npz",
+      "bytes": 66440265,
+      "binding_verified": true,
+      "payload_SHA_rehashed_this_review": false
+    },
+    "statistics": {
+      "path": "/home/rylan/projects/ej276d-n01/window008_resume01_20261013/data/window008/FIT_STATISTICS008.json",
+      "sha256": "aadd729364d0b6afac699a9d1774ac8d29fd2bcd10a9fd9f551141ecc2fbc2a0",
+      "local_path": "E:\\GAN\\research\\N01\\data\\window008\\FIT_STATISTICS008.json",
+      "bytes": 104199,
+      "binding_verified": true,
+      "payload_SHA_rehashed_this_review": false
+    },
+    "data_statistics": {
+      "path": "/home/rylan/projects/ej276d-n01/window008_resume01_20261013/data/window008/FIT_DATA_STATISTICS.json",
+      "sha256": "e614c7b0a9861b468eb2c9e1bff5a80dadef901310539407141d1ff5c9241f3f",
+      "local_path": "E:\\GAN\\research\\N01\\data\\window008\\FIT_DATA_STATISTICS.json",
+      "bytes": 36311,
+      "binding_verified": true,
+      "payload_SHA_rehashed_this_review": false
+    },
+    "base_config": {
+      "path": "/home/rylan/projects/ej276d-n01/window008_resume01_20261013/window008_config.json",
+      "sha256": "f5500c65f2d17a2fe6964bfc5908dedb68c27b9391cb30bf30c0ba161509d145",
+      "local_path": "E:\\GAN\\research\\N01\\window008_config.json",
+      "bytes": 6448,
+      "binding_verified": true,
+      "payload_SHA_rehashed_this_review": false
+    },
+    "deterministic": {
+      "path": "/home/rylan/projects/ej276d-n01/window008_resume01_20261013/provenance/window008_fix01_reference/deterministic_final.pt",
+      "sha256": "2096523d53b62dbbc6b41d2788a8fba203af89c3cf753133bbbe81ab5c036849",
+      "local_path": "E:\\GAN\\research\\N01\\provenance\\window008_fix01_reference\\deterministic_final.pt",
+      "bytes": 21256763,
+      "binding_verified": true,
+      "payload_SHA_rehashed_this_review": false
+    },
+    "noise005": {
+      "path": "/home/rylan/projects/ej276d-n01/window008_resume01_20261013/provenance/integration006_reference/noise005.pt",
+      "sha256": "1e45d3369b85d2f5f635ad44dbeb5a730f6d86864cc3dc9163384fccd48bd417",
+      "local_path": "E:\\GAN\\research\\N01\\provenance\\integration006_reference\\noise005.pt",
+      "bytes": 1199865,
+      "binding_verified": true,
+      "payload_SHA_rehashed_this_review": false
+    },
+    "training_complete": {
+      "path": "/home/rylan/projects/ej276d-n01/window008_resume01_20261013/runs/science/TRAINING_COMPLETE.json",
+      "sha256": "e2df0f2287cfdaf26e3d6314db6156456ae085582d09ba86e96b38a990b3f63f",
+      "local_path": "E:\\GAN\\research\\N01\\runs\\window008_resume01_20261013\\runs\\science\\TRAINING_COMPLETE.json",
+      "bytes": 13868,
+      "binding_verified": true,
+      "payload_SHA_rehashed_this_review": false
+    },
+    "source_information": {
+      "path": "/home/rylan/projects/ej276d-n01/wp1_013_repeat_fix01_20261015/runs/primary/information/PARENT_INFORMATION.npz",
+      "local_path": "E:\\GAN\\research\\N01\\runs\\wp1_013_20261015\\runtime_fix01_collected_03\\runs\\primary\\information\\PARENT_INFORMATION.npz",
+      "sha256": "fdc020474cad666d940ce49d1b033cd5eb728f9c7355d9a4f5a9b8a3bc8dec8c",
+      "bytes": 7765055,
+      "binding_verified": true,
+      "payload_SHA_rehashed_this_review": false
+    },
+    "integral_statistics": {
+      "path": "/home/rylan/projects/ej276d-n01/wp2_014_20261015/runs/primary/artifacts/INTEGRAL_TRAIN_STATISTICS.json",
+      "bytes": 1028,
+      "sha256": "5b8a20ddfc2475ab275966e715fedd549f94140be0d5c4703fe0717dad077f07",
+      "local_path": "E:\\GAN\\research\\N01\\runs\\wp2_014_20261015\\selected_collected_01\\runs\\primary\\artifacts\\INTEGRAL_TRAIN_STATISTICS.json",
+      "binding_verified": true,
+      "payload_SHA_rehashed_this_review": false
+    },
+    "M0_head_seed0": {
+      "path": "/home/rylan/projects/ej276d-n01/wp3_015_20261015/runs/primary/artifacts/seed0_M0/final.pt",
+      "bytes": 485683,
+      "sha256": "27ad34f2f7fa0c2c78f881b649ecd5ad664c91ff4bbe2bb08c109f3536f0915c",
+      "local_path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed0_M0\\final.pt",
+      "binding_verified": true,
+      "payload_SHA_rehashed_this_review": false
+    },
+    "M0_head_seed1": {
+      "path": "/home/rylan/projects/ej276d-n01/wp3_015_20261015/runs/primary/artifacts/seed1_M0/final.pt",
+      "bytes": 485683,
+      "sha256": "8a14a66b54bf5065da062a8a4070c162a401adc2c13d5ddbc679fd36023144de",
+      "local_path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed1_M0\\final.pt",
+      "binding_verified": true,
+      "payload_SHA_rehashed_this_review": false
+    }
+  },
+  "contracts": {
+    "observation": {
+      "path": "/home/rylan/projects/ej276d-n01/wp3_016_20261015/OBSERVATION_CONTRACT.json",
+      "local_path": "E:\\GAN\\research\\N01\\OBSERVATION_CONTRACT.json",
+      "sha256": "c894abe80d7d9a31e4ffe670484123dd1eea5ee75dad7742e52d304e23054c6c",
+      "bytes": 2304
+    },
+    "data_roles": {
+      "path": "/home/rylan/projects/ej276d-n01/wp3_016_20261015/WP3_016_DATA_ROLES.json",
+      "local_path": "E:\\GAN\\research\\N01\\WP3_016_DATA_ROLES.json",
+      "sha256": "3f8fe4ca99d482800f579f3403659ac1d026727c11d2cb76d718cd0b8dfde00b",
+      "bytes": 2830
+    },
+    "acceptance": {
+      "path": "/home/rylan/projects/ej276d-n01/wp3_016_20261015/docs/WP3_016_CONFIGURATION.md",
+      "local_path": "E:\\GAN\\research\\N01\\docs\\WP3_016_CONFIGURATION.md",
+      "sha256": "813ebabe3f4678039a09c18123d5d84c692d40a2cbb0ae654cd1bbae085154b8",
+      "bytes": 4841
+    },
+    "configuration": {
+      "path": "/home/rylan/projects/ej276d-n01/wp3_016_20261015/docs/WP3_016_CONFIGURATION.md",
+      "local_path": "E:\\GAN\\research\\N01\\docs\\WP3_016_CONFIGURATION.md",
+      "sha256": "813ebabe3f4678039a09c18123d5d84c692d40a2cbb0ae654cd1bbae085154b8",
+      "bytes": 4841
+    },
+    "tolerance_table": {
+      "path": "/home/rylan/projects/ej276d-n01/wp3_016_20261015/CALIBRATED_TOLERANCES_WP1_013.json",
+      "local_path": "E:\\GAN\\research\\N01\\CALIBRATED_TOLERANCES_WP1_013.json",
+      "sha256": "f33217e07b1872dfd51f56e86ed30cda665a705568f2f9ada937865d8a33607b",
+      "bytes": 8271
+    },
+    "stage_design": {
+      "path": "/home/rylan/projects/ej276d-n01/wp3_016_20261015/wp3_016_design.json",
+      "local_path": "E:\\GAN\\research\\N01\\wp3_016_design.json",
+      "sha256": "fab6afcff2ef06f65b44b0722483344d4f9e658013b8958c29ca5c2fd1f66425",
+      "bytes": 6798
+    },
+    "input_information_audit": {
+      "path": "/home/rylan/projects/ej276d-n01/wp3_016_20261015/INPUT_INFORMATION_AUDIT.json",
+      "local_path": "E:\\GAN\\research\\N01\\INPUT_INFORMATION_AUDIT.json",
+      "sha256": "6a72cbc0a3f2f23e9898e00f55c99698d73b36ffaaeb697a9f6b0affd52d8dab",
+      "bytes": 621048
+    },
+    "inherited_general_roles": {
+      "path": "/home/rylan/projects/ej276d-n01/wp3_016_20261015/DATA_ROLES.json",
+      "local_path": "E:\\GAN\\research\\N01\\DATA_ROLES.json",
+      "sha256": "bfc27c49a54293c86ff116965f3ce410468611b26266e0fe41112c81ae4bc0aa",
+      "bytes": 5008
+    },
+    "inherited_full_acceptance": {
+      "path": "/home/rylan/projects/ej276d-n01/wp3_016_20261015/docs/ACCEPTANCE_CONTRACT.md",
+      "local_path": "E:\\GAN\\research\\N01\\docs\\ACCEPTANCE_CONTRACT.md",
+      "sha256": "87f2d605dca67109a72356d44aa411a1aa1ac4d11a26c7f97aab30ae4460bc6c",
+      "bytes": 6909
+    },
+    "preceding015_result": {
+      "path": "/home/rylan/projects/ej276d-n01/wp3_016_20261015/receipts/wp3_015_20261015/FINAL_RESULT_RECEIPT.json",
+      "local_path": "E:\\GAN\\research\\N01\\receipts\\wp3_015_20261015\\FINAL_RESULT_RECEIPT.json",
+      "sha256": "49b4ef8f615bd021b91a69d95df18beec6e4a7b206fad597dc6e45aa8415b3dd",
+      "bytes": 5144
+    },
+    "preceding015_selection": {
+      "path": "/home/rylan/projects/ej276d-n01/wp3_016_20261015/receipts/wp3_015_20261015/postrun_independent_02/FINAL_DEVELOPMENT_SELECTION.json",
+      "local_path": "E:\\GAN\\research\\N01\\receipts\\wp3_015_20261015\\postrun_independent_02\\FINAL_DEVELOPMENT_SELECTION.json",
+      "sha256": "105fca8429d9814afefd414e238d9789ce8f0e1ca2bf6d3540b8a2da9c650f87",
+      "bytes": 129622
+    },
+    "agent_model_policy": {
+      "path": "/home/rylan/projects/ej276d-n01/wp3_016_20261015/receipts/wp3_015_20261015/postrun_root_02/AGENT_MODEL_POLICY_SOLMAX.json",
+      "local_path": "E:\\GAN\\research\\N01\\receipts\\wp3_015_20261015\\postrun_root_02\\AGENT_MODEL_POLICY_SOLMAX.json",
+      "sha256": "f61eb54ee326c7df51b945e62bfe54f1c368964c9433a87ec9592f925de1de2b",
+      "bytes": 813
+    }
+  },
+  "source_files": 115,
+  "archive_controls": 117,
+  "protected_source_records": 475,
+  "payload_review_boundary": "Thin binding uses the root's11-input local-SHA preparation/freeze evidence, unchanged original input identities, M0 collection inventory hashes and current local byte sizes. This reviewer did not re-read raw NPZ or checkpoint payloads; native immutable gate rechecks all bytes before any future numeric decode.",
+  "numeric_tests_repeated": false,
+  "native_scientific_execution_verified": false,
+  "source_config_manifest_package_or_design_mutated": false,
+  "evidence": [
+    {
+      "path": "receipts/wp3_016_20261015/CONTROL_PREPARATION_RECEIPT.json",
+      "bytes": 1703,
+      "sha256": "7ea04a2de5fc344f602932dc6c300c8dfe4caae0a84f97c4b2433cb198577626"
+    },
+    {
+      "path": "receipts/wp3_016_20261015/FROZEN_CONTROL_ADOPTION.json",
+      "bytes": 407,
+      "sha256": "1853106e79bfd089c7cf9be6187d18a6f6697127b4508de3b574e8d8a4989abb"
+    },
+    {
+      "path": "receipts/wp3_016_20261015/runtime_package_01/FREEZE_RECEIPT.json",
+      "bytes": 20201,
+      "sha256": "24a5c89974734ff21684fb647f3651482b864963e09e790fb768ca8c931ec62a"
+    },
+    {
+      "path": "receipts/wp3_016_20261015/independent_01/SOURCE_REVIEW.json",
+      "bytes": 14311,
+      "sha256": "4d286687cdd18e10515363c57837cf58233b8f12abbb1f1bc89c3b5af861ee7d"
+    },
+    {
+      "path": "receipts/wp3_016_20261015/independent_01/DESIGN_REVIEW.json",
+      "bytes": 14571,
+      "sha256": "7678ed8840e05dfbd42887254704d223d3a0beb12846e376b35f0f805055b8bd"
+    },
+    {
+      "path": "receipts/wp3_016_20261015/independent_01/frozen_package_review.py",
+      "bytes": 12671,
+      "sha256": "99686bb5abdc45d13caad767730eba09d9549a3138ee01182d0bf5a8c04bf597"
+    }
+  ],
+  "actual_review_operations": {
+    "stdlib_only": true,
+    "original_NPZ_NPY_reads_or_decodes": 0,
+    "checkpoint_payload_reads_or_loads": 0,
+    "NN_rows": 0,
+    "AD_queries": 0,
+    "new_random_draws": 0,
+    "training_updates": 0,
+    "new_calibration_fits": 0,
+    "SSH_calls": 0,
+    "GPU_work": 0,
+    "new_data_source_cache_temp_output_root": "E:/GAN/research/N01/receipts/wp3_016_20261015/independent_01"
+  },
+  "cumulative_training_before_and_after_review": 175667,
+  "scientific_started_by_review": false,
+  "weights_promoted": false,
+  "scientific_acceptance": false,
+  "scientific_status": "response_match_not_established",
+  "conclusion_zh": "016最终冻结绑定通过：canonical配置/manifest与源码包逐字一致，115源码117控制、11输入与12合同、原105文件及107新增保护均绑定正确。未重复数值或读取科学payload；可由根代理继续登记与原生执行。"
+}

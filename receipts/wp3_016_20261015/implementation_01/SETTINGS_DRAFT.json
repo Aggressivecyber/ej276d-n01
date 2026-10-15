@@ -1,0 +1,166 @@
+{
+  "schema": "n01/wp3-016-config/v1",
+  "run_id": "wp3_016_20261015",
+  "status": "draft",
+  "candidates": [
+    "Q1"
+  ],
+  "seed_sets": [
+    {
+      "initialization": 2026101540,
+      "source_sampler": 2026101541,
+      "real_sampler": 2026101542,
+      "train_shape": 2026101543,
+      "train_noise005": 2026101544,
+      "train_extension": 2026101545,
+      "train_projection": 2026101546,
+      "integral_projection": 2026101547,
+      "train_charge": 2026101741
+    },
+    {
+      "initialization": 2026101640,
+      "source_sampler": 2026101641,
+      "real_sampler": 2026101642,
+      "train_shape": 2026101643,
+      "train_noise005": 2026101644,
+      "train_extension": 2026101645,
+      "train_projection": 2026101646,
+      "integral_projection": 2026101647,
+      "train_charge": 2026101751
+    }
+  ],
+  "G_updates": 2000,
+  "TRAIN_counts": {
+    "source": 6593,
+    "real": 21047,
+    "REAL_logical_groups": 422
+  },
+  "training": {
+    "source_parents_per_update": 512,
+    "draws_per_parent": 2,
+    "real_rows_per_update": 1024,
+    "forward_chunk_rows": 256,
+    "G_lr": 0.01,
+    "G_weight_decay": 0.0,
+    "clip_norm": 5.0,
+    "wave_weight": 1.0,
+    "distribution_weight": 2.0,
+    "regular_weight": 0.01,
+    "status_interval": 100,
+    "checkpoint_steps": [
+      1000,
+      2000
+    ],
+    "fresh_AdamW": true,
+    "inherit_015_optimizer": false
+  },
+  "charge": {
+    "parameters": 2,
+    "q_reference_Vns": 3.7103998046755806,
+    "positive_mean_corrected_lognormal": true,
+    "denominator_floor": false,
+    "electronic_constant_variance": 0,
+    "shape_multiplied_by_random_charge": false,
+    "charge_disabled_exact_M0_bytes": true,
+    "independent_explicit_latent": true
+  },
+  "calibration": {
+    "parents": 6593,
+    "coordinates": 384,
+    "chunk_rows": 256,
+    "target_expected_RMS_ADC_LSB": 1.0,
+    "zero_prefix100_in_RMS_denominator": true,
+    "all_actual_A_Q_positive_required": true,
+    "A_only": true,
+    "finite_MC_retuning": false,
+    "shared_across_seeds": true
+  },
+  "evaluation": {
+    "parents": 6593,
+    "draws": 4,
+    "banks": 2,
+    "chunk_rows": 128,
+    "bank_seeds": [
+      {
+        "shape": 2026101501,
+        "noise005": 2026101502,
+        "extension": 2026101503
+      },
+      {
+        "shape": 2026101511,
+        "noise005": 2026101512,
+        "extension": 2026101513
+      }
+    ],
+    "charge_bank_seeds": [
+      2026101721,
+      2026101731
+    ],
+    "projection_seed": 2026101430,
+    "projection_fingerprint": "27ed58d90114de6bfa5bf30ff5ad251516cdc9bcadfb5eb10e2a6ec45ed11482",
+    "whole_population": true,
+    "snapshot_arms": {
+      "initial": [
+        "A",
+        "M0",
+        "initial"
+      ],
+      "final": [
+        "final"
+      ]
+    },
+    "save_charge_semantics_and_preADC_moments": true
+  },
+  "hypotheses": [
+    "fast",
+    "slow",
+    "common_level"
+  ],
+  "CPU_threads": 12,
+  "run_resource_limits": {
+    "GPU_GiB": 10,
+    "job_tree_RSS_GiB": 8,
+    "wall_seconds": 7200,
+    "output_MiB": 1536
+  },
+  "resource_limits": {
+    "GPU_GiB": 10,
+    "job_tree_RSS_GiB": 8,
+    "wall_seconds": 14400,
+    "output_MiB": 3072,
+    "poll_seconds": 10,
+    "TERM_grace_seconds": 20
+  },
+  "one_active_scientific_job": true,
+  "serial_runs": true,
+  "automatic_restart": false,
+  "overwrite_outputs": false,
+  "DEV_numeric_read": false,
+  "scientific_status": "response_match_not_established",
+  "budget_caps": {
+    "calibration_A_rows": 6593,
+    "old_A_rows": 4313569,
+    "head_actual_parameter_forward_rows": 4306976,
+    "head_total_kernel_rows": 4306976,
+    "noise005_rows": 4306976,
+    "charge_module_rows": 4306976,
+    "charge_latent_scalar_draws": 4306976,
+    "charge_initialization_fits": 1,
+    "hard_ADC_rows": 13553856,
+    "all_path_gather_rows": 13553856,
+    "checkpoint_loads": 4,
+    "optimizer_created": 2,
+    "optimizer_steps": 4000,
+    "G_updates": 4000,
+    "training_backward_queries": 4000,
+    "new_AD_queries": 4000,
+    "probe_AD_queries": 0,
+    "integral_statistics_fits": 0,
+    "mean_adapter_rows": 0,
+    "D_updates": 0,
+    "noise_updates": 0,
+    "population_updates": 0,
+    "C2ST_updates": 0,
+    "DEV_model_rows": 0
+  }
+}

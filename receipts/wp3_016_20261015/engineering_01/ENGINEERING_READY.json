@@ -1,0 +1,144 @@
+{
+  "schema": "n01/wp3-016-engineering-ready/v1",
+  "UTC": "2026-10-15T06:48:08.314123+00:00",
+  "status": "LOCAL_ARTIFICIAL_ENGINEERING_READY_PENDING_INDEPENDENT_SOURCE_REVIEW_AND_FREEZE",
+  "passed": true,
+  "model_policy": {
+    "assigned_model": "gpt-6.1-sol",
+    "assigned_reasoning_effort": "max"
+  },
+  "sources": {
+    "scripts/wp3_016_controller.py": {
+      "path": "scripts/wp3_016_controller.py",
+      "bytes": 26760,
+      "sha256": "f1d5eceadb145d6a921c41055dd7a7e4d9fb05c36a150e99689e50e21358d02a"
+    },
+    "scripts/run_wp3_016.py": {
+      "path": "scripts/run_wp3_016.py",
+      "bytes": 37310,
+      "sha256": "4729208d66c61c3b082827535719e72d8d7bb2ee60f390b688111ae3b4f12972"
+    },
+    "src/n01/model016.py": {
+      "path": "src/n01/model016.py",
+      "bytes": 9226,
+      "sha256": "04c63f91ea5405937a940a9aee6eaed876db79149c857bfbe6ed8cfe6dcb138b"
+    }
+  },
+  "design": {
+    "path": "wp3_016_design.json",
+    "bytes": 6798,
+    "sha256": "fab6afcff2ef06f65b44b0722483344d4f9e658013b8958c29ca5c2fd1f66425"
+  },
+  "independent_design_review": {
+    "path": "receipts/wp3_016_20261015/independent_01/DESIGN_REVIEW.json",
+    "bytes": 14571,
+    "sha256": "7678ed8840e05dfbd42887254704d223d3a0beb12846e376b35f0f805055b8bd"
+  },
+  "settings_draft": {
+    "path": "receipts/wp3_016_20261015/implementation_01/SETTINGS_DRAFT.json",
+    "bytes": 4334,
+    "sha256": "3a817fdc42cd275d612767277d1f16297905bd7246efbef407fb644917184206"
+  },
+  "budget_caps": {
+    "calibration_A_rows": 6593,
+    "old_A_rows": 4313569,
+    "head_actual_parameter_forward_rows": 4306976,
+    "head_total_kernel_rows": 4306976,
+    "noise005_rows": 4306976,
+    "charge_module_rows": 4306976,
+    "charge_latent_scalar_draws": 4306976,
+    "charge_initialization_fits": 1,
+    "hard_ADC_rows": 13553856,
+    "all_path_gather_rows": 13553856,
+    "checkpoint_loads": 4,
+    "optimizer_created": 2,
+    "optimizer_steps": 4000,
+    "G_updates": 4000,
+    "training_backward_queries": 4000,
+    "new_AD_queries": 4000,
+    "probe_AD_queries": 0,
+    "integral_statistics_fits": 0,
+    "mean_adapter_rows": 0,
+    "D_updates": 0,
+    "noise_updates": 0,
+    "population_updates": 0,
+    "C2ST_updates": 0,
+    "DEV_model_rows": 0
+  },
+  "numeric_engineering": {
+    "path": "receipts/wp3_016_20261015/engineering_01/artificial_cpu_01/ENGINEERING_RECEIPT.json",
+    "bytes": 6972,
+    "sha256": "c715b937cb16325e1f95f54cc5476d3805eb84f27620f80fd82927ae690ef090"
+  },
+  "stdlib_controller_engineering": {
+    "path": "receipts/wp3_016_20261015/engineering_01/controller_stdlib_01/ENGINEERING_RECEIPT.json",
+    "bytes": 3909,
+    "sha256": "86fd68c302632ab99929ed6cabfba815454623d4bd406c37e05baaa7079b9846"
+  },
+  "semantic_checks": {
+    "exact_charge_off_M0_bytes": true,
+    "actual_canonical_A_Q_no_floor": true,
+    "analytic_actual_A_one_LSB_initialization": true,
+    "all6593_required_at_native_calibration": true,
+    "two_parameter_positive_mean_corrected_charge": true,
+    "shape_noise_015_prefixes_preserved": true,
+    "exactly_two_scalar_AdamW_parameters": true,
+    "shared_single_forward_initial_A_M0_charge_on": true,
+    "original_four_axis_evaluator_and_all_flags_retained": true,
+    "preADC_charge_moments_and_stream_states_retained": true,
+    "current_owned_PID_boot_startticks_command_cwd_CPU_resource_health_or_full_native0_required": true,
+    "dead_without_exit_and_stale_PID_rejected": true
+  },
+  "original105_sources_and107_controls_unchanged": true,
+  "synthetic_updates": 2,
+  "synthetic_functional_AD_queries": 1,
+  "synthetic_evaluation": {
+    "initial_hard_REPORT_pairs": 36,
+    "final_hard_REPORT_pairs": 12,
+    "baseline100_files": 8,
+    "preADC_charge_moment_files": 8
+  },
+  "real_scientific_operations": {
+    "checkpoint_loads": 0,
+    "original_SOURCE_REAL_DEV_waveform_reads": 0,
+    "NN_rows": 0,
+    "AD_queries": 0,
+    "training_updates": 0,
+    "new_random_draws": 0,
+    "calibration_fits": 0,
+    "GPU_work": 0,
+    "SSH_calls": 0
+  },
+  "controller_reuse": {
+    "pinned014_controller_sha256": "3480825e94e954a46c2c633e5df6ddef514e2b7def1332bb2e7688e78ae041a3",
+    "methods": "Pinned014 archive/journal/owned-tree/supervision;016 policy hooks; embedded015 CPU live identity/health semantics",
+    "collection_MiB": 256,
+    "launch_identity_instrumentation": {
+      "launch": 1,
+      "start": 1,
+      "child_CPU_binding": 1
+    },
+    "remote_extra_helper_dependency": false
+  },
+  "factory_API": {
+    "controller": "scripts/wp3_016_controller.py",
+    "factory": "factory_contract(driver_bytes) -> settings,budget_factory",
+    "driver": "scripts/run_wp3_016.py",
+    "model": "n01.model016.FrozenM0ChargeResponse016",
+    "run_id": "wp3_016_20261015",
+    "config": "wp3_016_config.json",
+    "manifest": "WP3_016_SOURCE_MANIFEST.json",
+    "inputs": "original9 including integral_statistics plus M0_head_seed0 and M0_head_seed1",
+    "freeze": "controller.freeze(repo,output,expected_draft_sha)",
+    "prior105_manifest_sha256": "f1255dbff0e47edb7ec20e76c7d90057201f9a56f1184b7896f0c8cb0a67825a"
+  },
+  "scientific_start_authorized_or_performed_by_this_artifact": false,
+  "source_review_pending": true,
+  "actual_A_calibration_not_run": true,
+  "actual_M0_tensor_metadata_not_loaded": true,
+  "undecided_implementation_items": [],
+  "root_next_action": "Independent source review, bind exact inputs/config/commit, then root-controlled deployment/start.",
+  "weights_promoted": false,
+  "scientific_acceptance": false,
+  "scientific_status": "response_match_not_established"
+}

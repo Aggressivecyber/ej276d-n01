@@ -1,0 +1,387 @@
+{
+  "schema": "n01/wp3-016-config/v1",
+  "run_id": "wp3_016_20261015",
+  "status": "draft_registered_before_any_scientific_operation",
+  "candidates": [
+    "Q1"
+  ],
+  "seed_sets": [
+    {
+      "initialization": 2026101540,
+      "source_sampler": 2026101541,
+      "real_sampler": 2026101542,
+      "train_shape": 2026101543,
+      "train_noise005": 2026101544,
+      "train_extension": 2026101545,
+      "train_projection": 2026101546,
+      "integral_projection": 2026101547,
+      "train_charge": 2026101741
+    },
+    {
+      "initialization": 2026101640,
+      "source_sampler": 2026101641,
+      "real_sampler": 2026101642,
+      "train_shape": 2026101643,
+      "train_noise005": 2026101644,
+      "train_extension": 2026101645,
+      "train_projection": 2026101646,
+      "integral_projection": 2026101647,
+      "train_charge": 2026101751
+    }
+  ],
+  "G_updates": 2000,
+  "TRAIN_counts": {
+    "source": 6593,
+    "real": 21047,
+    "REAL_logical_groups": 422
+  },
+  "training": {
+    "source_parents_per_update": 512,
+    "draws_per_parent": 2,
+    "real_rows_per_update": 1024,
+    "forward_chunk_rows": 256,
+    "G_lr": 0.01,
+    "G_weight_decay": 0.0,
+    "clip_norm": 5.0,
+    "wave_weight": 1.0,
+    "distribution_weight": 2.0,
+    "regular_weight": 0.01,
+    "status_interval": 100,
+    "checkpoint_steps": [
+      1000,
+      2000
+    ],
+    "fresh_AdamW": true,
+    "inherit_015_optimizer": false
+  },
+  "charge": {
+    "parameters": 2,
+    "q_reference_Vns": 3.7103998046755806,
+    "positive_mean_corrected_lognormal": true,
+    "denominator_floor": false,
+    "electronic_constant_variance": 0,
+    "shape_multiplied_by_random_charge": false,
+    "charge_disabled_exact_M0_bytes": true,
+    "independent_explicit_latent": true
+  },
+  "calibration": {
+    "parents": 6593,
+    "coordinates": 384,
+    "chunk_rows": 256,
+    "target_expected_RMS_ADC_LSB": 1.0,
+    "zero_prefix100_in_RMS_denominator": true,
+    "all_actual_A_Q_positive_required": true,
+    "A_only": true,
+    "finite_MC_retuning": false,
+    "shared_across_seeds": true
+  },
+  "evaluation": {
+    "parents": 6593,
+    "draws": 4,
+    "banks": 2,
+    "chunk_rows": 128,
+    "bank_seeds": [
+      {
+        "shape": 2026101501,
+        "noise005": 2026101502,
+        "extension": 2026101503
+      },
+      {
+        "shape": 2026101511,
+        "noise005": 2026101512,
+        "extension": 2026101513
+      }
+    ],
+    "charge_bank_seeds": [
+      2026101721,
+      2026101731
+    ],
+    "projection_seed": 2026101430,
+    "projection_fingerprint": "27ed58d90114de6bfa5bf30ff5ad251516cdc9bcadfb5eb10e2a6ec45ed11482",
+    "whole_population": true,
+    "snapshot_arms": {
+      "initial": [
+        "A",
+        "M0",
+        "initial"
+      ],
+      "final": [
+        "final"
+      ]
+    },
+    "save_charge_semantics_and_preADC_moments": true
+  },
+  "hypotheses": [
+    "fast",
+    "slow",
+    "common_level"
+  ],
+  "CPU_threads": 12,
+  "run_resource_limits": {
+    "GPU_GiB": 10,
+    "job_tree_RSS_GiB": 8,
+    "wall_seconds": 7200,
+    "output_MiB": 1536
+  },
+  "resource_limits": {
+    "GPU_GiB": 10,
+    "job_tree_RSS_GiB": 8,
+    "wall_seconds": 14400,
+    "output_MiB": 3072,
+    "poll_seconds": 10,
+    "TERM_grace_seconds": 20
+  },
+  "one_active_scientific_job": true,
+  "serial_runs": true,
+  "automatic_restart": false,
+  "overwrite_outputs": false,
+  "DEV_numeric_read": false,
+  "scientific_status": "response_match_not_established",
+  "registered_UTC": "2026-10-15T06:52:44.125890+00:00",
+  "remote_root": "/home/rylan/projects/ej276d-n01/wp3_016_20261015",
+  "source_files": {},
+  "protection_files": {},
+  "user_authority": {
+    "path": "USER_MASTER_PLAN_20261015.txt",
+    "sha256": "56190995374eb2a765a3c8589736514154dba7ff33aa1309b8b1de493e846ebb"
+  },
+  "master_plan": "MASTER_EXECUTION_PLAN.json",
+  "source_classification": "frozen originalA/005/015M0; two positive mean-corrected charge coefficients only; noGAN",
+  "cumulative_training_before_run": 175667,
+  "global_completed_short_trials_before": 8,
+  "WP3_completed_short_trials_before": 4,
+  "WP3_reserved_short_trials_this_block": 2,
+  "WP3_remaining_unreserved_maximum": 0,
+  "candidate_trial_order": [
+    "seed0_Q1",
+    "seed1_Q1"
+  ],
+  "preflight": {
+    "minimum_free_disk_GiB": 8,
+    "minimum_available_RAM_GiB": 10,
+    "GPU_must_be_empty": true
+  },
+  "previous015_result": {
+    "path": "receipts/wp3_015_20261015/FINAL_RESULT_RECEIPT.json",
+    "sha256": "49b4ef8f615bd021b91a69d95df18beec6e4a7b206fad597dc6e45aa8415b3dd",
+    "bytes": 5144
+  },
+  "previous015_final_development_selection": {
+    "path": "receipts/wp3_015_20261015/postrun_independent_02/FINAL_DEVELOPMENT_SELECTION.json",
+    "sha256": "105fca8429d9814afefd414e238d9789ce8f0e1ca2bf6d3540b8a2da9c650f87",
+    "bytes": 129622
+  },
+  "latest_model_policy": {
+    "path": "receipts/wp3_015_20261015/postrun_root_02/AGENT_MODEL_POLICY_SOLMAX.json",
+    "sha256": "f61eb54ee326c7df51b945e62bfe54f1c368964c9433a87ec9592f925de1de2b",
+    "bytes": 813
+  },
+  "long_job_policy": "Verify first real two-parameter optimizer update and current same-snapshot health, set one future n01 wake, then rest.",
+  "collection_policy": {
+    "mode": "inventory_verified_selective",
+    "selected_archive_MiB": 256,
+    "include_head_checkpoints": true,
+    "head_checkpoint_maximum_MiB": 64,
+    "raw_NPZ_retained_remote": true,
+    "all_raw_collected_claim_allowed": false,
+    "independent_raw_saved_array_readback_required_before_final_numeric_acceptance": true
+  },
+  "inputs": {
+    "dataset": {
+      "path": "/home/rylan/projects/ej276d-n01/window008_resume01_20261013/data/window008/DATASET008.npz",
+      "sha256": "8d43418595f4fa992a9b83735c4bf50863a659584d58888f8f965ec1339a1993",
+      "local_path": "E:\\GAN\\research\\N01\\data\\window008\\DATASET008.npz",
+      "bytes": 66440265
+    },
+    "statistics": {
+      "path": "/home/rylan/projects/ej276d-n01/window008_resume01_20261013/data/window008/FIT_STATISTICS008.json",
+      "sha256": "aadd729364d0b6afac699a9d1774ac8d29fd2bcd10a9fd9f551141ecc2fbc2a0",
+      "local_path": "E:\\GAN\\research\\N01\\data\\window008\\FIT_STATISTICS008.json",
+      "bytes": 104199
+    },
+    "data_statistics": {
+      "path": "/home/rylan/projects/ej276d-n01/window008_resume01_20261013/data/window008/FIT_DATA_STATISTICS.json",
+      "sha256": "e614c7b0a9861b468eb2c9e1bff5a80dadef901310539407141d1ff5c9241f3f",
+      "local_path": "E:\\GAN\\research\\N01\\data\\window008\\FIT_DATA_STATISTICS.json",
+      "bytes": 36311
+    },
+    "base_config": {
+      "path": "/home/rylan/projects/ej276d-n01/window008_resume01_20261013/window008_config.json",
+      "sha256": "f5500c65f2d17a2fe6964bfc5908dedb68c27b9391cb30bf30c0ba161509d145",
+      "local_path": "E:\\GAN\\research\\N01\\window008_config.json",
+      "bytes": 6448
+    },
+    "deterministic": {
+      "path": "/home/rylan/projects/ej276d-n01/window008_resume01_20261013/provenance/window008_fix01_reference/deterministic_final.pt",
+      "sha256": "2096523d53b62dbbc6b41d2788a8fba203af89c3cf753133bbbe81ab5c036849",
+      "local_path": "E:\\GAN\\research\\N01\\provenance\\window008_fix01_reference\\deterministic_final.pt",
+      "bytes": 21256763
+    },
+    "noise005": {
+      "path": "/home/rylan/projects/ej276d-n01/window008_resume01_20261013/provenance/integration006_reference/noise005.pt",
+      "sha256": "1e45d3369b85d2f5f635ad44dbeb5a730f6d86864cc3dc9163384fccd48bd417",
+      "local_path": "E:\\GAN\\research\\N01\\provenance\\integration006_reference\\noise005.pt",
+      "bytes": 1199865
+    },
+    "training_complete": {
+      "path": "/home/rylan/projects/ej276d-n01/window008_resume01_20261013/runs/science/TRAINING_COMPLETE.json",
+      "sha256": "e2df0f2287cfdaf26e3d6314db6156456ae085582d09ba86e96b38a990b3f63f",
+      "local_path": "E:\\GAN\\research\\N01\\runs\\window008_resume01_20261013\\runs\\science\\TRAINING_COMPLETE.json",
+      "bytes": 13868
+    },
+    "source_information": {
+      "path": "/home/rylan/projects/ej276d-n01/wp1_013_repeat_fix01_20261015/runs/primary/information/PARENT_INFORMATION.npz",
+      "local_path": "E:\\GAN\\research\\N01\\runs\\wp1_013_20261015\\runtime_fix01_collected_03\\runs\\primary\\information\\PARENT_INFORMATION.npz",
+      "sha256": "fdc020474cad666d940ce49d1b033cd5eb728f9c7355d9a4f5a9b8a3bc8dec8c",
+      "bytes": 7765055
+    },
+    "integral_statistics": {
+      "path": "/home/rylan/projects/ej276d-n01/wp2_014_20261015/runs/primary/artifacts/INTEGRAL_TRAIN_STATISTICS.json",
+      "bytes": 1028,
+      "sha256": "5b8a20ddfc2475ab275966e715fedd549f94140be0d5c4703fe0717dad077f07",
+      "local_path": "E:\\GAN\\research\\N01\\runs\\wp2_014_20261015\\selected_collected_01\\runs\\primary\\artifacts\\INTEGRAL_TRAIN_STATISTICS.json"
+    },
+    "M0_head_seed0": {
+      "path": "/home/rylan/projects/ej276d-n01/wp3_015_20261015/runs/primary/artifacts/seed0_M0/final.pt",
+      "bytes": 485683,
+      "sha256": "27ad34f2f7fa0c2c78f881b649ecd5ad664c91ff4bbe2bb08c109f3536f0915c",
+      "local_path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed0_M0\\final.pt"
+    },
+    "M0_head_seed1": {
+      "path": "/home/rylan/projects/ej276d-n01/wp3_015_20261015/runs/primary/artifacts/seed1_M0/final.pt",
+      "bytes": 485683,
+      "sha256": "8a14a66b54bf5065da062a8a4070c162a401adc2c13d5ddbc679fd36023144de",
+      "local_path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed1_M0\\final.pt"
+    }
+  },
+  "contracts": {
+    "observation": {
+      "path": "/home/rylan/projects/ej276d-n01/wp3_016_20261015/OBSERVATION_CONTRACT.json",
+      "local_path": "E:\\GAN\\research\\N01\\OBSERVATION_CONTRACT.json",
+      "sha256": "c894abe80d7d9a31e4ffe670484123dd1eea5ee75dad7742e52d304e23054c6c",
+      "bytes": 2304
+    },
+    "data_roles": {
+      "path": "/home/rylan/projects/ej276d-n01/wp3_016_20261015/WP3_016_DATA_ROLES.json",
+      "local_path": "E:\\GAN\\research\\N01\\WP3_016_DATA_ROLES.json",
+      "sha256": "3f8fe4ca99d482800f579f3403659ac1d026727c11d2cb76d718cd0b8dfde00b",
+      "bytes": 2830
+    },
+    "acceptance": {
+      "path": "/home/rylan/projects/ej276d-n01/wp3_016_20261015/docs/WP3_016_CONFIGURATION.md",
+      "local_path": "E:\\GAN\\research\\N01\\docs\\WP3_016_CONFIGURATION.md",
+      "sha256": "813ebabe3f4678039a09c18123d5d84c692d40a2cbb0ae654cd1bbae085154b8",
+      "bytes": 4841
+    },
+    "configuration": {
+      "path": "/home/rylan/projects/ej276d-n01/wp3_016_20261015/docs/WP3_016_CONFIGURATION.md",
+      "local_path": "E:\\GAN\\research\\N01\\docs\\WP3_016_CONFIGURATION.md",
+      "sha256": "813ebabe3f4678039a09c18123d5d84c692d40a2cbb0ae654cd1bbae085154b8",
+      "bytes": 4841
+    },
+    "tolerance_table": {
+      "path": "/home/rylan/projects/ej276d-n01/wp3_016_20261015/CALIBRATED_TOLERANCES_WP1_013.json",
+      "local_path": "E:\\GAN\\research\\N01\\CALIBRATED_TOLERANCES_WP1_013.json",
+      "sha256": "f33217e07b1872dfd51f56e86ed30cda665a705568f2f9ada937865d8a33607b",
+      "bytes": 8271
+    },
+    "stage_design": {
+      "path": "/home/rylan/projects/ej276d-n01/wp3_016_20261015/wp3_016_design.json",
+      "local_path": "E:\\GAN\\research\\N01\\wp3_016_design.json",
+      "sha256": "fab6afcff2ef06f65b44b0722483344d4f9e658013b8958c29ca5c2fd1f66425",
+      "bytes": 6798
+    },
+    "input_information_audit": {
+      "path": "/home/rylan/projects/ej276d-n01/wp3_016_20261015/INPUT_INFORMATION_AUDIT.json",
+      "local_path": "E:\\GAN\\research\\N01\\INPUT_INFORMATION_AUDIT.json",
+      "sha256": "6a72cbc0a3f2f23e9898e00f55c99698d73b36ffaaeb697a9f6b0affd52d8dab",
+      "bytes": 621048
+    },
+    "inherited_general_roles": {
+      "path": "/home/rylan/projects/ej276d-n01/wp3_016_20261015/DATA_ROLES.json",
+      "local_path": "E:\\GAN\\research\\N01\\DATA_ROLES.json",
+      "sha256": "bfc27c49a54293c86ff116965f3ce410468611b26266e0fe41112c81ae4bc0aa",
+      "bytes": 5008
+    },
+    "inherited_full_acceptance": {
+      "path": "/home/rylan/projects/ej276d-n01/wp3_016_20261015/docs/ACCEPTANCE_CONTRACT.md",
+      "local_path": "E:\\GAN\\research\\N01\\docs\\ACCEPTANCE_CONTRACT.md",
+      "sha256": "87f2d605dca67109a72356d44aa411a1aa1ac4d11a26c7f97aab30ae4460bc6c",
+      "bytes": 6909
+    },
+    "preceding015_result": {
+      "path": "/home/rylan/projects/ej276d-n01/wp3_016_20261015/receipts/wp3_015_20261015/FINAL_RESULT_RECEIPT.json",
+      "local_path": "E:\\GAN\\research\\N01\\receipts\\wp3_015_20261015\\FINAL_RESULT_RECEIPT.json",
+      "sha256": "49b4ef8f615bd021b91a69d95df18beec6e4a7b206fad597dc6e45aa8415b3dd",
+      "bytes": 5144
+    },
+    "preceding015_selection": {
+      "path": "/home/rylan/projects/ej276d-n01/wp3_016_20261015/receipts/wp3_015_20261015/postrun_independent_02/FINAL_DEVELOPMENT_SELECTION.json",
+      "local_path": "E:\\GAN\\research\\N01\\receipts\\wp3_015_20261015\\postrun_independent_02\\FINAL_DEVELOPMENT_SELECTION.json",
+      "sha256": "105fca8429d9814afefd414e238d9789ce8f0e1ca2bf6d3540b8a2da9c650f87",
+      "bytes": 129622
+    },
+    "agent_model_policy": {
+      "path": "/home/rylan/projects/ej276d-n01/wp3_016_20261015/receipts/wp3_015_20261015/postrun_root_02/AGENT_MODEL_POLICY_SOLMAX.json",
+      "local_path": "E:\\GAN\\research\\N01\\receipts\\wp3_015_20261015\\postrun_root_02\\AGENT_MODEL_POLICY_SOLMAX.json",
+      "sha256": "f61eb54ee326c7df51b945e62bfe54f1c368964c9433a87ec9592f925de1de2b",
+      "bytes": 813
+    }
+  },
+  "allowed_input_roots": [
+    "/home/rylan/projects/ej276d-n01/mechanism012_20261015",
+    "/home/rylan/projects/ej276d-n01/shape010_20261014",
+    "/home/rylan/projects/ej276d-n01/stability011_20261014",
+    "/home/rylan/projects/ej276d-n01/window008_resume01_20261013",
+    "/home/rylan/projects/ej276d-n01/wp1_013_repeat_fix01_20261015",
+    "/home/rylan/projects/ej276d-n01/wp2_014_20261015",
+    "/home/rylan/projects/ej276d-n01/wp3_015_20261015",
+    "/home/rylan/projects/ej276d-n01/wp3_016_20261015"
+  ],
+  "budget_caps": {
+    "calibration_A_rows": 6593,
+    "old_A_rows": 4313569,
+    "head_actual_parameter_forward_rows": 4306976,
+    "head_total_kernel_rows": 4306976,
+    "noise005_rows": 4306976,
+    "charge_module_rows": 4306976,
+    "charge_latent_scalar_draws": 4306976,
+    "charge_initialization_fits": 1,
+    "hard_ADC_rows": 13553856,
+    "all_path_gather_rows": 13553856,
+    "checkpoint_loads": 4,
+    "optimizer_created": 2,
+    "optimizer_steps": 4000,
+    "G_updates": 4000,
+    "training_backward_queries": 4000,
+    "new_AD_queries": 4000,
+    "probe_AD_queries": 0,
+    "integral_statistics_fits": 0,
+    "mean_adapter_rows": 0,
+    "D_updates": 0,
+    "noise_updates": 0,
+    "population_updates": 0,
+    "C2ST_updates": 0,
+    "DEV_model_rows": 0
+  },
+  "development_selection": {
+    "bank_distance_aggregation": "mean2bank_distances_not_pooled8",
+    "noninferiority_cells": "ALL6_same_candidate_2seeds_x3hypotheses",
+    "noninferiority_components": "each_required_positive_defined_T",
+    "noninferiority_references": [
+      "paired_A",
+      "paired015_M0_charge_off"
+    ],
+    "noninferiority_bound": "mean2bank(final_distance-reference_distance)<=fixed_T",
+    "required_calibrated_metric_missing_or_undefined": "pending_not_eligible_not_pass",
+    "zero_or_undefined_T": "unresolved_never_automatic_PASS",
+    "score": "arithmetic_mean12_final_hard_wave_distances",
+    "reference_score": "arithmetic_mean12_paired_M0_hard_wave_distances",
+    "replace_M0_only_if_eligible_and_score_below_reference_by_more_than": 1e-12,
+    "ties": "retain_M0_charge_disabled",
+    "initial_charge_on_reference": "reported_separately",
+    "relative_wave_usefulness": "ALL6_mean2bank_improvement_vsA>=.02_report_separately",
+    "absolute_T_and_scientific_acceptance": "separate_not_implied",
+    "weights_promoted": false
+  }
+}

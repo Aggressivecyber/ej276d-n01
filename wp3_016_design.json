@@ -1,0 +1,52 @@
+{
+  "schema": "n01/wp3-016-design/v1",
+  "run_id": "wp3_016_20261015",
+  "status": "implementation_design_not_frozen_no_scientific_job_started",
+  "user_authority": "USER_MASTER_PLAN_20261015.txt WP3 signal charge randomness; latest continuation and 6.1solmax instruction",
+  "model_policy": {"model": "gpt-6.1-sol", "reasoning_effort": "max"},
+  "scientific_question": "Does a two-coefficient positive mean-corrected signal-charge branch improve the frozen per-seed015 M0 response under the unchanged hard observation and C1 loss?",
+  "motivation": {
+    "structural": "The zero-canonical-Q shape branch cannot add preADC canonical signal-charge variance at fixed input.",
+    "residual_evidence": "Existing015 hard-output Q residuals are to be quoted with paths and values in the final015 independent review.",
+    "identification": "Unpaired whole-population Q width does not identify true conditional signal-charge variance.",
+    "other_residuals": "Peak/rise/FWHM and electronics baseline residuals retain their separate interpretations."
+  },
+  "trials": {"candidate": "Q1", "seeds": 2, "G_updates_each": 2000, "total_G_updates": 4000, "WP3_trials_before": 4, "WP3_trials_after_maximum": 6, "global_short_trials_before": 8, "global_short_trials_after_maximum": 10, "no_additional_trained_control": true},
+  "frozen": {"A": true, "noise005": true, "per_seed015_M0_final_shape_head": true, "mean_adapter": "disabled", "C1_integral_statistics": true, "observation_contract": true, "numeric_T_sha256": "f33217e07b1872dfd51f56e86ed30cda665a705568f2f9ada937865d8a33607b"},
+  "charge": {
+    "Q_mu": "canonical_charge008(actual frozen A signal_pre), strictly positive; no substitute denominator floor",
+    "law": "s2=log1p(a/Q_mu+b); q_sig=Q_mu*exp(sqrt(s2)*z_charge-0.5*s2)",
+    "parameters": "a=q_reference*softplus(theta_a), b=softplus(theta_b)",
+    "q_reference_V_software_ns": 3.7103998046755806,
+    "trainable_scalars": 2,
+    "latent": "one explicit standard normal per row from an independent registered charge stream",
+    "conditional_mean": "Q_mu",
+    "conditional_variance": "a*Q_mu+b*Q_mu^2",
+    "assembly": "original_M0_signal_pre + A_signal_pre*expm1(sqrt(s2)*z_charge-0.5*s2)",
+    "shape_amplitude": "original A only; never multiplied by current random q_sig",
+    "charge_disabled": "return the exact original_M0_signal_pre bytes and disable both random draw effect and mean correction",
+    "electronic_constant_variance": 0,
+    "latent_shape_charge_independent": true,
+    "mean_protection_scope": "preADC conditional expectation; hard ADC/peak/crop expectations may change",
+    "nonfinite_policy": "fail and retain evidence; no row deletion, silent clipping, or automatic restart"
+  },
+  "initialization": {
+    "calibration": "one frozen-A pass over all6593 SOURCE TRAIN parents, no head/noise/ADC/new random/AD",
+    "target_expected_preADC_384_RMS_ADC_LSB": 1.0,
+    "zero_prefix100_in_RMS_denominator": true,
+    "S0": "mean over parents and384 samples of A^2",
+    "Sminus": "mean over parents and384 samples of A^2/Q_mu",
+    "a_initial": "0.5*ADC_STEP^2/Sminus",
+    "b_initial": "0.5*ADC_STEP^2/S0",
+    "theta_initial": "stable inverse softplus of a_initial/q_reference and b_initial",
+    "actual_output_Q_positive_all_parents_required": true,
+    "report": "computed positive coefficients, expected actual-A RMS, initial evaluation realized RMS, per-input conditional CV summary; no finite-MC retuning"
+  },
+  "training": {"source_parents_per_update": 512, "draws_per_parent": 2, "real_rows_per_update": 1024, "forward_chunk_rows": 256, "optimizer": "fresh AdamW over exactly theta_a/theta_b", "learning_rate": 0.01, "weight_decay": 0.0, "clip_norm": 5.0, "objective": "wave +2*C1_integral_distribution +0.01*(frozen_shape_regular + mean(a/Q_mu+b) + mean_saturation_penalty)", "new_AD_per_update": 1, "probe_AD": 0, "checkpoint_steps": [1000,2000], "full_legal_TRAIN_coverage": true, "no_DEV_waveform_read": true},
+  "evaluation": {"source_parents": 6593, "real_rows": 21047, "banks": 2, "draws_per_bank": 4, "hypotheses": ["fast","slow","common_level"], "initial_arms": ["A","M0","initial"], "final_arms": ["final"], "shared_shape_noise_extension_prefixes": "identical to015 fixed evaluation seeds", "charge_bank_seeds": [2026101721,2026101731], "train_charge_seeds": [2026101741,2026101751], "C1_projection_seed_unchanged": true, "four_axes_all_flags_lowQ_undefined_PSD_retained": true, "full_saved_preADC_carrier_required": false, "save_charge_semantics_and_preADC_moment_summaries": true},
+  "selection": {"required_noninferiority": "ALL6 seed/hyp cells, average the two bank distances first; every required positive-defined T must satisfy final-A<=T and final-M0<=T", "missing_or_undefined_required_metric": "pending; not eligible", "zero_or_undefined_T": "unresolved; never automatic PASS", "replace_M0_research_reference_only_if": "eligible and mean12(final wave)<mean12(M0 wave)-1e-12", "ties": "retain M0 with charge disabled", "initial_charge_on_reference": "report change separately; use frozen M0 as the replacement reference", "ALL6_2percent_vs_A_usefulness_and_absolute_T": "report separately", "weights_promoted": false, "scientific_status": "response_match_not_established"},
+  "budget_caps_design": {"calibration_A_rows": 6593, "old_A_rows": 4313569, "head_actual_parameter_forward_rows": 4306976, "head_total_kernel_rows": 4306976, "noise005_rows": 4306976, "charge_module_rows": 4306976, "charge_latent_scalar_draws": 4306976, "charge_initialization_fits": 1, "hard_ADC_rows": 13553856, "all_path_gather_rows": 13553856, "checkpoint_loads": 4, "optimizer_created": 2, "optimizer_steps": 4000, "G_updates": 4000, "training_backward_queries": 4000, "new_AD_queries": 4000, "probe_AD_queries": 0, "integral_statistics_fits": 0, "mean_adapter_rows": 0, "D_updates": 0, "noise_updates": 0, "population_updates": 0, "C2ST_updates": 0, "DEV_model_rows": 0},
+  "resources": {"CPU_threads": 12, "GPU_GiB": 10, "job_tree_RSS_GiB": 8, "single_trial_wall_seconds": 7200, "batch_wall_seconds": 14400, "single_trial_output_MiB": 1536, "batch_output_MiB": 3072, "selected_collection_MiB": 256, "raw_retained_remote": true},
+  "engineering": {"reuse_mature_014_015_runtime_controller_evaluation": true, "freeze_exact_config_source_commit_and_data_roles_before_start": true, "original_sources_and_negative_results_immutable": true, "all_new_local_files_E_or_D": true, "one_active_scientific_job": true, "after_first_real_update_and_same_snapshot_health": "set one future n01 wake and rest"},
+  "scope": {"time_randomness": "disabled this comparison", "local_signal_noise": "disabled", "population_learning": "disabled", "GAN": "disabled", "old_full19k_continuation": "disabled", "unbounded_search": false, "whole_project_complete_after_this_run": false}
+}

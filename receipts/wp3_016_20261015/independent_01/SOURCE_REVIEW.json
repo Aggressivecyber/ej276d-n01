@@ -1,0 +1,264 @@
+{
+  "schema": "n01/wp3-016-independent-source-review/v1",
+  "UTC": "2026-10-15T06:51:59.967377+00:00",
+  "run_id": "wp3_016_20261015",
+  "status": "PASS_SOURCE_REVIEW_PENDING_FROZEN_BINDING",
+  "passed": true,
+  "blockers": [],
+  "sources": {
+    "scripts/wp3_016_controller.py": {
+      "path": "scripts/wp3_016_controller.py",
+      "bytes": 26760,
+      "sha256": "f1d5eceadb145d6a921c41055dd7a7e4d9fb05c36a150e99689e50e21358d02a"
+    },
+    "scripts/run_wp3_016.py": {
+      "path": "scripts/run_wp3_016.py",
+      "bytes": 37310,
+      "sha256": "4729208d66c61c3b082827535719e72d8d7bb2ee60f390b688111ae3b4f12972"
+    },
+    "src/n01/model016.py": {
+      "path": "src/n01/model016.py",
+      "bytes": 9226,
+      "sha256": "04c63f91ea5405937a940a9aee6eaed876db79149c857bfbe6ed8cfe6dcb138b"
+    }
+  },
+  "budget_caps": {
+    "calibration_A_rows": 6593,
+    "old_A_rows": 4313569,
+    "head_actual_parameter_forward_rows": 4306976,
+    "head_total_kernel_rows": 4306976,
+    "noise005_rows": 4306976,
+    "charge_module_rows": 4306976,
+    "charge_latent_scalar_draws": 4306976,
+    "charge_initialization_fits": 1,
+    "hard_ADC_rows": 13553856,
+    "all_path_gather_rows": 13553856,
+    "checkpoint_loads": 4,
+    "optimizer_created": 2,
+    "optimizer_steps": 4000,
+    "G_updates": 4000,
+    "training_backward_queries": 4000,
+    "new_AD_queries": 4000,
+    "probe_AD_queries": 0,
+    "integral_statistics_fits": 0,
+    "mean_adapter_rows": 0,
+    "D_updates": 0,
+    "noise_updates": 0,
+    "population_updates": 0,
+    "C2ST_updates": 0,
+    "DEV_model_rows": 0
+  },
+  "reviewer": {
+    "agent": "/root/wp3_015_solmax_review",
+    "assigned_model": "GPT-6.1-Sol",
+    "assigned_effort": "Max",
+    "assignment_evidence": "Root assigned independent source review under latest user all-future-work6.1solmax instruction.",
+    "runtime_model_metadata_independently_exposed": false
+  },
+  "conclusion_zh": "016源码审查通过。电荷分支、初始化、冻结/优化器/随机流、共享评价与精确预算符合设计；首次更新判定的同快照健康缺口已修复，并通过15项异常用例。本回执供根代理冻结配置与源码包，实际运行仍以冻结绑定和原生执行回执为准。",
+  "checks": [
+    {
+      "check": "actual_A_strictly_positive_canonical_Q_and_mean_corrected_law",
+      "passed": true,
+      "evidence": "model016 calibration_statistics016/apply_charge use canonical_charge008(actual A), require all Q finite and >0, and introduce no floor. softplus coefficients are strictly positive and finite. s2=log1p(a/Q+b), q=Q*exp(sqrt(s2)*z-s2/2) yields analytical mean Q and variance aQ+bQ². Nonfinite/underflow values fail without row deletion or clipping.",
+      "numeric_evidence": "Artificial law quadrature and actual-module Q/no-floor/nonfinite tests passed; no actual dataset/CP was evaluated."
+    },
+    {
+      "check": "actual_A_384_one_LSB_analytic_initialization",
+      "passed": true,
+      "evidence": "Runtime016.calibrate_charge runs A once across all6593 legal parents, including zero prefix100 in the384-coordinate denominator, before heads/noise/ADC/new random/AD. a0=.5*ADC_STEP²/Sminus and b0=.5*ADC_STEP²/S0 imply a0*Sminus+b0*S0=ADC_STEP². Stable inverse softplus sets the common positive pair for both seeds; realized MC is reported without retuning.",
+      "actual_native_calibration_verified": false
+    },
+    {
+      "check": "off_exact_bytes_and_no_stochastic_charge_shape_product",
+      "passed": true,
+      "evidence": "The off path returns the original M0 tensor object. Active signal=original_M0 + actual_A*expm1(log_multiplier), while original014 B amplitude remains .05*max_abs(A). No new mean adapter exists; prefix100 remains exactly zero. Canonical numerical residual retains the inherited finite projection error.",
+      "numeric_evidence": "Artificial byte equality against original014 head with matching bytes, unchanged random_shape/basis_amplitude, inactive compensation bypass and canonical identity passed."
+    },
+    {
+      "check": "frozen_M0_A_005_and_exact_two_scalar_AdamW",
+      "passed": true,
+      "evidence": "Model016 freezes/evals its M0 head and deep-hashes its state; inherited guards protect A and005. Exactly theta_a/theta_b are returned to a fresh AdamW with lr=.01, weight_decay=0, clip5. Parameter identity/whitelist and fixed optimizer options are asserted. The driver takes only C1 integral loss with frozen statistics plus explicit charge regularization and the inherited three-hypothesis saturation mean.",
+      "numeric_evidence": "Both artificial scalar gradients matched finite differences; wrong optimizer membership/lr and protected-head mutations were checked."
+    },
+    {
+      "check": "registered_independent_charge_stream_preserves_old015_prefixes",
+      "passed": true,
+      "evidence": "ChargeStreams016 wraps the unchanged Streams010 and draws one float64 scalar per row from a separate CPU generator. Old SOURCE/REAL samplers and shape/noise/extension/projection addresses match corresponding015 seeds. Saved checkpoints carry both samplers, old stream state and charge state; evaluation banks reset fixed prefixes.",
+      "numeric_evidence": "Every old draw and generator state plus global RNG were byte-equal in the artificial prefix test."
+    },
+    {
+      "check": "single_shared_initial_A_M0_initial_and_final_evaluation",
+      "passed": true,
+      "evidence": "Each parent/bank/chunk has one shared A/head/charge forward and one005 realization. The initial three signals select base A, original M0 and charge-on from that result; final has only the charge-on signal. Each arm/hyp still executes the original hard ADC/crop. Full four-axis evaluation, all flags/lowQ/undefined rows, separate baseline100 and charge moments/RNG states are saved.",
+      "numeric_evidence": "Two artificial engine updates exercised48hard+48REPORT,8baseline and8charge-moment files with exact derived counters and preserved lineage."
+    },
+    {
+      "check": "exact_scientific_budget_and_controller_two_trial_collection",
+      "passed": true,
+      "evidence": "Independent pure factory extraction equals design/draft/READY/test caps. Training row calls2*2000*512*2=4096000, shared eval calls2seeds*2snapshots*2banks*6593*4=210976; A adds only6593 calibration rows. Hard calls3*4096000+2*2*3*6593*4*(3+1)=13553856. CP4, G/AD4000, optimizer2, calibration fit1. Archive candidate/seed indexing uses len(candidates)=1, preserving seed1_Q1 identity; collection256MiB excludes raw numeric arrays.",
+      "reused_algorithm": "Pinned014 archive/journal/owned-tree/failure/partial-collection/locking code;016 label/policy and exact index adaptation."
+    },
+    {
+      "check": "firstG1_requires_same_snapshot_current_health_or_native0",
+      "passed": true,
+      "evidence": "Final controller embeds process_identity and native_snapshot. Launch/start record boot and supervisor/child start ticks; child CPU set is bound to12. Active first_valid requires matching boot/PID/parent/startticks, command/cwd, frozen config SHA, correct supervisor mode/worker config, CPU affinity, fresh same-snapshot owned-tree RSS/GPU/output/wall and durable completed work at least as far as firstG1. Terminal branch requires native0, full two-trial caps, COMPLETE and exact journal with resource caps; it allows already exited owned processes.",
+      "fix_scope": "The pinned supervisor resource/termination loop is preserved; AST adaptations add only start/launch identities and child preexec CPU binding. Native snapshot/resources are embedded, adding no missing remote helper.",
+      "negative_cases": [
+        "worker_dead_without_exit",
+        "supervisor_dead_without_exit",
+        "PID_reused_new_start_ticks",
+        "stale_boot",
+        "wrong_parent_PID",
+        "wrong_worker_command",
+        "wrong_worker_cwd",
+        "wrong_worker_affinity",
+        "missing_same_snapshot_resources",
+        "stale_resource_snapshot",
+        "RSS_over_cap",
+        "GPU_over_cap",
+        "durable_failure_after_firstG1",
+        "FAILED_same_snapshot",
+        "native0_without_COMPLETE"
+      ],
+      "native_Linux_proc_validation_executed": false
+    },
+    {
+      "check": "failures_partial_evidence_and_no_restart",
+      "passed": true,
+      "evidence": "Failed charge calls retain entered cost and unknown in-flight status rather than completed work. Driver records FAILED and preserves failure checkpoint metadata; native controller owns only its locked project process tree, refuses reused roots/restarts, and partial collection requires stopped owned PIDs. Same-snapshot failure and incomplete native0 cannot satisfy firstG1 verification.",
+      "artificial_evidence": "Injected charge failure, dead-without-exit, PID reuse, missing/stale identity/resources, resource excess, durable failure and malformed terminal states passed the focused tests."
+    },
+    {
+      "check": "fixed_research_selection_scope_and_original_roles",
+      "passed": true,
+      "evidence": "Only two charge scalars and two2000G trials are opened. Original TRAIN/DEV roles,013T and C1 scales remain fixed. Comparison explicitly uses frozen015 M0 as replacement reference while reporting charge-on initialization separately. Final research selection uses dual-reference ALL6 positive-defined-T noninferiority and mean12wave improvement>1e-12;2% usefulness/absoluteT remain separate reports. Weights/scientific acceptance stay false."
+    }
+  ],
+  "resolved_findings": [
+    {
+      "id": "016-firstG1-current-health",
+      "severity": "required_fix",
+      "prior_controller_sha256": "e98446770b4e1e4404fa03f3c0217464f935e657da005308ac6b234000096b02",
+      "issue": "Historical firstG1 and known-failure exclusion did not prove current process health.",
+      "resolution": "Embedded fresh owned-process identity/resource snapshot and separate native0 terminal path;15 negative cases independently rerun against finalf1d5 controller.",
+      "status": "resolved"
+    }
+  ],
+  "engineering_ready": {
+    "path": "receipts/wp3_016_20261015/engineering_01/ENGINEERING_READY.json",
+    "bytes": 5680,
+    "sha256": "d66bf5c4bb3215622bc2b6aee09686468452cf409f31e096540421de95c1f3de"
+  },
+  "engineering_receipts": {
+    "numeric": {
+      "path": "receipts/wp3_016_20261015/engineering_01/artificial_cpu_01/ENGINEERING_RECEIPT.json",
+      "bytes": 6972,
+      "sha256": "c715b937cb16325e1f95f54cc5476d3805eb84f27620f80fd82927ae690ef090"
+    },
+    "controller": {
+      "path": "receipts/wp3_016_20261015/engineering_01/controller_stdlib_01/ENGINEERING_RECEIPT.json",
+      "bytes": 3909,
+      "sha256": "86fd68c302632ab99929ed6cabfba815454623d4bd406c37e05baaa7079b9846"
+    },
+    "independent_controller_rerun": {
+      "path": "receipts/wp3_016_20261015/independent_01/artificial_stdlib_01/ENGINEERING_RECEIPT.json",
+      "bytes": 3909,
+      "sha256": "8ed32e4091473bb47ca5d4ffb9f221edb3b7809a5313f5692455760909e07e59"
+    }
+  },
+  "engineering_test_sources": [
+    {
+      "path": "receipts/wp3_016_20261015/engineering_01/check_wp3_016.py",
+      "bytes": 12179,
+      "sha256": "867872d39ed82cd3b7efab71ad049cf11014e5edde45cc329ee1ea574d84b447"
+    },
+    {
+      "path": "receipts/wp3_016_20261015/engineering_01/check_controller016.py",
+      "bytes": 12164,
+      "sha256": "e1dbaf57c5489f1d3d201cb0f3d9a11d41be75a3d38564b73eb0792be5961336"
+    }
+  ],
+  "numeric_evidence_reuse": {
+    "model_and_driver_hashes_unchanged": true,
+    "numeric_groups": 7,
+    "synthetic_engine_updates": 2,
+    "synthetic_functional_AD_queries": 1,
+    "full112second_numeric_test_repeated": false,
+    "numeric_receipt_controller_is_prehealthfix": "Its old controller hash is historical; numeric model/driver are unchanged. Final controller has separate exact-SHA stdlib coverage."
+  },
+  "independent_current_tests": {
+    "stdlib_groups": 5,
+    "health_negative_cases": 15,
+    "passed": true,
+    "actual_scientific_CP_NN_AD_random_training": 0
+  },
+  "documents": [
+    {
+      "path": "wp3_016_design.json",
+      "bytes": 6798,
+      "sha256": "fab6afcff2ef06f65b44b0722483344d4f9e658013b8958c29ca5c2fd1f66425"
+    },
+    {
+      "path": "docs/WP3_016_CONFIGURATION.md",
+      "bytes": 4841,
+      "sha256": "813ebabe3f4678039a09c18123d5d84c692d40a2cbb0ae654cd1bbae085154b8"
+    },
+    {
+      "path": "WP3_016_DATA_ROLES.json",
+      "bytes": 2830,
+      "sha256": "3f8fe4ca99d482800f579f3403659ac1d026727c11d2cb76d718cd0b8dfde00b"
+    },
+    {
+      "path": "receipts/wp3_016_20261015/independent_01/DESIGN_REVIEW.json",
+      "bytes": 14571,
+      "sha256": "7678ed8840e05dfbd42887254704d223d3a0beb12846e376b35f0f805055b8bd"
+    },
+    {
+      "path": "OBSERVATION_CONTRACT.json",
+      "bytes": 2304,
+      "sha256": "c894abe80d7d9a31e4ffe670484123dd1eea5ee75dad7742e52d304e23054c6c"
+    },
+    {
+      "path": "CALIBRATED_TOLERANCES_WP1_013.json",
+      "bytes": 8271,
+      "sha256": "f33217e07b1872dfd51f56e86ed30cda665a705568f2f9ada937865d8a33607b"
+    },
+    {
+      "path": "receipts/wp3_015_20261015/postrun_independent_02/FINAL_DEVELOPMENT_SELECTION.json",
+      "bytes": 129622,
+      "sha256": "105fca8429d9814afefd414e238d9789ce8f0e1ca2bf6d3540b8a2da9c650f87"
+    }
+  ],
+  "original105_source_files_SHA_and_bytes_verified": true,
+  "original015_config_and_manifest_unchanged": true,
+  "source_freeze_pending": true,
+  "frozen_package_binding_review_required": true,
+  "native_scientific_start_or_execution_claimed": false,
+  "actual_local_review_operations": {
+    "stdlib_only": true,
+    "original_NPZ_NPY_decodes": 0,
+    "checkpoint_tensor_loads": 0,
+    "SOURCE_REAL_DEV_waveform_reads": 0,
+    "NN_rows": 0,
+    "AD_queries": 0,
+    "training_updates": 0,
+    "new_random_draws": 0,
+    "new_calibration_fits": 0,
+    "SSH_calls": 0,
+    "GPU_work": 0,
+    "model_driver_controller_or_design_edits": 0,
+    "root_meta_edits": 0,
+    "written_paths": [
+      "E:/GAN/research/N01/receipts/wp3_016_20261015/independent_01"
+    ]
+  },
+  "reviewer_script": {
+    "path": "receipts/wp3_016_20261015/independent_01/source_review.py",
+    "bytes": 15777,
+    "sha256": "e241422a9ef4e786a52c76a002d4602e0e36e32ddc82957ed464515e3f920780"
+  },
+  "weights_promoted": false,
+  "scientific_acceptance": false,
+  "scientific_status": "response_match_not_established"
+}

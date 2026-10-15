@@ -1,12 +1,8 @@
-# N01 当前执行：WP3/015 报告完成，016正在实现
+# N01 当前执行：WP3/016 已冻结，待启动
 
-015独审后选择M0为后续开发研究参考，均值适配关闭。M0/M1的12格wave均值分别为0.15012505860962605 /0.15243191496746586，共同初始为0.15042006897712382；M0用途6/6、M1为0/6。原014 C1的5/6历史保持。
+016冻结A/005及对应015 M0形状头、关闭均值适配，只训练两个正值均值校正电荷方差参数。两seed各2000G，最多4000G/AD；精确预算、输入角色和源码已独审，启动以原生回执为准。当前无科学作业，累计175667，015闭合报告保留。后续全部使用GPT-6.1-Sol Max。
 
-四trial共8000G/AD和保存数组CPU复核均native0。36对、161份SHA/160份评价NPZ、1,898,784行与285项操作完整，独立闭合通过；19个CPU小文件已核SHA。完整经验距离、C1 median和preADC384未独立重放；REAL均值摘要只核SHA。原NPZ留远端，累计训练175667不变。
-
-绝对T仍有失败：M0峰高/rise/FWHM约6.7/7.4/4.8倍T，baseline mean约33倍T。科学状态response_match_not_established，权重未科学晋级。下一项仅用剩余两次WP3短试检验两参数正值均值校正电荷分支；原A/005/M0冻结，峰形和基线残差分别保留。当前无运行中的科学作业，后续统一GPT-6.1-Sol Max。
-
-[015中文报告](reports/wp3_015_20261015/REPORT.md) · [HTML](reports/wp3_015_20261015/REPORT.html) · [最终回执](receipts/wp3_015_20261015/FINAL_RESULT_RECEIPT.json) · [015最终独审](receipts/wp3_015_20261015/postrun_independent_02/FINAL_INDEPENDENT_REVIEW.json) · [研究参考选择](receipts/wp3_015_20261015/postrun_independent_02/FINAL_DEVELOPMENT_SELECTION.json) · [016设计](wp3_016_design.json)
+[016配置](wp3_016_config.json) · [016合同](docs/WP3_016_CONFIGURATION.md) · [015报告](reports/wp3_015_20261015/REPORT.md) · [015最终回执](receipts/wp3_015_20261015/FINAL_RESULT_RECEIPT.json)
 
 以下保留此前阶段说明。
 
