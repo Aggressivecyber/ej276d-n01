@@ -1,0 +1,7 @@
+继续 N01 主实施计划，施工和审核沿用 gpt-6.1-sol / max。用户于2026-10-16明确说“服务器好了 继续推进”；本次017已恢复授权并正确启动。先读 E:/GAN/research/N01/AGENTS.md、USER_MASTER_PLAN_20261015.txt、MASTER_EXECUTION_PLAN.json、PROGRAM.json、jobs.json，以及 receipts/wp4_017_20261015/resume_20261016_01/EXECUTION_STARTED.json、FOLLOWUP_RECEIPT.json 和 REMOTE_EXECUTION_RESUMED_BY_USER.json。所有新增研究文件保存在E/D。按用户最新行为规则只做必要改动，信任既有内部代码，不为一次性操作创建helper或抽象，不重复已通过工程套件。
+
+运行ID wp4_017_20261015，服务器 rylan@100.82.231.102，远端 /home/rylan/projects/ej276d-n01/wp4_017_20261015。使用现有 scripts/wp4_017_controller.py，以及本次 resume_20261016_01/runtime_package_01 冻结包。源码提交 f7f720989584187adeb6fa7613a8ed287206ad08；CFG SHA deb7b08a4533421139c8c021608c56d3f06ec033d111f99da62cd4aba484d723；MF SHA 31c8bf29c06a4f8a77176f314c490c9cb5a7fb9973f64b154c03ed744013375c。这次运行沿用已独审的5份源码及全部科学设置。首两次T1配对的必需门全部通过才运行余下六次；failed、pending或MC_unresolved不得当作通过。全包G/AD上限16000，首阶段4000；不得自动重启、改门槛或追加试验。
+
+上次验证快照 2026-10-15T17:50:46.330719+00:00：监督PID 8582、训练PID 8589，boot 06177e53-90a1-4d8c-a942-03b487a0684d，真实两theta首更新与同快照资源健康通过。持久完成G/AD均139，项目累计G下界179806。先做一次实际状态核对；后续累计只增加新的持久完成G差额，进入未完成操作继续记为unknown。若仍运行，按实际阶段保存一次合理未来苏醒并休息，不持续轮询。若退出，核对native退出、COMPLETE/FAILED、阶段门和持久计数；用既有controller按完整inventory校验后选择性回收（最多256MiB，原始NPZ保留远端），保存日志、checkpoint与负结果。失败不自动重训。
+
+成功退出后对已保存数组做必要的数值读回/复核并形成017结论，再依据实际结果推进主计划WP5/WP6；不为复核新增NN、AD、随机库或探针，不把启动或教师恢复等同REAL泛化/硬件验证。若in-family paired恢复未通过，执行主计划停止真实长训练的规则。六工作包尚未全部完成，scientific_status仍为response_match_not_established；每次只报告证据支持的完成状态。
