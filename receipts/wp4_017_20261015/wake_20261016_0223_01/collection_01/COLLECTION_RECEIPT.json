@@ -1,0 +1,1050 @@
+{
+  "schema": "n01/wp4-017-selective-collection/v1",
+  "run_id": "wp4_017_20261015",
+  "status": "native_inventory_and_selected_bytes_verified",
+  "collected_root": "E:\\GAN\\research\\N01\\runs\\wp4_017_20261015\\selected_collected_01",
+  "archive": "E:\\GAN\\research\\N01\\receipts\\wp4_017_20261015\\wake_20261016_0223_01\\collection_01\\wp4_017_complete_selected_01.tar",
+  "archive_sha256": "80132679a64170fdf26ef460a25859a3b551f66e289dcc6dd2117f9f92f83a8a",
+  "selected_file_count": 45,
+  "whole_remote_file_count": 147,
+  "omitted_file_count": 102,
+  "whole_remote_inventory_verified": true,
+  "all_raw_artifacts_collected": false,
+  "raw_artifacts_retained_remote": true,
+  "independent_numerical_readback_complete": false,
+  "partial_evidence_only": false,
+  "control_read_errors": [],
+  "job": {
+    "status": "native_zero_actual_trial_set_complete",
+    "counters": {
+      "trial_slots": 2,
+      "G_updates": 4000,
+      "optimizer_steps": 4000,
+      "training_backward_queries": 4000,
+      "new_AD_queries": 4000,
+      "optimizers_created": 2,
+      "checkpoint_loads": 3,
+      "A_original_forward_rows": 6593,
+      "original_U_Net_decoded_rows": 6593,
+      "fixed_M0_head_actual_kernel_rows": 6593,
+      "student_charge_module_rows": 5361856,
+      "teacher_charge_module_rows": 4517952,
+      "shape_cached_basis_assembly_rows": 9879808,
+      "noise005_rows": 9879808,
+      "all_three_extensions_rows": 29639424,
+      "hard_ADC_rows": 29639424,
+      "hard_first_argmax_gather_rows": 29639424,
+      "training_student_rows": 4096000,
+      "training_teacher_rows": 4096000,
+      "evaluation_kernel_snapshots": 4,
+      "evaluation_signal_rows": 1687808,
+      "normal_shape_scalar_requests": 79038464,
+      "normal_charge_scalar_requests": 9879808,
+      "normal_noise005_scalar_requests": 997860608,
+      "normal_extension284_scalar_requests": 2805865472,
+      "total_scalar_normal_requests": 3892644352,
+      "T2_teacher_sign_uniform_requests": 0,
+      "coverage_PIT_uniform_requests": 7595136,
+      "parent_sampler_streams": 2,
+      "parent_randint_calls": 4000,
+      "parent_randint_scalar_requests": 2048000,
+      "parent_randperm_calls": 0,
+      "paired_training_energy_pair_distances": 30720000,
+      "unpaired_training_energy_pair_distances": 0,
+      "unpaired_training_cross_retained_pairs": 0,
+      "unpaired_training_self_ordered_retained_pairs": 0,
+      "unpaired_training_self_diagonal_computed_then_masked": 0,
+      "evaluation_energy_candidate_comparisons": 3,
+      "evaluation_energy_pair_distances": 303805440,
+      "checkpoint_saves_complete": 5,
+      "REAL_waveform_reads": 0,
+      "original_DEV_waveform_reads": 0,
+      "A_005_M0_updates": 0,
+      "mean_adapter_updates": 0,
+      "shape_head_updates": 0,
+      "teacher_parameter_updates": 0,
+      "noise_updates": 0,
+      "population_updates": 0,
+      "D_updates": 0,
+      "C2ST_updates": 0,
+      "probe_AD_queries": 0,
+      "integral_scale_fits": 0,
+      "charge_initialization_fits": 0,
+      "teacher_or_student_latent_in_deployment_inputs": 0,
+      "new_hardware_or_REAL_teacher_claims": 0
+    },
+    "trials": [
+      {
+        "directory": "T1_paired_seed0",
+        "G_updates": 2000,
+        "teacher": "T1",
+        "mode": "paired",
+        "seed": 0,
+        "COMPLETE_sha256": "1b34eedcadaa7e60082912fa170532691f49228906be398080c928a9756aff09"
+      },
+      {
+        "directory": "T1_paired_seed1",
+        "G_updates": 2000,
+        "teacher": "T1",
+        "mode": "paired",
+        "seed": 1,
+        "COMPLETE_sha256": "c801ac978ed0269f50d4c6f08520d083fd30aa9f5c1adfb9c31c5ed5acadd8bb"
+      }
+    ],
+    "terminal_scope": "stage1_closed_normally",
+    "stage1_gate": {
+      "status": "closed",
+      "stage2_allowed": false,
+      "required_trials": [
+        "T1_paired_seed0",
+        "T1_paired_seed1"
+      ],
+      "required_cell_count": 2688,
+      "nonpass": [
+        {
+          "trial": "T1_paired_seed0",
+          "cell": 125,
+          "status": "pending",
+          "metric": "conditional_cov9",
+          "group": "fit_Q_tertile0_heldout",
+          "weights": "nominal",
+          "hypothesis": "fast",
+          "reasons": [
+            "common_count_below95percent_original",
+            "common_weight_mass_below95percent_original"
+          ]
+        },
+        {
+          "trial": "T1_paired_seed0",
+          "cell": 127,
+          "status": "pending",
+          "metric": "time_rise10_90",
+          "group": "fit_Q_tertile0_heldout",
+          "weights": "nominal",
+          "hypothesis": "fast",
+          "reasons": [
+            "common_count_below95percent_original",
+            "common_weight_mass_below95percent_original"
+          ]
+        },
+        {
+          "trial": "T1_paired_seed0",
+          "cell": 137,
+          "status": "pending",
+          "metric": "PIT_coverage",
+          "group": "fit_Q_tertile0_heldout",
+          "weights": "nominal",
+          "hypothesis": "fast",
+          "reasons": [
+            "common_count_below95percent_original",
+            "common_weight_mass_below95percent_original"
+          ]
+        },
+        {
+          "trial": "T1_paired_seed0",
+          "cell": 138,
+          "status": "pending",
+          "metric": "PIT_coverage",
+          "group": "fit_Q_tertile0_heldout",
+          "weights": "nominal",
+          "hypothesis": "fast",
+          "reasons": [
+            "common_count_below95percent_original",
+            "common_weight_mass_below95percent_original"
+          ]
+        },
+        {
+          "trial": "T1_paired_seed0",
+          "cell": 162,
+          "status": "pending",
+          "metric": "conditional_cov9",
+          "group": "fit_Q_tertile0_heldout",
+          "weights": "low",
+          "hypothesis": "fast",
+          "reasons": [
+            "common_count_below95percent_original",
+            "common_weight_mass_below95percent_original"
+          ]
+        },
+        {
+          "trial": "T1_paired_seed0",
+          "cell": 164,
+          "status": "pending",
+          "metric": "time_rise10_90",
+          "group": "fit_Q_tertile0_heldout",
+          "weights": "low",
+          "hypothesis": "fast",
+          "reasons": [
+            "common_count_below95percent_original",
+            "common_weight_mass_below95percent_original"
+          ]
+        },
+        {
+          "trial": "T1_paired_seed0",
+          "cell": 174,
+          "status": "pending",
+          "metric": "PIT_coverage",
+          "group": "fit_Q_tertile0_heldout",
+          "weights": "low",
+          "hypothesis": "fast",
+          "reasons": [
+            "common_count_below95percent_original",
+            "common_weight_mass_below95percent_original"
+          ]
+        },
+        {
+          "trial": "T1_paired_seed0",
+          "cell": 175,
+          "status": "pending",
+          "metric": "PIT_coverage",
+          "group": "fit_Q_tertile0_heldout",
+          "weights": "low",
+          "hypothesis": "fast",
+          "reasons": [
+            "common_count_below95percent_original",
+            "common_weight_mass_below95percent_original"
+          ]
+        },
+        {
+          "trial": "T1_paired_seed0",
+          "cell": 199,
+          "status": "pending",
+          "metric": "conditional_cov9",
+          "group": "fit_Q_tertile0_heldout",
+          "weights": "high",
+          "hypothesis": "fast",
+          "reasons": [
+            "common_count_below95percent_original",
+            "common_weight_mass_below95percent_original"
+          ]
+        },
+        {
+          "trial": "T1_paired_seed0",
+          "cell": 201,
+          "status": "pending",
+          "metric": "time_rise10_90",
+          "group": "fit_Q_tertile0_heldout",
+          "weights": "high",
+          "hypothesis": "fast",
+          "reasons": [
+            "common_count_below95percent_original",
+            "common_weight_mass_below95percent_original"
+          ]
+        },
+        {
+          "trial": "T1_paired_seed0",
+          "cell": 211,
+          "status": "pending",
+          "metric": "PIT_coverage",
+          "group": "fit_Q_tertile0_heldout",
+          "weights": "high",
+          "hypothesis": "fast",
+          "reasons": [
+            "common_count_below95percent_original",
+            "common_weight_mass_below95percent_original"
+          ]
+        },
+        {
+          "trial": "T1_paired_seed0",
+          "cell": 212,
+          "status": "pending",
+          "metric": "PIT_coverage",
+          "group": "fit_Q_tertile0_heldout",
+          "weights": "high",
+          "hypothesis": "fast",
+          "reasons": [
+            "common_count_below95percent_original",
+            "common_weight_mass_below95percent_original"
+          ]
+        },
+        {
+          "trial": "T1_paired_seed0",
+          "cell": 569,
+          "status": "pending",
+          "metric": "conditional_cov9",
+          "group": "fit_Q_tertile0_heldout",
+          "weights": "nominal",
+          "hypothesis": "slow",
+          "reasons": [
+            "common_count_below95percent_original",
+            "common_weight_mass_below95percent_original"
+          ]
+        },
+        {
+          "trial": "T1_paired_seed0",
+          "cell": 571,
+          "status": "pending",
+          "metric": "time_rise10_90",
+          "group": "fit_Q_tertile0_heldout",
+          "weights": "nominal",
+          "hypothesis": "slow",
+          "reasons": [
+            "common_count_below95percent_original",
+            "common_weight_mass_below95percent_original"
+          ]
+        },
+        {
+          "trial": "T1_paired_seed0",
+          "cell": 581,
+          "status": "pending",
+          "metric": "PIT_coverage",
+          "group": "fit_Q_tertile0_heldout",
+          "weights": "nominal",
+          "hypothesis": "slow",
+          "reasons": [
+            "common_count_below95percent_original",
+            "common_weight_mass_below95percent_original"
+          ]
+        },
+        {
+          "trial": "T1_paired_seed0",
+          "cell": 582,
+          "status": "pending",
+          "metric": "PIT_coverage",
+          "group": "fit_Q_tertile0_heldout",
+          "weights": "nominal",
+          "hypothesis": "slow",
+          "reasons": [
+            "common_count_below95percent_original",
+            "common_weight_mass_below95percent_original"
+          ]
+        },
+        {
+          "trial": "T1_paired_seed0",
+          "cell": 606,
+          "status": "pending",
+          "metric": "conditional_cov9",
+          "group": "fit_Q_tertile0_heldout",
+          "weights": "low",
+          "hypothesis": "slow",
+          "reasons": [
+            "common_count_below95percent_original",
+            "common_weight_mass_below95percent_original"
+          ]
+        },
+        {
+          "trial": "T1_paired_seed0",
+          "cell": 608,
+          "status": "pending",
+          "metric": "time_rise10_90",
+          "group": "fit_Q_tertile0_heldout",
+          "weights": "low",
+          "hypothesis": "slow",
+          "reasons": [
+            "common_count_below95percent_original",
+            "common_weight_mass_below95percent_original"
+          ]
+        },
+        {
+          "trial": "T1_paired_seed0",
+          "cell": 618,
+          "status": "pending",
+          "metric": "PIT_coverage",
+          "group": "fit_Q_tertile0_heldout",
+          "weights": "low",
+          "hypothesis": "slow",
+          "reasons": [
+            "common_count_below95percent_original",
+            "common_weight_mass_below95percent_original"
+          ]
+        },
+        {
+          "trial": "T1_paired_seed0",
+          "cell": 619,
+          "status": "pending",
+          "metric": "PIT_coverage",
+          "group": "fit_Q_tertile0_heldout",
+          "weights": "low",
+          "hypothesis": "slow",
+          "reasons": [
+            "common_count_below95percent_original",
+            "common_weight_mass_below95percent_original"
+          ]
+        },
+        {
+          "trial": "T1_paired_seed0",
+          "cell": 643,
+          "status": "pending",
+          "metric": "conditional_cov9",
+          "group": "fit_Q_tertile0_heldout",
+          "weights": "high",
+          "hypothesis": "slow",
+          "reasons": [
+            "common_count_below95percent_original",
+            "common_weight_mass_below95percent_original"
+          ]
+        },
+        {
+          "trial": "T1_paired_seed0",
+          "cell": 645,
+          "status": "pending",
+          "metric": "time_rise10_90",
+          "group": "fit_Q_tertile0_heldout",
+          "weights": "high",
+          "hypothesis": "slow",
+          "reasons": [
+            "common_count_below95percent_original",
+            "common_weight_mass_below95percent_original"
+          ]
+        },
+        {
+          "trial": "T1_paired_seed0",
+          "cell": 655,
+          "status": "pending",
+          "metric": "PIT_coverage",
+          "group": "fit_Q_tertile0_heldout",
+          "weights": "high",
+          "hypothesis": "slow",
+          "reasons": [
+            "common_count_below95percent_original",
+            "common_weight_mass_below95percent_original"
+          ]
+        },
+        {
+          "trial": "T1_paired_seed0",
+          "cell": 656,
+          "status": "pending",
+          "metric": "PIT_coverage",
+          "group": "fit_Q_tertile0_heldout",
+          "weights": "high",
+          "hypothesis": "slow",
+          "reasons": [
+            "common_count_below95percent_original",
+            "common_weight_mass_below95percent_original"
+          ]
+        },
+        {
+          "trial": "T1_paired_seed0",
+          "cell": 1013,
+          "status": "pending",
+          "metric": "conditional_cov9",
+          "group": "fit_Q_tertile0_heldout",
+          "weights": "nominal",
+          "hypothesis": "common_level",
+          "reasons": [
+            "common_count_below95percent_original",
+            "common_weight_mass_below95percent_original"
+          ]
+        },
+        {
+          "trial": "T1_paired_seed0",
+          "cell": 1015,
+          "status": "pending",
+          "metric": "time_rise10_90",
+          "group": "fit_Q_tertile0_heldout",
+          "weights": "nominal",
+          "hypothesis": "common_level",
+          "reasons": [
+            "common_count_below95percent_original",
+            "common_weight_mass_below95percent_original"
+          ]
+        },
+        {
+          "trial": "T1_paired_seed0",
+          "cell": 1025,
+          "status": "pending",
+          "metric": "PIT_coverage",
+          "group": "fit_Q_tertile0_heldout",
+          "weights": "nominal",
+          "hypothesis": "common_level",
+          "reasons": [
+            "common_count_below95percent_original",
+            "common_weight_mass_below95percent_original"
+          ]
+        },
+        {
+          "trial": "T1_paired_seed0",
+          "cell": 1026,
+          "status": "pending",
+          "metric": "PIT_coverage",
+          "group": "fit_Q_tertile0_heldout",
+          "weights": "nominal",
+          "hypothesis": "common_level",
+          "reasons": [
+            "common_count_below95percent_original",
+            "common_weight_mass_below95percent_original"
+          ]
+        },
+        {
+          "trial": "T1_paired_seed0",
+          "cell": 1050,
+          "status": "pending",
+          "metric": "conditional_cov9",
+          "group": "fit_Q_tertile0_heldout",
+          "weights": "low",
+          "hypothesis": "common_level",
+          "reasons": [
+            "common_count_below95percent_original",
+            "common_weight_mass_below95percent_original"
+          ]
+        },
+        {
+          "trial": "T1_paired_seed0",
+          "cell": 1052,
+          "status": "pending",
+          "metric": "time_rise10_90",
+          "group": "fit_Q_tertile0_heldout",
+          "weights": "low",
+          "hypothesis": "common_level",
+          "reasons": [
+            "common_count_below95percent_original",
+            "common_weight_mass_below95percent_original"
+          ]
+        },
+        {
+          "trial": "T1_paired_seed0",
+          "cell": 1062,
+          "status": "pending",
+          "metric": "PIT_coverage",
+          "group": "fit_Q_tertile0_heldout",
+          "weights": "low",
+          "hypothesis": "common_level",
+          "reasons": [
+            "common_count_below95percent_original",
+            "common_weight_mass_below95percent_original"
+          ]
+        },
+        {
+          "trial": "T1_paired_seed0",
+          "cell": 1063,
+          "status": "pending",
+          "metric": "PIT_coverage",
+          "group": "fit_Q_tertile0_heldout",
+          "weights": "low",
+          "hypothesis": "common_level",
+          "reasons": [
+            "common_count_below95percent_original",
+            "common_weight_mass_below95percent_original"
+          ]
+        },
+        {
+          "trial": "T1_paired_seed0",
+          "cell": 1087,
+          "status": "pending",
+          "metric": "conditional_cov9",
+          "group": "fit_Q_tertile0_heldout",
+          "weights": "high",
+          "hypothesis": "common_level",
+          "reasons": [
+            "common_count_below95percent_original",
+            "common_weight_mass_below95percent_original"
+          ]
+        },
+        {
+          "trial": "T1_paired_seed0",
+          "cell": 1089,
+          "status": "pending",
+          "metric": "time_rise10_90",
+          "group": "fit_Q_tertile0_heldout",
+          "weights": "high",
+          "hypothesis": "common_level",
+          "reasons": [
+            "common_count_below95percent_original",
+            "common_weight_mass_below95percent_original"
+          ]
+        },
+        {
+          "trial": "T1_paired_seed0",
+          "cell": 1099,
+          "status": "pending",
+          "metric": "PIT_coverage",
+          "group": "fit_Q_tertile0_heldout",
+          "weights": "high",
+          "hypothesis": "common_level",
+          "reasons": [
+            "common_count_below95percent_original",
+            "common_weight_mass_below95percent_original"
+          ]
+        },
+        {
+          "trial": "T1_paired_seed0",
+          "cell": 1100,
+          "status": "pending",
+          "metric": "PIT_coverage",
+          "group": "fit_Q_tertile0_heldout",
+          "weights": "high",
+          "hypothesis": "common_level",
+          "reasons": [
+            "common_count_below95percent_original",
+            "common_weight_mass_below95percent_original"
+          ]
+        },
+        {
+          "trial": "T1_paired_seed1",
+          "cell": 125,
+          "status": "pending",
+          "metric": "conditional_cov9",
+          "group": "fit_Q_tertile0_heldout",
+          "weights": "nominal",
+          "hypothesis": "fast",
+          "reasons": [
+            "common_count_below95percent_original",
+            "common_weight_mass_below95percent_original"
+          ]
+        },
+        {
+          "trial": "T1_paired_seed1",
+          "cell": 127,
+          "status": "pending",
+          "metric": "time_rise10_90",
+          "group": "fit_Q_tertile0_heldout",
+          "weights": "nominal",
+          "hypothesis": "fast",
+          "reasons": [
+            "common_count_below95percent_original",
+            "common_weight_mass_below95percent_original"
+          ]
+        },
+        {
+          "trial": "T1_paired_seed1",
+          "cell": 137,
+          "status": "pending",
+          "metric": "PIT_coverage",
+          "group": "fit_Q_tertile0_heldout",
+          "weights": "nominal",
+          "hypothesis": "fast",
+          "reasons": [
+            "common_count_below95percent_original",
+            "common_weight_mass_below95percent_original"
+          ]
+        },
+        {
+          "trial": "T1_paired_seed1",
+          "cell": 138,
+          "status": "pending",
+          "metric": "PIT_coverage",
+          "group": "fit_Q_tertile0_heldout",
+          "weights": "nominal",
+          "hypothesis": "fast",
+          "reasons": [
+            "common_count_below95percent_original",
+            "common_weight_mass_below95percent_original"
+          ]
+        },
+        {
+          "trial": "T1_paired_seed1",
+          "cell": 162,
+          "status": "pending",
+          "metric": "conditional_cov9",
+          "group": "fit_Q_tertile0_heldout",
+          "weights": "low",
+          "hypothesis": "fast",
+          "reasons": [
+            "common_count_below95percent_original",
+            "common_weight_mass_below95percent_original"
+          ]
+        },
+        {
+          "trial": "T1_paired_seed1",
+          "cell": 164,
+          "status": "pending",
+          "metric": "time_rise10_90",
+          "group": "fit_Q_tertile0_heldout",
+          "weights": "low",
+          "hypothesis": "fast",
+          "reasons": [
+            "common_count_below95percent_original",
+            "common_weight_mass_below95percent_original"
+          ]
+        },
+        {
+          "trial": "T1_paired_seed1",
+          "cell": 174,
+          "status": "pending",
+          "metric": "PIT_coverage",
+          "group": "fit_Q_tertile0_heldout",
+          "weights": "low",
+          "hypothesis": "fast",
+          "reasons": [
+            "common_count_below95percent_original",
+            "common_weight_mass_below95percent_original"
+          ]
+        },
+        {
+          "trial": "T1_paired_seed1",
+          "cell": 175,
+          "status": "pending",
+          "metric": "PIT_coverage",
+          "group": "fit_Q_tertile0_heldout",
+          "weights": "low",
+          "hypothesis": "fast",
+          "reasons": [
+            "common_count_below95percent_original",
+            "common_weight_mass_below95percent_original"
+          ]
+        },
+        {
+          "trial": "T1_paired_seed1",
+          "cell": 199,
+          "status": "pending",
+          "metric": "conditional_cov9",
+          "group": "fit_Q_tertile0_heldout",
+          "weights": "high",
+          "hypothesis": "fast",
+          "reasons": [
+            "common_count_below95percent_original",
+            "common_weight_mass_below95percent_original"
+          ]
+        },
+        {
+          "trial": "T1_paired_seed1",
+          "cell": 201,
+          "status": "pending",
+          "metric": "time_rise10_90",
+          "group": "fit_Q_tertile0_heldout",
+          "weights": "high",
+          "hypothesis": "fast",
+          "reasons": [
+            "common_count_below95percent_original",
+            "common_weight_mass_below95percent_original"
+          ]
+        },
+        {
+          "trial": "T1_paired_seed1",
+          "cell": 211,
+          "status": "pending",
+          "metric": "PIT_coverage",
+          "group": "fit_Q_tertile0_heldout",
+          "weights": "high",
+          "hypothesis": "fast",
+          "reasons": [
+            "common_count_below95percent_original",
+            "common_weight_mass_below95percent_original"
+          ]
+        },
+        {
+          "trial": "T1_paired_seed1",
+          "cell": 212,
+          "status": "pending",
+          "metric": "PIT_coverage",
+          "group": "fit_Q_tertile0_heldout",
+          "weights": "high",
+          "hypothesis": "fast",
+          "reasons": [
+            "common_count_below95percent_original",
+            "common_weight_mass_below95percent_original"
+          ]
+        },
+        {
+          "trial": "T1_paired_seed1",
+          "cell": 569,
+          "status": "pending",
+          "metric": "conditional_cov9",
+          "group": "fit_Q_tertile0_heldout",
+          "weights": "nominal",
+          "hypothesis": "slow",
+          "reasons": [
+            "common_count_below95percent_original",
+            "common_weight_mass_below95percent_original"
+          ]
+        },
+        {
+          "trial": "T1_paired_seed1",
+          "cell": 571,
+          "status": "pending",
+          "metric": "time_rise10_90",
+          "group": "fit_Q_tertile0_heldout",
+          "weights": "nominal",
+          "hypothesis": "slow",
+          "reasons": [
+            "common_count_below95percent_original",
+            "common_weight_mass_below95percent_original"
+          ]
+        },
+        {
+          "trial": "T1_paired_seed1",
+          "cell": 581,
+          "status": "pending",
+          "metric": "PIT_coverage",
+          "group": "fit_Q_tertile0_heldout",
+          "weights": "nominal",
+          "hypothesis": "slow",
+          "reasons": [
+            "common_count_below95percent_original",
+            "common_weight_mass_below95percent_original"
+          ]
+        },
+        {
+          "trial": "T1_paired_seed1",
+          "cell": 582,
+          "status": "pending",
+          "metric": "PIT_coverage",
+          "group": "fit_Q_tertile0_heldout",
+          "weights": "nominal",
+          "hypothesis": "slow",
+          "reasons": [
+            "common_count_below95percent_original",
+            "common_weight_mass_below95percent_original"
+          ]
+        },
+        {
+          "trial": "T1_paired_seed1",
+          "cell": 606,
+          "status": "pending",
+          "metric": "conditional_cov9",
+          "group": "fit_Q_tertile0_heldout",
+          "weights": "low",
+          "hypothesis": "slow",
+          "reasons": [
+            "common_count_below95percent_original",
+            "common_weight_mass_below95percent_original"
+          ]
+        },
+        {
+          "trial": "T1_paired_seed1",
+          "cell": 608,
+          "status": "pending",
+          "metric": "time_rise10_90",
+          "group": "fit_Q_tertile0_heldout",
+          "weights": "low",
+          "hypothesis": "slow",
+          "reasons": [
+            "common_count_below95percent_original",
+            "common_weight_mass_below95percent_original"
+          ]
+        },
+        {
+          "trial": "T1_paired_seed1",
+          "cell": 618,
+          "status": "pending",
+          "metric": "PIT_coverage",
+          "group": "fit_Q_tertile0_heldout",
+          "weights": "low",
+          "hypothesis": "slow",
+          "reasons": [
+            "common_count_below95percent_original",
+            "common_weight_mass_below95percent_original"
+          ]
+        },
+        {
+          "trial": "T1_paired_seed1",
+          "cell": 619,
+          "status": "pending",
+          "metric": "PIT_coverage",
+          "group": "fit_Q_tertile0_heldout",
+          "weights": "low",
+          "hypothesis": "slow",
+          "reasons": [
+            "common_count_below95percent_original",
+            "common_weight_mass_below95percent_original"
+          ]
+        },
+        {
+          "trial": "T1_paired_seed1",
+          "cell": 643,
+          "status": "pending",
+          "metric": "conditional_cov9",
+          "group": "fit_Q_tertile0_heldout",
+          "weights": "high",
+          "hypothesis": "slow",
+          "reasons": [
+            "common_count_below95percent_original",
+            "common_weight_mass_below95percent_original"
+          ]
+        },
+        {
+          "trial": "T1_paired_seed1",
+          "cell": 645,
+          "status": "pending",
+          "metric": "time_rise10_90",
+          "group": "fit_Q_tertile0_heldout",
+          "weights": "high",
+          "hypothesis": "slow",
+          "reasons": [
+            "common_count_below95percent_original",
+            "common_weight_mass_below95percent_original"
+          ]
+        },
+        {
+          "trial": "T1_paired_seed1",
+          "cell": 655,
+          "status": "pending",
+          "metric": "PIT_coverage",
+          "group": "fit_Q_tertile0_heldout",
+          "weights": "high",
+          "hypothesis": "slow",
+          "reasons": [
+            "common_count_below95percent_original",
+            "common_weight_mass_below95percent_original"
+          ]
+        },
+        {
+          "trial": "T1_paired_seed1",
+          "cell": 656,
+          "status": "pending",
+          "metric": "PIT_coverage",
+          "group": "fit_Q_tertile0_heldout",
+          "weights": "high",
+          "hypothesis": "slow",
+          "reasons": [
+            "common_count_below95percent_original",
+            "common_weight_mass_below95percent_original"
+          ]
+        },
+        {
+          "trial": "T1_paired_seed1",
+          "cell": 1013,
+          "status": "pending",
+          "metric": "conditional_cov9",
+          "group": "fit_Q_tertile0_heldout",
+          "weights": "nominal",
+          "hypothesis": "common_level",
+          "reasons": [
+            "common_count_below95percent_original",
+            "common_weight_mass_below95percent_original"
+          ]
+        },
+        {
+          "trial": "T1_paired_seed1",
+          "cell": 1015,
+          "status": "pending",
+          "metric": "time_rise10_90",
+          "group": "fit_Q_tertile0_heldout",
+          "weights": "nominal",
+          "hypothesis": "common_level",
+          "reasons": [
+            "common_count_below95percent_original",
+            "common_weight_mass_below95percent_original"
+          ]
+        },
+        {
+          "trial": "T1_paired_seed1",
+          "cell": 1025,
+          "status": "pending",
+          "metric": "PIT_coverage",
+          "group": "fit_Q_tertile0_heldout",
+          "weights": "nominal",
+          "hypothesis": "common_level",
+          "reasons": [
+            "common_count_below95percent_original",
+            "common_weight_mass_below95percent_original"
+          ]
+        },
+        {
+          "trial": "T1_paired_seed1",
+          "cell": 1026,
+          "status": "pending",
+          "metric": "PIT_coverage",
+          "group": "fit_Q_tertile0_heldout",
+          "weights": "nominal",
+          "hypothesis": "common_level",
+          "reasons": [
+            "common_count_below95percent_original",
+            "common_weight_mass_below95percent_original"
+          ]
+        },
+        {
+          "trial": "T1_paired_seed1",
+          "cell": 1050,
+          "status": "pending",
+          "metric": "conditional_cov9",
+          "group": "fit_Q_tertile0_heldout",
+          "weights": "low",
+          "hypothesis": "common_level",
+          "reasons": [
+            "common_count_below95percent_original",
+            "common_weight_mass_below95percent_original"
+          ]
+        },
+        {
+          "trial": "T1_paired_seed1",
+          "cell": 1052,
+          "status": "pending",
+          "metric": "time_rise10_90",
+          "group": "fit_Q_tertile0_heldout",
+          "weights": "low",
+          "hypothesis": "common_level",
+          "reasons": [
+            "common_count_below95percent_original",
+            "common_weight_mass_below95percent_original"
+          ]
+        },
+        {
+          "trial": "T1_paired_seed1",
+          "cell": 1062,
+          "status": "pending",
+          "metric": "PIT_coverage",
+          "group": "fit_Q_tertile0_heldout",
+          "weights": "low",
+          "hypothesis": "common_level",
+          "reasons": [
+            "common_count_below95percent_original",
+            "common_weight_mass_below95percent_original"
+          ]
+        },
+        {
+          "trial": "T1_paired_seed1",
+          "cell": 1063,
+          "status": "pending",
+          "metric": "PIT_coverage",
+          "group": "fit_Q_tertile0_heldout",
+          "weights": "low",
+          "hypothesis": "common_level",
+          "reasons": [
+            "common_count_below95percent_original",
+            "common_weight_mass_below95percent_original"
+          ]
+        },
+        {
+          "trial": "T1_paired_seed1",
+          "cell": 1087,
+          "status": "pending",
+          "metric": "conditional_cov9",
+          "group": "fit_Q_tertile0_heldout",
+          "weights": "high",
+          "hypothesis": "common_level",
+          "reasons": [
+            "common_count_below95percent_original",
+            "common_weight_mass_below95percent_original"
+          ]
+        },
+        {
+          "trial": "T1_paired_seed1",
+          "cell": 1089,
+          "status": "pending",
+          "metric": "time_rise10_90",
+          "group": "fit_Q_tertile0_heldout",
+          "weights": "high",
+          "hypothesis": "common_level",
+          "reasons": [
+            "common_count_below95percent_original",
+            "common_weight_mass_below95percent_original"
+          ]
+        },
+        {
+          "trial": "T1_paired_seed1",
+          "cell": 1099,
+          "status": "pending",
+          "metric": "PIT_coverage",
+          "group": "fit_Q_tertile0_heldout",
+          "weights": "high",
+          "hypothesis": "common_level",
+          "reasons": [
+            "common_count_below95percent_original",
+            "common_weight_mass_below95percent_original"
+          ]
+        },
+        {
+          "trial": "T1_paired_seed1",
+          "cell": 1100,
+          "status": "pending",
+          "metric": "PIT_coverage",
+          "group": "fit_Q_tertile0_heldout",
+          "weights": "high",
+          "hypothesis": "common_level",
+          "reasons": [
+            "common_count_below95percent_original",
+            "common_weight_mass_below95percent_original"
+          ]
+        }
+      ],
+      "pending_is_pass": false,
+      "scientific_acceptance": false,
+      "scope": "fixed known A/005/M0 shape conditional charge recovery; not hardware or REAL response acceptance"
+    },
+    "stage2_entered": false,
+    "training_skipped": false,
+    "scientific_acceptance": false
+  },
+  "scientific_acceptance": false
+}

@@ -1,0 +1,14 @@
+{
+  "command": [
+    "ssh",
+    "-T",
+    "-o",
+    "BatchMode=yes",
+    "-o",
+    "ConnectTimeout=15",
+    "rylan@100.82.231.102",
+    "timeout --signal=TERM --kill-after=5s 180s env OMP_NUM_THREADS=2 OPENBLAS_NUM_THREADS=2 MKL_NUM_THREADS=2 NUMEXPR_NUM_THREADS=2 /home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python -B -"
+  ],
+  "stdin_file": "SSH_STDIN.py",
+  "stdin_sha256": "9e5b4c94f302fe7e69fd3b63de229387789c8d06ca16c72c1a4d1b9391961e12"
+}
