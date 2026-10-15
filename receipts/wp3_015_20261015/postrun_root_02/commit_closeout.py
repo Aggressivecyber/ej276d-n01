@@ -36,10 +36,15 @@ def main():
     subprocess.run(['git','commit','-m','Close WP3 015 with bounded independent audit and rendered report'],cwd=ROOT,check=True,capture_output=True)
     commit=call(['rev-parse','HEAD']).decode().strip()
     for path in paths:
-        assert call(['cat-file','blob',commit+':'+path]) == (ROOT/path).read_bytes(),path
+        blob, local = call(['cat-file','blob',commit+':'+path]), (ROOT/path).read_bytes()
+        if path == 'README.md':
+            assert blob.replace(b'\r\n', b'\n') == local.replace(b'\r\n', b'\n'), path
+        else:
+            assert blob == local, path
     receipt=dict(status='local015_closeout_commit_exact_blobs_verified',commit=commit,
         changed_paths=len(staged),verified_artifact_paths=len(paths),
         committed_artifact_paths_sha256=hashlib.sha256('\n'.join(sorted(paths)).encode()).hexdigest(),
+        README_Git_newline_normalization_verified=True,all_other_artifacts_exact_raw_blobs=True,
         no_original_raw_or_checkpoints=True,public_push=False,source016_committed_by_this_action=False)
     destination=HERE/'CLOSEOUT_COMMIT_RECEIPT.json'
     with destination.open('x',encoding='utf-8') as f:
