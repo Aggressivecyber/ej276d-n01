@@ -1,0 +1,560 @@
+{
+  "schema": "n01/wp4-019-config/v1",
+  "run_id": "wp4_019_20261016",
+  "status": "draft",
+  "remote_root": "/home/rylan/projects/ej276d-n01/wp4_019_20261016",
+  "trainable_parameters": 2,
+  "candidates": [
+    "T1_unpaired"
+  ],
+  "seed_sets": [
+    0,
+    1
+  ],
+  "trial_order": [
+    "T1_unpaired_seed0",
+    "T1_unpaired_seed1"
+  ],
+  "G_updates": 2000,
+  "CPU_threads": 12,
+  "training": {
+    "fit_parents": 5274,
+    "test_parents": 1319,
+    "all_parents": 6593,
+    "parents": 512,
+    "paired_draws": 2,
+    "unpaired_rows_per_side": 1024,
+    "chunk_rows": 256,
+    "lr": 0.01,
+    "weight_decay": 0.0,
+    "clip": 5.0,
+    "checkpoints": [
+      1000,
+      2000
+    ]
+  },
+  "evaluation": {
+    "parents": 6593,
+    "banks": 2,
+    "draws": 32,
+    "chunk_rows": 128,
+    "metric_dimension": 257,
+    "distance_block_rows": 64,
+    "full_stochastic_preADC_saved": false
+  },
+  "teachers": {
+    "T1": {
+      "a_fraction_qref": 0.01,
+      "b": 0.0025
+    }
+  },
+  "initial": {
+    "a_fraction_qref": 0.001,
+    "b": 0.00025
+  },
+  "qref": 3.7103998046755806,
+  "hypotheses": [
+    "fast",
+    "slow",
+    "common_level"
+  ],
+  "cache_chunk_parents": 128,
+  "run_resource_limits": {
+    "GPU_GiB": 10,
+    "job_tree_RSS_GiB": 8,
+    "wall_seconds": 7200,
+    "output_MiB": 1536
+  },
+  "resource_limits": {
+    "GPU_GiB": 10,
+    "job_tree_RSS_GiB": 8,
+    "wall_seconds": 21600,
+    "output_MiB": 5120,
+    "poll_seconds": 10,
+    "TERM_grace_seconds": 20
+  },
+  "shared_output_MiB": 1024,
+  "failure_checkpoint_job_cap": 1,
+  "selected_collection_MiB": 128,
+  "preflight": {
+    "minimum_free_disk_GiB": 40,
+    "minimum_available_RAM_GiB": 10,
+    "GPU_must_be_empty": true
+  },
+  "one_active_scientific_job": true,
+  "serial_runs": true,
+  "automatic_restart": false,
+  "overwrite_outputs": false,
+  "REAL_numeric_read": false,
+  "DEV_numeric_read": false,
+  "scientific_status": "response_match_not_established",
+  "cache_read_only": true,
+  "new_A_or_M0_forward_rows": 0,
+  "teacher_and_initial_evaluation_reused": true,
+  "final_evaluation_kernels": 2,
+  "reused_evaluation_root017": "/home/rylan/projects/ej276d-n01/wp4_017_20261015/runs/primary/artifacts",
+  "reused_evaluation_root018": "/home/rylan/projects/ej276d-n01/wp4_018_20261016/runs/primary/artifacts",
+  "required_cells_per_trial": 1272,
+  "required_cells_total": 2544,
+  "new_observable_energy_tolerance": 0.1,
+  "new_observable_MC_half_width_limit": 0.05,
+  "time_scale_software_ns": 1.0,
+  "representation_dimension": 19,
+  "original017_pending_preserved": true,
+  "automatic_stage2_reopen": false,
+  "T2_enabled": false,
+  "stream_addresses": {
+    "training": {
+      "0": {
+        "student": {
+          "namespace": {
+            "kind": "training",
+            "replicate": 0,
+            "role": "student"
+          },
+          "initial_seeds": {
+            "shape": 7942167144056003419,
+            "charge": 5447368826266857211,
+            "noise005": 3430834583745419005,
+            "extension284": 5539021898465492262,
+            "sign": 8308727596419516917,
+            "PIT": 2961218718996484879
+          }
+        },
+        "teacher": {
+          "namespace": {
+            "kind": "training",
+            "replicate": 0,
+            "role": "teacher"
+          },
+          "initial_seeds": {
+            "shape": 5916956303969699219,
+            "charge": 2390181630839484779,
+            "noise005": 1187697134885036513,
+            "extension284": 1295503826701001199,
+            "sign": 6371830341772231475,
+            "PIT": 5599976941796933008
+          }
+        }
+      },
+      "1": {
+        "student": {
+          "namespace": {
+            "kind": "training",
+            "replicate": 1,
+            "role": "student"
+          },
+          "initial_seeds": {
+            "shape": 1535183433728030273,
+            "charge": 2928819420233202531,
+            "noise005": 11450195029540047,
+            "extension284": 443023059555673784,
+            "sign": 6751325081728164216,
+            "PIT": 3572813939692665150
+          }
+        },
+        "teacher": {
+          "namespace": {
+            "kind": "training",
+            "replicate": 1,
+            "role": "teacher"
+          },
+          "initial_seeds": {
+            "shape": 1294050887459921994,
+            "charge": 9124871455930590047,
+            "noise005": 3403030929231095435,
+            "extension284": 7444752861263559413,
+            "sign": 6194184894062069321,
+            "PIT": 4259803007507460880
+          }
+        }
+      }
+    },
+    "parents": {
+      "0": {
+        "student0": {
+          "namespace": {
+            "kind": "parent",
+            "mode": "unpaired",
+            "replicate": 0,
+            "role": "student0"
+          },
+          "initial_seed": 6006995212474216794
+        },
+        "student1": {
+          "namespace": {
+            "kind": "parent",
+            "mode": "unpaired",
+            "replicate": 0,
+            "role": "student1"
+          },
+          "initial_seed": 596584724285841054
+        },
+        "teacher0": {
+          "namespace": {
+            "kind": "parent",
+            "mode": "unpaired",
+            "replicate": 0,
+            "role": "teacher0"
+          },
+          "initial_seed": 6898288458589497305
+        },
+        "teacher1": {
+          "namespace": {
+            "kind": "parent",
+            "mode": "unpaired",
+            "replicate": 0,
+            "role": "teacher1"
+          },
+          "initial_seed": 9218245849439330020
+        }
+      },
+      "1": {
+        "student0": {
+          "namespace": {
+            "kind": "parent",
+            "mode": "unpaired",
+            "replicate": 1,
+            "role": "student0"
+          },
+          "initial_seed": 8922342455716323236
+        },
+        "student1": {
+          "namespace": {
+            "kind": "parent",
+            "mode": "unpaired",
+            "replicate": 1,
+            "role": "student1"
+          },
+          "initial_seed": 8878551227391823114
+        },
+        "teacher0": {
+          "namespace": {
+            "kind": "parent",
+            "mode": "unpaired",
+            "replicate": 1,
+            "role": "teacher0"
+          },
+          "initial_seed": 5829454543154725705
+        },
+        "teacher1": {
+          "namespace": {
+            "kind": "parent",
+            "mode": "unpaired",
+            "replicate": 1,
+            "role": "teacher1"
+          },
+          "initial_seed": 6802304382813481748
+        }
+      }
+    },
+    "evaluation_student": {
+      "0": {
+        "shape": 7252182783801084717,
+        "charge": 2108590463108020738,
+        "noise005": 4259792023043337148,
+        "extension284": 5889146678137403083,
+        "sign": 1650604863742348976,
+        "PIT": 4467556260716213306
+      },
+      "1": {
+        "shape": 8857944378624433215,
+        "charge": 2920472496984859432,
+        "noise005": 1940941044582234283,
+        "extension284": 1445844608374215494,
+        "sign": 1474019827635476114,
+        "PIT": 3086560671011187109
+      }
+    },
+    "Gaussian_namespace_unchanged_from017": true,
+    "parent_namespace_original_unpaired": true,
+    "teacher_evaluation_and_PIT_reused_without_new_draws": true
+  },
+  "scales": {
+    "fast": {
+      "Q_Vns": 0.14006821393078955,
+      "peak_voltage_V": 0.005499862543299458,
+      "FWHM_ns": 0.5129398878764326
+    },
+    "slow": {
+      "Q_Vns": 0.1400669323527055,
+      "peak_voltage_V": 0.005499869994334829,
+      "FWHM_ns": 0.5149414509583063
+    },
+    "common_level": {
+      "Q_Vns": 0.14006769980934886,
+      "peak_voltage_V": 0.00550009352539599,
+      "FWHM_ns": 0.5147888093676196
+    }
+  },
+  "resource_caps": {
+    "wall_seconds": 21600,
+    "output_MiB": 5120
+  },
+  "budget_caps": {
+    "trial_slots": 2,
+    "G_updates": 4000,
+    "optimizer_steps": 4000,
+    "training_backward_queries": 4000,
+    "new_AD_queries": 4000,
+    "optimizers_created": 2,
+    "checkpoint_loads": 1,
+    "A_original_forward_rows": 0,
+    "original_U_Net_decoded_rows": 0,
+    "fixed_M0_head_actual_kernel_rows": 0,
+    "student_charge_module_rows": 4939904,
+    "teacher_charge_module_rows": 4096000,
+    "shape_cached_basis_assembly_rows": 9035904,
+    "noise005_rows": 9035904,
+    "all_three_extensions_rows": 27107712,
+    "hard_ADC_rows": 27107712,
+    "hard_first_argmax_gather_rows": 27107712,
+    "training_student_rows": 4096000,
+    "training_teacher_rows": 4096000,
+    "evaluation_kernel_snapshots": 2,
+    "evaluation_signal_rows": 843904,
+    "normal_shape_scalar_requests": 72287232,
+    "normal_charge_scalar_requests": 9035904,
+    "normal_noise005_scalar_requests": 912626304,
+    "normal_extension284_scalar_requests": 2566196736,
+    "total_scalar_normal_requests": 3560146176,
+    "T2_teacher_sign_uniform_requests": 0,
+    "coverage_PIT_uniform_requests": 0,
+    "parent_sampler_streams": 8,
+    "parent_randint_calls": 16000,
+    "parent_randint_scalar_requests": 8192000,
+    "parent_randperm_calls": 0,
+    "paired_training_energy_pair_distances": 0,
+    "unpaired_training_energy_pair_distances": 25165824000,
+    "unpaired_training_cross_retained_pairs": 12582912000,
+    "unpaired_training_self_ordered_retained_pairs": 12570624000,
+    "unpaired_training_self_diagonal_computed_then_masked": 12288000,
+    "evaluation_energy_candidate_comparisons": 2,
+    "evaluation_energy_pair_distances": 162029568,
+    "checkpoint_saves_complete": 4,
+    "REAL_waveform_reads": 0,
+    "original_DEV_waveform_reads": 0,
+    "A_005_M0_updates": 0,
+    "mean_adapter_updates": 0,
+    "shape_head_updates": 0,
+    "teacher_parameter_updates": 0,
+    "noise_updates": 0,
+    "population_updates": 0,
+    "D_updates": 0,
+    "C2ST_updates": 0,
+    "probe_AD_queries": 0,
+    "integral_scale_fits": 0,
+    "charge_initialization_fits": 0,
+    "teacher_or_student_latent_in_deployment_inputs": 0,
+    "new_hardware_or_REAL_teacher_claims": 0,
+    "noise005_checkpoint_loads": 1,
+    "cached_array_mmap_files": 3,
+    "reused_teacher_kernel_sets": 1,
+    "reused_initial_score_sets": 1,
+    "evaluation_observable_pair_distances": 405073920
+  },
+  "saved_input_manifest": "WP4_019_SAVED_INPUTS.json",
+  "saved_input_manifest_sha256": "34850fed49fb97900b7bf06fe358b3834d25c078c9d0425f707a4faa5f9469db",
+  "source_files": {},
+  "contracts": {
+    "prerequisite_018": {
+      "path": "/home/rylan/projects/ej276d-n01/wp4_019_20261016/receipts/wp4_018_20261016/FINAL_RESULT_RECEIPT.json",
+      "bytes": 6437,
+      "sha256": "bbbed5f554f6de4548a5131d6df68445c160d01c001a36c3d9d2d918be748bfe"
+    }
+  },
+  "protection_files": {},
+  "allowed_input_roots": [
+    "/home/rylan/projects/ej276d-n01/wp4_017_20261015",
+    "/home/rylan/projects/ej276d-n01/wp4_018_20261016",
+    "/home/rylan/projects/ej276d-n01/wp4_019_20261016",
+    "/home/rylan/projects/ej276d-n01/window008_resume01_20261013"
+  ],
+  "inputs": {
+    "cache_A": {
+      "path": "/home/rylan/projects/ej276d-n01/wp4_017_20261015/runs/primary/artifacts/cache/A.npy",
+      "bytes": 20253824,
+      "sha256": "ad4aedcfcee9f07736f9024177115eaf2875257a9cf7a33db1b030aad574231c"
+    },
+    "cache_B": {
+      "path": "/home/rylan/projects/ej276d-n01/wp4_017_20261015/runs/primary/artifacts/cache/B.npy",
+      "bytes": 162029696,
+      "sha256": "6f6ce41d86514f04cbdd251da379854f5588180535e9f2bccca59277df09bfbb"
+    },
+    "cache_Q": {
+      "path": "/home/rylan/projects/ej276d-n01/wp4_017_20261015/runs/primary/artifacts/cache/Q.npy",
+      "bytes": 52872,
+      "sha256": "333d4abeed3c84dd9c89408e934f2e1c7570de0cfa7994969ea8c1f5b80ef98e"
+    },
+    "cache_manifest": {
+      "path": "/home/rylan/projects/ej276d-n01/wp4_017_20261015/runs/primary/artifacts/cache/CACHE_MANIFEST.json",
+      "bytes": 2232,
+      "sha256": "192b6b0b49403abf2729bb2302940a8c85ff84f3adac1c5dd4ce040ac4152330"
+    },
+    "parent_split": {
+      "path": "/home/rylan/projects/ej276d-n01/wp4_017_20261015/runs/primary/artifacts/cache/PARENT_SPLIT.npz",
+      "bytes": 867091,
+      "sha256": "7248e9af55314b99466b060e9c951f14ff3736dfbe5dbc3d4aff633aa2ee3db6"
+    },
+    "physical_weights": {
+      "path": "/home/rylan/projects/ej276d-n01/wp4_017_20261015/runs/primary/artifacts/cache/ORIGINAL_PHYSICAL_WEIGHTS.npz",
+      "bytes": 334981,
+      "sha256": "8d4324ae82a879062a949fe0ba7b58d9369501e038908d6ef037b4514db58164"
+    },
+    "prior_frozen": {
+      "path": "/home/rylan/projects/ej276d-n01/wp4_017_20261015/runs/primary/artifacts/INIT_PROOF.json",
+      "bytes": 123320,
+      "sha256": "060d1ad20bfdbab3ddacdaea9a63f904f749fae038ac8506df4cdcb02983cd5a"
+    },
+    "noise005": {
+      "path": "/home/rylan/projects/ej276d-n01/window008_resume01_20261013/provenance/integration006_reference/noise005.pt",
+      "sha256": "1e45d3369b85d2f5f635ad44dbeb5a730f6d86864cc3dc9163384fccd48bd417",
+      "bytes": 1199865
+    },
+    "statistics": {
+      "path": "/home/rylan/projects/ej276d-n01/window008_resume01_20261013/data/window008/FIT_STATISTICS008.json",
+      "sha256": "aadd729364d0b6afac699a9d1774ac8d29fd2bcd10a9fd9f551141ecc2fbc2a0",
+      "bytes": 104199
+    },
+    "teacher_eval": {
+      "path": "/home/rylan/projects/ej276d-n01/wp4_017_20261015/runs/primary/artifacts/T1/EVALUATION.json",
+      "bytes": 4666,
+      "sha256": "76b9692217f9d00c07ec4d31331051f1f6f328bb52eca1afd8ac6bcc7f33fdb1"
+    },
+    "teacher_PIT": {
+      "path": "/home/rylan/projects/ej276d-n01/wp4_017_20261015/runs/primary/artifacts/T1/PIT_UNIFORMS.npz",
+      "bytes": 57305882,
+      "sha256": "900a4daf6141d7935a638235c2c4684795821545afaadd861a10026fefc420d3"
+    },
+    "teacher_fast_hard0": {
+      "path": "/home/rylan/projects/ej276d-n01/wp4_017_20261015/runs/primary/artifacts/T1/bank0_fast_HARD_ROWS.npz",
+      "bytes": 86706385,
+      "sha256": "77ce7d33a672c68141a1dd7da704ef170c3757ec922bfa69e3602ba18c5253d2"
+    },
+    "teacher_fast_report0": {
+      "path": "/home/rylan/projects/ej276d-n01/wp4_017_20261015/runs/primary/artifacts/T1/bank0_fast_REPORT.npz",
+      "bytes": 41731997,
+      "sha256": "1bb170a34899e7a7611f630a565c7deef3412e94ba935a3a30e5bced221a7a43"
+    },
+    "teacher_fast_hard1": {
+      "path": "/home/rylan/projects/ej276d-n01/wp4_017_20261015/runs/primary/artifacts/T1/bank1_fast_HARD_ROWS.npz",
+      "bytes": 86719689,
+      "sha256": "8ec288abfd269d0cbd0020617cfbde88679f56f911a6cb1b1ddcc7d04268aff8"
+    },
+    "teacher_fast_report1": {
+      "path": "/home/rylan/projects/ej276d-n01/wp4_017_20261015/runs/primary/artifacts/T1/bank1_fast_REPORT.npz",
+      "bytes": 41727007,
+      "sha256": "409d430bd24b301bc6ccf5eac57e0c5c9a1b00899d68ad0fd78939727a2732b3"
+    },
+    "observable018_fast": {
+      "path": "/home/rylan/projects/ej276d-n01/wp4_018_20261016/runs/primary/artifacts/T1_fast_OBSERVABLE.npz",
+      "bytes": 42879120,
+      "sha256": "a17b1bf3aa25043b7740277146fdaea6e6dd56232256ee80553c40df22320ffe"
+    },
+    "control018_fast": {
+      "path": "/home/rylan/projects/ej276d-n01/wp4_018_20261016/runs/primary/artifacts/T1_fast_CONTROLS.npz",
+      "bytes": 201832,
+      "sha256": "9e0083810f2d0a58562b5bd49fdf9c9727d1f70256d6a2320a41bc88838c5ee1"
+    },
+    "initial018_fast": {
+      "path": "/home/rylan/projects/ej276d-n01/wp4_018_20261016/runs/primary/artifacts/initial_fast_ENERGY.npz",
+      "bytes": 98818,
+      "sha256": "82a307c451bff96172db570073afb0efba1bde6da6f26b952db1c1c871a8d4d5"
+    },
+    "teacher_slow_hard0": {
+      "path": "/home/rylan/projects/ej276d-n01/wp4_017_20261015/runs/primary/artifacts/T1/bank0_slow_HARD_ROWS.npz",
+      "bytes": 86524804,
+      "sha256": "ec2b7bcb490470c43e94e9f2ef02f09cc3980e2e6af6442339cade034474e0f0"
+    },
+    "teacher_slow_report0": {
+      "path": "/home/rylan/projects/ej276d-n01/wp4_017_20261015/runs/primary/artifacts/T1/bank0_slow_REPORT.npz",
+      "bytes": 41717173,
+      "sha256": "b7ab1c7eece60d5777784595b35c02f86a6a15d900a50d89c624210654f4935b"
+    },
+    "teacher_slow_hard1": {
+      "path": "/home/rylan/projects/ej276d-n01/wp4_017_20261015/runs/primary/artifacts/T1/bank1_slow_HARD_ROWS.npz",
+      "bytes": 86524628,
+      "sha256": "9bd49b3e793a08cc34af295ceef8e0f7d37d2986a98c540a99c163694ea92b24"
+    },
+    "teacher_slow_report1": {
+      "path": "/home/rylan/projects/ej276d-n01/wp4_017_20261015/runs/primary/artifacts/T1/bank1_slow_REPORT.npz",
+      "bytes": 41714553,
+      "sha256": "3b8dcb43cfffaf8e47c57df76aace69cfd27cb13f7ee36c17839caae48d65879"
+    },
+    "observable018_slow": {
+      "path": "/home/rylan/projects/ej276d-n01/wp4_018_20261016/runs/primary/artifacts/T1_slow_OBSERVABLE.npz",
+      "bytes": 42866211,
+      "sha256": "6f8a77cac4e8e6a81df0084bfee6b9c067ee6bf15324673c8fdda67cef019bfb"
+    },
+    "control018_slow": {
+      "path": "/home/rylan/projects/ej276d-n01/wp4_018_20261016/runs/primary/artifacts/T1_slow_CONTROLS.npz",
+      "bytes": 201681,
+      "sha256": "939ce67efb458ceaa507dccb84a96293acb1f3d57b1aeb1f57444a75db883d61"
+    },
+    "initial018_slow": {
+      "path": "/home/rylan/projects/ej276d-n01/wp4_018_20261016/runs/primary/artifacts/initial_slow_ENERGY.npz",
+      "bytes": 98818,
+      "sha256": "a16fbde22b013958eccc8ab1439a087ea8b0f6e59f3779b45ab5dd40d8eaca7d"
+    },
+    "teacher_common_level_hard0": {
+      "path": "/home/rylan/projects/ej276d-n01/wp4_017_20261015/runs/primary/artifacts/T1/bank0_common_level_HARD_ROWS.npz",
+      "bytes": 86401379,
+      "sha256": "df295da7d89d3ac0f4dc92f844fc40799e156c0a3a48aca31017dceffc1bbcda"
+    },
+    "teacher_common_level_report0": {
+      "path": "/home/rylan/projects/ej276d-n01/wp4_017_20261015/runs/primary/artifacts/T1/bank0_common_level_REPORT.npz",
+      "bytes": 41714602,
+      "sha256": "f0c8d8fd52105f37238bd6f1393ca1f7860254523b216fcab1cc887e5ca26242"
+    },
+    "teacher_common_level_hard1": {
+      "path": "/home/rylan/projects/ej276d-n01/wp4_017_20261015/runs/primary/artifacts/T1/bank1_common_level_HARD_ROWS.npz",
+      "bytes": 86395696,
+      "sha256": "cec42f0f6ac3e58ccbd7a013c17d6bbb896d961940a23c11d38dadf0103f3f44"
+    },
+    "teacher_common_level_report1": {
+      "path": "/home/rylan/projects/ej276d-n01/wp4_017_20261015/runs/primary/artifacts/T1/bank1_common_level_REPORT.npz",
+      "bytes": 41708958,
+      "sha256": "abae67c9816976e04f8aa3be63717db71370929dcd5a5041a4a943ac56c7d347"
+    },
+    "observable018_common_level": {
+      "path": "/home/rylan/projects/ej276d-n01/wp4_018_20261016/runs/primary/artifacts/T1_common_level_OBSERVABLE.npz",
+      "bytes": 42864776,
+      "sha256": "959065e01a9ddf49b8650724fa4addf4820ebf7c56db341259bb84fca3c417e8"
+    },
+    "control018_common_level": {
+      "path": "/home/rylan/projects/ej276d-n01/wp4_018_20261016/runs/primary/artifacts/T1_common_level_CONTROLS.npz",
+      "bytes": 201587,
+      "sha256": "18ac939d254cd9957a0e026edbd542a8a4b2238c004337ea035526f60ddae996"
+    },
+    "initial018_common_level": {
+      "path": "/home/rylan/projects/ej276d-n01/wp4_018_20261016/runs/primary/artifacts/initial_common_level_ENERGY.npz",
+      "bytes": 98801,
+      "sha256": "5406c88f3637d4e57f4f294935920ace2952796aa817bab3150707e7b6d5545a"
+    },
+    "parent_axes018": {
+      "path": "/home/rylan/projects/ej276d-n01/wp4_018_20261016/runs/primary/artifacts/PARENT_AXES.npz",
+      "bytes": 418428,
+      "sha256": "df40906d4f3c8f81b4c0e18411f2c1f5f0b34a18e77834d9e4128b5314207200"
+    },
+    "config018": {
+      "path": "/home/rylan/projects/ej276d-n01/wp4_018_20261016/wp4_018_config.json",
+      "bytes": 4909,
+      "sha256": "3eb6d180e63a7cbd4560da5cb4b2e99e10054ff5504aef1b96212c58cc8acc8a"
+    },
+    "gate018": {
+      "path": "/home/rylan/projects/ej276d-n01/wp4_018_20261016/runs/primary/artifacts/STAGE1_GATE018.json",
+      "bytes": 295,
+      "sha256": "0a2ca8a0c31290c05009df570975775a68d063ba25fea440534fde299361effa"
+    },
+    "complete018": {
+      "path": "/home/rylan/projects/ej276d-n01/wp4_018_20261016/runs/primary/artifacts/COMPLETE.json",
+      "bytes": 1063,
+      "sha256": "4c0f6b337d58de7e205d16e1546b9e0d17af8e4e44732161613ec534b531538c"
+    },
+    "prerequisite018": {
+      "path": "/home/rylan/projects/ej276d-n01/wp4_019_20261016/receipts/wp4_018_20261016/FINAL_RESULT_RECEIPT.json",
+      "bytes": 6437,
+      "sha256": "bbbed5f554f6de4548a5131d6df68445c160d01c001a36c3d9d2d918be748bfe"
+    }
+  }
+}

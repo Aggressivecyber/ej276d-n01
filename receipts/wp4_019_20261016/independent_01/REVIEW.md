@@ -1,0 +1,13 @@
+019正式源码、合同和ops独审：no_blockers。当前冻结包可进入已登记的单次原生启动，实际G1与资源健康仍须按既定启动回执核实。
+
+冻结CFG e00ad2564dbf00bff0e210fc6b5425d8b7158662a07d7a5acca634b11c3e13d3；源码MF 19deb7a547ccd47b4ddeac710c20569e83f54349a78546b51aaf447b7caed3bc；包 a70fdc0dcc7715cc4c6645a9848e19e59d9dc326f5c31043aef1b00b1acc10d3。38个regular成员及bytes/SHA、37输入元数据、五个旧ops保护记录全部核对。相对已存draft仅status、source_files、protection_files三字段变化；第三项严格限定为bootstrap硬编码五旧依赖，科学设置和白名单未变。
+
+018最终事实回执6437B、SHA bbbed5f554f6de4548a5131d6df68445c160d01c001a36c3d9d2d918be748bfe 已核正文与019绑定，含native0、独审通过、2544格资格及旧017 pending保留。
+
+训练直接复用未改动Engine017的真实unpaired分支：四个IID父采样流、师生独立latent、两seed各2000G/AD、仅theta_a/theta_b。A/B/Q只读mmap，005 CP加载1次，无A/M0 CP、构造或前向；005实际噪声生成9035904行明确计费。教师和initial按已核018 SHA复用，新评价只生成两final。新gate使用真实T1_unpaired身份，保持每trial1272格及018全部门。
+
+独立新增stdlib检查0.161s通过：预算独立算式、32训练/父流种子地址、旧29科学源字节、前提和包闭合、draft拒绝，以及unpaired身份/缺格/重复格拒绝与pending/fail关门。只计算哈希地址，没有生成随机数，没有导入NumPy/Torch或解码私有数组。构建方已过的metadata检查只读复核，最后三行delta经静态核对，没有重跑旧工程套件。
+
+两套距离计数一致：新257维162029568，O19含teacher64 self共405073920；正常终态Store counters/attempted与预算逐项相等。全批21600s、trial7200s、GPU10GiB、树RSS8GiB、trial1536MiB/shared1024MiB/batch5120MiB由既有监督与最小终态检查治理。per-trial时间包含其训练、原生评价和其CPU评分，共享teacher计算计batch。新回执/CP采用019身份；旧017监督schema只表示继承格式，实际run_id/CFG/cwd/命令均为019。
+
+资格与native0分别判定；失败或pending不算pass，不自动进入T2或其他训练。研究范围是固定正确A/B/005下的两个电荷参数，保留018有限teacher标准化、经验MC和窗外rise不可识别的解释边界；不据此认定均值/形状/时间机制学习或REAL/硬件有效。

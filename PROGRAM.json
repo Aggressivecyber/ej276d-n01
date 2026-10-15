@@ -4,7 +4,7 @@
   "created_UTC": "2026-10-12T00:07:21.307456+08:00",
   "created_local_Asia_Singapore": "2026-10-12T00:07:21.307456+08:00",
   "root": "E:\\GAN\\research\\N01",
-  "status": "WP4_018_native0_qualified_019_preparation",
+  "status": "WP4_019_frozen_independent_no_blockers_ready_for_one_native_dispatch",
   "scientific_status": "response_match_not_established",
   "protocol_parent": null,
   "inherits_R79": false,
@@ -14,12 +14,12 @@
   "data_references": "DATA_REFERENCES.json",
   "active_scientific_jobs": 0,
   "new_training_updates": 183667,
-  "next_action": "Complete019 source/ops review and exact budgets, bind018 qualification, then verify actual first two-theta update and one future wake. No T2 or REAL training.",
+  "next_action": "Verify actual019 two-theta first update, CP1 and same-snapshot process/resources, save one future wake then rest. No T2 or REAL training.",
   "application_goal_created": false,
   "legacy_results_modified": false,
-  "updated_UTC": "2026-10-15T20:26:47.283331+00:00",
+  "updated_UTC": "2026-10-15T20:36:58.571775+00:00",
   "current_arm": null,
-  "current_stage": "WP4_019_T1_unpaired_prospective_freeze",
+  "current_stage": "WP4_019_one_native_dispatch_ready",
   "last_verified_UTC": "2026-10-15T18:24:20.021059+00:00",
   "run_id": "run_001_20261012",
   "start_receipt": "receipts/run_001_20261012/START_RECEIPT.json",
@@ -4495,7 +4495,7 @@
     "bytes": 6413,
     "sha256": "ec6fc5ce3a2ce1be0e024f8a82794670f19e29eff6ebb4db3083bba1e013c7cb"
   },
-  "current_action": "018 native0 and bounded independent numeric readback qualified; freeze and separately register019 T1 unpaired two seeds, <=4000 G/AD, before native launch.",
+  "current_action": "019 independent source review no_blockers; perform one owned native dispatch, verify actual first two-theta update and current resources.",
   "latest_user_review_direction": {
     "path": "receipts/review_017_20261016/ACCEPTED_NEXT_ACTIONS.json",
     "bytes": 3271,
@@ -4605,5 +4605,48 @@
     "path": "receipts/wp4_018_20261016/wake_20261016_0400_01/independent_result_01/RESULT_REVIEW.json",
     "bytes": 9416,
     "sha256": "4dd62d18d87ae45179a9aac3cd0b36255471313a2bd35afa16b7e0d4e05b6fc6"
-  }
+  },
+  "wp4_019_execution": {
+    "status": "registered_frozen_independent_no_blockers_ready",
+    "run_id": "wp4_019_20261016",
+    "remote_root": "/home/rylan/projects/ej276d-n01/wp4_019_20261016",
+    "source_commit": null,
+    "config_sha256": "e00ad2564dbf00bff0e210fc6b5425d8b7158662a07d7a5acca634b11c3e13d3",
+    "source_manifest_sha256": "19deb7a547ccd47b4ddeac710c20569e83f54349a78546b51aaf447b7caed3bc",
+    "saved_input_manifest_sha256": "34850fed49fb97900b7bf06fe358b3834d25c078c9d0425f707a4faa5f9469db",
+    "source_package_sha256": "a70fdc0dcc7715cc4c6645a9848e19e59d9dc326f5c31043aef1b00b1acc10d3",
+    "source_files": 38,
+    "scientific_trials": [
+      "T1_unpaired_seed0",
+      "T1_unpaired_seed1"
+    ],
+    "G_AD_per_trial_max": 2000,
+    "G_AD_total_max": 4000,
+    "completed_G_AD_accounted": 0,
+    "project_completed_G_before019": 183667,
+    "project_completed_G_lower_bound": 183667,
+    "native_started": false,
+    "active": false,
+    "source_review_no_blockers": true,
+    "new_A_M0_forward_rows": 0,
+    "noise005_checkpoint_loads_planned": 1,
+    "no_real_T2_automatic": true,
+    "registration": {
+      "path": "receipts/wp4_019_20261016/registration_01/PROSPECTIVE_REGISTRATION.json",
+      "bytes": 6637,
+      "sha256": "a2e2a222400a668a7f1179e79886d2113bd4755e7808e89937559b8e2ce4fa8f"
+    },
+    "freeze_receipt": {
+      "path": "receipts/wp4_019_20261016/runtime_package_01/FREEZE_RECEIPT.json",
+      "bytes": 3483,
+      "sha256": "fc2a2446d38e8fabd707f1dc5717ab39ccc6f570fbd6ab6249b2e3be59f55395"
+    },
+    "source_review": {
+      "path": "receipts/wp4_019_20261016/independent_01/FINAL_SOURCE_REVIEW.json",
+      "bytes": 17581,
+      "sha256": "7dc0bcd2ff069121f37aecde4b7a73bb3bb53c0f05443e79ca53ec77c6d02ff3"
+    }
+  },
+  "wp4_019_G_updates": 0,
+  "wp4_019_AD_queries": 0
 }
