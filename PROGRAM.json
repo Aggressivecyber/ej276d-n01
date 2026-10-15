@@ -4,7 +4,7 @@
   "created_UTC": "2026-10-12T00:07:21.307456+08:00",
   "created_local_Asia_Singapore": "2026-10-12T00:07:21.307456+08:00",
   "root": "E:\\GAN\\research\\N01",
-  "status": "WP2_014_independent_readback_running_last_verified",
+  "status": "WP3_015_implementation_preparation",
   "scientific_status": "response_match_not_established",
   "protocol_parent": null,
   "inherits_R79": false,
@@ -12,14 +12,14 @@
   "plan": "README.md",
   "configuration": "config.json",
   "data_references": "DATA_REFERENCES.json",
-  "active_scientific_jobs": 1,
+  "active_scientific_jobs": 0,
   "new_training_updates": 167667,
-  "next_action": "One scheduled wake to collect the CPU readback, close WP2 and continue bounded WP3.",
+  "next_action": "Finish014 Chinese report and implement015 four paired short trials; freeze exact budget/source before new scientific computation.",
   "application_goal_created": false,
   "legacy_results_modified": false,
-  "updated_UTC": "2026-10-15T03:14:57.571981+00:00",
+  "updated_UTC": "2026-10-15T03:55:52.293934+00:00",
   "current_arm": null,
-  "current_stage": "WP2_014_independent_saved_array_readback",
+  "current_stage": "015_bounded_mean_module_implementation_no_computation_started",
   "last_verified_UTC": "2026-10-15T02:33:04.070820+00:00",
   "run_id": "run_001_20261012",
   "start_receipt": "receipts/run_001_20261012/START_RECEIPT.json",
@@ -39,7 +39,7 @@
   "completion_receipt": "receipts/run_001_20261012/FINAL_EVALUATION_RECEIPT.json",
   "final_review": "runs/run_001_20261012/final_review_20261012_0900/N01_COMPLETE_MODEL_REVIEW.html",
   "historical_training_pid": 478257,
-  "active_audit": "wp2_014_saved_readback_20261015",
+  "active_audit": null,
   "latest_audit": "noise_origin_audit_003_20261012",
   "audit_response_training_updates": 0,
   "audit_classifier_updates": 4800,
@@ -182,7 +182,7 @@
   "response007_completion_receipt": "receipts/response_007_20261013/deadline01/FINAL_RECEIPT.json",
   "response007_ended_UTC": "2026-10-13T02:41:45.908406+00:00",
   "response007_publication_status": "local_only_not_published",
-  "active_research": "wp2_014_saved_readback_20261015",
+  "active_research": "wp3_015_preparation",
   "response007_continuation_status": "not_started_user_redirected_to_window_alignment",
   "model_configuration_recheck_required": false,
   "window008_configuration": "window008_config.json",
@@ -338,7 +338,7 @@
   "stability011_deployment_receipt": "receipts/stability011_20261014/deployment_01/DEPLOYMENT_RECEIPT.json",
   "stability011_attempted_bootstrap_replicates_last_verified": 500,
   "stability011_computed_bootstrap_replicates_last_verified": 500,
-  "active_scientific_jobs_status_basis": "One saved first-pair healthy snapshot; later native completion unknown until scheduled wake",
+  "active_scientific_jobs_status_basis": "CPU audit collected native0 and independently closed; no015 computational job authorized or started",
   "stability011_start_verification": "receipts/stability011_20261014/START_NATIVE_VERIFICATION.json",
   "user_requested_pause": false,
   "pause_reason": null,
@@ -486,11 +486,11 @@
   "mechanism012_publication_UTC": "2026-10-14T18:37:20.683165+00:00",
   "mechanism012_github_critical_files_byte_verified": true,
   "master_execution_plan": "MASTER_EXECUTION_PLAN.json",
-  "master_plan_sha256": "f780ff75fbe9c62d9b3090dbe3c6cac9e707c21baa4ffc22d005d2ecd813216a",
+  "master_plan_sha256": "714e0c99fa77cc5a846c1ecf0c790f8b473b161729392dbe4286e721cb080b74",
   "master_user_plan": "USER_MASTER_PLAN_20261015.txt",
   "master_user_plan_sha256": "56190995374eb2a765a3c8589736514154dba7ff33aa1309b8b1de493e846ebb",
   "master_plan_registered": true,
-  "current_work_package": "WP2",
+  "current_work_package": "WP3",
   "wp1_execution": {
     "attempt": 3,
     "remote_root": "/home/rylan/projects/ej276d-n01/wp1_013_repeat_fix01_20261015",
@@ -610,7 +610,9 @@
     "prepared_trailing_linebreak_removed_before_tool": true,
     "continuous_agent_monitoring": false,
     "no_remote_calls_after_correct_start_snapshot": true,
-    "source_commit": "cde0b8db49c49d7beab23011cb5e95f5627cee6d"
+    "source_commit": "cde0b8db49c49d7beab23011cb5e95f5627cee6d",
+    "delivery_status": "single_0317UTC_wake_delivered_0318UTC_this_turn",
+    "saved_app_status_is_historical": true
   },
   "runtime_repair": {
     "failed_attempt": 1,
@@ -997,12 +999,14 @@
       "DEV_model_rows": 0
     },
     "source_commit": "e116368c4f699243a60598c03865bcb4f601be35",
-    "collection_complete": false,
-    "independent_readback_complete": false,
+    "collection_complete": true,
+    "independent_readback_complete": true,
     "new_training_updates": 8000,
     "cumulative_training_updates": 167667,
     "scientific_status": "response_match_not_established",
-    "formal_response_acceptance": false
+    "formal_response_acceptance": false,
+    "collection_scope": "selected142_of318; original176raw_NPZ_retained_remote",
+    "independent_saved_array_scope": "36pairs/176NPZ/1898784hard_rows; not complete loss replay"
   },
   "wp2_collection": {
     "path": "receipts\\wp2_014_20261015\\collection_01\\COLLECTION_RECEIPT.json",
@@ -1021,44 +1025,41 @@
     "source_controls": 6,
     "run_id": "wp2_014_saved_readback_20261015",
     "remote_root": "/home/rylan/projects/ej276d-n01/wp2_014_saved_readback_20261015",
-    "status": "native_running_last_verified_first_pair_healthy",
-    "supervisor_pid": 137650,
-    "analysis_pid": 137651,
+    "status": "completed_native0_collected_independently_reviewed",
+    "supervisor_pid": null,
+    "analysis_pid": null,
     "boot_id": "75229583-9bb2-4225-9f0d-12e04e1c1726",
     "first_formal_pair_verified": true,
-    "last_verified_UTC": "2026-10-15T03:09:43.378107+00:00",
+    "last_verified_UTC": "2026-10-15T03:19:31.623072+00:00",
     "actual_completed_counts_last_verified": {
       "raw_files_SHA_checked": 176,
-      "bank_pairs_verified": 27,
-      "report_npz_files_decoded": 55,
-      "probe_snapshots_verified": 6,
-      "probe_gradient_npz_files_decoded": 6,
-      "baseline_npz_files_decoded": 14,
       "raw_bytes_SHA_read": 3077281496,
-      "hard_rows_files_decoded": 55,
-      "waveform_rows_decoded": 1450460,
-      "probe_raw_npz_files_decoded": 6
+      "hard_rows_files_decoded": 72,
+      "report_npz_files_decoded": 72,
+      "baseline_npz_files_decoded": 16,
+      "probe_raw_npz_files_decoded": 8,
+      "probe_gradient_npz_files_decoded": 8,
+      "waveform_rows_decoded": 1898784,
+      "bank_pairs_verified": 36,
+      "probe_snapshots_verified": 8
     },
     "attempted_counts_last_verified": {
       "raw_files_SHA_checked": 176,
-      "bank_pairs_verified": 28,
-      "report_npz_files_decoded": 56,
-      "probe_snapshots_verified": 6,
-      "probe_gradient_npz_files_decoded": 6,
-      "baseline_npz_files_decoded": 14,
       "raw_bytes_SHA_read": 3077281496,
-      "hard_rows_files_decoded": 56,
-      "waveform_rows_decoded": 1476832,
-      "probe_raw_npz_files_decoded": 6
+      "hard_rows_files_decoded": 72,
+      "report_npz_files_decoded": 72,
+      "baseline_npz_files_decoded": 16,
+      "probe_raw_npz_files_decoded": 8,
+      "probe_gradient_npz_files_decoded": 8,
+      "waveform_rows_decoded": 1898784,
+      "bank_pairs_verified": 36,
+      "probe_snapshots_verified": 8
     },
-    "unknown_inflight_ids": [
-      277,
-      279
-    ],
-    "counts_are_durable_lower_bounds": true,
-    "actual_current_completion": "unknown_after_single_saved_snapshot",
-    "native_child_exit_at_snapshot": null,
-    "native_supervisor_exit_at_snapshot": null,
+    "unknown_inflight_ids": [],
+    "counts_are_durable_lower_bounds": false,
+    "actual_current_completion": "native0_COMPLETE_all308_operations_completed",
+    "native_child_exit_at_snapshot": 0,
+    "native_supervisor_exit_at_snapshot": 0,
     "CP_NN_AD_training": 0,
     "resource_limits": {
       "CPU_threads": 2,
@@ -1140,10 +1141,28 @@
       "no_remote_calls_after_correct_start_snapshot": true,
       "source_commit": "cde0b8db49c49d7beab23011cb5e95f5627cee6d"
     },
-    "independent_raw_readback_complete": false,
+    "independent_raw_readback_complete": true,
     "original_raw_NPZ_transferred": false,
     "scientific_status": "response_match_not_established",
-    "scientific_acceptance": false
+    "scientific_acceptance": false,
+    "historical_analysis_pid": 137651,
+    "historical_supervisor_pid": 137650,
+    "native_exit_code": 0,
+    "supervisor_exit_code": 0,
+    "completed_UTC": "2026-10-15T03:09:57.267962+00:00",
+    "terminal_readback": {
+      "path": "receipts/wp2_014_20261015/readback_execution_01/WAKE_COMPLETION_SUMMARY.json",
+      "bytes": 6151,
+      "sha256": "3b58271feef22dbc175949188347cd4ca71cc113116609b3b5be7ad6f719f7d6"
+    },
+    "independent_review": {
+      "path": "receipts/wp2_014_20261015/postrun_independent_02/CLOSEOUT_REVIEW.json",
+      "bytes": 31763,
+      "sha256": "70a6ed688cb3769e5cefc1a83dd06960f40ee7cf12a58bc9f9e942ef972a6537"
+    },
+    "collection_complete": true,
+    "complete_distribution_loss_raw_replay": false,
+    "resource_snapshot_role": "historical startup snapshot; final resources in terminal_readback"
   },
   "wp2_provisional_development_selection": {
     "path": "receipts\\wp2_014_20261015\\postrun_engineering_01\\DEVELOPMENT_SELECTION.json",
@@ -1152,10 +1171,16 @@
     "status": "provisional_pending_independent_raw_readback",
     "weights_promoted": false,
     "both_candidates_ALL6_wave_usefulness_pass": false,
-    "scientific_acceptance": false
+    "scientific_acceptance": false,
+    "superseded_by": {
+      "path": "receipts/wp2_014_20261015/postrun_root_02/FINAL_DEVELOPMENT_SELECTION.json",
+      "bytes": 484703,
+      "sha256": "973248236a983a4be8f8b8fa07282c05ac2efceea2f7cb02650b9b7b7a24ad45"
+    },
+    "role": "historical provisional record retained"
   },
   "wp2_collection_complete": true,
-  "wp2_independent_readback_complete": false,
+  "wp2_independent_readback_complete": true,
   "wp2_readback_prepare_failure": {
     "path": "receipts\\wp2_014_20261015\\readback_registration_01\\ROOT_PREPARE_FAILURE_RECEIPT.json",
     "sha256": "6f89dedd516cd5612295060b074fa84625364774a6a8c5c74b5172608f2b83f5",
@@ -1183,5 +1208,51 @@
     "NN_forward_rows": 0,
     "scientific_status": "response_match_not_established",
     "source_commit": "dfddb7a2eef45b4e7f4253fcb89ef2ec3b608b4a"
-  }
+  },
+  "wp2_saved_array_closeout": {
+    "path": "receipts\\wp2_014_20261015\\postrun_independent_02\\CLOSEOUT_REVIEW.json",
+    "sha256": "70a6ed688cb3769e5cefc1a83dd06960f40ee7cf12a58bc9f9e942ef972a6537",
+    "status": "independent_saved_array_closeout_PASS",
+    "CP_NN_AD_training": 0,
+    "all36_pairs_verified": true,
+    "weights_promoted": false,
+    "scientific_acceptance": false
+  },
+  "wp2_development_selection": {
+    "path": "receipts/wp2_014_20261015/postrun_root_02/FINAL_DEVELOPMENT_SELECTION.json",
+    "bytes": 484703,
+    "sha256": "973248236a983a4be8f8b8fa07282c05ac2efceea2f7cb02650b9b7b7a24ad45",
+    "development_path": "C1",
+    "status": "independently_reviewed_development_codepath_only",
+    "weights_promoted": false,
+    "both_candidates_ALL6_wave_usefulness_pass": false,
+    "scientific_acceptance": false
+  },
+  "wp2_completed": true,
+  "wp2_result": {
+    "path": "receipts/wp2_014_20261015/FINAL_RESULT_RECEIPT.json",
+    "sha256": "86072087796998e22d4c09740590e8e00ce53a10eb7bab3717fb17d20558bc7c",
+    "bytes": 3988,
+    "status": "engineering_experiment_readback_report_complete",
+    "scientific_acceptance": false,
+    "weights_promoted": false
+  },
+  "wp2_report": {
+    "MD": {
+      "path": "reports/wp2_014_20261015/N01_WP2_014_REPORT.md",
+      "sha256": "b814487a015b87ed3e9bbd6373acc51f836ee540c5dc2580bdedaf03da5ab463",
+      "bytes": 25154
+    },
+    "HTML": {
+      "path": "reports/wp2_014_20261015/N01_WP2_014_REPORT.html",
+      "sha256": "6a4c0d08c2d81b281346c63d12f44ff3fad72cc9dc3fdc31e54d93b21cc3e650",
+      "bytes": 33813
+    },
+    "visual_QA": {
+      "path": "receipts/wp2_014_20261015/postrun_root_02/REPORT_VISUAL_QA.json",
+      "sha256": "c086f2d7b2f8db0eb7d4ff28033b7cf47756a69c46970100ebe39cfd8de99823",
+      "bytes": 3365
+    }
+  },
+  "wp2_report_visual_QA_complete": true
 }

@@ -1,12 +1,14 @@
-# N01 当前执行：WP2/014 保存数组独立复核已正确启动
+# N01 当前执行：WP2/014 独立闭合，准备 WP3/015
 
-014 四次配对短试全部完成，每次 2000G，总计 8000G / 9872AD，原生计算与监督均退出0。累计训练167667，已含启动197G，搜索短试已用4次；WP3保留原定最多6次。
+014 四次配对短试全部完成，每次 2000G，总计 8000G / 9872AD，原生计算与监督均退出0。累计训练167667，搜索短试已完成4次；015正在实现，尚未开始新计算，WP3最多6次短试的预算保持不变。
 
-保存指标按冻结规则选择 C1 作为待复核的开发表示。C0/C1均满足已标定分量ALL6非劣；12个final完整wave距离均值分别为0.15255321144257886 / 0.15042006897712382。C1的seed1-fast相对A改善1.9887788589535327%，因此全部6格至少2%的用途门未通过；权重未晋级，科学状态仍为response_match_not_established。
+独立复核后，选择 C1 作为后续开发代码路径。C0/C1均满足已标定分量ALL6非劣；12个final完整wave距离均值分别为0.15255321144257886 / 0.15042006897712382。C1的seed1-fast相对A改善1.9887788589535327%，全部6格至少2%的用途门未通过；权重未晋级，科学状态仍为response_match_not_established。
 
-选择性回收142/318文件，176个原始NPZ仍在服务器。下一项是已登记的36对保存数组CPU复核，新增CP/NN/AD/训练/新随机库均0；已保存首个正式完整pair与同snapshot健康证明。唯一快照完成27/36pair，仍有两项在途，原生终点未知；已确认2026-10-15 11:17（Asia/Singapore）单次苏醒，当前停止持续监控。
+保存数组CPU独立读回已原生退出0并回收19个小文件：36对库、176个NPZ的SHA、1,898,784行硬输出、4/8次重复矩与标量协方差/MCSE及保存梯度向量核验通过。完整wave/QPSD/noise经验距离没有从raw重新计算，C1 median没有独立重拟合，176个原始NPZ仍保存在服务器。CPU复核新增CP/NN/AD/训练均0。
 
-[开发比较](receipts/wp2_014_20261015/postrun_engineering_01/DEVELOPMENT_SUMMARY.md) · [原生终点与计数](receipts/wp2_014_20261015/postrun_root_01/NATIVE_COMPLETION_READBACK.json) · [选择性回收](receipts/wp2_014_20261015/collection_01/COLLECTION_RECEIPT.json) · [读回配置](receipts/wp2_014_20261015/readback_registration_fix01/READBACK_EXECUTION.json)
+下一项015比较同预算继续C1形状头与冻结随机头后训练小型零初始化均值适配器；先检验固定人口假设下可辨均值残差，再按冻结门决定是否训练。均值残差不等于真实条件均值已识别，基线DC仍单列为电子学限制。014正式报告、三幅英文图和六份CSV已完成内容核验及代表性渲染检查。
+
+[014中文报告](reports/wp2_014_20261015/N01_WP2_014_REPORT.md) · [014 HTML](reports/wp2_014_20261015/N01_WP2_014_REPORT.html) · [014最终回执](receipts/wp2_014_20261015/FINAL_RESULT_RECEIPT.json) · [开发选择](receipts/wp2_014_20261015/postrun_root_02/FINAL_DEVELOPMENT_SELECTION.json) · [独立闭合](receipts/wp2_014_20261015/postrun_independent_02/CLOSEOUT_REVIEW.json) · [原生终点与计数](receipts/wp2_014_20261015/postrun_root_01/NATIVE_COMPLETION_READBACK.json) · [015准备设计](wp3_015_design.json)
 
 以下保留此前阶段说明。
 
