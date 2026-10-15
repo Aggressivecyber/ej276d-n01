@@ -10,14 +10,14 @@
   },
   "objective": "Deliver a usable and verifiable conditional effective stochastic response kernel with explicit data and physical scope; assess engineering, in-domain effectiveness and cross-condition reuse separately.",
   "mainline": "protected deterministic A plus input-dependent stochastic response, fixed256 hard output/384 carrier/100 baseline/1ns software sampling; originalfull19k retained as negative control",
-  "status": "WP1_013_repeat_fix01_native_running",
-  "active_work_package": "WP1",
-  "active_scientific_jobs": 1,
+  "status": "WP1_013_closed_WP2_014_preparation",
+  "active_work_package": "WP2",
+  "active_scientific_jobs": 0,
   "work_packages": [
     {
       "id": "WP1",
       "run": "wp1_013_20261015",
-      "status": "native_running",
+      "status": "completed_native0_collected_independently_read_back",
       "scope": [
         "012_saved_boundary_closure",
         "all_legal_SOURCE_information_audit",
@@ -256,11 +256,42 @@
         "remote_root": "/home/rylan/projects/ej276d-n01/wp1_013_repeat_fix01_20261015",
         "automatic_restart": false,
         "no_automatic_fourth_attempt": true
-      }
+      },
+      "completion": {
+        "path": "receipts\\wp1_013_20261015\\postrun_root_01\\FINAL_RESULT_RECEIPT.json",
+        "sha256": "25dc92244511ca745e20be5e3c4dfdccccd29e9e7c591c51c5d1ace207eface3",
+        "status": "completed_native0_collected_independently_read_back",
+        "report": "reports/wp1_013_20261015/N01_WP1_013_REPORT.md",
+        "report_sha256": "d8088e081e5fd324df903b14ddb809e32a85fdb8cae34430338a1fab891cdf00",
+        "method_choice": "adequate",
+        "new_training_updates": 0,
+        "new_AD_queries": 0,
+        "aggregate_actual_counters": {
+          "old_A_rows": 403992,
+          "head_actual_parameter_forward_rows": 403992,
+          "head_linear_direction_map_rows": 40960,
+          "head_total_kernel_rows": 444952,
+          "noise005_rows": 158232,
+          "hard_ADC_rows": 2202768,
+          "all_path_gather_rows": 3677328,
+          "checkpoint_loads": 9,
+          "optimizer_created": 0,
+          "optimizer_steps": 0,
+          "G_updates": 0,
+          "D_updates": 0,
+          "noise_updates": 0,
+          "population_updates": 0,
+          "C2ST_updates": 0,
+          "new_AD_queries": 0,
+          "DEV_model_rows": 0
+        },
+        "formal_response_acceptance": false
+      },
+      "method_choice": "adequate"
     },
     {
       "id": "WP2",
-      "status": "not_started",
+      "status": "preparation",
       "scope": [
         "gradient_stratification",
         "integral_representation_C1",
@@ -513,8 +544,8 @@
     "root_planning_SolMax_implementation_and_review": true,
     "scientific_success_not_guaranteed_by_state_fields": true
   },
-  "current_action": "One scheduled wake to collect the repaired WP1 and advance bounded WP2.",
-  "updated_UTC": "2026-10-14T21:33:15.266158+00:00",
+  "current_action": "Prepare frozen C0/C1 paired short trials, two seeds each, at most2000G/run; C2 disabled after013 adequate.",
+  "updated_UTC": "2026-10-15T00:03:05.643983+00:00",
   "followup": {
     "automation_id": "n01",
     "status": "ACTIVE",
@@ -603,7 +634,7 @@
   },
   "numerical_storage_repair": {
     "attempt": 3,
-    "status": "native_running",
+    "status": "completed_native0_independently_read_back",
     "registration": "receipts\\wp1_013_20261015\\native_repeat_fix01\\NUMERICAL_STORAGE_REPAIR_REGISTRATION.json",
     "registration_sha256": "c15ba0fea7a6d9d9f4daf343becf813e648c8e89d6e0e59e9e2078b3afd6812c",
     "prior_actual_cost": {
@@ -682,5 +713,86 @@
       "saved_collection_sha256": "8fa39f35c45309e3bb87aba9aead64fff3538433d5f2e7408cf4a76840179c73",
       "original_draft_config_sha256": "2dcaa7df34a769ada47bd354e8de2926afcf16ff0f70ac7389b17e4b3f751dde"
     }
-  }
+  },
+  "wp1_terminal_readback": {
+    "receipt": "receipts\\wp1_013_20261015\\postrun_root_01\\NATIVE_COMPLETION_READBACK.json",
+    "receipt_sha256": "153743c234856a5bec37199b7f3adbe5712df138c2d6134206aceec6830dda1e",
+    "native_exit_code": 0,
+    "supervisor_exit_code": 0,
+    "ended_UTC": "2026-10-14T21:48:30.222019+00:00",
+    "attempt3_actual_counts": {
+      "old_A_rows": 298504,
+      "head_actual_parameter_forward_rows": 298504,
+      "head_linear_direction_map_rows": 40960,
+      "head_total_kernel_rows": 339464,
+      "noise005_rows": 52744,
+      "hard_ADC_rows": 1569840,
+      "all_path_gather_rows": 3044400,
+      "checkpoint_loads": 3,
+      "optimizer_created": 0,
+      "optimizer_steps": 0,
+      "G_updates": 0,
+      "D_updates": 0,
+      "noise_updates": 0,
+      "population_updates": 0,
+      "C2ST_updates": 0,
+      "new_AD_queries": 0,
+      "DEV_model_rows": 0
+    },
+    "aggregate_actual_counts": {
+      "old_A_rows": 403992,
+      "head_actual_parameter_forward_rows": 403992,
+      "head_linear_direction_map_rows": 40960,
+      "head_total_kernel_rows": 444952,
+      "noise005_rows": 158232,
+      "hard_ADC_rows": 2202768,
+      "all_path_gather_rows": 3677328,
+      "checkpoint_loads": 9,
+      "optimizer_created": 0,
+      "optimizer_steps": 0,
+      "G_updates": 0,
+      "D_updates": 0,
+      "noise_updates": 0,
+      "population_updates": 0,
+      "C2ST_updates": 0,
+      "new_AD_queries": 0,
+      "DEV_model_rows": 0
+    },
+    "source_commit": "7be67b8d3809246a58bcb6f03cd531e8f7539ad3",
+    "collection_complete": false,
+    "independent_readback_complete": false,
+    "producer_method_choice": "adequate",
+    "formal_response_acceptance": false
+  },
+  "wp1_result": {
+    "path": "receipts\\wp1_013_20261015\\postrun_root_01\\FINAL_RESULT_RECEIPT.json",
+    "sha256": "25dc92244511ca745e20be5e3c4dfdccccd29e9e7c591c51c5d1ace207eface3",
+    "status": "completed_native0_collected_independently_read_back",
+    "report": "reports/wp1_013_20261015/N01_WP1_013_REPORT.md",
+    "report_sha256": "d8088e081e5fd324df903b14ddb809e32a85fdb8cae34430338a1fab891cdf00",
+    "method_choice": "adequate",
+    "new_training_updates": 0,
+    "new_AD_queries": 0,
+    "aggregate_actual_counters": {
+      "old_A_rows": 403992,
+      "head_actual_parameter_forward_rows": 403992,
+      "head_linear_direction_map_rows": 40960,
+      "head_total_kernel_rows": 444952,
+      "noise005_rows": 158232,
+      "hard_ADC_rows": 2202768,
+      "all_path_gather_rows": 3677328,
+      "checkpoint_loads": 9,
+      "optimizer_created": 0,
+      "optimizer_steps": 0,
+      "G_updates": 0,
+      "D_updates": 0,
+      "noise_updates": 0,
+      "population_updates": 0,
+      "C2ST_updates": 0,
+      "new_AD_queries": 0,
+      "DEV_model_rows": 0
+    },
+    "formal_response_acceptance": false
+  },
+  "scientific_status": "response_match_not_established"
 }

@@ -1,0 +1,673 @@
+{
+  "schema": "n01/wp1-numeric-tolerance-freeze/v1",
+  "frozen_UTC": "2026-10-14T23:50:59.287340+00:00",
+  "status": "frozen_before_WP2_candidate",
+  "table": "CALIBRATED_TOLERANCES_WP1_013.json",
+  "table_sha256": "f33217e07b1872dfd51f56e86ed30cda665a705568f2f9ada937865d8a33607b",
+  "references": {
+    "runs\\wp1_013_20261015\\runtime_fix01_collected_03\\runs\\primary\\artifacts\\CALIBRATED_TOLERANCES.json": {
+      "sha256": "f33217e07b1872dfd51f56e86ed30cda665a705568f2f9ada937865d8a33607b",
+      "bytes": 8271
+    },
+    "CALIBRATED_TOLERANCES_WP1_013.json": {
+      "sha256": "f33217e07b1872dfd51f56e86ed30cda665a705568f2f9ada937865d8a33607b",
+      "bytes": 8271
+    },
+    "receipts\\wp1_013_20261015\\postrun_independent_01\\DECISION_READBACK.json": {
+      "sha256": "510916258eebf9c751cd9416059ba0cda331f1671f8981839a890ed5fbce9343",
+      "bytes": 37104
+    },
+    "wp1_013_config.json": {
+      "sha256": "b55b64d500c1cd079bb83001da6b9ae5f462de9c952809c2ef329fcdbd98ffb7",
+      "bytes": 234194
+    },
+    "WP1_SOURCE_MANIFEST.json": {
+      "sha256": "dccd1b6c5676fb481f04e1b94a346aff2c41ada72c41c32e6a9042ac30b1fc04",
+      "bytes": 13366
+    },
+    "OBSERVATION_CONTRACT.json": {
+      "sha256": "c894abe80d7d9a31e4ffe670484123dd1eea5ee75dad7742e52d304e23054c6c",
+      "bytes": 2304
+    },
+    "DATA_ROLES.json": {
+      "sha256": "bfc27c49a54293c86ff116965f3ce410468611b26266e0fe41112c81ae4bc0aa",
+      "bytes": 5008
+    },
+    "docs\\ACCEPTANCE_CONTRACT.md": {
+      "sha256": "87f2d605dca67109a72356d44aa411a1aa1ac4d11a26c7f97aab30ae4460bc6c",
+      "bytes": 6909
+    }
+  },
+  "rule": "max_7_registered_tolerance_cases(mean_2_banks(self_distance))",
+  "eligible_cases": {
+    "gain_percent_signed": [
+      -3,
+      3
+    ],
+    "tail_percent_signed": [
+      -3,
+      3
+    ],
+    "AC_noise_amplitude_percent_signed": [
+      -10,
+      10
+    ],
+    "extra_Gaussian_width_software_ns": [
+      1
+    ]
+  },
+  "case_winners": {
+    "fast": {
+      "wave": {
+        "case_index": 19,
+        "case": {
+          "kind": "width",
+          "sigma": 1.0,
+          "sign": 1
+        },
+        "mean_two_bank_distance": 0.18835690066187133
+      },
+      "QPSD": {
+        "case_index": 3,
+        "case": {
+          "kind": "gain",
+          "percent": 3.0,
+          "sign": 1
+        },
+        "mean_two_bank_distance": 0.048271307926588014
+      },
+      "noise": {
+        "case_index": 14,
+        "case": {
+          "kind": "noise",
+          "percent": 10.0,
+          "sign": -1
+        },
+        "mean_two_bank_distance": 0.24513525857737978
+      },
+      "Q_Vns": {
+        "case_index": 3,
+        "case": {
+          "kind": "gain",
+          "percent": 3.0,
+          "sign": 1
+        },
+        "mean_two_bank_distance": 0.14006821393078955
+      },
+      "front_Vns": {
+        "case_index": 3,
+        "case": {
+          "kind": "gain",
+          "percent": 3.0,
+          "sign": 1
+        },
+        "mean_two_bank_distance": 0.1090464838504471
+      },
+      "tail_Vns": {
+        "case_index": 2,
+        "case": {
+          "kind": "gain",
+          "percent": 3.0,
+          "sign": -1
+        },
+        "mean_two_bank_distance": 0.03108613086926998
+      },
+      "PSD_raw": {
+        "case_index": 8,
+        "case": {
+          "kind": "tail",
+          "percent": 3.0,
+          "sign": -1
+        },
+        "mean_two_bank_distance": 0.0042836374482436
+      },
+      "PSD_guarded": {
+        "case_index": 8,
+        "case": {
+          "kind": "tail",
+          "percent": 3.0,
+          "sign": -1
+        },
+        "mean_two_bank_distance": 0.0042836374482436
+      },
+      "peak_voltage_V": {
+        "case_index": 2,
+        "case": {
+          "kind": "gain",
+          "percent": 3.0,
+          "sign": -1
+        },
+        "mean_two_bank_distance": 0.005499862543299458
+      },
+      "rise10_90_ns": {
+        "case_index": 19,
+        "case": {
+          "kind": "width",
+          "sigma": 1.0,
+          "sign": 1
+        },
+        "mean_two_bank_distance": 0.21159366879623287
+      },
+      "FWHM_ns": {
+        "case_index": 19,
+        "case": {
+          "kind": "width",
+          "sigma": 1.0,
+          "sign": 1
+        },
+        "mean_two_bank_distance": 0.5129398878764326
+      },
+      "baseline_mean_V": {
+        "case_index": 15,
+        "case": {
+          "kind": "noise",
+          "percent": 10.0,
+          "sign": 1
+        },
+        "mean_two_bank_distance": 4.506386193005153e-07
+      },
+      "baseline_RMS_V": {
+        "case_index": 14,
+        "case": {
+          "kind": "noise",
+          "percent": 10.0,
+          "sign": -1
+        },
+        "mean_two_bank_distance": 6.316818201581438e-05
+      },
+      "Q_nonpositive_rate": {
+        "case_index": 2,
+        "case": {
+          "kind": "gain",
+          "percent": 3.0,
+          "sign": -1
+        },
+        "mean_two_bank_distance": 0.0
+      },
+      "PSD_undefined_rate": {
+        "case_index": 2,
+        "case": {
+          "kind": "gain",
+          "percent": 3.0,
+          "sign": -1
+        },
+        "mean_two_bank_distance": 0.0
+      },
+      "PSD_guarded_rate": {
+        "case_index": 2,
+        "case": {
+          "kind": "gain",
+          "percent": 3.0,
+          "sign": -1
+        },
+        "mean_two_bank_distance": 0.0
+      },
+      "rise_undefined_rate": {
+        "case_index": 19,
+        "case": {
+          "kind": "width",
+          "sigma": 1.0,
+          "sign": 1
+        },
+        "mean_two_bank_distance": 0.003173828125
+      },
+      "FWHM_undefined_rate": {
+        "case_index": 2,
+        "case": {
+          "kind": "gain",
+          "percent": 3.0,
+          "sign": -1
+        },
+        "mean_two_bank_distance": 0.0
+      },
+      "temporal_nonpositive_peak_rate": {
+        "case_index": 2,
+        "case": {
+          "kind": "gain",
+          "percent": 3.0,
+          "sign": -1
+        },
+        "mean_two_bank_distance": 0.0
+      },
+      "rise_prepeak_censored_rate": {
+        "case_index": 19,
+        "case": {
+          "kind": "width",
+          "sigma": 1.0,
+          "sign": 1
+        },
+        "mean_two_bank_distance": 0.003173828125
+      },
+      "FWHM_prepeak_censored_rate": {
+        "case_index": 2,
+        "case": {
+          "kind": "gain",
+          "percent": 3.0,
+          "sign": -1
+        },
+        "mean_two_bank_distance": 0.0
+      },
+      "FWHM_postpeak_censored_rate": {
+        "case_index": 2,
+        "case": {
+          "kind": "gain",
+          "percent": 3.0,
+          "sign": -1
+        },
+        "mean_two_bank_distance": 0.0
+      }
+    },
+    "slow": {
+      "wave": {
+        "case_index": 19,
+        "case": {
+          "kind": "width",
+          "sigma": 1.0,
+          "sign": 1
+        },
+        "mean_two_bank_distance": 0.19015560932077008
+      },
+      "QPSD": {
+        "case_index": 3,
+        "case": {
+          "kind": "gain",
+          "percent": 3.0,
+          "sign": 1
+        },
+        "mean_two_bank_distance": 0.045608667099154225
+      },
+      "noise": {
+        "case_index": 14,
+        "case": {
+          "kind": "noise",
+          "percent": 10.0,
+          "sign": -1
+        },
+        "mean_two_bank_distance": 0.24513525857737978
+      },
+      "Q_Vns": {
+        "case_index": 2,
+        "case": {
+          "kind": "gain",
+          "percent": 3.0,
+          "sign": -1
+        },
+        "mean_two_bank_distance": 0.1400669323527055
+      },
+      "front_Vns": {
+        "case_index": 3,
+        "case": {
+          "kind": "gain",
+          "percent": 3.0,
+          "sign": 1
+        },
+        "mean_two_bank_distance": 0.10900203842445293
+      },
+      "tail_Vns": {
+        "case_index": 2,
+        "case": {
+          "kind": "gain",
+          "percent": 3.0,
+          "sign": -1
+        },
+        "mean_two_bank_distance": 0.031110665638543
+      },
+      "PSD_raw": {
+        "case_index": 8,
+        "case": {
+          "kind": "tail",
+          "percent": 3.0,
+          "sign": -1
+        },
+        "mean_two_bank_distance": 0.004280475598982037
+      },
+      "PSD_guarded": {
+        "case_index": 8,
+        "case": {
+          "kind": "tail",
+          "percent": 3.0,
+          "sign": -1
+        },
+        "mean_two_bank_distance": 0.004280475598982037
+      },
+      "peak_voltage_V": {
+        "case_index": 2,
+        "case": {
+          "kind": "gain",
+          "percent": 3.0,
+          "sign": -1
+        },
+        "mean_two_bank_distance": 0.005499869994334829
+      },
+      "rise10_90_ns": {
+        "case_index": 19,
+        "case": {
+          "kind": "width",
+          "sigma": 1.0,
+          "sign": 1
+        },
+        "mean_two_bank_distance": 0.21101546028178209
+      },
+      "FWHM_ns": {
+        "case_index": 19,
+        "case": {
+          "kind": "width",
+          "sigma": 1.0,
+          "sign": 1
+        },
+        "mean_two_bank_distance": 0.5149414509583063
+      },
+      "baseline_mean_V": {
+        "case_index": 15,
+        "case": {
+          "kind": "noise",
+          "percent": 10.0,
+          "sign": 1
+        },
+        "mean_two_bank_distance": 4.506386193005153e-07
+      },
+      "baseline_RMS_V": {
+        "case_index": 14,
+        "case": {
+          "kind": "noise",
+          "percent": 10.0,
+          "sign": -1
+        },
+        "mean_two_bank_distance": 6.316818201581438e-05
+      },
+      "Q_nonpositive_rate": {
+        "case_index": 2,
+        "case": {
+          "kind": "gain",
+          "percent": 3.0,
+          "sign": -1
+        },
+        "mean_two_bank_distance": 0.0
+      },
+      "PSD_undefined_rate": {
+        "case_index": 2,
+        "case": {
+          "kind": "gain",
+          "percent": 3.0,
+          "sign": -1
+        },
+        "mean_two_bank_distance": 0.0
+      },
+      "PSD_guarded_rate": {
+        "case_index": 2,
+        "case": {
+          "kind": "gain",
+          "percent": 3.0,
+          "sign": -1
+        },
+        "mean_two_bank_distance": 0.0
+      },
+      "rise_undefined_rate": {
+        "case_index": 19,
+        "case": {
+          "kind": "width",
+          "sigma": 1.0,
+          "sign": 1
+        },
+        "mean_two_bank_distance": 0.0025634765625
+      },
+      "FWHM_undefined_rate": {
+        "case_index": 2,
+        "case": {
+          "kind": "gain",
+          "percent": 3.0,
+          "sign": -1
+        },
+        "mean_two_bank_distance": 0.0
+      },
+      "temporal_nonpositive_peak_rate": {
+        "case_index": 2,
+        "case": {
+          "kind": "gain",
+          "percent": 3.0,
+          "sign": -1
+        },
+        "mean_two_bank_distance": 0.0
+      },
+      "rise_prepeak_censored_rate": {
+        "case_index": 19,
+        "case": {
+          "kind": "width",
+          "sigma": 1.0,
+          "sign": 1
+        },
+        "mean_two_bank_distance": 0.0025634765625
+      },
+      "FWHM_prepeak_censored_rate": {
+        "case_index": 2,
+        "case": {
+          "kind": "gain",
+          "percent": 3.0,
+          "sign": -1
+        },
+        "mean_two_bank_distance": 0.0
+      },
+      "FWHM_postpeak_censored_rate": {
+        "case_index": 2,
+        "case": {
+          "kind": "gain",
+          "percent": 3.0,
+          "sign": -1
+        },
+        "mean_two_bank_distance": 0.0
+      }
+    },
+    "common_level": {
+      "wave": {
+        "case_index": 19,
+        "case": {
+          "kind": "width",
+          "sigma": 1.0,
+          "sign": 1
+        },
+        "mean_two_bank_distance": 0.1905364603858985
+      },
+      "QPSD": {
+        "case_index": 3,
+        "case": {
+          "kind": "gain",
+          "percent": 3.0,
+          "sign": 1
+        },
+        "mean_two_bank_distance": 0.046214249198750015
+      },
+      "noise": {
+        "case_index": 14,
+        "case": {
+          "kind": "noise",
+          "percent": 10.0,
+          "sign": -1
+        },
+        "mean_two_bank_distance": 0.24513525857737978
+      },
+      "Q_Vns": {
+        "case_index": 3,
+        "case": {
+          "kind": "gain",
+          "percent": 3.0,
+          "sign": 1
+        },
+        "mean_two_bank_distance": 0.14006769980934886
+      },
+      "front_Vns": {
+        "case_index": 3,
+        "case": {
+          "kind": "gain",
+          "percent": 3.0,
+          "sign": 1
+        },
+        "mean_two_bank_distance": 0.10901502706931349
+      },
+      "tail_Vns": {
+        "case_index": 2,
+        "case": {
+          "kind": "gain",
+          "percent": 3.0,
+          "sign": -1
+        },
+        "mean_two_bank_distance": 0.031056340139645512
+      },
+      "PSD_raw": {
+        "case_index": 8,
+        "case": {
+          "kind": "tail",
+          "percent": 3.0,
+          "sign": -1
+        },
+        "mean_two_bank_distance": 0.004264454906522381
+      },
+      "PSD_guarded": {
+        "case_index": 8,
+        "case": {
+          "kind": "tail",
+          "percent": 3.0,
+          "sign": -1
+        },
+        "mean_two_bank_distance": 0.004264454906522381
+      },
+      "peak_voltage_V": {
+        "case_index": 2,
+        "case": {
+          "kind": "gain",
+          "percent": 3.0,
+          "sign": -1
+        },
+        "mean_two_bank_distance": 0.00550009352539599
+      },
+      "rise10_90_ns": {
+        "case_index": 19,
+        "case": {
+          "kind": "width",
+          "sigma": 1.0,
+          "sign": 1
+        },
+        "mean_two_bank_distance": 0.21177797877203527
+      },
+      "FWHM_ns": {
+        "case_index": 19,
+        "case": {
+          "kind": "width",
+          "sigma": 1.0,
+          "sign": 1
+        },
+        "mean_two_bank_distance": 0.5147888093676196
+      },
+      "baseline_mean_V": {
+        "case_index": 15,
+        "case": {
+          "kind": "noise",
+          "percent": 10.0,
+          "sign": 1
+        },
+        "mean_two_bank_distance": 4.506386193005153e-07
+      },
+      "baseline_RMS_V": {
+        "case_index": 14,
+        "case": {
+          "kind": "noise",
+          "percent": 10.0,
+          "sign": -1
+        },
+        "mean_two_bank_distance": 6.316818201581438e-05
+      },
+      "Q_nonpositive_rate": {
+        "case_index": 2,
+        "case": {
+          "kind": "gain",
+          "percent": 3.0,
+          "sign": -1
+        },
+        "mean_two_bank_distance": 0.0
+      },
+      "PSD_undefined_rate": {
+        "case_index": 2,
+        "case": {
+          "kind": "gain",
+          "percent": 3.0,
+          "sign": -1
+        },
+        "mean_two_bank_distance": 0.0
+      },
+      "PSD_guarded_rate": {
+        "case_index": 2,
+        "case": {
+          "kind": "gain",
+          "percent": 3.0,
+          "sign": -1
+        },
+        "mean_two_bank_distance": 0.0
+      },
+      "rise_undefined_rate": {
+        "case_index": 19,
+        "case": {
+          "kind": "width",
+          "sigma": 1.0,
+          "sign": 1
+        },
+        "mean_two_bank_distance": 0.001953125
+      },
+      "FWHM_undefined_rate": {
+        "case_index": 2,
+        "case": {
+          "kind": "gain",
+          "percent": 3.0,
+          "sign": -1
+        },
+        "mean_two_bank_distance": 0.0
+      },
+      "temporal_nonpositive_peak_rate": {
+        "case_index": 2,
+        "case": {
+          "kind": "gain",
+          "percent": 3.0,
+          "sign": -1
+        },
+        "mean_two_bank_distance": 0.0
+      },
+      "rise_prepeak_censored_rate": {
+        "case_index": 19,
+        "case": {
+          "kind": "width",
+          "sigma": 1.0,
+          "sign": 1
+        },
+        "mean_two_bank_distance": 0.001953125
+      },
+      "FWHM_prepeak_censored_rate": {
+        "case_index": 2,
+        "case": {
+          "kind": "gain",
+          "percent": 3.0,
+          "sign": -1
+        },
+        "mean_two_bank_distance": 0.0
+      },
+      "FWHM_postpeak_censored_rate": {
+        "case_index": 2,
+        "case": {
+          "kind": "gain",
+          "percent": 3.0,
+          "sign": -1
+        },
+        "mean_two_bank_distance": 0.0
+      }
+    }
+  },
+  "zero_or_undefined_thresholds": "not_calibrated; never automatic PASS",
+  "immutable_for_following_candidates": true,
+  "formula_changed": false,
+  "RR_used_for_thresholds": false,
+  "hardware_calibrated": false,
+  "independent_check_scope": "Recomputed saved self-distance summaries and formula; calibration waveforms were not all retained and original distances were not rerun.",
+  "current_candidate_scientific_acceptance": false,
+  "response_match_not_established": true,
+  "new_checkpoint_loads": 0,
+  "new_model_forwards": 0,
+  "new_AD_queries": 0,
+  "new_training_updates": 0
+}
