@@ -1,0 +1,268 @@
+{
+  "schema": "n01/wp3-016-readback-prelaunch-independent-review/v1",
+  "UTC": "2026-10-15T09:19:48.709032+00:00",
+  "status": "PASS_BOUNDED_READBACK_PRELAUNCH_SOURCE_REVIEW",
+  "passed": true,
+  "blockers": [],
+  "sources": {
+    "receipts/wp3_016_20261015/postrun_independent_01/readback_saved_arrays.py": {
+      "bytes": 43117,
+      "sha256": "b42aad59d7d27d51386ca6c3296a6c0ce68b9157c7f94646f179b87548da3b7a"
+    },
+    "receipts/wp3_016_20261015/postrun_independent_01/saved_array_kernels.py": {
+      "bytes": 3691,
+      "sha256": "fe1366f35f36e97974f1a4037a36ad858c03dd8453957c1b45b65080f0fee3ac"
+    },
+    "receipts/wp3_016_20261015/readback_engineering_01/readback_control.py": {
+      "bytes": 32509,
+      "sha256": "90931be0d929404d093e3de532cd50fc22b3035a1dc0d61c1c7196febffe5048"
+    },
+    "receipts/wp3_016_20261015/postrun_independent_01/READBACK_PLAN.json": {
+      "bytes": 39053,
+      "sha256": "9fd6ed29156c5567ef9738835e00fb06f3c2a214bb5694a267b22f06b34e938e"
+    },
+    "receipts/wp3_016_20261015/collection_01/REMOTE_FULL_INVENTORY.json": {
+      "bytes": 86944,
+      "sha256": "e7cf8c67cdcb2dcadf006b3a8c060f706f9a1b64990c2e383288d79ce22097af"
+    }
+  },
+  "expected_complete_counters": {
+    "raw_files_SHA_checked": 112,
+    "raw_bytes_SHA_read": 2169655337,
+    "hard_rows_files_decoded": 48,
+    "report_npz_files_decoded": 48,
+    "baseline_npz_files_decoded": 8,
+    "probe_raw_npz_files_decoded": 0,
+    "probe_gradient_npz_files_decoded": 0,
+    "waveform_rows_decoded": 1265856,
+    "bank_pairs_verified": 24,
+    "probe_snapshots_verified": 0,
+    "charge_npz_files_decoded": 8,
+    "charge_A_rows_verified": 210976,
+    "charge_A_float64_cells_verified": 81014784,
+    "charge_mu_draws_verified": 210976,
+    "charge_q_draws_verified": 210976,
+    "charge_parent_moment_records_verified": 52744
+  },
+  "expected_operations": 200,
+  "worker_ready": {
+    "path": "receipts/wp3_016_20261015/postrun_independent_01/READBACK_WORKER_READY.json",
+    "bytes": 6925,
+    "sha256": "906ed97985c7a7578b6caca3083db19fc78e5a111e275da3306b5719baae9ca8"
+  },
+  "controller_ready": {
+    "path": "receipts/wp3_016_20261015/readback_engineering_01/CONTROLLER_READY.json",
+    "bytes": 4900,
+    "sha256": "899813215449bfef0f58fc7afdb901cd08462fbb8933ef14421851240e0a42cf"
+  },
+  "plan": {
+    "path": "receipts/wp3_016_20261015/postrun_independent_01/READBACK_PLAN.json",
+    "bytes": 39053,
+    "sha256": "9fd6ed29156c5567ef9738835e00fb06f3c2a214bb5694a267b22f06b34e938e"
+  },
+  "scope_note": {
+    "path": "receipts/wp3_016_20261015/postrun_independent_01/SCOPE_NOTE.json",
+    "bytes": 2633,
+    "sha256": "9c4075110563aa1f4ab1ad3549d72484fdc15bb6f26f4e9feb303c56c62c5336"
+  },
+  "checks": [
+    {
+      "name": "final_five_source_plan_inventory_and_READY_bindings",
+      "passed": true,
+      "sources": {
+        "receipts/wp3_016_20261015/postrun_independent_01/readback_saved_arrays.py": {
+          "bytes": 43117,
+          "sha256": "b42aad59d7d27d51386ca6c3296a6c0ce68b9157c7f94646f179b87548da3b7a"
+        },
+        "receipts/wp3_016_20261015/postrun_independent_01/saved_array_kernels.py": {
+          "bytes": 3691,
+          "sha256": "fe1366f35f36e97974f1a4037a36ad858c03dd8453957c1b45b65080f0fee3ac"
+        },
+        "receipts/wp3_016_20261015/readback_engineering_01/readback_control.py": {
+          "bytes": 32509,
+          "sha256": "90931be0d929404d093e3de532cd50fc22b3035a1dc0d61c1c7196febffe5048"
+        },
+        "receipts/wp3_016_20261015/postrun_independent_01/READBACK_PLAN.json": {
+          "bytes": 39053,
+          "sha256": "9fd6ed29156c5567ef9738835e00fb06f3c2a214bb5694a267b22f06b34e938e"
+        },
+        "receipts/wp3_016_20261015/collection_01/REMOTE_FULL_INVENTORY.json": {
+          "bytes": 86944,
+          "sha256": "e7cf8c67cdcb2dcadf006b3a8c060f706f9a1b64990c2e383288d79ce22097af"
+        }
+      }
+    },
+    {
+      "name": "mature_hard4_derived8_pairwise9x9_and_durable_methods_AST_kernel_unchanged",
+      "passed": true,
+      "methods": [
+        "decode_window",
+        "lineage",
+        "wave_moments",
+        "Audit.equal",
+        "Audit.member",
+        "Audit.load_baselines",
+        "Audit.one_bank",
+        "Audit.pair",
+        "Audit.op",
+        "Audit.journal",
+        "Audit.state",
+        "Audit.guard"
+      ],
+      "no_external_runtime_helper": true,
+      "charge_r8_added": false,
+      "full_CDF_loss_median_RNG_replay": false
+    },
+    {
+      "name": "engineering_independent_scalar_charge_fixture_and_health200journal_evidence_reviewed",
+      "passed": true,
+      "numeric": {
+        "path": "receipts/wp3_016_20261015/readback_engineering_01/artificial_charge_02/ENGINEERING_RECEIPT.json",
+        "bytes": 2416,
+        "sha256": "8cdf38fd9fea5b13233091e64c66a6b5b81d18edc1a9d240b282f5380707340f"
+      },
+      "numeric_groups": 5,
+      "numeric_negatives": 27,
+      "controller": {
+        "path": "receipts/wp3_016_20261015/readback_engineering_01/artificial_stdlib_02/ENGINEERING_RECEIPT.json",
+        "bytes": 1925,
+        "sha256": "caaf972deba9cf87bd2dc4d0fe6d4e0fc29717f1c64487b3d3d3ea94a2fedc38"
+      },
+      "stdlib_groups": 7,
+      "health_negative_cases": 13,
+      "existing_groups_rerun": false,
+      "exact_one_line_final_delta": {
+        "path": "receipts/wp3_016_20261015/readback_engineering_01/artificial_residual_bits_01/ENGINEERING_RECEIPT.json",
+        "bytes": 2573,
+        "sha256": "ba89795215013fa3b3663bea1a1b46660d68d9996d6bd458a8ba7ccfa7316694"
+      },
+      "final_source_delta_positive_cases": [
+        "unchanged_deterministic_scalar_reference",
+        "legal_one_ULP_alternate_CPU_sum_with_exact_saved_residual"
+      ],
+      "final_source_delta_negative_cases": [
+        "one_ULP_saved_residual_tamper",
+        "negative_zero_saved_residual"
+      ]
+    },
+    {
+      "name": "final_canonical_bridge_independent_focused_check",
+      "passed": true,
+      "receipt": {
+        "path": "receipts/wp3_016_20261015/readback_engineering_01/INDEPENDENT_CANONICAL_DELTA_RECEIPT.json",
+        "bytes": 827,
+        "sha256": "e3eb6824e5ce879f267042b4150696eceb7a3b8ca2a8468cd864f0bbedd7b9b0"
+      },
+      "sum_comparison": "strict predeclared gamma255 bound",
+      "saved_residual_algebra": "bitwise exact, no reduction involved",
+      "bound_formula_value_tolerance": "64eps relative, atol0",
+      "NumPy_moment_tolerance": "128eps relative, atol0"
+    },
+    {
+      "name": "existing_artificial200operation_full_journal_independently_aggregated",
+      "passed": true,
+      "operations": 200,
+      "records": 400,
+      "actual_array_or_SHA_work_injected_counters": false,
+      "synthetic_annotations_only": true,
+      "counters": {
+        "raw_files_SHA_checked": 112,
+        "raw_bytes_SHA_read": 2169655337,
+        "hard_rows_files_decoded": 48,
+        "report_npz_files_decoded": 48,
+        "baseline_npz_files_decoded": 8,
+        "probe_raw_npz_files_decoded": 0,
+        "probe_gradient_npz_files_decoded": 0,
+        "waveform_rows_decoded": 1265856,
+        "bank_pairs_verified": 24,
+        "probe_snapshots_verified": 0,
+        "charge_npz_files_decoded": 8,
+        "charge_A_rows_verified": 210976,
+        "charge_A_float64_cells_verified": 81014784,
+        "charge_mu_draws_verified": 210976,
+        "charge_q_draws_verified": 210976,
+        "charge_parent_moment_records_verified": 52744
+      }
+    },
+    {
+      "name": "original116_source_plus2_controls_preserved_and_finite_sidecar_resources",
+      "passed": true,
+      "source_files": 116,
+      "original_controls": 118,
+      "resources": {
+        "CPU_threads": 2,
+        "RSS_MiB": 1536,
+        "virtual_memory_MiB": 3072,
+        "wall_seconds": 1800,
+        "output_MiB": 64
+      },
+      "raw_SHA_passes": 1,
+      "raw_decode_passes": 1,
+      "original_tree_read_only": true,
+      "no_automatic_retry": true
+    }
+  ],
+  "canonical_semantics": {
+    "A_repeat_limit_V": 1e-07,
+    "A_limit_is_existing013_engineering_gate": true,
+    "actual_mu_q_v_per_draw_preserved": true,
+    "no_broadcast_or_denominator_substitution": true,
+    "theory_v": "a*mu_d+b*mu_d^2",
+    "expected_sample_variance": "mean(v_d)+samplevar(mu_d,ddof1)",
+    "theoretical_mean_MCSE": "sqrt(sum(v_d))/4",
+    "centered_second_moment": "mean((q-mu)^2), denominator4",
+    "saved_residual_bitwise_equals_saved_mu_minus_saved_CPU_sum": true,
+    "different_legal_sums_compared_using_predeclared_gamma255_bound": true,
+    "no_relative_comparison_between_cancellation_residuals_from_different_sums": true,
+    "original_failed_run_amplitude": "unknown_not_saved"
+  },
+  "first_pair_health_bridge": {
+    "saved_charge_banks_completed_minimum": 2,
+    "actual_hard_banks_completed_minimum": 2,
+    "current_same_snapshot_PID_boot_startticks_parent_command_cwd_CPU_RSS_VM_resources_and_durable_progress": true,
+    "native0_terminal_branch_requires_COMPLETE_and_exit0": true,
+    "full_terminal_validation_requires_exact200_operations_and16_counters": true
+  },
+  "complete_journal_bridge_covered": true,
+  "first_pair_health_bridge_covered": true,
+  "controller_file_slots": 5,
+  "execution_control_slots_total": 6,
+  "new_external_runtime_helpers": [],
+  "scientific_budget": {
+    "CP_loads": 0,
+    "original_SOURCE_REAL_TRAIN_waveform_reads": 0,
+    "original_DEV_waveform_reads": 0,
+    "model_forwards": 0,
+    "AD_queries": 0,
+    "optimizer_or_sampler_created": 0,
+    "training_updates": 0,
+    "random_library_draws": 0,
+    "new_CDF_or_loss_replays": 0,
+    "bootstrap_replicates": 0,
+    "GPU_work": 0
+  },
+  "resource_limits": {
+    "CPU_threads": 2,
+    "RSS_MiB": 1536,
+    "virtual_memory_MiB": 3072,
+    "wall_seconds": 1800,
+    "output_MiB": 64
+  },
+  "single_pass_raw_files": 112,
+  "single_pass_raw_bytes": 2169655337,
+  "hard_bank_pairs": 24,
+  "old015_numeric_or_worker_rerun": false,
+  "registration_performed": false,
+  "native_or_SSH_started": false,
+  "actual_review_work": {
+    "source_JSON_only_except3_artificial_in_memory_cases": true,
+    "real_raw_or_CP_payload_reads": 0,
+    "actual_NPZ_opens": 0,
+    "new_NN_AD_RNG_training": 0,
+    "SSH": 0,
+    "source_or_main_metadata_changes": 0
+  },
+  "next_step": "Root may bind the exact five source/control files plus execution registration, commit/backup, and authorize the one bounded CPU task. No additional review layer is required by this receipt.",
+  "scientific_acceptance": false,
+  "weights_promoted": false
+}

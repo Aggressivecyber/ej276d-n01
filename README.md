@@ -1,10 +1,12 @@
-# N01 当前执行：WP3/016 两次短试完成，独立数值复核待执行
+# N01 当前执行：WP3/016 保存数组独立复核已登记
 
-两个seed各2000G，计算与监督均native0。94249项操作进入=完成，无在途；本轮共4000G/AD，扣除已入账137G后仅补记3863G，累计179667。搜索短试已完成10次、WP3完成6/6次，不再为近阈值追加短试。首次失败的非训练费用与原目录继续保留。
+016两个seed各2000G、child/supervisor均0，实际4000G/AD已闭合，累计179667；搜索短试10次、WP3用满6/6。选收99/211文件、112份原NPZ仍在服务器，首次失败的非训练费用保留。
 
-当前回收小结果包并按冻结合同做独立JSON选择及必要保存数组CPU复核；研究参考选择尚未最终确认，科学状态仍为response_match_not_established。016训练结束不代表六工作包全部完成。后续施工和独审使用GPT-6.1-Sol Max。
+保存JSON按冻结规则暂选Q1，mean关闭、charge开启；mean12波形距离0.15011008209012994，相对M0 0.15012505860962605改善约0.009976%。ALL6双参考非劣和相对A用途门通过，绝对T未全通过；等待保存数组QA，权重未科学晋级。
 
-[016原生终点](receipts/wp3_016_20261015/postrun_root_01/NATIVE_COMPLETION_READBACK.json) · [016合同](docs/WP3_016_CONFIGURATION.md) · [015报告](reports/wp3_015_20261015/REPORT.html)
+已登记112份NPZ各一次SHA/解码、24对硬统计和8份电荷矩，共200项CPU操作，新增CP/NN/AD/G/RNG/GPU及原TRAIN/DEV读取均0。实际A384与逐draw电荷矩将独立复核；完整随机载体、RNG、CDF/loss及C1median不重放。当前尚未启动，启动以真实回执为准。
+
+[016原生终点](receipts/wp3_016_20261015/postrun_root_01/NATIVE_COMPLETION_READBACK.json) · [暂选结果](receipts/wp3_016_20261015/postrun_independent_01/PROVISIONAL_DEVELOPMENT_SELECTION.json) · [CPU配置](receipts/wp3_016_20261015/readback_registration_01/READBACK_EXECUTION.json)
 
 以下保留此前阶段说明。
 

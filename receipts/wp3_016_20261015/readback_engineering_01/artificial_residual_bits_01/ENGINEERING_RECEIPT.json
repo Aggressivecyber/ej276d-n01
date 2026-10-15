@@ -1,0 +1,56 @@
+{
+  "schema": "n01/wp3-016-readback-saved-residual-bits-focused/v1",
+  "UTC": "2026-10-15T09:17:27.181302+00:00",
+  "passed": true,
+  "artificial_only": true,
+  "exact_one_line_bytes_changed": true,
+  "prior_worker": {
+    "path": "E:\\GAN\\research\\N01\\receipts\\wp3_016_20261015\\readback_engineering_01\\before_saved_residual_bits_fix01\\readback_saved_arrays.py",
+    "bytes": 43101,
+    "sha256": "bc8b6b5f15080049fe6d9da275392f08b33a6fc5b484975c8724ac47d96e5d09"
+  },
+  "worker": {
+    "path": "E:\\GAN\\research\\N01\\receipts\\wp3_016_20261015\\postrun_independent_01\\readback_saved_arrays.py",
+    "bytes": 43117,
+    "sha256": "b42aad59d7d27d51386ca6c3296a6c0ce68b9157c7f94646f179b87548da3b7a"
+  },
+  "positive_cases": [
+    "unchanged_deterministic_scalar_reference",
+    "legal_one_ULP_alternate_CPU_sum_with_exact_saved_residual"
+  ],
+  "negative_cases": [
+    "one_ULP_saved_residual_tamper",
+    "negative_zero_saved_residual"
+  ],
+  "prior_relative_tolerance_accepts_one_ULP_tamper": true,
+  "new_bit_guard_rejects_one_ULP_tamper": true,
+  "A_point_gate_canonical_double_reduction_bounds_and_all_other_worker_bytes_unchanged": true,
+  "prior_full_charge_suite": {
+    "path": "E:\\GAN\\research\\N01\\receipts\\wp3_016_20261015\\readback_engineering_01\\artificial_charge_02\\ENGINEERING_RECEIPT.json",
+    "bytes": 2416,
+    "sha256": "8cdf38fd9fea5b13233091e64c66a6b5b81d18edc1a9d240b282f5380707340f"
+  },
+  "prior_full_stdlib_suite": {
+    "path": "E:\\GAN\\research\\N01\\receipts\\wp3_016_20261015\\readback_engineering_01\\artificial_stdlib_02\\ENGINEERING_RECEIPT.json",
+    "bytes": 1925,
+    "sha256": "caaf972deba9cf87bd2dc4d0fe6d4e0fc29717f1c64487b3d3d3ea94a2fedc38"
+  },
+  "full_suites_rerun": false,
+  "actual_private_NPZ_CP_reads": 0,
+  "NN_AD_RNG_training_GPU_SSH": 0,
+  "controller": {
+    "path": "E:\\GAN\\research\\N01\\receipts\\wp3_016_20261015\\readback_engineering_01\\readback_control.py",
+    "bytes": 32509,
+    "sha256": "90931be0d929404d093e3de532cd50fc22b3035a1dc0d61c1c7196febffe5048"
+  },
+  "kernel": {
+    "path": "E:\\GAN\\research\\N01\\receipts\\wp3_016_20261015\\postrun_independent_01\\saved_array_kernels.py",
+    "bytes": 3691,
+    "sha256": "fe1366f35f36e97974f1a4037a36ad858c03dd8453957c1b45b65080f0fee3ac"
+  },
+  "checker": {
+    "path": "E:\\GAN\\research\\N01\\receipts\\wp3_016_20261015\\readback_engineering_01\\check_saved_residual_bits016.py",
+    "bytes": 4907,
+    "sha256": "e3ade51f909f572019042557bb23d379152d178b2361b27cd13f34a7e34a58a7"
+  }
+}

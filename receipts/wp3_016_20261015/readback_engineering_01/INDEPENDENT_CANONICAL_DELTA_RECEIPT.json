@@ -1,0 +1,20 @@
+{
+  "schema": "n01/wp3-016-readback-independent-canonical-delta/v1",
+  "passed": true,
+  "source": {
+    "path": "receipts/wp3_016_20261015/postrun_independent_01/readback_saved_arrays.py",
+    "bytes": 43117,
+    "sha256": "b42aad59d7d27d51386ca6c3296a6c0ce68b9157c7f94646f179b87548da3b7a"
+  },
+  "checks": [
+    "independent scalar baseline passes",
+    "legal alternateCPU sum1ULP with coherent saved residual passes",
+    "oneULP saved residual corruption rejected despite its small relative discrepancy"
+  ],
+  "artificial_array_cases": 3,
+  "actual_NPZ_CP_reads": 0,
+  "new_NN_AD_RNG_training": 0,
+  "SSH": 0,
+  "bridge": "mu-newCPU and savedCPU-newCPU checked by predeclared double-sum bound; saved residual equals elementwise mu-savedCPU bitwise",
+  "full_existing_artificial_groups_rerun": false
+}
