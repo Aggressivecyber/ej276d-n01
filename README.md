@@ -1,12 +1,12 @@
-# N01 当前执行：WP3/015 保存数组独立复核已正确启动
+# N01 当前执行：WP3/015 报告完成，016正在实现
 
-015四trial各2000G，child/supervisor均0。实际8000G/AD已完整入账，累计175667，搜索短试8/12，WP3已4/6。选收139/300文件，161原NPZ仍在服务器，原A/005和冻结源保持不变。
+015独审后选择M0为后续开发研究参考，均值适配关闭。M0/M1的12格wave均值分别为0.15012505860962605 /0.15243191496746586，共同初始为0.15042006897712382；M0用途6/6、M1为0/6。原014 C1的5/6历史保持。
 
-保存JSON独立比较按冻结规则选择M0研究参考，均值模块关闭：mean12 final wave为M0 0.15012505860962605、M1 0.15243191496746586，共同初始0.15042006897712382。M0相对A的2%用途门6/6，M1为0/6；绝对T和完整响应匹配仍未通过。权重未作科学晋级。
+四trial共8000G/AD和保存数组CPU复核均native0。36对、161份SHA/160份评价NPZ、1,898,784行与285项操作完整，独立闭合通过；19个CPU小文件已核SHA。完整经验距离、C1 median和preADC384未独立重放；REAL均值摘要只核SHA。原NPZ留远端，累计训练175667不变。
 
-下一步已登记一次36对、161份NPZ身份SHA/160份评价数组解码的CPU复核，新增CP/NN/AD/G和随机数均0。完整CDF/loss与median尺度不重拟合。已保存首个正式完整pair与同snapshot健康证明；唯一快照完成24/36pair，在途ID [245, 246]。已确认2026-10-15T14:03:00+08:00（Asia/Singapore）单次苏醒，当前停止持续监控。施工、独审及后续调度均采用Astra Max。
+绝对T仍有失败：M0峰高/rise/FWHM约6.7/7.4/4.8倍T，baseline mean约33倍T。科学状态response_match_not_established，权重未科学晋级。下一项仅用剩余两次WP3短试检验两参数正值均值校正电荷分支；原A/005/M0冻结，峰形和基线残差分别保留。当前无运行中的科学作业，后续统一GPT-6.1-Sol Max。
 
-[原生终点](receipts/wp3_015_20261015/postrun_root_01/NATIVE_COMPLETION_READBACK.json) · [保存指标独审](receipts/wp3_015_20261015/postrun_independent_01/DEVELOPMENT_SELECTION.json) · [读回配置](receipts/wp3_015_20261015/readback_registration_01/READBACK_EXECUTION.json)
+[015中文报告](reports/wp3_015_20261015/REPORT.md) · [HTML](reports/wp3_015_20261015/REPORT.html) · [最终回执](receipts/wp3_015_20261015/FINAL_RESULT_RECEIPT.json) · [015最终独审](receipts/wp3_015_20261015/postrun_independent_02/FINAL_INDEPENDENT_REVIEW.json) · [研究参考选择](receipts/wp3_015_20261015/postrun_independent_02/FINAL_DEVELOPMENT_SELECTION.json) · [016设计](wp3_016_design.json)
 
 以下保留此前阶段说明。
 

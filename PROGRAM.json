@@ -4,7 +4,7 @@
   "created_UTC": "2026-10-12T00:07:21.307456+08:00",
   "created_local_Asia_Singapore": "2026-10-12T00:07:21.307456+08:00",
   "root": "E:\\GAN\\research\\N01",
-  "status": "WP3_015_independent_readback_running_last_verified",
+  "status": "WP3_015_closed_016_implementation_in_progress",
   "scientific_status": "response_match_not_established",
   "protocol_parent": null,
   "inherits_R79": false,
@@ -12,14 +12,14 @@
   "plan": "README.md",
   "configuration": "config.json",
   "data_references": "DATA_REFERENCES.json",
-  "active_scientific_jobs": 1,
+  "active_scientific_jobs": 0,
   "new_training_updates": 175667,
-  "next_action": "One scheduled wake to collect CPU015 readback, close015 and continue the six work packages under Astra Max.",
+  "next_action": "Complete016 implementation and independent review, freeze exact source/config and start the registered two-trial charge test.",
   "application_goal_created": false,
   "legacy_results_modified": false,
-  "updated_UTC": "2026-10-15T05:53:38.299058+00:00",
+  "updated_UTC": "2026-10-15T06:35:56.821813+00:00",
   "current_arm": null,
-  "current_stage": "WP3_015_independent_saved_array_readback",
+  "current_stage": "WP3_016_implementation_pending_review",
   "last_verified_UTC": "2026-10-15T05:21:19.771686+00:00",
   "run_id": "run_001_20261012",
   "start_receipt": "receipts/run_001_20261012/START_RECEIPT.json",
@@ -39,7 +39,7 @@
   "completion_receipt": "receipts/run_001_20261012/FINAL_EVALUATION_RECEIPT.json",
   "final_review": "runs/run_001_20261012/final_review_20261012_0900/N01_COMPLETE_MODEL_REVIEW.html",
   "historical_training_pid": 478257,
-  "active_audit": "wp3_015_saved_readback_20261015",
+  "active_audit": null,
   "latest_audit": "noise_origin_audit_003_20261012",
   "audit_response_training_updates": 0,
   "audit_classifier_updates": 4800,
@@ -182,7 +182,7 @@
   "response007_completion_receipt": "receipts/response_007_20261013/deadline01/FINAL_RECEIPT.json",
   "response007_ended_UTC": "2026-10-13T02:41:45.908406+00:00",
   "response007_publication_status": "local_only_not_published",
-  "active_research": "wp3_015_saved_readback_20261015",
+  "active_research": null,
   "response007_continuation_status": "not_started_user_redirected_to_window_alignment",
   "model_configuration_recheck_required": false,
   "window008_configuration": "window008_config.json",
@@ -224,7 +224,7 @@
   "window008_resume01_training_pid": null,
   "window008_resume01_supervisor_pid": null,
   "window008_resume01_source_commit": "f3490c64aecb2311597913832934bd1a65592bcc",
-  "latest_subagent_model_preference": "GPT-6-Astra Max",
+  "latest_subagent_model_preference": "GPT-6.1-Sol Max",
   "window008_resume01_native_exit_code": 0,
   "window008_resume01_evaluation_phase": "diagnostics",
   "window008_resume01_evaluation_optimizer_updates": 0,
@@ -338,7 +338,7 @@
   "stability011_deployment_receipt": "receipts/stability011_20261014/deployment_01/DEPLOYMENT_RECEIPT.json",
   "stability011_attempted_bootstrap_replicates_last_verified": 500,
   "stability011_computed_bootstrap_replicates_last_verified": 500,
-  "active_scientific_jobs_status_basis": "One saved first-pair healthy snapshot; subsequent state is not polled",
+  "active_scientific_jobs_status_basis": "collected native-zero CPU015 completion with 285 completed operations",
   "stability011_start_verification": "receipts/stability011_20261014/START_NATIVE_VERIFICATION.json",
   "user_requested_pause": false,
   "pause_reason": null,
@@ -486,7 +486,7 @@
   "mechanism012_publication_UTC": "2026-10-14T18:37:20.683165+00:00",
   "mechanism012_github_critical_files_byte_verified": true,
   "master_execution_plan": "MASTER_EXECUTION_PLAN.json",
-  "master_plan_sha256": "a881a4bd0fd2e738092da307341d3517f519aa2731049dd7fea4dfbb916adacc",
+  "master_plan_sha256": "70a9311aa50d4d72c9636882e81e4bcf8b736a15ac9c795f803082965fb28fb3",
   "master_user_plan": "USER_MASTER_PLAN_20261015.txt",
   "master_user_plan_sha256": "56190995374eb2a765a3c8589736514154dba7ff33aa1309b8b1de493e846ebb",
   "master_plan_registered": true,
@@ -611,7 +611,9 @@
     "no_remote_calls_after_correct_start_snapshot": true,
     "source_commit": "56aafccbb88b206aaf2ce68a6df8126477078756",
     "requested_model": "gpt-6-astra",
-    "requested_reasoning_effort": "max"
+    "requested_reasoning_effort": "max",
+    "delivery_status": "single_0603UTC_wake_delivered_this_turn",
+    "saved_app_status_is_historical": true
   },
   "runtime_repair": {
     "failed_attempt": 1,
@@ -1317,7 +1319,7 @@
       "wall_seconds": 7200,
       "output_MiB": 1536
     },
-    "status": "completed_native0_selectively_collected_independent_raw_readback_pending",
+    "status": "completed_native0_selectively_collected_independently_reviewed_reported",
     "new_training_updates": 8000,
     "new_AD_queries": 8000,
     "cumulative_training_before_run": 167667,
@@ -1441,7 +1443,7 @@
       "formal_response_acceptance": false
     },
     "collection_complete": true,
-    "independent_readback_complete": false,
+    "independent_readback_complete": true,
     "collection": {
       "path": "receipts/wp3_015_20261015/collection_01/COLLECTION_RECEIPT.json",
       "bytes": 2887,
@@ -1451,13 +1453,28 @@
       "omitted_raw_files": 161,
       "all_raw_collected": false,
       "raw_NPZ_retained_remote": true
+    },
+    "independent_saved_array_review": {
+      "path": "receipts/wp3_015_20261015/postrun_independent_02/FINAL_INDEPENDENT_REVIEW.json",
+      "bytes": 83119,
+      "sha256": "b24f3bb1e5644fc8db29b2db1b3b82b05a8793248b7c99af81b23fb4dc3d1e24"
+    },
+    "development_selection": {
+      "path": "receipts/wp3_015_20261015/postrun_independent_02/FINAL_DEVELOPMENT_SELECTION.json",
+      "bytes": 129622,
+      "sha256": "105fca8429d9814afefd414e238d9789ce8f0e1ca2bf6d3540b8a2da9c650f87",
+      "selected_research_reference": "M0",
+      "mean_adapter_enabled": false,
+      "status": "independently_reviewed_development_research_reference",
+      "weights_promoted": false,
+      "scientific_acceptance": false
     }
   },
   "wp3_G_updates": 8000,
   "wp3_AD_queries": 8000,
   "pending_run_id": null,
-  "followup_last_delivered_UTC": "2026-10-15T05:20:03.197Z",
-  "current_followup_status": "previous_single_occurrence_delivered_no_new_wake_yet",
+  "followup_last_delivered_UTC": "2026-10-15T06:03:03.848Z",
+  "current_followup_status": "single_occurrence_delivered_this_turn_no_new_long_job",
   "wp3_terminal_readback": {
     "path": "receipts/wp3_015_20261015/postrun_root_01/NATIVE_COMPLETION_READBACK.json",
     "sha256": "a9bbc3a9f1694d649b352ad2fd96dc4fa05470bab2856107fe5e35fe6036136f",
@@ -1493,20 +1510,21 @@
       "DEV_model_rows": 0
     },
     "source_commit": "15b60f3fbe02641bcd18693486698f4fed0875bf",
-    "collection_complete": false,
-    "independent_readback_complete": false,
+    "collection_complete": true,
+    "independent_readback_complete": true,
     "new_training_updates": 8000,
     "cumulative_training_updates": 175667,
     "scientific_status": "response_match_not_established",
-    "formal_response_acceptance": false
+    "formal_response_acceptance": false,
+    "independent_saved_array_scope": "36pairs/161SHA/160evaluationNPZ/1898784hardrows; no full distance replay"
   },
   "cumulative_training_updates": 175667,
   "short_candidate_runs_completed": 8,
   "wp3_short_candidate_runs_completed": 4,
   "agent_model_policy": {
-    "path": "receipts/wp3_015_20261015/readback_registration_01/AGENT_MODEL_POLICY.json",
-    "bytes": 1244,
-    "sha256": "77c7928af4bb854048c35cdb88598c3ab5585a26713a4e33d814a131b0f9835e"
+    "path": "receipts/wp3_015_20261015/postrun_root_02/AGENT_MODEL_POLICY_SOLMAX.json",
+    "bytes": 813,
+    "sha256": "f61eb54ee326c7df51b945e62bfe54f1c368964c9433a87ec9592f925de1de2b"
   },
   "wp3_collection": {
     "path": "receipts/wp3_015_20261015/collection_01/COLLECTION_RECEIPT.json",
@@ -1526,9 +1544,9 @@
     "source_controls": 6,
     "run_id": "wp3_015_saved_readback_20261015",
     "remote_root": "/home/rylan/projects/ej276d-n01/wp3_015_saved_readback_20261015",
-    "status": "native_running_last_verified_first_pair_healthy",
-    "supervisor_pid": 166800,
-    "analysis_pid": 166807,
+    "status": "completed_native0_collected_independently_reviewed",
+    "supervisor_pid": null,
+    "analysis_pid": null,
     "boot_id": "75229583-9bb2-4225-9f0d-12e04e1c1726",
     "first_formal_pair_verified": true,
     "first_pair_verification": {
@@ -1542,33 +1560,36 @@
       ],
       "scientific_acceptance": false
     },
-    "last_verified_UTC": "2026-10-15T05:51:01.314907+00:00",
+    "last_verified_UTC": "2026-10-15T06:04:47.584464+00:00",
     "actual_completed_counts_last_verified": {
-      "report_npz_files_decoded": 48,
-      "bank_pairs_verified": 24,
-      "baseline_npz_files_decoded": 12,
-      "waveform_rows_decoded": 1265856,
       "raw_files_SHA_checked": 161,
       "raw_bytes_SHA_read": 3064431039,
-      "hard_rows_files_decoded": 48
+      "hard_rows_files_decoded": 72,
+      "report_npz_files_decoded": 72,
+      "baseline_npz_files_decoded": 16,
+      "probe_raw_npz_files_decoded": 0,
+      "probe_gradient_npz_files_decoded": 0,
+      "waveform_rows_decoded": 1898784,
+      "bank_pairs_verified": 36,
+      "probe_snapshots_verified": 0
     },
     "attempted_counts_last_verified": {
-      "report_npz_files_decoded": 49,
-      "bank_pairs_verified": 25,
-      "baseline_npz_files_decoded": 12,
-      "waveform_rows_decoded": 1292228,
       "raw_files_SHA_checked": 161,
       "raw_bytes_SHA_read": 3064431039,
-      "hard_rows_files_decoded": 49
+      "hard_rows_files_decoded": 72,
+      "report_npz_files_decoded": 72,
+      "baseline_npz_files_decoded": 16,
+      "probe_raw_npz_files_decoded": 0,
+      "probe_gradient_npz_files_decoded": 0,
+      "waveform_rows_decoded": 1898784,
+      "bank_pairs_verified": 36,
+      "probe_snapshots_verified": 0
     },
-    "unknown_inflight_ids": [
-      245,
-      246
-    ],
-    "counts_are_durable_lower_bounds": true,
-    "actual_current_completion": "unknown_after_single_saved_snapshot",
-    "native_child_exit_at_snapshot": null,
-    "native_supervisor_exit_at_snapshot": null,
+    "unknown_inflight_ids": [],
+    "counts_are_durable_lower_bounds": false,
+    "actual_current_completion": "native0_COMPLETE_all285_operations_completed",
+    "native_child_exit_at_snapshot": 0,
+    "native_supervisor_exit_at_snapshot": 0,
     "CP_NN_AD_training": 0,
     "resource_limits": {
       "CPU_threads": 2,
@@ -1645,10 +1666,64 @@
       "requested_model": "gpt-6-astra",
       "requested_reasoning_effort": "max"
     },
-    "independent_raw_readback_complete": false,
+    "independent_raw_readback_complete": true,
     "original_raw_NPZ_transferred": false,
     "scientific_status": "response_match_not_established",
-    "scientific_acceptance": false
+    "scientific_acceptance": false,
+    "historical_analysis_pid": 166807,
+    "historical_supervisor_pid": 166800,
+    "failed_ids": [],
+    "native_exit_code": 0,
+    "supervisor_exit_code": 0,
+    "completed_UTC": "2026-10-15T05:51:21.480786+00:00",
+    "terminal_readback": {
+      "path": "receipts/wp3_015_20261015/readback_execution_01/WAKE_COMPLETION_SUMMARY.json",
+      "bytes": 8499,
+      "sha256": "1ad797ba820044e537c52ed8a3a8e83b5ffab95b382355b3a1df3ad383f03c82"
+    },
+    "collection": {
+      "collected_root": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\independent_readback_collected_01",
+      "files": 19,
+      "bytes": 513764,
+      "archive_bytes": 552960,
+      "archive_sha256": "a412c1a0fe8868feb333cf4f4da95e43ba9784d01c20cf817019f1c217dbc9d8",
+      "all_files_SHA256_and_bytes_verified": true,
+      "inventory_canonical_json_sha256": "49b9948512ef29303895964a513d3c7ad074511135c36860b7094e29425dc854",
+      "inventory_encoding": "JSON sorted keys, separators comma/colon, UTF8",
+      "partial_evidence_only": false,
+      "original_raw_NPZ_transferred": false
+    },
+    "collection_complete": true,
+    "bounded_saved_array_readback_complete": true,
+    "final_independent_local_review_complete": true,
+    "complete_distribution_loss_raw_replay": false,
+    "resource_snapshot_role": "historical startup only; final resources recorded in terminal_readback",
+    "actual_terminal_resources": {
+      "supervisor_elapsed_seconds": 60.44635391100019,
+      "supervisor_sampled_peak_owned_RSS_bytes": 402255872,
+      "worker_getrusage_peak_RSS_bytes": 489336832,
+      "worker_report_elapsed_seconds": 59.58247705100075,
+      "final_peak_worker_artifact_bytes": 301769,
+      "worker_report_artifact_bytes_before_final_result_write": 173951,
+      "CPU_threads": 2,
+      "all_recorded_resources_within_registered_caps": true
+    },
+    "scientific_operations": {
+      "CP_loads": 0,
+      "NN_rows": 0,
+      "AD_queries": 0,
+      "training_updates": 0,
+      "optimizer_or_sampler_created": 0,
+      "new_random_draws": 0,
+      "CDF_or_loss_replays": 0,
+      "original_TRAIN_or_DEV_waveform_reads": 0,
+      "GPU_work": 0
+    },
+    "independent_review": {
+      "path": "receipts/wp3_015_20261015/postrun_independent_02/FINAL_INDEPENDENT_REVIEW.json",
+      "bytes": 83119,
+      "sha256": "b24f3bb1e5644fc8db29b2db1b3b82b05a8793248b7c99af81b23fb4dc3d1e24"
+    }
   },
   "wp3_provisional_development_selection": {
     "path": "receipts/wp3_015_20261015/postrun_independent_01/DEVELOPMENT_SELECTION.json",
@@ -1658,9 +1733,63 @@
     "status": "provisional_saved_JSON_audit_raw_readback_pending",
     "mean_adapter_enabled": false,
     "weights_promoted": false,
-    "scientific_acceptance": false
+    "scientific_acceptance": false,
+    "role": "historical provisional decision retained",
+    "superseded_by": {
+      "path": "receipts/wp3_015_20261015/postrun_independent_02/FINAL_DEVELOPMENT_SELECTION.json",
+      "bytes": 129622,
+      "sha256": "105fca8429d9814afefd414e238d9789ce8f0e1ca2bf6d3540b8a2da9c650f87"
+    }
   },
   "latest_training_source_commit": "15b60f3fbe02641bcd18693486698f4fed0875bf",
   "wp3_collection_complete": true,
-  "wp3_independent_readback_complete": false
+  "wp3_independent_readback_complete": true,
+  "previous_agent_model_policy": {
+    "path": "receipts/wp3_015_20261015/readback_registration_01/AGENT_MODEL_POLICY.json",
+    "bytes": 1244,
+    "sha256": "77c7928af4bb854048c35cdb88598c3ab5585a26713a4e33d814a131b0f9835e"
+  },
+  "wp3_015_development_selection": {
+    "path": "receipts/wp3_015_20261015/postrun_independent_02/FINAL_DEVELOPMENT_SELECTION.json",
+    "bytes": 129622,
+    "sha256": "105fca8429d9814afefd414e238d9789ce8f0e1ca2bf6d3540b8a2da9c650f87",
+    "selected_research_reference": "M0",
+    "mean_adapter_enabled": false,
+    "status": "independently_reviewed_development_research_reference",
+    "weights_promoted": false,
+    "scientific_acceptance": false
+  },
+  "wp3_015_independent_review": {
+    "path": "receipts/wp3_015_20261015/postrun_independent_02/FINAL_INDEPENDENT_REVIEW.json",
+    "bytes": 83119,
+    "sha256": "b24f3bb1e5644fc8db29b2db1b3b82b05a8793248b7c99af81b23fb4dc3d1e24"
+  },
+  "wp3_015_scientific_status": "response_match_not_established",
+  "wp3_015_completed": true,
+  "wp3_015_result": {
+    "path": "receipts/wp3_015_20261015/FINAL_RESULT_RECEIPT.json",
+    "sha256": "49b4ef8f615bd021b91a69d95df18beec6e4a7b206fad597dc6e45aa8415b3dd",
+    "bytes": 5144,
+    "status": "015_engineering_experiment_bounded_audit_and_report_complete",
+    "scientific_acceptance": false,
+    "weights_promoted": false
+  },
+  "wp3_015_report": {
+    "MD": {
+      "path": "reports/wp3_015_20261015/REPORT.md",
+      "sha256": "0bef141eb57ca1bd8335c6cdf0f408f0b71ac5e9edfecfd17c91bbe9fd6f6116",
+      "bytes": 14470
+    },
+    "HTML": {
+      "path": "reports/wp3_015_20261015/REPORT.html",
+      "sha256": "7d46bfcecb8726f3be029e1f335abf5d7b4826cae0e643612cbe998b5f29aeb6",
+      "bytes": 19464
+    },
+    "visual_QA": {
+      "path": "receipts/wp3_015_20261015/postrun_root_02/REPORT_VISUAL_QA.json",
+      "sha256": "3e4399b31a1a2b6b177d73efc7de10d5f6921371eef33c72106d2be5f8574a68",
+      "bytes": 3396
+    }
+  },
+  "wp3_015_report_visual_QA_complete": true
 }
