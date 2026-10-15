@@ -10,9 +10,9 @@
   },
   "objective": "Deliver a usable and verifiable conditional effective stochastic response kernel with explicit data and physical scope; assess engineering, in-domain effectiveness and cross-condition reuse separately.",
   "mainline": "protected deterministic A plus input-dependent stochastic response, fixed256 hard output/384 carrier/100 baseline/1ns software sampling; originalfull19k retained as negative control",
-  "status": "WP2_014_readback_path_fix_registered_not_started",
+  "status": "WP2_014_independent_readback_running_last_verified",
   "active_work_package": "WP2",
-  "active_scientific_jobs": 0,
+  "active_scientific_jobs": 1,
   "work_packages": [
     {
       "id": "WP1",
@@ -291,7 +291,7 @@
     },
     {
       "id": "WP2",
-      "status": "native0_selectively_collected_independent_raw_readback_prepared",
+      "status": "native0_selectively_collected_independent_saved_array_readback_running",
       "scope": [
         "gradient_stratification",
         "integral_representation_C1",
@@ -474,8 +474,50 @@
       "saved_array_readback": {
         "configuration": "receipts\\wp2_014_20261015\\readback_registration_fix01\\READBACK_EXECUTION.json",
         "configuration_sha256": "cee1b002cc773acd86e470b6d158f144a7bc55b94b9d0d2139bd70fb18a41fe9",
+        "source_commit": "cde0b8db49c49d7beab23011cb5e95f5627cee6d",
+        "source_commit_pending": false,
+        "source_controls": 6,
         "run_id": "wp2_014_saved_readback_20261015",
         "remote_root": "/home/rylan/projects/ej276d-n01/wp2_014_saved_readback_20261015",
+        "status": "native_running_last_verified_first_pair_healthy",
+        "supervisor_pid": 137650,
+        "analysis_pid": 137651,
+        "boot_id": "75229583-9bb2-4225-9f0d-12e04e1c1726",
+        "first_formal_pair_verified": true,
+        "last_verified_UTC": "2026-10-15T03:09:43.378107+00:00",
+        "actual_completed_counts_last_verified": {
+          "raw_files_SHA_checked": 176,
+          "bank_pairs_verified": 27,
+          "report_npz_files_decoded": 55,
+          "probe_snapshots_verified": 6,
+          "probe_gradient_npz_files_decoded": 6,
+          "baseline_npz_files_decoded": 14,
+          "raw_bytes_SHA_read": 3077281496,
+          "hard_rows_files_decoded": 55,
+          "waveform_rows_decoded": 1450460,
+          "probe_raw_npz_files_decoded": 6
+        },
+        "attempted_counts_last_verified": {
+          "raw_files_SHA_checked": 176,
+          "bank_pairs_verified": 28,
+          "report_npz_files_decoded": 56,
+          "probe_snapshots_verified": 6,
+          "probe_gradient_npz_files_decoded": 6,
+          "baseline_npz_files_decoded": 14,
+          "raw_bytes_SHA_read": 3077281496,
+          "hard_rows_files_decoded": 56,
+          "waveform_rows_decoded": 1476832,
+          "probe_raw_npz_files_decoded": 6
+        },
+        "unknown_inflight_ids": [
+          277,
+          279
+        ],
+        "counts_are_durable_lower_bounds": true,
+        "actual_current_completion": "unknown_after_single_saved_snapshot",
+        "native_child_exit_at_snapshot": null,
+        "native_supervisor_exit_at_snapshot": null,
+        "CP_NN_AD_training": 0,
         "resource_limits": {
           "CPU_threads": 2,
           "RSS_MiB": 1536,
@@ -483,14 +525,83 @@
           "wall_seconds": 1800,
           "output_MiB": 64
         },
-        "source_file_count": 5,
-        "source_controls": 6,
-        "source_commit_pending": true,
-        "status": "registered_not_started_after_prepare_only_path_fix",
-        "new_training_updates": 0,
-        "new_AD_queries": 0,
-        "NN_forward_rows": 0,
-        "scientific_status": "response_match_not_established"
+        "resource_snapshot": {
+          "UTC": "2026-10-15T03:09:43.182653+00:00",
+          "owned_process_tree": [
+            137650,
+            137651,
+            137872
+          ],
+          "RSS_bytes": 262209536,
+          "worker_artifact_bytes": 169145,
+          "elapsed_seconds": 46.39950752400182,
+          "resource_limits": {
+            "CPU_threads": 2,
+            "RSS_MiB": 1536,
+            "virtual_memory_MiB": 3072,
+            "wall_seconds": 1800,
+            "output_MiB": 64
+          },
+          "durable_progress": {
+            "entered_counts": {
+              "raw_bytes_SHA_read": 3077281496,
+              "baseline_npz_files_decoded": 14,
+              "bank_pairs_verified": 28,
+              "waveform_rows_decoded": 1476832,
+              "hard_rows_files_decoded": 56,
+              "raw_files_SHA_checked": 176,
+              "probe_snapshots_verified": 6,
+              "report_npz_files_decoded": 56,
+              "probe_raw_npz_files_decoded": 6,
+              "probe_gradient_npz_files_decoded": 6
+            },
+            "completed_counts": {
+              "raw_bytes_SHA_read": 3077281496,
+              "baseline_npz_files_decoded": 14,
+              "bank_pairs_verified": 27,
+              "waveform_rows_decoded": 1450460,
+              "hard_rows_files_decoded": 55,
+              "raw_files_SHA_checked": 176,
+              "probe_snapshots_verified": 6,
+              "report_npz_files_decoded": 55,
+              "probe_raw_npz_files_decoded": 6,
+              "probe_gradient_npz_files_decoded": 6
+            },
+            "unknown_inflight_ids": [
+              277,
+              279
+            ],
+            "failed_ids": [],
+            "truncated_tail": false,
+            "counts_are_durable_lower_bounds": true
+          }
+        },
+        "start_receipt_sha256": "83f616ac001c5582b65338241ff0b3d79c15595efba845007f38f1032d86a212",
+        "startup_snapshot_sha256": "871449936b51e10f2a175de312f2f01e900a31d3bb82d465d296596a90d00af3",
+        "startup_validation_sha256": "115f4caa9645de23d715bee8e5a081ef3d7d3b8d0f6fbf4892c5145175cc43b0",
+        "followup": {
+          "schema": "n01/wp2-readback-single-followup-confirmation/v1",
+          "UTC": "2026-10-15T03:14:57.571981+00:00",
+          "automation_id": "n01",
+          "kind": "heartbeat",
+          "status": "ACTIVE",
+          "count": 1,
+          "next_wake_local": "2026-10-15T11:17:00+08:00",
+          "next_wake_UTC": "2026-10-15T03:17:00+00:00",
+          "target_thread_id": "01a12bad-8839-7522-89a5-f028b107d7ff",
+          "actual_saved_settings_verified": true,
+          "settings_sha256": "4f6f369cbe720cb31fecfde2b25dc5ad6d0fbf401b8aab25ae1d86b6a7512177",
+          "prepared_prompt_file_sha256": "b884f5e292c4da9af45467bcb7a712272f35a336b98db9b766d076ca9eb273e7",
+          "actual_prompt_sha256": "34f0a9df53c811fe2cd99bd202e1ad916f67c2fbe411789a07b194b8947d6f9f",
+          "prepared_trailing_linebreak_removed_before_tool": true,
+          "continuous_agent_monitoring": false,
+          "no_remote_calls_after_correct_start_snapshot": true,
+          "source_commit": "cde0b8db49c49d7beab23011cb5e95f5627cee6d"
+        },
+        "independent_raw_readback_complete": false,
+        "original_raw_NPZ_transferred": false,
+        "scientific_status": "response_match_not_established",
+        "scientific_acceptance": false
       },
       "provisional_development_selection": {
         "path": "receipts\\wp2_014_20261015\\postrun_engineering_01\\DEVELOPMENT_SELECTION.json",
@@ -781,20 +892,26 @@
     "root_planning_SolMax_implementation_and_review": true,
     "scientific_success_not_guaranteed_by_state_fields": true
   },
-  "current_action": "Start the same bounded CPU audit using the corrected POSIX comparison; verify one formal pair, schedule one wake, and rest.",
-  "updated_UTC": "2026-10-15T03:07:36.772686+00:00",
+  "current_action": "One scheduled wake to collect the CPU readback, close WP2 and continue bounded WP3.",
+  "updated_UTC": "2026-10-15T03:14:57.571981+00:00",
   "followup": {
+    "schema": "n01/wp2-readback-single-followup-confirmation/v1",
+    "UTC": "2026-10-15T03:14:57.571981+00:00",
     "automation_id": "n01",
     "kind": "heartbeat",
     "status": "ACTIVE",
     "count": 1,
-    "next_wake_local": "2026-10-15T10:30:00+08:00",
-    "next_wake_UTC": "2026-10-15T02:30:00+00:00",
-    "source_commit": "e116368c4f699243a60598c03865bcb4f601be35",
+    "next_wake_local": "2026-10-15T11:17:00+08:00",
+    "next_wake_UTC": "2026-10-15T03:17:00+00:00",
+    "target_thread_id": "01a12bad-8839-7522-89a5-f028b107d7ff",
+    "actual_saved_settings_verified": true,
+    "settings_sha256": "4f6f369cbe720cb31fecfde2b25dc5ad6d0fbf401b8aab25ae1d86b6a7512177",
+    "prepared_prompt_file_sha256": "b884f5e292c4da9af45467bcb7a712272f35a336b98db9b766d076ca9eb273e7",
+    "actual_prompt_sha256": "34f0a9df53c811fe2cd99bd202e1ad916f67c2fbe411789a07b194b8947d6f9f",
+    "prepared_trailing_linebreak_removed_before_tool": true,
     "continuous_agent_monitoring": false,
-    "receipt": "receipts/wp2_014_20261015/FOLLOWUP_RECEIPT.json",
-    "receipt_sha256": "a3cf3b06a0218afa32d507264c8900dc595cec5ae17d1b6ccdc7ecfdd3a2df46",
-    "correct_start_verified": true
+    "no_remote_calls_after_correct_start_snapshot": true,
+    "source_commit": "cde0b8db49c49d7beab23011cb5e95f5627cee6d"
   },
   "runtime_repair": {
     "failed_attempt": 1,
@@ -1081,9 +1198,9 @@
     "formal_response_acceptance": false
   },
   "current_work_package": "WP2",
-  "current_stage": "WP2_014_CPU_saved_array_readback_prepared",
+  "current_stage": "WP2_014_independent_saved_array_readback",
   "active_research": "wp2_014_saved_readback_20261015",
-  "next_action": "Start the same bounded CPU audit using the corrected POSIX comparison; verify one formal pair, schedule one wake, and rest.",
+  "next_action": "One scheduled wake to collect the CPU readback, close WP2 and continue bounded WP3.",
   "last_verified_UTC": "2026-10-15T02:33:04.070820+00:00",
   "wp2_collection": {
     "path": "receipts\\wp2_014_20261015\\collection_01\\COLLECTION_RECEIPT.json",
@@ -1097,8 +1214,50 @@
   "wp2_readback_execution": {
     "configuration": "receipts\\wp2_014_20261015\\readback_registration_fix01\\READBACK_EXECUTION.json",
     "configuration_sha256": "cee1b002cc773acd86e470b6d158f144a7bc55b94b9d0d2139bd70fb18a41fe9",
+    "source_commit": "cde0b8db49c49d7beab23011cb5e95f5627cee6d",
+    "source_commit_pending": false,
+    "source_controls": 6,
     "run_id": "wp2_014_saved_readback_20261015",
     "remote_root": "/home/rylan/projects/ej276d-n01/wp2_014_saved_readback_20261015",
+    "status": "native_running_last_verified_first_pair_healthy",
+    "supervisor_pid": 137650,
+    "analysis_pid": 137651,
+    "boot_id": "75229583-9bb2-4225-9f0d-12e04e1c1726",
+    "first_formal_pair_verified": true,
+    "last_verified_UTC": "2026-10-15T03:09:43.378107+00:00",
+    "actual_completed_counts_last_verified": {
+      "raw_files_SHA_checked": 176,
+      "bank_pairs_verified": 27,
+      "report_npz_files_decoded": 55,
+      "probe_snapshots_verified": 6,
+      "probe_gradient_npz_files_decoded": 6,
+      "baseline_npz_files_decoded": 14,
+      "raw_bytes_SHA_read": 3077281496,
+      "hard_rows_files_decoded": 55,
+      "waveform_rows_decoded": 1450460,
+      "probe_raw_npz_files_decoded": 6
+    },
+    "attempted_counts_last_verified": {
+      "raw_files_SHA_checked": 176,
+      "bank_pairs_verified": 28,
+      "report_npz_files_decoded": 56,
+      "probe_snapshots_verified": 6,
+      "probe_gradient_npz_files_decoded": 6,
+      "baseline_npz_files_decoded": 14,
+      "raw_bytes_SHA_read": 3077281496,
+      "hard_rows_files_decoded": 56,
+      "waveform_rows_decoded": 1476832,
+      "probe_raw_npz_files_decoded": 6
+    },
+    "unknown_inflight_ids": [
+      277,
+      279
+    ],
+    "counts_are_durable_lower_bounds": true,
+    "actual_current_completion": "unknown_after_single_saved_snapshot",
+    "native_child_exit_at_snapshot": null,
+    "native_supervisor_exit_at_snapshot": null,
+    "CP_NN_AD_training": 0,
     "resource_limits": {
       "CPU_threads": 2,
       "RSS_MiB": 1536,
@@ -1106,14 +1265,83 @@
       "wall_seconds": 1800,
       "output_MiB": 64
     },
-    "source_file_count": 5,
-    "source_controls": 6,
-    "source_commit_pending": true,
-    "status": "registered_not_started_after_prepare_only_path_fix",
-    "new_training_updates": 0,
-    "new_AD_queries": 0,
-    "NN_forward_rows": 0,
-    "scientific_status": "response_match_not_established"
+    "resource_snapshot": {
+      "UTC": "2026-10-15T03:09:43.182653+00:00",
+      "owned_process_tree": [
+        137650,
+        137651,
+        137872
+      ],
+      "RSS_bytes": 262209536,
+      "worker_artifact_bytes": 169145,
+      "elapsed_seconds": 46.39950752400182,
+      "resource_limits": {
+        "CPU_threads": 2,
+        "RSS_MiB": 1536,
+        "virtual_memory_MiB": 3072,
+        "wall_seconds": 1800,
+        "output_MiB": 64
+      },
+      "durable_progress": {
+        "entered_counts": {
+          "raw_bytes_SHA_read": 3077281496,
+          "baseline_npz_files_decoded": 14,
+          "bank_pairs_verified": 28,
+          "waveform_rows_decoded": 1476832,
+          "hard_rows_files_decoded": 56,
+          "raw_files_SHA_checked": 176,
+          "probe_snapshots_verified": 6,
+          "report_npz_files_decoded": 56,
+          "probe_raw_npz_files_decoded": 6,
+          "probe_gradient_npz_files_decoded": 6
+        },
+        "completed_counts": {
+          "raw_bytes_SHA_read": 3077281496,
+          "baseline_npz_files_decoded": 14,
+          "bank_pairs_verified": 27,
+          "waveform_rows_decoded": 1450460,
+          "hard_rows_files_decoded": 55,
+          "raw_files_SHA_checked": 176,
+          "probe_snapshots_verified": 6,
+          "report_npz_files_decoded": 55,
+          "probe_raw_npz_files_decoded": 6,
+          "probe_gradient_npz_files_decoded": 6
+        },
+        "unknown_inflight_ids": [
+          277,
+          279
+        ],
+        "failed_ids": [],
+        "truncated_tail": false,
+        "counts_are_durable_lower_bounds": true
+      }
+    },
+    "start_receipt_sha256": "83f616ac001c5582b65338241ff0b3d79c15595efba845007f38f1032d86a212",
+    "startup_snapshot_sha256": "871449936b51e10f2a175de312f2f01e900a31d3bb82d465d296596a90d00af3",
+    "startup_validation_sha256": "115f4caa9645de23d715bee8e5a081ef3d7d3b8d0f6fbf4892c5145175cc43b0",
+    "followup": {
+      "schema": "n01/wp2-readback-single-followup-confirmation/v1",
+      "UTC": "2026-10-15T03:14:57.571981+00:00",
+      "automation_id": "n01",
+      "kind": "heartbeat",
+      "status": "ACTIVE",
+      "count": 1,
+      "next_wake_local": "2026-10-15T11:17:00+08:00",
+      "next_wake_UTC": "2026-10-15T03:17:00+00:00",
+      "target_thread_id": "01a12bad-8839-7522-89a5-f028b107d7ff",
+      "actual_saved_settings_verified": true,
+      "settings_sha256": "4f6f369cbe720cb31fecfde2b25dc5ad6d0fbf401b8aab25ae1d86b6a7512177",
+      "prepared_prompt_file_sha256": "b884f5e292c4da9af45467bcb7a712272f35a336b98db9b766d076ca9eb273e7",
+      "actual_prompt_sha256": "34f0a9df53c811fe2cd99bd202e1ad916f67c2fbe411789a07b194b8947d6f9f",
+      "prepared_trailing_linebreak_removed_before_tool": true,
+      "continuous_agent_monitoring": false,
+      "no_remote_calls_after_correct_start_snapshot": true,
+      "source_commit": "cde0b8db49c49d7beab23011cb5e95f5627cee6d"
+    },
+    "independent_raw_readback_complete": false,
+    "original_raw_NPZ_transferred": false,
+    "scientific_status": "response_match_not_established",
+    "scientific_acceptance": false
   },
   "wp2_provisional_development_selection": {
     "path": "receipts\\wp2_014_20261015\\postrun_engineering_01\\DEVELOPMENT_SELECTION.json",
@@ -1124,8 +1352,8 @@
     "both_candidates_ALL6_wave_usefulness_pass": false,
     "scientific_acceptance": false
   },
-  "active_scientific_jobs_status_basis": "Prepare stopped before transfer/install/start; no CPU worker dispatched; surgical path repair in progress",
-  "latest_source_commit": "dfddb7a2eef45b4e7f4253fcb89ef2ec3b608b4a",
+  "active_scientific_jobs_status_basis": "One saved first-pair healthy snapshot; later native completion unknown until scheduled wake",
+  "latest_source_commit": "cde0b8db49c49d7beab23011cb5e95f5627cee6d",
   "wp2_readback_prepare_failure": {
     "path": "receipts\\wp2_014_20261015\\readback_registration_01\\ROOT_PREPARE_FAILURE_RECEIPT.json",
     "sha256": "6f89dedd516cd5612295060b074fa84625364774a6a8c5c74b5172608f2b83f5",
@@ -1153,5 +1381,13 @@
     "NN_forward_rows": 0,
     "scientific_status": "response_match_not_established",
     "source_commit": "dfddb7a2eef45b4e7f4253fcb89ef2ec3b608b4a"
-  }
+  },
+  "latest_run_id": "wp2_014_saved_readback_20261015",
+  "current_run_training_updates": 0,
+  "latest_training_run_id": "wp2_014_20261015",
+  "followup_automation_id": "n01",
+  "followup_automation_status": "ACTIVE",
+  "followup_next_run_local": "2026-10-15T11:17:00+08:00",
+  "followup_receipt": "receipts\\wp2_014_20261015\\readback_registration_fix01\\FOLLOWUP_RECEIPT.json",
+  "followup_receipt_sha256": "2c4d819ab1877c43ec0b6cd78b9d3ff6e4cace257426f4186544e2632696b1c5"
 }
