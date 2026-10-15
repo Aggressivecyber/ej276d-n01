@@ -1,0 +1,353 @@
+{
+  "START.json": {
+    "run_id": "wp3_015_saved_readback_20261015",
+    "UTC": "2026-10-15T05:50:20.988238+00:00",
+    "supervisor_pid": 166800,
+    "boot_id": "75229583-9bb2-4225-9f0d-12e04e1c1726",
+    "registration_sha256": "789ff32131e29a5eecacc223fda8f8074e2fee8d13d995145785c7e99a1f4b66",
+    "supervisor_start_ticks": 4782268,
+    "lock_inherited_by_supervisor": true,
+    "first_formal_pair_verified": false,
+    "automatic_retry": false,
+    "preflight": {
+      "available_RAM_bytes": 62152376320,
+      "free_disk_bytes": 97156943872,
+      "CPU_affinity_count": 16
+    },
+    "scientific_acceptance": false
+  },
+  "supervisor/launch.json": {
+    "run_id": "wp3_015_saved_readback_20261015",
+    "supervisor_pid": 166800,
+    "child_pid": 166807,
+    "command": [
+      "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+      "-B",
+      "/home/rylan/projects/ej276d-n01/wp3_015_saved_readback_20261015/readback_saved_arrays.py",
+      "--run-root",
+      "/home/rylan/projects/ej276d-n01/wp3_015_20261015",
+      "--inventory",
+      "/home/rylan/projects/ej276d-n01/wp3_015_saved_readback_20261015/BOUND_ORIGINAL_INVENTORY.json",
+      "--out",
+      "/home/rylan/projects/ej276d-n01/wp3_015_saved_readback_20261015/artifacts"
+    ],
+    "UTC": "2026-10-15T05:50:21.036475+00:00",
+    "boot_id": "75229583-9bb2-4225-9f0d-12e04e1c1726",
+    "supervisor_start_ticks": 4782268,
+    "child_start_ticks": 4782273
+  },
+  "supervisor/exit_receipt.json": null,
+  "supervisor/resource_status.json": {
+    "UTC": "2026-10-15T05:50:59.306020+00:00",
+    "owned_process_tree": [
+      166800,
+      166807,
+      167000
+    ],
+    "RSS_bytes": 382054400,
+    "worker_artifact_bytes": 146007,
+    "elapsed_seconds": 38.27027105100569,
+    "resource_limits": {
+      "CPU_threads": 2,
+      "RSS_MiB": 1536,
+      "virtual_memory_MiB": 3072,
+      "wall_seconds": 1800,
+      "output_MiB": 64
+    },
+    "durable_progress": {
+      "entered_counts": {
+        "report_npz_files_decoded": 46,
+        "waveform_rows_decoded": 1213112,
+        "raw_bytes_SHA_read": 3064431039,
+        "raw_files_SHA_checked": 161,
+        "hard_rows_files_decoded": 46,
+        "bank_pairs_verified": 23,
+        "baseline_npz_files_decoded": 10
+      },
+      "completed_counts": {
+        "report_npz_files_decoded": 45,
+        "waveform_rows_decoded": 1186740,
+        "raw_bytes_SHA_read": 3064431039,
+        "raw_files_SHA_checked": 161,
+        "hard_rows_files_decoded": 45,
+        "bank_pairs_verified": 22,
+        "baseline_npz_files_decoded": 10
+      },
+      "unknown_inflight_ids": [
+        237,
+        239
+      ],
+      "failed_ids": [],
+      "truncated_tail": false,
+      "counts_are_durable_lower_bounds": true
+    }
+  },
+  "artifacts/status.json": {
+    "schema": "n01/wp3-readback-state/v1",
+    "run_id": "wp3_015_saved_readback_20261015",
+    "UTC": "2026-10-15T05:51:01.229914+00:00",
+    "pid": 166807,
+    "phase": "hard_bank_saved_statistics",
+    "counters": {
+      "raw_files_SHA_checked": 161,
+      "raw_bytes_SHA_read": 3064431039,
+      "hard_rows_files_decoded": 48,
+      "report_npz_files_decoded": 48,
+      "baseline_npz_files_decoded": 12,
+      "probe_raw_npz_files_decoded": 0,
+      "probe_gradient_npz_files_decoded": 0,
+      "waveform_rows_decoded": 1265856,
+      "bank_pairs_verified": 24,
+      "probe_snapshots_verified": 0
+    },
+    "attempted_counters": {
+      "raw_files_SHA_checked": 161,
+      "raw_bytes_SHA_read": 3064431039,
+      "hard_rows_files_decoded": 49,
+      "report_npz_files_decoded": 49,
+      "baseline_npz_files_decoded": 12,
+      "probe_raw_npz_files_decoded": 0,
+      "probe_gradient_npz_files_decoded": 0,
+      "waveform_rows_decoded": 1292228,
+      "bank_pairs_verified": 25,
+      "probe_snapshots_verified": 0
+    },
+    "operations_entered": 247,
+    "operations_completed": 245,
+    "inflight": {
+      "245": {
+        "operation_id": 245,
+        "event": "entered",
+        "name": "two_bank_pair_verified",
+        "charges": {
+          "bank_pairs_verified": 1
+        },
+        "UTC": "2026-10-15T05:51:01.228280+00:00",
+        "details": {
+          "trial": "seed1_M0",
+          "snapshot": "final_evaluation",
+          "arm": "final",
+          "hypothesis": "fast"
+        }
+      },
+      "246": {
+        "operation_id": 246,
+        "event": "entered",
+        "name": "hard_bank_saved_statistics",
+        "charges": {
+          "hard_rows_files_decoded": 1,
+          "report_npz_files_decoded": 1,
+          "waveform_rows_decoded": 26372
+        },
+        "UTC": "2026-10-15T05:51:01.229494+00:00",
+        "details": {
+          "trial": "seed1_M0",
+          "snapshot": "final_evaluation",
+          "arm": "final",
+          "hypothesis": "fast",
+          "bank": 0
+        }
+      }
+    },
+    "unknown_inflight_completion": "never_asserted_completed",
+    "artificial_only": false,
+    "completed_pair_count": 24,
+    "scientific_CP_NN_AD_training": 0,
+    "config_sha256": "54c096ad1a5e112493798e5c6c8db481cd3c79b78747200af0bbd47bccba5394",
+    "source_manifest_sha256": "f1255dbff0e47edb7ec20e76c7d90057201f9a56f1184b7896f0c8cb0a67825a",
+    "readback_script_sha256": "c2f53542b2bdc2557cfc6f1470f11113e4fc8d2be0ec13648e154d05222272a7",
+    "pure_kernel_sha256": "fe1366f35f36e97974f1a4037a36ad858c03dd8453957c1b45b65080f0fee3ac",
+    "inventory_sha256": "9d253a57bb79d9f25b112b4f5e0009a239c21360766c89cef7357d040adebe42"
+  },
+  "artifacts/FIRST_PAIR_PROOF.json": {
+    "schema": "n01/wp3-readback-first-formal-pair/v1",
+    "run_id": "wp3_015_saved_readback_20261015",
+    "UTC": "2026-10-15T05:50:24.065782+00:00",
+    "pid": 166807,
+    "phase": "hard_bank_saved_statistics",
+    "counters": {
+      "raw_files_SHA_checked": 161,
+      "raw_bytes_SHA_read": 3064431039,
+      "hard_rows_files_decoded": 2,
+      "report_npz_files_decoded": 2,
+      "baseline_npz_files_decoded": 2,
+      "probe_raw_npz_files_decoded": 0,
+      "probe_gradient_npz_files_decoded": 0,
+      "waveform_rows_decoded": 52744,
+      "bank_pairs_verified": 1,
+      "probe_snapshots_verified": 0
+    },
+    "attempted_counters": {
+      "raw_files_SHA_checked": 161,
+      "raw_bytes_SHA_read": 3064431039,
+      "hard_rows_files_decoded": 2,
+      "report_npz_files_decoded": 2,
+      "baseline_npz_files_decoded": 2,
+      "probe_raw_npz_files_decoded": 0,
+      "probe_gradient_npz_files_decoded": 0,
+      "waveform_rows_decoded": 52744,
+      "bank_pairs_verified": 1,
+      "probe_snapshots_verified": 0
+    },
+    "operations_entered": 166,
+    "operations_completed": 166,
+    "inflight": {},
+    "unknown_inflight_completion": "never_asserted_completed",
+    "artificial_only": false,
+    "completed_pair_count": 1,
+    "scientific_CP_NN_AD_training": 0,
+    "config_sha256": "54c096ad1a5e112493798e5c6c8db481cd3c79b78747200af0bbd47bccba5394",
+    "source_manifest_sha256": "f1255dbff0e47edb7ec20e76c7d90057201f9a56f1184b7896f0c8cb0a67825a",
+    "readback_script_sha256": "c2f53542b2bdc2557cfc6f1470f11113e4fc8d2be0ec13648e154d05222272a7",
+    "pure_kernel_sha256": "fe1366f35f36e97974f1a4037a36ad858c03dd8453957c1b45b65080f0fee3ac",
+    "inventory_sha256": "9d253a57bb79d9f25b112b4f5e0009a239c21360766c89cef7357d040adebe42",
+    "actual_saved_array_pair_completed": true,
+    "pair": {
+      "trial": "seed0_M0",
+      "snapshot": "initial_evaluation",
+      "arm": "A",
+      "hypothesis": "fast",
+      "parents": 6593,
+      "rows_per_bank": 26372,
+      "r4_native_moments_verified": true,
+      "r8_derived_from_saved4plus4": true,
+      "r8_native_report_exists": false,
+      "covariance_denominator": 7,
+      "waveform_rank_upper_bound": 7,
+      "full_scalar_covariance_shape": [
+        6593,
+        9,
+        9
+      ],
+      "pairwise_finite_joint_counts_verified": true,
+      "complete_case_scalar_parents": 6414,
+      "r4_by_bank": [
+        {
+          "waveform_spread_RMS_V": 0.001666481682208403,
+          "waveform_MCSE_RMS_V": 0.0008332408411042015,
+          "waveform_MCSE_array_sha256": "eb9466fff9ce42bd361d0ce1790f8ba76b7599aa2e2c610131205d8ce3e211b8"
+        },
+        {
+          "waveform_spread_RMS_V": 0.0017122864506516763,
+          "waveform_MCSE_RMS_V": 0.0008561432253258381,
+          "waveform_MCSE_array_sha256": "a05b37dcfb066ce31863ab288e80716ccc88855102fce09e7107a43344686830"
+        }
+      ],
+      "hard_wave_sqrt_mean_sample_variance_V": 0.001687392747831223,
+      "hard_wave_RMS_conditional_mean_MCSE_V": 0.0005965834272582298,
+      "centered_wave_factor_sha256": "8bc6c8cec54d9bcaa7a26473d3f94a769d0454661d4d34f03e6564f04d162013",
+      "r8_scalar_covariance_sha256": "ec6a54d025aa1445fcb8b0c1a6bc047f704c28c37ffdcf461c5d8226a70d3234",
+      "r8_scalar_MCSE_sha256": "4e8549d8b79d3ad3775fd3c3dd2ded2a6ea65dd5a5f508fc564ced0f06110770",
+      "IEEE_correction_absmax_V": 1.1102230246251565e-16,
+      "dense256x256_covariance_materialized": false
+    },
+    "no_extra_tiny_actual_input": true,
+    "actual_new_CP_NN_AD": 0
+  },
+  "artifacts/FAILED.json": null,
+  "artifacts/COMPLETE.json": null,
+  "UTC": "2026-10-15T05:51:01.314907+00:00",
+  "current_boot_id": "75229583-9bb2-4225-9f0d-12e04e1c1726",
+  "durable_progress": {
+    "entered_counts": {
+      "report_npz_files_decoded": 49,
+      "bank_pairs_verified": 25,
+      "baseline_npz_files_decoded": 12,
+      "waveform_rows_decoded": 1292228,
+      "raw_files_SHA_checked": 161,
+      "raw_bytes_SHA_read": 3064431039,
+      "hard_rows_files_decoded": 49
+    },
+    "completed_counts": {
+      "report_npz_files_decoded": 48,
+      "bank_pairs_verified": 24,
+      "baseline_npz_files_decoded": 12,
+      "waveform_rows_decoded": 1265856,
+      "raw_files_SHA_checked": 161,
+      "raw_bytes_SHA_read": 3064431039,
+      "hard_rows_files_decoded": 48
+    },
+    "unknown_inflight_ids": [
+      245,
+      246
+    ],
+    "failed_ids": [],
+    "truncated_tail": false,
+    "counts_are_durable_lower_bounds": true
+  },
+  "registration_sha256": "789ff32131e29a5eecacc223fda8f8074e2fee8d13d995145785c7e99a1f4b66",
+  "live_processes": {
+    "supervisor": {
+      "alive": true,
+      "pid": 166800,
+      "parent_pid": 1,
+      "start_ticks": 4782268,
+      "command": [
+        "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+        "-B",
+        "/home/rylan/projects/ej276d-n01/wp3_015_saved_readback_20261015/readback_control.py",
+        "--supervise",
+        "--config-sha256",
+        "789ff32131e29a5eecacc223fda8f8074e2fee8d13d995145785c7e99a1f4b66",
+        "--lock-fd",
+        "3"
+      ],
+      "cwd": "/home/rylan/projects/ej276d-n01/wp3_015_saved_readback_20261015",
+      "CPU_affinity": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "VmSize": 39387136,
+      "VmRSS": 27975680
+    },
+    "worker": {
+      "alive": true,
+      "pid": 166807,
+      "parent_pid": 166800,
+      "start_ticks": 4782273,
+      "command": [
+        "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+        "-B",
+        "/home/rylan/projects/ej276d-n01/wp3_015_saved_readback_20261015/readback_saved_arrays.py",
+        "--run-root",
+        "/home/rylan/projects/ej276d-n01/wp3_015_20261015",
+        "--inventory",
+        "/home/rylan/projects/ej276d-n01/wp3_015_saved_readback_20261015/BOUND_ORIGINAL_INVENTORY.json",
+        "--out",
+        "/home/rylan/projects/ej276d-n01/wp3_015_saved_readback_20261015/artifacts"
+      ],
+      "cwd": "/home/rylan/projects/ej276d-n01/wp3_015_saved_readback_20261015",
+      "CPU_affinity": [
+        0,
+        1
+      ],
+      "VmSize": 303255552,
+      "VmRSS": 173461504
+    }
+  },
+  "first_pair_verification": {
+    "first_formal_array_pair_verified": true,
+    "pairs_completed_at_proof": 1,
+    "worker_pid": 166807,
+    "same_snapshot_health": "current_owned_process_chain_and_resources_verified",
+    "current_inflight_not_counted_complete": [
+      245,
+      246
+    ],
+    "scientific_acceptance": false
+  }
+}
