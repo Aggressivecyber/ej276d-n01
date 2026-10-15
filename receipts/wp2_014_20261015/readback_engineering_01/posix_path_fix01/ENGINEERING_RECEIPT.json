@@ -1,0 +1,30 @@
+{
+  "schema": "n01/readback-posix-path-fix-engineering/v1",
+  "recorded_UTC": "2026-10-15T03:06:29.654985+00:00",
+  "artificial_only": true,
+  "passed": 4,
+  "native_exit_code": 0,
+  "checks": [
+    "before_SHA_and_exact_one_line_patch",
+    "actual_expression_native_reply_Windows_and_POSIX",
+    "actual_guard_rejects_changed_incoming_and_archive",
+    "other_local_action_remote_paths_stay_literal_or_opaque"
+  ],
+  "controller": {
+    "bytes": 25834,
+    "sha256": "552eb845c8b514f8838639703d2368bf399cddf2e09d41d5c3adca09fec1ae09"
+  },
+  "before": {
+    "bytes": 25836,
+    "sha256": "c275c74777478d63ea3f31045ff9b5969ee32ec47d1bb97297127167055332f5"
+  },
+  "checker_sha256": "6946c2183588d31ad39994309d6a60cf8c145ff88e397b6b90ceb24bb2c99f2b",
+  "prior_failure_receipt_sha256": "4b70fb8546f034fda5ba53d54324c088d7a8ab7793a7248c16ef2d530157c8ee",
+  "source_patch": "Only action.expected uses literal POSIX parent/token concatenation.",
+  "local_action_path_review": "No other Path(SIDE)/Path(ORIGINAL) construction remains in action; SCP remote strings use unmodified native incoming/archive. Native path constructors run only on POSIX.",
+  "SSH_calls": 0,
+  "raw_SHA_passes": 0,
+  "array_decodes": 0,
+  "CP_NN_AD_training": 0,
+  "worker_or_old95_sources_modified": false
+}

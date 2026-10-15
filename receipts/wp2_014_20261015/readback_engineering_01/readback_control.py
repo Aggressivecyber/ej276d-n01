@@ -299,7 +299,7 @@ def action(mode,config,config_sha,out,*,collected=None,inspect=False):
             legacy().add_regular(bundle,config,CONFIG)
         require(sum(r['bytes'] for r in legacy().index(archive,SOURCE_CAP).values())<=SOURCE_CAP,'sidecar source cap')
         payload.update(token=uuid.uuid4().hex,package_sha256=sha(archive));incoming=ssh(payload,out)
-        expected=str(Path(SIDE).parent/('.readback.incoming_'+payload['token']))
+        expected=SIDE.rsplit('/',1)[0]+'/.readback.incoming_'+payload['token']
         require(incoming['incoming']==expected and incoming['archive']==expected+'/readback_source.tar','sidecar incoming path differs')
         legacy().transfer(['scp','-q','-o','BatchMode=yes',str(archive),HOST+':'+incoming['archive']],out,'SOURCE_TRANSFER.json')
         payload['mode']='install';result=ssh(payload,out);new_json(out/'PREPARE_RECEIPT.json',result);return result

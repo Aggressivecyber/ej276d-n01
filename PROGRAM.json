@@ -4,7 +4,7 @@
   "created_UTC": "2026-10-12T00:07:21.307456+08:00",
   "created_local_Asia_Singapore": "2026-10-12T00:07:21.307456+08:00",
   "root": "E:\\GAN\\research\\N01",
-  "status": "WP2_014_saved_array_readback_prepared",
+  "status": "WP2_014_readback_path_fix_registered_not_started",
   "scientific_status": "response_match_not_established",
   "protocol_parent": null,
   "inherits_R79": false,
@@ -14,12 +14,12 @@
   "data_references": "DATA_REFERENCES.json",
   "active_scientific_jobs": 0,
   "new_training_updates": 167667,
-  "next_action": "Start one registered zero-NN saved-array CPU audit; verify a formal pair, set one wake and rest. Then close WP2 and continue bounded WP3.",
+  "next_action": "Start the same bounded CPU audit using the corrected POSIX comparison; verify one formal pair, schedule one wake, and rest.",
   "application_goal_created": false,
   "legacy_results_modified": false,
-  "updated_UTC": "2026-10-15T03:00:43.371994+00:00",
+  "updated_UTC": "2026-10-15T03:07:36.772686+00:00",
   "current_arm": null,
-  "current_stage": "WP2_014_independent_saved_array_readback_prepared",
+  "current_stage": "WP2_014_CPU_saved_array_readback_prepared",
   "last_verified_UTC": "2026-10-15T02:33:04.070820+00:00",
   "run_id": "run_001_20261012",
   "start_receipt": "receipts/run_001_20261012/START_RECEIPT.json",
@@ -338,7 +338,7 @@
   "stability011_deployment_receipt": "receipts/stability011_20261014/deployment_01/DEPLOYMENT_RECEIPT.json",
   "stability011_attempted_bootstrap_replicates_last_verified": 500,
   "stability011_computed_bootstrap_replicates_last_verified": 500,
-  "active_scientific_jobs_status_basis": "Single terminal snapshot: child and supervisor native0; no later dispatch.",
+  "active_scientific_jobs_status_basis": "Prepare stopped before transfer/install/start; no CPU worker dispatched; surgical path repair in progress",
   "stability011_start_verification": "receipts/stability011_20261014/START_NATIVE_VERIFICATION.json",
   "user_requested_pause": false,
   "pause_reason": null,
@@ -961,7 +961,7 @@
   "wp2_G_updates": 8000,
   "wp2_AD_queries": 9872,
   "followup_receipt_sha256": "a3cf3b06a0218afa32d507264c8900dc595cec5ae17d1b6ccdc7ecfdd3a2df46",
-  "latest_source_commit": "e116368c4f699243a60598c03865bcb4f601be35",
+  "latest_source_commit": "dfddb7a2eef45b4e7f4253fcb89ef2ec3b608b4a",
   "wp2_terminal_readback": {
     "path": "receipts\\wp2_014_20261015\\postrun_root_01\\NATIVE_COMPLETION_READBACK.json",
     "sha256": "bdb7dcc539fb494e0282ee8cafcde4cb1d5e98022a2fbb40a99c64aa0fe53d0a",
@@ -1008,8 +1008,8 @@
     "raw_NPZ_retained_remote": true
   },
   "wp2_readback_execution": {
-    "configuration": "receipts\\wp2_014_20261015\\readback_registration_01\\READBACK_EXECUTION.json",
-    "configuration_sha256": "b75deba495da00bbbd27e0e9e2da4c202fa4da7538ebb3fd8a3afa5da968ed1b",
+    "configuration": "receipts\\wp2_014_20261015\\readback_registration_fix01\\READBACK_EXECUTION.json",
+    "configuration_sha256": "cee1b002cc773acd86e470b6d158f144a7bc55b94b9d0d2139bd70fb18a41fe9",
     "run_id": "wp2_014_saved_readback_20261015",
     "remote_root": "/home/rylan/projects/ej276d-n01/wp2_014_saved_readback_20261015",
     "resource_limits": {
@@ -1022,7 +1022,7 @@
     "source_file_count": 5,
     "source_controls": 6,
     "source_commit_pending": true,
-    "status": "registered_not_started",
+    "status": "registered_not_started_after_prepare_only_path_fix",
     "new_training_updates": 0,
     "new_AD_queries": 0,
     "NN_forward_rows": 0,
@@ -1038,5 +1038,33 @@
     "scientific_acceptance": false
   },
   "wp2_collection_complete": true,
-  "wp2_independent_readback_complete": false
+  "wp2_independent_readback_complete": false,
+  "wp2_readback_prepare_failure": {
+    "path": "receipts\\wp2_014_20261015\\readback_registration_01\\ROOT_PREPARE_FAILURE_RECEIPT.json",
+    "sha256": "6f89dedd516cd5612295060b074fa84625364774a6a8c5c74b5172608f2b83f5",
+    "worker_started": false,
+    "new_raw_CP_NN_AD_training": 0
+  },
+  "previous_readback_source_registration": {
+    "configuration": "receipts\\wp2_014_20261015\\readback_registration_01\\READBACK_EXECUTION.json",
+    "configuration_sha256": "b75deba495da00bbbd27e0e9e2da4c202fa4da7538ebb3fd8a3afa5da968ed1b",
+    "run_id": "wp2_014_saved_readback_20261015",
+    "remote_root": "/home/rylan/projects/ej276d-n01/wp2_014_saved_readback_20261015",
+    "resource_limits": {
+      "CPU_threads": 2,
+      "RSS_MiB": 1536,
+      "virtual_memory_MiB": 3072,
+      "wall_seconds": 1800,
+      "output_MiB": 64
+    },
+    "source_file_count": 5,
+    "source_controls": 6,
+    "source_commit_pending": false,
+    "status": "prepare_only_engineering_stop_no_worker_started",
+    "new_training_updates": 0,
+    "new_AD_queries": 0,
+    "NN_forward_rows": 0,
+    "scientific_status": "response_match_not_established",
+    "source_commit": "dfddb7a2eef45b4e7f4253fcb89ef2ec3b608b4a"
+  }
 }

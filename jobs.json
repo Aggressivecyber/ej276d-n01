@@ -1,6 +1,6 @@
 {
   "experiment_id": "N01",
-  "updated_UTC": "2026-10-15T03:00:43.371994+00:00",
+  "updated_UTC": "2026-10-15T03:07:36.772686+00:00",
   "active_scientific_jobs": 0,
   "jobs": [
     {
@@ -2284,11 +2284,11 @@
       "run_id": "wp2_014_saved_readback_20261015",
       "scientific_job": true,
       "kind": "CPU_saved_array_audit",
-      "status": "registered_not_started",
+      "status": "registered_not_started_after_prepare_only_path_fix",
       "registered_UTC": "2026-10-15T03:00:43.371994+00:00",
       "execution": {
-        "configuration": "receipts\\wp2_014_20261015\\readback_registration_01\\READBACK_EXECUTION.json",
-        "configuration_sha256": "b75deba495da00bbbd27e0e9e2da4c202fa4da7538ebb3fd8a3afa5da968ed1b",
+        "configuration": "receipts\\wp2_014_20261015\\readback_registration_fix01\\READBACK_EXECUTION.json",
+        "configuration_sha256": "cee1b002cc773acd86e470b6d158f144a7bc55b94b9d0d2139bd70fb18a41fe9",
         "run_id": "wp2_014_saved_readback_20261015",
         "remote_root": "/home/rylan/projects/ej276d-n01/wp2_014_saved_readback_20261015",
         "resource_limits": {
@@ -2301,7 +2301,7 @@
         "source_file_count": 5,
         "source_controls": 6,
         "source_commit_pending": true,
-        "status": "registered_not_started",
+        "status": "registered_not_started_after_prepare_only_path_fix",
         "new_training_updates": 0,
         "new_AD_queries": 0,
         "NN_forward_rows": 0,
@@ -2320,7 +2320,38 @@
       "checkpoint_loads": 0,
       "automatic_retry": false,
       "original_training_before_and_after": 167667,
-      "scientific_status": "response_match_not_established"
+      "scientific_status": "response_match_not_established",
+      "actual_array_counts": {},
+      "prepare_failure": {
+        "path": "receipts\\wp2_014_20261015\\readback_registration_01\\ROOT_PREPARE_FAILURE_RECEIPT.json",
+        "sha256": "6f89dedd516cd5612295060b074fa84625364774a6a8c5c74b5172608f2b83f5",
+        "worker_started": false,
+        "new_raw_CP_NN_AD_training": 0
+      },
+      "actual_array_count_basis": "no worker dispatched; all registered raw operations zero",
+      "worker_started": false,
+      "previous_source_registration": {
+        "configuration": "receipts\\wp2_014_20261015\\readback_registration_01\\READBACK_EXECUTION.json",
+        "configuration_sha256": "b75deba495da00bbbd27e0e9e2da4c202fa4da7538ebb3fd8a3afa5da968ed1b",
+        "run_id": "wp2_014_saved_readback_20261015",
+        "remote_root": "/home/rylan/projects/ej276d-n01/wp2_014_saved_readback_20261015",
+        "resource_limits": {
+          "CPU_threads": 2,
+          "RSS_MiB": 1536,
+          "virtual_memory_MiB": 3072,
+          "wall_seconds": 1800,
+          "output_MiB": 64
+        },
+        "source_file_count": 5,
+        "source_controls": 6,
+        "source_commit_pending": false,
+        "status": "prepare_only_engineering_stop_no_worker_started",
+        "new_training_updates": 0,
+        "new_AD_queries": 0,
+        "NN_forward_rows": 0,
+        "scientific_status": "response_match_not_established",
+        "source_commit": "dfddb7a2eef45b4e7f4253fcb89ef2ec3b608b4a"
+      }
     }
   ],
   "user_requested_pause": false,
@@ -2338,5 +2369,12 @@
     "receipt_sha256": "a3cf3b06a0218afa32d507264c8900dc595cec5ae17d1b6ccdc7ecfdd3a2df46",
     "correct_start_verified": true
   },
-  "scientific_status": "response_match_not_established"
+  "scientific_status": "response_match_not_established",
+  "active_scientific_jobs_status_basis": "Prepare stopped before transfer/install/start; no CPU worker dispatched; surgical path repair in progress",
+  "wp2_readback_prepare_failure": {
+    "path": "receipts\\wp2_014_20261015\\readback_registration_01\\ROOT_PREPARE_FAILURE_RECEIPT.json",
+    "sha256": "6f89dedd516cd5612295060b074fa84625364774a6a8c5c74b5172608f2b83f5",
+    "worker_started": false,
+    "new_raw_CP_NN_AD_training": 0
+  }
 }

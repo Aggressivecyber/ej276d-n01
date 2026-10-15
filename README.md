@@ -6,7 +6,7 @@
 
 选择性回收142/318文件，176个原始NPZ仍在服务器。下一项是已登记的36对保存数组CPU复核，新增CP/NN/AD/训练/新随机库均0；当前仅已准备，真实启动以回执为准。
 
-[开发比较](receipts/wp2_014_20261015/postrun_engineering_01/DEVELOPMENT_SUMMARY.md) · [原生终点与计数](receipts/wp2_014_20261015/postrun_root_01/NATIVE_COMPLETION_READBACK.json) · [选择性回收](receipts/wp2_014_20261015/collection_01/COLLECTION_RECEIPT.json) · [读回配置](receipts/wp2_014_20261015/readback_registration_01/READBACK_EXECUTION.json)
+[开发比较](receipts/wp2_014_20261015/postrun_engineering_01/DEVELOPMENT_SUMMARY.md) · [原生终点与计数](receipts/wp2_014_20261015/postrun_root_01/NATIVE_COMPLETION_READBACK.json) · [选择性回收](receipts/wp2_014_20261015/collection_01/COLLECTION_RECEIPT.json) · [读回配置](receipts/wp2_014_20261015/readback_registration_fix01/READBACK_EXECUTION.json)
 
 以下保留此前阶段说明。
 
