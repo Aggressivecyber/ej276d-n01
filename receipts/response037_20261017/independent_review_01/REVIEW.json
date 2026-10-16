@@ -1,0 +1,91 @@
+{
+  "schema": "n01/response037-independent-static-review/v1",
+  "UTC": "2026-10-16T23:10:43.444277+00:00",
+  "reviewer": "response029_loss_data_diagnosis",
+  "status": "NO_BLOCKERS_STATIC_REVIEW_ONLY",
+  "script": {
+    "path": "scripts/run_response037.py",
+    "sha256": "8cecc0d63c75d718095d1ab29ec233e039cca1eaf6b9b6eca6e6752db96d0c56",
+    "bytes": 26128
+  },
+  "frozen_config": {
+    "path": "configs/response037_20261017.json",
+    "sha256": "066f781728b7c73eebbca7bd41e331de6670a5500a492dfdd7793d7c3df74aaa",
+    "bytes": 13595,
+    "draft_restore_exact": true,
+    "administrative_changes": [
+      "status",
+      "preparation_only",
+      "frozen_UTC",
+      "execution_authority"
+    ],
+    "authority_file_present_at_review": false,
+    "registration": "ROOT_DECISION/registration remains a ROOT dispatch prerequisite; this administrative pointer is not a runtime science input."
+  },
+  "checks": {
+    "main_AST_parse": true,
+    "all41_source_hashes_exact": true,
+    "old03639_pins_unchanged": true,
+    "known38_local_dependencies_pinned": true,
+    "risk_seeds_exact033_80unique": true,
+    "three_input_pins_match_native036_metadata": true,
+    "first5_scalars_and4_group_norms_exact_native036_saved_JSON": true,
+    "single_backward_and_diagnostic_step": true,
+    "no_checkpoint_write_site": true,
+    "budget_arithmetic_exact": true
+  },
+  "implementation": [
+    "Exact initial036 wholemodel/train mode,fresh3groupAdamW state,4NumPy/6CPU-Torch streams restored. Mean1e-4,shape1.875e-5,charge/local3e-4;preclip gradients cloned,clip5,one actualAdam step. Replay failure stops beforestep.",
+    "Each point independently copied frominitial andactualdelta;lambda1 copies actualupdated parameters. Effective andintended coordinate differences promote storedfloat32 values tofloat64 BEFORE subtraction; actualfloat32 ray unchanged.",
+    "H is canonicalhardADC/dynamiccrop. S=hard0+(clamp(prelambda)-clamp(pre0)),dynamiccrop. F uses sameS carrier with eachbank/H initialhardcrop. Prefix100 clone matches canonicalbaseline path; carrier/baseline/window/peak elementwise equality required atzero everybank.",
+    "SameNNoutputs,noise,targets,regular andphysicalpreADCsaturation shared acrossmodes. FirstbankADforward reused. S/F no_grad andnoADC. Loss exactly036 wave+2integral+.01(regular+saturation),carrier report-only.",
+    "Firsttrainingbank separate;8old033TRAIN riskbanks use commonnoise/indices acrosspoints,modes,H. Withinbank differences precede8bankMCSE. No extraAD,banks,DEV,statfit ortraining."
+  ],
+  "gradient_and_FD_scope": "g is the exact firstbank preclip totalgradient only. Firstbank centeredFtotalFD is compared to(gdotDeltaPlus-gdotDeltaMinus)/(2epsilon) at1/64 and1/16. Repeatedg metadata onriskbanks is not a riskbank gradient.",
+  "exact_budget": {
+    "NN_calls": 108,
+    "NN_rows": 6912,
+    "noise005_rows": 1152,
+    "extension_rows": 3456,
+    "hard_generated_ADC_rows": 20736,
+    "anchored_surrogate_crop_rows": 41472,
+    "checkpoint_loads": 2,
+    "TRAIN_archives_decoded": 1,
+    "REAL_existing_observation_rows": 21047,
+    "banks_cached": 9,
+    "training_AD_queries": 1,
+    "diagnostic_G_updates": 1,
+    "DEV_reads": 0,
+    "statistics_fits": 0,
+    "checkpoint_writes": 0,
+    "native_W1_runs": 0
+  },
+  "resources": {
+    "CPU_threads": 4,
+    "RSS_GiB": 12,
+    "GPU_GiB": 10,
+    "wall_seconds": 600,
+    "output_MiB": 128
+  },
+  "enforcement": "Runner wall/output checks; external supervisor --rss-limit-gib 12;GPUallocator10GiB andwholeprojectflock. Noautomaticrestart.",
+  "boundaries": [
+    "S/F are mathematicaldiagnostics,notphysicalresponse data. Allmodes coincide atzero;quantization/crop contrasts are nestedfunctional effects and mayinteract.",
+    "F retainsamax/abs/guard/clamp andfloat32 effects. Recordedsearch/windowties do not exhaust modelamplitude orotherkinks. FiniteFD instability orAD-FD gap alone is not anADbug/pureSTE-bias proof.",
+    "Eight riskbanks were alreadyexamined;notfreshconfirmation. Comparefirstbank/risk behavior withpairedMCSE;unstable orunresolved results remaininconclusive.",
+    "No bestlambda,LRchoice,checkpointpromotion,continuedtraining orresponse-matchclaim. One initialdirection does not establish late036 cause,conditionalkernel orlowcount extrapolation."
+  ],
+  "stop_rule": "One fixed audit only; no addedscale,bank,ADquery,update orscienceafterbudget. Inconclusive is valid.",
+  "review_execution_counts": {
+    "project_imports": 0,
+    "NN": 0,
+    "AD": 0,
+    "diagnostic_G_updates": 0,
+    "CP_byte_reads": 0,
+    "CP_deserializations": 0,
+    "raw_SOURCE_REAL_DEV_array_reads": 0,
+    "new_observation_calls": 0,
+    "jobs_launched": 0
+  },
+  "old_sources_results_ledgers_modified": false,
+  "blockers": []
+}

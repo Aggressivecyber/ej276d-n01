@@ -1,0 +1,62 @@
+{
+  "schema": "n01/response037-root-design-preparation/v1",
+  "UTC": "2026-10-16T22:57:22.066251+00:00",
+  "status": "design_accepted_for_code_preparation_only_not_execution",
+  "motivation": "036 removing carrier did not stop waveform-energy growth or native endpoint failure. Isolate actual one-step direction and step-size effects from ADC/crop discontinuities before another training candidate.",
+  "baseline": "Reconstruct exact036 initial checkpoint and same first training batch; existing033 risk-bank generation, eight reused TRAIN risk banks explicitly not fresh holdout.",
+  "actual_direction": "One036 combined backward, original globalclip5 and actual original three-group AdamW update; save theta0,theta1/delta in memory only. Lambda1 copies theta1 exactly. No optimizer continuation.",
+  "lambdas": [
+    0,
+    -0.015625,
+    0.015625,
+    -0.0625,
+    0.0625,
+    1.0
+  ],
+  "why_two_small_scales": "Derivative consistency requires a numerical scale comparison; these scales are diagnostic, not candidates and not a learning-rate selection grid.",
+  "observations": {
+    "H": "Original hard ADC with original dynamic first-argmax256 crop.",
+    "S": "Anchored ADC surrogate measured(lambda)=hard_ADC(pre0)+clamp(prelambda)-clamp(pre0), then original prefix baseline and dynamic first-argmax crop.",
+    "F": "Same anchored ADC surrogate as S, but fixed original hard-ADC baseline crop indices for each bank and electronics hypothesis."
+  },
+  "common_basis": "Atlambda0 H/S/F measured values and selected windows must be elementwise identical. Same signal NN output and fixed electronics/latent/target streams reused. OnlyH applies ADC;S/F are mathematical diagnostic observations, not physical data.",
+  "loss": "Exactly036 mean_H(wave+2integral)+.01*(same model regular+same physical preADC saturation). No carrier in objective.",
+  "derivatives": "Only the existing H/STE combined AD at first batch. Retain gradient before clipping for g dot actual effective parameter deltas. Compare F finite changes and two centered differences, accounting for float32 effective displacement and peak-normalization amax ties. Do not label an unstable finite difference an implementation bug.",
+  "measurements": [
+    "Mode0 exact equality",
+    "Initial036 loss and four group gradient replay",
+    "Group parameter displacement norms, nonzero effective coordinates and g dot effective delta",
+    "Signal displacement versus ADC LSB and ADC-cell changes",
+    "Initial/perturbed normalized peak amax tie counts",
+    "S dynamic peak-index changes versus frozenF",
+    "H-S andS-F paired risk changes with nested-interaction limitation",
+    "Firstbatch separate from eight-bank means and MCSE; no bestlambda or checkpoint selected"
+  ],
+  "interpretation": "F descent but S/H harm supports crop/quantization contribution; samebatch F descent with riskF harm supports sampling-direction mismatch; smallsteps descent but lambda1 harm supports finite-step overshoot. Mixed/noisy/unstable results remain unresolved and do not trigger extra queries.",
+  "budget": {
+    "NN_calls": 108,
+    "NN_rows": 6912,
+    "noise005_rows": 1152,
+    "extension_rows": 3456,
+    "hard_generated_ADC_rows": 20736,
+    "anchored_surrogate_crop_rows": 41472,
+    "checkpoint_loads": 2,
+    "TRAIN_archives_decoded": 1,
+    "DEV_reads": 0,
+    "training_AD_queries": 1,
+    "diagnostic_G_updates": 1,
+    "checkpoint_writes": 0,
+    "native_W1_runs": 0,
+    "statistics_fits": 0
+  },
+  "inputs": "036 initial CP + original005 + same TRAIN archive; statistics/integral/carrier scale from saved initialCP, no refit. Frozen source closure and hashes before dispatch.",
+  "resources": {
+    "CPU_threads": 4,
+    "RSS_GiB": 12,
+    "GPU_GiB": 10,
+    "wall_seconds": 600,
+    "output_MiB": 128
+  },
+  "stop_rule": "One exact fixed audit. No added bank, scale, AD query, optimizer update, checkpoint promotion or new training; inconclusive is a valid terminal result.",
+  "required_before_execution": "Complete036 result review and closure; freeze037 script/config, independent static review and ROOT execution registration; verify same single-job resource ownership."
+}

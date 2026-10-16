@@ -1,0 +1,110 @@
+{
+  "schema": "n01/response037-plan/v1",
+  "status": "code_preparation_only_not_frozen",
+  "question": "036 removing carrier did not stop waveform-energy growth or native endpoint failure. Isolate actual one-step direction and step-size effects from ADC/crop discontinuities before another training candidate.",
+  "reference": {
+    "path": "receipts/response037_20261017/preparation_01/ROOT_DESIGN.json",
+    "sha256": "6ae3e72373f90c846e82e199736fdb17110183f3f755a5d3f3ebfd0b10e1c561",
+    "not_a_runtime_input": true
+  },
+  "design": {
+    "parameter_points": {
+      "baseline": 0,
+      "minus_1_64": -0.015625,
+      "plus_1_64": 0.015625,
+      "minus_1_16": -0.0625,
+      "plus_1_16": 0.0625,
+      "full1": 1.0
+    },
+    "modes": {
+      "H": "Original canonical hard ADC with dynamic firstargmax crop.",
+      "S": "hard0 + (clamp(prelambda)-clamp(pre0)), then prefix mean subtraction and dynamic firstargmax crop; mathematical anchored surrogate, not actual ADC.",
+      "F": "Same anchored carrier as S with this bank/H initial hard crop indices; retains clamp/max/abs/guards and float32 parameter effects."
+    },
+    "six_points_reason": "Derivative consistency requires a numerical scale comparison; these scales are diagnostic, not candidates and not a learning-rate selection grid.",
+    "loss": "Exactly036 mean_H(wave+2*joint_signed_integral)+.01*(same_model_regular+same_physical_preADC_saturation). Carrier is report-only.",
+    "actual_update": "Restore exact initial036 train mode, four numpy/six CPU torch states and fresh AdamW3group state. One combinedAD, clip5 and one actual diagnosticAdam update; lambda1 copies actual theta1 exactly, all others independently initial+lambda*(theta1-initial).",
+    "banks": "Eight previously examined033 TRAIN diagnostic banks; not fresh confirmation or holdout. First training bank is excluded from8bank paired mean/MCSE.",
+    "common_randomness": "Independent SOURCE A/B and REAL T/U streams once per bank. Cache response/005/extension draws and targets; reuse across all points/modes. S/F reuse the same signal/preADC outputs with no additional NN or ADC.",
+    "zero_point": "Every bank: H/S/F carriers, baseline means, windows and selected peak indices must be elementwise equal at lambda0."
+  },
+  "derivative_measurements": [
+    "One combined native036 H/STE AD only; preserve all preclip gradients and generate one actual Adam delta.",
+    "Per point/group: effective real coordinate delta L2/maxabs (value.double()-initial.double()), changed coordinate counts, intended nonzero rounded tozero counts, difference from (updated.double()-initial.double())*lambda, and g dot effective delta. The float32 parameter-ray construction remains unchanged.",
+    "Per bank/point/mode/H: wave/integral/carrier-report-only, data, regular components, physical preADC saturation, true total, Q/negativearea, selected/search/globalpeak flags and max ties.",
+    "Actual signal displacement relativeADC LSB and hardADC changed cells/rows from initial cached grid.",
+    "Two first-bank centeredFDs and effective-parameter linear predictions, their F total discrepancy and scale difference.",
+    "Each risk delta/nested mode difference/centeredFD computed bankwise before mean andMCSE over the8 reused riskbanks; first training bank separate."
+  ],
+  "exact_query_budget": {
+    "NN_calls": 108,
+    "NN_rows": 6912,
+    "noise005_rows": 1152,
+    "extension_rows": 3456,
+    "hard_generated_ADC_rows": 20736,
+    "anchored_surrogate_crop_rows": 41472,
+    "checkpoint_loads": 2,
+    "TRAIN_archives_decoded": 1,
+    "REAL_existing_observation_rows": 21047,
+    "banks_cached": 9,
+    "training_AD_queries": 1,
+    "diagnostic_G_updates": 1,
+    "DEV_reads": 0,
+    "statistics_fits": 0,
+    "checkpoint_writes": 0,
+    "native_W1_runs": 0
+  },
+  "budget_derivation": {
+    "NN": "6parameterpoints *9banks *2sourcebanks=108 NN calls, each64rows=6912. Initial firstbank H AD forward reused.",
+    "electronics": "9banks *128rows=1152 original005 rows;3H=3456 extension rows, allcached once perbank.",
+    "hardADC": "6*9*128*3=20736 actual hardADC rows; no extraADC in S/F.",
+    "surrogate_crops": "2modes *6points *9banks *128rows *3H=41472 crop-only rows, including explicit zero-point equality checks.",
+    "REAL": "One TRAIN archive whitelist+real_carrier384 decode and one existing-ADC CPU observation of21047 REAL rows; zero DEV or refits."
+  },
+  "input_policy": "Only initial036 CP, original005 CP and DATASET008 archive. No final036, oldA CP, DEV archive, raw original480 archive or identities/tolerance payload reads.",
+  "first_replay": {
+    "data": 0.025904961225047825,
+    "objective": 0.02596907309128277,
+    "regular": 0.006411186623494439,
+    "saturation": 0.0,
+    "preclip_gradient_norm": 17.935585021972656,
+    "group_gradient_norms": {
+      "mean": 1.982516898678526,
+      "shape": 17.825005341507595,
+      "charge": 0.15482444980192636,
+      "local": 0.0028701649044776314
+    }
+  },
+  "replay_tolerance": {
+    "loss": [
+      1e-08,
+      1e-06
+    ],
+    "norm": [
+      1e-05,
+      1e-06
+    ],
+    "formula": "absolute+relative*abs(expected)",
+    "failure_action": "stop_before_diagnostic_G_update_no_tolerance_change"
+  },
+  "resources": {
+    "CPU_threads": 4,
+    "RSS_GiB": 12,
+    "GPU_GiB": 10,
+    "wall_seconds": 600,
+    "output_MiB": 128
+  },
+  "project_lock": "/home/rylan/projects/ej276d-n01/.n01_scientific_dispatch.lock",
+  "interpretation": {
+    "step_size": "Small positive points descend but full1 harms under the same mode: local finite-step overshoot evidence.",
+    "crop_ADC": "F versus S and S versus H are nested functional controls. They can interact and are not a training-history causal partition.",
+    "sampling": "Firstbank smooth/F descent but reused-risk-bank F harm supports sampled-direction mismatch at this initial point; uncertain MCSE remains unresolved.",
+    "numeric": "F retains amax, abs, guards and clamp. Quantized baseline ties and float32 displacement can prevent stableFD; instability alone is not proof of an AD implementation bug.",
+    "limits": "One initial update does not establish late036 momentum/shared-feature causes, scientific response match or conditional/low-count extrapolation. S/F are diagnostics and never fake target data."
+  },
+  "stop_rule": "One exact fixed audit. No added bank, scale, AD query, optimizer update, checkpoint promotion or new training; inconclusive is a valid terminal result.",
+  "success_definition": "Engineering completion requires exact replay, exact mode0 equality, frozen state/input/source bindings and exact budget. No bestlambda, LR choice, checkpoint promotion or response-match gate.",
+  "preparation": "Only AST compilation, text closure/hashes, existing JSON expectations and budget arithmetic. No project import, NN, AD, CP deserialize, original scientific arrays, observation or launch.",
+  "historical_sources_unchanged": true,
+  "scientific_status": "response_match_not_established"
+}
