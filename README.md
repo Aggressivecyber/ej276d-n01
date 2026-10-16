@@ -1,10 +1,12 @@
-# N01 当前状态：020恢复已正确启动
+# N01 当前状态：020科学门未通过，推进021有限解析诊断
 
-用户已授权后续自主工程重启及必要新增计算。020已修复019漏依赖并经Sol Max独审，从已保存seed0检查点补原final评价；随后只训练原未启动seed1，新增上限2000G/AD。原019失败及科学未知结论保留。
+020正常退出并完成独立保存数组复核：2455通过、89失败、0待定。seed0为1183通过/89失败，seed1全部1272格通过，双种子一致性要求未满足。失败集中在电荷/硬波形方差、覆盖与协方差；O19及完整波形分布通过单列保留。
 
-2026-10-16 11:23:21（Asia/Singapore）实际快照已完成180480行评价信号、541312行硬观测，恢复身份和同快照CPU/GPU/内存健康通过。快照时020新增G/AD为0，累计下界185667；完整2544格科学结论待运行与复核。已保存12:00单次苏醒，当前休息，不持续监控。scientific_status=response_match_not_established。
+新增2000G/AD只入账一次，项目累计下界187667。完整日志和必要结果已选回并备份，原019失败、017旧72pending与018前瞻配对资格保持。现已登记WP5/021，用既有Q、权重和四端点做60个canonical方差解析情景，新增NN/CP/AD/G/RNG均0；当前处于最小实现和独审，尚未执行新分析。
 
-[020执行状态](reports/wp4_020_20261016/STARTUP_STATUS.md) · [授权](receipts/wp4_020_20261016/authorization_01/USER_AUTHORIZATION.json) · [执行回执](receipts/wp4_020_20261016/EXECUTION_STARTED.json) · [独审](receipts/wp4_020_20261016/independent_01/REVIEW.md)
+scientific_status=response_match_not_established；WP5完整稳健验证及WP6交付尚未完成，REAL长训练和T2尚未启动。用户后续自主工程重启及新增登记计算授权保持。
+
+[020报告](reports/wp4_020_20261016/REPORT.md) · [最终回执](receipts/wp4_020_20261016/FINAL_RESULT_RECEIPT.json) · [独审](receipts/wp4_020_20261016/wake_20261016_1200_01/independent_result_01/REVIEW.md) · [021前瞻范围](receipts/wp5_021_20261016/registration_01/PROSPECTIVE_SCOPE.json)
 
 以下保留此前阶段说明，旧授权边界以最新直接人类授权为准。
 

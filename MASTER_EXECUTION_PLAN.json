@@ -10,9 +10,9 @@
   },
   "objective": "Deliver a usable and verifiable conditional effective stochastic response kernel with explicit data and physical scope; assess engineering, in-domain effectiveness and cross-condition reuse separately.",
   "mainline": "protected deterministic A plus input-dependent stochastic response, fixed256 hard output/384 carrier/100 baseline/1ns software sampling; originalfull19k retained as negative control",
-  "status": "WP4_020_running_restored_seed0_evaluation",
+  "status": "WP5_021_frozen_independent_no_blockers_ready",
   "active_work_package": "WP4",
-  "active_scientific_jobs": 1,
+  "active_scientific_jobs": 0,
   "work_packages": [
     {
       "id": "WP1",
@@ -2113,7 +2113,7 @@
     },
     {
       "id": "WP4",
-      "status": "020_recovery_running_restored_seed0_evaluation",
+      "status": "T1_paired018_qualified_unpaired020_two_seed_nonpass_T2_not_started",
       "scope": [
         "one_in_family_teacher",
         "one_fixed_out_of_family_teacher",
@@ -3775,7 +3775,7 @@
         }
       },
       "execution020": {
-        "status": "running_restored_seed0_final_evaluation_correct_start_verified",
+        "status": "native0_closed_independent_numeric_readback_complete_scientific_nonpass",
         "run_id": "wp4_020_20261016",
         "remote_root": "/home/rylan/projects/ej276d-n01/wp4_020_20261016",
         "config_sha256": "7e04e99d409794facaac1a06efe5a397fc12fd986d901697110496cd294a421e",
@@ -3787,11 +3787,11 @@
         "input_bytes": 1141935072,
         "G_AD_total_max": 2000,
         "seed0_new_G_AD": 0,
-        "completed_G_AD_accounted": 0,
+        "completed_G_AD_accounted": 2000,
         "project_completed_G_before020": 185667,
-        "project_completed_G_lower_bound": 185667,
+        "project_completed_G_lower_bound": 187667,
         "native_started": true,
-        "active": true,
+        "active": false,
         "source_review_no_blockers": true,
         "scientific_status": "response_match_not_established",
         "autonomous_engineering_recovery_authorized": true,
@@ -3809,18 +3809,18 @@
           "sha256": "31768f3f98da0f1ccc24ae9a89f76e51ba0fe1e98d90651af71a444710d488da"
         },
         "source_commit": "d49f9d206910cd076ba4c26f9c71acea64b0bb2d",
-        "supervisor_pid": 106467,
-        "worker_pid": 106479,
+        "supervisor_pid": null,
+        "worker_pid": null,
         "boot_id": "06177e53-90a1-4d8c-a942-03b487a0684d",
         "supervisor_start_ticks": 3497312,
         "worker_start_ticks": 3497356,
-        "last_verified_UTC": "2026-10-16T03:23:21.459652+00:00",
+        "last_verified_UTC": "2026-10-16T04:01:11.521462+00:00",
         "last_verified_phase": "restored_seed0_final_evaluation_in_progress",
         "correct_start_verified": true,
         "durable_evaluation_signal_rows": 180480,
         "durable_hard_ADC_rows": 541312,
-        "seed1_first_update_verified": false,
-        "inflight_after_snapshot": "unknown",
+        "seed1_first_update_verified": true,
+        "inflight_after_snapshot": "none_terminal_exact_journal",
         "followup": {
           "schema": "n01/wp4-020-single-followup/v1",
           "UTC": "2026-10-16T03:25:53.195297+00:00",
@@ -3866,12 +3866,47 @@
           "path": "receipts/wp4_020_20261016/SOURCE_COMMIT_RECEIPT.json",
           "bytes": 6985,
           "sha256": "8e79bbc5b947544d6a5eda7d85570fcbf08a9c9d245223a698e485ffe0dc63ad"
+        },
+        "historical_supervisor_pid": 106467,
+        "historical_worker_pid": 106479,
+        "native_exit_code": 0,
+        "completed_UTC": "2026-10-16T03:46:42.380418+00:00",
+        "producer_nonpass_count": 89,
+        "producer_unpaired_qualified": false,
+        "independent_result_review_complete": true,
+        "followup_status": "DELIVERED_then_PAUSED_terminal",
+        "automation_terminal_receipt": "receipts/wp4_020_20261016/wake_20261016_1200_01/AUTOMATION_TERMINAL_RECEIPT.json",
+        "scientific_qualified": false,
+        "gate_counts": {
+          "pass": 2455,
+          "fail": 89,
+          "pending": 0
+        },
+        "result": {
+          "path": "receipts/wp4_020_20261016/FINAL_RESULT_RECEIPT.json",
+          "bytes": 10788,
+          "sha256": "11bae7659e319d3b1987646c1da2348137aeb769fcaff2191f9a368093673dd5"
+        },
+        "report": {
+          "path": "reports/wp4_020_20261016/REPORT.md",
+          "bytes": 4363,
+          "sha256": "0c259c05052d5827bb9a0b824a7aa1c5dcc08722a34cc1e97da907c1d68bdf22"
+        },
+        "independent_result_review": {
+          "path": "receipts/wp4_020_20261016/wake_20261016_1200_01/independent_result_01/RESULT_REVIEW.json",
+          "bytes": 27274,
+          "sha256": "5f0247c41feac3a430cb28ec10cdd0e774954bed711eaf0d341a94ce32620bf5"
         }
+      },
+      "latest020_result": {
+        "path": "receipts/wp4_020_20261016/FINAL_RESULT_RECEIPT.json",
+        "bytes": 10788,
+        "sha256": "11bae7659e319d3b1987646c1da2348137aeb769fcaff2191f9a368093673dd5"
       }
     },
     {
       "id": "WP5",
-      "status": "not_started",
+      "status": "021_canonical_entry_diagnostic_registered_not_executed",
       "scope": [
         "physical_simple_baseline",
         "deterministic_baseline",
@@ -3883,7 +3918,31 @@
         "separate_model_seed_parent_group_MC_uncertainty"
       ],
       "exit": "Freeze applicability and effectiveness result; no new architecture search in confirmation.",
-      "entry_condition_status": "not_started; WP4 primary qualification remains pending, no real long-training continuation."
+      "entry_condition_status": "limited analytic preparation only; full hard256 robustness/CV/C2ST/RR and REAL training remain unstarted",
+      "prospective021_scope": {
+        "path": "receipts/wp5_021_20261016/registration_01/PROSPECTIVE_SCOPE.json",
+        "bytes": 4894,
+        "sha256": "9214b94a21820abc43945812b0fb79e0584bfb4aebd4765545e1c7e57536170e"
+      },
+      "execution021": {
+        "run_id": "wp5_021_20261016",
+        "status": "frozen_independent_no_blockers_ready_for_native_analysis",
+        "source_review_no_blockers": true,
+        "native_started": false,
+        "active": false,
+        "config_sha256": "01f3f531abec3e94d5696c479d4c1ea94cafe74137136c745a8587245e5d1a3c",
+        "driver_sha256": "d7255dece2737f424f48ce2ae7522a87aafb1e2370810f112f7a2a7eceaee7bf",
+        "source_review": {
+          "path": "receipts/wp5_021_20261016/independent_01/FINAL_SOURCE_REVIEW.json",
+          "bytes": 14638,
+          "sha256": "622bdd38e60520c36c71fb470f3f172cff3c162458176c5403e9f561b41c6bae"
+        },
+        "registration": "receipts/wp5_021_20261016/registration_01/PROSPECTIVE_REGISTRATION.json",
+        "new_G_AD_NN_RNG_CP": 0,
+        "project_G_before": 187667,
+        "project_G_after": 187667,
+        "scientific_status": "response_match_not_established"
+      }
     },
     {
       "id": "WP6",
@@ -4674,8 +4733,8 @@
     "root_planning_SolMax_implementation_and_review": true,
     "scientific_success_not_guaranteed_by_state_fields": true
   },
-  "current_action": "020 restored019 seed0 final kernel and is completing actual hard evaluation; then train only original seed1 <=2000G/AD.",
-  "updated_UTC": "2026-10-16T03:26:51.897429+00:00",
+  "current_action": "020 closed with verified scientific nonpass; implement the registered saved-Q canonical population/response variance diagnostic021.",
+  "updated_UTC": "2026-10-16T04:28:56.248717+00:00",
   "followup": {
     "schema": "n01/wp4-019-single-followup/v1",
     "UTC": "2026-10-15T20:41:01.970520+00:00",
@@ -4991,9 +5050,9 @@
     "independent_saved_array_scope": "36pairs/176NPZ/1898784hard_rows; not complete loss replay"
   },
   "current_work_package": "WP4",
-  "current_stage": "WP4_020_restored_seed0_final_evaluation",
+  "current_stage": "WP5_021_ready_for_local_native_analysis",
   "active_research": null,
-  "next_action": "At the saved single12:00 wake inspect actual phase/native state and seed1 proof or terminal results; resume the master plan with registered bounded work under persistent authorization.",
+  "next_action": "Run exactly one registered60-case local canonical analysis, then inspect native resources/counts and necessary numerical readback.",
   "last_verified_UTC": "2026-10-16T03:23:21.459652+00:00",
   "wp2_collection": {
     "path": "receipts\\wp2_014_20261015\\collection_01\\COLLECTION_RECEIPT.json",
@@ -5200,8 +5259,8 @@
   "current_run_training_updates": 0,
   "latest_training_run_id": "wp4_017_20261015",
   "followup_automation_id": "n01",
-  "followup_automation_status": "ACTIVE",
-  "followup_next_run_local": "2026-10-16T12:00:00+08:00",
+  "followup_automation_status": "PAUSED",
+  "followup_next_run_local": null,
   "followup_receipt": "receipts/wp4_020_20261016/FOLLOWUP_RECEIPT.json",
   "followup_receipt_sha256": "6e97733775f7aed6f8c152bcc91f28319ed72ae2af9b1221f2195912f84d6d93",
   "wp2_saved_array_closeout": {
@@ -5625,7 +5684,7 @@
     }
   },
   "followup_last_delivered_UTC": "2026-10-15T08:45:06.316Z",
-  "current_followup_status": "single1200_saved_correct_start_verified_then_rest",
+  "current_followup_status": "single1200_delivered_terminal_no_active_scientific_job",
   "wp3_terminal_readback": {
     "path": "receipts/wp3_015_20261015/postrun_root_01/NATIVE_COMPLETION_READBACK.json",
     "sha256": "a9bbc3a9f1694d649b352ad2fd96dc4fa05470bab2856107fe5e35fe6036136f",
@@ -5670,7 +5729,7 @@
     "independent_saved_array_scope": "36pairs/161SHA/160evaluationNPZ/1898784hardrows; no full distance replay"
   },
   "new_training_updates": 183667,
-  "cumulative_training_updates": 185667,
+  "cumulative_training_updates": 187667,
   "wp3_G_updates": 12000,
   "wp3_AD_queries": 12000,
   "short_candidate_runs_completed": 10,
@@ -6128,7 +6187,7 @@
       "scientific_acceptance": false
     }
   },
-  "pending_run_id": null,
+  "pending_run_id": "wp5_021_20261016",
   "wp3_016_execution": {
     "configuration": "wp3_016_config.json",
     "configuration_sha256": "5279597aed74feae87448bfc71aa1387bd711609591eabde775142fa6d1303ab",
@@ -8433,7 +8492,7 @@
     }
   },
   "wp3_completed": true,
-  "active_run_id": "wp4_020_20261016",
+  "active_run_id": null,
   "wp4_017_local_delivery": {
     "document": {
       "path": "receipts/wp4_017_20261015/LOCAL_DELIVERY.md",
@@ -8763,7 +8822,7 @@
   "additional_registered_computation_authorized": true,
   "restart_confirmation_required": false,
   "wp4_020_execution": {
-    "status": "running_restored_seed0_final_evaluation_correct_start_verified",
+    "status": "native0_closed_independent_numeric_readback_complete_scientific_nonpass",
     "run_id": "wp4_020_20261016",
     "remote_root": "/home/rylan/projects/ej276d-n01/wp4_020_20261016",
     "config_sha256": "7e04e99d409794facaac1a06efe5a397fc12fd986d901697110496cd294a421e",
@@ -8775,11 +8834,11 @@
     "input_bytes": 1141935072,
     "G_AD_total_max": 2000,
     "seed0_new_G_AD": 0,
-    "completed_G_AD_accounted": 0,
+    "completed_G_AD_accounted": 2000,
     "project_completed_G_before020": 185667,
-    "project_completed_G_lower_bound": 185667,
+    "project_completed_G_lower_bound": 187667,
     "native_started": true,
-    "active": true,
+    "active": false,
     "source_review_no_blockers": true,
     "scientific_status": "response_match_not_established",
     "autonomous_engineering_recovery_authorized": true,
@@ -8797,18 +8856,18 @@
       "sha256": "31768f3f98da0f1ccc24ae9a89f76e51ba0fe1e98d90651af71a444710d488da"
     },
     "source_commit": "d49f9d206910cd076ba4c26f9c71acea64b0bb2d",
-    "supervisor_pid": 106467,
-    "worker_pid": 106479,
+    "supervisor_pid": null,
+    "worker_pid": null,
     "boot_id": "06177e53-90a1-4d8c-a942-03b487a0684d",
     "supervisor_start_ticks": 3497312,
     "worker_start_ticks": 3497356,
-    "last_verified_UTC": "2026-10-16T03:23:21.459652+00:00",
+    "last_verified_UTC": "2026-10-16T04:01:11.521462+00:00",
     "last_verified_phase": "restored_seed0_final_evaluation_in_progress",
     "correct_start_verified": true,
     "durable_evaluation_signal_rows": 180480,
     "durable_hard_ADC_rows": 541312,
-    "seed1_first_update_verified": false,
-    "inflight_after_snapshot": "unknown",
+    "seed1_first_update_verified": true,
+    "inflight_after_snapshot": "none_terminal_exact_journal",
     "followup": {
       "schema": "n01/wp4-020-single-followup/v1",
       "UTC": "2026-10-16T03:25:53.195297+00:00",
@@ -8854,8 +8913,77 @@
       "path": "receipts/wp4_020_20261016/SOURCE_COMMIT_RECEIPT.json",
       "bytes": 6985,
       "sha256": "8e79bbc5b947544d6a5eda7d85570fcbf08a9c9d245223a698e485ffe0dc63ad"
+    },
+    "historical_supervisor_pid": 106467,
+    "historical_worker_pid": 106479,
+    "native_exit_code": 0,
+    "completed_UTC": "2026-10-16T03:46:42.380418+00:00",
+    "producer_nonpass_count": 89,
+    "producer_unpaired_qualified": false,
+    "independent_result_review_complete": true,
+    "followup_status": "DELIVERED_then_PAUSED_terminal",
+    "automation_terminal_receipt": "receipts/wp4_020_20261016/wake_20261016_1200_01/AUTOMATION_TERMINAL_RECEIPT.json",
+    "scientific_qualified": false,
+    "gate_counts": {
+      "pass": 2455,
+      "fail": 89,
+      "pending": 0
+    },
+    "result": {
+      "path": "receipts/wp4_020_20261016/FINAL_RESULT_RECEIPT.json",
+      "bytes": 10788,
+      "sha256": "11bae7659e319d3b1987646c1da2348137aeb769fcaff2191f9a368093673dd5"
+    },
+    "report": {
+      "path": "reports/wp4_020_20261016/REPORT.md",
+      "bytes": 4363,
+      "sha256": "0c259c05052d5827bb9a0b824a7aa1c5dcc08722a34cc1e97da907c1d68bdf22"
+    },
+    "independent_result_review": {
+      "path": "receipts/wp4_020_20261016/wake_20261016_1200_01/independent_result_01/RESULT_REVIEW.json",
+      "bytes": 27274,
+      "sha256": "5f0247c41feac3a430cb28ec10cdd0e774954bed711eaf0d341a94ce32620bf5"
     }
   },
-  "wp4_020_G_updates": 0,
-  "wp4_020_AD_queries": 0
+  "wp4_020_G_updates": 2000,
+  "wp4_020_AD_queries": 2000,
+  "wp4_020_result": {
+    "path": "receipts/wp4_020_20261016/FINAL_RESULT_RECEIPT.json",
+    "bytes": 10788,
+    "sha256": "11bae7659e319d3b1987646c1da2348137aeb769fcaff2191f9a368093673dd5"
+  },
+  "wp4_020_report": {
+    "path": "reports/wp4_020_20261016/REPORT.md",
+    "bytes": 4363,
+    "sha256": "0c259c05052d5827bb9a0b824a7aa1c5dcc08722a34cc1e97da907c1d68bdf22"
+  },
+  "wp4_020_independent_result_review": {
+    "path": "receipts/wp4_020_20261016/wake_20261016_1200_01/independent_result_01/RESULT_REVIEW.json",
+    "bytes": 27274,
+    "sha256": "5f0247c41feac3a430cb28ec10cdd0e774954bed711eaf0d341a94ce32620bf5"
+  },
+  "wp5_021_prospective_scope": {
+    "path": "receipts/wp5_021_20261016/registration_01/PROSPECTIVE_SCOPE.json",
+    "bytes": 4894,
+    "sha256": "9214b94a21820abc43945812b0fb79e0584bfb4aebd4765545e1c7e57536170e"
+  },
+  "wp5_021_execution": {
+    "run_id": "wp5_021_20261016",
+    "status": "frozen_independent_no_blockers_ready_for_native_analysis",
+    "source_review_no_blockers": true,
+    "native_started": false,
+    "active": false,
+    "config_sha256": "01f3f531abec3e94d5696c479d4c1ea94cafe74137136c745a8587245e5d1a3c",
+    "driver_sha256": "d7255dece2737f424f48ce2ae7522a87aafb1e2370810f112f7a2a7eceaee7bf",
+    "source_review": {
+      "path": "receipts/wp5_021_20261016/independent_01/FINAL_SOURCE_REVIEW.json",
+      "bytes": 14638,
+      "sha256": "622bdd38e60520c36c71fb470f3f172cff3c162458176c5403e9f561b41c6bae"
+    },
+    "registration": "receipts/wp5_021_20261016/registration_01/PROSPECTIVE_REGISTRATION.json",
+    "new_G_AD_NN_RNG_CP": 0,
+    "project_G_before": 187667,
+    "project_G_after": 187667,
+    "scientific_status": "response_match_not_established"
+  }
 }

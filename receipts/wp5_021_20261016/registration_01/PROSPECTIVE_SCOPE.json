@@ -1,0 +1,93 @@
+{
+  "schema": "n01/wp5-021-prospective-analysis-scope/v1",
+  "run_id": "wp5_021_20261016",
+  "UTC": "2026-10-16T04:12:33.004717+00:00",
+  "status": "prospectively_registered_implementation_and_independent_review_pending_no_execution",
+  "question": "Using only saved held-out parent charge/weights and the four fixed paired/unpaired T1 endpoints, quantify canonical preADC population variance versus within-parent charge variance and local a/b sensitivity-column compensation. This is a WP5 entry diagnostic, not full WP5 confirmation.",
+  "trigger": "020 completed native0 but the prospective two-unpaired-seed gate did not qualify;89 producer nonpass cells are only seed0, seed1 has no producer nonpass; independent numerical result review is pending.",
+  "authorization": {
+    "path": "receipts/wp4_020_20261016/authorization_01/USER_AUTHORIZATION.json",
+    "sha256": "d1dcdd2002cf52c792aa307e14cc11fb3b1ad25d035ff0cd46a8bb84cc0040fa",
+    "autonomous_additional_registered_computation_authorized": true,
+    "repeat_confirmation_required": false
+  },
+  "prerequisite_before_execution": "020 independent saved-result review complete and final result receipt bound; final021 source/input contracts frozen and independently no_blockers",
+  "parent_axes": {
+    "path": "E:\\GAN\\research\\N01\\runs\\wp4_018_20261016\\selected_collected_01\\runs\\primary\\artifacts\\PARENT_AXES.npz",
+    "bytes": 418428,
+    "sha256": "df40906d4f3c8f81b4c0e18411f2c1f5f0b34a18e77834d9e4128b5314207200"
+  },
+  "fixed_scope": {
+    "parent_role": "1319 existing held-out parent rows; original6593 identities and5274/1319 split preserved",
+    "groups": [
+      "all_heldout",
+      "fit_Q_tertile0_heldout",
+      "fit_Q_tertile1_heldout",
+      "fit_Q_tertile2_heldout"
+    ],
+    "comparison_weights": [
+      "nominal",
+      "low",
+      "high"
+    ],
+    "original_physical_weights": "read from same saved source axes and report preservation; never replace or fit",
+    "responses": [
+      "known_T1",
+      "T1_paired_seed0",
+      "T1_paired_seed1",
+      "T1_unpaired_seed0",
+      "T1_unpaired_seed1"
+    ],
+    "response_coefficients": "fixed saved final a/b records only; no new fits or endpoint selection",
+    "population_group_weight_cases": 12,
+    "population_group_weight_response_cases": 60,
+    "new_NN_AD_G_RNG_checkpoint_loads": 0,
+    "new_optimizer_or_parameter_fit": 0,
+    "new_hard_observation_replay": 0,
+    "new_distance_pair_evaluations": 0
+  },
+  "numeric_definitions": [
+    "normalize each pre-existing positive comparison-weight vector within its existing group",
+    "between-parent variance = E_w[(Q_mu-E_w Q_mu)^2]",
+    "within-parent variance = E_w[a Q_mu + b Q_mu^2]; report a and b contributions separately",
+    "total canonical signal-charge variance = between-parent variance + within-parent variance",
+    "sensitivity columns for fractional T1 parameter changes: [a_T1 Q_mu,b_T1 Q_mu^2]",
+    "report raw 2x2 weighted Gram and its spectrum/condition, plus unit-column normalized Gram and noncentered weighted cosine; do not call it Pearson correlation",
+    "ESS=(sum group weights)^2/sum squared group weights; no weight fit or row removal"
+  ],
+  "budget_caps": {
+    "population_group_weight_cases": 12,
+    "variance_decompositions": 60,
+    "two_by_two_eigendecompositions": 24,
+    "NN_forward_rows": 0,
+    "new_AD_queries": 0,
+    "G_updates": 0,
+    "new_RNG_draws": 0,
+    "checkpoint_loads": 0,
+    "new_original_SOURCE_REAL_DEV_waveform_reads": 0,
+    "parameter_fits": 0,
+    "optimizer_steps": 0,
+    "new_pair_distances": 0
+  },
+  "resources": {
+    "host": "local Windows",
+    "CPU_threads_max": 1,
+    "wall_seconds_max": 120,
+    "RSS_GiB_max": 2,
+    "output_MiB_max": 8
+  },
+  "success_criteria": [
+    "all frozen inputs/code SHA verified at boundary; exact existing rows/roles/weights and all four endpoint source identities retained",
+    "all60 scalar variance cases and12 sensitivity cases complete; machine-precision variance decomposition closure",
+    "full results and independent numerical algebra/readback recorded; singular/rank-deficient sensitivity reported explicitly",
+    "no new models, training, RNG, hard256 outputs, source population fitting or scientific gate changes"
+  ],
+  "stopping_rules": [
+    "scientific original020 nonpass remains nonpass; this diagnostic never changes qualification",
+    "do not infer hard256 observability, actual unpaired gradient/Hessian behavior, REAL identifiability or hardware acceptability from canonical Gram",
+    "no automatic longer training, new architecture, T2 training or sealed final evaluation; next action must answer another named bounded question"
+  ],
+  "project_G_before021": 187667,
+  "project_G_after021": 187667,
+  "scientific_status": "response_match_not_established"
+}

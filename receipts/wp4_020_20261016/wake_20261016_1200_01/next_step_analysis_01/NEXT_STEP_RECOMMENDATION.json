@@ -1,0 +1,443 @@
+{
+  "schema": "n01/wp4-020-next-step-recommendation/v1",
+  "UTC": "2026-10-16T04:12:23.669262+00:00",
+  "status": "recommendation_only_not_registered_or_executed",
+  "written_scope": "two analysis files only; no source/config/helper/job/Git modification",
+  "current_evidence": {
+    "native_exit_code": 0,
+    "new020_G_AD": 2000,
+    "source019_G_not_recredited": 2000,
+    "producer_required_cells": 2544,
+    "producer_nonpass": 89,
+    "producer_nonpass_all_seed0": true,
+    "independent020_full_grid_review": "pending_at_the_read_NativeCompletionReadback; this note does not replace that review",
+    "paired018_qualified": true,
+    "endpoints": [
+      {
+        "trial": "T1_paired_seed0",
+        "a_Vns": 0.03619300058807756,
+        "b": 0.002441568713507596,
+        "a_relative_error_reported": 0.024552541683790275,
+        "b_relative_error_reported": 0.023372514596961547,
+        "reported_primary_cells": 1272,
+        "reported_status_counts": {
+          "pass": 1272
+        },
+        "secondary_25percent_pass": true,
+        "secondary_not_primary": true
+      },
+      {
+        "trial": "T1_paired_seed1",
+        "a_Vns": 0.03739990383155923,
+        "b": 0.0024177035610684064,
+        "a_relative_error_reported": 0.007975037742039103,
+        "b_relative_error_reported": 0.03291857557263748,
+        "reported_primary_cells": 1272,
+        "reported_status_counts": {
+          "pass": 1272
+        },
+        "secondary_25percent_pass": true,
+        "secondary_not_primary": true
+      },
+      {
+        "trial": "T1_unpaired_seed0",
+        "a_Vns": 0.045798446131886675,
+        "b": 0.00234752784198818,
+        "a_relative_error_reported": 0.23432644843757122,
+        "b_relative_error_reported": 0.060988863204728024,
+        "reported_primary_cells": 1272,
+        "reported_status_counts": {
+          "fail": 89,
+          "pass": 1183
+        },
+        "secondary_25percent_pass": true,
+        "secondary_not_primary": true
+      },
+      {
+        "trial": "T1_unpaired_seed1",
+        "a_Vns": 0.0404121609607801,
+        "b": 0.002012857825269974,
+        "a_relative_error_reported": 0.08915920354069606,
+        "b_relative_error_reported": 0.19485686989201034,
+        "reported_primary_cells": 1272,
+        "reported_status_counts": {
+          "pass": 1272
+        },
+        "secondary_25percent_pass": true,
+        "secondary_not_primary": true
+      }
+    ],
+    "reported020_cells": [
+      {
+        "trial": "T1_unpaired_seed0",
+        "selected_already_computed_cells": [
+          {
+            "status": "fail",
+            "relative_RMS": 0.12674875731927102,
+            "relative_max": 0.22300991304426546,
+            "metric": "analytic_charge_variance",
+            "group": "all_heldout",
+            "weights": "nominal"
+          },
+          {
+            "status": "pass",
+            "pooled_conditional_trace_ratio": 1.0857491791842067,
+            "metric": "hard_wave_variance",
+            "group": "all_heldout",
+            "weights": "nominal",
+            "hypothesis": "fast"
+          },
+          {
+            "status": "pass",
+            "improvement": {
+              "mean": -3.5585368904754464,
+              "SE": 0.06249107221420997,
+              "ESS": 1319.0000000000005,
+              "parents": 1319
+            },
+            "upper95": -3.436056639580303,
+            "excess_reference": {
+              "mean": 0.05252898155187663,
+              "SE": 0.06445332992277658,
+              "ESS": 1319.0000000000005,
+              "parents": 1319
+            },
+            "excess_allowed": 1.1175210204865735,
+            "metric": "conditional_energy",
+            "group": "all_heldout",
+            "weights": "nominal",
+            "hypothesis": "fast"
+          },
+          {
+            "status": "fail",
+            "group_relative_Frobenius": 0.1510713217163846,
+            "teacher32_split_resolution": 0.01718108128501056,
+            "metric": "conditional_cov8",
+            "group": "all_heldout",
+            "weights": "nominal",
+            "hypothesis": "fast"
+          },
+          {
+            "status": "pass",
+            "score": {
+              "mean": 0.0022987181265213368,
+              "SE": 0.002019226418897586,
+              "ESS": 1319.0000000000005,
+              "parents": 1319
+            },
+            "teacher32_null": {
+              "mean": -0.002665159175165032,
+              "SE": 0.00410724341310242,
+              "ESS": 1319.0000000000005,
+              "parents": 1319
+            },
+            "upper95": 0.006256329184192394,
+            "half_width95": 0.003957611057671057,
+            "metric": "observable_joint_energy",
+            "group": "all_heldout",
+            "weights": "nominal",
+            "hypothesis": "fast"
+          }
+        ],
+        "nonpass_by_metric": {
+          "analytic_charge_variance": 12,
+          "hard_wave_variance": 21,
+          "PIT_coverage": 32,
+          "conditional_cov8": 24
+        }
+      },
+      {
+        "trial": "T1_unpaired_seed1",
+        "selected_already_computed_cells": [
+          {
+            "status": "pass",
+            "relative_RMS": 0.02957554319683318,
+            "relative_max": 0.07827565697010043,
+            "metric": "analytic_charge_variance",
+            "group": "all_heldout",
+            "weights": "nominal"
+          },
+          {
+            "status": "pass",
+            "pooled_conditional_trace_ratio": 1.0057298249307995,
+            "metric": "hard_wave_variance",
+            "group": "all_heldout",
+            "weights": "nominal",
+            "hypothesis": "fast"
+          },
+          {
+            "status": "pass",
+            "improvement": {
+              "mean": -3.610006267223881,
+              "SE": 0.05961622115108478,
+              "ESS": 1319.0000000000005,
+              "parents": 1319
+            },
+            "upper95": -3.49316062087338,
+            "excess_reference": {
+              "mean": 0.0010596048034419644,
+              "SE": 0.06358701815199215,
+              "ESS": 1319.0000000000005,
+              "parents": 1319
+            },
+            "excess_allowed": 1.1175210204865735,
+            "metric": "conditional_energy",
+            "group": "all_heldout",
+            "weights": "nominal",
+            "hypothesis": "fast"
+          },
+          {
+            "status": "pass",
+            "group_relative_Frobenius": 0.05351099295339047,
+            "teacher32_split_resolution": 0.01718108128501056,
+            "metric": "conditional_cov8",
+            "group": "all_heldout",
+            "weights": "nominal",
+            "hypothesis": "fast"
+          },
+          {
+            "status": "pass",
+            "score": {
+              "mean": -0.0009422691085607887,
+              "SE": 0.0019155846665175724,
+              "ESS": 1319.0000000000005,
+              "parents": 1319
+            },
+            "teacher32_null": {
+              "mean": -0.002665159175165032,
+              "SE": 0.00410724341310242,
+              "ESS": 1319.0000000000005,
+              "parents": 1319
+            },
+            "upper95": 0.002812207847150823,
+            "half_width95": 0.003754476955711612,
+            "metric": "observable_joint_energy",
+            "group": "all_heldout",
+            "weights": "nominal",
+            "hypothesis": "fast"
+          }
+        ],
+        "nonpass_by_metric": {}
+      }
+    ]
+  },
+  "interpretation": {
+    "supported": "In-family paired under018 gates passed; unpaired fixed2000-step two-seed qualification is not reproducible across these two observed runs. Seed1 passes all reported1272 cells; seed0 fails89.",
+    "not_supported": [
+      "Both unpaired seeds failed",
+      "Mathematical non-identifiability of the unpaired problem",
+      "Every unpaired algorithm fails",
+      "The charge family is unable to express T1",
+      "The stochastic optimizer has converged, or optimizer noise uniquely caused the difference",
+      "Fullwave or O19 pass substitutes for variance/coverage/cov8 gates",
+      "89 nonpass cells are89 independent experimental failures"
+    ]
+  },
+  "recommended_single_path": {
+    "name": "canonical_charge_population_response_decomposition_before_WP5",
+    "purpose": "Quantify, with existing saved Q and four endpoint coefficients, how fixed comparison-population changes alter between-parent charge variance versus expected conditional response variance, and how opposite a/b errors can compensate across Q.",
+    "stage": "WP4-to-WP5 prerequisite diagnostic only; WP5 remains not_started, original WP4 qualification remains nonpass/pending review; no REAL training permission inferred",
+    "next_action": "ROOT may prospectively register a bounded new021 task after closing020 independent readback; do not extend/retrain020 or start T2/mean candidate here",
+    "why_now": [
+      "Current seed0 has an analytic variance-curve defect as well as hard variance/coverage/cov8 failures; this is not solely64-draw observable-time uncertainty.",
+      "The four endpoint(a,b) and frozen mean-charge population exist; analytic law-of-total-variance needs no new model, checkpoint, random library, hard waveform or training.",
+      "It directly addresses the master-plan population-versus-response question while preserving failed gates and provides a concrete limitation for the applicability card."
+    ],
+    "question_boundary": "Canonical signal charge before electronics and hard observation; no claim about hard256 distributions, optimizer gradients or REAL identifiability"
+  },
+  "proposed_calculation": {
+    "not_executed": true,
+    "Q_definition": "fixed_A_Q_Vns in saved018 PARENT_AXES; not calibrated incoming energy and not a REAL per-event paired label",
+    "role": "1319 heldout parents only; fit5274 used only to preserve role binding; no low/high weights invented for all/fit",
+    "groups": [
+      "all_heldout",
+      "fit_Q_tertile0_heldout",
+      "fit_Q_tertile1_heldout",
+      "fit_Q_tertile2_heldout"
+    ],
+    "comparison_weights": [
+      "nominal",
+      "low",
+      "high"
+    ],
+    "weight_semantics": "Use exactly the three saved comparison_weight arrays on heldout. They are diagnostic tilts, not a fitted or physically validated SOURCE population. Original physical weights and parent counts are retained separately, not silently multiplied/replaced.",
+    "kernels": [
+      "teacher_T1",
+      "T1_paired_seed0",
+      "T1_paired_seed1",
+      "T1_unpaired_seed0",
+      "T1_unpaired_seed1"
+    ],
+    "scenario_count": 60,
+    "normalization": "alpha_i=w_i/sum_group(w); original group parent count, weight sum and ESS recorded",
+    "formulas": {
+      "conditional_mean": "E(q_sig|Q)=Q",
+      "conditional_variance": "v_ab(Q)=a*Q+b*Q^2",
+      "between": "B_w=Var_alpha(Q)=sum alpha*(Q-mean_alpha(Q))^2",
+      "within_a": "A_w=a*sum alpha*Q",
+      "within_b": "C_w=b*sum alpha*Q^2",
+      "within": "W_w=A_w+C_w",
+      "total": "Var_w(q_sig)=B_w+W_w",
+      "variance_defect": "Delta_v(Q)=(a-aT)*Q+(b-bT)*Q^2",
+      "relative_sensitivity_columns": "s_a=aT*Q/vT, s_b=bT*Q^2/vT; derivatives of log(vT) wrt log(aT),log(bT)",
+      "sensitivity_Gram": "G=sum alpha*s*s.T; uncentered,2x2, one per group-weight",
+      "column_cosine": "G12/sqrt(G11*G22); not Pearson correlation"
+    },
+    "Gram_matrices": 12,
+    "Gram_outputs": [
+      "uncentered column cosine",
+      "two eigenvalues",
+      "lambda_min/lambda_max",
+      "condition number or explicit rank-deficient status"
+    ],
+    "no_new_threshold": "No new primary performance gate, no reclassification of017/018/020 and no fit of a,b/population. Existing unweighted fixed-scaled Gram ratios are contextual secondary screens only; not thresholds for this new relative-sensitivity Gram.",
+    "excluded": [
+      "New a/b fits or coefficient grid search",
+      "Bootstrap or new Monte Carlo confidence claims",
+      "Centered-column cosine mislabeled as Pearson",
+      "An infinite/undefined condition number replaced by zero",
+      "Hard ADC/005/selected-window response equivalence",
+      "Unconditional variance decomposition claimed to prove full distribution identifiability"
+    ]
+  },
+  "prospective_budget_proposal": {
+    "authorization_status": "not a registered budget; ROOT must freeze this separate bounded computation before array decode",
+    "scientific_inputs_count": 6,
+    "scientific_input_bytes": 6711911,
+    "numeric_NPZ_decodes": 1,
+    "numeric_Q_values_read": 6593,
+    "numeric_Q_values_analyzed": 1319,
+    "group_weight_sensitivity_rows": 7914,
+    "scenario_parent_contributions": 39570,
+    "scenario_scalar_rows": 60,
+    "sensitivity_2x2_Gram_and_eigendecompositions": 12,
+    "new_CP_loads": 0,
+    "new_NN_rows": 0,
+    "new_AD": 0,
+    "new_G": 0,
+    "new_RNG_scalar_requests": 0,
+    "new_hard_ADC_rows": 0,
+    "new_distance_pairs": 0,
+    "new_optimizer_or_trial_slots": 0,
+    "original_SOURCE_REAL_DEV_waveform_reads": 0,
+    "CPU_threads": 1,
+    "wall_seconds_cap": 60,
+    "process_RSS_MiB_cap": 512,
+    "new_output_MiB_cap": 1,
+    "new_output_files_cap": 4,
+    "old_scientific_suites_repeated": 0
+  },
+  "success_and_stop": {
+    "completion": "All60 finite weighted analytic scenarios and12 sensitivity summaries, complete group denominators/ESS, exact input hashes and provenance; algebraic identities checked in float64 with predeclared1e-12 relative numerical tolerance. Rank deficiency/undefined cosine is reported by state, not treated as zero/pass.",
+    "scientific_success": "Answer the bounded decomposition/cancellation question with the actual finite population. Both presence and absence of sizeable compensation are valid outcomes; no requirement that a particular mechanism be found.",
+    "stop": [
+      "Missing or inconsistent bound input/member identity or parent/weight role stops the task; no CP/NN fallback.",
+      "At60 scenarios and12 Gram summaries, stop. No adaptive new weighting, coefficient fit, additional seeds, training extension or MC sampling.",
+      "If it cannot distinguish optimization-noise mechanisms, report that unresolved; do not call this proof of mathematical non-identifiability.",
+      "Do not markWP5 validated or start REAL training; population/selection and hard-observation questions remain separate."
+    ]
+  },
+  "later_questions": {
+    "optimization": "Training logs show stochastic endpoints/ongoing finite updates, not the expected-risk landscape or training-noise variance. Separating optimizer noise from finite-sample objective resolution would require a separately bounded common-random score/gradient or optimizer experiment, not this analytical task.",
+    "T2": "Before consuming remainingT2 trial slots, prospectively demonstrate that the fixed T2 mechanism is distinguishable after the actual hard observation fromT1 at the frozen support/MC rules. PreADC mixture construction alone does not establish that.",
+    "mean015": "015 adapter moved and sampled trust scales were1, but old-basis unreachability was not numerically established. WP3 six slots consumed; remainingWP2 slots cannot be reassigned. A mean-warp candidate needs a new question/budget and reachability evidence.",
+    "delivery": "WP6 has not_started. Once the bounded diagnostic and020 readback are closed, populate the applicability/failure card and reproducible fixed-model evidence; select only the independently confirmed effective baseline for eventual delivery. Do not deploy knownteacher coefficients or claim a new REAL-effective model."
+  },
+  "sources": {
+    "compact_comparison_JSONs": [
+      {
+        "trial": "T1_paired_seed0",
+        "source_archive": "receipts/wp4_018_20261016/wake_20261016_0400_01/collection_01/wp4_018_selected_20261016_0400_01.tar",
+        "archive_member": "runs/primary/artifacts/T1_paired_seed0_COMPARISON018.json",
+        "bytes": 1572070,
+        "sha256": "b1eb61cbea3c7bc8f335daebf819ad52df4f703fc5b9e94a0aa9942bb024af09"
+      },
+      {
+        "trial": "T1_paired_seed1",
+        "source_archive": "receipts/wp4_018_20261016/wake_20261016_0400_01/collection_01/wp4_018_selected_20261016_0400_01.tar",
+        "archive_member": "runs/primary/artifacts/T1_paired_seed1_COMPARISON018.json",
+        "bytes": 1572042,
+        "sha256": "4490002687a33419fefec3b39524b5b00f75b373942856b62d51258bfcdc3fe2"
+      },
+      {
+        "trial": "T1_unpaired_seed0",
+        "source_archive": "receipts/wp4_020_20261016/wake_20261016_1200_01/collection_01/wp4_020_selected_20261016_1200_01.tar",
+        "archive_member": "runs/primary/artifacts/T1_unpaired_seed0/COMPARISON020.json",
+        "bytes": 1557811,
+        "sha256": "bb840afcef708bf0e93cccca3456c913028a3abcd4a142f039e952ef236dbcc2"
+      },
+      {
+        "trial": "T1_unpaired_seed1",
+        "source_archive": "receipts/wp4_020_20261016/wake_20261016_1200_01/collection_01/wp4_020_selected_20261016_1200_01.tar",
+        "archive_member": "runs/primary/artifacts/T1_unpaired_seed1/COMPARISON020.json",
+        "bytes": 1557844,
+        "sha256": "d3fb505efb6c9506b2fcc87becc54d6c51c2ad04907b08ddee844567b1f862cb"
+      }
+    ],
+    "readback": {
+      "path": "receipts/wp4_020_20261016/wake_20261016_1200_01/NATIVE_COMPLETION_READBACK.json",
+      "bytes": 5316,
+      "sha256": "51c4cff1c2f24b1abf3c4d55798f0171039960781ebc9f0a78b4a6bb85b740e4"
+    },
+    "mean015_diagnostic": {
+      "path": "receipts/review_017_20261016/mean_015_diagnostic_01/DIAGNOSTIC.json",
+      "sha256": "bd8b5bd016c95887d124b5fb44ed7b69b12bbec26f9d0b91637d3790b6994ecb"
+    }
+  },
+  "actual_new_computation_this_note": {
+    "private_array_decodes": 0,
+    "CP_loads": 0,
+    "NN_rows": 0,
+    "G": 0,
+    "AD": 0,
+    "RNG": 0,
+    "SSH": 0,
+    "training": 0,
+    "new_scientific_probes": 0
+  },
+  "prospective_input_pins": [
+    {
+      "name": "PARENT_AXES.npz",
+      "source_archive": "receipts/wp4_018_20261016/wake_20261016_0400_01/collection_01/wp4_018_selected_20261016_0400_01.tar",
+      "archive_member": "runs/primary/artifacts/PARENT_AXES.npz",
+      "bytes": 418428,
+      "sha256": "df40906d4f3c8f81b4c0e18411f2c1f5f0b34a18e77834d9e4128b5314207200",
+      "numeric_decode_this_note": false
+    },
+    {
+      "trial": "T1_paired_seed0",
+      "source_archive": "receipts/wp4_018_20261016/wake_20261016_0400_01/collection_01/wp4_018_selected_20261016_0400_01.tar",
+      "archive_member": "runs/primary/artifacts/T1_paired_seed0_COMPARISON018.json",
+      "bytes": 1572070,
+      "sha256": "b1eb61cbea3c7bc8f335daebf819ad52df4f703fc5b9e94a0aa9942bb024af09"
+    },
+    {
+      "trial": "T1_paired_seed1",
+      "source_archive": "receipts/wp4_018_20261016/wake_20261016_0400_01/collection_01/wp4_018_selected_20261016_0400_01.tar",
+      "archive_member": "runs/primary/artifacts/T1_paired_seed1_COMPARISON018.json",
+      "bytes": 1572042,
+      "sha256": "4490002687a33419fefec3b39524b5b00f75b373942856b62d51258bfcdc3fe2"
+    },
+    {
+      "trial": "T1_unpaired_seed0",
+      "source_archive": "receipts/wp4_020_20261016/wake_20261016_1200_01/collection_01/wp4_020_selected_20261016_1200_01.tar",
+      "archive_member": "runs/primary/artifacts/T1_unpaired_seed0/COMPARISON020.json",
+      "bytes": 1557811,
+      "sha256": "bb840afcef708bf0e93cccca3456c913028a3abcd4a142f039e952ef236dbcc2"
+    },
+    {
+      "trial": "T1_unpaired_seed1",
+      "source_archive": "receipts/wp4_020_20261016/wake_20261016_1200_01/collection_01/wp4_020_selected_20261016_1200_01.tar",
+      "archive_member": "runs/primary/artifacts/T1_unpaired_seed1/COMPARISON020.json",
+      "bytes": 1557844,
+      "sha256": "d3fb505efb6c9506b2fcc87becc54d6c51c2ad04907b08ddee844567b1f862cb"
+    },
+    {
+      "name": "wp4_020_config.json",
+      "source_path": "wp4_020_config.json",
+      "bytes": 33716,
+      "sha256": "7e04e99d409794facaac1a06efe5a397fc12fd986d901697110496cd294a421e",
+      "purpose": "original T1 and qref contract only; no new settings"
+    }
+  ]
+}
