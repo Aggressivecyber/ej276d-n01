@@ -1,0 +1,209 @@
+{
+  "schema": "n01/response037-independent-publication-QA/v1",
+  "UTC": "2026-10-16T23:31:53.305462+00:00",
+  "status": "PASS",
+  "bindings": {
+    "ROOT_receipt": {
+      "path": "receipts/response037_20261017/FINAL_RESULT_RECEIPT.json",
+      "sha256": "8b20eab4480b32677df6aef7b11db67b499838a9f35957d02a8511e3b845332c",
+      "bytes": 18402
+    },
+    "report": {
+      "path": "reports/response037_20261017/REPORT.md",
+      "sha256": "eacd84a2026e046e3007a4afd97001e68e96a666dee2c8f2a2355ad5263139a4",
+      "bytes": 8181
+    },
+    "plot_receipt": {
+      "path": "reports/response037_20261017/PLOT_RECEIPT.json",
+      "sha256": "70f0b541df81454063d397f4e04eab84ed85b5e82dee634542b7957808fcc79d",
+      "bytes": 223175
+    },
+    "plot_generator": {
+      "path": "reports/response037_20261017/plot_saved_outputs.py",
+      "sha256": "60bb9ca1394b08a43b96dc429690ae89e8a101449d252b539dd2b0493aea31cf",
+      "bytes": 16279
+    },
+    "result_review": {
+      "path": "receipts/response037_20261017/independent_result_01/RESULT_REVIEW.json",
+      "sha256": "6f8b98e4d8e964de61d944f52ad318a0635b8709d99a3d101a4bbda918fc2aa4",
+      "bytes": 20457
+    },
+    "report_text_QA": {
+      "path": "receipts/response037_20261017/independent_result_01/REPORT_TEXT_QA.json",
+      "sha256": "6b750cd8c0b38af826344aa1568e82fab76509cf1c7ff5302ea2e28f3ad7b7b8",
+      "bytes": 4276
+    },
+    "native_RESULT": {
+      "path": "receipts/response037_20261017/completion_01/run_01/RESULT.json",
+      "sha256": "f25a3ff66b164f653220976ec8729877703386450401e3ad0a9499bec7530b88",
+      "bytes": 509793
+    }
+  },
+  "ROOT_evidence_paths_sizes_SHA256_checked": 25,
+  "ROOT_native_and_recomputation_objects_exactly_equal_prior_independent_review": true,
+  "report_text_QA_still_applies": true,
+  "report_local_links": [
+    {
+      "label": "首批方向与有限差分",
+      "target": "initial_direction_and_fd.png",
+      "resolved_path": "reports/response037_20261017/initial_direction_and_fd.png"
+    },
+    {
+      "label": "既有 TRAIN 风险批组的配对结果",
+      "target": "reused_risk_bank_effects.png",
+      "resolved_path": "reports/response037_20261017/reused_risk_bank_effects.png"
+    },
+    {
+      "label": "独立结果复算",
+      "target": "../../receipts/response037_20261017/independent_result_01/RESULT_REVIEW.json",
+      "resolved_path": "receipts/response037_20261017/independent_result_01/RESULT_REVIEW.json"
+    },
+    {
+      "label": "模型诊断",
+      "target": "../../receipts/response037_20261017/model_diagnosis_01/DIAGNOSIS.json",
+      "resolved_path": "receipts/response037_20261017/model_diagnosis_01/DIAGNOSIS.json"
+    },
+    {
+      "label": "图表与 QA",
+      "target": "PLOT_RECEIPT.json",
+      "resolved_path": "reports/response037_20261017/PLOT_RECEIPT.json"
+    },
+    {
+      "label": "ROOT 回执",
+      "target": "../../receipts/response037_20261017/FINAL_RESULT_RECEIPT.json",
+      "resolved_path": "receipts/response037_20261017/FINAL_RESULT_RECEIPT.json"
+    }
+  ],
+  "figures": [
+    {
+      "path": "reports/response037_20261017/initial_direction_and_fd.png",
+      "sha256": "45ddf6cb8d730c458a510b98be3f9fad8ba21f9c2f61a94e7a058be069e5e325",
+      "bytes": 266626,
+      "pixels": [
+        2649,
+        1182
+      ],
+      "opened_and_visually_checked": true
+    },
+    {
+      "path": "reports/response037_20261017/reused_risk_bank_effects.png",
+      "sha256": "60f3a3c0d0c93e1cd75f3f0c39a3c0c816dcacd50a5ebf755fdf000613061228",
+      "bytes": 228465,
+      "pixels": [
+        2435,
+        1176
+      ],
+      "opened_and_visually_checked": true
+    }
+  ],
+  "visual_QA": {
+    "method": "Both final saved PNGs independently opened with view_image; PNG hashes unchanged after metadata-only correction.",
+    "checks": [
+      "Labels, units, discrete fixed lambda points, separate full1 axes and legends are readable without overlap.",
+      "First training bank is explicitly separated from eight reused TRAIN risk banks.",
+      "Risk bars are mean plus/minus3MCSE; unresolved applies to15 total changes, while a resolved nested example remains explicit.",
+      "H is original hard ADC observation; S/F are mathematical proxies. No lambda or candidate selection is implied."
+    ]
+  },
+  "plot_saved_value_crosschecks": {
+    "first_training_FD": true,
+    "risk_centered_FD": true,
+    "nested_mode_differences": true,
+    "parameter_points": true,
+    "parameter_saved_metadata": true,
+    "risk_total_subset": true,
+    "first_training_total_deltas": true
+  },
+  "plot_input_and_definition_bindings_checked": 6,
+  "metadata_correction": {
+    "resolved": true,
+    "copied_rules_exact_frozen_PLAN_interpretation": true,
+    "scope": "Copied pre-registered hypothetical if-then interpretation rules, not observed findings. Overshoot requires small positive steps to descend while full1 harms; sampled-direction mismatch requires first-bank F descent and resolved reused-bank F total harm.",
+    "current_observed_outcome": "Neither hypothetical trigger is established in037: the first-bank full1 total decreases in H/S/F, while all15 reused-bank point-mode total changes are unresolved at the registered descriptive3MCSE criterion.",
+    "frozen_PLAN_report_native_results_and_PNGs_unchanged": true
+  },
+  "science_conclusion_consistency": {
+    "firstbank_full1_descends_H_S_F": true,
+    "local_F_FD_prediction_agreement_is_not_global_STE_correctness": true,
+    "all15_reused_risk_total_changes_and_all6_total_FDs_unresolved_at3MCSE": true,
+    "nested_and_components_can_be_resolved": true,
+    "firstbank_main_improvement_is_signed_integral_energy": true,
+    "MCSE_is_eight_reused_bank_Monte_Carlo_variation_not_physical_acquisition_uncertainty": true,
+    "response_match_not_established": true,
+    "overall_fitting_goal_unmet": true,
+    "037_closed_at_registered_budget_no_lambda_or_new_candidate": true
+  },
+  "native_counts": {
+    "NN_calls": 108,
+    "NN_rows": 6912,
+    "noise005_rows": 1152,
+    "extension_rows": 3456,
+    "hard_generated_ADC_rows": 20736,
+    "anchored_surrogate_crop_rows": 41472,
+    "checkpoint_loads": 2,
+    "TRAIN_archives_decoded": 1,
+    "REAL_existing_observation_rows": 21047,
+    "banks_cached": 9,
+    "training_AD_queries": 1,
+    "diagnostic_G_updates": 1,
+    "DEV_reads": 0,
+    "statistics_fits": 0,
+    "checkpoint_writes": 0,
+    "native_W1_runs": 0
+  },
+  "accounting": {
+    "cumulative_before": 199668,
+    "completed_diagnostic_G_updates": 1,
+    "completed_training_candidate_updates": 0,
+    "cumulative_after": 199669,
+    "completed_updates_accounted": 1,
+    "additional_updates_in_closeout": 0,
+    "basis": "037 diagnostic update was already added exactly once at terminal accounting. Keep036 2000 and033 one diagnostic update unchanged; earlier engineering counts remain separately recorded."
+  },
+  "ledger_readback": {
+    "snapshot_UTC": "2026-10-16T23:31:53.305462+00:00",
+    "paths": [
+      "jobs.json",
+      "PROGRAM.json",
+      "MASTER_EXECUTION_PLAN.json"
+    ],
+    "common_fields": {
+      "active_scientific_jobs": 0,
+      "active_scientific_jobs_status_basis": "037 one startup/terminal snapshot at2026-10-16T23:13:09.363524+00:00: native exit0, no owned processes and project flock free; no subsequent scientific job launched.",
+      "cumulative_training_updates": 199669,
+      "latest_training_run_id": "response036_20261017",
+      "current_run_training_updates": 0,
+      "current_run_diagnostic_G_updates": 1,
+      "active_run_id": null,
+      "pending_run_id": null,
+      "active_work_package": null,
+      "active_research": null,
+      "active_audit": null,
+      "scientific_status": "response_match_not_established",
+      "followup_scheduled_local": null,
+      "followup_next_run_local": null,
+      "followup_last_consumed_local": "2026-10-17T06:50:22.789+08:00",
+      "current_followup_status": "consumed_one_shot_no_future_scheduled",
+      "response037_G_updates": 1,
+      "response037_AD_queries": 1
+    },
+    "036_two_review_flags_true_all3": true,
+    "037_closed_and_once_accounted_all3": true,
+    "consumed_COUNT1_no_future_wake_user_not_paused_all3": true,
+    "jobs_PROGRAM_master_sha_matches_read_MASTER": "f233a5a63dafa4eb9a1cc91053f40bb481f0e118bc09ab2c5f966fd0602d1c38",
+    "note": "ROOT may add this QA path/hash and refresh administrative ledger hashes after this readback; no scientific increment is required."
+  },
+  "corrections_remaining": [],
+  "review_execution": {
+    "NN_calls": 0,
+    "AD_queries": 0,
+    "optimizer_updates": 0,
+    "checkpoint_reads_or_deserializations": 0,
+    "raw_SOURCE_REAL_DEV_reads": 0,
+    "new_observation_calls": 0,
+    "array_reads": 0,
+    "627_statistical_estimates_recomputed_again": false,
+    "old_sources_figures_reports_results_ledgers_modified": false,
+    "own_receipt_only_written": true
+  }
+}

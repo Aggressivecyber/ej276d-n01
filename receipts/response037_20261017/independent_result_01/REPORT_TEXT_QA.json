@@ -1,0 +1,103 @@
+{
+  "schema": "n01/response037-independent-report-text-QA/v1",
+  "UTC": "2026-10-16T23:21:00.816068+00:00",
+  "status": "TEXT_NUMERIC_PASS_FIGURE_FINAL_RECEIPT_QA_PENDING",
+  "report_sha256": "eacd84a2026e046e3007a4afd97001e68e96a666dee2c8f2a2355ad5263139a4",
+  "report_bytes": 8181,
+  "native_RESULT_sha256": "f25a3ff66b164f653220976ec8729877703386450401e3ad0a9499bec7530b88",
+  "independent_result_review_sha256": "6f8b98e4d8e964de61d944f52ad318a0635b8709d99a3d101a4bbda918fc2aa4",
+  "numeric_table_values_checked": {
+    "firstbank_delta_gdot": 20,
+    "FD_prediction_relativeerror": 6,
+    "risk_mean_MCSE": 18,
+    "total": 44
+  },
+  "firstbank_H_total_weighted_decomposition": {
+    "wave": -0.00049411925291536,
+    "2integral": -0.014142372106215717,
+    ".01regular_saturation": 2.0316058591332564e-08,
+    "total": -0.014636471043072485
+  },
+  "resolved_component_claims_checked": [
+    {
+      "section": "reused_TRAIN_paired_deltas",
+      "point": "full1",
+      "mode": "F",
+      "metric": "wave",
+      "mean": 0.007443378152613549,
+      "MCSE": 0.0012736063364085484
+    },
+    {
+      "section": "reused_TRAIN_nested_mode_differences",
+      "point": "full1",
+      "mode": "S_minus_F",
+      "metric": "wave",
+      "mean": -0.005071471079191048,
+      "MCSE": 0.0008250588114316836
+    },
+    {
+      "section": "reused_TRAIN_nested_mode_differences",
+      "point": "full1",
+      "mode": "S_minus_F",
+      "metric": "integral",
+      "mean": 0.0013129918031948397,
+      "MCSE": 0.00033548839865506853
+    },
+    {
+      "section": "reused_TRAIN_nested_mode_differences",
+      "point": "minus_1_16",
+      "mode": "H_minus_S",
+      "metric": "total",
+      "mean": 0.0005092058515591543,
+      "MCSE": 0.00010420487642666127
+    }
+  ],
+  "ADC_crop_rounding_claims_checked": true,
+  "local_vs_risk_boundary": "Localfirstbank fullstep descends andF finiteFD/g agree; all15 pairedrisk totals remainunresolved; negative-ray nested andcomponent effects separately identified. No ADbug,globalriskrepair,LRselection orconditionalresponse claim.",
+  "gradient_projection_scope": "gdot contributions are firstbank linear predictions,notactual-loss causalcomponent attribution orriskbank gradients.",
+  "loss_interpretation": "Firstbank improvement dominatedby finite-sample integralenergy,whichmaybenegative. No claim that negative estimator impliesfitted distribution orsignbug.",
+  "science_budget_and_accounting": "108NN6912rows,AD1diagnosticG1,53remainingpointbankevaluations plusfirstreusedAD point,CPwrites0/DEV0;199668+1=199669. No ledger reread/edits.",
+  "links": [
+    {
+      "reference": "initial_direction_and_fd.png",
+      "path": "E:/GAN/research/N01/reports/response037_20261017/initial_direction_and_fd.png",
+      "currently_present": true
+    },
+    {
+      "reference": "reused_risk_bank_effects.png",
+      "path": "E:/GAN/research/N01/reports/response037_20261017/reused_risk_bank_effects.png",
+      "currently_present": true
+    },
+    {
+      "reference": "../../receipts/response037_20261017/independent_result_01/RESULT_REVIEW.json",
+      "path": "E:/GAN/research/N01/receipts/response037_20261017/independent_result_01/RESULT_REVIEW.json",
+      "currently_present": true
+    },
+    {
+      "reference": "../../receipts/response037_20261017/model_diagnosis_01/DIAGNOSIS.json",
+      "path": "E:/GAN/research/N01/receipts/response037_20261017/model_diagnosis_01/DIAGNOSIS.json",
+      "currently_present": true
+    },
+    {
+      "reference": "PLOT_RECEIPT.json",
+      "path": "E:/GAN/research/N01/reports/response037_20261017/PLOT_RECEIPT.json",
+      "currently_present": true
+    },
+    {
+      "reference": "../../receipts/response037_20261017/FINAL_RESULT_RECEIPT.json",
+      "path": "E:/GAN/research/N01/receipts/response037_20261017/FINAL_RESULT_RECEIPT.json",
+      "currently_present": false
+    }
+  ],
+  "pending_assets_note": "ROOT says figures are being generated andfinalROOT receipt followsfigureQA. Missingforthcomingassets are workflowpending,not scientificblockers. ThistextQA doesnotclaimvisualQA.",
+  "corrections_required": [],
+  "review_execution_counts": {
+    "NN": 0,
+    "AD": 0,
+    "CP": 0,
+    "raw_arrays": 0,
+    "new_observation": 0,
+    "jobs": 0
+  },
+  "old_artifacts_ledgers_modified": false
+}

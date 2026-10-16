@@ -1,0 +1,664 @@
+{
+  "schema": "n01/response037-independent-result-review/v1",
+  "UTC": "2026-10-16T23:18:27.448094+00:00",
+  "status": "NATIVE_COMPLETE_LOCAL_FIRSTBANK_EVIDENCE_RISK_DIRECTION_UNRESOLVED_NO_RESPONSE_MATCH",
+  "identity": {
+    "source_sha256": "8cecc0d63c75d718095d1ab29ec233e039cca1eaf6b9b6eca6e6752db96d0c56",
+    "config_sha256": "066f781728b7c73eebbca7bd41e331de6670a5500a492dfdd7793d7c3df74aaa",
+    "RESULT_sha256": "f25a3ff66b164f653220976ec8729877703386450401e3ad0a9499bec7530b88",
+    "metrics_sha256": "4d2d8d456bff6479fc1fd16c47566c03d4bc3039f12db3aa5b72c0a275b11017",
+    "PARAMETER_DIRECTION_sha256": "432867f03de7343c2135ea9061c088214bd9c7866403fce3ad3adfd7486eb811"
+  },
+  "integrity": {
+    "selected_files_rehashed": 13,
+    "selected_bytes": 1353494,
+    "all_sizes_hashes_match": true,
+    "manifest_sha256": "dcfd145c12bc9a4975ceb17c1d1086398dc8fb65d6eba9cf0d2030eaa914ecd6",
+    "native_source_config_files": 42,
+    "all_match": true,
+    "snapshot_UTC": "2026-10-16T23:13:09.363524+00:00",
+    "no_owned_processes": true,
+    "lock_free": true
+  },
+  "native": {
+    "exit_code": 0,
+    "started_UTC": "2026-10-16T23:12:28.785712+00:00",
+    "ended_UTC": "2026-10-16T23:12:35.789776+00:00",
+    "elapsed_seconds": 7.004064,
+    "peak_RSS_bytes": 2849320960,
+    "peak_RSS_GiB": 2.653636932373047,
+    "exact_budget": {
+      "NN_calls": 108,
+      "NN_rows": 6912,
+      "noise005_rows": 1152,
+      "extension_rows": 3456,
+      "hard_generated_ADC_rows": 20736,
+      "anchored_surrogate_crop_rows": 41472,
+      "checkpoint_loads": 2,
+      "TRAIN_archives_decoded": 1,
+      "REAL_existing_observation_rows": 21047,
+      "banks_cached": 9,
+      "training_AD_queries": 1,
+      "diagnostic_G_updates": 1,
+      "DEV_reads": 0,
+      "statistics_fits": 0,
+      "checkpoint_writes": 0,
+      "native_W1_runs": 0
+    },
+    "perbank_console_counters_exact": true,
+    "counts_structure": "54point-bank evaluations; firstbaselineADforward reused. 53remaining evaluations*2NN +2firstADNN =108NN. Eachstate output shared H/S/F; no extra S/F NN orADC.",
+    "new_diagnostic_update": 1,
+    "cumulative_updates_ROOT_reported": 199669,
+    "ledgers_not_reopened_or_edited": true
+  },
+  "recomputation": {
+    "records": 54,
+    "unique_point_bank_pairs": 54,
+    "mode_reports": 162,
+    "metrics_per_mode": 19,
+    "paired_delta_estimates": 285,
+    "nested_mode_estimates": 228,
+    "risk_FD_estimates": 114,
+    "all_mean_MCSE_estimates": 627,
+    "withinbank_values_recomputed": 5016,
+    "summary_bankvalue_mean_MCSE_max_error": 0.0,
+    "all3MCSE_direction_labels_exact": true,
+    "first_FD_prediction_calculations": 118,
+    "FD_prediction_max_error": 0.0,
+    "loss_total_regular_relations_max_roundoff": 2.7755575615628914e-17,
+    "parameter_group_projection_sum_max_error": 0.0
+  },
+  "replay_zero_CRN": {
+    "first9_scalars_and_group_norms_exact_native036": true,
+    "all9_baseline_records_native_elementwise_mode0_check_true": true,
+    "all_saved_common_zero_mode_fields_equal": true,
+    "zero_signal_displacements_and_hardADC_changed_cells": true,
+    "first_AD_forward_reused_once": true,
+    "all54_index_parent_identity_records_exact033_corresponding_banks": true,
+    "distinct_index_stream_hashes": 36,
+    "F_peak_index_changes_zero_allpoints": true,
+    "S_F_carrier_components_exact_equal": true,
+    "tensor_boundary": "Zero carrier/window tensor equality is a native checked assertion; only savedcommonfields are independently recomputed here, not tensorarrays.",
+    "gradient_boundary": "g vectors and parametercoordinates were intentionally not saved. Group-sum/Cauchy/prediction algebra is independently checked; g-dot values are not rederived from originalvectors."
+  },
+  "parameter_summary": {
+    "baseline": {
+      "lambda": 0.0,
+      "g_dot_effective_delta": 0.0,
+      "L2_effective_delta": 0.0,
+      "L2_rounding_error": 0.0,
+      "changed_coordinates": 0,
+      "rounded_to_zero_coordinates": 0
+    },
+    "minus_1_64": {
+      "lambda": -0.015625,
+      "g_dot_effective_delta": 0.0005278235672222346,
+      "L2_effective_delta": 0.0018912285425861431,
+      "L2_rounding_error": 1.360578421912169e-06,
+      "changed_coordinates": 1478822,
+      "rounded_to_zero_coordinates": 1
+    },
+    "plus_1_64": {
+      "lambda": 0.015625,
+      "g_dot_effective_delta": -0.0005278235721059272,
+      "L2_effective_delta": 0.0018912285360651346,
+      "L2_rounding_error": 1.360581563772966e-06,
+      "changed_coordinates": 1478822,
+      "rounded_to_zero_coordinates": 1
+    },
+    "minus_1_16": {
+      "lambda": -0.0625,
+      "g_dot_effective_delta": 0.0021113733230044393,
+      "L2_effective_delta": 0.007565010898267628,
+      "L2_rounding_error": 1.976908514434133e-06,
+      "changed_coordinates": 1478823,
+      "rounded_to_zero_coordinates": 0
+    },
+    "plus_1_16": {
+      "lambda": 0.0625,
+      "g_dot_effective_delta": -0.002111373333310384,
+      "L2_effective_delta": 0.007565010926438724,
+      "L2_rounding_error": 1.976896215652774e-06,
+      "changed_coordinates": 1478823,
+      "rounded_to_zero_coordinates": 0
+    },
+    "full1": {
+      "lambda": 1.0,
+      "g_dot_effective_delta": -0.03378132693973167,
+      "L2_effective_delta": 0.1210398387030481,
+      "L2_rounding_error": 0.0,
+      "changed_coordinates": 1478823,
+      "rounded_to_zero_coordinates": 0
+    }
+  },
+  "full1_projection_group_shares": {
+    "mean": 0.725609842821014,
+    "shape": 0.25859643211895467,
+    "charge": 0.015559132213020643,
+    "local": 0.00023459284701060653
+  },
+  "firstbank_total_table": {
+    "baseline": {
+      "lambda": 0.0,
+      "total": {
+        "H": 0.02596907309128277,
+        "S": 0.02596907309128277,
+        "F": 0.02596907309128277
+      },
+      "delta_total": {
+        "H": 0.0,
+        "S": 0.0,
+        "F": 0.0
+      },
+      "signal_displacement_ADC_LSB": 0.0
+    },
+    "minus_1_64": {
+      "lambda": -0.015625,
+      "total": {
+        "H": 0.028124451579232816,
+        "S": 0.027037404298802963,
+        "F": 0.02649811366940933
+      },
+      "delta_total": {
+        "H": 0.002155378487950048,
+        "S": 0.0010683312075201942,
+        "F": 0.000529040578126562
+      },
+      "signal_displacement_ADC_LSB": 1.9471355199006477
+    },
+    "plus_1_64": {
+      "lambda": 0.015625,
+      "total": {
+        "H": 0.02605618277040146,
+        "S": 0.02514841496002901,
+        "F": 0.025454141579408885
+      },
+      "delta_total": {
+        "H": 8.710967911869025e-05,
+        "S": -0.0008206581312537597,
+        "F": -0.0005149315118738833
+      },
+      "signal_displacement_ADC_LSB": 1.959244359457121
+    },
+    "minus_1_16": {
+      "lambda": -0.0625,
+      "total": {
+        "H": 0.030353107246421027,
+        "S": 0.028962329052754518,
+        "F": 0.028236222498001125
+      },
+      "delta_total": {
+        "H": 0.004384034155138258,
+        "S": 0.0029932559614717497,
+        "F": 0.0022671494067183565
+      },
+      "signal_displacement_ADC_LSB": 7.766768990934271
+    },
+    "plus_1_16": {
+      "lambda": 0.0625,
+      "total": {
+        "H": 0.024493662813774363,
+        "S": 0.023833804893040905,
+        "F": 0.024022740134240106
+      },
+      "delta_total": {
+        "H": -0.001475410277508405,
+        "S": -0.002135268198241863,
+        "F": -0.0019463329570426624
+      },
+      "signal_displacement_ADC_LSB": 7.656201951347406
+    },
+    "full1": {
+      "lambda": 1.0,
+      "total": {
+        "H": 0.011332602048210284,
+        "S": 0.010951996332242506,
+        "F": 0.008743250274900936
+      },
+      "delta_total": {
+        "H": -0.014636471043072485,
+        "S": -0.015017076759040262,
+        "F": -0.017225822816381832
+      },
+      "signal_displacement_ADC_LSB": 72.65183721248692
+    }
+  },
+  "firstbank_FD": {
+    "1_64": {
+      "epsilon": 0.015625,
+      "g_effective_centered_prediction": -0.033780708458501174,
+      "total_FD": {
+        "H": -0.06618460188260344,
+        "S": -0.06044765884076653,
+        "F": -0.03340710688001425
+      },
+      "F_minus_prediction": 0.0003736015784869262,
+      "relative_abs_F_gap": 0.011059613475717574
+    },
+    "1_16": {
+      "epsilon": 0.0625,
+      "g_effective_centered_prediction": -0.033781973250518585,
+      "total_FD": {
+        "H": -0.04687555546117331,
+        "S": -0.0410281932777089,
+        "F": -0.03370785891008815
+      },
+      "F_minus_prediction": 7.411434043043397e-05,
+      "relative_abs_F_gap": 0.0021939020518671522
+    }
+  },
+  "risk_and_nested_total_statistics": {
+    "reused_TRAIN_paired_deltas": {
+      "minus_1_64": {
+        "H": {
+          "mean": 1.1658275406819206e-05,
+          "MCSE": 0.00017252621048379776,
+          "direction": "unresolved",
+          "positive_banks": 4,
+          "negative_banks": 4
+        },
+        "S": {
+          "mean": -0.0005516022316737245,
+          "MCSE": 0.00026031112887815283,
+          "direction": "unresolved",
+          "positive_banks": 3,
+          "negative_banks": 5
+        },
+        "F": {
+          "mean": 3.104626010438146e-05,
+          "MCSE": 2.8171938071771183e-05,
+          "direction": "unresolved",
+          "positive_banks": 6,
+          "negative_banks": 2
+        }
+      },
+      "plus_1_64": {
+        "H": {
+          "mean": 6.178389547064657e-05,
+          "MCSE": 0.0001017445331598217,
+          "direction": "unresolved",
+          "positive_banks": 4,
+          "negative_banks": 4
+        },
+        "S": {
+          "mean": -0.000391323136622327,
+          "MCSE": 0.00020958758537234634,
+          "direction": "unresolved",
+          "positive_banks": 2,
+          "negative_banks": 6
+        },
+        "F": {
+          "mean": -3.72697402584235e-05,
+          "MCSE": 2.8667646055171256e-05,
+          "direction": "unresolved",
+          "positive_banks": 2,
+          "negative_banks": 6
+        }
+      },
+      "minus_1_16": {
+        "H": {
+          "mean": -0.00019762287141771116,
+          "MCSE": 0.00035537767491569764,
+          "direction": "unresolved",
+          "positive_banks": 2,
+          "negative_banks": 6
+        },
+        "S": {
+          "mean": -0.0007068287229768655,
+          "MCSE": 0.00041968906493652914,
+          "direction": "unresolved",
+          "positive_banks": 2,
+          "negative_banks": 6
+        },
+        "F": {
+          "mean": 9.842001366066125e-05,
+          "MCSE": 0.00011068710864700028,
+          "direction": "unresolved",
+          "positive_banks": 5,
+          "negative_banks": 3
+        }
+      },
+      "plus_1_16": {
+        "H": {
+          "mean": 0.0005052647781103063,
+          "MCSE": 0.00028112576700256163,
+          "direction": "unresolved",
+          "positive_banks": 5,
+          "negative_banks": 3
+        },
+        "S": {
+          "mean": 9.211839765539426e-05,
+          "MCSE": 0.0003913365592645666,
+          "direction": "unresolved",
+          "positive_banks": 3,
+          "negative_banks": 5
+        },
+        "F": {
+          "mean": -0.00014925424188919848,
+          "MCSE": 0.0001096781596043409,
+          "direction": "unresolved",
+          "positive_banks": 2,
+          "negative_banks": 6
+        }
+      },
+      "full1": {
+        "H": {
+          "mean": 0.004434780605566414,
+          "MCSE": 0.0026805230183287103,
+          "direction": "unresolved",
+          "positive_banks": 5,
+          "negative_banks": 3
+        },
+        "S": {
+          "mean": 0.004102932453550132,
+          "MCSE": 0.002666397046539445,
+          "direction": "unresolved",
+          "positive_banks": 5,
+          "negative_banks": 3
+        },
+        "F": {
+          "mean": 0.006548419926351497,
+          "MCSE": 0.002383962006113415,
+          "direction": "unresolved",
+          "positive_banks": 7,
+          "negative_banks": 1
+        }
+      }
+    },
+    "reused_TRAIN_nested_mode_differences": {
+      "baseline": {
+        "H_minus_S": {
+          "mean": 0.0,
+          "MCSE": 0.0,
+          "direction": "unresolved",
+          "positive_banks": 0,
+          "negative_banks": 0
+        },
+        "S_minus_F": {
+          "mean": 0.0,
+          "MCSE": 0.0,
+          "direction": "unresolved",
+          "positive_banks": 0,
+          "negative_banks": 0
+        }
+      },
+      "minus_1_64": {
+        "H_minus_S": {
+          "mean": 0.0005632605070805437,
+          "MCSE": 0.0002489582447558727,
+          "direction": "unresolved",
+          "positive_banks": 6,
+          "negative_banks": 2
+        },
+        "S_minus_F": {
+          "mean": -0.0005826484917781059,
+          "MCSE": 0.0002743750809120398,
+          "direction": "unresolved",
+          "positive_banks": 2,
+          "negative_banks": 5
+        }
+      },
+      "plus_1_64": {
+        "H_minus_S": {
+          "mean": 0.0004531070320929736,
+          "MCSE": 0.0002471687460337665,
+          "direction": "unresolved",
+          "positive_banks": 7,
+          "negative_banks": 1
+        },
+        "S_minus_F": {
+          "mean": -0.0003540533963639035,
+          "MCSE": 0.0001891407189163518,
+          "direction": "unresolved",
+          "positive_banks": 1,
+          "negative_banks": 7
+        }
+      },
+      "minus_1_16": {
+        "H_minus_S": {
+          "mean": 0.0005092058515591543,
+          "MCSE": 0.00010420487642666127,
+          "direction": "positive",
+          "positive_banks": 8,
+          "negative_banks": 0
+        },
+        "S_minus_F": {
+          "mean": -0.0008052487366375267,
+          "MCSE": 0.0004436693541009211,
+          "direction": "unresolved",
+          "positive_banks": 2,
+          "negative_banks": 6
+        }
+      },
+      "plus_1_16": {
+        "H_minus_S": {
+          "mean": 0.000413146380454912,
+          "MCSE": 0.0002353440164282467,
+          "direction": "unresolved",
+          "positive_banks": 5,
+          "negative_banks": 3
+        },
+        "S_minus_F": {
+          "mean": 0.00024137263954459275,
+          "MCSE": 0.00029844050526103236,
+          "direction": "unresolved",
+          "positive_banks": 4,
+          "negative_banks": 4
+        }
+      },
+      "full1": {
+        "H_minus_S": {
+          "mean": 0.0003318481520162824,
+          "MCSE": 0.00011216379057407901,
+          "direction": "unresolved",
+          "positive_banks": 7,
+          "negative_banks": 1
+        },
+        "S_minus_F": {
+          "mean": -0.0024454874728013654,
+          "MCSE": 0.0009676059648860079,
+          "direction": "unresolved",
+          "positive_banks": 2,
+          "negative_banks": 6
+        }
+      }
+    },
+    "reused_TRAIN_risk_centered_FD": {
+      "1_64": {
+        "H": {
+          "mean": 0.0016040198420424756,
+          "MCSE": 0.006966506529097436,
+          "direction": "unresolved",
+          "positive_banks": 4,
+          "negative_banks": 4
+        },
+        "S": {
+          "mean": 0.005128931041644719,
+          "MCSE": 0.006099889105543432,
+          "direction": "unresolved",
+          "positive_banks": 5,
+          "negative_banks": 3
+        },
+        "F": {
+          "mean": -0.0021861120116097588,
+          "MCSE": 0.0018122677042973277,
+          "direction": "unresolved",
+          "positive_banks": 2,
+          "negative_banks": 6
+        }
+      },
+      "1_16": {
+        "H": {
+          "mean": 0.0056231011962241395,
+          "MCSE": 0.003132835606901903,
+          "direction": "unresolved",
+          "positive_banks": 5,
+          "negative_banks": 3
+        },
+        "S": {
+          "mean": 0.006391576965058078,
+          "MCSE": 0.0031973518540127422,
+          "direction": "unresolved",
+          "positive_banks": 6,
+          "negative_banks": 2
+        },
+        "F": {
+          "mean": -0.001981394044398878,
+          "MCSE": 0.001725854263369362,
+          "direction": "unresolved",
+          "positive_banks": 2,
+          "negative_banks": 6
+        }
+      }
+    }
+  },
+  "resolved_nested_totals_under_descriptive3MCSE": [
+    {
+      "point": "minus_1_16",
+      "contrast": "H_minus_S",
+      "mean": 0.0005092058515591543,
+      "MCSE": 0.00010420487642666127,
+      "direction": "positive",
+      "positive_banks": 8,
+      "negative_banks": 0
+    }
+  ],
+  "firstbank_crop_changes_perH_denominator128": {
+    "baseline": {
+      "H": {
+        "fast": 0,
+        "slow": 0,
+        "common_level": 0
+      },
+      "S": {
+        "fast": 0,
+        "slow": 0,
+        "common_level": 0
+      },
+      "F": {
+        "fast": 0,
+        "slow": 0,
+        "common_level": 0
+      }
+    },
+    "minus_1_64": {
+      "H": {
+        "fast": 4,
+        "slow": 4,
+        "common_level": 4
+      },
+      "S": {
+        "fast": 5,
+        "slow": 4,
+        "common_level": 5
+      },
+      "F": {
+        "fast": 0,
+        "slow": 0,
+        "common_level": 0
+      }
+    },
+    "plus_1_64": {
+      "H": {
+        "fast": 3,
+        "slow": 3,
+        "common_level": 3
+      },
+      "S": {
+        "fast": 3,
+        "slow": 2,
+        "common_level": 3
+      },
+      "F": {
+        "fast": 0,
+        "slow": 0,
+        "common_level": 0
+      }
+    },
+    "minus_1_16": {
+      "H": {
+        "fast": 5,
+        "slow": 6,
+        "common_level": 7
+      },
+      "S": {
+        "fast": 6,
+        "slow": 6,
+        "common_level": 7
+      },
+      "F": {
+        "fast": 0,
+        "slow": 0,
+        "common_level": 0
+      }
+    },
+    "plus_1_16": {
+      "H": {
+        "fast": 5,
+        "slow": 5,
+        "common_level": 3
+      },
+      "S": {
+        "fast": 4,
+        "slow": 4,
+        "common_level": 5
+      },
+      "F": {
+        "fast": 0,
+        "slow": 0,
+        "common_level": 0
+      }
+    },
+    "full1": {
+      "H": {
+        "fast": 32,
+        "slow": 34,
+        "common_level": 34
+      },
+      "S": {
+        "fast": 32,
+        "slow": 35,
+        "common_level": 34
+      },
+      "F": {
+        "fast": 0,
+        "slow": 0,
+        "common_level": 0
+      }
+    }
+  },
+  "zero_firstbank_window_amax_tied_rows_perH_denominator128": {
+    "fast": 3,
+    "slow": 2,
+    "common_level": 3
+  },
+  "interpretation": [
+    "This audit is not whollyinconclusive: exactfirstbank replay andzero anchors passed; F directionalFDs -.03340710688/-.03370785891 agree with signedg predictions -.03378070846/-.03378197325 to1.106percent/.2194percent at the two frozen scales. This is direction-specific local evidence, not universalAD proof.",
+    "The actual036 firstAdamstep lowers samebankHtotal .02596907309 to.01133260205; S/F also lower. Initial samebankfullstep overshoot is not observed. This does not rule out later overshoot ormomentum failures.",
+    "Positive1/64 slightlyraises hardHtotal(+.00008710968) while S/F decrease; tiny parametersteps are not uniformly safer under hardobservation. Do not choose alambda orLR.",
+    "All15 riskpoint/mode pairedtotal shifts andall6 risktotalFD estimates remain unresolved at the frozen3MCSE criterion. Full1H+.0044347806 MCSE.0026805230 andF+.0065484199 MCSE.0023839620 establish neither expectedrisk descent norstableharm.",
+    "One nestedtotal is descriptivelypositive: minus1/16 H-S+.00050920585 MCSE.00010420488,8/8positive. It concerns a negative-ray finitepoint anddoesnot establish auniqueADC cause orriskrepair.",
+    "Gradientnorm dominance and actualAdam directionalprojection differ: mean contributes72.56percent ofg dotfullDelta versusshape25.86percent,despite shape98.77percent ofstartupgradientsquares. They cannot be interchanged as failureattribution.",
+    "There are hardbaselinewindowmax ties3/2/3rows of128 perH; F stillretainsmax/abs/guard/clamp andparameterrounding. FiniteFD gaps include these effects,notpureSTE-bias estimates.",
+    "Riskbanks were previouslyexamined033TRAIN banks. NoDEV,formalnativeW1gate,conditionalkernel,physicalcalibration orlowcount extrapolation was evaluated."
+  ],
+  "decision": {
+    "engineering_complete": true,
+    "local_firstbank_consistency_evidence": true,
+    "expected_risk_direction": "INCONCLUSIVE_WITHIN_FROZEN_BUDGET",
+    "response_match": "NOT_ESTABLISHED",
+    "lambda_or_checkpoint_selected": false,
+    "next_action": "Close the fixedaudit without extra scales,banks,AD,training orcandidatepromotion. Any further intervention requires a separate ROOT decision."
+  },
+  "review_execution": {
+    "scope": "SavedJSON/JSONL/control metadata/logs only.",
+    "NN": 0,
+    "AD": 0,
+    "diagnostic_updates": 0,
+    "CP_reads": 0,
+    "raw_array_reads": 0,
+    "new_observation": 0,
+    "jobs": 0,
+    "old_artifacts_ledgers_modified": false
+  }
+}
