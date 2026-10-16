@@ -1,0 +1,434 @@
+{
+  "schema": "n01/response034-final-result-receipt/v1",
+  "UTC": "2026-10-16T22:08:36.182514+00:00",
+  "status": "complete_independently_reviewed_targeted_shape_LR_repair_failed",
+  "evidence": {
+    "completion_01/run_01/RESULT.json": {
+      "path": "receipts/response034_20261017/completion_01/run_01/RESULT.json",
+      "sha256": "cc614aee5a9cb75ffcb6cf0428465faeaabaf3dbe4a24cea6c0135f7ecf97504",
+      "bytes": 40393
+    },
+    "completion_01/run_01/metrics.jsonl": {
+      "path": "receipts/response034_20261017/completion_01/run_01/metrics.jsonl",
+      "sha256": "905c8b0862e637cd3496b38f2ac8e4ccace43969cdb229e5aae584e1da1b47bb",
+      "bytes": 726073
+    },
+    "completion_01/COLLECTION_RECEIPT.json": {
+      "path": "receipts/response034_20261017/completion_01/COLLECTION_RECEIPT.json",
+      "sha256": "5b0834715e62848921445b2ce51e677e8aa748aa1a98b781baed0900264837ce",
+      "bytes": 547
+    },
+    "completion_01/REMOTE_TERMINAL_SNAPSHOT.json": {
+      "path": "receipts/response034_20261017/completion_01/REMOTE_TERMINAL_SNAPSHOT.json",
+      "sha256": "a32989917b70d8bb02f18dba805f1cf814c7fc21ee31d7aa21345f8b4cb36f5d",
+      "bytes": 57294
+    },
+    "independent_result_01/RESULT_REVIEW.json": {
+      "path": "receipts/response034_20261017/independent_result_01/RESULT_REVIEW.json",
+      "sha256": "6365c8da893fe949e21f79469b656988636481e970cf1bbad583734d61ee079d",
+      "bytes": 97131
+    },
+    "model_diagnosis_01/DIAGNOSIS.json": {
+      "path": "receipts/response034_20261017/model_diagnosis_01/DIAGNOSIS.json",
+      "sha256": "cd621826c9ae07b7fd8b011ccb4d947cfe2aeb6a7eb3b86fe1eb52ad74bd467c",
+      "bytes": 116033
+    }
+  },
+  "source_commit": "f2b926a26dc0eb2c155780623c07d65fad4df90b",
+  "config_sha256": "fe1b3bb2a56b191f61d4a7e5825005961c52c1a9e44e85511c3d7e215a3ff849",
+  "native_time_and_resources": {
+    "start_UTC": "2026-10-16T21:42:35.014431+00:00",
+    "runner_START_UTC": "2026-10-16T21:42:36.268374+00:00",
+    "end_UTC": "2026-10-16T21:45:58.137352+00:00",
+    "native_elapsed_seconds": 203.122921,
+    "terminal_snapshot_UTC": "2026-10-16T21:56:03.712558+00:00",
+    "manifest_UTC": "2026-10-16T21:56:38.840084+00:00",
+    "native_exit_code": 0,
+    "stop_reason": null,
+    "peak_RSS_bytes": 3225272320,
+    "peak_RSS_GiB": 3.0037689208984375,
+    "execution_counts": {
+      "G_updates": 2000,
+      "NN_calls": 4446,
+      "NN_rows": 312840,
+      "noise005_rows": 310792,
+      "extension_rows": 932376,
+      "generated_ADC_rows": 1017636,
+      "checkpoint_loads": 2,
+      "TRAIN_archives_decoded": 1,
+      "DEV_archives_decoded": 1,
+      "DEV_metadata_archives_decoded": 1,
+      "training_AD_queries": 2000
+    },
+    "counts_independently_recomputed_as032_same_budget": true,
+    "no_live_owned_processes_at_snapshot": true,
+    "runtime_GPU_peak_not_recorded_in_these_receipts": true
+  },
+  "formal_gates": {
+    "cells": [
+      {
+        "cell": "TRAIN_fast",
+        "wave_gain": -4.329425196828105,
+        "wave_gain_pass": false,
+        "wave_gate_is_required": true,
+        "noninferiority_pass": false,
+        "positive_T_components": 15,
+        "noninferior_count": 6,
+        "failed_components": [
+          "wave",
+          "QPSD",
+          "Q_Vns",
+          "front_Vns",
+          "tail_Vns",
+          "PSD_raw",
+          "PSD_guarded",
+          "rise_undefined_rate",
+          "rise_prepeak_censored_rate"
+        ],
+        "undefined_positive_T_components": [],
+        "absolute_within_T_count": 2,
+        "A_wave": 0.15383882672116173,
+        "G0_wave": 0.22599851174518137,
+        "final_wave": 0.819872519378232,
+        "032_final_wave": 0.7208242980306058,
+        "final_wave_ratio034_to032": 1.1374096594943317
+      },
+      {
+        "cell": "TRAIN_slow",
+        "wave_gain": -4.291721755118668,
+        "wave_gain_pass": false,
+        "wave_gate_is_required": true,
+        "noninferiority_pass": false,
+        "positive_T_components": 15,
+        "noninferior_count": 6,
+        "failed_components": [
+          "wave",
+          "QPSD",
+          "Q_Vns",
+          "front_Vns",
+          "tail_Vns",
+          "PSD_raw",
+          "PSD_guarded",
+          "rise_undefined_rate",
+          "rise_prepeak_censored_rate"
+        ],
+        "undefined_positive_T_components": [],
+        "absolute_within_T_count": 2,
+        "A_wave": 0.1549152936706664,
+        "G0_wave": 0.2254408214675766,
+        "final_wave": 0.8197686297176626,
+        "032_final_wave": 0.7204181924498243,
+        "final_wave_ratio034_to032": 1.1379066191124232
+      },
+      {
+        "cell": "TRAIN_common_level",
+        "wave_gain": -4.300124399556423,
+        "wave_gain_pass": false,
+        "wave_gate_is_required": true,
+        "noninferiority_pass": false,
+        "positive_T_components": 15,
+        "noninferior_count": 6,
+        "failed_components": [
+          "wave",
+          "QPSD",
+          "Q_Vns",
+          "front_Vns",
+          "tail_Vns",
+          "PSD_raw",
+          "PSD_guarded",
+          "rise_undefined_rate",
+          "rise_prepeak_censored_rate"
+        ],
+        "undefined_positive_T_components": [],
+        "absolute_within_T_count": 2,
+        "A_wave": 0.15486618422219295,
+        "G0_wave": 0.22106573201459234,
+        "final_wave": 0.8208100416622448,
+        "032_final_wave": 0.7212514307253604,
+        "final_wave_ratio034_to032": 1.1380359285204587
+      },
+      {
+        "cell": "DEV_fast",
+        "wave_gain": -3.9175252785644616,
+        "wave_gain_pass": false,
+        "wave_gate_is_required": false,
+        "noninferiority_pass": false,
+        "positive_T_components": 15,
+        "noninferior_count": 6,
+        "failed_components": [
+          "wave",
+          "QPSD",
+          "Q_Vns",
+          "front_Vns",
+          "tail_Vns",
+          "PSD_raw",
+          "PSD_guarded",
+          "rise_undefined_rate",
+          "rise_prepeak_censored_rate"
+        ],
+        "undefined_positive_T_components": [],
+        "absolute_within_T_count": 2,
+        "A_wave": 0.17576602721519846,
+        "G0_wave": null,
+        "final_wave": 0.8643338819435875,
+        "032_final_wave": 0.758166084273509,
+        "final_wave_ratio034_to032": 1.1400323753228963
+      },
+      {
+        "cell": "DEV_slow",
+        "wave_gain": -3.8761493461863403,
+        "wave_gain_pass": false,
+        "wave_gate_is_required": false,
+        "noninferiority_pass": false,
+        "positive_T_components": 15,
+        "noninferior_count": 6,
+        "failed_components": [
+          "wave",
+          "QPSD",
+          "Q_Vns",
+          "front_Vns",
+          "tail_Vns",
+          "PSD_raw",
+          "PSD_guarded",
+          "rise_undefined_rate",
+          "rise_prepeak_censored_rate"
+        ],
+        "undefined_positive_T_components": [],
+        "absolute_within_T_count": 2,
+        "A_wave": 0.17703928004560265,
+        "G0_wave": null,
+        "final_wave": 0.8632699696436658,
+        "032_final_wave": 0.7578471957924162,
+        "final_wave_ratio034_to032": 1.1391082192248767
+      },
+      {
+        "cell": "DEV_common_level",
+        "wave_gain": -3.866706103692074,
+        "wave_gain_pass": false,
+        "wave_gate_is_required": false,
+        "noninferiority_pass": false,
+        "positive_T_components": 15,
+        "noninferior_count": 6,
+        "failed_components": [
+          "wave",
+          "QPSD",
+          "Q_Vns",
+          "front_Vns",
+          "tail_Vns",
+          "PSD_raw",
+          "PSD_guarded",
+          "rise_undefined_rate",
+          "rise_prepeak_censored_rate"
+        ],
+        "undefined_positive_T_components": [],
+        "absolute_within_T_count": 2,
+        "A_wave": 0.17763197900882424,
+        "G0_wave": null,
+        "final_wave": 0.8644826364531473,
+        "032_final_wave": 0.758100445330298,
+        "final_wave_ratio034_to032": 1.1403273032988386
+      }
+    ],
+    "required_TRAIN_wave_passes": 0,
+    "required_TRAIN_wave_total": 3,
+    "TRAIN_DEV_noninferiority_cell_passes": 0,
+    "cell_total": 6,
+    "positive_T_noninferiority_checks": 90,
+    "positive_T_noninferiority_failures": 54,
+    "absolute_positive_T_passes": 12,
+    "positive_T_total": 90,
+    "pilot_relative_progress": false,
+    "original_T_thresholds_identical032": true,
+    "DEV_wave_gain_reported_not_required": true,
+    "physical_or_conditional_fit_not_established": true
+  },
+  "coverage": {
+    "TRAIN_rows": [
+      6593,
+      21047
+    ],
+    "DEV_rows": [
+      512,
+      599
+    ],
+    "TRAIN_roles": {
+      "source_role": [
+        "TRAIN"
+      ],
+      "real_role": [
+        "TRAIN"
+      ]
+    },
+    "DEV_roles": {
+      "source_role": [
+        "DEV"
+      ],
+      "real_role": [
+        "DEV"
+      ]
+    },
+    "parent_overlap": {
+      "source_ids": 0,
+      "real_ids": 0
+    },
+    "real_groups": {
+      "TRAIN": 422,
+      "DEV": 12,
+      "overlap": 0
+    },
+    "coverage_IDs_match": {
+      "source_ids": true,
+      "real_ids": true
+    },
+    "count_weights_all_one": true,
+    "physical_weights": "unknown",
+    "visits": {
+      "source_visits": {
+        "sum": 256000,
+        "nonzero": 6593,
+        "min": 19,
+        "max": 63,
+        "mean": 38.82906112543607,
+        "sd": 6.176757733400933
+      },
+      "real_visits": {
+        "sum": 512000,
+        "nonzero": 21047,
+        "min": 7,
+        "max": 47,
+        "mean": 24.32650734071364,
+        "sd": 4.930602359087937
+      }
+    },
+    "all_saved_coverage_lineage_arrays_exact032": {
+      "TRAIN_COVERAGE.npz": true,
+      "TRAIN_LINEAGE.npz": true,
+      "DEV_LINEAGE.npz": true
+    }
+  },
+  "same_reference_checks": {
+    "all9_A_G0_reference_JSON_exact032": {
+      "DEV_A_common_level": true,
+      "DEV_A_fast": true,
+      "DEV_A_slow": true,
+      "TRAIN_A_common_level": true,
+      "TRAIN_A_fast": true,
+      "TRAIN_A_slow": true,
+      "TRAIN_G0_common_level": true,
+      "TRAIN_G0_fast": true,
+      "TRAIN_G0_slow": true
+    },
+    "all9_A_G0_reference_example_arrays_exact032": {
+      "DEV_A_common_level": true,
+      "DEV_A_fast": true,
+      "DEV_A_slow": true,
+      "TRAIN_A_common_level": true,
+      "TRAIN_A_fast": true,
+      "TRAIN_A_slow": true,
+      "TRAIN_G0_common_level": true,
+      "TRAIN_G0_fast": true,
+      "TRAIN_G0_slow": true
+    },
+    "all_REAL_flags_exact032": true,
+    "all_matched_prefix_examples_equal_across_endpoints_H": true,
+    "initial_model_G0_digest_exact033_initial032": "354b9828bdb6f552ab747e2aab06e988b27b1c7aad4d71580bdab6d8bdfc5f58",
+    "A_and005_digests_match032": true,
+    "all4_initial_group_gradient_records_exact032": true,
+    "first_training_record_exact032": true,
+    "boundary": "Matchinglineage/coverage is exactaggregate evidence; fullordered samplerstream history was not independentlydecoded fromCP. Frozen source/seed equality andexactfirstrecord provideadditional binding."
+  },
+  "independent_integrity": {
+    "errors": [],
+    "selected_manifest_files": 52,
+    "non_CP_selected_files_SHA_recomputed": 50,
+    "CP_files_not_opened": [
+      {
+        "path": "run_01/final.pt",
+        "bytes_reported": 18459122,
+        "SHA_reported": "65143a92f9ca6e3583b94865860f514b72e5491233544b50d532090419d80867"
+      },
+      {
+        "path": "run_01/initial.pt",
+        "bytes_reported": 6447252,
+        "SHA_reported": "9424e68fa1ca96bbbdd98af42994de3c18ccf9b73bf9402178d1f970609dd31d"
+      }
+    ],
+    "recomputed_scalar_checks": 432,
+    "maximum_numeric_reconstruction_error": 0.0,
+    "38_remote_source_config_checks_match": true,
+    "saved_RESULT_complete_terminal_and_freeze_match": true
+  },
+  "decisive_findings": [
+    "0/3 requiredTRAINwave gates and0/6TRAIN/DEVnoninferiority cells pass;54/90definedpositiveTcomponentchecks fail. Same9components failpercell. No undefinedpositiveT exception andno changedthreshold.",
+    "TRAINwave .81977-.82081 andDEVwave .86327-.86448 areworse thanfailed032 .72042-.72125/.75785-.75817 acrossall6fixedbank cells. This is not a successfulrepair.",
+    "A/G0/reference reports andexamples, allparentlineage/coverage arrays, firstrecord andgroupgradientrecords replayexactly032; recordedG0/Adeterministic/005digests matchknown initialstate. Failure cannot be assigned to changedinputmixture, initialstate, evaluationcontract orrowloss onthese records.",
+    "034shows a lowobjectivewindow501-600 thena majorreversal around800; last100objective .279755 exceeds032 .219571, and1974/2000updates clipversus1606in032. No intermediatehard endpointwas evaluated, so lowwindows cannot be retrospectivelypromoted.",
+    "Geometrydamage isworse: TRAINfast search-edge3283vs032190, globalpeakoutside2404vs73, rise-prepeakcensored4072vs3361, FWHMprepeak940vs181 andrails1197vs738. CorrespondingDEVfailures alsoincrease. This doesnot isolatea unique mean/shapeparameter cause.",
+    "TRAINfast PSD_rawW1=6.432669vsPSD_guarded .166163, with2guardedQevents and0exactzeroQ. GuardedPSDstill exceeds032 .082405; wave/charge/temporal failures persist acrossall3hypotheses. The extreme rawratio isnot thewholefailure explanation.",
+    "TRAINobservedQmean4.08545 isalmostequal0324.08573 despitegreaterwave/geometrydamage; DEVQmeanfallsfurther3.99754vs4.02863. These arehardobservationmeans, notdirectmeasurements of finaldeterministicA."
+  ],
+  "decision": {
+    "bounded_B_trial_complete": true,
+    "targeted_shape_LR_only_repair_succeeded": false,
+    "original032_failure_preserved": true,
+    "033_firststep_shape_harm_still_valid_local_evidence": true,
+    "033_not_a_longrun_guarantee": true,
+    "no_automatic_global_LR_A_or_grid_or_more_steps": true,
+    "no_DEV_or_checkpoint_selection": true,
+    "scientific_status": "response_match_not_established",
+    "conditional_response_recovery": false,
+    "conclusion": "Preserve034 as a negativefixedtrial. ShapeLR/16alone didnotresolve thelong-run realresponsefailure. These savedoutputs do notprovethat theuntestedglobalLR alternativewouldsucceed oridentifya uniquesolecause."
+  },
+  "model_diagnosis_conclusion": "Shape LR/16 reduced the measured first-update shock but did not stabilize the joint model. The run follows a different trajectory from032 and ends with more search-window escapes, clipped rows and low-charge/PSD distortion. Shared mean-feature and amplitude routes remain active, but the saved034 logs do not identify their causal contribution or which stochastic component dominates. No further LR trial is justified by these records alone.",
+  "training_update_accounting": {
+    "cumulative_before034": 195668,
+    "034_completed": 2000,
+    "startup_previously_accounted": 301,
+    "terminal_increment": 1699,
+    "cumulative_after034": 197668,
+    "postrun_new_updates": 0
+  },
+  "next_step": {
+    "run_id": "response035_20261017",
+    "status": "implementation_only_not_started",
+    "purpose": "Fixed endpoint 2x2 mean/random parameter exchange plus cached A-only observations on8 previously examined TRAIN banks",
+    "G_updates": 0,
+    "AD_queries": 0,
+    "NN_calls": 64,
+    "NN_rows": 4096,
+    "DEV_reads": 0,
+    "requires_frozen_review_before_execution": true
+  },
+  "scientific_status": "response_match_not_established",
+  "weights_promoted": false,
+  "prior_results_preserved": true,
+  "report": "reports/response034_20261017/REPORT.md",
+  "report_sha256": "ac39babe2a0d7b513eef8d5c50794d3d5a678ad99ba82493c559c8e93418fd7f",
+  "plot_receipt_sha256": "48725f91dcf06332f257f1cbf0f7d3197b38d1993c7c59816f392e1c6eb9a26d",
+  "plot_QA": {
+    "method": "Actual PNGs displayed via view_image; final scalar revision displayed again.",
+    "UTC": "2026-10-16T22:02:27.397576+00:00",
+    "checks": [
+      "Titles, legends, axes, bar values and saved field labels are readable.",
+      "Final scalar colorbar and footnotes do not overlap.",
+      "All three hypotheses and both splits are shown.",
+      "Missing DEV G0 is explicit; single MC bank and previously exposed DEV are explicit.",
+      "Full negative training data estimates and full PSD_raw numerical values are retained.",
+      "Relative-to-A colors do not imply acceptance; historical negative decisions are retained."
+    ],
+    "figures_verified": [
+      {
+        "path": "E:\\GAN\\research\\N01\\reports\\response034_20261017\\native_distances_032_034.png",
+        "sha256": "d02ffe3be76c32cc9a47fbd2ac6dae09ba9fd57c0563dc4aba5ca79739960424"
+      },
+      {
+        "path": "E:\\GAN\\research\\N01\\reports\\response034_20261017\\scalar_distances_032_034.png",
+        "sha256": "f040faaadb7bdf7955c3c24a4d9b0635836d81ec8c217a485e9959d954e3449c"
+      },
+      {
+        "path": "E:\\GAN\\research\\N01\\reports\\response034_20261017\\training_traces_032_034.png",
+        "sha256": "7bcaf418b6a04de783a358e5b7602b22830fbfa9c4ed8362706133ce407fc23c"
+      }
+    ]
+  }
+}
