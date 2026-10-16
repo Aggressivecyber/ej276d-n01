@@ -1,0 +1,48 @@
+{
+  "schema": "n01/response031-zero-update-root-decision/v1",
+  "UTC": "2026-10-16T20:29:00.423309+00:00",
+  "authority": "Latest direct user response-learning repair request and ongoing heartbeat307134842; receipts/response029_20261017/USER_DIRECTION.json",
+  "trigger": "029 paired recovered known response; both029 and030 unpaired failed.030 removed source composition noise without sufficient recovery.",
+  "purpose": "Discriminate objective risk ranking, one stochastic amplitude direction, regularization and hard-observation surrogate effects before further training.",
+  "states": [
+    "fixedteacher2026101729_Bx0.9",
+    "fixedteacher2026101729_Bx1",
+    "fixedteacher2026101729_Bx1.1",
+    "closed030_seed2026101701",
+    "closed030_seed2026101702"
+  ],
+  "source": "Same128 artificial TRAIN parents; heldout and REAL not read",
+  "replica_blocks": 32,
+  "bank_rows": 128,
+  "independent_banks": [
+    "generated_a",
+    "generated_b",
+    "teacher_t",
+    "teacher_u"
+  ],
+  "teacher_direction": "Only B multiplied by lambda=.9/1/1.1; mean A, charge v, local law fixed",
+  "native_loss": "Original C1 wave+2signed_integrals+.25carrier384. Mean four cross-bank risks using common native projection contexts per block.",
+  "energy_loss": "Full-vector beta1 Euclidean/sqrt(d) energy; six original standardized wave views averaged +2joint signed-asinh six-integrals +.25joint centered384. Symmetric .5sum4cross -self_generated -self_teacher, all cross-bank pairs included, no clamp.",
+  "regular": "Report separately; teacherR(lambda)=R(1)+(lambda^2-1)*R_basis(1), coefficient .01 unchanged for total-risk report.",
+  "gradient": "At lambda1 compute native-data and energy-data scalar STE derivatives for both generated banks; compare paired hard .9/1.1 central finite differences, regular derivative separately.",
+  "budgets": {
+    "neural_forward_calls": 3,
+    "neural_rows": 384,
+    "checkpoint_deserializations": 2,
+    "scalar_AD_queries": 64,
+    "NN_parameter_AD": 0,
+    "optimizer_updates": 0,
+    "REAL_reads": 0,
+    "heldout_reads": 0
+  },
+  "resources": {
+    "CPU_threads": 4,
+    "RSS_GiB": 12,
+    "GPU_GiB": 10,
+    "wall_seconds": 900,
+    "output_MiB": 64
+  },
+  "decision_rule": "Report paired mean differences and MCSE; abs(mean)>3MCSE marks a descriptive resolved sign, not a detector acceptance gate. If native risk still prefers teacher to endpoints, optimization remains implicated. If risks disagree, the metric geometry difference also changes and sample-estimator bias cannot be isolated from ranking alone. Inconclusive means inconclusive; no automatic sweep or budget expansion.",
+  "next": "Use the bounded evidence to select an objective for the already-authorized existing SOURCE/REAL development pilot; synthetic perfect conditional recovery is not silently imposed as a universal prerequisite for examining actual-data marginal fit.",
+  "scientific_status": "response_match_not_established"
+}

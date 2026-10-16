@@ -1,0 +1,46 @@
+{
+  "schema": "n01/response030-energy-objective-review/v1",
+  "status": "read_only_review_complete_candidate_not_executed",
+  "evidence": [
+    "receipts/response030_20261017/completion_01/REMOTE_TERMINAL_SNAPSHOT.json",
+    "src/n01/losses008_v2.py:138-153",
+    "src/n01/losses008_v2.py:199-229",
+    "src/n01/losses014.py:74-91",
+    "scripts/run_response029.py:275-290"
+  ],
+  "decision": "Sampling-only 030 failed and does not support another architecture expansion or another blind 1000-step synthetic run. Audit one bandwidth-free beta=1 energy objective on the fixed teacher amplitude direction before implementing a REAL pilot.",
+  "actual_mechanism": {
+    "finite_empirical_W1_is_a_different_target": "Current training minimizes expected distances between finite empirical distributions. This generally differs from the distance between their population distributions. More complete source coverage does not remove finite response-draw distance/gradient bias or hard observation surrogate bias.",
+    "one_sample_exact_example": "For target Y~N(0,1), generator X_sigma~N(0,sigma^2), and independent draws, expected one-sample W1 is sqrt(2/pi)*sqrt(sigma^2+1), minimized at sigma=0. Population W1 is sqrt(2/pi)*abs(sigma-1), minimized at sigma=1. This illustrates a real variance-collapse mechanism; it does not prove the sign or magnitude of the bias for N01's 128-row, multiview, hard-observed objective.",
+    "energy_example": "The same Gaussian scale family's population beta=1 energy discrepancy is sqrt(2/pi)*(2*sqrt(sigma^2+1)-sqrt(2)*sigma-sqrt(2)), uniquely minimized at sigma=1. Its cross-minus-self expression permits unbiased sample estimation of that population target.",
+    "feature_information": "Correctly fitting the full joint observed waveform marginal uses more information than separately fitting coordinate marginals. Conditional response widths can still be weakly represented in a broad source mixture. Statistical propriety does not guarantee adequate finite-sample sensitivity, optimizer convergence or conditional identification."
+  },
+  "single_candidate": {
+    "distance": "Use ordinary Euclidean norm divided by sqrt(feature dimension), beta=1, on the existing frozen TRAIN-scaled feature blocks. No kernel bandwidth, new discriminator, architecture or event pseudo-labels.",
+    "blocks": "Six existing wave views with their current TRAIN standardization, averaged as six full-vector joint energy terms; the existing six signed-asinh integral features as one joint term; and the existing centered ADC carrier384/fixed scale as one joint term. Retain the full voltage and full carrier blocks, not only a finite set of projections.",
+    "data_objective": "E_wave + 2*E_integral + 0.25*E_carrier. Keep original W1 quantities as separately reported evaluation metrics.",
+    "weighted_energy": "E_hat = 2*sum_ij(w_i*r_j*d(Fa_i,Rt_j)) - sum_ik(w_i*w_k*d(Fa_i,Fb_k)) - sum_jl(r_j*r_l*d(Rt_j,Ru_l)). Source weights w and target weights r are fixed and normalized.",
+    "banks": "Fa/Fb are independent response-latent banks at the same candidate parameters. Rt/Ru are independent target teacher banks for the synthetic review. For full finite source coverage, retain all cross-bank i,k pairs including the same parent under independent latents. This directly represents the fixed source mixture without claiming that fullpopulation stratified rows are IID.",
+    "self_gradient": "Differentiate both Fa and Fb. Detaching the second generated bank without the exact required compensation removes part of the self-repulsion gradient and changes the objective.",
+    "finite_estimates": "An unbiased finite estimate can be negative. Do not clamp it to zero or take its square root. Do not use squared Euclidean distances: beta=2 reduces the discrepancy to 2*||mean(F)-mean(R)||^2 and discards variance/distribution information.",
+    "regularization": "The original 0.01*R remains a separately declared regularizer, not part of the propriety theorem. Here R includes charge logvariance and basis amplitude/curvature, so it systematically favors smaller stochastic amplitude. The lambda audit must report the data term, 0.01R and total, with their separate derivatives, so a regularized optimum away from truth is not mistaken for failure of the proper data score."
+  },
+  "bounded_review_selected_by_root": {
+    "direction": "ROOT's final 031 is B-only lambda in {0.9,1,1.1}, with 32 replica blocks plus two endpoints; the earlier {0.5,1,1.5} values were an unexecuted draft. All other model factors, input mixture, normalization, feature definitions and response laws remain fixed. Common frozen random banks across lambda; generated and target banks independent.",
+    "queries": "Compare current W1 data objective and candidate energy data objective using the same stored/registered response factors. The final ROOT budget is 64 scalar lambda AD queries and zero NN AD queries, with no optimization or new architecture. Keep hard actual objective values distinct from STE derivatives.",
+    "interpretation": "Look for a statistically resolvable preference and corrective direction toward the known truth. A single finite bank need not attain its exact minimum at lambda=1. The review tests a specific population-loss mechanism, not full neural recovery or detector acceptance. Do not turn an inconclusive weak-width profile into another automatic 1000-step synthetic loop."
+  },
+  "REAL_implementation": {
+    "sampling": "Fix the documented SOURCE mixture weights. Draw two independent source/response banks from that mixture, for example 64+64 generated rows per update, and independent REAL TRAIN rows from the fixed empirical target. These banks estimate the same mixture energy objective without requiring quadratic pair computations over all 6593 SOURCE by 21047 REAL rows on every update.",
+    "gradient_memory": "Use current endpoint-gradient replay when needed. Pairwise feature distances are computed on the small banks; no change to the signal model is required.",
+    "labels": "REAL event-level source identity, source energy and particle labels are neither supplied nor invented. A source-to-REAL mapping is constrained through the fixed source mixture and the observed marginal score.",
+    "acceptance_boundary": "Proper marginal fit means matching the bound observed output distribution under the chosen fixed SOURCE population. It does not imply a unique response kernel K(y|x), correctly recovered individual conditional means/covariances, or validated extrapolation to new low-count source populations. Model restrictions and additional existing conditions can contribute information, but must be demonstrated rather than assumed."
+  },
+  "why_not_mixture_likelihood_now": "The statistically direct likelihood is marginal: -sum_j log(sum_i w_i*p_theta(y_j|x_i)). REAL lacks x_i, so it must not be called an observed conditional likelihood. Current model029 is an implicit correlated lognormal-plus-Gaussian response followed by fixed005 noise, ADC and argmax cropping. Exact likelihood would require deriving/integrating this observation model; substituting a Gaussian density would introduce a new distributional approximation and more implementation than a sample-based energy score. This is not the minimal next repair.",
+  "primary_sources": [
+    {"url": "https://arxiv.org/pdf/1705.10743", "title": "The Cramer Distance as a Solution to Biased Wasserstein Gradients", "specific_evidence": "Theorem 1 establishes sample Wasserstein gradient bias; Section 4 Eq.4 gives the multivariate energy discrepancy; Appendix D distinguishes beta in (0,2) from mean-only beta=2. This does not establish an N01-specific causal effect or unbiased STE gradients."},
+    {"url": "https://sites.stat.washington.edu/people/raftery/Research/PDF/Gneiting2007jasa.pdf", "title": "Strictly Proper Scoring Rules, Prediction, and Estimation", "specific_evidence": "Section 4.3 Eq.22 and Section 5 establish strict propriety of the Euclidean energy score for beta in (0,2) under finite beta moment assumptions."},
+    {"url": "https://jmlr.org/papers/volume13/gretton12a/gretton12a.pdf", "title": "A Kernel Two-Sample Test", "specific_evidence": "Lemma 6 and Eq.3 give the IID unbiased MMD U-statistic and note that finite unbiased estimates can be negative. Those IID assumptions do not automatically apply to one fullpopulation stratified response bank."}
+  ],
+  "new_execution_counts": {"NN_forwards": 0, "checkpoint_reads": 0, "raw_TRAIN_REAL_DEV_reads": 0, "optimizer_updates": 0, "source_or_ledger_edits": 0}
+}

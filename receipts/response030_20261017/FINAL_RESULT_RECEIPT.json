@@ -1,0 +1,38 @@
+{
+  "schema": "n01/response030-completion/v1",
+  "UTC": "2026-10-16T20:28:03.044933+00:00",
+  "native_exit_code": 0,
+  "native_elapsed_seconds": 96.99176565299967,
+  "total_diagnostic_updates": 2000,
+  "passed": false,
+  "scientific_status": "response_match_not_established",
+  "decision": "fixed_population_sampling_did_not_recover_conditional_response",
+  "all_parent_metrics": [
+    {
+      "parents": 64,
+      "mean_NRMSE": 0.16476513681345106,
+      "charge_variance_relative_RMS": 0.4470960876406681,
+      "standardized_covariance_relative_Frobenius": 19.93902100834276,
+      "passed": false
+    },
+    {
+      "parents": 64,
+      "mean_NRMSE": 0.05296157185688099,
+      "charge_variance_relative_RMS": 0.4195830728174499,
+      "standardized_covariance_relative_Frobenius": 6.502660206345763,
+      "passed": false
+    }
+  ],
+  "result": "completion_01/run_01/RESULT.json",
+  "collection": "completion_01/COLLECTION_RECEIPT.json",
+  "independent_review": "independent_review_01/RESULT_REVIEW.json",
+  "independent_review_complete": true,
+  "interpretation": "Both seeds failed all seven analytic cells despite lower native training loss. Removing input-composition noise alone is insufficient; preserve this negative result and inspect objective risk and gradients before further training.",
+  "counts": {
+    "prior_cumulative": 191667,
+    "diagnostic030_total": 2000,
+    "cumulative": 193667,
+    "engineering030": 1
+  },
+  "next_action": "Bounded zero-update031 risk audit plus preparation of existing SOURCE/REAL pilot; no new physical data prerequisite."
+}

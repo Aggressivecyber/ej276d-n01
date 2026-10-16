@@ -1,0 +1,38 @@
+{
+  "schema": "n01/response031-energy-math-review/v1",
+  "UTC": "2026-10-16T20:29:18.371061+00:00",
+  "status": "math_no_blockers_implementation_pending",
+  "approved_design": "ROOT031 fixed zero-update audit:32independent blocks,4independent full128-parent banks,3cached states,teacherB-only lambda0.9/1/1.1.",
+  "energy": {
+    "D": "mean_all_i_j ||phi(U_i)-phi(V_j)||_2/sqrt(feature_dimension)",
+    "estimator": "0.5*(D(Xa,Yt)+D(Xa,Yu)+D(Xb,Yt)+D(Xb,Yu))-D(Xa,Xb)-D(Yt,Yu)",
+    "finite_mixture_unbiasedness": "Correct: every bank contains the full finite mixture and banks are independent, so all source-condition i,j terms, includingi=j, receive the exact1/N^2 mixture weight.",
+    "diagonal_warning": "Across-bank same-parent pairs are independent observations and must be retained. This is not the ordinary same-bank U-statistic diagonal.",
+    "finite_negative": "Finite unbiased estimates can be negative; do not clamp.",
+    "properness_scope": "Population Euclidean energy is nonnegative for finite-first-moment feature distributions. Positive-weight sum over the6joint standardized wave views,6signed-asinh integrals and384centeredADCcarrier is a proper observable-marginal comparator; it does not identify source-conditional truth."
+  },
+  "regular": {
+    "exact_cached_formula": "R(lambda)=R(1)+(lambda^2-1)*R_basis(1)",
+    "reason": "B-only scaling multiplies B.square and diff(B,n=2).square bylambda^2; A,v,envelope,local,mean and a_ref are fixed.",
+    "derivative_at_one": "2*R_basis(1); native weighted regular derivative is0.02*R_basis(1).",
+    "counting": "Report regular once, separately from the symmetric average of4cross-pair distribution risks."
+  },
+  "scalar_direction": {
+    "family": "Scaling finalbasis_head weight and bias bylambda exactly scales B while preserving model029family, source-onlyA and canonical-Q law. Local and charge_v stay fixed.",
+    "observer_scope": "The hard argmax crop may still change observedQ despite fixed canonicalQ; preserve all flags/rows.",
+    "difference_scope": "0.9/1.1 hard finite difference is a declared finite-step direction, not an infinitesimal derivative. Compare it separately with scalarSTEautograd atlambda1."
+  },
+  "interpretation_limits": [
+    "Positive finite-sample empiricalW1 self-risk alone is not evidence of a biased optimum.",
+    "ED joint Euclidean geometry differs from native finiteSWD/coordinate/short-lag geometry. A ranking difference alone cannot uniquely isolate finite-minibatch bias.",
+    "At the exactteacher, distribution-risk directions, cached regular derivative and STE-vs-hard directions must be separated.",
+    "No new model architecture, candidate training, threshold search or REAL data use is authorized by this review."
+  ],
+  "reviewer_accounting": {
+    "new_NN_forwards": 0,
+    "new_AD_queries": 0,
+    "checkpoint_reads": 0,
+    "original_SOURCE_REAL_DEV_reads": 0,
+    "optimizer_steps": 0
+  }
+}
