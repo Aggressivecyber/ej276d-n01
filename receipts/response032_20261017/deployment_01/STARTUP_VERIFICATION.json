@@ -1,0 +1,322 @@
+{
+  "UTC": "2026-10-16T20:56:45.334401+00:00",
+  "remote_root": "/home/rylan/projects/ej276d-n01/response032_20261017",
+  "processes": [
+    {
+      "pid": 52286,
+      "start_ticks": "1374235",
+      "cmdline": "flock -n /home/rylan/projects/ej276d-n01/.n01_scientific_dispatch.lock /home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python -B /home/rylan/projects/ej276d-n01/response032_20261017/scripts/supervise.py --output /home/rylan/projects/ej276d-n01/response032_20261017/control_01 --rss-limit-gib 12 -- timeout --signal=TERM --kill-after=20s 3600s /home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python -B /home/rylan/projects/ej276d-n01/response032_20261017/scripts/run_response032.py --config /home/rylan/projects/ej276d-n01/response032_20261017/configs/response032_20261017.json --config-sha256 45a02a7a9e7050a60dbb40085825851828829cdadc377145332b29672ca99fdd --out /home/rylan/projects/ej276d-n01/response032_20261017/run_01 --device cuda:0 ",
+      "cwd": "/home/rylan/projects/ej276d-n01/response032_20261017",
+      "status": [
+        "State:\tS (sleeping)",
+        "VmRSS:\t    2036 kB",
+        "Threads:\t1",
+        "Cpus_allowed_list:\t0-15"
+      ]
+    },
+    {
+      "pid": 52287,
+      "start_ticks": "1374235",
+      "cmdline": "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python -B /home/rylan/projects/ej276d-n01/response032_20261017/scripts/supervise.py --output /home/rylan/projects/ej276d-n01/response032_20261017/control_01 --rss-limit-gib 12 -- timeout --signal=TERM --kill-after=20s 3600s /home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python -B /home/rylan/projects/ej276d-n01/response032_20261017/scripts/run_response032.py --config /home/rylan/projects/ej276d-n01/response032_20261017/configs/response032_20261017.json --config-sha256 45a02a7a9e7050a60dbb40085825851828829cdadc377145332b29672ca99fdd --out /home/rylan/projects/ej276d-n01/response032_20261017/run_01 --device cuda:0 ",
+      "cwd": "/home/rylan/projects/ej276d-n01/response032_20261017",
+      "status": [
+        "State:\tS (sleeping)",
+        "VmRSS:\t   14564 kB",
+        "Threads:\t1",
+        "Cpus_allowed_list:\t0-15"
+      ]
+    },
+    {
+      "pid": 52294,
+      "start_ticks": "1374237",
+      "cmdline": "timeout --signal=TERM --kill-after=20s 3600s /home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python -B /home/rylan/projects/ej276d-n01/response032_20261017/scripts/run_response032.py --config /home/rylan/projects/ej276d-n01/response032_20261017/configs/response032_20261017.json --config-sha256 45a02a7a9e7050a60dbb40085825851828829cdadc377145332b29672ca99fdd --out /home/rylan/projects/ej276d-n01/response032_20261017/run_01 --device cuda:0 ",
+      "cwd": "/home/rylan/projects/ej276d-n01/response032_20261017",
+      "status": [
+        "State:\tS (sleeping)",
+        "VmRSS:\t    2116 kB",
+        "Threads:\t1",
+        "Cpus_allowed_list:\t0-15"
+      ]
+    },
+    {
+      "pid": 52295,
+      "start_ticks": "1374237",
+      "cmdline": "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python -B /home/rylan/projects/ej276d-n01/response032_20261017/scripts/run_response032.py --config /home/rylan/projects/ej276d-n01/response032_20261017/configs/response032_20261017.json --config-sha256 45a02a7a9e7050a60dbb40085825851828829cdadc377145332b29672ca99fdd --out /home/rylan/projects/ej276d-n01/response032_20261017/run_01 --device cuda:0 ",
+      "cwd": "/home/rylan/projects/ej276d-n01/response032_20261017",
+      "status": [
+        "State:\tR (running)",
+        "VmRSS:\t 2923244 kB",
+        "Threads:\t14",
+        "Cpus_allowed_list:\t0-15"
+      ]
+    }
+  ],
+  "launch": {
+    "supervisor_pid": 52287,
+    "child_pid": 52294,
+    "command": [
+      "timeout",
+      "--signal=TERM",
+      "--kill-after=20s",
+      "3600s",
+      "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+      "-B",
+      "/home/rylan/projects/ej276d-n01/response032_20261017/scripts/run_response032.py",
+      "--config",
+      "/home/rylan/projects/ej276d-n01/response032_20261017/configs/response032_20261017.json",
+      "--config-sha256",
+      "45a02a7a9e7050a60dbb40085825851828829cdadc377145332b29672ca99fdd",
+      "--out",
+      "/home/rylan/projects/ej276d-n01/response032_20261017/run_01",
+      "--device",
+      "cuda:0"
+    ],
+    "started_utc": "2026-10-16T20:55:29.412410+00:00"
+  },
+  "resources": {
+    "supervisor_pid": 52287,
+    "child_pid": 52294,
+    "rss_bytes": 2995568640,
+    "peak_rss_bytes": 3079884800,
+    "child_tree": [
+      52294,
+      52295
+    ],
+    "utc": "2026-10-16T20:56:44.462219+00:00"
+  },
+  "exit": null,
+  "status": {
+    "step": 500,
+    "data": 0.4169251164762571,
+    "regular": 0.44161966502871774,
+    "saturation": 5.585045109952027e-05,
+    "objective": 0.42134187163105524,
+    "preclip_gradient_norm": 7.864406585693359,
+    "hypothesis_energy": {
+      "fast": 0.41750996741259744,
+      "slow": 0.4183295372833814,
+      "common_level": 0.41493584473279255
+    },
+    "mean_residual_saturation_fraction": 0.005548807420494699,
+    "execution_counts": {
+      "G_updates": 500,
+      "NN_calls": 1207,
+      "NN_rows": 90372,
+      "noise005_rows": 90372,
+      "extension_rows": 271116,
+      "generated_ADC_rows": 350232,
+      "checkpoint_loads": 2,
+      "TRAIN_archives_decoded": 1,
+      "DEV_archives_decoded": 0,
+      "DEV_metadata_archives_decoded": 0,
+      "training_AD_queries": 500
+    }
+  },
+  "failure": null,
+  "warmstart": {
+    "mean_state_sha256": "529f9a67594ac5232b932d7af246a934f1f5e01c62e7502fc3a50736cf5644c7",
+    "strict_whole_mean_loaded": true,
+    "mean_trainable": true,
+    "frozen005_extension_state_sha256": "bba9cc181344d60a9a00f5c5b8850d30a2020d30a785814b7295496949d85912",
+    "mean_parameters": 1477221,
+    "new_parameters": 5987,
+    "source_mixture": "uniform_count",
+    "calibrated_physical_weights": "unknown",
+    "no_neural_identity_inputs": true
+  },
+  "group_gradients": {
+    "mean": {
+      "norm": 3.0439902770576053,
+      "nonzero_parameter_tensors": 167,
+      "last_nonzero_parameter": [
+        "mean_model.mean_head.bias",
+        1.0647950172424316
+      ]
+    },
+    "shape": {
+      "norm": 20.945805331290273,
+      "nonzero_parameter_tensors": 2,
+      "last_nonzero_parameter": [
+        "basis_head.bias",
+        1.1251227439370686
+      ]
+    },
+    "charge": {
+      "norm": 0.15193670701350645,
+      "nonzero_parameter_tensors": 2,
+      "last_nonzero_parameter": [
+        "charge_head.2.bias",
+        0.09600752077931646
+      ]
+    },
+    "local": {
+      "norm": 0.001978266293444085,
+      "nonzero_parameter_tensors": 3,
+      "last_nonzero_parameter": [
+        "local_filter.raw",
+        1.2371326576637144e-05
+      ]
+    }
+  },
+  "real_entry": {
+    "TRAIN": {
+      "rows": 21047,
+      "observation": {
+        "peak_at_search_boundary": {
+          "count": 0,
+          "denominator": 21047
+        },
+        "global_peak_outside_search": {
+          "count": 0,
+          "denominator": 21047
+        },
+        "Q_nonpositive": {
+          "count": 0,
+          "denominator": 21047
+        },
+        "PSD_undefined": {
+          "count": 0,
+          "denominator": 21047
+        },
+        "PSD_guarded": {
+          "count": 0,
+          "denominator": 21047
+        },
+        "ADC_rail_hit": {
+          "count": 0,
+          "denominator": 21047
+        }
+      },
+      "saved_peak_tied": {
+        "count": 269,
+        "denominator": 21047
+      },
+      "saved_peak_at_search_boundary": {
+        "count": 0,
+        "denominator": 21047
+      },
+      "saved_global_peak_outside_search": {
+        "count": 0,
+        "denominator": 21047
+      },
+      "pre_ADC_flags_unknown": [
+        "pre_ADC_out_of_range",
+        "ADC_halfgrid_tied",
+        "ADC_rail_hit",
+        "ADC_halfgrid_min_distance",
+        "ADC_halfgrid_tie_cells"
+      ]
+    },
+    "observation_replay": {
+      "device": "cpu",
+      "prepared_window_bitwise_equal": true,
+      "prepared_baseline_bitwise_equal": true,
+      "target_window": "original_prepared_REAL256",
+      "second_ADC_applied": false
+    }
+  },
+  "complete": null,
+  "last_metric": {
+    "step": 545,
+    "data": 0.4577606606147344,
+    "regular": 0.28598320326739524,
+    "saturation": 7.70493379634123e-06,
+    "objective": 0.4606205696967463,
+    "preclip_gradient_norm": 10.980952262878418,
+    "hypothesis_energy": {
+      "fast": 0.45520084009905115,
+      "slow": 0.459763462561794,
+      "common_level": 0.4583176791833581
+    },
+    "mean_residual_saturation_fraction": 0.014023851590106006
+  },
+  "files": [
+    {
+      "path": "run_01/TRAIN_A_fast_examples.npz",
+      "bytes": 51190
+    },
+    {
+      "path": "run_01/TRAIN_STATISTICS.json",
+      "bytes": 11612
+    },
+    {
+      "path": "run_01/TRAIN_A_common_level_examples.npz",
+      "bytes": 51186
+    },
+    {
+      "path": "run_01/TRAIN_G0_fast.json",
+      "bytes": 78794
+    },
+    {
+      "path": "run_01/TRAIN_G0_common_level_examples.npz",
+      "bytes": 52252
+    },
+    {
+      "path": "run_01/metrics.jsonl",
+      "bytes": 195642
+    },
+    {
+      "path": "run_01/STARTUP_GROUP_GRADIENTS.json",
+      "bytes": 723
+    },
+    {
+      "path": "run_01/TRAIN_G0_slow_examples.npz",
+      "bytes": 52277
+    },
+    {
+      "path": "run_01/TRAIN_G0_fast_examples.npz",
+      "bytes": 52409
+    },
+    {
+      "path": "run_01/TRAIN_G0_slow.json",
+      "bytes": 78778
+    },
+    {
+      "path": "run_01/WARMSTART_BINDING.json",
+      "bytes": 436
+    },
+    {
+      "path": "run_01/initial.pt",
+      "bytes": 6446996
+    },
+    {
+      "path": "run_01/TRAIN_A_slow.json",
+      "bytes": 78791
+    },
+    {
+      "path": "run_01/TRAIN_A_common_level.json",
+      "bytes": 78765
+    },
+    {
+      "path": "run_01/START.json",
+      "bytes": 9560
+    },
+    {
+      "path": "run_01/REAL_REFERENCE_FLAGS.json",
+      "bytes": 1253
+    },
+    {
+      "path": "run_01/TRAIN_A_fast.json",
+      "bytes": 78757
+    },
+    {
+      "path": "run_01/STATUS.json",
+      "bytes": 748
+    },
+    {
+      "path": "run_01/TRAIN_LINEAGE.npz",
+      "bytes": 368096
+    },
+    {
+      "path": "run_01/TRAIN_G0_common_level.json",
+      "bytes": 78809
+    },
+    {
+      "path": "run_01/TRAIN_A_slow_examples.npz",
+      "bytes": 50899
+    }
+  ],
+  "console_tail": "{\"step\": 1, \"data\": 0.09570950875194757, \"regular\": 0.006411186623494439, \"saturation\": 0.0, \"objective\": 0.09577362061818252, \"preclip_gradient_norm\": 21.1663818359375, \"hypothesis_energy\": {\"fast\": 0.09529299937785271, \"slow\": 0.09577562059551914, \"common_level\": 0.09605990628247091}, \"mean_residual_saturation_fraction\": 0.024514134275618375}\n{\"step\": 100, \"data\": 0.14076674801019365, \"regular\": 0.08352434293006078, \"saturation\": 3.0484929327821466e-05, \"objective\": 0.14160229628878754, \"preclip_gradient_norm\": 6.3370747566223145, \"hypothesis_energy\": {\"fast\": 0.1378214066987714, \"slow\": 0.14254376609336794, \"common_level\": 0.1419350712384416}, \"mean_residual_saturation_fraction\": 0.03285114840989399}\n{\"step\": 200, \"data\": 0.11588513423119554, \"regular\": 0.015393789980157002, \"saturation\": 0.0, \"objective\": 0.11603907213099711, \"preclip_gradient_norm\": 6.658464431762695, \"hypothesis_energy\": {\"fast\": 0.1164826723772864, \"slow\": 0.11596401545258223, \"common_level\": 0.115208714863718}, \"mean_residual_saturation_fraction\": 0.009248012367491166}\n{\"step\": 300, \"data\": 0.04224649433094828, \"regular\": 0.025098880886648304, \"saturation\": 0.0, \"objective\": 0.04249748313981476, \"preclip_gradient_norm\": 4.809554100036621, \"hypothesis_energy\": {\"fast\": 0.04149254151485913, \"slow\": 0.04254062841526366, \"common_level\": 0.04270631306272206}, \"mean_residual_saturation_fraction\": 5.521201413427562e-05}\n{\"step\": 400, \"data\": 0.03591409399695649, \"regular\": 0.038632526493153053, \"saturation\": 0.0, \"objective\": 0.03630041926188802, \"preclip_gradient_norm\": 3.619194269180298, \"hypothesis_energy\": {\"fast\": 0.03545116504905339, \"slow\": 0.03667015490608107, \"common_level\": 0.03562096203573502}, \"mean_residual_saturation_fraction\": 0.0036992049469964667}\n{\"step\": 500, \"data\": 0.4169251164762571, \"regular\": 0.44161966502871774, \"saturation\": 5.585045109952027e-05, \"objective\": 0.42134187163105524, \"preclip_gradient_norm\": 7.864406585693359, \"hypothesis_energy\": {\"fast\": 0.41750996741259744, \"slow\": 0.4183295372833814, \"common_level\": 0.41493584473279255}, \"mean_residual_saturation_fraction\": 0.005548807420494699}\n",
+  "dispatcher_log": "",
+  "gpu": "0, 3001, 68"
+}
