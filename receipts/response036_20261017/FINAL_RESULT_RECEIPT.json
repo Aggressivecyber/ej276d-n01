@@ -1,0 +1,1313 @@
+{
+  "schema": "n01/response036-root-result/v1",
+  "UTC": "2026-10-16T23:03:40.371494+00:00",
+  "status": "native0_original_progress_failed_independently_reviewed_closed",
+  "source_commit": "46cef3aff18e9d6130ab86c246a8db4f352f3c81",
+  "config_sha256": "330f013e8b6f17fc7b576f08e6f66c1761f51e9942054a105f88f5ac82e04f86",
+  "evidence": {
+    "completion_01/COLLECTION_RECEIPT.json": {
+      "bytes": 302,
+      "sha256": "8728a4a42834afb3845ca0dbc4cacf13065f9a5a76b9f404c315e63bf425ffca"
+    },
+    "completion_01/run_01/RESULT.json": {
+      "bytes": 40422,
+      "sha256": "e77e10a9f2a397b9f91bed62582b627796e4ccfaaa23811c7fae8a0cf0863d92"
+    },
+    "completion_01/run_01/COMPLETE.json": {
+      "bytes": 572,
+      "sha256": "d9014926432d90360f4acbf32792a6b2df462f6664f421e96f71f31d1ee82f48"
+    },
+    "independent_result_01/RESULT_REVIEW.json": {
+      "bytes": 245086,
+      "sha256": "91fb9cd0db4c0726fadd295a85010917e3809035cd27ac77c1788c4ba06211e4"
+    },
+    "model_diagnosis_01/DIAGNOSIS.json": {
+      "bytes": 262677,
+      "sha256": "7bb7f221cc332469020835af401386b01d151b0b4ae8dd88bba0bd37ef838512"
+    },
+    "wake_20261017_0650_01/TERMINAL_SNAPSHOT.json": {
+      "bytes": 61948,
+      "sha256": "d4e37a928d6ca928b885d2009fe4dcb9bedb155eeaeb4127ee61ebf2fa1c1b36"
+    }
+  },
+  "native_execution": {
+    "exit_code": 0,
+    "started_UTC": "2026-10-16T22:38:25.763707+00:00",
+    "ended_UTC": "2026-10-16T22:41:43.887684+00:00",
+    "elapsed_seconds": 198.123977,
+    "peak_RSS_bytes": 3225825280,
+    "peak_RSS_GiB": 3.004283905029297,
+    "registered_limits": {
+      "wall_seconds": 3600,
+      "RSS_GiB": 12,
+      "GPU_GiB": 10,
+      "CPU_threads": 4,
+      "output_MiB": 1024
+    },
+    "execution_counts": {
+      "G_updates": 2000,
+      "NN_calls": 4446,
+      "NN_rows": 312840,
+      "noise005_rows": 310792,
+      "extension_rows": 932376,
+      "generated_ADC_rows": 1017636,
+      "checkpoint_loads": 2,
+      "TRAIN_archives_decoded": 1,
+      "DEV_archives_decoded": 1,
+      "DEV_metadata_archives_decoded": 1,
+      "training_AD_queries": 2000
+    },
+    "exact_budget": true,
+    "cumulative_G_updates_ROOT_reported": 199668,
+    "terminal_increment_ROOT_reported": 1422,
+    "accounting_note": "ROOT reconciled1422 terminal increments once; reviewer does not add it again or edit ledgers."
+  },
+  "scientific_status": "response_match_not_established",
+  "gates": {
+    "TRAIN_wave_gate": false,
+    "all_TRAIN_DEV_noninferiority_gate": false,
+    "pilot_relative_progress": false,
+    "positive_T_defined": 90,
+    "positive_T_failed": 54,
+    "absolute_final_within_T": 12,
+    "not_calibrated": 42,
+    "undefined_positive_T": 0,
+    "comparison_numeric_count": 282,
+    "comparison_max_error": 0.0,
+    "aggregate_relations_count": 300,
+    "aggregate_roundoff_max": 0.0,
+    "definitions": "Gain=(A-final)/A; noninferiority=final-A<=positiveT. Absolute final/T and RR ratios are separate. DEVwave gain is reported, not an additional gate."
+  },
+  "cells": {
+    "TRAIN": {
+      "fast": {
+        "relative_wave_improvement": -4.504001381199032,
+        "useful_2percent": false,
+        "T_checks": {
+          "wave": {
+            "T": 0.18835690066187133,
+            "A": 0.15383882672116173,
+            "final": 0.8467291147553128,
+            "final_over_T": 4.49534427345095,
+            "final_minus_A": 0.692890288034151,
+            "noninferior": false,
+            "absolute_within_T": false
+          },
+          "QPSD": {
+            "T": 0.048271307926588014,
+            "A": 0.05143300426564523,
+            "final": 4.998463959399455,
+            "final_over_T": 103.54937900172958,
+            "final_minus_A": 4.94703095513381,
+            "noninferior": false,
+            "absolute_within_T": false
+          },
+          "noise": {
+            "T": 0.24513525857737978,
+            "A": 0.12455483095615072,
+            "final": 0.12455483095615072,
+            "final_over_T": 0.508106551782854,
+            "final_minus_A": 0.0,
+            "noninferior": true,
+            "absolute_within_T": true
+          },
+          "Q_Vns": {
+            "T": 0.14006821393078955,
+            "A": 0.0450543601148545,
+            "final": 0.6158997821810014,
+            "final_over_T": 4.397141684731766,
+            "final_minus_A": 0.5708454220661469,
+            "noninferior": false,
+            "absolute_within_T": false
+          },
+          "front_Vns": {
+            "T": 0.1090464838504471,
+            "A": 0.1049057552090536,
+            "final": 0.522054328939173,
+            "final_over_T": 4.787447614130775,
+            "final_minus_A": 0.41714857373011943,
+            "noninferior": false,
+            "absolute_within_T": false
+          },
+          "tail_Vns": {
+            "T": 0.03108613086926998,
+            "A": 0.02311953866219863,
+            "final": 0.1511258393538352,
+            "final_over_T": 4.861519755848091,
+            "final_minus_A": 0.12800630069163657,
+            "noninferior": false,
+            "absolute_within_T": false
+          },
+          "PSD_raw": {
+            "T": 0.0042836374482436,
+            "A": 0.004204887254058523,
+            "final": 0.7488165353832547,
+            "final_over_T": 174.8085696865612,
+            "final_minus_A": 0.7446116481291961,
+            "noninferior": false,
+            "absolute_within_T": false
+          },
+          "PSD_guarded": {
+            "T": 0.0042836374482436,
+            "A": 0.004204887254058523,
+            "final": 0.7460074300294142,
+            "final_over_T": 174.15279398477014,
+            "final_minus_A": 0.7418025427753556,
+            "noninferior": false,
+            "absolute_within_T": false
+          },
+          "peak_voltage_V": {
+            "T": 0.005499862543299458,
+            "A": 0.03671843082010103,
+            "final": 0.032223830363976934,
+            "final_over_T": 5.8590246774868175,
+            "final_minus_A": -0.004494600456124098,
+            "noninferior": true,
+            "absolute_within_T": false
+          },
+          "rise10_90_ns": {
+            "T": 0.21159366879623287,
+            "A": 1.5595230773986997,
+            "final": 1.6190843184122203,
+            "final_over_T": 7.651856161969653,
+            "final_minus_A": 0.05956124101352067,
+            "noninferior": true,
+            "absolute_within_T": false
+          },
+          "FWHM_ns": {
+            "T": 0.5129398878764326,
+            "A": 2.5755449346820205,
+            "final": 3.038962064172638,
+            "final_over_T": 5.924596889420939,
+            "final_minus_A": 0.46341712949061753,
+            "noninferior": true,
+            "absolute_within_T": false
+          },
+          "baseline_mean_V": {
+            "T": 4.506386193005153e-07,
+            "A": 1.511353275382762e-05,
+            "final": 1.511353275382762e-05,
+            "final_over_T": 33.53803270853031,
+            "final_minus_A": 0.0,
+            "noninferior": true,
+            "absolute_within_T": false
+          },
+          "baseline_RMS_V": {
+            "T": 6.316818201581438e-05,
+            "A": 1.87759671680737e-05,
+            "final": 1.87759671680737e-05,
+            "final_over_T": 0.2972377321761938,
+            "final_minus_A": 0.0,
+            "noninferior": true,
+            "absolute_within_T": true
+          },
+          "rise_undefined_rate": {
+            "T": 0.003173828125,
+            "A": 0.005468584604306724,
+            "final": 0.1454655510839063,
+            "final_over_T": 45.83283824920617,
+            "final_minus_A": 0.13999696647959958,
+            "noninferior": false,
+            "absolute_within_T": false
+          },
+          "rise_prepeak_censored_rate": {
+            "T": 0.003173828125,
+            "A": 0.005468584604306724,
+            "final": 0.1454655510839063,
+            "final_over_T": 45.83283824920617,
+            "final_minus_A": 0.13999696647959958,
+            "noninferior": false,
+            "absolute_within_T": false
+          }
+        },
+        "failed_noninferiority": [
+          "wave",
+          "QPSD",
+          "Q_Vns",
+          "front_Vns",
+          "tail_Vns",
+          "PSD_raw",
+          "PSD_guarded",
+          "rise_undefined_rate",
+          "rise_prepeak_censored_rate"
+        ],
+        "not_calibrated": [
+          "Q_nonpositive_rate",
+          "PSD_undefined_rate",
+          "PSD_guarded_rate",
+          "FWHM_undefined_rate",
+          "temporal_nonpositive_peak_rate",
+          "FWHM_prepeak_censored_rate",
+          "FWHM_postpeak_censored_rate"
+        ],
+        "undefined_positive_T": [],
+        "all_noninferior": false,
+        "RR_ratios": {
+          "wave": 28.77885607369883,
+          "QPSD": 207.6634389479402,
+          "noise": 5.1125615117716
+        }
+      },
+      "slow": {
+        "relative_wave_improvement": -4.464388815846506,
+        "useful_2percent": false,
+        "T_checks": {
+          "wave": {
+            "T": 0.19015560932077008,
+            "A": 0.1549152936706664,
+            "final": 0.8465173981375664,
+            "final_over_T": 4.451708793452374,
+            "final_minus_A": 0.6916021044669001,
+            "noninferior": false,
+            "absolute_within_T": false
+          },
+          "QPSD": {
+            "T": 0.045608667099154225,
+            "A": 0.04718889102690473,
+            "final": 5.364537566583513,
+            "final_over_T": 117.62101170202787,
+            "final_minus_A": 5.317348675556608,
+            "noninferior": false,
+            "absolute_within_T": false
+          },
+          "noise": {
+            "T": 0.24513525857737978,
+            "A": 0.12455483095615072,
+            "final": 0.12455483095615072,
+            "final_over_T": 0.508106551782854,
+            "final_minus_A": 0.0,
+            "noninferior": true,
+            "absolute_within_T": true
+          },
+          "Q_Vns": {
+            "T": 0.1400669323527055,
+            "A": 0.044694991703191606,
+            "final": 0.615893183117424,
+            "final_over_T": 4.39713480385599,
+            "final_minus_A": 0.5711981914142324,
+            "noninferior": false,
+            "absolute_within_T": false
+          },
+          "front_Vns": {
+            "T": 0.10900203842445293,
+            "A": 0.10465570382213447,
+            "final": 0.5221779180931907,
+            "final_over_T": 4.790533513326006,
+            "final_minus_A": 0.41752221427105624,
+            "noninferior": false,
+            "absolute_within_T": false
+          },
+          "tail_Vns": {
+            "T": 0.031110665638543,
+            "A": 0.02085270225105531,
+            "final": 0.15075110577705525,
+            "final_over_T": 4.84564064069043,
+            "final_minus_A": 0.12989840352599993,
+            "noninferior": false,
+            "absolute_within_T": false
+          },
+          "PSD_raw": {
+            "T": 0.004280475598982037,
+            "A": 0.0036303278828736683,
+            "final": 1.787314595660239,
+            "final_over_T": 417.55046941169104,
+            "final_minus_A": 1.7836842677773652,
+            "noninferior": false,
+            "absolute_within_T": false
+          },
+          "PSD_guarded": {
+            "T": 0.004280475598982037,
+            "A": 0.0036303278828736683,
+            "final": 0.8024315145664667,
+            "final_over_T": 187.46316758756834,
+            "final_minus_A": 0.798801186683593,
+            "noninferior": false,
+            "absolute_within_T": false
+          },
+          "peak_voltage_V": {
+            "T": 0.005499869994334829,
+            "A": 0.036726482519639614,
+            "final": 0.032226583480795976,
+            "final_over_T": 5.859517318407734,
+            "final_minus_A": -0.004499899038843638,
+            "noninferior": true,
+            "absolute_within_T": false
+          },
+          "rise10_90_ns": {
+            "T": 0.21101546028178209,
+            "A": 1.5556291948932355,
+            "final": 1.6187253750170192,
+            "final_over_T": 7.671122167330462,
+            "final_minus_A": 0.06309618012378371,
+            "noninferior": true,
+            "absolute_within_T": false
+          },
+          "FWHM_ns": {
+            "T": 0.5149414509583063,
+            "A": 2.5718619439704615,
+            "final": 3.0396559397052245,
+            "final_over_T": 5.902915630599213,
+            "final_minus_A": 0.467793995734763,
+            "noninferior": true,
+            "absolute_within_T": false
+          },
+          "baseline_mean_V": {
+            "T": 4.506386193005153e-07,
+            "A": 1.511353275382762e-05,
+            "final": 1.511353275382762e-05,
+            "final_over_T": 33.53803270853031,
+            "final_minus_A": 0.0,
+            "noninferior": true,
+            "absolute_within_T": false
+          },
+          "baseline_RMS_V": {
+            "T": 6.316818201581438e-05,
+            "A": 1.87759671680737e-05,
+            "final": 1.87759671680737e-05,
+            "final_over_T": 0.2972377321761938,
+            "final_minus_A": 0.0,
+            "noninferior": true,
+            "absolute_within_T": true
+          },
+          "rise_undefined_rate": {
+            "T": 0.0025634765625,
+            "A": 0.005771936644349193,
+            "final": 0.14535179406889037,
+            "final_over_T": 56.70104271487381,
+            "final_minus_A": 0.13957985742454118,
+            "noninferior": false,
+            "absolute_within_T": false
+          },
+          "rise_prepeak_censored_rate": {
+            "T": 0.0025634765625,
+            "A": 0.005771936644349193,
+            "final": 0.14535179406889037,
+            "final_over_T": 56.70104271487381,
+            "final_minus_A": 0.13957985742454118,
+            "noninferior": false,
+            "absolute_within_T": false
+          }
+        },
+        "failed_noninferiority": [
+          "wave",
+          "QPSD",
+          "Q_Vns",
+          "front_Vns",
+          "tail_Vns",
+          "PSD_raw",
+          "PSD_guarded",
+          "rise_undefined_rate",
+          "rise_prepeak_censored_rate"
+        ],
+        "not_calibrated": [
+          "Q_nonpositive_rate",
+          "PSD_undefined_rate",
+          "PSD_guarded_rate",
+          "FWHM_undefined_rate",
+          "temporal_nonpositive_peak_rate",
+          "FWHM_prepeak_censored_rate",
+          "FWHM_postpeak_censored_rate"
+        ],
+        "undefined_positive_T": [],
+        "all_noninferior": false,
+        "RR_ratios": {
+          "wave": 28.771660192555313,
+          "QPSD": 222.87213201713107,
+          "noise": 5.1125615117716
+        }
+      },
+      "common_level": {
+        "relative_wave_improvement": -4.476170818647608,
+        "useful_2percent": false,
+        "T_checks": {
+          "wave": {
+            "T": 0.1905364603858985,
+            "A": 0.15486618422219295,
+            "final": 0.8480736788328778,
+            "final_over_T": 4.450978448509288,
+            "final_minus_A": 0.6932074946106848,
+            "noninferior": false,
+            "absolute_within_T": false
+          },
+          "QPSD": {
+            "T": 0.046214249198750015,
+            "A": 0.05323534568003885,
+            "final": 6.486250024410514,
+            "final_over_T": 140.35173429986074,
+            "final_minus_A": 6.4330146787304745,
+            "noninferior": false,
+            "absolute_within_T": false
+          },
+          "noise": {
+            "T": 0.24513525857737978,
+            "A": 0.12455483095615072,
+            "final": 0.12455483095615072,
+            "final_over_T": 0.508106551782854,
+            "final_minus_A": 0.0,
+            "noninferior": true,
+            "absolute_within_T": true
+          },
+          "Q_Vns": {
+            "T": 0.14006769980934886,
+            "A": 0.0451353555483714,
+            "final": 0.6160594073219264,
+            "final_over_T": 4.398297453020696,
+            "final_minus_A": 0.570924051773555,
+            "noninferior": false,
+            "absolute_within_T": false
+          },
+          "front_Vns": {
+            "T": 0.10901502706931349,
+            "A": 0.10508272085777073,
+            "final": 0.5221422792448638,
+            "final_over_T": 4.78963582619557,
+            "final_minus_A": 0.4170595583870931,
+            "noninferior": false,
+            "absolute_within_T": false
+          },
+          "tail_Vns": {
+            "T": 0.031056340139645512,
+            "A": 0.023720817872393173,
+            "final": 0.151021812325961,
+            "final_over_T": 4.862833535660935,
+            "final_minus_A": 0.12730099445356785,
+            "noninferior": false,
+            "absolute_within_T": false
+          },
+          "PSD_raw": {
+            "T": 0.004264454906522381,
+            "A": 0.004307932895810765,
+            "final": 1.4141516521794357,
+            "final_over_T": 331.61369581292206,
+            "final_minus_A": 1.409843719283625,
+            "noninferior": false,
+            "absolute_within_T": false
+          },
+          "PSD_guarded": {
+            "T": 0.004264454906522381,
+            "A": 0.004307932895810765,
+            "final": 0.9755284280142901,
+            "final_over_T": 228.7580592122672,
+            "final_minus_A": 0.9712204951184793,
+            "noninferior": false,
+            "absolute_within_T": false
+          },
+          "peak_voltage_V": {
+            "T": 0.00550009352539599,
+            "A": 0.03672704092543666,
+            "final": 0.03222575263390161,
+            "final_over_T": 5.859128119386198,
+            "final_minus_A": -0.004501288291535052,
+            "noninferior": true,
+            "absolute_within_T": false
+          },
+          "rise10_90_ns": {
+            "T": 0.21177797877203527,
+            "A": 1.5555348103143476,
+            "final": 1.6188163362590573,
+            "final_over_T": 7.643931374005623,
+            "final_minus_A": 0.0632815259447097,
+            "noninferior": true,
+            "absolute_within_T": false
+          },
+          "FWHM_ns": {
+            "T": 0.5147888093676196,
+            "A": 2.5721338981877553,
+            "final": 3.0392310322756586,
+            "final_over_T": 5.9038405205605216,
+            "final_minus_A": 0.4670971340879033,
+            "noninferior": true,
+            "absolute_within_T": false
+          },
+          "baseline_mean_V": {
+            "T": 4.506386193005153e-07,
+            "A": 1.511353275382762e-05,
+            "final": 1.511353275382762e-05,
+            "final_over_T": 33.53803270853031,
+            "final_minus_A": 0.0,
+            "noninferior": true,
+            "absolute_within_T": false
+          },
+          "baseline_RMS_V": {
+            "T": 6.316818201581438e-05,
+            "A": 1.87759671680737e-05,
+            "final": 1.87759671680737e-05,
+            "final_over_T": 0.2972377321761938,
+            "final_minus_A": 0.0,
+            "noninferior": true,
+            "absolute_within_T": true
+          },
+          "rise_undefined_rate": {
+            "T": 0.001953125,
+            "A": 0.005771936644349193,
+            "final": 0.14535179406889037,
+            "final_over_T": 74.42011856327187,
+            "final_minus_A": 0.13957985742454118,
+            "noninferior": false,
+            "absolute_within_T": false
+          },
+          "rise_prepeak_censored_rate": {
+            "T": 0.001953125,
+            "A": 0.005771936644349193,
+            "final": 0.14535179406889037,
+            "final_over_T": 74.42011856327187,
+            "final_minus_A": 0.13957985742454118,
+            "noninferior": false,
+            "absolute_within_T": false
+          }
+        },
+        "failed_noninferiority": [
+          "wave",
+          "QPSD",
+          "Q_Vns",
+          "front_Vns",
+          "tail_Vns",
+          "PSD_raw",
+          "PSD_guarded",
+          "rise_undefined_rate",
+          "rise_prepeak_censored_rate"
+        ],
+        "not_calibrated": [
+          "Q_nonpositive_rate",
+          "PSD_undefined_rate",
+          "PSD_guarded_rate",
+          "FWHM_undefined_rate",
+          "temporal_nonpositive_peak_rate",
+          "FWHM_prepeak_censored_rate",
+          "FWHM_postpeak_censored_rate"
+        ],
+        "undefined_positive_T": [],
+        "all_noninferior": false,
+        "RR_ratios": {
+          "wave": 28.824555477907094,
+          "QPSD": 269.47418184587247,
+          "noise": 5.1125615117716
+        }
+      }
+    },
+    "DEV": {
+      "fast": {
+        "relative_wave_improvement": -3.8053853402594924,
+        "useful_2percent": false,
+        "T_checks": {
+          "wave": {
+            "T": 0.18835690066187133,
+            "A": 0.17576602721519846,
+            "final": 0.8446234904955656,
+            "final_over_T": 4.48416536653356,
+            "final_minus_A": 0.6688574632803672,
+            "noninferior": false,
+            "absolute_within_T": false
+          },
+          "QPSD": {
+            "T": 0.048271307926588014,
+            "A": 0.10980000560440553,
+            "final": 4.61832834451579,
+            "final_over_T": 95.67439837220566,
+            "final_minus_A": 4.508528338911384,
+            "noninferior": false,
+            "absolute_within_T": false
+          },
+          "noise": {
+            "T": 0.24513525857737978,
+            "A": 0.14375780310710007,
+            "final": 0.14375780310710007,
+            "final_over_T": 0.5864427824107614,
+            "final_minus_A": 0.0,
+            "noninferior": true,
+            "absolute_within_T": true
+          },
+          "Q_Vns": {
+            "T": 0.14006821393078955,
+            "A": 0.23790032418315882,
+            "final": 0.5985354896005946,
+            "final_over_T": 4.273171427004436,
+            "final_minus_A": 0.36063516541743573,
+            "noninferior": false,
+            "absolute_within_T": false
+          },
+          "front_Vns": {
+            "T": 0.1090464838504471,
+            "A": 0.19073655747876503,
+            "final": 0.5107393418304269,
+            "final_over_T": 4.683684643430461,
+            "final_minus_A": 0.32000278435166185,
+            "noninferior": false,
+            "absolute_within_T": false
+          },
+          "tail_Vns": {
+            "T": 0.03108613086926998,
+            "A": 0.05863235834459084,
+            "final": 0.12557436499469676,
+            "final_over_T": 4.039562386286954,
+            "final_minus_A": 0.06694200665010593,
+            "noninferior": false,
+            "absolute_within_T": false
+          },
+          "PSD_raw": {
+            "T": 0.0042836374482436,
+            "A": 0.004828504193279147,
+            "final": 0.7062700273681382,
+            "final_over_T": 164.87623798735038,
+            "final_minus_A": 0.701441523174859,
+            "noninferior": false,
+            "absolute_within_T": false
+          },
+          "PSD_guarded": {
+            "T": 0.0042836374482436,
+            "A": 0.004828504193279147,
+            "final": 0.7062700273681382,
+            "final_over_T": 164.87623798735038,
+            "final_minus_A": 0.701441523174859,
+            "noninferior": false,
+            "absolute_within_T": false
+          },
+          "peak_voltage_V": {
+            "T": 0.005499862543299458,
+            "A": 0.036100121697543675,
+            "final": 0.03130034774313923,
+            "final_over_T": 5.691114549994124,
+            "final_minus_A": -0.004799773954404445,
+            "noninferior": true,
+            "absolute_within_T": false
+          },
+          "rise10_90_ns": {
+            "T": 0.21159366879623287,
+            "A": 1.546565230418865,
+            "final": 1.5301629055390333,
+            "final_over_T": 7.231610067750173,
+            "final_minus_A": -0.01640232487983173,
+            "noninferior": true,
+            "absolute_within_T": false
+          },
+          "FWHM_ns": {
+            "T": 0.5129398878764326,
+            "A": 2.704269021473383,
+            "final": 2.9608938321775944,
+            "final_over_T": 5.772399265800273,
+            "final_minus_A": 0.2566248107042113,
+            "noninferior": true,
+            "absolute_within_T": false
+          },
+          "baseline_mean_V": {
+            "T": 4.506386193005153e-07,
+            "A": 2.1798515228881447e-05,
+            "final": 2.1798515228881447e-05,
+            "final_over_T": 48.37249693050558,
+            "final_minus_A": 0.0,
+            "noninferior": true,
+            "absolute_within_T": false
+          },
+          "baseline_RMS_V": {
+            "T": 6.316818201581438e-05,
+            "A": 1.660405749520103e-05,
+            "final": 1.660405749520103e-05,
+            "final_over_T": 0.2628547627196892,
+            "final_minus_A": 0.0,
+            "noninferior": true,
+            "absolute_within_T": true
+          },
+          "rise_undefined_rate": {
+            "T": 0.003173828125,
+            "A": 0.003780715254590985,
+            "final": 0.13952290275459098,
+            "final_over_T": 43.96044689867728,
+            "final_minus_A": 0.1357421875,
+            "noninferior": false,
+            "absolute_within_T": false
+          },
+          "rise_prepeak_censored_rate": {
+            "T": 0.003173828125,
+            "A": 0.003780715254590985,
+            "final": 0.13952290275459098,
+            "final_over_T": 43.96044689867728,
+            "final_minus_A": 0.1357421875,
+            "noninferior": false,
+            "absolute_within_T": false
+          }
+        },
+        "failed_noninferiority": [
+          "wave",
+          "QPSD",
+          "Q_Vns",
+          "front_Vns",
+          "tail_Vns",
+          "PSD_raw",
+          "PSD_guarded",
+          "rise_undefined_rate",
+          "rise_prepeak_censored_rate"
+        ],
+        "not_calibrated": [
+          "Q_nonpositive_rate",
+          "PSD_undefined_rate",
+          "PSD_guarded_rate",
+          "FWHM_undefined_rate",
+          "temporal_nonpositive_peak_rate",
+          "FWHM_prepeak_censored_rate",
+          "FWHM_postpeak_censored_rate"
+        ],
+        "undefined_positive_T": [],
+        "all_noninferior": false,
+        "RR_ratios": {
+          "wave": 28.70728955205623,
+          "QPSD": 191.87053342845817,
+          "noise": 5.900779644917542
+        }
+      },
+      "slow": {
+        "relative_wave_improvement": -3.776863401847173,
+        "useful_2percent": false,
+        "T_checks": {
+          "wave": {
+            "T": 0.19015560932077008,
+            "A": 0.17703928004560265,
+            "final": 0.8456924575392119,
+            "final_over_T": 4.4473705538321955,
+            "final_minus_A": 0.6686531774936092,
+            "noninferior": false,
+            "absolute_within_T": false
+          },
+          "QPSD": {
+            "T": 0.045608667099154225,
+            "A": 0.10471810878572443,
+            "final": 9.102148401895732,
+            "final_over_T": 199.5705856105697,
+            "final_minus_A": 8.997430293110009,
+            "noninferior": false,
+            "absolute_within_T": false
+          },
+          "noise": {
+            "T": 0.24513525857737978,
+            "A": 0.14375780310710007,
+            "final": 0.14375780310710007,
+            "final_over_T": 0.5864427824107614,
+            "final_minus_A": 0.0,
+            "noninferior": true,
+            "absolute_within_T": true
+          },
+          "Q_Vns": {
+            "T": 0.1400669323527055,
+            "A": 0.23674763210384792,
+            "final": 0.5982434945354775,
+            "final_over_T": 4.271125843100696,
+            "final_minus_A": 0.3614958624316296,
+            "noninferior": false,
+            "absolute_within_T": false
+          },
+          "front_Vns": {
+            "T": 0.10900203842445293,
+            "A": 0.1905210061794412,
+            "final": 0.5103622896364607,
+            "final_over_T": 4.682135279425827,
+            "final_minus_A": 0.31984128345701945,
+            "noninferior": false,
+            "absolute_within_T": false
+          },
+          "tail_Vns": {
+            "T": 0.031110665638543,
+            "A": 0.05749758236566201,
+            "final": 0.12641182696887227,
+            "final_over_T": 4.063295476785321,
+            "final_minus_A": 0.06891424460321025,
+            "noninferior": false,
+            "absolute_within_T": false
+          },
+          "PSD_raw": {
+            "T": 0.004280475598982037,
+            "A": 0.003901073427880217,
+            "final": 2.221733653943253,
+            "final_over_T": 519.0389718543461,
+            "final_minus_A": 2.2178325805153727,
+            "noninferior": false,
+            "absolute_within_T": false
+          },
+          "PSD_guarded": {
+            "T": 0.004280475598982037,
+            "A": 0.003901073427880217,
+            "final": 1.4153239750003523,
+            "final_over_T": 330.6464298819828,
+            "final_minus_A": 1.4114229015724722,
+            "noninferior": false,
+            "absolute_within_T": false
+          },
+          "peak_voltage_V": {
+            "T": 0.005499869994334829,
+            "A": 0.03611001667251773,
+            "final": 0.03130612373401287,
+            "final_over_T": 5.692157044850135,
+            "final_minus_A": -0.004803892938504861,
+            "noninferior": true,
+            "absolute_within_T": false
+          },
+          "rise10_90_ns": {
+            "T": 0.21101546028178209,
+            "A": 1.5432439124958361,
+            "final": 1.5290348002589913,
+            "final_over_T": 7.246079496815901,
+            "final_minus_A": -0.014209112236844845,
+            "noninferior": true,
+            "absolute_within_T": false
+          },
+          "FWHM_ns": {
+            "T": 0.5149414509583063,
+            "A": 2.7042853514927367,
+            "final": 2.9546420923560888,
+            "final_over_T": 5.737821429713025,
+            "final_minus_A": 0.250356740863352,
+            "noninferior": true,
+            "absolute_within_T": false
+          },
+          "baseline_mean_V": {
+            "T": 4.506386193005153e-07,
+            "A": 2.1798515228881447e-05,
+            "final": 2.1798515228881447e-05,
+            "final_over_T": 48.37249693050558,
+            "final_minus_A": 0.0,
+            "noninferior": true,
+            "absolute_within_T": false
+          },
+          "baseline_RMS_V": {
+            "T": 6.316818201581438e-05,
+            "A": 1.660405749520103e-05,
+            "final": 1.660405749520103e-05,
+            "final_over_T": 0.2628547627196892,
+            "final_minus_A": 0.0,
+            "noninferior": true,
+            "absolute_within_T": true
+          },
+          "rise_undefined_rate": {
+            "T": 0.0025634765625,
+            "A": 0.003780715254590985,
+            "final": 0.13903462150459098,
+            "final_over_T": 54.23674377931473,
+            "final_minus_A": 0.13525390625,
+            "noninferior": false,
+            "absolute_within_T": false
+          },
+          "rise_prepeak_censored_rate": {
+            "T": 0.0025634765625,
+            "A": 0.003780715254590985,
+            "final": 0.13903462150459098,
+            "final_over_T": 54.23674377931473,
+            "final_minus_A": 0.13525390625,
+            "noninferior": false,
+            "absolute_within_T": false
+          }
+        },
+        "failed_noninferiority": [
+          "wave",
+          "QPSD",
+          "Q_Vns",
+          "front_Vns",
+          "tail_Vns",
+          "PSD_raw",
+          "PSD_guarded",
+          "rise_undefined_rate",
+          "rise_prepeak_censored_rate"
+        ],
+        "not_calibrated": [
+          "Q_nonpositive_rate",
+          "PSD_undefined_rate",
+          "PSD_guarded_rate",
+          "FWHM_undefined_rate",
+          "temporal_nonpositive_peak_rate",
+          "FWHM_prepeak_censored_rate",
+          "FWHM_postpeak_censored_rate"
+        ],
+        "undefined_positive_T": [],
+        "all_noninferior": false,
+        "RR_ratios": {
+          "wave": 28.743621890416314,
+          "QPSD": 378.1528594194893,
+          "noise": 5.900779644917542
+        }
+      },
+      "common_level": {
+        "relative_wave_improvement": -3.766262519941749,
+        "useful_2percent": false,
+        "T_checks": {
+          "wave": {
+            "T": 0.1905364603858985,
+            "A": 0.17763197900882424,
+            "final": 0.8466406438928384,
+            "final_over_T": 4.443457394863508,
+            "final_minus_A": 0.6690086648840142,
+            "noninferior": false,
+            "absolute_within_T": false
+          },
+          "QPSD": {
+            "T": 0.046214249198750015,
+            "A": 0.1112701231950494,
+            "final": 10.637656409737954,
+            "final_over_T": 230.18130975122878,
+            "final_minus_A": 10.526386286542904,
+            "noninferior": false,
+            "absolute_within_T": false
+          },
+          "noise": {
+            "T": 0.24513525857737978,
+            "A": 0.14375780310710007,
+            "final": 0.14375780310710007,
+            "final_over_T": 0.5864427824107614,
+            "final_minus_A": 0.0,
+            "noninferior": true,
+            "absolute_within_T": true
+          },
+          "Q_Vns": {
+            "T": 0.14006769980934886,
+            "A": 0.2378039074510811,
+            "final": 0.5978726599232826,
+            "final_over_T": 4.268454902429814,
+            "final_minus_A": 0.36006875247220155,
+            "noninferior": false,
+            "absolute_within_T": false
+          },
+          "front_Vns": {
+            "T": 0.10901502706931349,
+            "A": 0.19094366739537844,
+            "final": 0.5106650401056971,
+            "final_over_T": 4.6843545686688515,
+            "final_minus_A": 0.3197213727103187,
+            "noninferior": false,
+            "absolute_within_T": false
+          },
+          "tail_Vns": {
+            "T": 0.031056340139645512,
+            "A": 0.059177461294826636,
+            "final": 0.12541228784419395,
+            "final_over_T": 4.038218517709262,
+            "final_minus_A": 0.06623482654936731,
+            "noninferior": false,
+            "absolute_within_T": false
+          },
+          "PSD_raw": {
+            "T": 0.004264454906522381,
+            "A": 0.004803662020956196,
+            "final": 1.65626860120893,
+            "final_over_T": 388.38928714563434,
+            "final_minus_A": 1.6514649391879739,
+            "noninferior": false,
+            "absolute_within_T": false
+          },
+          "PSD_guarded": {
+            "T": 0.004264454906522381,
+            "A": 0.004803662020956196,
+            "final": 1.65626860120893,
+            "final_over_T": 388.38928714563434,
+            "final_minus_A": 1.6514649391879739,
+            "noninferior": false,
+            "absolute_within_T": false
+          },
+          "peak_voltage_V": {
+            "T": 0.00550009352539599,
+            "A": 0.03610906293999012,
+            "final": 0.03130654465307672,
+            "final_over_T": 5.692002237511542,
+            "final_minus_A": -0.0048025182869133945,
+            "noninferior": true,
+            "absolute_within_T": false
+          },
+          "rise10_90_ns": {
+            "T": 0.21177797877203527,
+            "A": 1.5443833893177867,
+            "final": 1.5173826450191146,
+            "final_over_T": 7.16496896333341,
+            "final_minus_A": -0.027000744298672164,
+            "noninferior": true,
+            "absolute_within_T": false
+          },
+          "FWHM_ns": {
+            "T": 0.5147888093676196,
+            "A": 2.7035368451754342,
+            "final": 2.9545246470959388,
+            "final_over_T": 5.739294625936714,
+            "final_minus_A": 0.2509878019205045,
+            "noninferior": true,
+            "absolute_within_T": false
+          },
+          "baseline_mean_V": {
+            "T": 4.506386193005153e-07,
+            "A": 2.1798515228881447e-05,
+            "final": 2.1798515228881447e-05,
+            "final_over_T": 48.37249693050558,
+            "final_minus_A": 0.0,
+            "noninferior": true,
+            "absolute_within_T": false
+          },
+          "baseline_RMS_V": {
+            "T": 6.316818201581438e-05,
+            "A": 1.660405749520103e-05,
+            "final": 1.660405749520103e-05,
+            "final_over_T": 0.2628547627196892,
+            "final_minus_A": 0.0,
+            "noninferior": true,
+            "absolute_within_T": true
+          },
+          "rise_undefined_rate": {
+            "T": 0.001953125,
+            "A": 0.003292434004590985,
+            "final": 0.14147602775459098,
+            "final_over_T": 72.43572621035058,
+            "final_minus_A": 0.13818359375,
+            "noninferior": false,
+            "absolute_within_T": false
+          },
+          "rise_prepeak_censored_rate": {
+            "T": 0.001953125,
+            "A": 0.003292434004590985,
+            "final": 0.14147602775459098,
+            "final_over_T": 72.43572621035058,
+            "final_minus_A": 0.13818359375,
+            "noninferior": false,
+            "absolute_within_T": false
+          }
+        },
+        "failed_noninferiority": [
+          "wave",
+          "QPSD",
+          "Q_Vns",
+          "front_Vns",
+          "tail_Vns",
+          "PSD_raw",
+          "PSD_guarded",
+          "rise_undefined_rate",
+          "rise_prepeak_censored_rate"
+        ],
+        "not_calibrated": [
+          "Q_nonpositive_rate",
+          "PSD_undefined_rate",
+          "PSD_guarded_rate",
+          "FWHM_undefined_rate",
+          "temporal_nonpositive_peak_rate",
+          "FWHM_prepeak_censored_rate",
+          "FWHM_postpeak_censored_rate"
+        ],
+        "undefined_positive_T": [],
+        "all_noninferior": false,
+        "RR_ratios": {
+          "wave": 28.775849102315068,
+          "QPSD": 441.94623194966294,
+          "noise": 5.900779644917542
+        }
+      }
+    }
+  },
+  "native_metric_scope": "Weighted wave is recomputed from savedcomponents, feature distances cross-checked with saveddefined populations and rates recomputed from flags. Primitive W1/QPSD/noise/quantiles are native quantities, not independently re-estimated from waveform arrays.",
+  "coverage_and_roles": {
+    "source_visits": {
+      "parents": 6593,
+      "visited": 6593,
+      "draws": 256000,
+      "minimum": 19,
+      "maximum": 63
+    },
+    "real_visits": {
+      "parents": 21047,
+      "visited": 21047,
+      "draws": 512000,
+      "minimum": 7,
+      "maximum": 47
+    },
+    "TRAIN_real_groups": 422,
+    "DEV_real_groups": 12,
+    "TRAIN_DEV_ids_and_groups_disjoint": true,
+    "source_count_weights": "all1",
+    "physical_weights": "unknown"
+  },
+  "key_findings": [
+    "All six cells fail the same nine positive-T noninferiority checks:wave,QPSD,Q/front/tail,PSD_raw/guarded,rise-undefined and rise-prepeak-censored rates. Conditional response matching remains unestablished.",
+    "TRAIN nativewave=.8467291148/.8465173981/.8480736788 worsens034 byabout3.3percent. DEVwave=.8446234905/.8456924575/.8466406439 modestly improves034 but remains4.77-4.81timesA. No cell succeeds.",
+    "TRAINfast QPSD4.9984639594,PSD_raw.7488165354,guarded.7460074300;83nonpositiveQ,1guarded,0undefined of26372 draws. A lower rawPSD than0346.432669 is not overall success; guardedPSD andQPSD are much worse.",
+    "TRAINfast outside1814/26372 andboundary2388/26372 improve0342404/3283 whilewave worsens. Flags cannot fully explain waveform failure.",
+    "Firstloss matches expected within1e-16; all four startupgradient groups finite/nonzero; A/G0,statistics and all samplingcoverage replay034 exactly. The saved evidence does not support mismatched startup, changed scales, carrier accidentally kept inobjective or a wholly disconnected parameter group.",
+    "Shape contributes98.77percent of startup summed group gradient squares;1998/2000 steps clip5. Norms do not establish the sign of the hard-risk direction or an effective finiteAdam step.",
+    "Every logged objective equals wave+2integral+.01(regular+saturation). Removingcarrier is insufficient to repair thisrun. Carrier is report-only, yet its late-training value also drops strongly.",
+    "Proper replica energy is a forward marginal estimator under independent replacement banks. It does not make STE an unbiased derivative of hardADC/argmax. Saved gradientnorms do not isolate finite-step overshoot,quantization,crop switching or firstbank-specific direction."
+  ],
+  "same_reference_checks": {
+    "nine_A_G0_native_JSON_exact034": [
+      "TRAIN_A_fast.json",
+      "TRAIN_G0_fast.json",
+      "TRAIN_A_slow.json",
+      "TRAIN_G0_slow.json",
+      "TRAIN_A_common_level.json",
+      "TRAIN_G0_common_level.json",
+      "DEV_A_fast.json",
+      "DEV_A_slow.json",
+      "DEV_A_common_level.json"
+    ],
+    "DEV_G0": "Not saved/evaluated. No inventedDEV G0.",
+    "other_JSON_exact034": {
+      "TRAIN_STATISTICS.json": true,
+      "REAL_REFERENCE_FLAGS.json": true,
+      "WARMSTART_BINDING.json": true
+    },
+    "three_lineage_coverage_archives_array_exact034": [
+      "TRAIN_LINEAGE.npz",
+      "DEV_LINEAGE.npz",
+      "TRAIN_COVERAGE.npz"
+    ],
+    "RNG_evidence": "Exact paired A/G0 native aggregates and complete coverage arrays support unchanged stream replay. CP RNG states and examples were not decoded."
+  },
+  "loss_formula_check": {
+    "records": 2000,
+    "all_losses_gradnorms_finite": true,
+    "loss_report_algebra_count": 24000,
+    "loss_report_algebra_max_roundoff": 2.220446049250313e-16,
+    "first_expected_absolute_errors": {
+      "data": 6.938893903907228e-18,
+      "objective": 6.938893903907228e-18,
+      "regular": 0.0,
+      "saturation": 0.0
+    },
+    "startup_shape_fraction_group_gradient_square_sum": 0.9877073844216826,
+    "clipped_steps": 1998
+  },
+  "evidence_boundaries": {
+    "REAL_REFERENCE_FLAGS": {
+      "TRAIN": {
+        "rows": 21047,
+        "observation": {
+          "peak_at_search_boundary": {
+            "count": 0,
+            "denominator": 21047
+          },
+          "global_peak_outside_search": {
+            "count": 0,
+            "denominator": 21047
+          },
+          "Q_nonpositive": {
+            "count": 0,
+            "denominator": 21047
+          },
+          "PSD_undefined": {
+            "count": 0,
+            "denominator": 21047
+          },
+          "PSD_guarded": {
+            "count": 0,
+            "denominator": 21047
+          },
+          "ADC_rail_hit": {
+            "count": 0,
+            "denominator": 21047
+          }
+        },
+        "saved_peak_tied": {
+          "count": 269,
+          "denominator": 21047
+        },
+        "saved_peak_at_search_boundary": {
+          "count": 0,
+          "denominator": 21047
+        },
+        "saved_global_peak_outside_search": {
+          "count": 0,
+          "denominator": 21047
+        },
+        "pre_ADC_flags_unknown": [
+          "pre_ADC_out_of_range",
+          "ADC_halfgrid_tied",
+          "ADC_rail_hit",
+          "ADC_halfgrid_min_distance",
+          "ADC_halfgrid_tie_cells"
+        ]
+      },
+      "observation_replay": {
+        "device": "cpu",
+        "prepared_window_bitwise_equal": true,
+        "prepared_baseline_bitwise_equal": true,
+        "target_window": "original_prepared_REAL256",
+        "second_ADC_applied": false
+      },
+      "DEV": {
+        "rows": 599,
+        "previously_exposed": true,
+        "saved_peak_at_search_boundary": {
+          "count": 0,
+          "denominator": 599
+        },
+        "saved_global_peak_outside_search": {
+          "count": 0,
+          "denominator": 599
+        },
+        "pre_ADC_flags_unknown": [
+          "pre_ADC_out_of_range",
+          "ADC_halfgrid_tied",
+          "ADC_rail_hit",
+          "ADC_halfgrid_min_distance",
+          "ADC_halfgrid_tie_cells"
+        ],
+        "original_identities_and_roles_verified": true
+      }
+    },
+    "existing_REAL_cpu_replay": "Originalpreparedwindow256 andbaseline100 bitwise equal, no secondADC; authoritative originaltarget window retained.",
+    "unknown_REAL_preADC_flags": "Unknown list retained, including truepreADC range andADC tie/rail provenance. Observing a digitized waveform at anADC rail is not a claim about an unknown preADC trace.",
+    "evaluation_draws": "TRAIN26372=6593parents*4draws; DEV2048=512parents*4draws; compare REAL21047/599. Four draws are not four independent parent datasets.",
+    "one_seed_one_MC_bank": true,
+    "three_H": "Paired fixed electronics hypotheses, not three independent acquisitions.",
+    "noise_baseline_reference_A_equal_all6cells": true,
+    "DEV_previously_exposed": true,
+    "DEV_used_for_training_or_selection": false,
+    "conditional_identification": false,
+    "independent_acquisition_acceptance": false,
+    "source_physical_weights": "unknown",
+    "native_no_row_drop": true,
+    "software_sample_interval_ns": 1.0,
+    "sample_interval_calibration": "Softwarecoordinate only, hardwaremetadata remainsunknown."
+  },
+  "one_next_step": {
+    "scientific": "Close036 negative under the original frozen gates. No weight promotion or automatic alternate LR/model/longertraining.",
+    "next_step_status": "ROOT_SELECTED037_CODE_PREPARATION_ONLY_NOT_EXECUTED",
+    "one_diagnostic": "Exact036 firstAdam direction on fixed parameter ray; exactfirstbank plus8previously examined033 TRAIN risk banks, not freshconfirmation.",
+    "ROOT_scales": [
+      0,
+      -0.015625,
+      0.015625,
+      -0.0625,
+      0.0625,
+      1
+    ],
+    "ROOT_modes": {
+      "H": "hardADC+dynamiccrop",
+      "S": "y0+[clamp(pre_lambda)-clamp(pre0)]+dynamiccrop",
+      "F": "SameS with thisbank/H initialhardcrop frozen"
+    },
+    "samepoint_contract": "H/S/F elementwise equal atlambda0; lambda1 copies exactactualAdam state. ShareNNoutput,noise,regular andsaturation acrossmodes.",
+    "ROOT_planned_budget": {
+      "NN_calls": 108,
+      "NN_rows": 6912,
+      "noise005_rows": 1152,
+      "extension_rows": 3456,
+      "hardADC_rows": 20736,
+      "S_F_crop_rows": 41472,
+      "CP_reads": 2,
+      "TRAIN_archives": 1,
+      "DEV_reads": 0,
+      "AD_queries": 1,
+      "diagnostic_Adam_updates": 1,
+      "CP_writes": 0,
+      "native_W1_runs": 0
+    },
+    "interpretation_limits": [
+      "Only one originalhardSTE AD atzero; do not repeatmodeAD. Its signedgradient is the first-training-bank gradient, not the independent-risk gradient.",
+      "Recordg dot effectiveparameterdelta,parameterroundoff,ties/clamp/cropchanges. Even frozen crop has possibleamax/abs/guard/clamp nonsmoothness. A slope gap is not automatically an AD implementation bug.",
+      "Two small scales assess finite-difference stability. Differences fromSTE retain finite-step/nonlinearity andobservation effects, not a purebias estimator.",
+      "Compare pairedfirstbank andrisk directions. If FD unstable orpairedMCSE unresolved, concludeinconclusive without extrapolation.",
+      "Ray multipliers are diagnostic coordinates, not selectable LR/model candidates."
+    ],
+    "stop": "Only the separately registered/frozen audit mayrun afterROOT review. No further scales,grid,training,gatechange,DEVselection orcornerpromotion without newROOT decision."
+  },
+  "new_postrun_NN_AD_CP_deserializations_or_observations": 0,
+  "weights_selected_or_promoted": false,
+  "cumulative_before": 197668,
+  "native_G_updates": 2000,
+  "startup_updates_already_accounted": 578,
+  "terminal_increment_already_accounted": 1422,
+  "cumulative_training_updates": 199668,
+  "this_closeout_additional_updates": 0,
+  "report": "reports/response036_20261017/REPORT.md",
+  "report_sha256": "41df044ce403cc745769606129e75bda9c74254f215cb9454365d51cd33eb2d4",
+  "plot_receipt_sha256": "42f5d617614946156d25bd174dc53d8c06056b42e6ea381ab45343a136695f36",
+  "root_png_QA": "Three figures actually viewed; training figure revised to preupdate loss semantics and reopened. Bounded examples are illustrative only."
+}
