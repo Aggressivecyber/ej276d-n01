@@ -1,0 +1,70 @@
+{
+  "schema": "n01/wp4-023-entry-binding/v1",
+  "run_id": "wp4_023_20261016",
+  "UTC": "2026-10-16T05:35:15.078996+00:00",
+  "status": "static_CPU_entry_ready_final_source_and_CFG_SHA_by_ROOT",
+  "supervisor": {
+    "path": "receipts/wp4_023_20261016/execution_01/REMOTE_SUPERVISOR.py",
+    "bytes": 6348,
+    "sha256": "604dc38e0a8c744a9d6a6ce5da97f30815e998784c8c51d4283220b232ecd6b5"
+  },
+  "origin": {
+    "path": "receipts/wp4_018_20261016/execution_01/REMOTE_SUPERVISOR.py",
+    "bytes": 6147,
+    "sha256": "f02132a68b738fdfb83dd9673dcb6f2c2fb3ea6c01ef5d6c5055da176f79dd1c"
+  },
+  "scope": {
+    "path": "receipts/wp4_023_20261016/registration_01/PROSPECTIVE_SCOPE.json",
+    "bytes": 6175,
+    "sha256": "d547c1d6b0f926c51d8f29188329c6ee7c4da2351e8049277df733e62cf272a7"
+  },
+  "changes": [
+    "018->023 identity/config/driver/owned-root/schema literals",
+    "driver AS and exit RSS cap 6->8GiB",
+    "fresh owned tmp/cache directories and child TMPDIR/XDG_CACHE_HOME/PYTHONPATH isolation"
+  ],
+  "entry": {
+    "root": "/home/rylan/projects/ej276d-n01/wp4_023_20261016",
+    "driver": "scripts/run_wp4_023.py",
+    "config": "wp4_023_config.json",
+    "CLI": "--config <owned023CFG> --config-sha256 <ROOT-frozen-SHA>",
+    "source_and_config_validation": "ROOT installed-byte/SHA binding plus driver gate before saved-array decode; no017 validator",
+    "tmp_cache_creation": "Entry creates fresh root/tmp and root/cache; deployment must leave these absent."
+  },
+  "preserved": [
+    "inherited exclusive .n01_scientific_dispatch.lock and child lock fd",
+    "supervisor/child PID, startticks, boot, command, cwd, CPU12 affinity",
+    "single Popen invocation and native wait/returncode",
+    "owned child pgid TERM then KILL only on timeout",
+    "original LAUNCH/NATIVE_EXIT/FAILED logs and resource receipts; no retry"
+  ],
+  "resources": {
+    "CPU_threads": 12,
+    "driver_AS_GiB": 8,
+    "job_RSS_GiB": 8,
+    "wall_seconds": 7200,
+    "driver_CPU_soft_seconds": 21590,
+    "driver_CPU_hard_seconds": 21600,
+    "output_MiB": 1536,
+    "selected_collection_MiB": 128,
+    "GPU_numeric_work": 0
+  },
+  "science": "Saved-array continuation only; fast reused; slow/common148527104 distances; NN/CP/AD/G/RNG0. No training or endpoint CP.",
+  "startup_acceptance": "Actual savedfast cell or remaining-hypothesis scoring progress plus same-snapshot owned CPU12 identity/resource health; if terminal inspect native exit/counters/COMPLETE/FAILED. One future wake only while running.",
+  "static_checks": {
+    "AST_parse": true,
+    "no_new_functions_classes_or_loops": true,
+    "no_numpy_torch_imports": true,
+    "three_AS_RSS_literals_bound_to_8GiB": true,
+    "origin_exact_literal_changes_plus_environment_isolation": true,
+    "driver_import_or_native_test": false
+  },
+  "actions_not_performed": [
+    "SSH",
+    "deployment",
+    "scientific execution",
+    "old suite tests",
+    "shared metadata edits",
+    "Git"
+  ]
+}

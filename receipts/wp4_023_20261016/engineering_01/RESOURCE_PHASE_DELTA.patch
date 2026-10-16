@@ -1,0 +1,32 @@
+--- fixture/run_wp4_023.py
++++ final/run_wp4_023.py
+@@ -199,6 +199,7 @@
+                     lambda:load_kernel018(Path(SAVED022),'T2',h,ids,p,store.root,store.started,'T2'))
+                 T_wave,T_observable,T1_null,reference=store.call('decode_saved_T1_'+h,
+                     dict(saved_T1_hard_rows_decoded=421952,total_saved_hard_rows_decoded=421952),lambda:teacher_data022(paths,h))
++                store.phase='score_saved_'+h;store.status()
+                 scores=store.call('remaining_crossbank_scores_'+h,dict(new_parent_score_rows=6593,
+                     evaluation_energy_pair_distances=27004928,evaluation_observable_pair_distances=47258624,
+                     new_pair_distances_total=74263552),
+@@ -214,8 +215,12 @@
+                 lambda:[dict(contrast_cell023(selected,T1_null[test],groups[g],weights[w]),
+                     hypothesis=h,group=g,weights=w,primary=g=='all_heldout' and w=='nominal') for g in GROUPS for w in WEIGHTS]))
+             store.phase='scored_'+h;store.status()
++            usage=resource.getrusage(resource.RUSAGE_SELF)
+             atomic_json(store.root/'PHASE.json',dict(store.base(),schema='n01/wp4-023-phase/v1',
+-                completed_distance_counts=dict(DISTANCE_COUNTS018),fast_distances_recomputed=0))
++                completed_distance_counts=dict(DISTANCE_COUNTS018),fast_distances_recomputed=0,
++                elapsed_seconds=time.monotonic()-store.started,peak_RSS_bytes=usage.ru_maxrss*1024,
++                user_CPU_seconds=usage.ru_utime,system_CPU_seconds=usage.ru_stime,
++                output_bytes=sum(q.stat().st_size for q in store.root.rglob('*') if q.is_file())))
+             del scores,selected,saved,T1_null
+         require(DISTANCE_COUNTS018=={257:54009856,19:94517248}, '023 exact new distance counts differ')
+         require({(c['hypothesis'],c['group'],c['weights']) for c in cells}==
+@@ -261,6 +266,7 @@
+         failure=dict(store.base(),schema='n01/wp4-023-failure/v1',native_status='FAILED',error_type=type(error).__name__,
+             error=str(error),elapsed_seconds=time.monotonic()-store.started,peak_RSS_bytes=usage.ru_maxrss*1024,
+             user_CPU_seconds=usage.ru_utime,system_CPU_seconds=usage.ru_stime,
++            output_bytes=sum(q.stat().st_size for q in store.root.rglob('*') if q.is_file()),
+             entered_kernel_distance_counts_completion_unknown=dict(DISTANCE_COUNTS018),
+             automatic_restart=False,original022_failure_preserved=True,T2_training_started=False)
+         store.json('FAILED.json',failure);store.status(failure)
