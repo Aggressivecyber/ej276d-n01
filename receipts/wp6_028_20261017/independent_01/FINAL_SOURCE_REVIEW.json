@@ -1,0 +1,159 @@
+{
+  "schema": "n01/wp6-028-independent-final-source-review/v1",
+  "run_id": "wp6_028_20261017",
+  "review_UTC": "2026-10-16 17:37:25 UTC",
+  "reviewer_task": "/root/wp6_028_independent_review",
+  "review_mode": "one continuous independent static review; reviewer did not implement source",
+  "verdict": "static_source_review_passed_no_blockers",
+  "no_blockers": true,
+  "unresolved_blockers": [],
+  "scope": {
+    "path": "receipts/wp6_028_20261017/registration_01/PROSPECTIVE_SCOPE.json",
+    "sha256": "b56541eaa014faf9b25cf07490cfba98f5ec9c1ae5ae48ba3ea82379bdc8accb"
+  },
+  "reviewed_files": {
+    "src/n01/inference028.py": {
+      "bytes": 14491,
+      "sha256": "17e32e76ab86185c02e68e6a54dc9f9e7568cb1a9c2b2174581ade16514bc2f7"
+    },
+    "scripts/run_wp6_028.py": {
+      "bytes": 16622,
+      "sha256": "4e2a132f9680fd13344a6fc6a436ca10596fe61f814dae84fa0431fdb928b3f5"
+    },
+    "wp6_028_config.json": {
+      "bytes": 15892,
+      "sha256": "48fbc9639a9435dd3d02bfde4d3568f4feabcf9b6f18f2f4d0fc48b6acde4b0a"
+    },
+    "receipts/wp6_028_20261017/execution_01/REMOTE_SUPERVISOR.py": {
+      "bytes": 6327,
+      "sha256": "cc06e26a3e2165b61182f805ba0d9de3456da6c252566e4202364b0304e3a5cf"
+    },
+    "receipts/wp6_028_20261017/execution_01/OPS_DELTA_RECEIPT.json": {
+      "bytes": 12095,
+      "sha256": "35109c599895ad2ed8c8259f960824468ad58e1123877e68e2878861656e9e7b"
+    },
+    "receipts/wp6_028_20261017/independent_01/READBACK_PROPOSAL.json": {
+      "bytes": 4886,
+      "sha256": "f0c3ec6949385e953239b55e20754d0a0477d02b47a2a5419b79e551f6fba7ad"
+    }
+  },
+  "source_identity": {
+    "all_11_config_source_bytes_SHA_pins_independently_reopened_match": true,
+    "all_python_sources_AST_parse": true,
+    "unchanged_original_runtime_files": 9,
+    "actual_n01_runtime_files_including_package_init": 10,
+    "driver_files": 1,
+    "historical016_manifest": {
+      "path": "WP3_016_SOURCE_MANIFEST.json",
+      "sha256": "824780d297c440d0f1bc51b3ea3344e488ec42ccb46af959d9d0412d8240fc14",
+      "members": 116,
+      "project_imports": 37
+    },
+    "historic_closure_replaced": false
+  },
+  "checkpoint_boundary": {
+    "binary_CP_reads_by_reviewer": 0,
+    "metadata_only_all_6_bytes_SHA_remote_paths_match027_reference": true,
+    "exact_ROOT_frozen028_config_only": true,
+    "loads_per_native": 6,
+    "shared_A_and_005": true,
+    "per_seed_M0_Q1_pairing": true,
+    "state_dict_loads_strict": true,
+    "original005_digest_function_imported_or_rewritten": false,
+    "current_freeze_digest": "tensor_state_digest010; used for current before/after equality, not claimed equal to legacy response008.state_digest",
+    "ordinary_loader_reads_DATASET": false,
+    "ordinary_loader_calls_old_training_main": false,
+    "ordinary_loader_calibration_optimizer_or_sampler_creation": false
+  },
+  "checks": {
+    "resources_before_imports": "driver RLIMIT_AS/RLIMIT_CPU at lines43-44 precede numpy/torch at64-65; CPU affinity/env1; terminal RSS/artifact acceptance explicitly distinguished from watchdog",
+    "constructor": "A load/set_stage/eval/freeze/to before016 capture;005 load/eval/freeze/to beforeextension; no later movement invalidating protected layout; saved charge initialization and final theta only",
+    "RNG": "All random construction inside fork_rng(devices=[]); A114uniform/1473092scalars plus two heads4uniform/2576 and2normal/2560; sample four explicit CPU generators, fixed dtype/order/namespace, full bank before64-row chunks; no global advance promised except verification at native",
+    "primitive_semantics": "Original016/014/010 called directly; chargeoff keeps original M0 tensor alias including signed zero; shapeoff closes shape only and leaves charge on; no005off/extensionoff or time/mean extension",
+    "electronics": "One original005 prefix+scale then selected extension only; independent generators do not imply statistically independent005/extension; hypotheses remain separate",
+    "observation": "Original observation008 ste=False, bound q_floor, actual ADC prefix100, firstargmax[112:144),256gather, raw/protectedPSD and seven existing flags; no extra ADC or omitted-row path",
+    "input_lineage": "Prepared SOURCE carrier384 CPU float64 only; parent IDs stay outside neural inputs; flat parent-major/draw-minor maps; stateless same-seed replay, no arbitrary partition equivalence claim",
+    "native_example": "Exactly2fixedTRAINparents x2draws x6calls x2modelseeds; one inputNPZ open/three member reads; no REAL/DEV/original480 member read, no candidate or model-seed choice",
+    "failures": "Attempted operations recorded before API boundary; completions after return; in-flight maximum charges preserved on error; native error re-raised; no automatic retry",
+    "output_and_imports": "37 generated-array members/182940values/1386296payload bytes by static derivation; final actual n01 modules/paths checked; all models plus extension eval/frozen/grad-none checked",
+    "supervisor": "All21 listed025->028 literal replacements independently replayed byte-exact; occurrence counts match; AST parses; source not executed; RSS/output terminal only,600s timeout with inherited20s TERM grace and failure on elapsed>600"
+  },
+  "resolved_during_this_review": [
+    {
+      "id": "WP6-028-S01",
+      "item": "Partial NPZ failure accounting",
+      "resolution": "Archive/member attempted set before each load; completed only after return; no extra decode",
+      "status": "resolved_in_final_driver"
+    },
+    {
+      "id": "WP6-028-S02",
+      "item": "Supported loader boundary",
+      "resolution": "Docstring and explicit run_id/status=frozen constrain loader to ROOT028 config; all six original CP SHA/path metadata match027; no legacy digest duplication or training import",
+      "status": "clarified_and_fixed"
+    },
+    {
+      "id": "WP6-028-S03",
+      "item": "Final extension state check",
+      "resolution": "Extension included with response models in final eval/frozen/grad-none checks",
+      "status": "resolved_in_final_driver"
+    }
+  ],
+  "native_operation_caps": {
+    "sample_calls": 12,
+    "CP_loads": 6,
+    "constructor_uniform_requests": 118,
+    "constructor_uniform_scalars": 1475668,
+    "constructor_normal_requests": 2,
+    "constructor_normal_scalars": 2560,
+    "sampling_generator_instances": 48,
+    "sampling_randn_requests": 60,
+    "sampling_normal_scalars": 18912,
+    "shape_f32_scalars": 384,
+    "noise005_gaussian_f32_scalars": 4800,
+    "noise005_scale_f32_scalars": 48,
+    "extension_f32_scalars": 13632,
+    "charge_f64_scalars": 48,
+    "response_rows": 48,
+    "old_A_rows": 48,
+    "head_actual_parameter_forward_rows": 48,
+    "charge_module_enabled_rows": 40,
+    "shape_enabled_rows": 40,
+    "noise005_rows": 48,
+    "selected_extension_rows": 48,
+    "hard_observation_rows": 48,
+    "ADC_carrier_scalar_samples": 18432,
+    "NPZ_archive_opens": 1,
+    "NPZ_member_value_loads": 3,
+    "AD_G_D_noise_updates_loss_CDF_fits_training_trials_old_suites": 0
+  },
+  "reviewer_cost_to_this_receipt": {
+    "scientific_imports": 0,
+    "CP_binary_reads": 0,
+    "CP_loads": 0,
+    "NPZ_opens": 0,
+    "NPZ_member_value_loads": 0,
+    "NN_rows": 0,
+    "RNG": 0,
+    "ADC": 0,
+    "AD": 0,
+    "training_updates": 0,
+    "old_suite_reruns": 0,
+    "SSH": 0,
+    "source_mutations": 0
+  },
+  "remaining_execution_prerequisites": [
+    "ROOT binds final source/archive/config SHA and confirms remote standard Conv/Linear reset source evidence before native",
+    "ROOT alone dispatches one registered bounded job; frozen config and static no_blockers do not themselves start or authorize a new run",
+    "ARRAY_SCHEMA pure-JSON check and separate ROOT registration before the proposed one-pass independent saved-output decode"
+  ],
+  "evidence_boundary": {
+    "native_execution_proven": false,
+    "saved_outputs_reviewed": false,
+    "weights_promoted": false,
+    "deployment_seed_selected": null,
+    "scientific_acceptance": false,
+    "scientific_status": "response_match_not_established",
+    "full_WP5_WP6_complete": false
+  },
+  "memory_used_only_for_navigation": "Current conclusions verified from authoritative N01 files; no unverified memory fact used as an acceptance basis"
+}

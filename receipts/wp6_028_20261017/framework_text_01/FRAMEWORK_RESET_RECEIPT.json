@@ -1,0 +1,107 @@
+{
+  "schema": "n01/wp6-028-framework-reset-static-receipt/v1",
+  "run_id": "wp6_028_20261017",
+  "UTC": "2026-10-16T17:26:46.9790205+00:00",
+  "status": "registered_constructor_reset_layout_supported_by_execution_host_text",
+  "scope_sha256": "b56541eaa014faf9b25cf07490cfba98f5ec9c1ae5ae48ba3ea82379bdc8accb",
+  "inspection_UTC": "2026-10-17T01:25:08.395554+08:00",
+  "python": "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+  "torch_distribution_version": "2.12.0",
+  "actual_source_location": "venv distribution metadata resolves torch source to /usr/local/lib/python3.12/dist-packages",
+  "files": {
+    "torch/nn/modules/conv.py": {
+      "path": "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/conv.py",
+      "bytes": 79715,
+      "sha256": "fcd11330712354ae22f6e928bf72994fb1c8f6ed30b28d58be3c64acc99a44a4",
+      "classes": {
+        "_ConvNd": {
+          "bases": [
+            "Module"
+          ],
+          "reset_parameters_defined_here": true,
+          "start_line": 182,
+          "end_line": 201,
+          "source": "    def reset_parameters(self) -> None:\n        # Use torch.no_grad() to allow in-place modification of weights/bias\n        with torch.no_grad():\n            # Check if the weight tensor is in channels_last_3d format to ensure numerical consistency\n            if not self.weight.is_contiguous():\n                # Use an empty contiguous buffer to optimize memory and ensure consistent initialization\n                temp_weight = torch.empty_like(\n                    self.weight, memory_format=torch.contiguous_format\n                )\n                init.kaiming_uniform_(temp_weight, a=math.sqrt(5))\n                # Copy the initialized values back to the original tensor\n                self.weight.copy_(temp_weight)\n            else:\n                # Standard initialization for default contiguous memory format\n                init.kaiming_uniform_(self.weight, a=math.sqrt(5))\n            if self.bias is not None:\n                # Bias initialization remains independent of weight memory format\n                fan_in, _ = init._calculate_fan_in_and_fan_out(self.weight)\n                bound = 1 / math.sqrt(fan_in) if fan_in > 0 else 0\n                init.uniform_(self.bias, -bound, bound)"
+        },
+        "_ConvTransposeNd": {
+          "bases": [
+            "_ConvNd"
+          ],
+          "reset_parameters_defined_here": false
+        },
+        "Conv1d": {
+          "bases": [
+            "_ConvNd"
+          ],
+          "reset_parameters_defined_here": false
+        },
+        "ConvTranspose1d": {
+          "bases": [
+            "_ConvTransposeNd"
+          ],
+          "reset_parameters_defined_here": false
+        }
+      }
+    },
+    "torch/nn/modules/linear.py": {
+      "path": "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/linear.py",
+      "bytes": 12376,
+      "sha256": "1961ad1a1f650e104b3c7f78d19af2d21bf977e7af6c3fdf2420aad563c9e202",
+      "classes": {
+        "Linear": {
+          "bases": [
+            "Module"
+          ],
+          "reset_parameters_defined_here": true,
+          "start_line": 117,
+          "end_line": 128,
+          "source": "    def reset_parameters(self) -> None:\n        \"\"\"\n        Resets parameters based on their initialization used in ``__init__``.\n        \"\"\"\n        # Setting a=sqrt(5) in kaiming_uniform is the same as initializing with\n        # uniform(-1/sqrt(in_features), 1/sqrt(in_features)). For details, see\n        # https://github.com/pytorch/pytorch/issues/57109\n        init.kaiming_uniform_(self.weight, a=math.sqrt(5))\n        if self.bias is not None:\n            fan_in, _ = init._calculate_fan_in_and_fan_out(self.weight)\n            bound = 1 / math.sqrt(fan_in) if fan_in > 0 else 0\n            init.uniform_(self.bias, -bound, bound)"
+        }
+      }
+    }
+  },
+  "interpretation": {
+    "Conv1d": "inherits _ConvNd.reset_parameters",
+    "ConvTranspose1d": "inherits _ConvNd.reset_parameters via _ConvTransposeNd",
+    "Conv_weight_request": "one kaiming_uniform_ call on weight or same-shape contiguous temporary in mutually exclusive branches",
+    "Conv_bias_request": "one uniform_ call when bias exists",
+    "Linear_weight_request": "one kaiming_uniform_ call",
+    "Linear_bias_request": "one uniform_ call when bias exists",
+    "request_shape": "weight shape plus bias shape; layout does not add an extra stochastic branch",
+    "binding_to_registered_totals": "Supports registered biased Conv/Linear reset call layout. Architecture module/scalar counts come from registered source enumeration, not dynamic construction.",
+    "registered_constructor_uniform_requests": 118,
+    "registered_constructor_uniform_scalars": 1475668,
+    "registered_constructor_normal_requests": 2,
+    "registered_constructor_normal_scalars": 2560,
+    "underlying_RNG_engine_word_count_claimed": false,
+    "nn_init_implementation_opened": false,
+    "numeric_constructor_execution_performed": false,
+    "native_import_or_ABI_compatibility_proven": false
+  },
+  "evidence": {
+    "FRAMEWORK_TEXT_REQUEST.json": {
+      "bytes": 2242,
+      "sha256": "261dcce858867f58504620b57122cdcee21c4408da5502112909e5a0957b5cd2"
+    },
+    "FRAMEWORK_TEXT_STDOUT.json": {
+      "bytes": 3270,
+      "sha256": "b4f08f9f8b87ecb0d1c3b5739bc053ddb55b6c8295ac05cd10fd286c56c1b029"
+    },
+    "FRAMEWORK_TEXT_STDERR.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "actions": {
+    "SSH_calls": 1,
+    "framework_source_text_reads": 2,
+    "scientific_module_imports": 0,
+    "CP_loads": 0,
+    "NPZ_numeric_decodes": 0,
+    "model_forwards": 0,
+    "RNG": 0,
+    "remote_files_created": 0,
+    "remote_jobs_started": 0,
+    "helper_scripts_created": 0
+  }
+}

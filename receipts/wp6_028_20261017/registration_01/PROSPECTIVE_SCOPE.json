@@ -1,0 +1,462 @@
+{
+  "schema": "n01/wp6-028-prospective-scope/v1",
+  "run_id": "wp6_028_20261017",
+  "registered_UTC": "2026-10-16T17:23:30.356575+00:00",
+  "status": "registered_implementation_and_static_review_authorized_native_pending_source_freeze",
+  "user_authority": [
+    "USER_MASTER_PLAN_20261015.txt",
+    "receipts/wp6_028_20261017/resume_01/USER_RESUME_AUTHORIZATION.json"
+  ],
+  "objective": "Implement a minimal reusable frozen research response.sample API and run one exact CPU engineering example using the existing per-seed Q1/M0 bindings.",
+  "scientific_status": "response_match_not_established",
+  "full_WP5_WP6_complete": false,
+  "weights_promoted": false,
+  "static_design": {
+    "path": "receipts/wp6_028_20261017/design_01/DESIGN_FACTS.json",
+    "bytes": 17579,
+    "sha256": "73c56d16f419b6ae683b7c311cabc0d4d8cd14867ffe5041a9f3ea536378a07f"
+  },
+  "implementation_files": [
+    "src/n01/inference028.py",
+    "scripts/run_wp6_028.py",
+    "wp6_028_config.json"
+  ],
+  "design_resolutions": {
+    "driver": "scripts/run_wp6_028.py",
+    "loader": "load_reference028(config) or config-path loader; all inputs bound in final config with exact execution-host path, historical local_path, bytes and SHA256; no hardcoded local-root reconstruction of remote old checkpoint paths",
+    "scientific_inputs": "Use exact six CP and existing statistics paths from STATIC_FACTS.json and027 bindings, not copies or fallback paths.",
+    "historic_source_closure": "Preserve original016 source manifest with all116 members and37 imported project paths as provenance. Nine static API candidates are not a replacement for this historical closure. Record actual028 imports separately.",
+    "construction": "Use torch.no_grad and fork_rng(devices=[]); A set_stage/load/eval/freeze/to BEFORE016 capture;005 to BEFOREextension; use saved charge initialization and final theta; no calibration.",
+    "remote_framework_check": "A single read-only textual inspection of remote torch Conv/Linear reset implementations is authorized before source freeze; no torch/n01 imports or scientific forwards.",
+    "failures": "Preserve actual cost and native logs; no automatic parent/seed/CP/hypothesis change or retry. ROOT may register a named necessary engineering repair under existing human authorization.",
+    "output_privacy": "Generated arrays and private CP stay private on existing remote/E paths. Only code/config/identity/summary artifacts eligible for Git.",
+    "independent_numeric_readback": "Not included yet. Reviewer proposes exact saved-output read footprint after schema is known; ROOT registers it before any numeric decode."
+  },
+  "API": {
+    "loader": "load_reference028(root, device='cpu')",
+    "object": "ResearchResponse028",
+    "method": "sample(source_waveforms, n_draws, seed, detector_config, noise_hypothesis, *, model_seed, parent_ids, shape_enabled=True, charge_enabled=True, return_contributions=False)",
+    "input": {
+      "kind": "prepared_clean_SOURCE_carrier384_only",
+      "tensor_dtype": "torch.float64",
+      "tensor_device_first_verified_scope": "cpu",
+      "shape": [
+        "P",
+        384
+      ],
+      "voltage_unit": "V",
+      "software_sample_interval_ns": 1,
+      "first_argmax_search": [
+        112,
+        144
+      ],
+      "required_peak": 126,
+      "input_ID_used_as_neural_input": false,
+      "original480_adapter_in_scope": false,
+      "internal_contract_guards_reimplemented": false
+    },
+    "output_layout": "flat R=P*n_draws, parent-major/draw-minor, window [R,256]",
+    "noise_hypothesis": [
+      "fast",
+      "slow",
+      "common_level"
+    ],
+    "noise_hypothesis_single_selection": true,
+    "public_all_or_multi_hyp_mode": false,
+    "detector_config": "loader-bound identity only; no arbitrary detector-condition overrides",
+    "model_seed_required": true,
+    "no_default_seed_selection_or_pooling": true,
+    "shape_and_charge_switches": "existing016/014/010 semantics only",
+    "noise_or_mean_or_timewarp_extension_switches_added": false,
+    "hard_observation_primitive": "n01.observation008.observe_generated_carrier(ste=False, q_floor=bound_floor)",
+    "q_floor_Vns": 0.0005319378913383611,
+    "Q_reference_Vns": 3.7103998046755806,
+    "flags_exact_existing_names": [
+      "peak_at_search_boundary",
+      "global_peak_outside_search",
+      "Q_nonpositive",
+      "PSD_undefined",
+      "PSD_guarded",
+      "ADC_rail_hit",
+      "pre_ADC_out_of_range"
+    ],
+    "peak_tie_and_halfgrid_flag_direct_export_currently_present": false,
+    "undefined_PSD_policy": "retain NaN and original flags in tensor result; no row filtering",
+    "execution_mode": "torch.no_grad, frozen/eval modules, serialized calls",
+    "inference_mode_construction": false,
+    "persistent_stream_or_resume_API": false,
+    "NN_chunk_rows_fixed": 64,
+    "random_full_bank_generated_before_NN_chunks": true,
+    "arbitrary_call_partition_or_chunk_bitwise_equivalence_claimed": false,
+    "repeatability_envelope": "same CP, complete batch/order, draw count, seed, flags, fixed chunk plan, software/device environment",
+    "same_seed_continuous_calls": "restart and replay, not independent draws"
+  },
+  "RNG_contract": {
+    "namespace_derivation": "SHA256 UTF8('n01/wp6-028/v1/{seed}/{namespace}'), first8 bytes little-endian & (2**63-1)",
+    "model_seed_in_sampling_namespace": false,
+    "four_CPU_generators": [
+      "shape",
+      "noise005",
+      "extension",
+      "charge"
+    ],
+    "request_order": [
+      {
+        "namespace": "shape",
+        "shape": [
+          "R",
+          8
+        ],
+        "dtype": "float32"
+      },
+      {
+        "namespace": "noise005",
+        "key": "baseline_gaussian",
+        "shape": [
+          "R",
+          1,
+          100
+        ],
+        "dtype": "float32"
+      },
+      {
+        "namespace": "noise005",
+        "key": "baseline_scale",
+        "shape": [
+          "R",
+          1,
+          1
+        ],
+        "dtype": "float32"
+      },
+      {
+        "namespace": "extension",
+        "shape": [
+          "R",
+          1,
+          284
+        ],
+        "dtype": "float32"
+      },
+      {
+        "namespace": "charge",
+        "shape": [
+          "R"
+        ],
+        "dtype": "float64"
+      }
+    ],
+    "disabled_shape_or_charge_still_draws_same_library": true,
+    "005_and_extension_statistically_independent_claimed": false,
+    "original005_dictionary_order_retained": true,
+    "old_train_stream_states_restored": false,
+    "global_CPU_RNG_preserved_by_loader_fork_and_explicit_sample_generators": true,
+    "underlying_engine_word_count_claimed": false
+  },
+  "native_example": {
+    "preferred_host_ROOT_confirmed": "rylan-GTi15 / 100.82.231.102, existing frozen Python, CPU",
+    "remote_path_and_interpreter": "ROOT to freeze before execution",
+    "local_root": "E:/GAN/research/N01",
+    "scientific_array_selection": {
+      "dataset": {
+        "path": "data/window008/DATASET008.npz",
+        "bytes": 66440265,
+        "sha256": "8d43418595f4fa992a9b83735c4bf50863a659584d58888f8f965ec1339a1993"
+      },
+      "header_source": {
+        "path": "receipts/wp1_013_20261015/information_engineering_01/HEADER_INVENTORY.json",
+        "sha256": "9e0d691e7ea8e053956ba297754b686c0bfcbc91cc05160392b5956552fd7ff0",
+        "basis": "historical header inventory text only, rehashed here; not a fresh NPZ read"
+      },
+      "NPZ_file_opens": 1,
+      "NPZ_member_value_loads": 3,
+      "members": [
+        {
+          "name": "source_carrier384",
+          "dtype": "<f8",
+          "shape": [
+            6593,
+            384
+          ],
+          "values": 2531712,
+          "payload_bytes": 20253696,
+          "NPY_ZIP_uncompressed_bytes": 20253824,
+          "compressed_bytes": 7263044
+        },
+        {
+          "name": "source_ids",
+          "dtype": "<U75",
+          "shape": [
+            6593
+          ],
+          "values": 6593,
+          "payload_bytes": 1977900,
+          "NPY_ZIP_uncompressed_bytes": 1978028,
+          "compressed_bytes": 334534
+        },
+        {
+          "name": "source_role",
+          "dtype": "<U5",
+          "shape": [
+            6593
+          ],
+          "values": 6593,
+          "payload_bytes": 131860,
+          "NPY_ZIP_uncompressed_bytes": 131988,
+          "compressed_bytes": 431
+        }
+      ],
+      "total_member_values": 2544898,
+      "total_payload_bytes": 22363456,
+      "total_NPY_ZIP_uncompressed_bytes": 22363840,
+      "total_member_compressed_bytes": 7598009,
+      "rows_decoded_per_member": 6593,
+      "selected_NN_parent_rows": [
+        0,
+        1
+      ],
+      "selected_roles_must_equal": "TRAIN",
+      "selected_parent_count": 2,
+      "draws_per_parent": 2,
+      "rows_per_call": 4,
+      "row_parent": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "draw": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "failure_reselection_allowed": false,
+      "original480_REAL_DEV_numeric_member_loads": 0,
+      "extra_value_decodes_for_independent_review_registered_here": 0,
+      "NPZ_readback_generated_outputs": 0
+    },
+    "sampling_seed": 2026101728,
+    "model_seed_order": [
+      0,
+      1
+    ],
+    "calls_per_model_seed": [
+      {
+        "purpose": "Q1 fast",
+        "hypothesis": "fast",
+        "shape_enabled": true,
+        "charge_enabled": true
+      },
+      {
+        "purpose": "Q1 slow",
+        "hypothesis": "slow",
+        "shape_enabled": true,
+        "charge_enabled": true
+      },
+      {
+        "purpose": "Q1 common_level",
+        "hypothesis": "common_level",
+        "shape_enabled": true,
+        "charge_enabled": true
+      },
+      {
+        "purpose": "fast exact replay",
+        "hypothesis": "fast",
+        "shape_enabled": true,
+        "charge_enabled": true
+      },
+      {
+        "purpose": "fast chargeoff M0 identity",
+        "hypothesis": "fast",
+        "shape_enabled": true,
+        "charge_enabled": false
+      },
+      {
+        "purpose": "fast shapeoff keeps charge",
+        "hypothesis": "fast",
+        "shape_enabled": false,
+        "charge_enabled": true
+      }
+    ],
+    "operation_budget": {
+      "sample_calls": 12,
+      "CP_loads": 6,
+      "unique_CP_paths": 6,
+      "CP_bytes_per_hash_or_load_pass": 24420992,
+      "CP_hash_passes": 1,
+      "CP_load_passes": 1,
+      "response_rows": 48,
+      "old_A_rows": 48,
+      "head_actual_parameter_forward_rows": 48,
+      "neural_component_row_sum_A_plus_head": 96,
+      "noise005_rows": 48,
+      "selected_extension_rows": 48,
+      "hard_observation_rows": 48,
+      "ADC_carrier_scalar_samples": 18432,
+      "A_head_noise005_extension_observation_batch_calls_each": 12,
+      "charge_module_enabled_rows": 40,
+      "charge_disabled_rows": 8,
+      "shape_enabled_rows": 40,
+      "shape_disabled_but_head_still_computed_rows": 8,
+      "unrequested_hypothesis_extensions": 0,
+      "extra_reference_NN_or_ADC_rows": 0,
+      "sampling_randn_requests": 60,
+      "sampling_generator_instances": 48,
+      "sampling_normal_scalars": 18912,
+      "shape_f32_scalars": 384,
+      "noise005_gaussian_f32_scalars": 4800,
+      "noise005_scale_f32_scalars": 48,
+      "extension_f32_scalars": 13632,
+      "charge_f64_scalars": 48,
+      "sampling_latent_payload_bytes": 75840,
+      "AD_G_D_noise_updates_loss_CDF_fits_training_trials_old_suites": 0
+    },
+    "constructor_RNG_budget": {
+      "definition": "distribution API requests and requested scalars, not underlying RNG engine words",
+      "A_random_Conv_or_Linear_modules": 57,
+      "A_uniform_requests": 114,
+      "A_uniform_f32_scalars": 1473092,
+      "A_scalar_breakdown": {
+        "shape_encoder": 2848,
+        "charge_head": 594,
+        "mean_time": 161,
+        "unet_condition": 17024,
+        "unet_encoder": 399984,
+        "unet_bottleneck": 591360,
+        "unet_up_convs": 115440,
+        "unet_decoder": 345520,
+        "mean_head": 161
+      },
+      "two_temporary_shape_head_uniform_requests": 4,
+      "two_temporary_shape_head_uniform_f32_scalars": 2576,
+      "two_explicit_head_normal_requests": 2,
+      "two_explicit_head_normal_f32_scalars": 2560,
+      "noise005_constructor_RNG": 0,
+      "extension_constructor_RNG": 0,
+      "theta_constructor_RNG": 0,
+      "total_constructor_uniform_requests": 118,
+      "total_constructor_uniform_scalars": 1475668,
+      "total_constructor_normal_requests": 2,
+      "total_constructor_normal_scalars": 2560,
+      "total_constructor_requests": 120,
+      "total_constructor_requested_scalars": 1478228,
+      "total_constructor_plus_sampling_requests": 180,
+      "total_constructor_plus_sampling_requested_scalars": 1497140,
+      "all_random_constructor_weights_overwritten_by_CP": true,
+      "external_global_CPU_RNG_advance": 0,
+      "CPU_fork_rng_devices": [],
+      "nn_reset_static_evidence_local": [
+        "C:/Users/10629/AppData/Local/Programs/Python/Python313/Lib/site-packages/torch/nn/modules/conv.py:182-191",
+        "C:/Users/10629/AppData/Local/Programs/Python/Python313/Lib/site-packages/torch/nn/modules/linear.py:117-128",
+        "src/n01/model008.py:117-136",
+        "src/n01/model.py:156-282",
+        "src/n01/model014.py:34-39"
+      ],
+      "review_requirement": "confirm same standard Conv/Linear reset layout in registered server framework before native run",
+      "deterministic_extension_cholesky_factors": {
+        "KBB_100": 3,
+        "residual_284": 3
+      },
+      "calibration_or_fit_calls": 0
+    },
+    "resource_contract": {
+      "CPU_count": 1,
+      "OMP_MKL_OPENBLAS_NUMEXPR_threads": 1,
+      "hard_AS_bytes": 8589934592,
+      "hard_CPU_soft_seconds": 590,
+      "hard_CPU_hard_seconds": 600,
+      "external_wall_seconds": 600,
+      "terminal_peak_RSS_limit_bytes": 4294967296,
+      "terminal_artifacts_limit_bytes": 67108864,
+      "collection_limit_bytes": 33554432,
+      "limits_set_before_torch_and_n01_import": true,
+      "runtime_RSS_watchdog_claimed": false,
+      "new_controller": false,
+      "GPU_used": false,
+      "new_local_TMP_cache_storage": "E drive only"
+    },
+    "acceptance_checks": [
+      "actual CP/raw source identities and strict per-seed load",
+      "all parameters frozen/eval, grad none, global CPU RNG preserved",
+      "input bytes and parent/draw refs preserved; 48 rows retained with original flags",
+      "returned ADC prefix/baseline/first-argmax/indices/gather/Q/tail/PSD algebra consistent, no second ADC execution",
+      "same full-batch fast call repeat byte-identical, including NaN byte representation",
+      "cross-hypothesis same-seed full latent library and005 prefix/scale/epsilon byte-identical",
+      "chargeoff primitive signal tensor is original M0 reference and matches Q1 M0-reference bytes",
+      "shapeoff M0 reference equals base A bytes while charge remains enabled"
+    ],
+    "scientific_distribution_test": false,
+    "automatic_expansion_or_retry_or_parent_seed_selection": false,
+    "CP_or_original_waveform_arrays_uploaded_GitHub": false
+  },
+  "execution": {
+    "host": "rylan@100.82.231.102",
+    "remote_root": "/home/rylan/projects/ej276d-n01/wp6_028_20261017",
+    "python": {
+      "executable": "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+      "version": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+      "package_metadata": {
+        "torch": "2.12.0",
+        "numpy": "1.26.4",
+        "scipy": "1.11.4",
+        "psutil": null,
+        "matplotlib": "3.6.3"
+      },
+      "scientific_modules_imported": []
+    },
+    "resource_contract": {
+      "CPU_affinity_count": 1,
+      "OMP_NUM_THREADS": 1,
+      "OPENBLAS_NUM_THREADS": 1,
+      "MKL_NUM_THREADS": 1,
+      "NUMEXPR_NUM_THREADS": 1,
+      "driver_AS_bytes": 8589934592,
+      "driver_RSS_terminal_acceptance_bytes": 4294967296,
+      "wall_timeout_seconds": 600,
+      "driver_CPU_soft_seconds": 590,
+      "driver_CPU_hard_seconds": 600,
+      "artifact_terminal_acceptance_bytes": 67108864,
+      "selected_collection_payload_and_archive_cap_bytes": 33554432,
+      "automatic_restart": false,
+      "hard_limits": "driver RLIMIT_AS/RLIMIT_CPU before scientific imports; supervisor wait timeout",
+      "terminal_acceptance": "driver ru_maxrss and artifacts bytes only; no immediate RSS/output kill",
+      "artifact_scope": "runs/primary/artifacts only; console/tmp/cache/source excluded from this 64 MiB measurement",
+      "whole_inventory": "all regular files under owned run including source/console/tmp/cache; no private binary transfer without final whitelist"
+    },
+    "source_freeze_required": true,
+    "static_source_review_required": true,
+    "single_scientific_worker": true,
+    "old_suites": 0,
+    "automatic_restart": false
+  },
+  "source_closure": {
+    "historical_manifest": "WP3_016_SOURCE_MANIFEST.json",
+    "historical_members": 116,
+    "historical_project_imports": 37,
+    "must_preserve_original_closure_and_member_metadata": true,
+    "final_028_closure_or_source_archive_frozen": false
+  },
+  "supervisor": {
+    "path": "receipts/wp6_028_20261017/execution_01/REMOTE_SUPERVISOR.py",
+    "sha256": "cc06e26a3e2165b61182f805ba0d9de3456da6c252566e4202364b0304e3a5cf"
+  },
+  "forbidden_expansion": [
+    "new real-data training",
+    "T2 teacher",
+    "timewarp",
+    "new theta or architecture search",
+    "candidate/seed selection",
+    "additional hypotheses",
+    "new scientific acceptance claim"
+  ],
+  "actual_new_scientific_cost_at_registration": {
+    "NN": 0,
+    "CP_load": 0,
+    "AD": 0,
+    "G": 0,
+    "RNG": 0,
+    "ADC": 0,
+    "NPZ_numeric_member_loads": 0
+  }
+}

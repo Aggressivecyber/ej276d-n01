@@ -1,0 +1,105 @@
+{
+  "schema": "n01/wp6-028-independent-readback-proposal/v1",
+  "run_id": "wp6_028_20261017",
+  "status": "proposed_waiting_ROOT_registration_and_generated_ARRAY_SCHEMA",
+  "authority": "ROOT requested a single saved-output independent readback proposal; no numeric decode authorized by this file",
+  "scope": {
+    "path": "receipts/wp6_028_20261017/registration_01/PROSPECTIVE_SCOPE.json",
+    "sha256": "b56541eaa014faf9b25cf07490cfba98f5ec9c1ae5ae48ba3ea82379bdc8accb"
+  },
+  "location": "E:/GAN/research/N01/receipts/wp6_028_20261017/independent_01",
+  "input": "One final collected private EXAMPLE.npz only, after pure-JSON ARRAY_SCHEMA verification and ROOT registration",
+  "footprint": {
+    "NPZ_archive_opens": 1,
+    "member_value_loads": 37,
+    "total_values": 182940,
+    "total_payload_bytes": 1386296,
+    "NPY_headers": "37 headers; actual uncompressed ZIP bytes recorded from final manifest/header metadata without value decode",
+    "original_CP_binary_reads": 0,
+    "original_DATASET_reads": 0,
+    "new_NN_rows": 0,
+    "new_RNG": 0,
+    "new_ADC": 0,
+    "AD": 0,
+    "loss_CDF_fits_training": 0,
+    "scientific_reruns": 0
+  },
+  "member_groups": {
+    "observations": [
+      "window_V",
+      "baseline100",
+      "baseline_mean_V",
+      "peak_index",
+      "global_peak_index",
+      "crop_start",
+      "crop_stop",
+      "Q",
+      "tail",
+      "PSD_raw",
+      "PSD",
+      "crop_indices",
+      "carrier_adc",
+      "pre_adc_carrier"
+    ],
+    "contributions": [
+      "c_signal_pre",
+      "c_M0_reference_signal_pre_V",
+      "c_base_signal_pre_V",
+      "c_random_shape_pre_V",
+      "c_noise_pre",
+      "c_prefix_pre",
+      "c_scale",
+      "c_shape",
+      "c_baseline_gaussian",
+      "c_baseline_scale",
+      "c_extension",
+      "c_charge"
+    ],
+    "flags": [
+      "flag_peak_at_search_boundary",
+      "flag_global_peak_outside_search",
+      "flag_Q_nonpositive",
+      "flag_PSD_undefined",
+      "flag_PSD_guarded",
+      "flag_ADC_rail_hit",
+      "flag_pre_ADC_out_of_range"
+    ],
+    "references": [
+      "parent_ids",
+      "source_rows",
+      "row_parent",
+      "draw"
+    ]
+  },
+  "checks": [
+    "Exact 37-member dtype, shape, count and payload against final ARRAY_SCHEMA and this prospective footprint",
+    "Recompute every call tensor_state_digest010 encoding from saved ndarray bytes using stdlib SHA/JSON; compare all 12 producer result SHA values",
+    "Returned ADC prefix copies, baseline-centered gather, first-argmax/search/global peak/crop geometry, all seven flags and parent/draw mapping",
+    "Q and tail reduction plus baseline mean under the prospective floating reduction rule below",
+    "PSD_raw including NaN/undefined and protected PSD algebra from saved Q/tail/bound floor; no ADC reapplication",
+    "Within each model seed: complete fast replay byte identity; shared full latent libraries/prefix/scale across all six calls; chargeoff signal equals original saved M0 reference bytes; shapeoff M0 equals saved A while charge remains enabled",
+    "Across model seeds: same source-conditioned A and same sampling latent bank/prefix/scale; original per-seed heads kept distinct without selecting one",
+    "Reconcile accounting, frozen before/after, flags totals, native exit and resource receipts as saved JSON evidence"
+  ],
+  "float64_reduction_rule": {
+    "epsilon": "numpy.finfo(float64).eps",
+    "gamma": "gamma_k=(k*eps)/(1-k*eps)",
+    "Q_tail_sum": "abs(NumPy_sum - saved_Torch_sum) <= 2*gamma_(n+1)*sum(abs(values)); n=256 for Q, n=210 for tail",
+    "baseline_mean": "abs(NumPy_mean - saved_Torch_mean) <= 2*gamma_101*sum(abs(prefix))/100",
+    "interpretation": "Covers both reductions and mean division; fixed before output inspection, no tolerance retuning",
+    "records": "Per-check maximum absolute residual and maximum bound; exact dtype/shape/raw-byte comparisons remain exact for copies, replay, latent banks and disabled-branch identities"
+  },
+  "resources": {
+    "execution_host": "local Windows, E-drive working/output/tmp/cache directories only",
+    "scientific_imports": "NumPy only after ROOT registration; no torch/n01 import",
+    "CPU_process_affinity_count": 1,
+    "numeric_thread_environment": 1,
+    "wall_seconds_terminal_acceptance": 120,
+    "peak_RSS_terminal_limit_bytes": 1073741824,
+    "review_output_limit_bytes": 2097152,
+    "source_or_binary_mutations": 0,
+    "helper_scripts_created": 0
+  },
+  "failure_rule": "Preserve attempted/open/member accounting and failure text. No second decode, new original input read, NN/RNG/ADC rerun, formula change or automatic retry.",
+  "evidence_boundary": "Saved-output software/algebra review only; runtime Python object identity derives from producer code/check, while serialization permits exact byte identity verification. No response-match, model promotion, deployment selection or complete WP5/WP6 claim."
+}

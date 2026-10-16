@@ -1,0 +1,192 @@
+{
+  "schema": "n01/wp6-028-ops-literal-delta/v1",
+  "status": "static_ready_waiting_ROOT_freeze_and_launch",
+  "run_id": "wp6_028_20261017",
+  "UTC": "2026-10-16T17:18:35.770054+00:00",
+  "source": {
+    "path": "E:\\GAN\\research\\N01\\receipts\\wp3_025_20261016\\execution_01\\REMOTE_SUPERVISOR.py",
+    "bytes": 6348,
+    "sha256": "b37c24795bdaa8a2697b7d652abcf62472ec4a8e474139f0628e5915d548a0cb"
+  },
+  "output": {
+    "path": "E:\\GAN\\research\\N01\\receipts\\wp6_028_20261017\\execution_01\\REMOTE_SUPERVISOR.py",
+    "bytes": 6327,
+    "sha256": "cc06e26a3e2165b61182f805ba0d9de3456da6c252566e4202364b0304e3a5cf"
+  },
+  "literal_replacements": [
+    {
+      "before": "One fixed 025 driver",
+      "after": "One fixed 028 driver",
+      "expected_occurrences": 1,
+      "actual_occurrences": 1
+    },
+    {
+      "before": "wp3_025_20261016",
+      "after": "wp6_028_20261017",
+      "expected_occurrences": 1,
+      "actual_occurrences": 1
+    },
+    {
+      "before": "wp3_025_config.json",
+      "after": "wp6_028_config.json",
+      "expected_occurrences": 2,
+      "actual_occurrences": 2
+    },
+    {
+      "before": "025 exact owned cwd/config required",
+      "after": "028 exact owned cwd/config required",
+      "expected_occurrences": 1,
+      "actual_occurrences": 1
+    },
+    {
+      "before": "if len(affinity) < 12:",
+      "after": "if len(affinity) < 1:",
+      "expected_occurrences": 1,
+      "actual_occurrences": 1
+    },
+    {
+      "before": "025 requires twelve available CPUs",
+      "after": "028 requires one available CPU",
+      "expected_occurrences": 1,
+      "actual_occurrences": 1
+    },
+    {
+      "before": "affinity[:12]",
+      "after": "affinity[:1]",
+      "expected_occurrences": 2,
+      "actual_occurrences": 2
+    },
+    {
+      "before": "environment[name] = '12'",
+      "after": "environment[name] = '1'",
+      "expected_occurrences": 1,
+      "actual_occurrences": 1
+    },
+    {
+      "before": "025 output must be fresh",
+      "after": "028 output must be fresh",
+      "expected_occurrences": 1,
+      "actual_occurrences": 1
+    },
+    {
+      "before": "scripts/run_wp3_025.py",
+      "after": "scripts/run_wp6_028.py",
+      "expected_occurrences": 1,
+      "actual_occurrences": 1
+    },
+    {
+      "before": "n01/wp3-025-native-launch/v1",
+      "after": "n01/wp6-028-native-launch/v1",
+      "expected_occurrences": 1,
+      "actual_occurrences": 1
+    },
+    {
+      "before": "CPU_threads=12",
+      "after": "CPU_threads=1",
+      "expected_occurrences": 1,
+      "actual_occurrences": 1
+    },
+    {
+      "before": "driver_AS_bytes=8*1024**3, RSS_bytes=8*1024**3",
+      "after": "driver_AS_bytes=8*1024**3, RSS_bytes=4*1024**3",
+      "expected_occurrences": 1,
+      "actual_occurrences": 1
+    },
+    {
+      "before": "wall_seconds=7200, driver_CPU_soft_seconds=21590, driver_CPU_hard_seconds=21600",
+      "after": "wall_seconds=600, driver_CPU_soft_seconds=590, driver_CPU_hard_seconds=600",
+      "expected_occurrences": 1,
+      "actual_occurrences": 1
+    },
+    {
+      "before": "output_bytes=1536*1024**2",
+      "after": "output_bytes=64*1024**2",
+      "expected_occurrences": 1,
+      "actual_occurrences": 1
+    },
+    {
+      "before": "timeout=max(0, 7200-(time.monotonic()-started))",
+      "after": "timeout=max(0, 600-(time.monotonic()-started))",
+      "expected_occurrences": 1,
+      "actual_occurrences": 1
+    },
+    {
+      "before": "wall_timeout_7200_seconds",
+      "after": "wall_timeout_600_seconds",
+      "expected_occurrences": 1,
+      "actual_occurrences": 1
+    },
+    {
+      "before": "usage.ru_maxrss*1024 > 8*1024**3",
+      "after": "usage.ru_maxrss*1024 > 4*1024**3",
+      "expected_occurrences": 1,
+      "actual_occurrences": 1
+    },
+    {
+      "before": "output_bytes > 1536*1024**2",
+      "after": "output_bytes > 64*1024**2",
+      "expected_occurrences": 1,
+      "actual_occurrences": 1
+    },
+    {
+      "before": "elapsed > 7200",
+      "after": "elapsed > 600",
+      "expected_occurrences": 1,
+      "actual_occurrences": 1
+    },
+    {
+      "before": "n01/wp3-025-native-exit/v1",
+      "after": "n01/wp6-028-native-exit/v1",
+      "expected_occurrences": 1,
+      "actual_occurrences": 1
+    }
+  ],
+  "only_listed_byte_replacements": true,
+  "limits": {
+    "CPU_threads": 1,
+    "driver_AS_bytes": 8589934592,
+    "driver_RSS_terminal_bytes": 4294967296,
+    "wall_timeout_seconds": 600,
+    "driver_CPU_soft_seconds": 590,
+    "driver_CPU_hard_seconds": 600,
+    "artifacts_terminal_bytes": 67108864,
+    "selected_collection_bytes": 33554432
+  },
+  "enforcement": {
+    "driver_AS_and_CPU": "Required in new driver before scientific imports; supervisor only records these limits.",
+    "wall": "Inherited child.wait timeout then owned process-group TERM, inherited20-second grace, KILL if needed; elapsed<=600 required for success.",
+    "RSS": "RUSAGE_CHILDREN.ru_maxrss terminal acceptance; no immediate RSS monitor or kill.",
+    "output": "Terminal sum of regular files in runs/primary/artifacts only; excludes console/tmp/cache/source.",
+    "collection": "ROOT collection checks selected payload and archive<=32MiB, separate from supervisor."
+  },
+  "preserved": "025/023/018 CPU supervision topology unchanged: exact owned cwd/config; fresh tmp/cache/output; inherited exclusive flock; one worker and no driver stdin; detached owned child group; boot/PID/parent/start_ticks/command/cwd/affinity receipts; TERM/KILL timeout; exact native exit, ru_maxrss and failure receipts; no retry.",
+  "entry_bindings": {
+    "remote_root": "/home/rylan/projects/ej276d-n01/wp6_028_20261017",
+    "driver": "scripts/run_wp6_028.py",
+    "config": "wp6_028_config.json",
+    "source_config_inputs_not_frozen": true
+  },
+  "checks": {
+    "ast_parse_passed": true,
+    "AST_topology_unchanged_except_literals": true,
+    "exact_byte_replacement_replay_passed": true,
+    "expected_occurrence_counts_passed": true,
+    "base_source_unchanged": true,
+    "output_bytes_reopened_equal": true,
+    "old_engineering_suite_reruns": 0,
+    "supervisor_source_executed": false,
+    "scientific_module_imports": 0,
+    "CP_loads": 0,
+    "NPZ_numeric_decodes": 0,
+    "model_forwards": 0,
+    "RNG": 0,
+    "training_updates": 0,
+    "uploads": 0,
+    "remote_jobs_started": 0,
+    "new_helper_or_controller_scripts": 0,
+    "global_ledger_Git_automation_mutations": 0
+  },
+  "diff": "--- 025/REMOTE_SUPERVISOR.py\n+++ 028/REMOTE_SUPERVISOR.py\n@@ -1,4 +1,4 @@\n-\"\"\"One fixed 025 driver, one inherited N01 lock, exact native exit; no retry.\"\"\"\n+\"\"\"One fixed 028 driver, one inherited N01 lock, exact native exit; no retry.\"\"\"\n import argparse\n import datetime\n import fcntl\n@@ -15,16 +15,16 @@\n parser.add_argument('--config', required=True)\n parser.add_argument('--config-sha256', required=True)\n args = parser.parse_args()\n-root = Path('/home/rylan/projects/ej276d-n01/wp3_025_20261016')\n-if Path.cwd() != root or Path(args.config).resolve() != root/'wp3_025_config.json':\n-    raise ValueError('025 exact owned cwd/config required')\n+root = Path('/home/rylan/projects/ej276d-n01/wp6_028_20261017')\n+if Path.cwd() != root or Path(args.config).resolve() != root/'wp6_028_config.json':\n+    raise ValueError('028 exact owned cwd/config required')\n affinity = sorted(os.sched_getaffinity(0))\n-if len(affinity) < 12:\n-    raise ValueError('025 requires twelve available CPUs')\n-os.sched_setaffinity(0, affinity[:12])\n+if len(affinity) < 1:\n+    raise ValueError('028 requires one available CPU')\n+os.sched_setaffinity(0, affinity[:1])\n environment = os.environ.copy()\n for name in ('OMP_NUM_THREADS', 'OPENBLAS_NUM_THREADS', 'MKL_NUM_THREADS', 'NUMEXPR_NUM_THREADS'):\n-    environment[name] = '12'\n+    environment[name] = '1'\n environment['PYTHONUNBUFFERED'] = '1'\n environment['PYTHONDONTWRITEBYTECODE'] = '1'\n (root/'tmp').mkdir(mode=0o700, exist_ok=False)\n@@ -36,14 +36,14 @@\n directory.mkdir(parents=True, exist_ok=False)\n output = root/'runs/primary/artifacts'\n if output.exists():\n-    raise FileExistsError('025 output must be fresh')\n+    raise FileExistsError('028 output must be fresh')\n boot = Path('/proc/sys/kernel/random/boot_id').read_text().strip()\n supervisor_fields = Path('/proc/self/stat').read_text().rsplit(')', 1)[1].split()\n supervisor = dict(pid=os.getpid(), parent_pid=os.getppid(), start_ticks=int(supervisor_fields[19]),\n     command=[v.decode() for v in Path('/proc/self/cmdline').read_bytes().rstrip(b'\\0').split(b'\\0')],\n-    cwd=str(root), boot_id=boot, CPU_affinity=affinity[:12])\n-command = [sys.executable, '-B', str(root/'scripts/run_wp3_025.py'),\n-    '--config', str(root/'wp3_025_config.json'), '--config-sha256', args.config_sha256,\n+    cwd=str(root), boot_id=boot, CPU_affinity=affinity[:1])\n+command = [sys.executable, '-B', str(root/'scripts/run_wp6_028.py'),\n+    '--config', str(root/'wp6_028_config.json'), '--config-sha256', args.config_sha256,\n     '--output', str(output)]\n started = time.monotonic()\n log_path = directory/'driver_console.log'\n@@ -59,23 +59,23 @@\n             CPU_affinity=sorted(os.sched_getaffinity(child.pid)))\n     except (FileNotFoundError, ProcessLookupError):\n         identity = dict(pid=child.pid, identity_unavailable='driver_exited_before_proc_snapshot')\n-    launch = dict(schema='n01/wp3-025-native-launch/v1', run_id=root.name,\n+    launch = dict(schema='n01/wp6-028-native-launch/v1', run_id=root.name,\n         UTC=datetime.datetime.now(datetime.timezone.utc).isoformat(),\n         supervisor_started_monotonic=started,\n         config_sha256=args.config_sha256, supervisor=supervisor, child=identity,\n         log=str(log_path), lock=str(root.parent/'.n01_scientific_dispatch.lock'),\n         lock_inherited_by_driver=True, automatic_restart=False,\n-        limits=dict(CPU_threads=12, driver_AS_bytes=8*1024**3, RSS_bytes=8*1024**3,\n-            wall_seconds=7200, driver_CPU_soft_seconds=21590, driver_CPU_hard_seconds=21600,\n-            output_bytes=1536*1024**2))\n+        limits=dict(CPU_threads=1, driver_AS_bytes=8*1024**3, RSS_bytes=4*1024**3,\n+            wall_seconds=600, driver_CPU_soft_seconds=590, driver_CPU_hard_seconds=600,\n+            output_bytes=64*1024**2))\n     with (directory/'LAUNCH.json').open('x', encoding='utf-8') as stream:\n         json.dump(launch, stream, indent=2); stream.write('\\n')\n     print(json.dumps(dict(status='driver_spawned', supervisor_pid=os.getpid(), child_pid=child.pid)), flush=True)\n     reason = None\n     try:\n-        returncode = child.wait(timeout=max(0, 7200-(time.monotonic()-started)))\n+        returncode = child.wait(timeout=max(0, 600-(time.monotonic()-started)))\n     except subprocess.TimeoutExpired:\n-        reason = 'wall_timeout_7200_seconds'\n+        reason = 'wall_timeout_600_seconds'\n         try:\n             os.killpg(child.pid, signal.SIGTERM)\n         except ProcessLookupError:\n@@ -92,13 +92,13 @@\n elapsed = time.monotonic()-started\n output_bytes = sum(path.stat().st_size for path in output.rglob('*') if path.is_file())\n violations = []\n-if usage.ru_maxrss*1024 > 8*1024**3:\n+if usage.ru_maxrss*1024 > 4*1024**3:\n     violations.append('RSS_cap_exceeded')\n-if output_bytes > 1536*1024**2:\n+if output_bytes > 64*1024**2:\n     violations.append('output_cap_exceeded')\n-if elapsed > 7200:\n+if elapsed > 600:\n     violations.append('wall_cap_exceeded')\n-receipt = dict(schema='n01/wp3-025-native-exit/v1', run_id=root.name,\n+receipt = dict(schema='n01/wp6-028-native-exit/v1', run_id=root.name,\n     UTC=datetime.datetime.now(datetime.timezone.utc).isoformat(), config_sha256=args.config_sha256,\n     supervisor=supervisor, child=identity, child_native_returncode=returncode,\n     child_terminated_by_signal=(-returncode if returncode < 0 else None), reason=reason,\n",
+  "authorization": "ROOT explicit supervisor literal migration instruction; no science/upload/freeze authority used.",
+  "local_preparation_python": "C:\\Users\\10629\\AppData\\Local\\Programs\\Python\\Python313\\python.exe"
+}
