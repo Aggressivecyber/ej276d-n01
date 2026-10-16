@@ -1,4 +1,14 @@
-# N01 当前状态：019 训练部分完成，评价因漏依赖失败
+# N01 当前状态：020恢复已正确启动
+
+用户已授权后续自主工程重启及必要新增计算。020已修复019漏依赖并经Sol Max独审，从已保存seed0检查点补原final评价；随后只训练原未启动seed1，新增上限2000G/AD。原019失败及科学未知结论保留。
+
+2026-10-16 11:23:21（Asia/Singapore）实际快照已完成180480行评价信号、541312行硬观测，恢复身份和同快照CPU/GPU/内存健康通过。快照时020新增G/AD为0，累计下界185667；完整2544格科学结论待运行与复核。已保存12:00单次苏醒，当前休息，不持续监控。scientific_status=response_match_not_established。
+
+[020执行状态](reports/wp4_020_20261016/STARTUP_STATUS.md) · [授权](receipts/wp4_020_20261016/authorization_01/USER_AUTHORIZATION.json) · [执行回执](receipts/wp4_020_20261016/EXECUTION_STARTED.json) · [独审](receipts/wp4_020_20261016/independent_01/REVIEW.md)
+
+以下保留此前阶段说明，旧授权边界以最新直接人类授权为准。
+
+# N01 历史019状态：训练部分完成，评价因漏依赖失败
 
 019已native1退出：seed0完成2000G/AD，seed1未启动；首次评价缺少mechanism012_losses，完整评价与2544格主门未生成，科学判定未知。本次只补记新增1936G，项目累计下界185667。完整日志、三份检查点及64文件清单已核SHA、选回并备份；未重启或新增NN/AD/G/RNG。
 
