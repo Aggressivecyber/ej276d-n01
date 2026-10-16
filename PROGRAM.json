@@ -4,7 +4,7 @@
   "created_UTC": "2026-10-12T00:07:21.307456+08:00",
   "created_local_Asia_Singapore": "2026-10-12T00:07:21.307456+08:00",
   "root": "E:\\GAN\\research\\N01",
-  "status": "WP5_026_frozen_reviewed_ready",
+  "status": "WP6_027_local_reference_delivered_user_requested_rest",
   "scientific_status": "response_match_not_established",
   "protocol_parent": null,
   "inherits_R79": false,
@@ -14,13 +14,13 @@
   "data_references": "DATA_REFERENCES.json",
   "active_scientific_jobs": 0,
   "new_training_updates": 187667,
-  "next_action": "One native invocation with300s outer timeout, then exact completion and bounded algebra readback.",
+  "next_action": "Await user resume. Future028 interface work remains unregistered/unstarted; preserve fixed scientific gates and existing continuing authorization for a later resume.",
   "application_goal_created": false,
   "legacy_results_modified": false,
-  "updated_UTC": "2026-10-16T09:52:59.384925+00:00",
+  "updated_UTC": "2026-10-16T10:33:21.558392+00:00",
   "current_arm": null,
-  "current_stage": "WP5_026_registered_ready",
-  "last_verified_UTC": "2026-10-16T09:21:26.448374+00:00",
+  "current_stage": "user_requested_rest_after_local_closeout",
+  "last_verified_UTC": "2026-10-16T10:29:39.963997+00:00",
   "run_id": "run_001_20261012",
   "start_receipt": "receipts/run_001_20261012/START_RECEIPT.json",
   "implementation": "src/n01",
@@ -57,7 +57,7 @@
     "negative_control_interval_contains_half"
   ],
   "latest_repair": "repair_002_20261012",
-  "latest_run_id": "wp3_025_20261016",
+  "latest_run_id": "wp5_026_20261016",
   "run_id_role": "original_run_001_historical_fields",
   "original_run_training_updates": 77000,
   "repair_classifier_evaluation_updates": 1200,
@@ -212,10 +212,10 @@
   "window008_fix01_source_commit": "af49ec2cc00d3dd024ba9b10daea4af457f1e00c",
   "followup_automation_id": "n01",
   "followup_scheduled_local": null,
-  "followup_receipt": "receipts/wp3_025_20261016/FOLLOWUP_RECEIPT.json",
+  "followup_receipt": "receipts/wp6_027_20261016/user_pause_01/PAUSE_RECEIPT.json",
   "window008_fix01_native_exit_code": 1,
   "window008_fix01_user_requested_pause": true,
-  "followup_automation_status": "one_shot_delivered_current_turn_active",
+  "followup_automation_status": "PAUSED",
   "window008_resume01_configuration": "window008_resume01_config.json",
   "window008_resume01_source_manifest": "WINDOW008_RESUME01_SOURCE_MANIFEST.json",
   "window008_resume01_protocol": "docs/WINDOW008_RESUME01_EXECUTION.md",
@@ -338,7 +338,7 @@
   "stability011_deployment_receipt": "receipts/stability011_20261014/deployment_01/DEPLOYMENT_RECEIPT.json",
   "stability011_attempted_bootstrap_replicates_last_verified": 500,
   "stability011_computed_bootstrap_replicates_last_verified": 500,
-  "active_scientific_jobs_status_basis": "025 native0 and owned supervisor/worker absent in current snapshot",
+  "active_scientific_jobs_status_basis": "025 native0 and owned remote processes absent at09:21 snapshot;026 single local native0 at09:56;027 static documents only. No newer scientific job started.",
   "stability011_start_verification": "receipts/stability011_20261014/START_NATIVE_VERIFICATION.json",
   "user_requested_pause": false,
   "pause_reason": null,
@@ -486,11 +486,11 @@
   "mechanism012_publication_UTC": "2026-10-14T18:37:20.683165+00:00",
   "mechanism012_github_critical_files_byte_verified": true,
   "master_execution_plan": "MASTER_EXECUTION_PLAN.json",
-  "master_plan_sha256": "d32509ad90be4422e9fd59b101a6362de310ceefcc1b591eb110dd2e9483d199",
+  "master_plan_sha256": "a5854f2f7961dd9bf84b6b0547e23f9dc183ffd9633f7dff0ec9acafc424241a",
   "master_user_plan": "USER_MASTER_PLAN_20261015.txt",
   "master_user_plan_sha256": "56190995374eb2a765a3c8589736514154dba7ff33aa1309b8b1de493e846ebb",
   "master_plan_registered": true,
-  "current_work_package": "WP5_preparation",
+  "current_work_package": "WP6_preparation",
   "wp1_execution": {
     "attempt": 3,
     "remote_root": "/home/rylan/projects/ej276d-n01/wp1_013_repeat_fix01_20261015",
@@ -594,13 +594,33 @@
     }
   },
   "followup": {
+    "schema": "n01/wp6-027-user-requested-rest/v1",
+    "UTC": "2026-10-16T10:33:21.558392+00:00",
     "automation_id": "n01",
-    "one_shot_delivered_UTC": "2026-10-16T09:20:29.108Z",
-    "status": "delivered_current_turn_active",
+    "status": "PAUSED",
+    "actual_saved_settings_verified": true,
+    "settings_sha256": "b8b084af700860c3c43b236e3ed90f0ce0cdd6dc0cdbfff940fcfd948f1f85ae",
+    "prompt_and_rule_preserved": true,
     "next_wake_local": null,
-    "historical_saved_settings_receipt": "receipts/wp3_025_20261016/FOLLOWUP_RECEIPT.json",
-    "actual_tool_configuration_last_known": "ACTIVE_COUNT1_already_delivered",
-    "project_G_lower_bound": 187667
+    "next_wake_UTC": null,
+    "previous_scheduled_wake_local": "2026-10-16T19:00:00+08:00",
+    "previous_wake_status": "disabled_by_user_requested_rest_before_delivery",
+    "user_request": {
+      "path": "receipts/wp6_027_20261016/user_pause_01/USER_PAUSE_REQUEST.json",
+      "bytes": 680,
+      "sha256": "d7709b2ae30b3452a12c24fb41c285d0feb30b514e3a49c2d7b1ba04ea0939fc"
+    },
+    "official_tool_request": "AUTOMATION_PAUSE_REQUEST.json",
+    "official_tool_result": "AUTOMATION_PAUSE_TOOL_RESULT.json",
+    "active_scientific_jobs": 0,
+    "local_work_remaining": "Finish current explicit GitHub text/source/summary delivery only.",
+    "resume_condition": "User resumes work; do not reactivate from the old heartbeat prompt alone.",
+    "new_remote_queries_or_jobs_after_pause_request": 0,
+    "new_scientific_computation_after_pause_request": 0,
+    "project_G_lower_bound": 187667,
+    "scientific_status": "response_match_not_established",
+    "receipt": "receipts/wp6_027_20261016/user_pause_01/PAUSE_RECEIPT.json",
+    "receipt_sha256": "8712af7b44b8afa10a7bfe799225c1f81df51e5b36d5dc4a3db3983f83666107"
   },
   "runtime_repair": {
     "failed_attempt": 1,
@@ -956,8 +976,8 @@
   },
   "wp2_G_updates": 8000,
   "wp2_AD_queries": 9872,
-  "followup_receipt_sha256": "9287f6cb5ff4822f3ab56317d077ff24a5c225596dcfa682a663d2792150d2f2",
-  "latest_source_commit": "79f0f11b9ca19ce450262877a7c4d42f664d5033",
+  "followup_receipt_sha256": "8712af7b44b8afa10a7bfe799225c1f81df51e5b36d5dc4a3db3983f83666107",
+  "latest_source_commit": "f41f8ef38266561b27bd5760f19f26e0ee2c8375",
   "wp2_terminal_readback": {
     "path": "receipts\\wp2_014_20261015\\postrun_root_01\\NATIVE_COMPLETION_READBACK.json",
     "sha256": "bdb7dcc539fb494e0282ee8cafcde4cb1d5e98022a2fbb40a99c64aa0fe53d0a",
@@ -1617,9 +1637,9 @@
   },
   "wp3_G_updates": 12000,
   "wp3_AD_queries": 12000,
-  "pending_run_id": "wp5_026_20261016",
+  "pending_run_id": null,
   "followup_last_delivered_UTC": "2026-10-16T09:20:29.108Z",
-  "current_followup_status": "delivered_1720_current_turn_active_no_new_future_wake",
+  "current_followup_status": "paused_by_user_no_future_wake_until_resume",
   "wp3_terminal_readback": {
     "path": "receipts/wp3_015_20261015/postrun_root_01/NATIVE_COMPLETION_READBACK.json",
     "sha256": "a9bbc3a9f1694d649b352ad2fd96dc4fa05470bab2856107fe5e35fe6036136f",
@@ -2916,10 +2936,10 @@
     "bytes": 1486,
     "sha256": "b289ec7ff44842e348040f66804900da0031e6cc09026a469e90fc1a7ee11e74"
   },
-  "active_work_package": "WP5_preparation",
+  "active_work_package": "WP6_preparation",
   "wp4_017_G_updates": 4000,
   "wp4_017_AD_queries": 4000,
-  "remote_execution_authorized": true,
+  "remote_execution_authorized": false,
   "wp4_017_user_execution_boundary": {
     "path": "receipts/wp4_017_20261015/REMOTE_EXECUTION_DEFERRED_BY_USER.json",
     "sha256": "033e4bb0fc62220ba4d60c9be4dc7ac25b64b23e9e5d9f1ed1bd28127e2783da"
@@ -4480,7 +4500,7 @@
     "bytes": 6413,
     "sha256": "ec6fc5ce3a2ce1be0e024f8a82794670f19e29eff6ebb4db3083bba1e013c7cb"
   },
-  "current_action": "Execute one frozen026 local composition stress and independently review saved outputs.",
+  "current_action": "Current local026/027 evidence and document closure complete. Finish explicit GitHub delivery, then rest as directly requested by user.",
   "latest_user_review_direction": {
     "path": "receipts/review_017_20261016/ACCEPTED_NEXT_ACTIONS.json",
     "bytes": 3271,
@@ -6105,7 +6125,7 @@
   },
   "wp3_025_G_updates": 0,
   "wp3_025_AD_queries": 0,
-  "wp3_025_completed_scalar_W1_columns_last_verified": 16466,
+  "wp3_025_completed_scalar_W1_columns_last_verified": 105720,
   "wp5_026_prospective_scope": {
     "path": "receipts/wp5_026_20261016/registration_01/PROSPECTIVE_SCOPE.json",
     "bytes": 11751,
@@ -6113,10 +6133,10 @@
   },
   "wp5_026_execution": {
     "run_id": "wp5_026_20261016",
-    "status": "frozen_independent_no_blockers_ready_for_one_native_analysis",
+    "status": "native0_closed_independent_finite_measure_readback_complete",
     "host": "local_Windows_E_D",
     "active": false,
-    "native_started": false,
+    "native_started": true,
     "source_review_no_blockers": true,
     "registration": {
       "path": "receipts/wp5_026_20261016/registration_01/PROSPECTIVE_REGISTRATION.json",
@@ -6200,7 +6220,98 @@
     "new_G": 0,
     "new_AD": 0,
     "project_G_lower_bound": 187667,
-    "scientific_status": "response_match_not_established"
+    "scientific_status": "response_match_not_established",
+    "native_exit_code": 0,
+    "source_commit": "f41f8ef38266561b27bd5760f19f26e0ee2c8375",
+    "native_start_UTC": "2026-10-16T09:56:14.391587+00:00",
+    "completed_UTC": "2026-10-16T09:56:20.198983+00:00",
+    "exact_completed_counts": {
+      "new_diagnostic_jobs": 1,
+      "numeric_NPZ_files_decoded": 9,
+      "saved_SOURCE_information_rows": 8192,
+      "aligned_SOURCE_TRAIN_parents": 6593,
+      "saved_fake_observable_files": 6,
+      "saved_fake_observable_rows": 158232,
+      "saved_REAL_observable_rows": 21047,
+      "comparison_weight_scenarios": 3,
+      "comparison_parent_weight_values": 19779,
+      "bank_hypothesis_weight_cells": 18,
+      "fake_scalar_moment_summaries": 144,
+      "fake_flag_rate_summaries": 162,
+      "REAL_scalar_moment_summaries": 8,
+      "REAL_flag_rate_summaries": 9,
+      "within_between_decompositions": 72,
+      "native4_parent_scalar_moment_rows": 158232,
+      "NN_forward_rows": 0,
+      "checkpoint_loads": 0,
+      "AD_queries": 0,
+      "G_updates": 0,
+      "optimizer_steps": 0,
+      "new_RNG_requests": 0,
+      "new_ADC_argmax_gather_rows": 0,
+      "new_training_trials": 0,
+      "new_parameter_points": 0,
+      "parameter_fits": 0,
+      "new_CDF_or_quantile_sorts": 0,
+      "new_pair_distances": 0,
+      "original_SOURCE_REAL_DEV_waveform_reads": 0
+    },
+    "resources": {
+      "elapsed_seconds": 4.943380200013053,
+      "peak_working_set_bytes": 50860032,
+      "current_working_set_bytes": 46428160,
+      "initial_affinity_mask": 1048575,
+      "selected_cpu_mask": 1,
+      "actual_affinity_mask": 1,
+      "allowed_CPU_count": 1,
+      "BLAS_OMP_threads": 1,
+      "snapshot_stage": "after_analysis_before_final_result_serialization",
+      "whole_process_peak_RSS_measured": false,
+      "continuous_memory_kill_loop": false
+    },
+    "output_bytes": 3773181,
+    "independent_result_review_complete": true,
+    "native_exit": {
+      "path": "receipts/wp5_026_20261016/execution_01/NATIVE_EXIT.json",
+      "bytes": 1863,
+      "sha256": "554c69a652c6a3a58f9d447860feeca306bc63a85996104fb2f2c467683257ca"
+    },
+    "terminal_check": {
+      "path": "receipts/wp5_026_20261016/execution_01/NATIVE_COMPLETION_READBACK.json",
+      "bytes": 9198,
+      "sha256": "5cac8c882a9d15d50bef2cab1838a8a12ceb687fa790042355ece053f81da3d3"
+    },
+    "complete": {
+      "path": "runs/wp5_026_20261016/analysis_01/COMPLETE.json",
+      "bytes": 6564,
+      "sha256": "4486d4d5296cac2b78625711c4b75a7513b86fd5b7e40079e3706018c431c16b"
+    },
+    "analysis": {
+      "path": "runs/wp5_026_20261016/analysis_01/ANALYSIS.json",
+      "bytes": 252518,
+      "sha256": "7fd56edc5636539a7ae91d3810b0e70c77c0b7dadf07d49bb93feac0e0a780b3"
+    },
+    "output_inventory": {
+      "path": "receipts/wp5_026_20261016/execution_01/OUTPUT_FULL_INVENTORY.json",
+      "bytes": 3743,
+      "sha256": "e50882fb46ae106032eac4bd9f2a4e777b4ae09e6d1a588b8b8fc25f97fbb905"
+    },
+    "independent_review_no_blockers": true,
+    "result": {
+      "path": "receipts/wp5_026_20261016/FINAL_RESULT_RECEIPT.json",
+      "bytes": 13669,
+      "sha256": "49b5f701036aa1cceb7ce81028ebb6e1c316bcaaf09c9e11f34009386026f7ae"
+    },
+    "report": {
+      "path": "reports/wp5_026_20261016/REPORT.md",
+      "bytes": 4595,
+      "sha256": "91feeb00f5aaa5efc82088b77351f4c636ab102c3ee0daf873fafb777112d257"
+    },
+    "independent_result_review": {
+      "path": "receipts/wp5_026_20261016/postrun_independent_01/RESULT_REVIEW.json",
+      "bytes": 37271,
+      "sha256": "d99ba74177d72231be0ff90829fd8c96f7dd124bb8a02a0600ce85a7e69bd7f2"
+    }
   },
   "wp3_025_result": {
     "path": "receipts/wp3_025_20261016/FINAL_RESULT_RECEIPT.json",
@@ -6216,5 +6327,80 @@
     "path": "receipts/wp3_025_20261016/wake_20261016_1720_01/independent_result_01/RESULT_REVIEW.json",
     "bytes": 33510,
     "sha256": "f13d09a8120de685c980e0d52f782c212cb3d4ea41d7da7f77cbfbd21621128e"
-  }
+  },
+  "wp6_027_execution": {
+    "run_id": "wp6_027_20261016",
+    "status": "static_documentation_delivered_independent_review_no_blockers",
+    "scientific_job": false,
+    "new_scientific_computation": 0,
+    "scope": "receipts/wp6_027_20261016/registration_01/PROSPECTIVE_SCOPE.json",
+    "full_WP6_complete": false,
+    "active": false,
+    "native_started": false,
+    "independent_document_review_complete": true,
+    "result": {
+      "path": "receipts/wp6_027_20261016/FINAL_RESULT_RECEIPT.json",
+      "bytes": 5070,
+      "sha256": "9893d6f500c25bb43b891c764a60a72787915fe6570c1b086cab73fbfb0347e1"
+    },
+    "manifest": {
+      "path": "reports/wp6_027_20261016/research_reference_01/MANIFEST.json",
+      "bytes": 3133,
+      "sha256": "518d7f02588e9d95aa369ab0ab769722ab95a877aa0b8359fc1cf51b8d58e237"
+    },
+    "readme": {
+      "path": "reports/wp6_027_20261016/research_reference_01/README.md",
+      "bytes": 2729,
+      "sha256": "1d7be152535c29e8497cfee2a2396abfe12aa38b98ab35e2914e1a6bab8821c4"
+    },
+    "independent_review": {
+      "path": "receipts/wp6_027_20261016/independent_01/FINAL_DOCUMENT_REVIEW.json",
+      "bytes": 8968,
+      "sha256": "abf49ebcff9d99196500d499784914f4e3c0da94bc992af94e52d55903df5ff7"
+    },
+    "backup": {
+      "path": "receipts/wp6_027_20261016/BACKUP_RECEIPT.json",
+      "bytes": 2218,
+      "sha256": "5d1d5d0996573d862624bb2aeea5da0138e45b8e35ba364bf798ca44840f820e"
+    }
+  },
+  "wp5_026_result": {
+    "path": "receipts/wp5_026_20261016/FINAL_RESULT_RECEIPT.json",
+    "bytes": 13669,
+    "sha256": "49b5f701036aa1cceb7ce81028ebb6e1c316bcaaf09c9e11f34009386026f7ae"
+  },
+  "wp5_026_report": {
+    "path": "reports/wp5_026_20261016/REPORT.md",
+    "bytes": 4595,
+    "sha256": "91feeb00f5aaa5efc82088b77351f4c636ab102c3ee0daf873fafb777112d257"
+  },
+  "wp5_026_independent_result_review": {
+    "path": "receipts/wp5_026_20261016/postrun_independent_01/RESULT_REVIEW.json",
+    "bytes": 37271,
+    "sha256": "d99ba74177d72231be0ff90829fd8c96f7dd124bb8a02a0600ce85a7e69bd7f2"
+  },
+  "latest_completed_documentation_id": "wp6_027_20261016",
+  "wp6_027_result": {
+    "path": "receipts/wp6_027_20261016/FINAL_RESULT_RECEIPT.json",
+    "bytes": 5070,
+    "sha256": "9893d6f500c25bb43b891c764a60a72787915fe6570c1b086cab73fbfb0347e1"
+  },
+  "wp6_027_report": {
+    "path": "reports/wp6_027_20261016/research_reference_01/README.md",
+    "bytes": 2729,
+    "sha256": "1d7be152535c29e8497cfee2a2396abfe12aa38b98ab35e2914e1a6bab8821c4"
+  },
+  "wp6_027_independent_document_review": {
+    "path": "receipts/wp6_027_20261016/independent_01/FINAL_DOCUMENT_REVIEW.json",
+    "bytes": 8968,
+    "sha256": "abf49ebcff9d99196500d499784914f4e3c0da94bc992af94e52d55903df5ff7"
+  },
+  "latest_user_pause_request": {
+    "path": "receipts/wp6_027_20261016/user_pause_01/PAUSE_RECEIPT.json",
+    "bytes": 1260,
+    "sha256": "8712af7b44b8afa10a7bfe799225c1f81df51e5b36d5dc4a3db3983f83666107"
+  },
+  "user_requested_rest": true,
+  "new_scientific_execution_paused_by_user": true,
+  "prior_continuing_authorization_preserved_for_after_resume": true
 }

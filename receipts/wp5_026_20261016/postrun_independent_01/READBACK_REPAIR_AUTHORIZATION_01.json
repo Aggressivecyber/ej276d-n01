@@ -1,0 +1,33 @@
+{
+  "schema": "n01/wp5-026-independent-readback-repair/v1",
+  "UTC": "2026-10-16T10:04:21.945453+00:00",
+  "run_id": "wp5_026_20261016",
+  "authority": "Existing direct human continuing authorization for necessary bounded repair; no new human confirmation needed.",
+  "first_attempt": {
+    "status": "reviewer_numeric_assertion_failed_after_load_before_moment_recompute",
+    "unique_NPZ_opened": 24,
+    "array_member_loads": 210,
+    "completed_full_scalar_or_decomposition_audit": false,
+    "source_identity_TRAIN_h_and_preserved_axes_checks_completed": true,
+    "cache_lost_on_native_assertion_exit": true,
+    "failure": "Independent algebra expansion 1+.2-.4*h yielded0.7999999999999999 at h=1 under binary floating point, triggering exact raw bound assertion. Producer uses frozen original expression; no source defect established."
+  },
+  "repair": "Use literal prospective formula 1 +/- .20*(2*h-1) in reviewer; no clamp, threshold change or scientific driver edit. Preserve first failure and reload at most once.",
+  "additional_review_budget": {
+    "unique_NPZ_files": 24,
+    "member_loads": 210,
+    "numeric_wall_seconds": 120,
+    "CPU": 1,
+    "RSS_MiB": 1024
+  },
+  "cumulative_review_budget": {
+    "NPZ_open_events": 48,
+    "unique_paths": 24,
+    "member_loads": 420
+  },
+  "new_scientific_NN_CP_AD_G_RNG_ADC_CDF_parameters": 0,
+  "producer_run_repeated": false,
+  "first_attempt_cost_must_remain": true,
+  "automatic_further_retry": false,
+  "project_G_lower_bound": 187667
+}
