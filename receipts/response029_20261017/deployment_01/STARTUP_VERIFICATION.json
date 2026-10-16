@@ -1,0 +1,282 @@
+{
+  "UTC": "2026-10-16T19:51:25.804780+00:00",
+  "remote_root": "/home/rylan/projects/ej276d-n01/response029_20261017",
+  "single_startup_snapshot": true,
+  "dispatch": {
+    "UTC": "2026-10-16T19:50:51.401371+00:00",
+    "dispatcher_pid": 38887,
+    "dispatcher_start_ticks": 986436,
+    "command": [
+      "flock",
+      "-n",
+      "/home/rylan/projects/ej276d-n01/.n01_scientific_dispatch.lock",
+      "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+      "-B",
+      "/home/rylan/projects/ej276d-n01/response029_20261017/scripts/supervise.py",
+      "--output",
+      "/home/rylan/projects/ej276d-n01/response029_20261017/control_01",
+      "--rss-limit-gib",
+      "12",
+      "--",
+      "timeout",
+      "--signal=TERM",
+      "--kill-after=20s",
+      "7200s",
+      "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+      "-B",
+      "/home/rylan/projects/ej276d-n01/response029_20261017/scripts/run_response029.py",
+      "--config",
+      "/home/rylan/projects/ej276d-n01/response029_20261017/configs/response029_20261017.json",
+      "--config-sha256",
+      "683db14dba84e4afde83259d48f1987a2dfdf1b332c0fd8d17da3b3c7c0335d3",
+      "--output",
+      "/home/rylan/projects/ej276d-n01/response029_20261017/run_01",
+      "--device",
+      "cuda:0"
+    ],
+    "cwd": "/home/rylan/projects/ej276d-n01/response029_20261017",
+    "source_commit": "9e8f98ad4b1a8e78e6a922ed067959f307c581ee",
+    "config_sha256": "683db14dba84e4afde83259d48f1987a2dfdf1b332c0fd8d17da3b3c7c0335d3",
+    "project_lock": "/home/rylan/projects/ej276d-n01/.n01_scientific_dispatch.lock",
+    "single_job": true,
+    "CUBLAS_WORKSPACE_CONFIG": ":4096:8",
+    "native_started_verified": false
+  },
+  "supervisor_launch": {
+    "supervisor_pid": 38888,
+    "child_pid": 38895,
+    "command": [
+      "timeout",
+      "--signal=TERM",
+      "--kill-after=20s",
+      "7200s",
+      "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+      "-B",
+      "/home/rylan/projects/ej276d-n01/response029_20261017/scripts/run_response029.py",
+      "--config",
+      "/home/rylan/projects/ej276d-n01/response029_20261017/configs/response029_20261017.json",
+      "--config-sha256",
+      "683db14dba84e4afde83259d48f1987a2dfdf1b332c0fd8d17da3b3c7c0335d3",
+      "--output",
+      "/home/rylan/projects/ej276d-n01/response029_20261017/run_01",
+      "--device",
+      "cuda:0"
+    ],
+    "started_utc": "2026-10-16T19:50:51.424120+00:00"
+  },
+  "resources": {
+    "supervisor_pid": 38888,
+    "child_pid": 38895,
+    "rss_bytes": 2660032512,
+    "peak_rss_bytes": 2660032512,
+    "child_tree": [
+      38895,
+      38896
+    ],
+    "utc": "2026-10-16T19:51:25.446123+00:00"
+  },
+  "exit": null,
+  "native_start": {
+    "UTC": "2026-10-16T19:50:52.647475+00:00",
+    "pid": 38896,
+    "config": {
+      "schema": "n01/response029-known-teacher/v1",
+      "run_id": "response029_20261017",
+      "status": "frozen",
+      "stage": "teacher_paired_then_unpaired",
+      "data_kind": "artificial_known_response",
+      "learner_seeds": [
+        2026101701,
+        2026101702
+      ],
+      "teacher_seed": 2026101729,
+      "source": {
+        "TRAIN_per_template": 64,
+        "heldout_per_template": 32,
+        "Q_range_Vns": [
+          0.5,
+          8.0
+        ],
+        "Q_stratum_edges_Vns": [
+          0.5,
+          1.5,
+          4.0,
+          8.0
+        ],
+        "templates": [
+          {
+            "rise_width": 3.0,
+            "tail": 30.0
+          },
+          {
+            "rise_width": 5.0,
+            "tail": 60.0
+          }
+        ],
+        "peak": 126,
+        "prefix_zero": 100,
+        "carrier_samples": 384
+      },
+      "teacher": {
+        "mean_gain": 1.12,
+        "time_scale": 1.1,
+        "shape_weight_multiplier": 10.0,
+        "charge_v": [
+          0.08,
+          0.04,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "local_initialization_retained": true
+      },
+      "training": {
+        "paired_updates": 1000,
+        "unpaired_updates": 1000,
+        "parents_per_update": 64,
+        "draws_per_parent": 2,
+        "mean_lr": 0.0001,
+        "new_head_lr": 0.0003,
+        "weight_decay": 0.0,
+        "gradient_clip": 5.0,
+        "status_interval": 100,
+        "statistics_draws_per_TRAIN_parent": 8,
+        "wave_weight": 1.0,
+        "integral_weight": 2.0,
+        "carrier_weight": 0.25,
+        "regular_weight": 0.01
+      },
+      "evaluation": {
+        "analytic_parents": 64,
+        "MC_parent_rows": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56,
+          60
+        ],
+        "MC_draws_per_parent": 256,
+        "projections": 9,
+        "mean_NRMSE_max": 0.03,
+        "charge_variance_relative_RMS_max": 0.15,
+        "standardized_covariance_relative_Frobenius_max": 0.2,
+        "require_all_template_Q_strata": true,
+        "MC_is_gate": false
+      },
+      "resources": {
+        "CPU_threads": 4,
+        "RSS_GiB": 12,
+        "GPU_GiB": 10,
+        "wall_seconds": 7200,
+        "output_MiB": 256
+      },
+      "execution_kind": "known_teacher_diagnostic",
+      "design_revision": "800/1200 was an unexecuted draft; both modes fixed at 1000 before training",
+      "no_REAL_or_checkpoint_reads": true,
+      "no_discriminator": true,
+      "no_noise005": true,
+      "automatic_restart": false,
+      "scientific_status": "response_match_not_established",
+      "design_provenance": {
+        "authority": "receipts/response029_20261017/USER_DIRECTION.json plus ROOT fixed pre-execution decisions",
+        "revision": "Unexecuted 800/1200 proposal replaced by equal 1000/1000 before diagnostic training. Engineering seed is distinct and results are not used to change gates or teacher.",
+        "teacher": "One seed2026101729 shared by both learner seeds; exact gain1.12/time1.10, original basis weights times10, shared charge v0=.08/v1=.04, original nonzero local envelope retained.",
+        "carrier_auxiliary": "Same single ADC carrier384 minus original prefix100 mean. TRAIN scale uses that exact domain; no unavailable continuous REAL preADC target.",
+        "gates": "Exact preADC moments for all64 heldout, global and all six template/Q strata; fixed teacher conditional projection SD standardization; MC QA only.",
+        "oracle": "Closed-form best per-parent kappa*A*A^T under teacher Qvariance +/-15%; must fail covariance.20 everywhere. Scope assumes fixed correct teacher A, not arbitrary wrong means.",
+        "heldout": "Different Q interpolation grid of the same two templates; not unseen-shape or independent-acquisition generalization.",
+        "local": "Retained nonzero original local law; no claim to learn a changed local-noise law.",
+        "engineering": "CLI --engineering-updates 0 or 1 uses separate seed2026101799 and engineering-only update counts, exercising both paths without scientific gate continuation.",
+        "real_next": "Existing SOURCE/REAL TRAIN and internal DEV suffice for separately registered subsequent developmental fitting; no new-acquisition prerequisite."
+      },
+      "frozen_UTC": "2026-10-16T19:48:36.328727+00:00",
+      "maximum_diagnostic_optimizer_updates": 4000,
+      "maximum_scientific_jobs": 1,
+      "source_bindings": {
+        "scripts/run_response029.py": "a39f5ddd3fcbd0d8cf58db487d7fb51d1b17646f69603047a1e739fece74e7d5",
+        "src/n01/model029.py": "40c16bca31ff277912959a040a40770608c49f374eff76cffd45de0d716ea599"
+      },
+      "final_independent_review": "receipts/response029_20261017/loss_data_audit/MODEL029_INDEPENDENT_REVIEW.json",
+      "follow_on_authorization": "Continue to separately registered existing-data REAL fitting or a bounded necessary repair after diagnosing results; no additional data acquisition prerequisite."
+    },
+    "device": "cuda:0",
+    "scientific_array_reads": 0,
+    "checkpoint_reads": 0,
+    "automatic_restart": false
+  },
+  "failure": null,
+  "result": null,
+  "training_status": [
+    {
+      "path": "run_01/paired_seed2026101701/STATUS.json",
+      "mode": "paired",
+      "seed": 2026101701,
+      "completed_updates": 900,
+      "objective": 5.4437437409572125e-05,
+      "gradient_norm": 0.10856788605451584,
+      "mean": 1.847646209211653e-05,
+      "residual": 3.596097531745559e-05,
+      "UTC": "2026-10-16T19:51:25.180078+00:00"
+    }
+  ],
+  "logged_updates": [
+    {
+      "path": "run_01/paired_seed2026101701/metrics.jsonl",
+      "completed_updates": 917,
+      "last": {
+        "mode": "paired",
+        "seed": 2026101701,
+        "completed_updates": 917,
+        "objective": 6.921735856485928e-05,
+        "gradient_norm": 0.13492892682552338,
+        "mean": 2.0465641178172372e-05,
+        "residual": 4.875171738668691e-05
+      }
+    }
+  ],
+  "completed_updates_lower_bound": 917,
+  "processes": [
+    {
+      "pid": 38887,
+      "start_ticks": 986436,
+      "cmdline": "flock -n /home/rylan/projects/ej276d-n01/.n01_scientific_dispatch.lock /home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python -B /home/rylan/projects/ej276d-n01/response029_20261017/scripts/supervise.py --output /home/rylan/projects/ej276d-n01/response029_20261017/control_01 --rss-limit-gib 12 -- timeout --signal=TERM --kill-after=20s 7200s /home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python -B /home/rylan/projects/ej276d-n01/response029_20261017/scripts/run_response029.py --config /home/rylan/projects/ej276d-n01/response029_20261017/configs/response029_20261017.json --config-sha256 683db14dba84e4afde83259d48f1987a2dfdf1b332c0fd8d17da3b3c7c0335d3 --output /home/rylan/projects/ej276d-n01/response029_20261017/run_01 --device cuda:0 ",
+      "cwd": "/home/rylan/projects/ej276d-n01/response029_20261017"
+    },
+    {
+      "pid": 38888,
+      "start_ticks": 986436,
+      "cmdline": "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python -B /home/rylan/projects/ej276d-n01/response029_20261017/scripts/supervise.py --output /home/rylan/projects/ej276d-n01/response029_20261017/control_01 --rss-limit-gib 12 -- timeout --signal=TERM --kill-after=20s 7200s /home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python -B /home/rylan/projects/ej276d-n01/response029_20261017/scripts/run_response029.py --config /home/rylan/projects/ej276d-n01/response029_20261017/configs/response029_20261017.json --config-sha256 683db14dba84e4afde83259d48f1987a2dfdf1b332c0fd8d17da3b3c7c0335d3 --output /home/rylan/projects/ej276d-n01/response029_20261017/run_01 --device cuda:0 ",
+      "cwd": "/home/rylan/projects/ej276d-n01/response029_20261017"
+    },
+    {
+      "pid": 38895,
+      "start_ticks": 986438,
+      "cmdline": "timeout --signal=TERM --kill-after=20s 7200s /home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python -B /home/rylan/projects/ej276d-n01/response029_20261017/scripts/run_response029.py --config /home/rylan/projects/ej276d-n01/response029_20261017/configs/response029_20261017.json --config-sha256 683db14dba84e4afde83259d48f1987a2dfdf1b332c0fd8d17da3b3c7c0335d3 --output /home/rylan/projects/ej276d-n01/response029_20261017/run_01 --device cuda:0 ",
+      "cwd": "/home/rylan/projects/ej276d-n01/response029_20261017"
+    },
+    {
+      "pid": 38896,
+      "start_ticks": 986438,
+      "cmdline": "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python -B /home/rylan/projects/ej276d-n01/response029_20261017/scripts/run_response029.py --config /home/rylan/projects/ej276d-n01/response029_20261017/configs/response029_20261017.json --config-sha256 683db14dba84e4afde83259d48f1987a2dfdf1b332c0fd8d17da3b3c7c0335d3 --output /home/rylan/projects/ej276d-n01/response029_20261017/run_01 --device cuda:0 ",
+      "cwd": "/home/rylan/projects/ej276d-n01/response029_20261017"
+    }
+  ],
+  "gpu": "NVIDIA GeForce RTX 5070, 12227 MiB, 1139 MiB, 82 %",
+  "config_sha256": "683db14dba84e4afde83259d48f1987a2dfdf1b332c0fd8d17da3b3c7c0335d3",
+  "native_started_verified": true
+}
