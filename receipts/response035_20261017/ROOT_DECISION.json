@@ -1,0 +1,71 @@
+{
+  "schema": "n01/response035-root-decision/v1",
+  "UTC": "2026-10-16T22:19:42.235044+00:00",
+  "status": "authorize_one_frozen_zero_update_endpoint_exchange",
+  "authority": "Continuing direct user diagnosis/repair authorization, receipts/response029_20261017/USER_DIRECTION.json and current0555 heartbeat. No extra data prerequisite.",
+  "preceding_result": "receipts/response034_20261017/FINAL_RESULT_RECEIPT.json",
+  "reason": "034 targeted shape LR/16 trial failed all original progress conditions and has more peak-search escapes. Saved outputs do not isolate mean geometry versus random heads/shared feature routes. One endpoint2x2 exchange with cached A-only observations resolves this functional question without another fit.",
+  "source_script": "scripts/run_response035.py",
+  "source_sha256": "d3d63553e2a25c0e6e3688381c1c2f4657a003f84581c52cca57ec4f03d8a020",
+  "config_path": "configs/response035_20261017.json",
+  "config_sha256": "af66a5568bb29420a8f93d6a53b635eb9b3b82cc84a974f27e55a0115086937f",
+  "independent_review": "receipts/response035_20261017/independent_review_01/REVIEW.json",
+  "independent_review_sha256": "8281f06b7e28f591f8546ae3be93ea2e80a7fdbb12df32f59bffdb031c0fd68a",
+  "independent_no_blockers": true,
+  "states": [
+    "M0R0",
+    "M0Rf",
+    "MfR0",
+    "MfRf",
+    "A0_only",
+    "Af_only"
+  ],
+  "factorization": {
+    "M": "All mean_model.* state entries from independently selected initial/final CP.",
+    "R": "All other model state entries: basis_head, charge_head, envelope_head and local_filter.",
+    "construction": "Build every corner directly from endpoint dictionaries and strict-load; never accumulate deltas.",
+    "cached_A": "Use A0 already returned by M0R0 and Af already returned by MfRf; no additional model call.",
+    "common_random_numbers": "Cache independent source A/B and REAL T/U indices, response latents, original005 noise and all three H extensions once per bank; reuse across all six states."
+  },
+  "data_roles": "Eight previously examined033 TRAIN risk banks; same80 seeds, first-gradient bank excluded; original identities/splits preserved, no ID network input. Not fresh confirmation.",
+  "primary": "Six-state data energy. Four full corners also retain original regular/saturation/total. A-only does not inherit unused random regular or total.",
+  "decision_interpretation": [
+    "Check direct preADC A geometry alongside Af-only versusA0-only paired risk; marginal A-only fit alone does not identify the conditional mean.",
+    "Compare M at fixedR, R at fixedM and the paired interaction; M swaps include shared features and A-amplitude paths seen byR.",
+    "Any later repair must follow this evidence and have its own frozen finite plan. No automatic global-LR alternative, LR grid, more034updates, best-corner selection or acceptance claim."
+  ],
+  "exact_budgets": {
+    "NN_calls": 64,
+    "NN_rows": 4096,
+    "noise005_rows": 1024,
+    "extension_rows": 3072,
+    "generated_ADC_rows": 18432,
+    "checkpoint_loads": 3,
+    "TRAIN_archives_decoded": 1,
+    "REAL_existing_observation_rows": 21047,
+    "banks_cached": 8,
+    "AD_queries": 0,
+    "G_updates": 0,
+    "DEV_reads": 0,
+    "statistics_fits": 0,
+    "checkpoint_writes": 0,
+    "native_W1_runs": 0
+  },
+  "resources": {
+    "CPU_threads": 4,
+    "RSS_GiB": 12,
+    "GPU_GiB": 10,
+    "wall_seconds": 600,
+    "output_MiB": 128
+  },
+  "resource_enforcement": "flock unique project job; supervise.py RSS12GiB; timeout600s+20s kill grace;GPU allocator10GiB;torch CPU4;native wall/output128MiB check;no automatic restart.",
+  "success_criteria": "Exact source/input/state binding,48 state-bank records, complete paired summaries, unchanged005 and exact operation counts. This is diagnostic execution success, not response-match acceptance.",
+  "cumulative_training_updates_before": 197668,
+  "G_updates": 0,
+  "AD_queries": 0,
+  "DEV_reads": 0,
+  "checkpoint_writes": 0,
+  "scientific_status": "response_match_not_established",
+  "scientific_job_started": false,
+  "preflight": "receipts/response035_20261017/deployment_01/PREFLIGHT.json"
+}

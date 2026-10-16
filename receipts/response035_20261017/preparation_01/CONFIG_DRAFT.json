@@ -1,0 +1,292 @@
+{
+  "schema": "n01/response035-exchange-audit-config/v1",
+  "run_id": "response035_20261017",
+  "status": "draft_not_frozen",
+  "preparation_only": true,
+  "objective": "zero_update_mean_random_parameter_exchange_TRAIN_data_energy",
+  "seed": 2026101732,
+  "states": [
+    "M0R0",
+    "M0Rf",
+    "MfR0",
+    "MfRf",
+    "A0_only",
+    "Af_only"
+  ],
+  "hypotheses": [
+    "fast",
+    "slow",
+    "common_level"
+  ],
+  "generated_bank_rows": 64,
+  "real_bank_rows": 128,
+  "AD_queries": 0,
+  "G_updates": 0,
+  "risk_bank_seeds": [
+    {
+      "bank_index": 1,
+      "numpy": {
+        "source_A": 202610173400,
+        "source_B": 202610173401,
+        "real_T": 202610173402,
+        "real_U": 202610173403
+      },
+      "torch": {
+        "response_A": 202610173410,
+        "response_B": 202610173411,
+        "noise_A": 202610173412,
+        "noise_B": 202610173413,
+        "extension_A": 202610173414,
+        "extension_B": 202610173415
+      }
+    },
+    {
+      "bank_index": 2,
+      "numpy": {
+        "source_A": 202610173500,
+        "source_B": 202610173501,
+        "real_T": 202610173502,
+        "real_U": 202610173503
+      },
+      "torch": {
+        "response_A": 202610173510,
+        "response_B": 202610173511,
+        "noise_A": 202610173512,
+        "noise_B": 202610173513,
+        "extension_A": 202610173514,
+        "extension_B": 202610173515
+      }
+    },
+    {
+      "bank_index": 3,
+      "numpy": {
+        "source_A": 202610173600,
+        "source_B": 202610173601,
+        "real_T": 202610173602,
+        "real_U": 202610173603
+      },
+      "torch": {
+        "response_A": 202610173610,
+        "response_B": 202610173611,
+        "noise_A": 202610173612,
+        "noise_B": 202610173613,
+        "extension_A": 202610173614,
+        "extension_B": 202610173615
+      }
+    },
+    {
+      "bank_index": 4,
+      "numpy": {
+        "source_A": 202610173700,
+        "source_B": 202610173701,
+        "real_T": 202610173702,
+        "real_U": 202610173703
+      },
+      "torch": {
+        "response_A": 202610173710,
+        "response_B": 202610173711,
+        "noise_A": 202610173712,
+        "noise_B": 202610173713,
+        "extension_A": 202610173714,
+        "extension_B": 202610173715
+      }
+    },
+    {
+      "bank_index": 5,
+      "numpy": {
+        "source_A": 202610173800,
+        "source_B": 202610173801,
+        "real_T": 202610173802,
+        "real_U": 202610173803
+      },
+      "torch": {
+        "response_A": 202610173810,
+        "response_B": 202610173811,
+        "noise_A": 202610173812,
+        "noise_B": 202610173813,
+        "extension_A": 202610173814,
+        "extension_B": 202610173815
+      }
+    },
+    {
+      "bank_index": 6,
+      "numpy": {
+        "source_A": 202610173900,
+        "source_B": 202610173901,
+        "real_T": 202610173902,
+        "real_U": 202610173903
+      },
+      "torch": {
+        "response_A": 202610173910,
+        "response_B": 202610173911,
+        "noise_A": 202610173912,
+        "noise_B": 202610173913,
+        "extension_A": 202610173914,
+        "extension_B": 202610173915
+      }
+    },
+    {
+      "bank_index": 7,
+      "numpy": {
+        "source_A": 202610174000,
+        "source_B": 202610174001,
+        "real_T": 202610174002,
+        "real_U": 202610174003
+      },
+      "torch": {
+        "response_A": 202610174010,
+        "response_B": 202610174011,
+        "noise_A": 202610174012,
+        "noise_B": 202610174013,
+        "extension_A": 202610174014,
+        "extension_B": 202610174015
+      }
+    },
+    {
+      "bank_index": 8,
+      "numpy": {
+        "source_A": 202610174100,
+        "source_B": 202610174101,
+        "real_T": 202610174102,
+        "real_U": 202610174103
+      },
+      "torch": {
+        "response_A": 202610174110,
+        "response_B": 202610174111,
+        "noise_A": 202610174112,
+        "noise_B": 202610174113,
+        "extension_A": 202610174114,
+        "extension_B": 202610174115
+      }
+    }
+  ],
+  "bank_role": "Previously examined TRAIN diagnostic banks from native033; first-gradient bank excluded.",
+  "fresh_confirmation": false,
+  "primary_comparison": "data_energy_only_for_all_six_states",
+  "energy_formula": "Mean of three H. Each H: mean of six full-view Euclidean energy distances + 2*joint six signed asinh integrals + .25*joint centered carrier384. Reuse031/033 frozen functions.",
+  "full_objective": "Only four full corners: data + .01*(model regular + pre-ADC saturation). A-only reports data, saturation, flags and geometry, with no inherited random regular or full-objective total.",
+  "factorization": {
+    "M": "All mean_model.* state entries from independently selected initial/final CP.",
+    "R": "All other model state entries: basis_head, charge_head, envelope_head and local_filter.",
+    "construction": "Build every corner directly from endpoint dictionaries and strict-load; never accumulate deltas.",
+    "cached_A": "Use A0 already returned by M0R0 and Af already returned by MfRf; no additional model call.",
+    "common_random_numbers": "Cache independent source A/B and REAL T/U indices, response latents, original005 noise and all three H extensions once per bank; reuse across all six states."
+  },
+  "paired_statistics": "Compute each bank contrast before mean, sample-SD/sqrt(8) MCSE and descriptive3MCSE direction. Reused diagnostic banks are not fresh confirmation.",
+  "statistics": "Restore frozen model/native loss statistics, six-integral statistics and carrier_scale from initial034; zero fits.",
+  "source_mixture": "uniform_count",
+  "calibrated_physical_weights": "unknown",
+  "TRAIN_read_whitelist": "Existing read_train_members whitelist plus real_carrier384 only; never decode DEV arrays or an external identities/archive.",
+  "REAL_observation": "One CPU observe_existing_carrier call for all21047 already-digitized REAL rows. Bitwise verify prepared window256 and baseline100, then use prepared window256 as authoritative target and cache carrier_adc/baseline_mean_V.",
+  "software_sample_interval_ns": 1.0,
+  "sample_interval_interpretation": "Frozen observation008 software coordinates, not hardware timing calibration. Observed Q comes from the shared observation; negative area multiplies SAMPLE_INTERVAL_NS.",
+  "inputs": {
+    "initial034": {
+      "path": "/home/rylan/projects/ej276d-n01/response034_20261017/run_01/initial.pt",
+      "bytes": 6447252,
+      "sha256": "9424e68fa1ca96bbbdd98af42994de3c18ccf9b73bf9402178d1f970609dd31d"
+    },
+    "final034": {
+      "path": "/home/rylan/projects/ej276d-n01/response034_20261017/run_01/final.pt",
+      "bytes": 18459122,
+      "sha256": "65143a92f9ca6e3583b94865860f514b72e5491233544b50d532090419d80867"
+    },
+    "noise005": {
+      "path": "/home/rylan/projects/ej276d-n01/window008_resume01_20261013/provenance/integration006_reference/noise005.pt",
+      "bytes": 1199865,
+      "sha256": "1e45d3369b85d2f5f635ad44dbeb5a730f6d86864cc3dc9163384fccd48bd417"
+    },
+    "dataset": {
+      "path": "/home/rylan/projects/ej276d-n01/window008_resume01_20261013/data/window008/DATASET008.npz",
+      "bytes": 66440265,
+      "sha256": "8d43418595f4fa992a9b83735c4bf50863a659584d58888f8f965ec1339a1993"
+    }
+  },
+  "expected_initial_model_state_sha256": "354b9828bdb6f552ab747e2aab06e988b27b1c7aad4d71580bdab6d8bdfc5f58",
+  "expected_original_A_state_sha256": "529f9a67594ac5232b932d7af246a934f1f5e01c62e7502fc3a50736cf5644c7",
+  "expected_frozen005_extension_state_sha256": "bba9cc181344d60a9a00f5c5b8850d30a2020d30a785814b7295496949d85912",
+  "source_pins": {
+    "scripts/mechanism012_losses.py": "3fc84ccaf255b660d8eda4f96d43e2c236045a756e777c9b2d490f7137dc04ed",
+    "scripts/mechanism012_ops.py": "98a18eef018beebff82565da9ed5b31208cf2bff6db6bff0c492eff9bf2a7816",
+    "scripts/run_response029.py": "a39f5ddd3fcbd0d8cf58db487d7fb51d1b17646f69603047a1e739fece74e7d5",
+    "scripts/run_response031.py": "bfe819d4ae09b4ed58cd6211e32948af14970e610a29ce3ec2960f1536c4115d",
+    "scripts/run_response032.py": "541f09ab8b9610ceda7371ea81911dd098e8319f0b330523f04caa3d25a245b8",
+    "scripts/run_wp1_013.py": "e7cbcf782e19e139c02260bbe1d67e0a50108785ed5b093975800a28b103657d",
+    "scripts/stability011_metrics.py": "fd87e544673f63887e57c8efafeb0327bbe4db430b04c9697c71cd2e244c3f78",
+    "scripts/supervise.py": "0223a8912196876f712072f064c9118a999f7e563244947cba7ad729d247a69b",
+    "scripts/supervise_mechanism012.py": "43b6fffd076a1e6d57db67e85e433e71d3f2cda91f3a3d5fe31f0fcb430486a4",
+    "scripts/wp1_boundary_saved.py": "ea1317c2a6e8616f5b30e2aa6ea1900fde17a711b57e2f02ae84fa5cc5782065",
+    "scripts/wp1_evaluation.py": "3f5e4f9e8ca147cfbad8b75085c59d9c2081deda9b7532f1732f1d5e932cc895",
+    "scripts/wp1_input_information.py": "bb8278d2651ddcaf10830a4589d66242d69a7e22d10321171ad7f4b71dec8b17",
+    "scripts/wp1_ops.py": "f8ddbbdb2f2f6df033e964f27bf03dcbda07055cc7378775591ef69b9caf85b5",
+    "scripts/wp1_parameter_probe.py": "bf7901db6e1b99084894fdc8f4c5d1685de2ca00cacb7a0a6a9801c39b8823fa",
+    "src/n01/__init__.py": "d17d880249fa0f50920dd14c505b15b4de74419849f86296913c31576c31e891",
+    "src/n01/ablation009.py": "8100bbedb765f08f689a4bce5cb9ea1af133e6f2b895b544656f6e9fbd058d3b",
+    "src/n01/data.py": "2ec3363bc830043af053342b4638f5e6ab55d27303da037f383f4fe630d77bd2",
+    "src/n01/data008.py": "2a66a8800642cf6788ce268d326af9d128cb165daf60d555f802b2c881ac97af",
+    "src/n01/diagnose_mean_random009.py": "31a07360e9ab53e987fe6d2bec3b466398a2c7125e64c1c94b712708ae62dfc4",
+    "src/n01/electronics_v3.py": "816b12bf4814f23ff4455498ec385df335cdb38827548c969e38ef08b9763926",
+    "src/n01/evaluate.py": "baaaf0c50c98a15b3c04cddf07ea4c1b5b4503156c50fd78d774cf3fb5baf8bb",
+    "src/n01/evaluate_window008.py": "75f8988415a181a31a7c2b5890418b1f7685e0d8fb141cdea84f4174af783cc0",
+    "src/n01/extension006.py": "caa2eff66555773d04a72482c8375b5896a241e0a858070a80f689aa3def5040",
+    "src/n01/losses.py": "4371a6d5924f0f664935b5d6eb6715c530f80af39ae276c7dc34ba02c5f4b1a7",
+    "src/n01/losses008.py": "68a9330b7e0620f12adbb3dc22a00c632a1b7577d44b92617da7d14979d9ea61",
+    "src/n01/losses008_v2.py": "6932772c4b00fa62383b5ca356f26d0cf81271be531888b474ae6146fa25f3d8",
+    "src/n01/losses014.py": "86fded3226ae86a5aaae6d9066220923fb6b0aebfeaa09cb638642498e4f4114",
+    "src/n01/model.py": "0a0488218d99f351a98e30f2b1525b837b4ad3195c19f2a76ff61ee01298587b",
+    "src/n01/model008.py": "56a6b41f9d2906c82757f4ca9f91a751ff8531428a7f38714e0a291359cd1b4f",
+    "src/n01/model008_fix01.py": "3bc826a1867f2658ae507ab2be683a6b901b7f481b1efaf005f3cf4953429abc",
+    "src/n01/model010.py": "3fbbee140477caf755feadf88175291c451c95a56899770a65eebf7be6204318",
+    "src/n01/model029.py": "40c16bca31ff277912959a040a40770608c49f374eff76cffd45de0d716ea599",
+    "src/n01/observation008.py": "9f7b6c0a266c420af8c6c155103774bae1ed949cfe05ee6a1f19b75f9254c4ec",
+    "src/n01/response008.py": "cf8b14b377530a234b066c2fd958827172abb624e7a959ac9bb26a416ff3b2e7",
+    "src/n01/train.py": "9cb6b0a9cfad3fd9163eee919de7b2d64ca422513093e204f62a934e25684169",
+    "src/n01/train_shape010.py": "5c94a6d947c1cfcb926ea2b39e77fbdeb6600f231f503fdf4c43c7ff7033e6d9",
+    "scripts/run_response034.py": "10843ad2bee21d8e99612e91dd662145635bafc7c8e03bccb2e757ae93030c26",
+    "scripts/run_response033.py": "710be3a025dd7f7611bcecc8480d4e3813531e9a3b57fbeb47419bc2a32b1d11",
+    "scripts/run_response035.py": "d3d63553e2a25c0e6e3688381c1c2f4657a003f84581c52cca57ec4f03d8a020"
+  },
+  "budgets": {
+    "NN_calls": 64,
+    "NN_rows": 4096,
+    "noise005_rows": 1024,
+    "extension_rows": 3072,
+    "generated_ADC_rows": 18432,
+    "checkpoint_loads": 3,
+    "TRAIN_archives_decoded": 1,
+    "REAL_existing_observation_rows": 21047,
+    "banks_cached": 8,
+    "AD_queries": 0,
+    "G_updates": 0,
+    "DEV_reads": 0,
+    "statistics_fits": 0,
+    "checkpoint_writes": 0,
+    "native_W1_runs": 0
+  },
+  "resources": {
+    "CPU_threads": 4,
+    "RSS_GiB": 12,
+    "GPU_GiB": 10,
+    "wall_seconds": 600,
+    "output_MiB": 128
+  },
+  "project_lock": "/home/rylan/projects/ej276d-n01/.n01_scientific_dispatch.lock",
+  "supervisor_required": true,
+  "automatic_restart": false,
+  "conditional_identification": false,
+  "candidate_selection": false,
+  "training_history_causal_claim": false,
+  "scientific_status": "response_match_not_established",
+  "interpretation_boundaries": [
+    "A-only deterministic mean plus electronics is not E[hard observed waveform|source], because ADC, first-argmax cropping and normalization are nonlinear.",
+    "Marginal REAL data energy does not identify eventwise conditional response or supply nonexistent parent labels.",
+    "M effects include changed shared decoded/pooled features and A amplitude seen by fixed random heads; R effects and interaction are functional comparisons at these endpoint states.",
+    "The exchange does not establish a training-history cause or resolve the hard finite-difference versus STE gradient discrepancy.",
+    "No best corner is selected and no acceptance gate is introduced."
+  ],
+  "input_pin_provenance": {
+    "initial034": "ROOT SHA-verified completion_01/COLLECTION_MANIFEST.json and independent_result_01/RESULT_REVIEW.json; remote21:56:38Z/local21:56:44Z metadata only.",
+    "final034": "Native034 COMPLETE.json and collected terminal/collection manifests; no CP deserialization in preparation.",
+    "noise005_dataset": "Exact native033/034 frozen input pins. No CP or original arrays decoded in preparation."
+  }
+}

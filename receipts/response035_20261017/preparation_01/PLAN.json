@@ -1,0 +1,112 @@
+{
+  "schema": "n01/response035-plan/v1",
+  "status": "code_preparation_only",
+  "question": "After034 shape LR/16 still failed, separate endpoint mean geometry, stochastic heads and their feature/amplitude interaction on the same TRAIN banks without an update.",
+  "design": {
+    "states": [
+      "M0R0",
+      "M0Rf",
+      "MfR0",
+      "MfRf",
+      "A0_only",
+      "Af_only"
+    ],
+    "full_corners": [
+      "M0R0",
+      "M0Rf",
+      "MfR0",
+      "MfRf"
+    ],
+    "cached_A_only": [
+      "A0_only",
+      "Af_only"
+    ],
+    "banks": "Exactly the eight previously examined033 TRAIN diagnostic banks, excluding the first-gradient bank. No low-Q selection or new bank.",
+    "sampling": "Independent uniform-with-replacement SOURCE64+64 and REAL128+128 streams per bank; identical cached indices/latents/electronics/targets across all six states.",
+    "factorization": {
+      "M": "All mean_model.* state entries from independently selected initial/final CP.",
+      "R": "All other model state entries: basis_head, charge_head, envelope_head and local_filter.",
+      "construction": "Build every corner directly from endpoint dictionaries and strict-load; never accumulate deltas.",
+      "cached_A": "Use A0 already returned by M0R0 and Af already returned by MfRf; no additional model call.",
+      "common_random_numbers": "Cache independent source A/B and REAL T/U indices, response latents, original005 noise and all three H extensions once per bank; reuse across all six states."
+    },
+    "primary": "All six states: three-H-average data energy and wave/integral/carrier parts.",
+    "four_corner_secondary": "Model regular mean/basis/charge/local, saturation and true full objective. A-only has no model regular/full total.",
+    "contrasts": [
+      "M0Rf-M0R0",
+      "MfR0-M0R0",
+      "MfRf-M0R0",
+      "A0_only-M0R0",
+      "Af_only-M0R0",
+      "Af_only-A0_only",
+      "MfRf-M0Rf",
+      "MfRf-MfR0",
+      "MfRf-MfR0-M0Rf+M0R0"
+    ],
+    "statistical_order": "Compute contrasts inside each bank, then mean/MCSE and descriptive3MCSE across the eight reused banks."
+  },
+  "measurements": [
+    "Three-H energy wave, joint signed-integral and centered-carrier components, saturation and hard-observation flags with row denominators.",
+    "Pure pre-ADC A and signal canonical Q, negative area, carrier RMS, absolute/positive peaks and search-support/boundary counts.",
+    "Physical B RMS and B-RMS/A-RMS, v norm/log variance, alpha, local envelope/realization and mean-residual saturation.",
+    "Decoded/pooled RMS from a read-only UNet hook on the same64 calls; no extra forward.",
+    "State digests, identity hashes, counters and paired algebra; no saved waveform bank or checkpoint writes."
+  ],
+  "input_policy": {
+    "actual_inputs": [
+      "initial034",
+      "final034",
+      "noise005",
+      "dataset"
+    ],
+    "old_A_loads": 0,
+    "DEV_loads": 0,
+    "CP_count": 3,
+    "TRAIN_archive_count": 1,
+    "REAL_existing_CPU_observation_rows": 21047,
+    "statistics_fits": 0,
+    "binding": "All input/source SHA pins are checked before decoding. Check initial/final034 schema, updates0/2000, equal config/stats/scales and frozen005 binding."
+  },
+  "exact_budgets": {
+    "NN_calls": 64,
+    "NN_rows": 4096,
+    "noise005_rows": 1024,
+    "extension_rows": 3072,
+    "generated_ADC_rows": 18432,
+    "checkpoint_loads": 3,
+    "TRAIN_archives_decoded": 1,
+    "REAL_existing_observation_rows": 21047,
+    "banks_cached": 8,
+    "AD_queries": 0,
+    "G_updates": 0,
+    "DEV_reads": 0,
+    "statistics_fits": 0,
+    "checkpoint_writes": 0,
+    "native_W1_runs": 0
+  },
+  "budget_derivation": {
+    "NN": "4 corners *8 banks *2 generated banks =64 calls;64*64=4096 rows.",
+    "electronics": "8 banks *2 generated banks *64=1024 original005 rows; three H=3072 extension rows.",
+    "generated_ADC": "6 states *8 banks *2 generated banks *64 rows *3 H=18432 hard ADC rows; A-only uses cached A.",
+    "REAL": "One existing-ADC CPU observation of21047 REAL rows. No redigitization or second observation per H."
+  },
+  "resources": {
+    "CPU_threads": 4,
+    "RSS_GiB": 12,
+    "GPU_GiB": 10,
+    "wall_seconds": 600,
+    "output_MiB": 128
+  },
+  "project_lock": "/home/rylan/projects/ej276d-n01/.n01_scientific_dispatch.lock",
+  "success_definition": "Engineering success means exact state/source/input binding, complete bounded outputs and counters. No response-match gate or candidate selection.",
+  "scientific_limits": [
+    "A-only deterministic mean plus electronics is not E[hard observed waveform|source], because ADC, first-argmax cropping and normalization are nonlinear.",
+    "Marginal REAL data energy does not identify eventwise conditional response or supply nonexistent parent labels.",
+    "M effects include changed shared decoded/pooled features and A amplitude seen by fixed random heads; R effects and interaction are functional comparisons at these endpoint states.",
+    "The exchange does not establish a training-history cause or resolve the hard finite-difference versus STE gradient discrepancy.",
+    "No best corner is selected and no acceptance gate is introduced."
+  ],
+  "preparation_checks": "Only AST compilation, text dependency closure, hashes, metadata equality and integer budget arithmetic. No project import, NN, AD, CP deserialize, raw array decode, observation or optimizer.",
+  "freeze_required": "Independent static review and ROOT frozen ready configuration plus external supervisor/project lock before execution.",
+  "historical_preservation": "Only the new035 script and these three preparation JSON files are written. Old source/results/ledgers remain byte-identical."
+}

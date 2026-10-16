@@ -1,0 +1,156 @@
+{
+  "schema": "n01/response035-independent-static-review/v1",
+  "UTC": "2026-10-16T22:18:54.507589+00:00",
+  "reviewer": "response029_loss_data_diagnosis",
+  "status": "NO_BLOCKERS_STATIC_REVIEW_ONLY",
+  "decision": "The exact frozen035 source/config implements the bounded endpoint-exchange diagnostic. Static clearance is not native execution or response-match acceptance.",
+  "artifacts": {
+    "scripts/run_response035.py": {
+      "sha256": "d3d63553e2a25c0e6e3688381c1c2f4657a003f84581c52cca57ec4f03d8a020",
+      "bytes": 19711,
+      "LF_only": true
+    },
+    "configs/response035_20261017.json": {
+      "sha256": "af66a5568bb29420a8f93d6a53b635eb9b3b82cc84a974f27e55a0115086937f",
+      "bytes": 13520,
+      "LF_only": true
+    },
+    "receipts/response035_20261017/preparation_01/CONFIG_DRAFT.json": {
+      "sha256": "5dbc1f1898739ba644089f5d1342415583a74ff2abb39057c06e2a3bdedd43a4",
+      "bytes": 13447,
+      "LF_only": true
+    },
+    "receipts/response035_20261017/preparation_01/PLAN.json": {
+      "sha256": "0f26f9626ce8d60f7c403c6b2b55d484685a9063b72c0f8f90dc1de262ae9fb9",
+      "bytes": 5666,
+      "LF_only": true
+    },
+    "receipts/response035_20261017/preparation_01/IMPLEMENTATION_RECEIPT.json": {
+      "sha256": "ebfe1b50bb2f64afdc42fd97b9ccecb0d29e6a3223d8d3e1bbae250f43bd31b7",
+      "bytes": 4299,
+      "LF_only": true
+    }
+  },
+  "frozen_configuration": {
+    "status": "ready_for_zero_update_exchange_audit",
+    "preparation_only": false,
+    "frozen_UTC": "2026-10-16T22:14:17.160617+00:00",
+    "draft_restore_exact": true,
+    "only_differences": [
+      "status",
+      "preparation_only",
+      "frozen_UTC"
+    ]
+  },
+  "independent_checks": {
+    "source_AST_parse": true,
+    "source_pin_count": 39,
+    "all39_source_hashes_match": true,
+    "old03437_pins_exact_unchanged": true,
+    "known37_AST_dependency_paths_pinned": true,
+    "risk_seeds_exact_native033": true,
+    "risk_bank_count": 8,
+    "stream_seeds_unique": 80,
+    "initial_final034_input_hashes_and_bytes_match_saved_collection_manifest": true,
+    "checkpoint_load_call_sites": [
+      140,
+      141,
+      153
+    ],
+    "TRAIN_archive_load_call_sites": [
+      174
+    ],
+    "backward_sites": 0,
+    "optimizer_step_sites": 0,
+    "checkpoint_save_sites": 0
+  },
+  "state_exchange": {
+    "states": [
+      "M0R0",
+      "M0Rf",
+      "MfR0",
+      "MfRf",
+      "A0_only",
+      "Af_only"
+    ],
+    "M": "All mean_model.* state entries, including full shared feature network and mean buffers.",
+    "R": "All other state entries: basis_head, charge_head, envelope_head and local_filter.",
+    "construction": "Rebuild each corner directly from the two original endpoint state dictionaries, then strict-load; no cumulative parameter arithmetic.",
+    "endpoint_binding": "Pinned034 initial/final bytes; runtime schema0/2000/config/stats/scales/dataset/frozen005 checks and initial full-model digest. Optimizer is not restored or used.",
+    "eval_versus033_train": "The current response029/response008 forward graph has no BatchNorm, dropout, train-mode forward branch or mutable running statistics. GroupNorm is mode invariant and all stochastic draws are explicit. eval() introduces no train/eval calculation difference in this graph. Native replay remains an execution check.",
+    "cached_A_only": "A0/Af reuse base_signal_pre_V from M0R0/MfRf, with the same cached electronics and hard observation; zero additional NN calls.",
+    "A_only_scoring": "Primary data energy only, no inherited random regularizer or full-objective total. Saturation is descriptive.",
+    "shared_feature_boundary": "M changes decoded/pooled features and A amplitude supplied to fixed R. These are functional endpoint exchanges, not isolated deterministic-output interventions.",
+    "cross_R_mean_check": "Save A_cross_R_absmax from existing corner outputs without extra forwards."
+  },
+  "noise_observation": {
+    "banks": "The eight previously examined033 TRAIN risk banks, excluding its first-gradient bank.",
+    "streams": "Four independent NumPy SOURCE A/B and REAL T/U streams, six distinct Torch response/noise005/extension A/B streams per bank. All80 explicit seeds unique.",
+    "cache": "make_bank once per bank caches indices, response latents,005 noise, three-H extensions and targets for all six states.",
+    "REAL_contract": "One CPU existing-carrier observation for21047 already-digitized TRAIN rows; bitwise window256/baseline100 checks; use prepared window as authoritative target. No second ADC, filtering or DEV.",
+    "generated_contract": "Original hard ADC/argmax/crop through observe_generated_carrier(ste=False), three hypotheses; each flag denominator128.",
+    "units": "Imported SAMPLE_INTERVAL_NS=1.0 in software coordinates, not hardware calibration. observedQ uses obs[Q]; negative areas multiply imported dt once."
+  },
+  "objective_statistics": {
+    "data_formula": "Unchanged033 energy_parts through031: mean six standardized joint wave-view energies +2*joint signed-asinh integral energy +.25*joint centered-carrier energy; cross and replica-self pairs retained.",
+    "corner_total": "Data+.01*(model regular+saturation), with mean/basis/charge/local regular decomposition and per-H totals. A-only excludes model regular/full totals.",
+    "paired_order": "Within-bank contrast first, then mean and sample-SD(ddof=1)/sqrt(8) MCSE. Interaction=Eff-Ef0-E0f+E00.",
+    "state_data_estimates": 96,
+    "paired_data_estimates": 144,
+    "four_corner_full_objective_estimates": 60,
+    "total_mean_MCSE_estimates": 300,
+    "B_voltage_RMS": "Per parent sqrt(mean(B^2) across8 basis channels and384 samples), followed by parent-distribution summary.",
+    "B_RMS_over_A_RMS": "Per parent B_voltage_RMS divided by sqrt(mean(A^2) over384 samples), followed by summary of those ratios; not peak ratio or ratio of global summaries.",
+    "feature_hook": "Read-only UNet hook on the same64 corner calls; removed in finally. Decoded/pooled RMS requires no additional forward.",
+    "geometry": "Pure pre-ADC A and stochastic signal canonicalQ, negative area, carrier RMS, peaks, support and residual saturation use existing outputs."
+  },
+  "expected_operation_counts": {
+    "NN_calls": 64,
+    "NN_rows": 4096,
+    "noise005_rows": 1024,
+    "extension_rows": 3072,
+    "generated_ADC_rows": 18432,
+    "checkpoint_loads": 3,
+    "TRAIN_archives_decoded": 1,
+    "REAL_existing_observation_rows": 21047,
+    "banks_cached": 8,
+    "AD_queries": 0,
+    "G_updates": 0,
+    "DEV_reads": 0,
+    "statistics_fits": 0,
+    "checkpoint_writes": 0,
+    "native_W1_runs": 0
+  },
+  "resources": {
+    "CPU_threads": 4,
+    "RSS_GiB": 12,
+    "GPU_GiB": 10,
+    "wall_seconds": 600,
+    "output_MiB": 128
+  },
+  "resource_enforcement": "Existing check_limits covers wall/output; RSS is enforced by external supervise.py --rss-limit-gib 12;10GiB GPU allocator bound; external supervisor/project lock required; no automatic restart.",
+  "success_and_limits": [
+    "Engineering success requires pinned execution, all48 state-bank records, paired summaries and exact counters. This static review establishes no native result.",
+    "Reused TRAIN diagnostic banks are not fresh confirmation, DEV testing or candidate selection.",
+    "A-only deterministic mean network plus electronics is not the conditional mean of nonlinear hard-observed waveforms.",
+    "Endpoint exchanges may locate functional mean/random/shared-feature interactions. They do not prove training-history cause or hard-FD/STE gradient mechanism.",
+    "No response-match gate is added or relaxed; conditional kernel recovery and fit success remain unestablished."
+  ],
+  "blockers": [],
+  "scope": "Source, preparation/configuration JSON and saved aggregate manifest metadata only; no project import, CP bytes/deserialization, original arrays, NN, AD or observation.",
+  "review_execution_counts": {
+    "NN_calls": 0,
+    "AD_queries": 0,
+    "G_updates": 0,
+    "CP_byte_reads": 0,
+    "checkpoint_deserializations": 0,
+    "original_scientific_array_decodes": 0,
+    "observation_calls": 0,
+    "project_imports": 0,
+    "jobs_launched": 0
+  },
+  "modified_by_reviewer": [
+    "receipts/response035_20261017/independent_review_01/REVIEW.json"
+  ],
+  "old_source_results_ledgers_modified": false
+}
