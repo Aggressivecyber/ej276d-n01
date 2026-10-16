@@ -1,0 +1,169 @@
+{
+  "config": {
+    "schema": "n01/response031-cached-risk-audit/v1",
+    "run_id": "response031_20261017",
+    "status": "frozen",
+    "stage": "cached_B_amplitude_risk_audit",
+    "data_kind": "artificial_known_response",
+    "teacher_seed": 2026101729,
+    "source": {
+      "TRAIN_per_template": 64,
+      "heldout_per_template": 32,
+      "Q_range_Vns": [
+        0.5,
+        8.0
+      ],
+      "Q_stratum_edges_Vns": [
+        0.5,
+        1.5,
+        4.0,
+        8.0
+      ],
+      "templates": [
+        {
+          "rise_width": 3.0,
+          "tail": 30.0
+        },
+        {
+          "rise_width": 5.0,
+          "tail": 60.0
+        }
+      ],
+      "peak": 126,
+      "prefix_zero": 100,
+      "carrier_samples": 384
+    },
+    "teacher": {
+      "mean_gain": 1.12,
+      "time_scale": 1.1,
+      "shape_weight_multiplier": 10.0,
+      "charge_v": [
+        0.08,
+        0.04,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "local_initialization_retained": true
+    },
+    "resources": {
+      "CPU_threads": 4,
+      "RSS_GiB": 12,
+      "GPU_GiB": 10,
+      "wall_seconds": 900,
+      "output_MiB": 64
+    },
+    "execution_kind": "zero_optimizer_known_teacher_audit",
+    "design_revision": "One fixed B-only direction; A, charge_v and local law remain fixed.",
+    "no_discriminator": true,
+    "no_noise005": true,
+    "automatic_restart": false,
+    "scientific_status": "response_match_not_established",
+    "endpoint_seeds": [
+      2026101701,
+      2026101702
+    ],
+    "no_REAL_reads": true,
+    "checkpoint_loads": 2,
+    "no_optimizer": true,
+    "reference_runner_sha256": "a39f5ddd3fcbd0d8cf58db487d7fb51d1b17646f69603047a1e739fece74e7d5",
+    "audit": {
+      "blocks": 32,
+      "parents_per_bank": 128,
+      "bank_names": [
+        "Xa",
+        "Xb",
+        "Yt",
+        "Yu"
+      ],
+      "bank_seed_base": 202610173100,
+      "bank_seed_block_stride": 10,
+      "lambdas": [
+        0.9,
+        1.0,
+        1.1
+      ],
+      "native_projection_seed": 2026102301,
+      "native_evaluation_seed": 2026102401,
+      "integral_projection_seed": 2026102501,
+      "carrier_projection_seed": 2026102201,
+      "context_updates": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32
+      ],
+      "descriptive_MCSE_multiplier": 3.0,
+      "regular_weight_reference": 0.01,
+      "NN_calls": 3,
+      "NN_rows": 384,
+      "scalar_AD_queries": 64,
+      "optimizer_steps": 0
+    },
+    "checkpoint_inputs": {
+      "endpoint_seed2026101701": {
+        "path": "/home/rylan/projects/ej276d-n01/response030_20261017/run_01/unpaired_seed2026101701/final.pt",
+        "bytes": 6135427,
+        "sha256": "aecd10e5477ac094525977817a336bcf1eedf5fbd0b729d85f5a65a58ad7c970"
+      },
+      "endpoint_seed2026101702": {
+        "path": "/home/rylan/projects/ej276d-n01/response030_20261017/run_01/unpaired_seed2026101702/final.pt",
+        "bytes": 6135427,
+        "sha256": "5d9ccb7480e8d4e7f5d6bea8a012eb3ae030a3325cef83309ea1d9643403e9ab"
+      }
+    },
+    "design_provenance": {
+      "authority": "ROOT zero-optimizer031 instruction after closed029/030 under continuing user repair authorization",
+      "cached_states": "Exactly teacher2026101729 plus two SHA-pinned030 state_dict endpoints. Once perTRAIN128 state, no heldout response/evaluation, no optimizer.",
+      "direction": "Teacher voltage B times fixed lambda .9,1,1.1; A,charge_v,local factors fixed. Common Xa/Xb bank latents across candidates and lambdas.",
+      "banks": "32 independent blocks; each block Xa/Xb/Yt/Yu full128parents with four independent latent streams. All128x128 pairs retained, including same-parent cross-bank pairs.",
+      "native": "Original C1 wave weights/features, signed-asinh integral features/scales, once-ADC centered384 coordinate/projected auxiliary. Mean of four128x128 X/Y marginal comparisons, regular separate.",
+      "native_contexts": "Originalseed1701+600/700/800; block b training contextupdate=b+1; original carrier rngseed1701+500 sequential32 banks. Same contexts/directions for every candidate within a block.",
+      "energy": "beta1 mean Euclidean vectornorm/sqrt(d), never squarednorm or clamped risk. Symmetric .5 fourcrosspairs minus Xa/Xb and Yt/Yu selfdistances. Six full standardizedwaveviews average+2 sixfull signedasinhintegrals+.25full384carrier; nocoordinate/projection substitution.",
+      "derivatives": "Perblock lambda1 bothXbanks depend on one scalar and bothYbanks fixed; native_data and energy_data each one STE AD query. HardFD fromsamebank .9/1.1 separately. RegularRlambda=R1+(lambda^2-1)Rbasis1; derivative2Rbasis1.",
+      "statistics": "Exact029 teacherTRAIN8draws/parent and RNG202610172901 only; original feature/scaling functions reused, no target refit fromendpoint.",
+      "interpretation": "Mean/MCSE for paired differences and FDminusSTE; threeMCSE separation descriptive only, no scientific acceptance, no formal gate revision.",
+      "CP_metadata_source": "ROOTverified2026-10-16T20:27:23.096653Z; hashes copied as metadata only in this implementation stage.",
+      "regular_total_reporting": "Regular stays separately reported; native_total/energy_total=data+.01R and their FD/STE totals are algebraically derived with no extra NN or AD."
+    }
+  },
+  "device": "cuda:0",
+  "pid": 48512,
+  "UTC": "2026-10-16T20:35:58.761106+00:00",
+  "no_optimizer": true,
+  "no_REAL": true,
+  "heldout_forwards": 0,
+  "automatic_restart": false
+}

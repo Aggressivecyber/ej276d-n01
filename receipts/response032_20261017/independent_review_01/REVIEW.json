@@ -1,0 +1,110 @@
+{
+  "schema": "n01/response032-independent-final-review/v1",
+  "UTC": "2026-10-16T20:52:16.147350+00:00",
+  "status": "no_blockers_for_frozen_bounded_REAL_pilot",
+  "scope": "Static source/interface/count review plus reuse of saved artificial engineering receipts; no scientific execution by reviewer.",
+  "identity": {
+    "source": "scripts/run_response032.py",
+    "source_sha256": "541f09ab8b9610ceda7371ea81911dd098e8319f0b330523f04caa3d25a245b8",
+    "source_bytes": 32069,
+    "frozen_config": "configs/response032_20261017.json",
+    "frozen_config_sha256": "26b347a069370a5874789887b8ed8d1d9023492b50c4d4c2a872ee4122d6f1cb",
+    "source_pin_count": 36,
+    "all_36_source_pins_recomputed_match": true,
+    "config_delta_from_reviewed_draft": [
+      "status=ready_for_real_pilot",
+      "preparation_only=false",
+      "36-file complete import closure source_pins",
+      "freeze_UTC",
+      "decision pointer"
+    ],
+    "training_evaluation_inputs_resources_unchanged": true,
+    "implementation_receipt_sha256": "490c3cc20bb7d9e0088812021d099d8e52080559186e1bebc1728b770f6f754b"
+  },
+  "checks": [
+    {
+      "name": "REAL_CPU_preparation_contract",
+      "result": "pass_static",
+      "evidence": "data008.transform_domain(real) calls observe_numpy(carrier,already_digitized=True); new TRAIN replay calls observe_existing_carrier on NumPy float64, which delegates to the same CPU torch path. Both use all21047 rows at once. q_floor changes only PSD/guard flags, not window/baseline.",
+      "startup_requirement": "Exact prepared window256/baseline100 equality is checked on CPU; original prepared REAL256 remains target before device transfer. existing_ADC validates canonical values but returns the original measured values, without a second ADC after baseline subtraction.",
+      "execution_boundary": "No REAL replay was executed in this review; runtime assertion remains pending."
+    },
+    {
+      "name": "DEV_loader_interface_and_isolation",
+      "result": "pass_static",
+      "evidence": "evaluate_window008._load_dev returns source_carrier384, real, real_baseline100, source_ids, real_ids, real_groups, real_peak_search_edge and real_global_peak_outside_search used by032. It canonicalizes original REAL then uses the shared CPU existing-ADC adapter. Source512/REAL599 retained.",
+      "freeze": "Only called after2000 updates, final.pt and FINAL_ENDPOINT_FREEZE.json. IDs/groups/roles/no-overlap are checked against prepared metadata. DEV previously exposed, never used for updates or endpoint selection."
+    },
+    {
+      "name": "independent_four_banks_and_energy_math",
+      "result": "pass_static",
+      "evidence": "Separate NumPy generators source_A/source_B/real_T/real_U sample IID with replacement. Generator banks64 each; REAL banks128 each. Separate response/noise/extension A/B streams. All three noise hypotheses share target banks but each has its own valid four-bank energy.",
+      "estimator": ".5*(D(Xa,Yt)+D(Xa,Yu)+D(Xb,Yt)+D(Xb,Yu))-D(Xa,Xb)-D(Yt,Yu). D is average Euclidean/sqrt(d); all cross-bank pairs retained, including repeated empirical identities. Unequal bank sizes do not change expectation. No clamp of negative finite estimates.",
+      "gradient": "Imported031.energy_data directly calls differentiable _wave_views/_z, integral and centered-carrier features. Both generated banks and generated self-term stay connected. The no_grad native hard-metric override is evaluation-only. Exactly one combined backward call site."
+    },
+    {
+      "name": "whole_mean_trainable_and_frozen_electronics",
+      "result": "pass_static",
+      "evidence": "Strict original deterministic A warmstart; mean_response sets requires_grad true and deterministic variant has no physical/basis/envelope/local subheads to disable. All mean parameters enter AdamW mean group. Shape/charge/local groups enter fresh new-head group; no old optimizer moments.",
+      "reference": "A_reference is a separate deepcopy frozen after warmstart; model mean remains trainable. Original005 and extension are requires_grad false/eval, original-A noise digest bound and end digests checked. fast/slow/common_level all retained, with identical prefix and matched evaluation noise."
+    },
+    {
+      "name": "TRAIN_DEV_decision_matches_declared_scope",
+      "result": "pass_static",
+      "evidence": "All three TRAIN hypotheses must improve original A wave by>=.02. Every defined positive calibrated component must satisfy final-minus-A<=T on both TRAIN and DEV. Undefined positive-T components are listed; zero/null T remains not_calibrated. DEV wave gain is reported, not selected or required.",
+      "limits": "This is explicitly a relative-development criterion over defined calibrated components, not absolute response acceptance. Absolute final/T, original-A/G0, RR descriptive ratios, undefined populations, flags/denominators and output-Q strata are separate. RESULT keeps conditional_identification=false and response_match_not_established."
+    },
+    {
+      "name": "native_W1_and_reports",
+      "result": "pass_static_and_saved_artificial_engineering",
+      "evidence": "16-column chunk weighting preserves original scalar-column empirical-CDF W1 for unequal rows. Saved final-source artificial fixture report has scalar and three wave-component errors exactly0; no engineering rerun. All scientific rows retained; only examples capped at32 parents and per-row output-Q bins omitted from JSON.",
+      "engineering_receipt_sha256": "1cc24eede93aa55d89d3ae9243a6866a82ef66763a9a8c7b2e4214b61dd25034",
+      "engineering_matches_final_runner": true,
+      "engineering_errors": {
+        "scalar": 0.0,
+        "swd": 0.0,
+        "coordinate": 0.0,
+        "short_lag": 0.0
+      }
+    },
+    {
+      "name": "resource_and_execution_bounds",
+      "result": "pass_static",
+      "evidence": "One fixed seed/2000 updates; no D, noise or population updates; initial/1000/final checkpoints. Wall and output checked in runner; CUDA allocator bound10GiB and4 CPU threads. Whole-process-tree RSS12GiB and hard wall/output bound are supplied by the registered native supervisor held under project flock.",
+      "limits": "Startup group summaries use the existing combined backward only; no per-loss AD. Resource feasibility is a static assessment, not a measured peak-memory or runtime pass."
+    }
+  ],
+  "recomputed_complete_run_counts": {
+    "G_updates": 2000,
+    "training_AD_queries": 2000,
+    "checkpoint_loads": 2,
+    "training_NN_calls": 4000,
+    "training_NN_rows": 256000,
+    "TRAIN_initial_NN_calls": 207,
+    "TRAIN_initial_NN_rows": 26372,
+    "TRAIN_final_NN_calls": 207,
+    "TRAIN_final_NN_rows": 26372,
+    "DEV_final_plus_A_NN_calls": 32,
+    "DEV_final_plus_A_NN_rows": 4096,
+    "total_NN_calls": 4446,
+    "total_NN_rows": 312840,
+    "noise005_rows": 310792,
+    "extension_rows": 932376,
+    "generated_ADC_rows": 1017636,
+    "source_training_visits": 256000,
+    "REAL_training_visits": 512000,
+    "evaluation_MC_banks_per_split": 1,
+    "counts_are_planned_not_executed": true
+  },
+  "reviewer_execution": {
+    "NN_forwards": 0,
+    "AD_queries": 0,
+    "checkpoint_deserializations": 0,
+    "raw_REAL_or_SOURCE_or_DEV_array_decodes": 0,
+    "optimizer_updates": 0,
+    "engineering_reruns": 0,
+    "source_modifications": 0,
+    "scientific_launches": 0
+  },
+  "scientific_boundary": "031 supports a bounded energy pilot through local risk geometry; it does not isolate a unique029/030 cause.032 can test relative observed-marginal progress on existing single-acquisition data. It cannot by itself establish the true source-conditional response, new local-noise law, low-count extrapolation or independent-acquisition acceptance."
+}

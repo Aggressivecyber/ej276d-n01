@@ -1,0 +1,75 @@
+{
+  "schema": "n01/response032-real-pilot-root-decision/v1",
+  "UTC": "2026-10-16T20:50:43.257857+00:00",
+  "authority": "Direct user response-learning repair request and ongoing heartbeat; receipts/response029_20261017/USER_DIRECTION.json",
+  "evidence": "receipts/response031_20261017/FINAL_RESULT_RECEIPT.json",
+  "rationale": "031 found a positive local native stochastic-scale derivative at known truth, while energy derivative was compatible with zero; both030 endpoints still had higher risk than truth. This supports changing the marginal objective and continuing optimization, not a single-cause proof or conditional acceptance.",
+  "action": "Run one fixed2000-step actual SOURCE/REAL energy pilot using trainable original mean and model029 stochastic heads, fixed005 and all3 extension hypotheses.",
+  "scope": "All6593 SOURCE and21047 REAL TRAIN eligible; four independent IID replacement banks. SOURCE64 per generated bank,REAL128 per target bank. One seed2026101732. No new data prerequisite.",
+  "objective": "031 joint energy averaged separately over3 hypotheses +.01(mean of two model regularizers +mean pre-ADC saturation); no negative clamp.",
+  "optimization": {
+    "updates": 2000,
+    "generated_bank_rows": 64,
+    "real_bank_rows": 128,
+    "mean_lr": 0.0001,
+    "new_head_lr": 0.0003,
+    "weight_decay": 0.0,
+    "clip_norm": 5.0,
+    "regular_weight": 0.01,
+    "status_interval": 100,
+    "checkpoint_interval": 1000
+  },
+  "evaluation": {
+    "draws_per_parent": 4,
+    "NN_chunk_rows": 128,
+    "W1_column_chunk": 16,
+    "TRAIN_banks": 1,
+    "DEV_banks": 1,
+    "TRAIN_seed": 2026101732100,
+    "DEV_seed": 2026101732200,
+    "projection_training_seed": 2026101426,
+    "projection_evaluation_seed": 2026101430,
+    "projection_fingerprint": "27ed58d90114de6bfa5bf30ff5ad251516cdc9bcadfb5eb10e2a6ec45ed11482",
+    "integral_seed": 2026101732300,
+    "relative_wave_improvement_min": 0.02,
+    "DEV_previously_exposed": true,
+    "example_parents_max": 32
+  },
+  "resources": {
+    "wall_seconds": 3600,
+    "RSS_GiB": 12,
+    "GPU_GiB": 10,
+    "CPU_threads": 4,
+    "output_MiB": 1024
+  },
+  "progression_criterion": {
+    "TRAIN_wave_relative_gain_min_all_hypotheses": 0.02,
+    "TRAIN_and_DEV_defined_positive_calibrated_component_delta_vs_A_max": "T_by_hypothesis",
+    "DEV_wave_gain_is_reported_not_required": true,
+    "physical_response_acceptance": false
+  },
+  "limits": "DEV512/599 is previously exposed same-acquisition development, read only after final model freeze; no tuning or selection. Relative improvement and absolute response-fit evidence reported separately. Calibrated physical weights unknown; fixed005 cannot improve baseline noise. Conditional identification and low-count extrapolation remain unverified.",
+  "counts": {
+    "G_updates_max": 2000,
+    "training_AD_queries_max": 2000,
+    "NN_rows_planned": 312840,
+    "generated_ADC_rows_planned": 1017636,
+    "noise005_rows_planned": 310792,
+    "initial_checkpoint_loads": 2,
+    "additional_scientific_trials": 0
+  },
+  "source_review": "ROOT complete code review and independent final review no blockers; receipts/response032_20261017/independent_review_01/REVIEW.json",
+  "config": {
+    "path": "configs/response032_20261017.json",
+    "sha256": "45a02a7a9e7050a60dbb40085825851828829cdadc377145332b29672ca99fdd"
+  },
+  "startup_policy": "One project flock; verify exact owned process/source/config/finite first gradients, schedule one future wake then rest; no automatic restart or continuous polling.",
+  "scientific_status": "response_match_not_established",
+  "resource_enforcement": {
+    "owned_process_tree_RSS": "native supervisor12GiB",
+    "wall": "outer timeout3600s TERM then20s kill",
+    "GPU": "torch allocator limit10GiB",
+    "output": "runner sums output files at evaluation batches/metric writes and training status intervals; not a continuous disk guard"
+  },
+  "byte_freeze_receipt": "receipts/response032_20261017/BYTE_FREEZE_RECEIPT.json"
+}

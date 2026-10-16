@@ -1,0 +1,160 @@
+{
+  "schema": "n01/response032-real-pilot-plan/v1",
+  "status": "ROOT_selected_energy_objective_draft_runner_awaiting_static_review_and_freeze",
+  "scope": "One actual existing-data fit of model029 after the final031 objective decision. No further synthetic training prerequisite, no candidate grid, no new data prerequisite and no event pseudo-labels.",
+  "preparation_evidence": [
+    "receipts/response029_20261017/runtime_preparation/INPUT_METADATA.json",
+    "receipts/response029_20261017/runtime_preparation/RUNNER_INTERFACE_ADDENDUM.json",
+    "scripts/run_wp2_014.py:678-719",
+    "src/n01/response008.py:104-143",
+    "src/n01/observation008.py:75-137",
+    "src/n01/observation008.py:220-362",
+    "src/n01/evaluate_window008.py:202-216",
+    "scripts/wp1_evaluation.py",
+    "INPUT_INFORMATION_AUDIT.json",
+    "CALIBRATED_TOLERANCES_WP1_013.json"
+  ],
+  "fixed_trial": {
+    "seed": 2026101732,
+    "G_updates": 2000,
+    "mean_learning_rate": 0.0001,
+    "new_heads_learning_rate": 0.0003,
+    "optimizer": "Fresh AdamW, weight_decay=0, gradient_clip_L2=5; no historical optimizer moments.",
+    "models_trained": 1,
+    "baselines": "Imported deterministic A and same-trial G0 are evaluated but receive zero optimizer updates.",
+    "signal_model": "n01.model029.N01Response029",
+    "trainable_groups": [
+      "mean",
+      "shape",
+      "charge",
+      "local"
+    ],
+    "training_rows_per_update": {
+      "generated_A": 64,
+      "generated_B": 64,
+      "REAL_T": 128,
+      "REAL_U": 128
+    },
+    "hypotheses": [
+      "fast",
+      "slow",
+      "common_level"
+    ],
+    "reduction": "Compute each hypothesis's objective separately, then take their arithmetic mean; do not pool hypothesis distributions.",
+    "regularization": "Fixed 0.01 times mean of both model-bank regularizers plus average pre-ADC saturation across both banks and all three hypotheses. Report data/regular scalar terms; group gradients come only from the existing first backward, without extra AD.",
+    "D_updates": 0,
+    "noise005_updates": 0,
+    "population_updates": 0,
+    "C2ST_updates": 0
+  },
+  "data": {
+    "dataset": "E:/GAN/research/N01/data/window008/DATASET008.npz",
+    "dataset_sha256": "8d43418595f4fa992a9b83735c4bf50863a659584d58888f8f965ec1339a1993",
+    "dataset_remote": "/home/rylan/projects/ej276d-n01/window008_resume01_20261013/data/window008/DATASET008.npz",
+    "TRAIN": {
+      "SOURCE": 6593,
+      "REAL": 21047
+    },
+    "load": "Use diagnose_mean_random009.read_train_members/validate_train for the TRAIN whitelist, and explicitly add real_carrier384 plus run_wp1_013.REAL_METADATA. Do not iterate/decode the archive's DEV fields during fitting.",
+    "source_mixture": "Use the existing original_source_weights count vector when present; existing source code defines uniform ones. INPUT_INFORMATION_AUDIT explicitly records calibrated physical weights as unknown. Do not rename count weights as calibrated physical weights.",
+    "sampling": "Independent IID row draws with replacement in both source banks and both REAL banks. SOURCE sampling probabilities are the fixed normalized count weights; REAL is uniform over all original legal TRAIN rows. Keep all rows eligible, report actual unique visits and preserve identity/role metadata separately.",
+    "network_inputs": "Original SOURCE carrier384 and explicit response latents only. The model internally derives its waveform features and Q/amplitude; IDs, rows, h, PDG, output-Q bins, file names and REAL groups never enter the neural network.",
+    "development": "Existing SOURCE DEV512 and REAL DEV599 are previously exposed internal development subsets from the same confirmed acquisition; they are not a new blind or independent test.",
+    "DEV_numeric_location": "DATASET008 holds DEV identity/group/role metadata only. Numeric source_val[512,480] and target_val[599,480] remain in original TRAIN_PRIVATE.npz, bound by DATA_REFERENCES.json and data/PARENT_IDENTITIES.npz.",
+    "DEV_loading": "After final checkpoint and endpoint settings are frozen, call evaluate_window008._load_dev(original_container, identities, base_config['window'], q_floor) for its numeric transformation only. This preserves original identities, first384 carrier, clean SOURCE crop and already-digitized REAL observation. Never invoke the old fixed19000-step evaluator main or use DEV to select settings."
+  },
+  "model_and_noise_wiring": {
+    "old_A": "provenance/window008_fix01_reference/deterministic_final.pt",
+    "old_A_sha256": "2096523d53b62dbbc6b41d2788a8fba203af89c3cf753133bbbe81ab5c036849",
+    "strict_warmstart": "Construct N01Response029(statistics['model'], seed=2026101732); strict-load a_checkpoint['model'] into model.mean_model, the original N01Response008 deterministic class. Validate original schema/arm/stage19000, TRAIN statistics/config and noise state binding as run_wp2_014.prepare_numeric014 does. Set model.mean_model.set_stage('mean_response'), model.train(), and optimize every parameter returned by parameter_groups(). Do not load old optimizer, full008, M0 or Q1 heads.",
+    "graph": "model029 performs one actual mean_model forward with its temporary U-Net hook and retains decoded/pooled autograd. Do not inherit the no-grad FrozenDeterministicVoltageShape010/014 wrapper.",
+    "A_reference": "Clone the imported mean state as a frozen reference. Initial full-model forward already returns base_signal_pre_V=A, so TRAIN A and G0 share one NN mean forward, not two.",
+    "noise_checkpoint": "provenance/integration006_reference/noise005.pt",
+    "noise_sha256": "1e45d3369b85d2f5f635ad44dbeb5a730f6d86864cc3dc9163384fccd48bd417",
+    "noise_factory": "n01.response008.make_extension(noise_checkpoint, device): ObservedBaselineNoiseV3(initialization), strict model load, eval/freeze, then FrozenObservedNoise008 (alias ConditionalExtension008). Its original double buffers remain unchanged.",
+    "response_latents": "model.sample_noise(B, device, generator) gives joint[B,9] and local_white[B,1,400]. Charge and B*z share joint[:,1:]; local white is independent.",
+    "electronics_latents": "ObservedBaselineNoiseV3.noise_shapes: baseline_gaussian[B,1,100], baseline_scale[B,1,1]. Independent extension epsilon[B,1,284]. Use separate streams for the two generator banks and from response/REAL sampling.",
+    "electronics_call": "extension.sample_all(noise005_latents, extension_epsilon) returns noise_pre[h][B,384], sharing the exact original prefix100 and scale across fast/slow/common_level within each bank.",
+    "generated_observation": "For each h: observe_generated_carrier(signal_pre + noise_pre[h], ste=True during fitting, return_carrier=True, q_floor=frozen). Inference/evaluation uses ste=False, hard ADC plus dynamic first-argmax.",
+    "REAL_observation": "Run the shared observe_existing_carrier NumPy/CPU adapter on existing REAL carrier384, already_digitized=True, return_carrier=True, q_floor=frozen. This is the same CPU torch observation as preparation; verify bitwise prepared REAL256/baseline100 and use prepared REAL256 as authoritative target. Move cached target fields to GPU only afterward, without second ADC.",
+    "no_refit005": "005 and its extension are fixed. Signal prefix100 is exactly zero, so this pilot cannot repair previously recorded baseline-noise mismatch; keep that limitation visible in absolute acceptance."
+  },
+  "statistics_and_objective": {
+    "reuse": "FIT_STATISTICS008.json and FIT_DATA_STATISTICS.json keep original TRAIN-only model and native loss scales. Convert loss numbers with response008.loss_tensor_statistics; do not refit native evaluation statistics.",
+    "new_TRAIN_fits": "Fit signed integral scales once with fit_integral_statistics014(all REAL TRAIN real256). Fit centered carrier384 coordinate RMS once from all existing REAL TRAIN, with the established ADC_STEP floor. Save both with source hashes before G1; no DEV data used.",
+    "implementation_reuse": "Import run_response031.energy_data/energy_four_banks/standardized_banks; do not copy the energy formula. These helpers require four observation dictionaries ordered generated_A, generated_B, REAL_T, REAL_U, each with window_V, carrier_adc and baseline_mean_V.",
+    "training_loss": "One fixed joint-energy candidate after ROOT's031 decision, not a runtime energy/native selector. Both generated banks retain gradients including the cross-bank self term. Keep negative finite estimates, ordinary Euclidean norms and the full joint six wave views, signed integrals and carrier384.",
+    "boundary": "Energy gives a proper marginal population data score. Its regularized objective and hardADC/argmax STE do not inherit an unbiased-gradient or conditional-identification guarantee. 030 is a preserved negative result; 031 is not formal conditional acceptance."
+  },
+  "bounded_evaluation": {
+    "TRAIN": "One fixed complete SOURCE6593 bank with four draws per parent and all REAL21047. Evaluate A/G0 before training from the same G0 forward; evaluate final once with the same response/005/extension streams. No second TRAIN Monte Carlo bank in this pilot.",
+    "DEV": "One four-draw SOURCE512 bank against every REAL599 row, evaluated once after final freeze. A reference and final share electronics/response evaluation streams. No DEV selection, rescaling or threshold fitting.",
+    "per_view_NN_reruns": 0,
+    "native_metrics": "Frozen256 wave, QPSD and prefix100 noise for all three hypotheses, with the original N01Loss008 statistics and fixed evaluation projection seed2026101430/training_seed2026101426, fingerprint27ed58d90114de6bfa5bf30ff5ad251516cdc9bcadfb5eb10e2a6ec45ed11482. Also use wp1_evaluation.observable_features/raw_distance for Q/front/tail/PSD/peak/rise/FWHM, flags and defined denominators.",
+    "memory_bound": "Implement feature-column chunking of the existing empirical_wasserstein_1d for native metrics (16 columns at a time). It is the same weighted-CDF statistic, not a subsampled feature or sample approximation. Never materialize all short-lag CDF columns together. NN outputs are generated once and reused for every view.",
+    "no_full_WP5": "No bootstrap retraining, classifier, new sensitivity matrix or full WP5 confirmation. Record one-model-seed and one-MC-bank limits explicitly.",
+    "planned_NN_mean_rows": {
+      "training": 256000,
+      "TRAIN_A_plus_G0_reused": 26372,
+      "TRAIN_final": 26372,
+      "DEV_A": 2048,
+      "DEV_final": 2048,
+      "total": 312840
+    },
+    "planned_generated_hard_ADC_rows": {
+      "training_forward_values": 768000,
+      "TRAIN_A_G0_final": 237348,
+      "DEV_A_final": 12288,
+      "total": 1017636
+    },
+    "planned_frozen_noise005_rows": {
+      "training": 256000,
+      "TRAIN_G0_and_final_replay": 52744,
+      "DEV_shared_A_final": 2048,
+      "total": 310792
+    },
+    "cost_note": "Counts assume no endpoint-gradient replay and one shared TRAIN evaluation bank; source/metric calls, checkpoint reads and any failed partial updates must be recorded from execution. No NN reruns per metric view or hypothesis. Four repeated draws are Monte Carlo responses, not independent physical parents.",
+    "persistent_outputs": "Keep full observed banks only in RAM. Save small metrics, flag counts, native component summaries and at most32 selected SOURCE parents per endpoint/hypothesis, plus lineage/coverage. Output cap1024MiB. No full carrier banks, per-row Q-bin arrays in public JSON, second MC bank or per-view NN reruns."
+  },
+  "preregistered_outcomes": {
+    "engineering": "Exactly2000 optimizer updates, finite parameters/gradients, frozen005 unchanged, original roles/counts preserved, all observations/flags retained, reproducible fixed-bank evaluation and native receipts. Save per-step preclip gradient norm; at startup save the last nonzero parameter gradient and group norm for mean/shape/charge/local, without extra AD or model forwards.",
+    "relative_pilot_progress": "Pilot progress requires at least2% hard TRAIN wave gain versus A in every hypothesis AND every defined positive calibrated component final-minus-A <= T on TRAIN and previously-exposed DEV. Report DEV wave gain separately. Report undefined positive-T components explicitly; never turn the2% criterion into a well-fit or formal response-acceptance claim.",
+    "absolute_practical_report": "Report each final-to-REAL component divided by CALIBRATED_TOLERANCES_WP1_013.T_by_hypothesis. Null/zero/undefined tolerances remain uncalibrated. Fixed005 baseline defects cannot be hidden by pulse-fit improvement. Full response acceptance is not automatically granted by this pilot.",
+    "RR_reference": {
+      "wave": 0.029421917,
+      "QPSD": 0.024070024,
+      "noise": 0.02436251,
+      "rows_each_side": 10475,
+      "logical_groups_each_side": 210,
+      "source": "reports/wp1_013_20261015/N01_WP1_013_REPORT.md",
+      "interpretation": "Historical finite-sample same-acquisition RR benchmark. Report candidate/RR ratios descriptively with differing sample sizes; RR is not T, a physical noise floor or a new automatic pass threshold."
+    },
+    "no_conditional_truth_claim": "No REAL event-level source/energy labels exist here. Fitting REAL marginals does not identify every K(y|x), validate genuine repeated-event covariance or establish low-count extrapolation. Keep those claims unverified without blocking the actual bounded fit."
+  },
+  "runtime_and_delivery": {
+    "runner_draft": "scripts/run_response032.py",
+    "config_draft": "receipts/response032_20261017/preparation_01/CONFIG_DRAFT.json",
+    "remote_output": "/home/rylan/projects/ej276d-n01/response032_20261017",
+    "local_receipts": "E:/GAN/research/N01/receipts/response032_20261017",
+    "local_outputs": "E:/GAN/research/N01/runs/response032_20261017",
+    "limits": {
+      "wall_seconds": 3600,
+      "owned_process_tree_RSS_GiB": 12,
+      "CUDA_allocator_GiB": 10,
+      "CPU_threads": 4,
+      "output_MiB": 1024
+    },
+    "checkpoint_reads": "Two original CP reads, A and005, once each; fresh initial/step1000/final trial checkpoints are written without rereading them for evaluation.",
+    "project_lock": "/home/rylan/projects/ej276d-n01/.n01_scientific_dispatch.lock",
+    "supervision": "ROOT binds the native supervisor and whole-job project lock, validates startup once and schedules a completion wakeup if still running. Do not continuously poll.",
+    "files": "Config/source/input SHA receipts, explicit streams, actual coverage, per-step metrics, initial/final fixed-bank metrics and compact examples/flags, final model/optimizer/RNG checkpoint, final freeze and native exit receipts. Never overwrite historical code, weights or negative results. No D backup given documented disk shortage; all new artifacts stay E/remote.",
+    "input_binding": "Use all nine exact existing remote paths, bytes and SHA values freshly checked by ROOT in REMOTE_INPUT_SHA_VERIFICATION.json before any scientific array or CP decoding; no new input upload is needed."
+  },
+  "preparation_execution_counts": {
+    "NN_forwards": 0,
+    "checkpoint_opens": 0,
+    "raw_scientific_array_opens": 0,
+    "training_updates": 0,
+    "remote_mutations": 0
+  }
+}

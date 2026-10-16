@@ -1,0 +1,55 @@
+{
+  "schema": "n01/response031-completion/v1",
+  "UTC": "2026-10-16T20:39:53.072147+00:00",
+  "native_exit_code": 0,
+  "native_elapsed_seconds": 6.218983062000916,
+  "counts": {
+    "NN_calls": 3,
+    "NN_rows": 384,
+    "CP_loads": 2,
+    "AD_queries": 64,
+    "completed_blocks": 32
+  },
+  "optimizer_updates": 0,
+  "cumulative_training_updates": 193667,
+  "result": "completion_01/run_01/RESULT.json",
+  "collection": "completion_01/COLLECTION_RECEIPT.json",
+  "independent_review": "independent_review_01/RESULT_REVIEW.json",
+  "independent_review_complete": true,
+  "scientific_status": "response_match_not_established",
+  "finding": {
+    "native_truth_STE": {
+      "mean": 0.22234577248489393,
+      "MCSE": 0.05483136080452078,
+      "blocks": 32,
+      "descriptive_3MCSE_separation": true
+    },
+    "energy_truth_STE": {
+      "mean": 0.0068995451966328974,
+      "MCSE": 0.012039990104762664,
+      "blocks": 32,
+      "descriptive_3MCSE_separation": false
+    },
+    "native_hard_FD": {
+      "mean": 0.20429775413952284,
+      "MCSE": 0.05428919551620251,
+      "blocks": 32,
+      "descriptive_3MCSE_separation": true
+    },
+    "energy_hard_FD": {
+      "mean": 0.0039213343348747575,
+      "MCSE": 0.012640519143940836,
+      "blocks": 32,
+      "descriptive_3MCSE_separation": false
+    },
+    "regular_weighted_derivative": 0.0003411702223576955
+  },
+  "interpretation": [
+    "At the exact known teacher, the native STE direction favors reducing B amplitude; its derivative is resolved from zero under the frozen descriptive3MCSE rule. This does not prove thatlambda0.9 reduces native risk; that finite candidate difference was unresolved and had a positive mean.",
+    "The full-vector energy score resolves bothlambda0.9 and1.1 as worse than truth and its truth derivative is compatible with zero. This supports using it in a prospective existing-data pilot.",
+    "Both failed030endpoints are worse than truth under both scores, so optimization has also not reached the known better response. The audit does not establish a single cause, exact conditional recovery, or a pure STE/argmax bias.",
+    "The finite-step hardFD-STE differences are unresolved in the tested direction. No thresholds were changed and no more synthetic training is required merely to inspect actual-data fit."
+  ],
+  "decision": "Advance one fixed2000-step energy-target REAL032 development fit with trainable mean and stochastic model029, original A warmstart and frozen005.",
+  "REAL_pilot_started": false
+}
