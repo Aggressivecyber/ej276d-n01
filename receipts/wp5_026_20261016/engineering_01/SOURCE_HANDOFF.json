@@ -1,0 +1,179 @@
+{
+  "schema": "n01/wp5-026-source-handoff/v1",
+  "status": "stable_ready_for_ROOT_freeze_and_one_independent_source_review",
+  "run_id": "wp5_026_20261016",
+  "science_sources": {
+    "scripts/run_wp5_026.py": {
+      "bytes": 25366,
+      "sha256": "8f6890a9db4027f289370dcabeca4a716b5e630e7739ba02b13ba11084005d2b"
+    },
+    "scripts/wp1_ops.py": {
+      "bytes": 12872,
+      "sha256": "f8ddbbdb2f2f6df033e964f27bf03dcbda07055cc7378775591ef69b9caf85b5"
+    }
+  },
+  "doc": {
+    "path": "docs/WP5_026_CONFIGURATION.md",
+    "bytes": 5264,
+    "sha256": "f6c329af5437449a6ae7fc18e4a783e847c600eec3f4418fb89ec9c97bb1bb04"
+  },
+  "factory_interfaces": [
+    "settings026()",
+    "budget_caps026(p)",
+    "validate_settings026(p,*,frozen=True,driver_source=None)"
+  ],
+  "ROOT_add_fields": [
+    "inputs exactly scope.inputs",
+    "contracts:prospective_scope,user_authorization,source_audit013,final025,review025",
+    "source_files",
+    "saved_input_manifest",
+    "saved_input_manifest_sha256"
+  ],
+  "recommended_input_manifest": "WP5_026_SAVED_INPUTS.json",
+  "input_manifest_fields": {
+    "run_id": "wp5_026_20261016",
+    "file_count": 9,
+    "total_frozen_input_bytes": 27790366,
+    "entries": "exact scope.inputs including source_remote"
+  },
+  "scope_sha256": "c3e60a46bd8b5511707fb2a7608f528fa9ad24522ece02a2fa4fc706a53b8f92",
+  "fixture": {
+    "path": "receipts/wp5_026_20261016/engineering_01/fixture_01/RESULT.json",
+    "sha256": "58bcaa68d091cd95d68d5bc9c8e28ddf200e6a0fd63a56f8ed610020dc20ed06",
+    "status": "PASS",
+    "numeric_function_AST_sha256": "df9e9c2f44ff373065f7ec78c969add90d455b2af874356b9fd924996dac2fbe",
+    "wall_seconds": 0.23942470000474714,
+    "peak_working_set_bytes": 41144320,
+    "artificial_scalar_row_evaluations": 24
+  },
+  "factory_draft": {
+    "schema": "n01/wp5-026-config/v1",
+    "run_id": "wp5_026_20261016",
+    "status": "draft",
+    "parents": 6593,
+    "source_information_rows": 8192,
+    "draws": 4,
+    "banks": [
+      0,
+      1
+    ],
+    "hypotheses": [
+      "fast",
+      "slow",
+      "common_level"
+    ],
+    "scenarios": [
+      "nominal",
+      "low_h",
+      "high_h"
+    ],
+    "scalar_names": [
+      "Q_Vns",
+      "front_Vns",
+      "tail_Vns",
+      "PSD_raw",
+      "PSD_guarded",
+      "peak_voltage_V",
+      "rise10_90_ns",
+      "FWHM_ns"
+    ],
+    "flag_names": [
+      "Q_nonpositive_rate",
+      "PSD_undefined_rate",
+      "PSD_guarded_rate",
+      "rise_undefined_rate",
+      "FWHM_undefined_rate",
+      "temporal_nonpositive_peak_rate",
+      "rise_prepeak_censored_rate",
+      "FWHM_prepeak_censored_rate",
+      "FWHM_postpeak_censored_rate"
+    ],
+    "decomposition_scalars": [
+      "Q_Vns",
+      "front_Vns",
+      "tail_Vns",
+      "peak_voltage_V"
+    ],
+    "h_tilt_amplitude": 0.2,
+    "raw_weight_bounds": [
+      0.8,
+      1.2
+    ],
+    "h_definition": "0.15*edep_hadron/(edep_ee+0.15*edep_hadron)",
+    "within_empirical_denominator": 4,
+    "identity_relative_tolerance": 1e-12,
+    "physical_weight_calibration": "unknown",
+    "comparison_weights_multiply_physical_weights": false,
+    "REAL_rows": 21047,
+    "REAL_original_logical_groups": 422,
+    "bank_pooling": false,
+    "fit_to_REAL": false,
+    "extra_scenarios": false,
+    "automatic_restart": false,
+    "training_enabled": false,
+    "scientific_training_updates": 0,
+    "output_directory": "E:/GAN/research/N01/runs/wp5_026_20261016/analysis_01",
+    "resource_limits": {
+      "execution": "local Windows E/D only, reuse021 local bounded native pattern",
+      "CPU_affinity_count": 1,
+      "BLAS_OMP_threads": 1,
+      "RSS_MiB": 1024,
+      "wall_seconds": 300,
+      "output_MiB": 64
+    },
+    "scientific_status": "response_match_not_established",
+    "budget_caps": {
+      "new_diagnostic_jobs": 1,
+      "numeric_NPZ_files_decoded": 9,
+      "saved_SOURCE_information_rows": 8192,
+      "aligned_SOURCE_TRAIN_parents": 6593,
+      "saved_fake_observable_files": 6,
+      "saved_fake_observable_rows": 158232,
+      "saved_REAL_observable_rows": 21047,
+      "comparison_weight_scenarios": 3,
+      "comparison_parent_weight_values": 19779,
+      "bank_hypothesis_weight_cells": 18,
+      "fake_scalar_moment_summaries": 144,
+      "fake_flag_rate_summaries": 162,
+      "REAL_scalar_moment_summaries": 8,
+      "REAL_flag_rate_summaries": 9,
+      "within_between_decompositions": 72,
+      "native4_parent_scalar_moment_rows": 158232,
+      "NN_forward_rows": 0,
+      "checkpoint_loads": 0,
+      "AD_queries": 0,
+      "G_updates": 0,
+      "optimizer_steps": 0,
+      "new_RNG_requests": 0,
+      "new_ADC_argmax_gather_rows": 0,
+      "new_training_trials": 0,
+      "new_parameter_points": 0,
+      "parameter_fits": 0,
+      "new_CDF_or_quantile_sorts": 0,
+      "new_pair_distances": 0,
+      "original_SOURCE_REAL_DEV_waveform_reads": 0
+    }
+  },
+  "private_numeric_reads": 0,
+  "scientific_run": false,
+  "SSH": false,
+  "shared_metadata_or_Git_changed": false,
+  "one_review_by_ROOT_after_final_freeze": true,
+  "ROOT025_prerequisites_verified": {
+    "final025": {
+      "path": "receipts/wp3_025_20261016/FINAL_RESULT_RECEIPT.json",
+      "bytes": 13760,
+      "sha256": "7661f9833e3f269547d1a7364497c3ee44b6401cf975908f841c8f9d339259cc"
+    },
+    "review025": {
+      "path": "receipts/wp3_025_20261016/wake_20261016_1720_01/independent_result_01/RESULT_REVIEW.json",
+      "bytes": 33510,
+      "sha256": "f13d09a8120de685c980e0d52f782c212cb3d4ea41d7da7f77cbfbd21621128e"
+    },
+    "native_exit_code": 0,
+    "independent_result_review_complete": true,
+    "independent_review_no_blockers": true,
+    "finite_positive_T_noninferiority_status": "fail",
+    "root_authorized_existing_raw_contract_binding_without_new_internal_validation": true
+  }
+}
