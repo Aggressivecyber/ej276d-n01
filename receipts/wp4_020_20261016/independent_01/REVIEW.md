@@ -1,0 +1,17 @@
+020 正式源码、合同和 ops 独审：no_blockers。最终冻结包可进入已登记的原生执行；本审核没有启动科学任务。
+
+最新直接用户授权已核实，允许恢复、自主工程重启及必要新增计算，不再要求同类确认。本020仍为原T1无配对两seed问题：来源019的seed0保留已完成2000G，只加载final CP恢复两个theta及固定qref后补评价；不创建seed0 Engine、优化器、父训练采样器或训练随机流。仅seed1新增2000G/AD。项目累计由185667至多变为187667，旧019 native1及原审核记录保留。
+
+恢复代码会核原CP完整SHA、019身份、T1/unpaired/seed0/G2000/完整步边界、无inflight、cache/005冻结身份、精确float64标量state和末步指标/父覆盖。strict恢复后关闭梯度，忽略来源训练optimizer/RNG状态。当前审核没有读取私有CP；人工内存CP的恢复与四类错误来源拒绝已由同一个隔离检查验证。实际私有恢复仍以新RESTORED_SEED0_PROOF为证。
+
+此前遗漏的mechanism012_losses.py已按旧017原12854B/SHA3fc84ccaf255b660d8eda4f96d43e2c236045a756e777c9b2d490f7137dc04ed纳入包。唯一一次工程检查在E盘隔离32源、python -I/-B环境中运行：所有28个实际project模块来自隔离包，无原仓库fallback。固定4父×2bank×32draw经真实evaluate_kernel017、硬观测、函数内诊断、codec和native32报告完成768行ADC；CP/NN/AD/G/RNG及optimizer/Engine/父训练采样器均受拦截且未调用，全局和12条评价流状态不变。本人审了脚本/回执及字节绑定，没有重复运行。该证据限定于此次已登记的可达路径，不声称覆盖复用脚本全部lazy分支，也不恢复019曾被撤回的笼统完整闭包结论。
+
+最终42个tar成员均为regular文件，逐字节SHA与CFG/source manifest及本地原件一致；32科学源与上述隔离测试拷贝完全相同。40条保存输入共1141935072B，旧37条的身份、原物理角色与SHA不变，仅新增seed0 final CP、019失败终点回执、最新授权。冻结只改status和source_files；五份旧ops保护记录在draft已固定，冻结未变。最终CFG SHA：7e04e99d409794facaac1a06efe5a397fc12fd986d901697110496cd294a421e；源码包SHA：c84139c33a3794e96626441c28d741750aa8d044f3c976818ed8bf6e22eed49f。
+
+新预算逐项经独立算式核对：正常CP保存2份，总加载2次（005+seed0），005行4939904、normal请求1946322176、硬ADC14819712、训练有序距离12582912000、257评价距离162029568、O19评价距离405073920。019已执行而未落完整评价的128行前缀会重复；重复的50432个normal请求、384行三假设扩展和fast128行ADC已计入020全预算，旧支出不撤销，旧2000G不重复入账。
+
+原Engine017算法、seed1原训练/四父流namespace、两个final评价namespace和018的1272×2完整签名/状态规则不变。新gate/checkpoint/metadata身份为020；任一pending/fail仍不合格。seed0失败不尝试训练checkpoint；仅seed1 Engine存在时可尝试一次failure CP，保存错误与原异常均保留。ops仅替换020身份/路径/validator，仍复用旧成熟监督函数、锁和owned资源治理，无新控制框架。
+
+ROOT原生启动时先核INIT、RESTORED_SEED0及真实多批硬评价/诊断进展，并在同一快照核身份、CPU和资源；这时新G仍为0属正常，不能写seed1已训练。正确启动后设一次未来苏醒并休息；后续核seed1真实两梯度/两参数delta的G1，终点再查两完整评价、精确预算和2544格结果。CPU12、GPU10GiB、树RSS8GiB、全job21600s/5120MiB、trial活跃7200s/1536MiB、shared1024MiB、选收128MiB保持。
+
+本次只读源码/JSON与公开人工文件哈希，独审SSH、私有CP/数组、原波形、NN/AD/G/RNG均为0。no_blockers是工程审核结论；本任务仍仅检验固定A/B/005的低维电荷识别，有限teacher样本与MC筛选限制解释，不成立硬件/REAL有效或窗外rise识别结论。
