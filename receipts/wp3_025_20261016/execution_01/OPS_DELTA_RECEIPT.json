@@ -1,0 +1,93 @@
+{
+  "schema": "n01/wp3-025-cpu-ops-literal-delta/v1",
+  "status": "PASS_literal_ops_delta_interface_and_scope_bound",
+  "run_id": "wp3_025_20261016",
+  "source": {
+    "path": "E:\\GAN\\research\\N01\\receipts\\wp4_023_20261016\\execution_01\\REMOTE_SUPERVISOR.py",
+    "bytes": 6348,
+    "sha256": "604dc38e0a8c744a9d6a6ce5da97f30815e998784c8c51d4283220b232ecd6b5"
+  },
+  "output": {
+    "path": "E:\\GAN\\research\\N01\\receipts\\wp3_025_20261016\\execution_01\\REMOTE_SUPERVISOR.py",
+    "bytes": 6348,
+    "sha256": "b37c24795bdaa8a2697b7d652abcf62472ec4a8e474139f0628e5915d548a0cb"
+  },
+  "literal_replacements": [
+    {
+      "before": "One fixed 023",
+      "after": "One fixed 025",
+      "occurrences": 1
+    },
+    {
+      "before": "wp4_023_20261016",
+      "after": "wp3_025_20261016",
+      "occurrences": 1
+    },
+    {
+      "before": "wp4_023_config.json",
+      "after": "wp3_025_config.json",
+      "occurrences": 2
+    },
+    {
+      "before": "run_wp4_023.py",
+      "after": "run_wp3_025.py",
+      "occurrences": 1
+    },
+    {
+      "before": "n01/wp4-023-native-",
+      "after": "n01/wp3-025-native-",
+      "occurrences": 2
+    },
+    {
+      "before": "'023 ",
+      "after": "'025 ",
+      "occurrences": 3
+    }
+  ],
+  "only_listed_byte_replacements": true,
+  "limits_preserved": {
+    "CPU_affinity_and_BLAS_threads": 12,
+    "driver_AS_bytes": 8589934592,
+    "RSS_bytes": 8589934592,
+    "wall_seconds": 7200,
+    "driver_CPU_soft_seconds": 21590,
+    "driver_CPU_hard_seconds": 21600,
+    "output_bytes": 1610612736,
+    "selected_collection_bytes": 134217728
+  },
+  "entry_bindings": {
+    "remote_root": "/home/rylan/projects/ej276d-n01/wp3_025_20261016",
+    "driver": "scripts/run_wp3_025.py",
+    "config": "wp3_025_config.json",
+    "manifest_bound_by_root_and_driver": "WP3_025_SOURCE_MANIFEST.json",
+    "driver_CLI": [
+      "--config",
+      "--config-sha256",
+      "--output"
+    ],
+    "device_argument": false,
+    "builder_interface_confirmation": "/root/wp4_017_resume_execution confirms settings025/budget_caps025/validate_settings025; topstdlib, NumPy-only actual evaluation"
+  },
+  "preserved": "023 CPU supervisor: onejob inherited flock, owned process-group timeout TERM/KILL, tmp/cache/PYTHONPATH, exact child native return code, CPU and ru_maxrss receipts. No driver import, controller, GPU/numeric work or retry loop added.",
+  "resource_format": "Original018/023 CPU native receipt layout; schema and actualrunidentity025. Driver must enforce AS/CPU rlimit as its registered contract.",
+  "checks": {
+    "stdlib_compile": "PASS",
+    "exact_byte_delta": "PASS",
+    "wrapper_or_driver_import_executed": false,
+    "SSH": 0,
+    "native_started": false,
+    "NPZ_value_decodes": 0,
+    "NN_CP_AD_G_RNG": 0,
+    "shared_metadata_or_Git_mutations": 0
+  },
+  "scope_registration_file_present_at_preparation": false,
+  "diff": "--- 023/REMOTE_SUPERVISOR.py\n+++ 025/REMOTE_SUPERVISOR.py\n@@ -1,4 +1,4 @@\n-\"\"\"One fixed 023 driver, one inherited N01 lock, exact native exit; no retry.\"\"\"\n+\"\"\"One fixed 025 driver, one inherited N01 lock, exact native exit; no retry.\"\"\"\n import argparse\n import datetime\n import fcntl\n@@ -15,12 +15,12 @@\n parser.add_argument('--config', required=True)\n parser.add_argument('--config-sha256', required=True)\n args = parser.parse_args()\n-root = Path('/home/rylan/projects/ej276d-n01/wp4_023_20261016')\n-if Path.cwd() != root or Path(args.config).resolve() != root/'wp4_023_config.json':\n-    raise ValueError('023 exact owned cwd/config required')\n+root = Path('/home/rylan/projects/ej276d-n01/wp3_025_20261016')\n+if Path.cwd() != root or Path(args.config).resolve() != root/'wp3_025_config.json':\n+    raise ValueError('025 exact owned cwd/config required')\n affinity = sorted(os.sched_getaffinity(0))\n if len(affinity) < 12:\n-    raise ValueError('023 requires twelve available CPUs')\n+    raise ValueError('025 requires twelve available CPUs')\n os.sched_setaffinity(0, affinity[:12])\n environment = os.environ.copy()\n for name in ('OMP_NUM_THREADS', 'OPENBLAS_NUM_THREADS', 'MKL_NUM_THREADS', 'NUMEXPR_NUM_THREADS'):\n@@ -36,14 +36,14 @@\n directory.mkdir(parents=True, exist_ok=False)\n output = root/'runs/primary/artifacts'\n if output.exists():\n-    raise FileExistsError('023 output must be fresh')\n+    raise FileExistsError('025 output must be fresh')\n boot = Path('/proc/sys/kernel/random/boot_id').read_text().strip()\n supervisor_fields = Path('/proc/self/stat').read_text().rsplit(')', 1)[1].split()\n supervisor = dict(pid=os.getpid(), parent_pid=os.getppid(), start_ticks=int(supervisor_fields[19]),\n     command=[v.decode() for v in Path('/proc/self/cmdline').read_bytes().rstrip(b'\\0').split(b'\\0')],\n     cwd=str(root), boot_id=boot, CPU_affinity=affinity[:12])\n-command = [sys.executable, '-B', str(root/'scripts/run_wp4_023.py'),\n-    '--config', str(root/'wp4_023_config.json'), '--config-sha256', args.config_sha256,\n+command = [sys.executable, '-B', str(root/'scripts/run_wp3_025.py'),\n+    '--config', str(root/'wp3_025_config.json'), '--config-sha256', args.config_sha256,\n     '--output', str(output)]\n started = time.monotonic()\n log_path = directory/'driver_console.log'\n@@ -59,7 +59,7 @@\n             CPU_affinity=sorted(os.sched_getaffinity(child.pid)))\n     except (FileNotFoundError, ProcessLookupError):\n         identity = dict(pid=child.pid, identity_unavailable='driver_exited_before_proc_snapshot')\n-    launch = dict(schema='n01/wp4-023-native-launch/v1', run_id=root.name,\n+    launch = dict(schema='n01/wp3-025-native-launch/v1', run_id=root.name,\n         UTC=datetime.datetime.now(datetime.timezone.utc).isoformat(),\n         supervisor_started_monotonic=started,\n         config_sha256=args.config_sha256, supervisor=supervisor, child=identity,\n@@ -98,7 +98,7 @@\n     violations.append('output_cap_exceeded')\n if elapsed > 7200:\n     violations.append('wall_cap_exceeded')\n-receipt = dict(schema='n01/wp4-023-native-exit/v1', run_id=root.name,\n+receipt = dict(schema='n01/wp3-025-native-exit/v1', run_id=root.name,\n     UTC=datetime.datetime.now(datetime.timezone.utc).isoformat(), config_sha256=args.config_sha256,\n     supervisor=supervisor, child=identity, child_native_returncode=returncode,\n     child_terminated_by_signal=(-returncode if returncode < 0 else None), reason=reason,\n",
+  "finalized_UTC": "2026-10-16T08:36:11.126096+00:00",
+  "scope_binding": {
+    "path": "E:\\GAN\\research\\N01\\receipts\\wp3_025_20261016\\registration_01\\PROSPECTIVE_SCOPE.json",
+    "bytes": 16278,
+    "sha256": "1b8d27f4403c633033ab1457e2a769311be9872f98c300bd22dbc1d012b30d5c"
+  },
+  "source_changed_after_compile": false,
+  "checks_repeated_after_scope": false
+}
