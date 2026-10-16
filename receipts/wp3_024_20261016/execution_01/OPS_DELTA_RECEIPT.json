@@ -1,0 +1,87 @@
+{
+  "schema": "n01/wp3-024-ops-literal-delta/v1",
+  "status": "PASS_compile_and_exact_literal_substitution_only",
+  "run_id": "wp3_024_20261016",
+  "source": {
+    "path": "E:\\GAN\\research\\N01\\receipts\\wp4_022_20261016\\execution_01\\REMOTE_SUPERVISOR.py",
+    "bytes": 4265,
+    "sha256": "8248394ba29a49d6e182e49750ea926e72ed196502d88d99624d1a35c54a657d"
+  },
+  "output": {
+    "path": "E:\\GAN\\research\\N01\\receipts\\wp3_024_20261016\\execution_01\\REMOTE_SUPERVISOR.py",
+    "bytes": 4265,
+    "sha256": "3a3075fbe64b65d5f13a3d9ec331671b9bc3ba8ff71a88314fdd04f9f869de64"
+  },
+  "literal_replacements": [
+    {
+      "before": "Fixed022",
+      "after": "Fixed024",
+      "occurrences": 1
+    },
+    {
+      "before": "wp4_022_20261016",
+      "after": "wp3_024_20261016",
+      "occurrences": 4
+    },
+    {
+      "before": "wp4_022_config.json",
+      "after": "wp3_024_config.json",
+      "occurrences": 3
+    },
+    {
+      "before": "WP4_022_SOURCE_MANIFEST.json",
+      "after": "WP3_024_SOURCE_MANIFEST.json",
+      "occurrences": 2
+    },
+    {
+      "before": "run_wp4_022",
+      "after": "run_wp3_024",
+      "occurrences": 3
+    },
+    {
+      "before": "validate_settings022",
+      "after": "validate_settings024",
+      "occurrences": 1
+    },
+    {
+      "before": "n01/wp4-022-start/v1",
+      "after": "n01/wp3-024-start/v1",
+      "occurrences": 1
+    },
+    {
+      "before": "'022 ",
+      "after": "'024 ",
+      "occurrences": 6
+    }
+  ],
+  "only_listed_byte_replacements": true,
+  "unchanged_five_readonly017_dependencies": {
+    "scripts/wp4_017_controller.py": "eb15f3ba35844436f9b5ff3879332bd19046fcfd4f1fffe8459db2505333c38c",
+    "scripts/wp2_controller.py": "3480825e94e954a46c2c633e5df6ddef514e2b7def1332bb2e7688e78ae041a3",
+    "scripts/mechanism012_ops.py": "98a18eef018beebff82565da9ed5b31208cf2bff6db6bff0c492eff9bf2a7816",
+    "scripts/wp1_ops.py": "f8ddbbdb2f2f6df033e964f27bf03dcbda07055cc7378775591ef69b9caf85b5",
+    "scripts/supervise_mechanism012.py": "43b6fffd076a1e6d57db67e85e433e71d3f2cda91f3a3d5fe31f0fcb430486a4"
+  },
+  "final_original_ops_supervise_call_AST_unchanged": true,
+  "format_origin": "n01/wp4-017; actual024 identity set by literal binding",
+  "entry_bindings": {
+    "driver": "scripts/run_wp3_024.py",
+    "validator": "driver.validate_settings024",
+    "config": "wp3_024_config.json",
+    "manifest": "WP3_024_SOURCE_MANIFEST.json",
+    "remote_root": "/home/rylan/projects/ej276d-n01/wp3_024_20261016"
+  },
+  "preserved": "original onejob flock,owned process tree,GPU/RSS/wall/output supervision,CPU/TMP/cache/CUDA environment and native format; no controller, retry or scientific validator added",
+  "checks": {
+    "stdlib_compile": true,
+    "wrapper_or_driver_import_executed": false,
+    "native_started": false,
+    "scientific_jobs": 0,
+    "array_decodes": 0,
+    "checkpoint_loads": 0,
+    "NN_AD_G_RNG": 0,
+    "SSH": 0,
+    "shared_metadata_or_Git_mutations": 0
+  },
+  "diff": "--- 022/REMOTE_SUPERVISOR.py\n+++ 024/REMOTE_SUPERVISOR.py\n@@ -1,4 +1,4 @@\n-\"\"\"Fixed022 bootstrap; reuse the unchanged017 GPU/owned-tree supervisor.\"\"\"\n+\"\"\"Fixed024 bootstrap; reuse the unchanged017 GPU/owned-tree supervisor.\"\"\"\n import argparse\n import hashlib\n import json\n@@ -10,10 +10,10 @@\n parser.add_argument('--config', required=True)\n parser.add_argument('--config-sha256', required=True)\n args = parser.parse_args()\n-root = Path('/home/rylan/projects/ej276d-n01/wp4_022_20261016')\n+root = Path('/home/rylan/projects/ej276d-n01/wp3_024_20261016')\n old = Path('/home/rylan/projects/ej276d-n01/wp4_017_20261015')\n-if Path.cwd() != root or Path(args.config).resolve() != root/'wp4_022_config.json':\n-    raise ValueError('022 exact owned cwd/config required')\n+if Path.cwd() != root or Path(args.config).resolve() != root/'wp3_024_config.json':\n+    raise ValueError('024 exact owned cwd/config required')\n dependencies = {\n     'scripts/wp4_017_controller.py': 'eb15f3ba35844436f9b5ff3879332bd19046fcfd4f1fffe8459db2505333c38c',\n     'scripts/wp2_controller.py': '3480825e94e954a46c2c633e5df6ddef514e2b7def1332bb2e7688e78ae041a3',\n@@ -23,34 +23,34 @@\n }\n for relative, expected in dependencies.items():\n     if hashlib.sha256((old/relative).read_bytes()).hexdigest() != expected:\n-        raise ValueError('022 readonly supervision dependency changed: '+relative)\n+        raise ValueError('024 readonly supervision dependency changed: '+relative)\n sys.path.insert(0, str(old/'scripts'))\n import wp4_017_controller as inherited\n ops = inherited.operations()\n-config_path = root/'wp4_022_config.json'\n+config_path = root/'wp3_024_config.json'\n raw = config_path.read_bytes()\n if hashlib.sha256(raw).hexdigest() != args.config_sha256:\n-    raise ValueError('022 frozen config SHA differs')\n+    raise ValueError('024 frozen config SHA differs')\n p = json.loads(raw)\n for name, record in p['source_files'].items():\n     if ops.named_record(record['path']) != {key: record[key] for key in ('bytes', 'sha256')}:\n-        raise ValueError('022 executable source changed: '+name)\n+        raise ValueError('024 executable source changed: '+name)\n sys.path.insert(0, str(root/'scripts'))\n-import run_wp4_022 as driver\n+import run_wp3_024 as driver\n if 'numpy' in sys.modules or 'torch' in sys.modules:\n-    raise ValueError('022 supervisor imported a numerical runtime')\n-ops.__dict__.update(RUN_ID='wp4_022_20261016', REMOTE=str(root),\n-    CFG='wp4_022_config.json', MANIFEST='WP4_022_SOURCE_MANIFEST.json',\n-    DRIVER='scripts/run_wp4_022.py', CONTROLLER='REMOTE_SUPERVISOR.py',\n-    validate_config=driver.validate_settings022)\n-ops.validate_config(p, driver_source=(root/'scripts/run_wp4_022.py').read_bytes())\n+    raise ValueError('024 supervisor imported a numerical runtime')\n+ops.__dict__.update(RUN_ID='wp3_024_20261016', REMOTE=str(root),\n+    CFG='wp3_024_config.json', MANIFEST='WP3_024_SOURCE_MANIFEST.json',\n+    DRIVER='scripts/run_wp3_024.py', CONTROLLER='REMOTE_SUPERVISOR.py',\n+    validate_config=driver.validate_settings024)\n+ops.validate_config(p, driver_source=(root/'scripts/run_wp3_024.py').read_bytes())\n import fcntl\n lock = root.parent/'.n01_scientific_dispatch.lock'\n fd = os.open(lock, os.O_RDWR | os.O_CREAT | os.O_NOFOLLOW, 0o600)\n fcntl.flock(fd, fcntl.LOCK_EX | fcntl.LOCK_NB)\n preflight = ops.core().runtime_preflight(root, p)\n ops.require(preflight['disk_free_bytes'] >= p['preflight']['minimum_free_disk_GiB']*1024**3,\n-    '022 frozen free-disk requirement not met')\n+    '024 frozen free-disk requirement not met')\n for folder in ('tmp', 'cache'):\n     (root/folder).mkdir(mode=0o700, exist_ok=False)\n os.environ.update(PYTHONDONTWRITEBYTECODE='1', PYTHONUTF8='1',\n@@ -59,15 +59,15 @@\n     MKL_NUM_THREADS=str(p['CPU_threads']), OPENBLAS_NUM_THREADS=str(p['CPU_threads']),\n     NUMEXPR_NUM_THREADS=str(p['CPU_threads']))\n pins = dict(config_sha256=args.config_sha256,\n-    source_manifest_sha256=ops.sha(root/'WP4_022_SOURCE_MANIFEST.json'),\n+    source_manifest_sha256=ops.sha(root/'WP3_024_SOURCE_MANIFEST.json'),\n     controller_sha256=ops.sha(root/'REMOTE_SUPERVISOR.py'))\n identity = inherited.process_identity(os.getpid())\n-start = dict(schema='n01/wp4-022-start/v1', run_id='wp4_022_20261016', UTC=ops.core().now(),\n+start = dict(schema='n01/wp3-024-start/v1', run_id='wp3_024_20261016', UTC=ops.core().now(),\n     **pins, supervisor_pid=os.getpid(), supervisor_start_ticks=identity['start_ticks'],\n     command=identity['command'], boot_id=preflight['boot_id'], exclusive_scientific_lock=str(lock),\n     lock_held_by_supervisor=True, actual_G1_verified=False, automatic_restart=False,\n     scientific_acceptance=False, preflight=preflight,\n-    reused_supervision_record_format='n01/wp4-017; actual run identity is wp4_022_20261016',\n+    reused_supervision_record_format='n01/wp4-017; actual run identity is wp3_024_20261016',\n     readonly_supervision_dependencies={str(old/name): digest for name, digest in dependencies.items()})\n ops.core().write_new(root/'DISPATCH_ATTEMPT.json', dict(start, budget_caps=p['budget_caps']))\n ops.core().write_new(root/'START_RECEIPT.json', start)\n"
+}

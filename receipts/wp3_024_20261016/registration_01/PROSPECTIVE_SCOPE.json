@@ -1,0 +1,181 @@
+{
+  "schema": "n01/wp3-024-prospective-scope/v1",
+  "run_id": "wp3_024_20261016",
+  "registered_UTC": "2026-10-16T06:29:36.981314+00:00",
+  "status": "registered_before_new_private_array_numeric_reads_or_actual_execution",
+  "question": "Within the original per-event10percent RMS trust rule, do any of twelve prespecified single-axis moves produce a materially smaller unpaired TRAIN population-mean residual consistently across two fixed noise banks and all three electronics hypotheses?",
+  "authority": {
+    "direct_human": "恢复 后面允许你自动重启以及新增",
+    "persistent_authorization": "receipts/wp4_020_20261016/authorization_01/USER_AUTHORIZATION.json",
+    "covers_new_named_bounded_computation": true,
+    "no_repeat_confirmation": true
+  },
+  "motivation": {
+    "015_mean_moved": true,
+    "sampled_max_relative_RMS_A_approximately": 0.0175,
+    "sampled_trust_clipping_not_observed": true,
+    "basis_unreachable_not_established": true,
+    "023_O19_T2_detection_not_established_at_delta010": true,
+    "023_full257_positive_cells_descriptive_not_all_hard_equivalence": true,
+    "timewarp_draft": "Retained unregistered; no new warp/broader mean model is justified by the existing1.75percent RMS observation."
+  },
+  "design": {
+    "parents": 6593,
+    "draws_per_parent_per_bank": 4,
+    "banks": 2,
+    "hypotheses": [
+      "fast",
+      "slow",
+      "common_level"
+    ],
+    "original_count_and_physical_weights": "preserve017 original weights;013 audit verifies original count weights1. No comparison reweighting.",
+    "theta_points": "theta=0 and theta=+e_j/-e_j for j=0..5; h=1.0 in original theta coordinates fixed before execution;13points total, no extra grid/line search/combination.",
+    "mean_algorithm": "Exact original Gaussian sigma2/length13 and causal tau16/length64 projected zero-Q/RMS-normalized bases;coefficients .1*tanh(intercept+slope*cq_or_cs), original combined .10RMS(A) cap,prefix100zero. Original A gain may change canonical mean Q.",
+    "random_libraries": "Use the exact new024 hash-derived CPU float32 seed triples recorded here through the existing Streams010 shapes/chunk128; no charge/sign/PIT stream; reuse each complete base384 byte across13theta.",
+    "generation": "Load only original005 CP once; assemble cached M0 and all3noise extensions once for52744signal rows; persist complete float64 preADC base384 for each bank/hypothesis before probes. No new A/M0 forward or original SOURCE/REAL waveform read.",
+    "hard_observation": "For every theta use the same base384 plus deterministic mean delta, then exact original14bit ADC/first-argmax search112:144/crop256 and original baseline100; no frozen-peak,STE or expanded window.",
+    "score": "Report all78 theta-bank-hypothesis population mean vectors and RMS residuals against the one saved REAL mean; raw and DC-removed shape RMS plus signed meanQ/front/tail, crop/rail changes and trust usage. These are population summaries, never SOURCE-REAL event-pair MSE or conditional REAL truth.",
+    "scope_of_uncertainty": "Fixed-library results with paired same-parent/draw differences and two-bank consistency; retain saved REAL mean diagonal uncertainty. Do not invent cross-time covariance or treat diagonal coordinates as independent; no simultaneous-test/power or generalization claim."
+  },
+  "reference_identity": {
+    "fixed_kernel": "A + sum_k B_k eta_k from original017 cached seed0 M0; charge branch disabled, random-shape amplitude still original A.",
+    "M0_final_checkpoint_metadata_only": {
+      "path": "/home/rylan/projects/ej276d-n01/wp3_015_20261015/runs/primary/artifacts/seed0_M0/final.pt",
+      "bytes": 485683,
+      "sha256": "27ad34f2f7fa0c2c78f881b649ecd5ad664c91ff4bbe2bb08c109f3536f0915c"
+    },
+    "required_before_execution": "Pin existing CACHE_MANIFEST.M0_head_tensor_sha256 and its original017 freeze/runtime chain to this exact015 seed0_M0 final. If that existing small metadata chain is absent or mismatches, stop before005 load; do not read M0 tensors or substitute another head.",
+    "comparison_context": "This is the old015 mean parameterization around later frozen M0, not an exact replay of015 M1, whose protected stochastic head was C1."
+  },
+  "controls": "join original source IDs/roleTRAIN; cq=tanh(log1p(abs(q_source)/3.7103998046755806)-log(2)); cs=tanh(2*(tail_source/(sign(q_source)*max(abs(q_source),0.0005319378913383611))-.5)); use SOURCE values, not cached A charge.",
+  "scientific_inputs_manifest": {
+    "path": "WP3_024_SAVED_INPUTS.json",
+    "bytes": 3491,
+    "sha256": "1bf28ca68b31b2f763448f27c6408acb0ef0597ce94ebe0630a79db7897bb6c2",
+    "file_count": 13,
+    "total_bytes": 193053381
+  },
+  "additional_metadata_contracts": {
+    "source_information_audit": {
+      "path": "/home/rylan/projects/ej276d-n01/wp4_017_20261015/INPUT_INFORMATION_AUDIT.json",
+      "bytes": 621048,
+      "sha256": "6a72cbc0a3f2f23e9898e00f55c99698d73b36ffaaeb697a9f6b0affd52d8dab"
+    },
+    "cache017_init_proof": {
+      "path": "/home/rylan/projects/ej276d-n01/wp4_017_20261015/runs/primary/artifacts/INIT_PROOF.json",
+      "bytes": 123320,
+      "sha256": "060d1ad20bfdbab3ddacdaea9a63f904f749fae038ac8506df4cdcb02983cd5a"
+    }
+  },
+  "random_namespace": {
+    "seed_hash": "seed017 SHA256 original salt N01-WP4-017-v1| and canonical compact sorted JSON; first8bytes little-endian masked63bit",
+    "namespace": {
+      "run_id": "wp3_024_20261016",
+      "purpose": "fixed_mean_axis_profile",
+      "bank": "0 or1",
+      "stream": "shape / noise005 / extension284"
+    },
+    "actual_seeds": {
+      "0": {
+        "shape": 8009511340382243432,
+        "noise005": 8776897363944309080,
+        "extension284": 4446727864989473062
+      },
+      "1": {
+        "shape": 8323415395242486091,
+        "noise005": 3648971429808556269,
+        "extension284": 4948005227162182137
+      }
+    },
+    "CPU_dtype": "float32",
+    "chunk_rows": 128,
+    "row_order": "parent-major draw-minor within eachbank;4draws per6593parent",
+    "new_random_library_not_old_teacher_reuse": true
+  },
+  "budget_caps": {
+    "new_diagnostic_jobs": 1,
+    "theta_points": 13,
+    "population_mean_cells": 78,
+    "baseline_paired_comparisons": 72,
+    "training_trials": 0,
+    "new_deployable_candidates": 0,
+    "parameter_fits": 0,
+    "G_updates": 0,
+    "AD_queries": 0,
+    "optimizer_steps": 0,
+    "A_M0_checkpoint_loads": 0,
+    "A_M0_original_NN_forward_rows": 0,
+    "noise005_checkpoint_loads": 1,
+    "checkpoint_loads_total": 1,
+    "saved_A_B_Q_mmap_files": 3,
+    "cached_M0_shape_assembly_rows": 52744,
+    "noise005_NN_rows": 52744,
+    "three_noise_extension_rows": 158232,
+    "normal_shape_scalar_requests": 421952,
+    "normal_noise005_scalar_requests": 5327144,
+    "normal_extension284_scalar_requests": 14979296,
+    "new_normal_scalar_requests_total": 20728392,
+    "new_sign_or_PIT_uniform_requests": 0,
+    "stored_full384_base_carrier_rows": 158232,
+    "stored_full384_base_carrier_raw_bytes": 486088704,
+    "mean_adapter_parent_theta_rows": 85709,
+    "hard_ADC_rows": 2057016,
+    "first_argmax_gather_rows": 2057016,
+    "SOURCE_REAL_DEV_original_waveform_reads": 0,
+    "DEV_rows": 0,
+    "new_energy_or_O19_pair_distances": 0
+  },
+  "resources": {
+    "outputs": "Full base384 arrays,all13theta/bank/hyp hard lossless crops or equivalently complete readback-sufficient vectors,all78mean cells,trust/crop/rail flags,exact counters/identities/native exit/inventory; large arrays remote,necessary selection<=128MiB.",
+    "CPU_threads": 12,
+    "GPU_GiB": 10,
+    "RSS_GiB": 8,
+    "wall_seconds": 7200,
+    "output_MiB": 3072,
+    "selected_collection_MiB": 128,
+    "execution": "one registered job,verify actual005/base384 andhard progress,then one futurewake if still running; no monitor/helper framework"
+  },
+  "success_and_stop": {
+    "engineering_success": "Exact input/head/control provenance,78complete cells,all13theta within original trust,all stated counters/resources and native0 with saved carriers/results for readback.",
+    "positive_implication": "A direct actual-hard finite witness that this old mean family can move the frozen population residual materially; it does not establish physical conditional calibration or diagnose015 optimizer versus objective uniquely. Any training would be a separately named registered question.",
+    "negative_implication": "No witness in this13point profile; preserve exact effects/MC sensitivity. It does not prove the full six-parameter family or10percent trust domain unreachable, and does not authorize timewarp or further scans.",
+    "hard_stops": "Missing identity/controls,target role mismatch,undefined old adapter normalization,resource/counter failure or incomplete cells stop the job; no fallback to SOURCE pairing/noiseless/frozen-crop observations.",
+    "budget_separation": "New named no-G diagnostic allocated here; WP3 original six short slots remain consumed and WP2 remaining2 untouched. No training/teacher slot allocated.",
+    "material_witness_rule": "Report a finite-profile witness only if the same prespecified nonzero theta has population-mean RMS ratio<=.90 versus theta0 in each of the six bank/hypothesis cells, DC-removed shape RMS also improves and absolute meanQ bias does not increase. This10percent profile criterion is a new prospective diagnostic choice, not013 calibration or response acceptance; freeze it before values are computed. Report all12points,not only the best."
+  },
+  "output_scope": {
+    "base384": "all158232 fullfloat64rows saved beforeparameterprobes; raw486088704B",
+    "hard": "losslesshard crops/baseline/peak for78cells if total3GiB budget permits; fullprimitive outputs keptremote, notpublic",
+    "all78_cells": true,
+    "all72_nonzero_baseline_paired_contrasts": true,
+    "private_arrays_collected_only_necessary_under128MiB": true
+  },
+  "budget_allocation": {
+    "new_named_no_training_diagnostic": true,
+    "WP3_original_short_slots_used": 6,
+    "WP3_original_short_slots_newly_used": 0,
+    "WP2_remaining_short_slots_unchanged": 2,
+    "WP4_teacher_slots_newly_used": 0,
+    "new_deployable_candidates": 0,
+    "project_G_before": 187667,
+    "project_G_after_cap": 187667
+  },
+  "scientific_status": "response_match_not_established",
+  "frozen_history": {
+    "023_final": "receipts/wp4_023_20261016/FINAL_RESULT_RECEIPT.json",
+    "022_native1_preserved": true,
+    "020_seed0_89fail_seed1_pass_preserved": true,
+    "017_original72pending_stage2closed_preserved": true,
+    "018_paired2544pass_preserved": true
+  },
+  "no_auto_scientific_expansion": [
+    "T2training",
+    "timewarp",
+    "REALlongtraining",
+    "newmeantraining",
+    "parameterfits",
+    "extraaxes_or_points",
+    "thresholdchanges"
+  ],
+  "proposal_sha256": "7e950d61bb2145cf71ac12b67ab3ad381f5f80c2420065e5df0124c664d92c8b"
+}
