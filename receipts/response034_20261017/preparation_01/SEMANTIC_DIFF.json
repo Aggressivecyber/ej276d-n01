@@ -1,0 +1,48 @@
+{
+  "schema": "n01/response034-semantic-diff/v1",
+  "reference_SHA256": "541f09ab8b9610ceda7371ea81911dd098e8319f0b330523f04caa3d25a245b8",
+  "new_SHA256": "10843ad2bee21d8e99612e91dd662145635bafc7c8e03bccb2e757ae93030c26",
+  "identity_relabel": "Allliteral032experimentlabels/function/classnames/schemas/errorlabels->034; seed2026101732unaltered.",
+  "non_label_changes": [
+    {
+      "type": "sole_training_intervention",
+      "location": "AdamWconstruction",
+      "before": "meanLR1e-4; combinedshape+charge+localLR3e-4",
+      "after": "meanLR1e-4; shapeLR1.875e-5; combinedcharge+localLR3e-4",
+      "new_config_field": "training.shape_lr",
+      "old_new_head_lr_meaning": "Nowcharge+local, valueunchanged3e-4",
+      "unchanged": "Parameterordering within groups, AdamWdefaults, freshmoments, weight_decay0, globalclip5, onecombinedbackward, allotherdata/model/loss/RNG/eval/steps."
+    },
+    {
+      "type": "requested_report_metadata_only",
+      "location": "WARMSTART_BINDING.json",
+      "addition": "initial_model_state_sha256=state_digest(model.state_dict())",
+      "effect": "Parameterhashonly; zeroNN/AD/CP/forward/draw/observation/bank. ExistingAand005digestfieldsretained."
+    }
+  ],
+  "normalized_unified_diff": [
+    "--- frozen032",
+    "+++ 034_after_identity_normalization",
+    "@@ -272,8 +272,10 @@",
+    "         original_native_statistics=p['inputs']['statistics'], fit_rows=21047, fit_split='TRAIN', DEV_used=False))",
+    "     groups = model.parameter_groups()",
+    "     optimizer = torch.optim.AdamW([dict(params=groups['mean'], lr=p['training']['mean_lr']),",
+    "-        dict(params=groups['shape']+groups['charge']+groups['local'], lr=p['training']['new_head_lr'])], weight_decay=0.)",
+    "+        dict(params=groups['shape'], lr=p['training']['shape_lr']),",
+    "+        dict(params=groups['charge']+groups['local'], lr=p['training']['new_head_lr'])], weight_decay=0.)",
+    "     write_json(out/'WARMSTART_BINDING.json', dict(mean_state_sha256=old_A_digest,",
+    "+        initial_model_state_sha256=state_digest(model.state_dict()),",
+    "         strict_whole_mean_loaded=True, mean_trainable=True, frozen005_extension_state_sha256=noise_digest,",
+    "         mean_parameters=sum(value.numel() for value in groups['mean']),",
+    "         new_parameters=sum(value.numel() for key in ('shape', 'charge', 'local') for value in groups[key]),"
+  ],
+  "source_recovery_check": "Undoidentitylabels+thetwoenumeratedchanges => exactoriginal032textandAST",
+  "source_text_exact_after_recovery": true,
+  "AST_exact_after_recovery": true,
+  "config_semantics_check": "Removeonlytraining.shape_lr,new034sourcepin,andrestoreidentity/freezeadministrativemetadata => exactoriginal032config",
+  "config_exact_after_recovery": true,
+  "seed_exact": 2026101732,
+  "evaluation_config_identical": true,
+  "all_input_records_identical": true,
+  "resources_identical": true
+}

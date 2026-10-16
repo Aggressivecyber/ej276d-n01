@@ -1,0 +1,150 @@
+{
+  "schema": "n01/response034-root-decision/v1",
+  "UTC": "2026-10-16T21:40:22.516255+00:00",
+  "authority": "Continuing user response-learning repair direction; 2026-10-17 05:05 heartbeat; Sol Max implementation and independent review authorized; use existing data only.",
+  "evidence": {
+    "receipts/response032_20261017/FINAL_RESULT_RECEIPT.json": {
+      "sha256": "ce06ccca4b4daf751e16d7ef7c9031d1489411997a3cf65d01077f29099ef07e",
+      "bytes": 12686
+    },
+    "receipts/response033_20261017/FINAL_RESULT_RECEIPT.json": {
+      "sha256": "430fc1eca3821a986640d3a0f481514d444ba7b1d31b3bb422f9a4c58b657bfc",
+      "bytes": 17273
+    },
+    "receipts/response033_20261017/independent_result_01/RESULT_REVIEW.json": {
+      "sha256": "3973b96ce0b61c824cbf80db543e3239fc99daf5167ecf6b2979b6b7f5de0d6b",
+      "bytes": 56625
+    },
+    "receipts/response034_20261017/preparation_01/SEMANTIC_DIFF.json": {
+      "sha256": "d89f22e161c63d0bce23d61409fed0f98721b43f5970e362d789dca14eb72226",
+      "bytes": 2912
+    },
+    "receipts/response034_20261017/deployment_01/PREFLIGHT.json": {
+      "sha256": "a05bc3150267da9f6d37fe61bcef2adf5a459805d9561a0510b17bb25cde8ea6",
+      "bytes": 2724
+    }
+  },
+  "action": "Launch exactly one fixed 2000-update REAL034 targeted shape-learning-rate repair.",
+  "rationale": "033 exactly reproduced 032 first step and localized its large risk increase to the shape parameter update: shape-only harmed all eight independent TRAIN banks; mean B RMS increased by 2.459x. This supports a bounded targeted step reduction but does not prove a long-run fix.",
+  "decision_tradeoff": {
+    "selected": "Only shape LR /16, preserving mean learning speed.",
+    "alternative_reviewed": "Independent reviewer preferred all groups /16 because that full scaled state was directly probed.",
+    "unresolved": "The selected mixed step was not directly evaluated in 033; even the whole sixteenth step had unresolved independent risk direction. No consensus or guaranteed descent is claimed."
+  },
+  "sole_training_intervention": {
+    "mean_lr": 0.0001,
+    "shape_lr": 1.875e-05,
+    "charge_local_lr": 0.0003,
+    "shape_original_lr": 0.0003,
+    "seed": 2026101732
+  },
+  "unchanged": [
+    "whole strict deterministicA warmstart with allmean trainable",
+    "new029head initialization",
+    "all9input paths/bytes/SHA and originalTRAINstats+TRAIN-only integral/carrier scale fits",
+    "all6593SOURCE and21047REAL eligible IID streams andfixedseed",
+    "005frozen,3hypotheses averaged separately",
+    "jointenergy031+regular.01+preADCsaturation+clip5",
+    "2000combinedAD/updates, status100/checkpoint1000",
+    "onefullTRAIN4drawbank A/G0sharedforward andfinal RNGreplay; oneDEV512x4 vs599afterfinalfreeze, A/finalsharedRNG",
+    "originalnativeW1column16, allflags/denominators and originalpilotprogress gates",
+    "alloutput/resources/noauto restart restrictions"
+  ],
+  "initial_native_digest_reference": {
+    "source": "receipts/response033_20261017/completion_01/run_01/INITIAL_BINDING.json",
+    "initial_G0_model_state_sha256": "354b9828bdb6f552ab747e2aab06e988b27b1c7aad4d71580bdab6d8bdfc5f58",
+    "original_A_state_sha256": "529f9a67594ac5232b932d7af246a934f1f5e01c62e7502fc3a50736cf5644c7",
+    "frozen005_extension_state_sha256": "bba9cc181344d60a9a00f5c5b8850d30a2020d30a785814b7295496949d85912",
+    "method": "Compare034nativeWARMSTART_BINDING fields to these knownsavedJSON values; no extraCP/NN/AD/draw/bank. This comparison is ROOTstartup review, not an extra runner forward."
+  },
+  "counts": {
+    "G_updates": 2000,
+    "NN_calls": 4446,
+    "NN_rows": 312840,
+    "noise005_rows": 310792,
+    "extension_rows": 932376,
+    "generated_ADC_rows": 1017636,
+    "checkpoint_loads": 2,
+    "TRAIN_archives_decoded": 1,
+    "DEV_archives_decoded": 1,
+    "DEV_metadata_archives_decoded": 1,
+    "training_AD_queries": 2000
+  },
+  "resources": {
+    "wall_seconds": 3600,
+    "RSS_GiB": 12,
+    "GPU_GiB": 10,
+    "CPU_threads": 4,
+    "output_MiB": 1024
+  },
+  "config": {
+    "path": "configs/response034_20261017.json",
+    "sha256": "fe1b3bb2a56b191f61d4a7e5825005961c52c1a9e44e85511c3d7e215a3ff849",
+    "bytes": 9190
+  },
+  "source_pins": {
+    "scripts/mechanism012_losses.py": "3fc84ccaf255b660d8eda4f96d43e2c236045a756e777c9b2d490f7137dc04ed",
+    "scripts/mechanism012_ops.py": "98a18eef018beebff82565da9ed5b31208cf2bff6db6bff0c492eff9bf2a7816",
+    "scripts/run_response029.py": "a39f5ddd3fcbd0d8cf58db487d7fb51d1b17646f69603047a1e739fece74e7d5",
+    "scripts/run_response031.py": "bfe819d4ae09b4ed58cd6211e32948af14970e610a29ce3ec2960f1536c4115d",
+    "scripts/run_response032.py": "541f09ab8b9610ceda7371ea81911dd098e8319f0b330523f04caa3d25a245b8",
+    "scripts/run_wp1_013.py": "e7cbcf782e19e139c02260bbe1d67e0a50108785ed5b093975800a28b103657d",
+    "scripts/stability011_metrics.py": "fd87e544673f63887e57c8efafeb0327bbe4db430b04c9697c71cd2e244c3f78",
+    "scripts/supervise.py": "0223a8912196876f712072f064c9118a999f7e563244947cba7ad729d247a69b",
+    "scripts/supervise_mechanism012.py": "43b6fffd076a1e6d57db67e85e433e71d3f2cda91f3a3d5fe31f0fcb430486a4",
+    "scripts/wp1_boundary_saved.py": "ea1317c2a6e8616f5b30e2aa6ea1900fde17a711b57e2f02ae84fa5cc5782065",
+    "scripts/wp1_evaluation.py": "3f5e4f9e8ca147cfbad8b75085c59d9c2081deda9b7532f1732f1d5e932cc895",
+    "scripts/wp1_input_information.py": "bb8278d2651ddcaf10830a4589d66242d69a7e22d10321171ad7f4b71dec8b17",
+    "scripts/wp1_ops.py": "f8ddbbdb2f2f6df033e964f27bf03dcbda07055cc7378775591ef69b9caf85b5",
+    "scripts/wp1_parameter_probe.py": "bf7901db6e1b99084894fdc8f4c5d1685de2ca00cacb7a0a6a9801c39b8823fa",
+    "src/n01/__init__.py": "d17d880249fa0f50920dd14c505b15b4de74419849f86296913c31576c31e891",
+    "src/n01/ablation009.py": "8100bbedb765f08f689a4bce5cb9ea1af133e6f2b895b544656f6e9fbd058d3b",
+    "src/n01/data.py": "2ec3363bc830043af053342b4638f5e6ab55d27303da037f383f4fe630d77bd2",
+    "src/n01/data008.py": "2a66a8800642cf6788ce268d326af9d128cb165daf60d555f802b2c881ac97af",
+    "src/n01/diagnose_mean_random009.py": "31a07360e9ab53e987fe6d2bec3b466398a2c7125e64c1c94b712708ae62dfc4",
+    "src/n01/electronics_v3.py": "816b12bf4814f23ff4455498ec385df335cdb38827548c969e38ef08b9763926",
+    "src/n01/evaluate.py": "baaaf0c50c98a15b3c04cddf07ea4c1b5b4503156c50fd78d774cf3fb5baf8bb",
+    "src/n01/evaluate_window008.py": "75f8988415a181a31a7c2b5890418b1f7685e0d8fb141cdea84f4174af783cc0",
+    "src/n01/extension006.py": "caa2eff66555773d04a72482c8375b5896a241e0a858070a80f689aa3def5040",
+    "src/n01/losses.py": "4371a6d5924f0f664935b5d6eb6715c530f80af39ae276c7dc34ba02c5f4b1a7",
+    "src/n01/losses008.py": "68a9330b7e0620f12adbb3dc22a00c632a1b7577d44b92617da7d14979d9ea61",
+    "src/n01/losses008_v2.py": "6932772c4b00fa62383b5ca356f26d0cf81271be531888b474ae6146fa25f3d8",
+    "src/n01/losses014.py": "86fded3226ae86a5aaae6d9066220923fb6b0aebfeaa09cb638642498e4f4114",
+    "src/n01/model.py": "0a0488218d99f351a98e30f2b1525b837b4ad3195c19f2a76ff61ee01298587b",
+    "src/n01/model008.py": "56a6b41f9d2906c82757f4ca9f91a751ff8531428a7f38714e0a291359cd1b4f",
+    "src/n01/model008_fix01.py": "3bc826a1867f2658ae507ab2be683a6b901b7f481b1efaf005f3cf4953429abc",
+    "src/n01/model010.py": "3fbbee140477caf755feadf88175291c451c95a56899770a65eebf7be6204318",
+    "src/n01/model029.py": "40c16bca31ff277912959a040a40770608c49f374eff76cffd45de0d716ea599",
+    "src/n01/observation008.py": "9f7b6c0a266c420af8c6c155103774bae1ed949cfe05ee6a1f19b75f9254c4ec",
+    "src/n01/response008.py": "cf8b14b377530a234b066c2fd958827172abb624e7a959ac9bb26a416ff3b2e7",
+    "src/n01/train.py": "9cb6b0a9cfad3fd9163eee919de7b2d64ca422513093e204f62a934e25684169",
+    "src/n01/train_shape010.py": "5c94a6d947c1cfcb926ea2b39e77fbdeb6600f231f503fdf4c43c7ff7033e6d9",
+    "scripts/run_response034.py": "10843ad2bee21d8e99612e91dd662145635bafc7c8e03bccb2e757ae93030c26"
+  },
+  "source_review": {
+    "path": "receipts/response034_20261017/independent_review_01/REVIEW.json",
+    "sha256": "fe4a1c7b777bf7f385a7e16aafc7a41effd9e0c7b7118317fb074b4779a0411e",
+    "blocking_findings": []
+  },
+  "progression_criterion": {
+    "TRAIN_wave_relative_gain_min_all_hypotheses": 0.02,
+    "TRAIN_and_DEV_defined_positive_calibrated_component_delta_vs_A_max": "T_by_hypothesis",
+    "DEV_wave_gain_is_reported_not_required": true,
+    "physical_response_acceptance": false
+  },
+  "failure_rule": "Exactlyonefixed2000step034trial. Failure remains negative; do not automatically switchA, increase steps, opengrid orselect bestDEV/checkpoint.",
+  "scientific_status": "response_match_not_established",
+  "startup_policy": "One fresh ownership/resource check, acquire project flock, launch through existing RSS supervisor and outer 3600-second timeout. Verify actual native startup, A/G0/005 digests and finite gradients once. If still running, schedule one future heartbeat and stop monitoring.",
+  "publication": "Publish only authorized source, aggregate outputs, figure and receipts to existing repository; no raw waveforms, large arrays, weights or private NPZ.",
+  "preparation_actual_counts": {
+    "NN_forwards": 0,
+    "AD_queries": 0,
+    "CP_deserializations": 0,
+    "raw_scientific_array_decodes": 0,
+    "observation_calls": 0,
+    "optimizer_updates": 0,
+    "launches": 0
+  },
+  "cumulative_before": 195668,
+  "ledger_reconciliation": "Synchronize prior 032 jobs-array review status and add completed 033 jobs-array record from canonical execution objects; align new_training_updates with cumulative_training_updates including the already-accounted one033 diagnostic update. Do not add any update again."
+}

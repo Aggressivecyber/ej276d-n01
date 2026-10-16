@@ -1,0 +1,157 @@
+{
+  "schema": "n01/response034-independent-minimal-repair-review/v1",
+  "UTC": "2026-10-16T21:39:27.599005+00:00",
+  "status": "no_blockers_for_frozen_bounded_targeted_shape_LR_trial",
+  "blocking_findings": [],
+  "scope": "Independent static minimal-diff, metadata and budget review; no science execution.",
+  "identity": {
+    "source": "scripts/run_response034.py",
+    "source_sha256": "10843ad2bee21d8e99612e91dd662145635bafc7c8e03bccb2e757ae93030c26",
+    "source_bytes": 32190,
+    "CONFIG_DRAFT_sha256": "cb36e4b69f90231d68bff694052626d8559893b448b401aa8bf5ad708e817604",
+    "PLAN_sha256": "80584c73ffefce4147a090dde8d44c70cf14d644554e571140575a49117e8907",
+    "SEMANTIC_DIFF_sha256": "d89f22e161c63d0bce23d61409fed0f98721b43f5970e362d789dca14eb72226",
+    "IMPLEMENTATION_RECEIPT_sha256": "139e3c706425f00a02eae65e25f88f1dbee220dbd090fccbf972a39d3b9880fc",
+    "reference032_source_sha256": "541f09ab8b9610ceda7371ea81911dd098e8319f0b330523f04caa3d25a245b8",
+    "source_pins_recomputed_match": 37,
+    "frozen_config_status": "Final exact frozen bytes verified; ready_for_real_pilot",
+    "frozen_config": "configs/response034_20261017.json",
+    "frozen_config_sha256": "fe1b3bb2a56b191f61d4a7e5825005961c52c1a9e44e85511c3d7e215a3ff849",
+    "frozen_config_bytes": 9190,
+    "frozen_config_UTF8_LF": true,
+    "draft_to_frozen_changes_only": {
+      "status": {
+        "draft": "draft_not_frozen",
+        "frozen": "ready_for_real_pilot"
+      },
+      "freeze_UTC": {
+        "draft": null,
+        "frozen": "2026-10-16T21:38:47.216852+00:00"
+      },
+      "preparation_only": {
+        "draft": true,
+        "frozen": false
+      }
+    }
+  },
+  "independent_recovery_proof": {
+    "source_text_exact032_after_reversing_enumerated_changes": true,
+    "AST_exact032_after_reversing_enumerated_changes": true,
+    "configuration_exact032_after_reversing_enumerated_changes": true,
+    "source_reverse_operations": [
+      "identity literals/function/class/schema034->032",
+      "replace3AdamWgroups with original2groups",
+      "removeinitial_model_state_sha256 metadatafield"
+    ],
+    "config_reverse_operations": [
+      "removetraining.shape_lr",
+      "remove034runnerpin",
+      "restore032schema/run_id/status/preparation_only/freeze_UTC/decisionmetadata"
+    ],
+    "all_original36_source_pins_unchanged": true
+  },
+  "sole_training_change": {
+    "AdamW_groups": [
+      {
+        "parameters": "mean",
+        "lr": 0.0001
+      },
+      {
+        "parameters": "shape",
+        "lr": 1.875e-05
+      },
+      {
+        "parameters": "charge+local",
+        "lr": 0.0003
+      }
+    ],
+    "shape_lr_ratio_to032": 0.0625,
+    "all_groups_fresh_optimizer_moments": true,
+    "same_global_clip_norm": 5.0,
+    "same_regular_weight": 0.01,
+    "same_seed": 2026101732,
+    "same_combined_objective_and_backward": true,
+    "AST_call_lines": {
+      "backward": [
+        330
+      ],
+      "optimizer_step": [
+        342
+      ],
+      "torch_load": [
+        221,
+        223
+      ]
+    },
+    "no_new_training_or_sampling_branch": true
+  },
+  "same_initial_state_and_streams": {
+    "strict_originalA_and005_inputs_unchanged": true,
+    "all9_input_records_byte_for_byte_equal032": true,
+    "model029_and_original36_dependency_payload_unchanged": true,
+    "all_initialization_and_sampler_seeds_unchanged": true,
+    "new_native_G0_digest_field": "ExistingWARMSTART_BINDING addsstate_digest(model.state_dict()) before firstNN call; no RNGdraw, CPread, NNforward, AD, observation or extra evaluationbank.",
+    "expected_native_digests": {
+      "source": "receipts/response033_20261017/completion_01/run_01/INITIAL_BINDING.json",
+      "initial_G0_model_state_sha256": "354b9828bdb6f552ab747e2aab06e988b27b1c7aad4d71580bdab6d8bdfc5f58",
+      "original_A_state_sha256": "529f9a67594ac5232b932d7af246a934f1f5e01c62e7502fc3a50736cf5644c7",
+      "frozen005_extension_state_sha256": "bba9cc181344d60a9a00f5c5b8850d30a2020d30a785814b7295496949d85912",
+      "method": "Compare034nativeWARMSTART_BINDING fields to these knownsavedJSON values; no extraCP/NN/AD/draw/bank. This comparison is ROOTstartup review, not an extra runner forward."
+    },
+    "runtime_boundary": "The newscript reconstructsG0 fromsame strictoriginalA+seed, not a saved033updatedstate. Native ROOTstartup must compareA/G0/005 reportedhashes to the knownsavedJSON values; no new reviewer modelcall was made."
+  },
+  "unchanged_contracts": {
+    "model_and_mean_trainability": "Same029 andallmean parameters trainable; originalAref deepcopy frozen. No newmodel/head/normalization/dtype changes.",
+    "data_and_noise": "Same6593SOURCE/21047REAL IIDbanks, independent4indices+6noise streams, frozen005 andall3extensions, CPU preparedREAL bitwise contract, allflags/rows retained.",
+    "objective": "Same031four-bankjointenergy over6waveviews/integrals/carrier384, same.01regular+saturation, onecombinedbackward. No objectiveorweightchange.",
+    "evaluation": "SameTRAIN4draws/source A/G0sharedinitial andfinalmatchedseed, sameDEV512/599 afterfinalfreeze, nativeW1column16, originalfrozenprojectionfingerprint/scales anddefineddenominators.",
+    "gates": "All3TRAINH wave gain>=2% versusA plusallTRAIN+DEVdefinedpositiveTcomponents final-minus-A<=T. DEVwavegainreportedseparately. No relaxedtolerances, RRasthreshold or DEVselection.",
+    "resources": {
+      "wall_seconds": 3600,
+      "RSS_GiB": 12,
+      "GPU_GiB": 10,
+      "CPU_threads": 4,
+      "output_MiB": 1024
+    },
+    "no_automatic_followup": "Exactlyonefixed2000step034trial. Preservefailure; no automaticglobalLRalternativeA, grid, moreupdates or checkpointselection."
+  },
+  "recomputed_complete_run_budget": {
+    "G_updates": 2000,
+    "NN_calls": 4446,
+    "NN_rows": 312840,
+    "noise005_rows": 310792,
+    "extension_rows": 932376,
+    "generated_ADC_rows": 1017636,
+    "checkpoint_loads": 2,
+    "TRAIN_archives_decoded": 1,
+    "DEV_archives_decoded": 1,
+    "DEV_metadata_archives_decoded": 1,
+    "training_AD_queries": 2000,
+    "equals_registered_PLAN": true,
+    "new_digest_additional_NN_AD_CP_observation_calls": 0
+  },
+  "scientific_decision_boundary": {
+    "033_supports": "Actualshape-onlyfirstAdamstep harmed owntrainingbank andall8independentTRAINriskbanks; targetedstep reduction is a justifiedprovisional repair.",
+    "not_established": "The mixed034step(meanfull/shape1over16/charge+localfull) was not directly evaluated by033. Evenwhole sixteenth step hadunresolved3MCSErisk direction. No promiseddescent, long-run recovery or responsefit.",
+    "reviewer_ROOT_tradeoff": "Reviewer initiallypreferredwholeLR1over16 because thatstate was directlyprobed; ROOTchoseonlyshape1over16 to preserve meanlearningspeed. This difference remains documented in033RESULT_REVIEW andROOTdecision rather than rewrittenasconsensus.",
+    "acceptance": "Nativeexit0, lowerenergy orrelativeprogress alone doesnot establishphysicalconditionalresponse recovery. Originalscientificstatus remainsresponse_match_not_established."
+  },
+  "reviewer_execution": {
+    "NN_forwards": 0,
+    "AD_queries": 0,
+    "numeric_module_imports": 0,
+    "checkpoint_deserializations": 0,
+    "CP_byte_reads": 0,
+    "raw_SOURCE_REAL_DEV_array_reads": 0,
+    "observation_calls": 0,
+    "optimizer_updates": 0,
+    "new_scientific_jobs": 0,
+    "old_source_or_ledger_edits": 0
+  },
+  "conclusion": "No static blocker to running the single approved frozen034 targetedshapeLR trial. Original032/033negativeevidence, gates, budgets and noautomaticfallback stoprule remain intact. This is a provisionalmixedstep repair, not demonstrated riskdescent or responsefit.",
+  "pre_freeze_review_snapshot": {
+    "path": "receipts/response034_20261017/independent_review_01/REVIEW_BEFORE_CONFIG_FREEZE.json",
+    "sha256": "3ae3c979741a1dd6955b377c053a783aa3249494dbeb8ec97f6095fa837bfcb6",
+    "bytes": 7247
+  }
+}

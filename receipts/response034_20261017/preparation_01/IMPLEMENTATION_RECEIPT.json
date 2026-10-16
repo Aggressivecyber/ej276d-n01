@@ -1,0 +1,90 @@
+{
+  "schema": "n01/response034-shape-LR-repair-implementation/v1",
+  "status": "delivered_source_locked_pending_ROOT_review_and_freeze",
+  "files": {
+    "scripts/run_response034.py": {
+      "sha256": "10843ad2bee21d8e99612e91dd662145635bafc7c8e03bccb2e757ae93030c26",
+      "bytes": 32190
+    },
+    "receipts/response034_20261017/preparation_01/PLAN.json": {
+      "sha256": "80584c73ffefce4147a090dde8d44c70cf14d644554e571140575a49117e8907",
+      "bytes": 4288
+    },
+    "receipts/response034_20261017/preparation_01/CONFIG_DRAFT.json": {
+      "sha256": "cb36e4b69f90231d68bff694052626d8559893b448b401aa8bf5ad708e817604",
+      "bytes": 9133
+    },
+    "receipts/response034_20261017/preparation_01/SEMANTIC_DIFF.json": {
+      "sha256": "d89f22e161c63d0bce23d61409fed0f98721b43f5970e362d789dca14eb72226",
+      "bytes": 2912
+    }
+  },
+  "static_validation": {
+    "AST_parse": "passed",
+    "AdamW_group_count": 3,
+    "backward_call_sites": 1,
+    "optimizer_step_call_sites": 1,
+    "torch_checkpoint_load_call_sites": 2,
+    "source_text_and_AST_exact_after_enumerated_changes_reversed": true,
+    "configuration_exact_after_enumerated_changes_reversed": true,
+    "old032_source_SHA_unchanged": true,
+    "old_dependency_payload_SHA_unchanged_files": 36,
+    "all_source_pins": 37,
+    "UTF8_LF_and_JSON_readback": "passed",
+    "preparation_counter_correction": "An initial static assertion counted both np.load and torch.load by method name; corrected AST receiver test confirms exactly2torch.load sites. Runner source unchanged."
+  },
+  "training_intervention": {
+    "seed": 2026101732,
+    "mean_lr": 0.0001,
+    "shape_lr": 1.875e-05,
+    "charge_local_lr": 0.0003,
+    "only_new_training_config_field": "training.shape_lr",
+    "new_head_lr_retained_for": "charge+local",
+    "G_updates": 2000,
+    "all_other_training_and_evaluation_semantics_unchanged": true
+  },
+  "metadata_only_addition": "WARMSTART_BINDING.initial_model_state_sha256 hashes initial029 parameters/buffers once before first NN call; retains original A/005 digests and adds no NN/AD/CP read/observation/evaluation bank. Expected G0/A/005 values are in PLAN from saved033 INITIAL_BINDING, without rereading a checkpoint.",
+  "native_budget": {
+    "G_updates": 2000,
+    "NN_calls": 4446,
+    "NN_rows": 312840,
+    "noise005_rows": 310792,
+    "extension_rows": 932376,
+    "generated_ADC_rows": 1017636,
+    "checkpoint_loads": 2,
+    "TRAIN_archives_decoded": 1,
+    "DEV_archives_decoded": 1,
+    "DEV_metadata_archives_decoded": 1,
+    "training_AD_queries": 2000
+  },
+  "resources": {
+    "wall_seconds": 3600,
+    "RSS_GiB": 12,
+    "GPU_GiB": 10,
+    "CPU_threads": 4,
+    "output_MiB": 1024
+  },
+  "scope_limits": [
+    "One fixed actual REAL trial; B mixed step was not directly scored by033.",
+    "No diagnostic banks, model/loss/old-source edits, DEV-based selection, extra CP reads or engineering NN execution.",
+    "Keep original032 progress gates. One-step overshoot evidence is not proof of a long-run repair or response acceptance.",
+    "On failure preserve the negative result; do not automatically switch to A or a grid."
+  ],
+  "preparation_actual_counts": {
+    "NN_forwards": 0,
+    "AD_queries": 0,
+    "checkpoint_deserializations": 0,
+    "scientific_array_decodes": 0,
+    "observation_calls": 0,
+    "optimizer_updates": 0,
+    "native_launches": 0,
+    "numeric_module_imports": 0
+  },
+  "ROOT_next_actions": [
+    "Review source and semantic diff; freeze config/source inputs.",
+    "Launch through registered project-lock supervisor; inspect one startup including A/G0/005 digests, then schedule future wakeup if still running."
+  ],
+  "old_sources_models_losses_ledgers_modified": false,
+  "no_further_source_edits_without_ROOT_instruction": true,
+  "scientific_status": "response_match_not_established"
+}

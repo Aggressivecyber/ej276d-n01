@@ -1,0 +1,1977 @@
+{
+  "schema": "n01/response033-independent-saved-result-review/v1",
+  "UTC": "2026-10-16T21:34:01.417669+00:00",
+  "status": "native_complete_exact_first_step_reproduced_large_shape_update_harm_reproduced",
+  "identity": {
+    "source_sha256": "710be3a025dd7f7611bcecc8480d4e3813531e9a3b57fbeb47419bc2a32b1d11",
+    "config_sha256": "d8b841ac35225290ec5fbdbf38ed956d8e3b627ef35b869c217d69578c607697",
+    "RESULT_sha256": "afd6fe0ecdc25fe7c6a0979fc5ebd39b20e0dd6b5cad6aa2c73bd3350c8b2cd2",
+    "metrics_sha256": "5c1355cdea7d3244410da8badca8030ce4b7ce2bc471a4a570caeaaab4c7c50f",
+    "terminal_snapshot_sha256": "dec843ffbe0fade262ee0ba8b1454d0840e3b350175f174308603c6d935939de",
+    "independent_source_review_sha256": "6527d1d75074000772092ca245ebf87d89d468509b632fa41a77212e07626dc3"
+  },
+  "integrity": {
+    "errors": [],
+    "12_collected_files_SHA_recomputed_match": true,
+    "remote_source_and_config_hash_checks_all_true": 38,
+    "paired_metrics_recomputed": 161,
+    "maximum_mean_or_MCSE_error": 0.0,
+    "maximum_raw_delta_error": 0.0,
+    "maximum_decomposition_identity_error": 1.1102230246251565e-16,
+    "actual_native_counts": {
+      "NN_calls": 144,
+      "NN_rows": 9216,
+      "noise005_rows": 1152,
+      "extension_rows": 3456,
+      "generated_ADC_rows": 27648,
+      "checkpoint_loads": 2,
+      "TRAIN_archives_decoded": 1,
+      "AD_queries": 1,
+      "diagnostic_G_updates": 1,
+      "banks_cached": 9,
+      "REAL_existing_observation_rows": 21047
+    },
+    "counts_independently_reconstructed_from_grid": true
+  },
+  "time_evidence": {
+    "native_start_UTC": "2026-10-16T21:27:42.170512+00:00",
+    "native_end_UTC": "2026-10-16T21:27:48.174340+00:00",
+    "native_elapsed_seconds": 6.003828,
+    "terminal_snapshot_UTC": "2026-10-16T21:28:20.158685+00:00",
+    "collection_manifest_UTC": "2026-10-16T21:28:51.180334+00:00",
+    "native_exit_code": 0,
+    "stop_reason": null,
+    "peak_RSS_bytes": 2847813632,
+    "peak_RSS_GiB": 2.652233123779297,
+    "no_live_owned_processes_at_snapshot": true
+  },
+  "first_step_replay": {
+    "checks": 9,
+    "all_observed_equal_expected_exactly": true,
+    "maximum_absolute_error": 0.0,
+    "expected_targets_and_fixed_tolerances": {
+      "expected": {
+        "data": 0.09570950875194757,
+        "objective": 0.09577362061818252,
+        "regular": 0.006411186623494439,
+        "saturation": 0.0,
+        "preclip_gradient_norm": 21.1663818359375,
+        "group_gradient_norms": {
+          "mean": 3.0439902770576053,
+          "shape": 20.945805331290273,
+          "charge": 0.15193670701350645,
+          "local": 0.001978266293444085
+        }
+      },
+      "tolerance": {
+        "loss": [
+          1e-08,
+          1e-06
+        ],
+        "norm": [
+          1e-05,
+          1e-06
+        ],
+        "formula": "absolute + relative*abs(expected)",
+        "failure_action": "stop_no_tolerance_change_no_optimizer_update"
+      }
+    },
+    "hard_ADC_forward_baseline_reused": true,
+    "AD_queries": 1,
+    "actual_Adam_updates": 1,
+    "initial_binding": {
+      "initial_model_state_sha256": "354b9828bdb6f552ab747e2aab06e988b27b1c7aad4d71580bdab6d8bdfc5f58",
+      "original_A_state_sha256": "529f9a67594ac5232b932d7af246a934f1f5e01c62e7502fc3a50736cf5644c7",
+      "frozen005_extension_state_sha256": "bba9cc181344d60a9a00f5c5b8850d30a2020d30a785814b7295496949d85912",
+      "checkpoint_streams_restored": true,
+      "model_mode": "train",
+      "statistics_refitted": false,
+      "original_statistics_inputs": {
+        "path": "/home/rylan/projects/ej276d-n01/window008_resume01_20261013/data/window008/FIT_STATISTICS008.json",
+        "local_path": "E:/GAN/research/N01/data/window008/FIT_STATISTICS008.json",
+        "sha256": "aadd729364d0b6afac699a9d1774ac8d29fd2bcd10a9fd9f551141ecc2fbc2a0",
+        "bytes": 104199
+      },
+      "source_physical_weights": "unknown",
+      "source_mixture": "uniform_count",
+      "DEV_reads": 0
+    }
+  },
+  "records_and_CRN": {
+    "records": 72,
+    "full_state_bank_grid": [
+      9,
+      8
+    ],
+    "unique_pairs": 72,
+    "same_identity_across_all8_states_each_bank": true,
+    "unique_row_index_hashes_across36_stream_banks": 36,
+    "all_bank_CRN_identity": [
+      {
+        "bank_index": 0,
+        "role": "exact_first_training",
+        "all_eight_states_same_identity": true,
+        "banks": {
+          "source_A": {
+            "rows": 64,
+            "unique_rows": 63,
+            "row_indices_sha256": "ec0d7d1d9e067b1299d59b2c3a84128ddcd759cbb369b6d4cdd38cb559dd39de",
+            "parent_ids_sha256": "8d21f3ad09b7a11a9eea8f34de55cc52e50acb51c625c96ddb73e73942ef520f"
+          },
+          "source_B": {
+            "rows": 64,
+            "unique_rows": 63,
+            "row_indices_sha256": "f40c74dda98bb0e2fb7ad649f5e385e0c160c43c201ae702e4861113b51adf51",
+            "parent_ids_sha256": "d4d84de70dcdc6fbdcbe6bbbf573dc82ac3557a1c1b8ef87d6e022d232df357f"
+          },
+          "real_T": {
+            "rows": 128,
+            "unique_rows": 127,
+            "row_indices_sha256": "e985571744e56090c117a5bc24c433de448a8cad9355802ae3de82c6b654673f",
+            "parent_ids_sha256": "cdbfab4f80590c0707f273bb195a7e1a0304f236564f9c454075900c1dc46264"
+          },
+          "real_U": {
+            "rows": 128,
+            "unique_rows": 128,
+            "row_indices_sha256": "aceb642f63035db7bd0ed8a2810baa84f86cac01141c8137245e0f9f0a9674cd",
+            "parent_ids_sha256": "bd5761746a1625ec9aa4429ba3c6c466e3813e1b8ba310e1b42bf88470a0dc63"
+          }
+        }
+      },
+      {
+        "bank_index": 1,
+        "role": "independent_TRAIN_risk",
+        "all_eight_states_same_identity": true,
+        "banks": {
+          "source_A": {
+            "rows": 64,
+            "unique_rows": 64,
+            "row_indices_sha256": "d913163d171cb7a6216dc7d5af3155aa09ad6dd1b9712c5019eb32802a1378d7",
+            "parent_ids_sha256": "9b81c92065a4936b5762879bdf63a577ea278db3c3648bc703490cab3937ba18"
+          },
+          "source_B": {
+            "rows": 64,
+            "unique_rows": 64,
+            "row_indices_sha256": "91534a569d720e62ff5c8a12c1db9c9ff1bcc47446816536a793cee4ce4d84bf",
+            "parent_ids_sha256": "b3495018d4c5b0fb15b61f2a2453195b1ff89c64ed9044b202b84ef5efed386f"
+          },
+          "real_T": {
+            "rows": 128,
+            "unique_rows": 128,
+            "row_indices_sha256": "d8a3d13e7926b65a59db7839ad1990decc2c56cf13d976fb487056105a677929",
+            "parent_ids_sha256": "a355c989718b9e612dfabaee898caacaefe30f3d0b3ff8afcfa4ebff3cde291b"
+          },
+          "real_U": {
+            "rows": 128,
+            "unique_rows": 127,
+            "row_indices_sha256": "21ed72d7797011f6b3de52f76dd4ccf1c3a1aa57e109155d814eb919ae1685d6",
+            "parent_ids_sha256": "19d6c4037b810ada3218c0e78fd9fd8e14a65e0428962c6b69327bce7ec4a9d3"
+          }
+        }
+      },
+      {
+        "bank_index": 2,
+        "role": "independent_TRAIN_risk",
+        "all_eight_states_same_identity": true,
+        "banks": {
+          "source_A": {
+            "rows": 64,
+            "unique_rows": 64,
+            "row_indices_sha256": "7effd3ea10b5abb13a25dd16a475e01a8bdb20ede00f7d8db271a9dac101276d",
+            "parent_ids_sha256": "a0dcd7e8ef3732abff72a0caeecf183339dd1428aef514dd78bd20aa12354e08"
+          },
+          "source_B": {
+            "rows": 64,
+            "unique_rows": 64,
+            "row_indices_sha256": "60b3d4d1451eb868dab51babcf28e807078c3c207d74e3447392036f76163ce3",
+            "parent_ids_sha256": "f31f97384f07a05d145ee842fff71bce572bf7ab7625b3adbaf143b46978faf0"
+          },
+          "real_T": {
+            "rows": 128,
+            "unique_rows": 127,
+            "row_indices_sha256": "ee8356cebe8d650dcf4659e5d999ae77e477c839266952dab59e27829bd417c4",
+            "parent_ids_sha256": "e30792e91e70de2a9256c8ba8d22040bbe7a406f12571f468439101438fbed92"
+          },
+          "real_U": {
+            "rows": 128,
+            "unique_rows": 128,
+            "row_indices_sha256": "a95368ef47043891174e36f18cbae84d3000b337f2ab27b40a8795e62975e06d",
+            "parent_ids_sha256": "9600c993bb93d6935543d346ebae014209ae4de3afadb9650fad3dc154498f64"
+          }
+        }
+      },
+      {
+        "bank_index": 3,
+        "role": "independent_TRAIN_risk",
+        "all_eight_states_same_identity": true,
+        "banks": {
+          "source_A": {
+            "rows": 64,
+            "unique_rows": 64,
+            "row_indices_sha256": "4b23e609f83197779a9c814191c0f427256b7ead852bdb8f739882d060d4918e",
+            "parent_ids_sha256": "2ae821a9cbaf4dd3f3ba8ba6326679992946d79248ff81fd92d049c48f2aef9e"
+          },
+          "source_B": {
+            "rows": 64,
+            "unique_rows": 64,
+            "row_indices_sha256": "7354f04c1d88c42d3fda8e111219bdfc5c2e9b7a90890a366b2008454f22b2cb",
+            "parent_ids_sha256": "1e6eaf74d828cd1de85846e571e20b9cb44ac7f1bfa0d46fe7b2a299b518b17f"
+          },
+          "real_T": {
+            "rows": 128,
+            "unique_rows": 128,
+            "row_indices_sha256": "c9901015a09dedc631fca274731396dbc5ec12cdbc8bd3a48b4a41597a2c6734",
+            "parent_ids_sha256": "003bfb91453d40455cca2eef7e3eb31a0ab1cdebfa83a0cc668959b6dbdc525f"
+          },
+          "real_U": {
+            "rows": 128,
+            "unique_rows": 128,
+            "row_indices_sha256": "84ee76747dc112ab04c98b7e25be0ffa26bc7970bff5dbb05f54e31f5b05a5fc",
+            "parent_ids_sha256": "18a127da7f0a207cbaeaa06b20855302176b33835fb0a7f0bdac7ec1cec26883"
+          }
+        }
+      },
+      {
+        "bank_index": 4,
+        "role": "independent_TRAIN_risk",
+        "all_eight_states_same_identity": true,
+        "banks": {
+          "source_A": {
+            "rows": 64,
+            "unique_rows": 63,
+            "row_indices_sha256": "37dae9eb9a7cc48f168762ee437a37053ef049c122f689ccbf8facd6f5f4078f",
+            "parent_ids_sha256": "99700594e6fc6d2cf487fcd3dcc4a8660d0983b54c472a649ee7c6bd6b843dd2"
+          },
+          "source_B": {
+            "rows": 64,
+            "unique_rows": 62,
+            "row_indices_sha256": "145698d221bbf24a9edfdb6b2253850ea93fd2775ca3fb7b2b22236e47f86d78",
+            "parent_ids_sha256": "a27fa4016f0c30038e5af1c8119f7969ca05ad32c76eb211a2b1e450c9cfbbe9"
+          },
+          "real_T": {
+            "rows": 128,
+            "unique_rows": 128,
+            "row_indices_sha256": "fd56d42d978ccd7336e8316c6502072c2a3b302787bd9705e87179c1f3834628",
+            "parent_ids_sha256": "b289579825fdf69f589c63b9f8dc76f08d32f4d5b39f6fc9258533c13af7fc58"
+          },
+          "real_U": {
+            "rows": 128,
+            "unique_rows": 128,
+            "row_indices_sha256": "837459e6908e3ede7aaf8e7c32645f21880a37829b3b19dbec4945ad38336bd7",
+            "parent_ids_sha256": "deb7a835305285271f4f54a2bcd3cf4ccbb7ce49b5fe8a4a28e7f6a4318d9cf5"
+          }
+        }
+      },
+      {
+        "bank_index": 5,
+        "role": "independent_TRAIN_risk",
+        "all_eight_states_same_identity": true,
+        "banks": {
+          "source_A": {
+            "rows": 64,
+            "unique_rows": 64,
+            "row_indices_sha256": "3672abaae12a9cc89589a687477acef26040e78e32990a7cfbdd582ad52ef08a",
+            "parent_ids_sha256": "3ab1cf16d01443e7b7beb3dda8684303cfc9e29719b5ac0e563095b4f2621b02"
+          },
+          "source_B": {
+            "rows": 64,
+            "unique_rows": 63,
+            "row_indices_sha256": "7f29ebf41f1dd7907b3eeadd78e54a70dea1b59ace98abe790dc72ccca146504",
+            "parent_ids_sha256": "e9ea9ce757866e96cedae0d0394043cae2a941b3ba2767918578f2c1f8e54ea7"
+          },
+          "real_T": {
+            "rows": 128,
+            "unique_rows": 128,
+            "row_indices_sha256": "d0973d034433107509a44517214f8c7953bed02fe18f903c926b36de8b8aac0a",
+            "parent_ids_sha256": "2d84f6a660002f267a2b6687e9db00b90ffd84f40adb966d64d136b54c9ab93a"
+          },
+          "real_U": {
+            "rows": 128,
+            "unique_rows": 128,
+            "row_indices_sha256": "abe5978c6e3912793a7148907a33e47d91f63f1f7b90f334dc8013550236572c",
+            "parent_ids_sha256": "0ac89cf85be0d56cad2001cd9f2f0d9ae4330f1ad29285f1dfaf1aff0006bb43"
+          }
+        }
+      },
+      {
+        "bank_index": 6,
+        "role": "independent_TRAIN_risk",
+        "all_eight_states_same_identity": true,
+        "banks": {
+          "source_A": {
+            "rows": 64,
+            "unique_rows": 63,
+            "row_indices_sha256": "02c34f424aa4a162bc6b0c7fab023f76ceffb66eb8711f96ac4eebb3dd2fae0f",
+            "parent_ids_sha256": "1596059d5c0b18a37c65eb94a92fe415171fc2c3bfb0aee7902b95e34d33c7ad"
+          },
+          "source_B": {
+            "rows": 64,
+            "unique_rows": 63,
+            "row_indices_sha256": "ade28d27ed3c244853ab50a773226efff6781d4bc0a42b9542eb4a70aaf9971e",
+            "parent_ids_sha256": "5b18beb18e252ade7b4bb81ce386d082c16849f8fd84270a996eff473f1cdbb8"
+          },
+          "real_T": {
+            "rows": 128,
+            "unique_rows": 128,
+            "row_indices_sha256": "aba165a4a8bcd1a08299a231b9a85b6a508e51b133335274d158d4834117f0b9",
+            "parent_ids_sha256": "8a97a7a16a86392d0caa93189843e90f492baf9fce8f065d28f792c6e669a4fe"
+          },
+          "real_U": {
+            "rows": 128,
+            "unique_rows": 128,
+            "row_indices_sha256": "6bdbcfa674e488be399e727b6de89a1f190c6c21b65f29ef89c2dcd06aabd164",
+            "parent_ids_sha256": "30874f55e56912ea14aa3d037ac53001795b8cc9c0ad1f8f9b3dae7be3022342"
+          }
+        }
+      },
+      {
+        "bank_index": 7,
+        "role": "independent_TRAIN_risk",
+        "all_eight_states_same_identity": true,
+        "banks": {
+          "source_A": {
+            "rows": 64,
+            "unique_rows": 64,
+            "row_indices_sha256": "0eb87f5de0f41926f8810c933b76e297b0edce577292c808f61672daf057d3bd",
+            "parent_ids_sha256": "06116da99b186d9c61b0a30a95ec1a70df5c72f3351eb4134d2234a013c09c51"
+          },
+          "source_B": {
+            "rows": 64,
+            "unique_rows": 62,
+            "row_indices_sha256": "2d0e87a2d9c45ec18463ac376eb49bbae2fdb946f94c99e2d8e4e7051321677e",
+            "parent_ids_sha256": "33be80e68b7ff2c994d1cf5ec5b1be59558f2f8cb98ee1ef6534934bc636ca9b"
+          },
+          "real_T": {
+            "rows": 128,
+            "unique_rows": 128,
+            "row_indices_sha256": "ca27cd333eadc1f3e49fa5edcb39d5d8b242c69fc00a85d8b9836b9d4ed33386",
+            "parent_ids_sha256": "7184508836ab3384272c025810a450e8a5577db783a7c9ab5efcde597510d56c"
+          },
+          "real_U": {
+            "rows": 128,
+            "unique_rows": 127,
+            "row_indices_sha256": "beccde4b6da0444e2f90bb1420c795c52751c01604e46271e124b84e45df15a4",
+            "parent_ids_sha256": "8497fca48cf50229ce7591585746b348673d40be6670d4f2168befa8f7f57ab0"
+          }
+        }
+      },
+      {
+        "bank_index": 8,
+        "role": "independent_TRAIN_risk",
+        "all_eight_states_same_identity": true,
+        "banks": {
+          "source_A": {
+            "rows": 64,
+            "unique_rows": 64,
+            "row_indices_sha256": "746e5a7c2e2a624eb438fc716bd28ba2458bea74dfde128d88069cd65725b1d5",
+            "parent_ids_sha256": "bc05c8f4940eda330304d87a70941bc97c126143d813cdbd43bcb94cc0a4f888"
+          },
+          "source_B": {
+            "rows": 64,
+            "unique_rows": 64,
+            "row_indices_sha256": "13b8ad5039a91e7222869e9c9aa6185ebd73087809a9a2d499c482017ae7df20",
+            "parent_ids_sha256": "eb1d5b75da3742036336400e3af9573cd8a723916961cc83624d0078416bdcd5"
+          },
+          "real_T": {
+            "rows": 128,
+            "unique_rows": 127,
+            "row_indices_sha256": "bdaf1293ecdbbe2adbb51abe89e6c5dc425b07c090b46348436a4fa31d7d2d75",
+            "parent_ids_sha256": "f7fe7fcaf2ad2426a435696bc962e859293e307ba7eb6e5fedd76c57ea0505f3"
+          },
+          "real_U": {
+            "rows": 128,
+            "unique_rows": 128,
+            "row_indices_sha256": "debe7f25f70ebb83caf4358106c376f141d1afc5a98b0681c69534023ee05f38",
+            "parent_ids_sha256": "8e1a96f756f1303bd2e86a91a8afd34594b7fdfd36263c0786e8006dee6404de"
+          }
+        }
+      }
+    ],
+    "all_points_hard_ADC": true,
+    "only_first_training_baseline_has_STE_backward": true,
+    "first_training_bank_equals_RESULT_copy": true,
+    "REAL_and_generated_flag_denominators_verified": 128,
+    "no_CP_or_raw_arrays_in_collected_files": true
+  },
+  "independent_risk_recomputation": {
+    "banks": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "first_training_bank_excluded": true,
+    "MCSE_formula": "sample SD(ddof=1) of eight paired state-minus-baseline bank differences / sqrt(8)",
+    "metric_order": [
+      "data",
+      "regular",
+      "saturation",
+      "total",
+      "regular.mean",
+      "regular.basis",
+      "regular.charge",
+      "regular.local",
+      "fast.wave",
+      "fast.integral",
+      "fast.carrier",
+      "fast.data",
+      "slow.wave",
+      "slow.integral",
+      "slow.carrier",
+      "slow.data",
+      "common_level.wave",
+      "common_level.integral",
+      "common_level.carrier",
+      "common_level.data",
+      "fast.total",
+      "slow.total",
+      "common_level.total"
+    ],
+    "rows": [
+      {
+        "state": "full",
+        "mean_deltas": [
+          0.2124992484498697,
+          0.004401427054911495,
+          2.693374761367141e-06,
+          0.2125432896541664,
+          9.026261243710995e-06,
+          0.004402836526680968,
+          -1.0435468539170126e-05,
+          -2.64474015159991e-10,
+          0.060440053171336536,
+          0.07578585056601854,
+          0.0014089016046299474,
+          0.21236397970453108,
+          0.060255717346222405,
+          0.07623629891756471,
+          0.001365515575581483,
+          0.2130696940752472,
+          0.05972300540179855,
+          0.07602607248341915,
+          0.0011556848047760415,
+          0.21206407156983084,
+          0.2124080208890954,
+          0.21311373528563676,
+          0.21210811278776712
+        ],
+        "MCSEs": [
+          0.010494574032825651,
+          7.485897567646431e-05,
+          1.2938421010208982e-06,
+          0.010494758018009797,
+          5.836460021175766e-06,
+          7.344483746626918e-05,
+          7.046393187782493e-07,
+          2.7553132130053827e-08,
+          0.004762191692175058,
+          0.004339920963371978,
+          0.012796343072464083,
+          0.01075430332720583,
+          0.004633461497983776,
+          0.00411272937783791,
+          0.012735990285433214,
+          0.009959208551430421,
+          0.004546969652718191,
+          0.004425843100282809,
+          0.012790437808386746,
+          0.010797667031209816,
+          0.0107544859423198,
+          0.009959377698728384,
+          0.010797865599166396
+        ],
+        "descriptive_3MCSE_directions": [
+          "increase",
+          "increase",
+          "unresolved",
+          "increase",
+          "unresolved",
+          "increase",
+          "decrease",
+          "unresolved",
+          "increase",
+          "increase",
+          "unresolved",
+          "increase",
+          "increase",
+          "increase",
+          "unresolved",
+          "increase",
+          "increase",
+          "increase",
+          "unresolved",
+          "increase",
+          "increase",
+          "increase",
+          "increase"
+        ],
+        "positive_negative_bank_counts": [
+          [
+            8,
+            0
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            0,
+            8
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            8,
+            0
+          ]
+        ]
+      },
+      {
+        "state": "quarter",
+        "mean_deltas": [
+          0.005617778194729433,
+          8.663434373993965e-05,
+          0.0,
+          0.005618644538166833,
+          1.6549448460431151e-06,
+          8.92065337496762e-05,
+          -4.223836573239871e-06,
+          -3.2982825395623677e-09,
+          0.002072703485430061,
+          0.0028977228558185464,
+          -0.008406717885859116,
+          0.005766469725602373,
+          0.001973870905837383,
+          0.00284729998960985,
+          -0.008420356109829163,
+          0.005563381857599789,
+          0.0020622534554556034,
+          0.0027824252599606553,
+          -0.008414483897563052,
+          0.00552348300098615,
+          0.0057673360690397735,
+          0.0055642482010371894,
+          0.005524349344423548
+        ],
+        "MCSEs": [
+          0.0030318313782579207,
+          3.1017583581092482e-06,
+          0.0,
+          0.0030318326826316152,
+          2.04215572751193e-06,
+          2.168735278308947e-06,
+          1.765545765817012e-07,
+          6.430733021979316e-09,
+          0.0005468770490867426,
+          0.001028664989330454,
+          0.0038981567016441406,
+          0.0029154788898170764,
+          0.0005679665547607761,
+          0.0010673578330369694,
+          0.003909048605419198,
+          0.0029861430395297646,
+          0.0006377307329824829,
+          0.0011197394320537606,
+          0.003905327529011219,
+          0.0032092512984067795,
+          0.002915480283728653,
+          0.002986144353296622,
+          0.0032092525064479653
+        ],
+        "descriptive_3MCSE_directions": [
+          "unresolved",
+          "increase",
+          "unresolved",
+          "unresolved",
+          "unresolved",
+          "increase",
+          "decrease",
+          "unresolved",
+          "increase",
+          "unresolved",
+          "unresolved",
+          "unresolved",
+          "increase",
+          "unresolved",
+          "unresolved",
+          "unresolved",
+          "increase",
+          "unresolved",
+          "unresolved",
+          "unresolved",
+          "unresolved",
+          "unresolved",
+          "unresolved"
+        ],
+        "positive_negative_bank_counts": [
+          [
+            7,
+            1
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            7,
+            1
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            0,
+            8
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            7,
+            1
+          ],
+          [
+            7,
+            1
+          ],
+          [
+            1,
+            7
+          ],
+          [
+            7,
+            1
+          ],
+          [
+            7,
+            1
+          ],
+          [
+            7,
+            1
+          ],
+          [
+            1,
+            7
+          ],
+          [
+            7,
+            1
+          ],
+          [
+            7,
+            1
+          ],
+          [
+            7,
+            1
+          ],
+          [
+            1,
+            7
+          ],
+          [
+            7,
+            1
+          ],
+          [
+            7,
+            1
+          ],
+          [
+            7,
+            1
+          ],
+          [
+            7,
+            1
+          ]
+        ]
+      },
+      {
+        "state": "sixteenth",
+        "mean_deltas": [
+          -0.0016619038263282985,
+          -4.325369763270273e-05,
+          0.0,
+          -0.0016623363633046246,
+          6.328835490016253e-07,
+          -4.272913209567583e-05,
+          -1.156284905436388e-06,
+          -1.1641805918819148e-09,
+          -0.000260707372870728,
+          -0.0004254920272041829,
+          -0.0019087879113912354,
+          -0.0015888884051269026,
+          -0.0002615582412342039,
+          -0.0004549106630857419,
+          -0.0019238454523108905,
+          -0.001652340930483413,
+          -0.0003308477012311287,
+          -0.00046707262043439723,
+          -0.0019179568050985696,
+          -0.001744482143374566,
+          -0.0015893209421032287,
+          -0.001652773467459739,
+          -0.0017449146803508939
+        ],
+        "MCSEs": [
+          0.0008785421889565116,
+          1.1206553868068555e-06,
+          0.0,
+          0.0008785377333107289,
+          6.390679721485131e-07,
+          8.381459081260542e-07,
+          4.417829635174106e-08,
+          1.709950988465944e-09,
+          0.0001786493147390672,
+          0.00035021013595466067,
+          0.0009667079668506925,
+          0.0008735738552463122,
+          0.00019782084749076344,
+          0.0003391369947123343,
+          0.0009698050527792854,
+          0.0008363353561385233,
+          0.00018740115573807748,
+          0.0003651864804254013,
+          0.0009712004505154348,
+          0.0009469567811304044,
+          0.0008735690428623927,
+          0.0008363314494633999,
+          0.0009469522696735074
+        ],
+        "descriptive_3MCSE_directions": [
+          "unresolved",
+          "decrease",
+          "unresolved",
+          "unresolved",
+          "unresolved",
+          "decrease",
+          "decrease",
+          "unresolved",
+          "unresolved",
+          "unresolved",
+          "unresolved",
+          "unresolved",
+          "unresolved",
+          "unresolved",
+          "unresolved",
+          "unresolved",
+          "unresolved",
+          "unresolved",
+          "unresolved",
+          "unresolved",
+          "unresolved",
+          "unresolved",
+          "unresolved"
+        ],
+        "positive_negative_bank_counts": [
+          [
+            2,
+            6
+          ],
+          [
+            0,
+            8
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            2,
+            6
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            0,
+            8
+          ],
+          [
+            0,
+            8
+          ],
+          [
+            5,
+            3
+          ],
+          [
+            3,
+            5
+          ],
+          [
+            3,
+            5
+          ],
+          [
+            2,
+            6
+          ],
+          [
+            3,
+            5
+          ],
+          [
+            3,
+            5
+          ],
+          [
+            3,
+            5
+          ],
+          [
+            2,
+            6
+          ],
+          [
+            2,
+            6
+          ],
+          [
+            3,
+            5
+          ],
+          [
+            3,
+            5
+          ],
+          [
+            2,
+            6
+          ],
+          [
+            2,
+            6
+          ],
+          [
+            3,
+            5
+          ],
+          [
+            2,
+            6
+          ],
+          [
+            2,
+            6
+          ]
+        ]
+      },
+      {
+        "state": "mean_only",
+        "mean_deltas": [
+          0.0017220645327471803,
+          -2.636846457995841e-05,
+          0.0,
+          0.0017218008481013746,
+          9.026261243710995e-06,
+          -3.529791113637259e-05,
+          0.0,
+          -9.681468729674422e-08,
+          0.0032928030877979173,
+          0.004516981099050507,
+          -0.04337843752355791,
+          0.00148215590500945,
+          0.0036113208455014743,
+          0.004509786637054883,
+          -0.04339365760461514,
+          0.0017824797184574533,
+          0.003655130154499151,
+          0.004549709732966492,
+          -0.04341196658262994,
+          0.0019015579747746498,
+          0.0014818922203636443,
+          0.0017822160338116476,
+          0.0019012942901288424
+        ],
+        "MCSEs": [
+          0.0032443962445503523,
+          8.453170250732237e-06,
+          0.0,
+          0.0032443992920896426,
+          5.836460021175766e-06,
+          4.071698754143001e-06,
+          0.0,
+          2.7693178583172115e-08,
+          0.001490568873524222,
+          0.0009095652284824941,
+          0.0022310855680247647,
+          0.003123856763406989,
+          0.0016188949171345847,
+          0.0009239750431884216,
+          0.002237508791596313,
+          0.003295171854201837,
+          0.001667646398336682,
+          0.0009252832805240231,
+          0.002241320235418507,
+          0.003328198630315041,
+          0.003123856314257402,
+          0.003295176196215461,
+          0.003328203665370508
+        ],
+        "descriptive_3MCSE_directions": [
+          "unresolved",
+          "decrease",
+          "unresolved",
+          "unresolved",
+          "unresolved",
+          "decrease",
+          "unresolved",
+          "decrease",
+          "unresolved",
+          "increase",
+          "decrease",
+          "unresolved",
+          "unresolved",
+          "increase",
+          "decrease",
+          "unresolved",
+          "unresolved",
+          "increase",
+          "decrease",
+          "unresolved",
+          "unresolved",
+          "unresolved",
+          "unresolved"
+        ],
+        "positive_negative_bank_counts": [
+          [
+            4,
+            4
+          ],
+          [
+            1,
+            7
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            0,
+            8
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            7
+          ],
+          [
+            7,
+            1
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            0,
+            8
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            7,
+            1
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            0,
+            8
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            7,
+            1
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            0,
+            8
+          ],
+          [
+            5,
+            3
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            5,
+            3
+          ]
+        ]
+      },
+      {
+        "state": "shape_only",
+        "mean_deltas": [
+          0.21850573768026793,
+          0.004523392678061221,
+          3.038865595128663e-06,
+          0.2185510019957045,
+          0.0,
+          0.004523392678061223,
+          0.0,
+          0.0,
+          0.06067525377882448,
+          0.07344395351446928,
+          0.04310974188971972,
+          0.21834059628019298,
+          0.060599517483831314,
+          0.07387112408173127,
+          0.043053877765015736,
+          0.2191052350885478,
+          0.05997442468695202,
+          0.073693875683348,
+          0.04283682247366044,
+          0.21807138167206308,
+          0.21838586057603004,
+          0.21915049940844614,
+          0.21811664600263742
+        ],
+        "MCSEs": [
+          0.011940670856829564,
+          8.068846273017512e-05,
+          1.4274374823799363e-06,
+          0.011940840028515833,
+          0.0,
+          8.06884627301751e-05,
+          0.0,
+          0.0,
+          0.005282765246747869,
+          0.005111559472963218,
+          0.012950707236944125,
+          0.01208117004565213,
+          0.005129797150072174,
+          0.005000477109940594,
+          0.012896702121917417,
+          0.011595200653975296,
+          0.005117291884110489,
+          0.005206713104721521,
+          0.012957517688812748,
+          0.012176388316057501,
+          0.012081334038603505,
+          0.011595355647066928,
+          0.012176575700760436
+        ],
+        "descriptive_3MCSE_directions": [
+          "increase",
+          "increase",
+          "unresolved",
+          "increase",
+          "unresolved",
+          "increase",
+          "unresolved",
+          "unresolved",
+          "increase",
+          "increase",
+          "increase",
+          "increase",
+          "increase",
+          "increase",
+          "increase",
+          "increase",
+          "increase",
+          "increase",
+          "increase",
+          "increase",
+          "increase",
+          "increase",
+          "increase"
+        ],
+        "positive_negative_bank_counts": [
+          [
+            8,
+            0
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            7,
+            1
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            7,
+            1
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            7,
+            1
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            8,
+            0
+          ]
+        ]
+      },
+      {
+        "state": "charge_only",
+        "mean_deltas": [
+          -0.00014895227065720405,
+          -1.0293333616116047e-05,
+          0.0,
+          -0.00014905520399336424,
+          0.0,
+          0.0,
+          -1.0293333616115993e-05,
+          0.0,
+          -0.00023405226287188507,
+          -8.360105784292748e-05,
+          9.22408857512158e-05,
+          -0.0003781941571199335,
+          -5.243704573114913e-05,
+          -3.5253869823212436e-05,
+          9.657180487171457e-05,
+          -9.880183415964666e-05,
+          -2.169927948751779e-05,
+          1.4216277621201256e-05,
+          9.36236142124458e-05,
+          3.0139179307995742e-05,
+          -0.00037829709045609367,
+          -9.890476749580684e-05,
+          3.003624597183209e-05
+        ],
+        "MCSEs": [
+          7.043002477949659e-05,
+          6.962945984407319e-07,
+          0.0,
+          7.043070707112013e-05,
+          0.0,
+          0.0,
+          6.962945984407559e-07,
+          0.0,
+          0.00012153306034106896,
+          3.2975818313983065e-05,
+          5.200587090803689e-05,
+          0.00014297310211704102,
+          0.00015272125912911436,
+          3.396875656888182e-05,
+          5.6726961973616655e-05,
+          0.00021287590382336143,
+          0.00011599605915165072,
+          3.5603817770821184e-05,
+          5.233116531491613e-05,
+          0.0001700073307621669,
+          0.00014297330443986718,
+          0.00021287856270417818,
+          0.00017000467921001537
+        ],
+        "descriptive_3MCSE_directions": [
+          "unresolved",
+          "decrease",
+          "unresolved",
+          "unresolved",
+          "unresolved",
+          "unresolved",
+          "decrease",
+          "unresolved",
+          "unresolved",
+          "unresolved",
+          "unresolved",
+          "unresolved",
+          "unresolved",
+          "unresolved",
+          "unresolved",
+          "unresolved",
+          "unresolved",
+          "unresolved",
+          "unresolved",
+          "unresolved",
+          "unresolved",
+          "unresolved",
+          "unresolved"
+        ],
+        "positive_negative_bank_counts": [
+          [
+            2,
+            6
+          ],
+          [
+            0,
+            8
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            2,
+            6
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            8
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            7
+          ],
+          [
+            1,
+            7
+          ],
+          [
+            7,
+            1
+          ],
+          [
+            0,
+            8
+          ],
+          [
+            3,
+            5
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            3,
+            5
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            0,
+            8
+          ],
+          [
+            3,
+            5
+          ],
+          [
+            4,
+            4
+          ]
+        ]
+      },
+      {
+        "state": "local_only",
+        "mean_deltas": [
+          3.1732025540893646e-05,
+          1.0050129776507412e-07,
+          0.0,
+          3.1733030553869265e-05,
+          0.0,
+          0.0,
+          0.0,
+          1.0050129776524501e-07,
+          1.553695087163319e-05,
+          -2.9785970290838182e-05,
+          2.299988009407672e-06,
+          -4.3459992707687786e-05,
+          3.152477122692499e-05,
+          2.9281720150459156e-05,
+          7.804815240958218e-06,
+          9.203941533808199e-05,
+          -5.20503211555879e-06,
+          2.542211487287227e-05,
+          3.9098254484559725e-06,
+          4.661665399230408e-05,
+          -4.345898769471217e-05,
+          9.204042035105761e-05,
+          4.66176590052797e-05
+        ],
+        "MCSEs": [
+          3.019406939352327e-05,
+          2.0127729687494924e-09,
+          0.0,
+          3.0194067233302048e-05,
+          0.0,
+          0.0,
+          0.0,
+          2.012772968776399e-09,
+          1.8296687062955763e-05,
+          2.9028699309878048e-05,
+          1.004666714490318e-05,
+          3.8994165781929545e-05,
+          5.238835535696285e-05,
+          2.3879584370152375e-05,
+          8.442416847185712e-06,
+          9.501752334580718e-05,
+          7.00649326538852e-05,
+          1.531539625962422e-05,
+          4.388112114290635e-06,
+          7.14289722189714e-05,
+          3.899415283064853e-05,
+          9.501752399780562e-05,
+          7.142897568248798e-05
+        ],
+        "descriptive_3MCSE_directions": [
+          "unresolved",
+          "increase",
+          "unresolved",
+          "unresolved",
+          "unresolved",
+          "unresolved",
+          "unresolved",
+          "increase",
+          "unresolved",
+          "unresolved",
+          "unresolved",
+          "unresolved",
+          "unresolved",
+          "unresolved",
+          "unresolved",
+          "unresolved",
+          "unresolved",
+          "unresolved",
+          "unresolved",
+          "unresolved",
+          "unresolved",
+          "unresolved",
+          "unresolved"
+        ],
+        "positive_negative_bank_counts": [
+          [
+            5,
+            3
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            5,
+            3
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            3,
+            5
+          ],
+          [
+            3,
+            5
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            2,
+            6
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            5,
+            3
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            3,
+            5
+          ],
+          [
+            3,
+            5
+          ],
+          [
+            5,
+            3
+          ],
+          [
+            3,
+            5
+          ],
+          [
+            2,
+            6
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            3,
+            5
+          ]
+        ]
+      }
+    ],
+    "direction_counts_by_state": {
+      "full": {
+        "increase": 16,
+        "decrease": 1,
+        "unresolved": 6
+      },
+      "quarter": {
+        "increase": 5,
+        "decrease": 1,
+        "unresolved": 17
+      },
+      "sixteenth": {
+        "increase": 0,
+        "decrease": 3,
+        "unresolved": 20
+      },
+      "mean_only": {
+        "increase": 3,
+        "decrease": 6,
+        "unresolved": 14
+      },
+      "shape_only": {
+        "increase": 19,
+        "decrease": 0,
+        "unresolved": 4
+      },
+      "charge_only": {
+        "increase": 0,
+        "decrease": 2,
+        "unresolved": 21
+      },
+      "local_only": {
+        "increase": 2,
+        "decrease": 0,
+        "unresolved": 21
+      }
+    },
+    "boundary": "Descriptive3MCSE directions are not corrected familywise hypothesis tests or final response-acceptance gates. These are independent banks of the same legal TRAIN empirical mixture, not DEV or independent-acquisition validation."
+  },
+  "key_state_comparison": {
+    "baseline_first_training": {
+      "data": 0.09570950875194757,
+      "total": 0.09577362061818252,
+      "B_voltage_RMS": 0.002080742206742631
+    },
+    "baseline_independent_mean_data": 0.13280849763622798,
+    "baseline_independent_mean_total": 0.13287245127194824,
+    "rows": [
+      {
+        "state": "full",
+        "first_training_data_delta": 0.12211405386937364,
+        "first_training_total_delta": 0.12216212261640567,
+        "independent_total_mean_delta": 0.2125432896541664,
+        "independent_total_MCSE": 0.010494758018009797,
+        "descriptive_3MCSE_direction": "increase",
+        "positive_negative_risk_bank_counts": [
+          8,
+          0
+        ],
+        "first_training_B_RMS": 0.005072668200797016,
+        "first_training_B_RMS_ratio_to_baseline": 2.437912867994444
+      },
+      {
+        "state": "quarter",
+        "first_training_data_delta": -0.025650232932066516,
+        "first_training_total_delta": -0.025649242340087905,
+        "independent_total_mean_delta": 0.005618644538166833,
+        "independent_total_MCSE": 0.0030318326826316152,
+        "descriptive_3MCSE_direction": "unresolved",
+        "positive_negative_risk_bank_counts": [
+          7,
+          1
+        ],
+        "first_training_B_RMS": 0.0021832876752663705,
+        "first_training_B_RMS_ratio_to_baseline": 1.0492831203170878
+      },
+      {
+        "state": "sixteenth",
+        "first_training_data_delta": -0.009924227832736734,
+        "first_training_total_delta": -0.009924689143093857,
+        "independent_total_mean_delta": -0.0016623363633046246,
+        "independent_total_MCSE": 0.0008785377333107289,
+        "descriptive_3MCSE_direction": "unresolved",
+        "positive_negative_risk_bank_counts": [
+          2,
+          6
+        ],
+        "first_training_B_RMS": 0.002030769430983131,
+        "first_training_B_RMS_ratio_to_baseline": 0.9759831969584876
+      },
+      {
+        "state": "mean_only",
+        "first_training_data_delta": -0.010699582776864114,
+        "first_training_total_delta": -0.0106998871500322,
+        "independent_total_mean_delta": 0.0017218008481013746,
+        "independent_total_MCSE": 0.0032443992920896426,
+        "descriptive_3MCSE_direction": "unresolved",
+        "positive_negative_risk_bank_counts": [
+          4,
+          4
+        ],
+        "first_training_B_RMS": 0.002051239658591201,
+        "first_training_B_RMS_ratio_to_baseline": 0.9858211420637178
+      },
+      {
+        "state": "shape_only",
+        "first_training_data_delta": 0.1240612482411448,
+        "first_training_total_delta": 0.12411011438598012,
+        "independent_total_mean_delta": 0.2185510019957045,
+        "independent_total_MCSE": 0.011940840028515833,
+        "descriptive_3MCSE_direction": "increase",
+        "positive_negative_risk_bank_counts": [
+          8,
+          0
+        ],
+        "first_training_B_RMS": 0.0051023404680770965,
+        "first_training_B_RMS_ratio_to_baseline": 2.4521732925602207
+      },
+      {
+        "state": "charge_only",
+        "first_training_data_delta": 2.2800974261105722e-05,
+        "first_training_total_delta": 2.271317523140637e-05,
+        "independent_total_mean_delta": -0.00014905520399336424,
+        "independent_total_MCSE": 7.043070707112013e-05,
+        "descriptive_3MCSE_direction": "unresolved",
+        "positive_negative_risk_bank_counts": [
+          2,
+          6
+        ],
+        "first_training_B_RMS": 0.002080742206742631,
+        "first_training_B_RMS_ratio_to_baseline": 1.0
+      },
+      {
+        "state": "local_only",
+        "first_training_data_delta": -5.442084466275587e-06,
+        "first_training_total_delta": -5.441000390890571e-06,
+        "independent_total_mean_delta": 3.1733030553869265e-05,
+        "independent_total_MCSE": 3.0194067233302048e-05,
+        "descriptive_3MCSE_direction": "unresolved",
+        "positive_negative_risk_bank_counts": [
+          5,
+          3
+        ],
+        "first_training_B_RMS": 0.002080742206742631,
+        "first_training_B_RMS_ratio_to_baseline": 1.0
+      }
+    ],
+    "weighted_risk_decomposition": [
+      {
+        "state": "full",
+        "weighted_mean_delta_contributions": {
+          "wave": 0.06013959197311917,
+          "2_integral": 0.1520321479780016,
+          ".25_carrier": 0.000327508498748956,
+          ".01_regular": 4.401427054911495e-05,
+          ".01_saturation": 2.693374761367141e-08
+        }
+      },
+      {
+        "state": "quarter",
+        "weighted_mean_delta_contributions": {
+          "wave": 0.0020362759489076826,
+          "2_integral": 0.005684965403592701,
+          ".25_carrier": -0.002103463157770944,
+          ".01_regular": 8.663434373993966e-07,
+          ".01_saturation": 0.0
+        }
+      },
+      {
+        "state": "sixteenth",
+        "weighted_mean_delta_contributions": {
+          "wave": -0.0002843711051120202,
+          "2_integral": -0.0008983168738162147,
+          ".25_carrier": -0.00047921584740005796,
+          ".01_regular": -4.325369763270273e-07,
+          ".01_saturation": 0.0
+        }
+      },
+      {
+        "state": "mean_only",
+        "weighted_mean_delta_contributions": {
+          "wave": 0.0035197513625995144,
+          "2_integral": 0.009050984979381255,
+          ".25_carrier": -0.010848671809233582,
+          ".01_regular": -2.6368464579958407e-07,
+          ".01_saturation": 0.0
+        }
+      },
+      {
+        "state": "shape_only",
+        "weighted_mean_delta_contributions": {
+          "wave": 0.06041639864986927,
+          "2_integral": 0.1473393021863657,
+          ".25_carrier": 0.010750036844032992,
+          ".01_regular": 4.5233926780612213e-05,
+          ".01_saturation": 3.038865595128663e-08
+        }
+      },
+      {
+        "state": "charge_only",
+        "weighted_mean_delta_contributions": {
+          "wave": -0.00010272952936351733,
+          "2_integral": -6.975910002995911e-05,
+          ".25_carrier": 2.353635873628135e-05,
+          ".01_regular": -1.0293333616116047e-07,
+          ".01_saturation": 0.0
+        }
+      },
+      {
+        "state": "local_only",
+        "weighted_mean_delta_contributions": {
+          "wave": 1.3952229994333131e-05,
+          "2_integral": 1.6611909821662163e-05,
+          ".25_carrier": 1.167885724901822e-06,
+          ".01_regular": 1.0050129776507412e-09,
+          ".01_saturation": 0.0
+        }
+      }
+    ]
+  },
+  "parameter_intervention_checks": {
+    "group_delta_norms_constant_across_banks": true,
+    "states": [
+      {
+        "state": "baseline",
+        "parameter_delta_norms": {
+          "mean": 0.0,
+          "shape": 0.0,
+          "charge": 0.0,
+          "local": 0.0
+        }
+      },
+      {
+        "state": "full",
+        "parameter_delta_norms": {
+          "mean": 0.12088140534156015,
+          "shape": 0.01076660743410705,
+          "charge": 0.005169921505782682,
+          "local": 0.003970425406974308
+        }
+      },
+      {
+        "state": "quarter",
+        "parameter_delta_norms": {
+          "mean": 0.030220354094062585,
+          "shape": 0.002691651965571961,
+          "charge": 0.0012924804034667476,
+          "local": 0.0009925973126040913
+        }
+      },
+      {
+        "state": "sixteenth",
+        "parameter_delta_norms": {
+          "mean": 0.007555119638519619,
+          "shape": 0.0006729127443588701,
+          "charge": 0.00032312007384586083,
+          "local": 0.00024814038348027276
+        }
+      },
+      {
+        "state": "mean_only",
+        "parameter_delta_norms": {
+          "mean": 0.12088140534156015,
+          "shape": 0.0,
+          "charge": 0.0,
+          "local": 0.0
+        }
+      },
+      {
+        "state": "shape_only",
+        "parameter_delta_norms": {
+          "mean": 0.0,
+          "shape": 0.01076660743410705,
+          "charge": 0.0,
+          "local": 0.0
+        }
+      },
+      {
+        "state": "charge_only",
+        "parameter_delta_norms": {
+          "mean": 0.0,
+          "shape": 0.0,
+          "charge": 0.005169921505782682,
+          "local": 0.0
+        }
+      },
+      {
+        "state": "local_only",
+        "parameter_delta_norms": {
+          "mean": 0.0,
+          "shape": 0.0,
+          "charge": 0.0,
+          "local": 0.003970425406974308
+        }
+      }
+    ],
+    "maximum_fraction_norm_ratio_roundoff": 2.8219786226968413e-06,
+    "shape_only_nonB_reported_head_summaries_identical_to_baseline_all9banks": true,
+    "unchanged_shape_only_head_summaries": [
+      "A_absolute_peak",
+      "charge_v_norm",
+      "alpha",
+      "local_envelope_voltage",
+      "local_realization_voltage",
+      "qbar"
+    ],
+    "mean_only_boundary": "Only mean parameters are changed, but shared decoder and abs(A) scaling also change B/local; this is not a pure deterministic output intervention."
+  },
+  "interpretation": [
+    "Full actual Adam first step increases its own training-bank total by.12216212 and shape-only by.12411011. Thus the original full step is already harmful before fresh-bank evaluation; this is not solely independent source-mixture composition noise.",
+    "Across all8 independent risk banks, full and shape-only totals both increase. Mean deltas .21254329(MCSE.01049476) and .21855100(.01194084) exceed3MCSE by wide margins. The controlled shape parameter-group update alone is sufficient for a large local risk increase in this initial state.",
+    "Shape-only increases first-bank B physicalRMS from.00208074 to.00510234V,2.45217x, with A/v/alpha/local/qbar reported summaries unchanged. Most risk increase is weighted signed-integral and joint-wave energy, not the regularizer. This supports a concrete step-magnitude/conditioning repair rather than a bigger architecture.",
+    "Quarter training-bank total improves by.02564924 but fresh risk mean+.00561864(MCSE.00303183) is unresolved at3MCSE. Sixteenth training-bank improves by.00992469; fresh mean-.00166234(.00087854) is also unresolved. Neither is a demonstrated population descent fix.",
+    "Mean-only, charge-only and local-only total risk directions are unresolved at3MCSE. An unresolved mean effect is not proof that the original mean step is optimal or harmless in long training.",
+    "033 isolates one realized first update. It does not establish the sole032 terminal cause, remove hard-ADC/argmax effects, prove long-run lowerLR success, recover a conditional kernel, or change the preserved032 failure."
+  ],
+  "single_finite_repair_comment": {
+    "enough_evidence_for_one_provisional_real_training_repair": true,
+    "reason": "Both own-bank and eight independent-bank evidence show the original shape-group first step is excessively harmful; no additional diagnostic grid is needed before one bounded repair attempt.",
+    "reviewer_initial_recommendation": "Global LRx1/16 from exactinitial032, because the whole sixteenth delta was directly probed. This avoids the proven huge full step but has not demonstrated risk descent.",
+    "ROOT_selected_unique034_repair": "Only shape LR/16=1.875e-5, retain mean1e-4 and charge/local3e-4, restart sameinitial032/seed/objective/data/gates. ROOT preserves mean-learning speed rather than reducing all groups.",
+    "tradeoff_and_boundary": "The mixed034 parameter step was not directly tested by033. A targetedshape reduction is a reasonable provisional engineering trial, not evidence of already-proven descent or final fit. Reviewer andROOT recommendations are intentionally not rewritten as unanimous. Failure must not automatically launch the reviewer global-LR alternative.",
+    "success_evidence_required": "Use the original032 predeclared observed-response progress/noninferiority gates and exact finite budget; native execution or lower minibatch energy alone is not fit acceptance."
+  },
+  "review_execution": {
+    "saved_JSON_JSONL_only": true,
+    "NN_forwards": 0,
+    "AD_queries": 0,
+    "optimizer_updates": 0,
+    "checkpoint_deserializations": 0,
+    "CP_byte_reads": 0,
+    "raw_SOURCE_REAL_DEV_array_reads": 0,
+    "observation_calls": 0,
+    "new_scientific_jobs": 0,
+    "source_or_ledger_edits": 0
+  },
+  "conclusion": "033 completed its bounded first-step diagnostic and reproduced strong full/shape step harm. It justifies one explicit provisional step-size repair, while smaller-step risk improvement and final response recovery remain unproved."
+}

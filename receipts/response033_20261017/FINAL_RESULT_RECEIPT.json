@@ -1,0 +1,432 @@
+{
+  "schema": "n01/response033-final-result-receipt/v1",
+  "UTC": "2026-10-16T21:35:33.969461+00:00",
+  "status": "complete_independently_reviewed_first_step_shape_harm_localized",
+  "evidence": {
+    "completion_01/run_01/RESULT.json": {
+      "path": "receipts/response033_20261017/completion_01/run_01/RESULT.json",
+      "sha256": "afd6fe0ecdc25fe7c6a0979fc5ebd39b20e0dd6b5cad6aa2c73bd3350c8b2cd2",
+      "bytes": 160090
+    },
+    "completion_01/run_01/metrics.jsonl": {
+      "path": "receipts/response033_20261017/completion_01/run_01/metrics.jsonl",
+      "sha256": "5c1355cdea7d3244410da8badca8030ce4b7ce2bc471a4a570caeaaab4c7c50f",
+      "bytes": 442789
+    },
+    "completion_01/run_01/FIRST_STEP_REPLAY.json": {
+      "path": "receipts/response033_20261017/completion_01/run_01/FIRST_STEP_REPLAY.json",
+      "sha256": "c14c910954018625f8d1a5c09d223ac65ab5d030c194ddd1404411acb660ca0a",
+      "bytes": 1887
+    },
+    "completion_01/COLLECTION_RECEIPT.json": {
+      "path": "receipts/response033_20261017/completion_01/COLLECTION_RECEIPT.json",
+      "sha256": "c2f95f5a816477565c700ab6a726f43b029a2b67a8631c7dd5fc9abf96e745fa",
+      "bytes": 393
+    },
+    "independent_result_01/RESULT_REVIEW.json": {
+      "path": "receipts/response033_20261017/independent_result_01/RESULT_REVIEW.json",
+      "sha256": "3973b96ce0b61c824cbf80db543e3239fc99daf5167ecf6b2979b6b7f5de0d6b",
+      "bytes": 56625
+    }
+  },
+  "source_commit": "0f6c01f7301be9fe15f2481b4366f64316e4dd4e",
+  "config_sha256": "d8b841ac35225290ec5fbdbf38ed956d8e3b627ef35b869c217d69578c607697",
+  "native_exit_code": 0,
+  "time_evidence": {
+    "native_start_UTC": "2026-10-16T21:27:42.170512+00:00",
+    "native_end_UTC": "2026-10-16T21:27:48.174340+00:00",
+    "native_elapsed_seconds": 6.003828,
+    "terminal_snapshot_UTC": "2026-10-16T21:28:20.158685+00:00",
+    "collection_manifest_UTC": "2026-10-16T21:28:51.180334+00:00",
+    "native_exit_code": 0,
+    "stop_reason": null,
+    "peak_RSS_bytes": 2847813632,
+    "peak_RSS_GiB": 2.652233123779297,
+    "no_live_owned_processes_at_snapshot": true
+  },
+  "first_step_replay": {
+    "checks": 9,
+    "all_observed_equal_expected_exactly": true,
+    "maximum_absolute_error": 0.0,
+    "expected_targets_and_fixed_tolerances": {
+      "expected": {
+        "data": 0.09570950875194757,
+        "objective": 0.09577362061818252,
+        "regular": 0.006411186623494439,
+        "saturation": 0.0,
+        "preclip_gradient_norm": 21.1663818359375,
+        "group_gradient_norms": {
+          "mean": 3.0439902770576053,
+          "shape": 20.945805331290273,
+          "charge": 0.15193670701350645,
+          "local": 0.001978266293444085
+        }
+      },
+      "tolerance": {
+        "loss": [
+          1e-08,
+          1e-06
+        ],
+        "norm": [
+          1e-05,
+          1e-06
+        ],
+        "formula": "absolute + relative*abs(expected)",
+        "failure_action": "stop_no_tolerance_change_no_optimizer_update"
+      }
+    },
+    "hard_ADC_forward_baseline_reused": true,
+    "AD_queries": 1,
+    "actual_Adam_updates": 1,
+    "initial_binding": {
+      "initial_model_state_sha256": "354b9828bdb6f552ab747e2aab06e988b27b1c7aad4d71580bdab6d8bdfc5f58",
+      "original_A_state_sha256": "529f9a67594ac5232b932d7af246a934f1f5e01c62e7502fc3a50736cf5644c7",
+      "frozen005_extension_state_sha256": "bba9cc181344d60a9a00f5c5b8850d30a2020d30a785814b7295496949d85912",
+      "checkpoint_streams_restored": true,
+      "model_mode": "train",
+      "statistics_refitted": false,
+      "original_statistics_inputs": {
+        "path": "/home/rylan/projects/ej276d-n01/window008_resume01_20261013/data/window008/FIT_STATISTICS008.json",
+        "local_path": "E:/GAN/research/N01/data/window008/FIT_STATISTICS008.json",
+        "sha256": "aadd729364d0b6afac699a9d1774ac8d29fd2bcd10a9fd9f551141ecc2fbc2a0",
+        "bytes": 104199
+      },
+      "source_physical_weights": "unknown",
+      "source_mixture": "uniform_count",
+      "DEV_reads": 0
+    }
+  },
+  "execution_counts": {
+    "NN_calls": 144,
+    "NN_rows": 9216,
+    "noise005_rows": 1152,
+    "extension_rows": 3456,
+    "generated_ADC_rows": 27648,
+    "checkpoint_loads": 2,
+    "TRAIN_archives_decoded": 1,
+    "AD_queries": 1,
+    "diagnostic_G_updates": 1,
+    "banks_cached": 9,
+    "REAL_existing_observation_rows": 21047
+  },
+  "audit_consistency": {
+    "errors": [],
+    "12_collected_files_SHA_recomputed_match": true,
+    "remote_source_and_config_hash_checks_all_true": 38,
+    "paired_metrics_recomputed": 161,
+    "maximum_mean_or_MCSE_error": 0.0,
+    "maximum_raw_delta_error": 0.0,
+    "maximum_decomposition_identity_error": 1.1102230246251565e-16,
+    "actual_native_counts": {
+      "NN_calls": 144,
+      "NN_rows": 9216,
+      "noise005_rows": 1152,
+      "extension_rows": 3456,
+      "generated_ADC_rows": 27648,
+      "checkpoint_loads": 2,
+      "TRAIN_archives_decoded": 1,
+      "AD_queries": 1,
+      "diagnostic_G_updates": 1,
+      "banks_cached": 9,
+      "REAL_existing_observation_rows": 21047
+    },
+    "counts_independently_reconstructed_from_grid": true
+  },
+  "key_state_comparison": {
+    "baseline_first_training": {
+      "data": 0.09570950875194757,
+      "total": 0.09577362061818252,
+      "B_voltage_RMS": 0.002080742206742631
+    },
+    "baseline_independent_mean_data": 0.13280849763622798,
+    "baseline_independent_mean_total": 0.13287245127194824,
+    "rows": [
+      {
+        "state": "full",
+        "first_training_data_delta": 0.12211405386937364,
+        "first_training_total_delta": 0.12216212261640567,
+        "independent_total_mean_delta": 0.2125432896541664,
+        "independent_total_MCSE": 0.010494758018009797,
+        "descriptive_3MCSE_direction": "increase",
+        "positive_negative_risk_bank_counts": [
+          8,
+          0
+        ],
+        "first_training_B_RMS": 0.005072668200797016,
+        "first_training_B_RMS_ratio_to_baseline": 2.437912867994444
+      },
+      {
+        "state": "quarter",
+        "first_training_data_delta": -0.025650232932066516,
+        "first_training_total_delta": -0.025649242340087905,
+        "independent_total_mean_delta": 0.005618644538166833,
+        "independent_total_MCSE": 0.0030318326826316152,
+        "descriptive_3MCSE_direction": "unresolved",
+        "positive_negative_risk_bank_counts": [
+          7,
+          1
+        ],
+        "first_training_B_RMS": 0.0021832876752663705,
+        "first_training_B_RMS_ratio_to_baseline": 1.0492831203170878
+      },
+      {
+        "state": "sixteenth",
+        "first_training_data_delta": -0.009924227832736734,
+        "first_training_total_delta": -0.009924689143093857,
+        "independent_total_mean_delta": -0.0016623363633046246,
+        "independent_total_MCSE": 0.0008785377333107289,
+        "descriptive_3MCSE_direction": "unresolved",
+        "positive_negative_risk_bank_counts": [
+          2,
+          6
+        ],
+        "first_training_B_RMS": 0.002030769430983131,
+        "first_training_B_RMS_ratio_to_baseline": 0.9759831969584876
+      },
+      {
+        "state": "mean_only",
+        "first_training_data_delta": -0.010699582776864114,
+        "first_training_total_delta": -0.0106998871500322,
+        "independent_total_mean_delta": 0.0017218008481013746,
+        "independent_total_MCSE": 0.0032443992920896426,
+        "descriptive_3MCSE_direction": "unresolved",
+        "positive_negative_risk_bank_counts": [
+          4,
+          4
+        ],
+        "first_training_B_RMS": 0.002051239658591201,
+        "first_training_B_RMS_ratio_to_baseline": 0.9858211420637178
+      },
+      {
+        "state": "shape_only",
+        "first_training_data_delta": 0.1240612482411448,
+        "first_training_total_delta": 0.12411011438598012,
+        "independent_total_mean_delta": 0.2185510019957045,
+        "independent_total_MCSE": 0.011940840028515833,
+        "descriptive_3MCSE_direction": "increase",
+        "positive_negative_risk_bank_counts": [
+          8,
+          0
+        ],
+        "first_training_B_RMS": 0.0051023404680770965,
+        "first_training_B_RMS_ratio_to_baseline": 2.4521732925602207
+      },
+      {
+        "state": "charge_only",
+        "first_training_data_delta": 2.2800974261105722e-05,
+        "first_training_total_delta": 2.271317523140637e-05,
+        "independent_total_mean_delta": -0.00014905520399336424,
+        "independent_total_MCSE": 7.043070707112013e-05,
+        "descriptive_3MCSE_direction": "unresolved",
+        "positive_negative_risk_bank_counts": [
+          2,
+          6
+        ],
+        "first_training_B_RMS": 0.002080742206742631,
+        "first_training_B_RMS_ratio_to_baseline": 1.0
+      },
+      {
+        "state": "local_only",
+        "first_training_data_delta": -5.442084466275587e-06,
+        "first_training_total_delta": -5.441000390890571e-06,
+        "independent_total_mean_delta": 3.1733030553869265e-05,
+        "independent_total_MCSE": 3.0194067233302048e-05,
+        "descriptive_3MCSE_direction": "unresolved",
+        "positive_negative_risk_bank_counts": [
+          5,
+          3
+        ],
+        "first_training_B_RMS": 0.002080742206742631,
+        "first_training_B_RMS_ratio_to_baseline": 1.0
+      }
+    ],
+    "weighted_risk_decomposition": [
+      {
+        "state": "full",
+        "weighted_mean_delta_contributions": {
+          "wave": 0.06013959197311917,
+          "2_integral": 0.1520321479780016,
+          ".25_carrier": 0.000327508498748956,
+          ".01_regular": 4.401427054911495e-05,
+          ".01_saturation": 2.693374761367141e-08
+        }
+      },
+      {
+        "state": "quarter",
+        "weighted_mean_delta_contributions": {
+          "wave": 0.0020362759489076826,
+          "2_integral": 0.005684965403592701,
+          ".25_carrier": -0.002103463157770944,
+          ".01_regular": 8.663434373993966e-07,
+          ".01_saturation": 0.0
+        }
+      },
+      {
+        "state": "sixteenth",
+        "weighted_mean_delta_contributions": {
+          "wave": -0.0002843711051120202,
+          "2_integral": -0.0008983168738162147,
+          ".25_carrier": -0.00047921584740005796,
+          ".01_regular": -4.325369763270273e-07,
+          ".01_saturation": 0.0
+        }
+      },
+      {
+        "state": "mean_only",
+        "weighted_mean_delta_contributions": {
+          "wave": 0.0035197513625995144,
+          "2_integral": 0.009050984979381255,
+          ".25_carrier": -0.010848671809233582,
+          ".01_regular": -2.6368464579958407e-07,
+          ".01_saturation": 0.0
+        }
+      },
+      {
+        "state": "shape_only",
+        "weighted_mean_delta_contributions": {
+          "wave": 0.06041639864986927,
+          "2_integral": 0.1473393021863657,
+          ".25_carrier": 0.010750036844032992,
+          ".01_regular": 4.5233926780612213e-05,
+          ".01_saturation": 3.038865595128663e-08
+        }
+      },
+      {
+        "state": "charge_only",
+        "weighted_mean_delta_contributions": {
+          "wave": -0.00010272952936351733,
+          "2_integral": -6.975910002995911e-05,
+          ".25_carrier": 2.353635873628135e-05,
+          ".01_regular": -1.0293333616116047e-07,
+          ".01_saturation": 0.0
+        }
+      },
+      {
+        "state": "local_only",
+        "weighted_mean_delta_contributions": {
+          "wave": 1.3952229994333131e-05,
+          "2_integral": 1.6611909821662163e-05,
+          ".25_carrier": 1.167885724901822e-06,
+          ".01_regular": 1.0050129776507412e-09,
+          ".01_saturation": 0.0
+        }
+      }
+    ]
+  },
+  "parameter_intervention_checks": {
+    "group_delta_norms_constant_across_banks": true,
+    "states": [
+      {
+        "state": "baseline",
+        "parameter_delta_norms": {
+          "mean": 0.0,
+          "shape": 0.0,
+          "charge": 0.0,
+          "local": 0.0
+        }
+      },
+      {
+        "state": "full",
+        "parameter_delta_norms": {
+          "mean": 0.12088140534156015,
+          "shape": 0.01076660743410705,
+          "charge": 0.005169921505782682,
+          "local": 0.003970425406974308
+        }
+      },
+      {
+        "state": "quarter",
+        "parameter_delta_norms": {
+          "mean": 0.030220354094062585,
+          "shape": 0.002691651965571961,
+          "charge": 0.0012924804034667476,
+          "local": 0.0009925973126040913
+        }
+      },
+      {
+        "state": "sixteenth",
+        "parameter_delta_norms": {
+          "mean": 0.007555119638519619,
+          "shape": 0.0006729127443588701,
+          "charge": 0.00032312007384586083,
+          "local": 0.00024814038348027276
+        }
+      },
+      {
+        "state": "mean_only",
+        "parameter_delta_norms": {
+          "mean": 0.12088140534156015,
+          "shape": 0.0,
+          "charge": 0.0,
+          "local": 0.0
+        }
+      },
+      {
+        "state": "shape_only",
+        "parameter_delta_norms": {
+          "mean": 0.0,
+          "shape": 0.01076660743410705,
+          "charge": 0.0,
+          "local": 0.0
+        }
+      },
+      {
+        "state": "charge_only",
+        "parameter_delta_norms": {
+          "mean": 0.0,
+          "shape": 0.0,
+          "charge": 0.005169921505782682,
+          "local": 0.0
+        }
+      },
+      {
+        "state": "local_only",
+        "parameter_delta_norms": {
+          "mean": 0.0,
+          "shape": 0.0,
+          "charge": 0.0,
+          "local": 0.003970425406974308
+        }
+      }
+    ],
+    "maximum_fraction_norm_ratio_roundoff": 2.8219786226968413e-06,
+    "shape_only_nonB_reported_head_summaries_identical_to_baseline_all9banks": true,
+    "unchanged_shape_only_head_summaries": [
+      "A_absolute_peak",
+      "charge_v_norm",
+      "alpha",
+      "local_envelope_voltage",
+      "local_realization_voltage",
+      "qbar"
+    ],
+    "mean_only_boundary": "Only mean parameters are changed, but shared decoder and abs(A) scaling also change B/local; this is not a pure deterministic output intervention."
+  },
+  "interpretation": [
+    "Full actual Adam first step increases its own training-bank total by.12216212 and shape-only by.12411011. Thus the original full step is already harmful before fresh-bank evaluation; this is not solely independent source-mixture composition noise.",
+    "Across all8 independent risk banks, full and shape-only totals both increase. Mean deltas .21254329(MCSE.01049476) and .21855100(.01194084) exceed3MCSE by wide margins. The controlled shape parameter-group update alone is sufficient for a large local risk increase in this initial state.",
+    "Shape-only increases first-bank B physicalRMS from.00208074 to.00510234V,2.45217x, with A/v/alpha/local/qbar reported summaries unchanged. Most risk increase is weighted signed-integral and joint-wave energy, not the regularizer. This supports a concrete step-magnitude/conditioning repair rather than a bigger architecture.",
+    "Quarter training-bank total improves by.02564924 but fresh risk mean+.00561864(MCSE.00303183) is unresolved at3MCSE. Sixteenth training-bank improves by.00992469; fresh mean-.00166234(.00087854) is also unresolved. Neither is a demonstrated population descent fix.",
+    "Mean-only, charge-only and local-only total risk directions are unresolved at3MCSE. An unresolved mean effect is not proof that the original mean step is optimal or harmless in long training.",
+    "033 isolates one realized first update. It does not establish the sole032 terminal cause, remove hard-ADC/argmax effects, prove long-run lowerLR success, recover a conditional kernel, or change the preserved032 failure."
+  ],
+  "one_next_step": {
+    "enough_evidence_for_one_provisional_real_training_repair": true,
+    "reason": "Both own-bank and eight independent-bank evidence show the original shape-group first step is excessively harmful; no additional diagnostic grid is needed before one bounded repair attempt.",
+    "reviewer_initial_recommendation": "Global LRx1/16 from exactinitial032, because the whole sixteenth delta was directly probed. This avoids the proven huge full step but has not demonstrated risk descent.",
+    "ROOT_selected_unique034_repair": "Only shape LR/16=1.875e-5, retain mean1e-4 and charge/local3e-4, restart sameinitial032/seed/objective/data/gates. ROOT preserves mean-learning speed rather than reducing all groups.",
+    "tradeoff_and_boundary": "The mixed034 parameter step was not directly tested by033. A targetedshape reduction is a reasonable provisional engineering trial, not evidence of already-proven descent or final fit. Reviewer andROOT recommendations are intentionally not rewritten as unanimous. Failure must not automatically launch the reviewer global-LR alternative.",
+    "success_evidence_required": "Use the original032 predeclared observed-response progress/noninferiority gates and exact finite budget; native execution or lower minibatch energy alone is not fit acceptance."
+  },
+  "accounting": {
+    "cumulative_before": 195667,
+    "new_diagnostic_G": 1,
+    "new_AD": 1,
+    "cumulative_after": 195668,
+    "completed_updates_accounted": 1,
+    "postrun_new_NN_AD_CP_observation_calls": 0
+  },
+  "scientific_status": "response_match_not_established",
+  "old_results_preserved": true,
+  "model_weights_selected_or_promoted": false,
+  "report": "reports/response033_20261017/REPORT.md"
+}
