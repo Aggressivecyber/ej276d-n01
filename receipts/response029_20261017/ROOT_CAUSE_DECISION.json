@@ -1,0 +1,57 @@
+{
+  "schema": "n01/response029-root-cause-decision/v1",
+  "status": "implementation_complete_training_diagnosis_pending",
+  "authority": "USER_DIRECTION.json",
+  "confirmed_findings": [
+    {
+      "cause": "The current Q1 training family cannot change its pre-ADC conditional mean or shape basis",
+      "evidence": "src/n01/model016.py:58-95; src/n01/model010.py:153-173",
+      "consequence": "Further updates of the two charge-variance parameters cannot correct a required change of the conditional mean waveform",
+      "repair": "New model029 uses the actual trainable deterministic mean forward without no_grad or detached decoded features"
+    },
+    {
+      "cause": "The original full stochastic parameterization couples correlated random charge, shape and time changes to waveform mean",
+      "evidence": "model_audit/MODEL_AUDIT.json; original qsig times random shape and nonlinear time warp",
+      "consequence": "A zero-latent waveform is not generally the conditional mean; improving random variation can also move average shape",
+      "repair": "Use alpha*A_theta(x) plus additive zero-charge voltage bases and independent zero-charge local fluctuations; shared Gaussian coordinates retain charge-shape dependence while E[signal|x]=A_theta(x)"
+    },
+    {
+      "cause": "Historical native QPSD gradients dominated waveform gradients",
+      "evidence": "loss_data_audit/LOSS_DATA_AUDIT.json; saved012 L2 ratio approximately 18.95 and saved014 C1 improvements",
+      "consequence": "The original objective could prioritize QPSD at the expense of waveform fit; this was partly repaired by the existing signed-integral objective",
+      "repair": "Retain C1 signed-integral distribution matching instead of restoring the old ratio training target"
+    },
+    {
+      "cause": "Unpaired output-distribution objectives do not directly constrain the input-output correspondence",
+      "evidence": "model_audit/ARTIFICIAL_SEMANTICS.json; exact loss invariance under the registered manufactured output permutation",
+      "consequence": "Population fit alone is insufficient evidence of conditional response recovery",
+      "repair": "Measure conditional moments on a fixed known teacher, compare paired and unpaired training from equal initial states and equal update budgets, then evaluate real-data fit and source dependence separately"
+    }
+  ],
+  "causes_not_established": [
+    "A generic inability of neural networks or U-Nets to model this response",
+    "A global autograd disconnection in the original completed full008 training",
+    "A software time-unit or shared-window inconsistency",
+    "Argmax observation as the sole explanation: saved013 finite-update evidence does not support that attribution",
+    "Insufficient quantity of data as the cause of the observed model failures"
+  ],
+  "implemented_candidate": {
+    "path": "src/n01/model029.py",
+    "trainable_parameters": 1483208,
+    "shape_basis_count": 8,
+    "joint_Gaussian_dimensions": 9,
+    "local_signal_fluctuation": "trainable envelope and 17-tap filter with zero-charge projection",
+    "mean_residual_old_bound_retained": true,
+    "mean_residual_saturation_reported": true,
+    "electronics_and_hard_observation": "kept outside signal model; existing hard observation remains the formal waveform readout"
+  },
+  "validation_so_far": {
+    "model_engineering": "model_audit/MODEL029_ENGINEERING.json",
+    "independent_model_review": "loss_data_audit/MODEL029_INDEPENDENT_REVIEW.json",
+    "mean_gradient_zero_charge_correlation_replay": "passed on manufactured inputs",
+    "new_training_updates": 0,
+    "actual_REAL_fit_established": false,
+    "low_count_augmentation_validated": false
+  },
+  "next_action": "Execute the frozen paired/unpaired conditional recovery test, inspect its result, and continue the existing-data REAL fitting repair without requesting new data as a prerequisite."
+}

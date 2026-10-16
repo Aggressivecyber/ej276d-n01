@@ -1,0 +1,232 @@
+{
+  "schema": "n01/response029-runner-interface-addendum/v1",
+  "recorded_UTC": "2026-10-16T19:32:59.5795164Z",
+  "scope": "Source and historical metadata only; no NPZ/CP opens or model execution",
+  "A": {
+    "class": "n01.model008.N01Response008",
+    "not_fix01": "n01.model008_fix01.N01Response008Fix01 is the stochastic full B endpoint. Deterministic A uses the original class.",
+    "evidence": [
+      "src/n01/evaluate_window008_resume01.py:246",
+      "src/n01/diagnose_mean_random009.py:819",
+      "scripts/run_wp2_014.py:705"
+    ],
+    "loader_named_load_signal008": "No such function exists in the current src or scripts tree.",
+    "load_sequence": [
+      "A = N01Response008(statistics[model], deterministic)",
+      "A.load_state_dict(a_checkpoint[model], strict=True)",
+      "A.set_stage(a_checkpoint[stage]); A.to(device)",
+      "For repair training choose explicit intended parameter whitelist, then A.train(); all imported files remain immutable."
+    ],
+    "stage_caution": "A.set_stage(mean_response) unfreezes every deterministic A parameter: shape_encoder, charge_head, response_filter, mean_time, unet and mean_head. It does not restrict training to mean_head.",
+    "forward": "A.signal_forward(source_carrier384, explicit_noise_dict)",
+    "noise_shapes": {
+      "phys": [
+        10
+      ],
+      "local_white": [
+        1,
+        400
+      ]
+    },
+    "deterministic_noise": "Provide zeros with batch dimensions. Deterministic A ignores stochastic effect but validates explicit latent dictionary.",
+    "outputs": [
+      "signal_pre Bx384 float64 V",
+      "qbar and qsig",
+      "unit_shape Bx384",
+      "mean_residual Bx384",
+      "time_scale",
+      "regular"
+    ],
+    "decoded": "Register one temporary A.unet forward hook; its result is (decoded Bx32x384, pooled). Keep decoded autograd graph while training mean path. Remove hook in finally."
+  },
+  "random_voltage_head": {
+    "reuse_layout": "Existing M0 new_head is Conv1d(32,8,kernel_size=5,padding=2), 1288 parameters; head weights/bias can be strict-loaded without FrozenDeterministicVoltageShape014 wrapper.",
+    "reference_arithmetic": "model010.py:190-205. controls=tanh(control_average008(head(decoded)).double()); smooth=einsum(bkc,tc->bkt,controls,A.expansion)*A.gate; existing M0 additionally projects to zero canonical charge and scales by .05*abs(A_signal).amax(1).",
+    "repair_contract": "ROOT decides whether new repair retains zero-Q projection and original amplitude rule or explicitly changes them. Do not silently inherit them.",
+    "combination": "signal = deterministic_mean_signal + einsum(bkt,bk->bt,voltage_basis,z_shape); then add registered frozen005/extension noise and pass observation008.",
+    "do_not_reuse_wrapper": "FrozenDeterministicVoltageShape010/014._baseline_once wraps A.signal_forward in no_grad and returns detached decoded features; constructor/assertions require A frozen. Enabling requires_grad alone will not repair this graph."
+  },
+  "observation": {
+    "noise005": "ObservedBaselineNoiseV3(noise_checkpoint[initialization]); strict-load model; eval and requires_grad_(False); FrozenObservedNoise008(noise_model)",
+    "noise_call": "extension.extend(noise005_latents, extension_gaussian, hypothesis) or sample_all for explicitly registered hypotheses",
+    "generation": "observe_generated_carrier(signal_plus_noise, ste=training_surrogate, q_floor=registered_q_floor)",
+    "real": "observe_existing_carrier(real_carrier384, already_digitized=True, q_floor=registered_q_floor)",
+    "warning": "Generated hard ADC and dynamic first-argmax crop remain scientific truth. REAL must not be redigitized."
+  },
+  "dataset_metadata": {
+    "source_header": "receipts/wp1_013_20261015/information_engineering_01/HEADER_INVENTORY.json",
+    "source_header_sha256": "9e0d691e7ea8e053956ba297754b686c0bfcbc91cc05160392b5956552fd7ff0",
+    "historical_only": true,
+    "files": [
+      {
+        "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R23_ONLINE_STANDARDIZED_CRITIC_001\\TRAIN_PRIVATE.npz",
+        "sha256": "9e2f2c3c18470f4b2f3374a39590a9c27b18222bd1b22b5d7467e561409ad854",
+        "members": [
+          {
+            "name": "source",
+            "shape": [
+              6593,
+              480
+            ],
+            "dtype": "<f4"
+          },
+          {
+            "name": "target",
+            "shape": [
+              21047,
+              480
+            ],
+            "dtype": "<f4"
+          },
+          {
+            "name": "source_val",
+            "shape": [
+              512,
+              480
+            ],
+            "dtype": "<f4"
+          },
+          {
+            "name": "target_val",
+            "shape": [
+              599,
+              480
+            ],
+            "dtype": "<f4"
+          },
+          {
+            "name": "target_bin",
+            "shape": [
+              21047
+            ],
+            "dtype": "<i8"
+          },
+          {
+            "name": "source_val_ids",
+            "shape": [
+              512
+            ],
+            "dtype": "<U75"
+          }
+        ]
+      },
+      {
+        "path": "E:\\GAN\\research\\N01\\data\\window008\\DATASET008.npz",
+        "sha256": "8d43418595f4fa992a9b83735c4bf50863a659584d58888f8f965ec1339a1993",
+        "members": [
+          {
+            "name": "source",
+            "shape": [
+              6593,
+              256
+            ],
+            "dtype": "<f8"
+          },
+          {
+            "name": "source_carrier384",
+            "shape": [
+              6593,
+              384
+            ],
+            "dtype": "<f8"
+          },
+          {
+            "name": "source_role",
+            "shape": [
+              6593
+            ],
+            "dtype": "<U5"
+          },
+          {
+            "name": "real",
+            "shape": [
+              21047,
+              256
+            ],
+            "dtype": "<f8"
+          },
+          {
+            "name": "real_carrier384",
+            "shape": [
+              21047,
+              384
+            ],
+            "dtype": "<f8"
+          },
+          {
+            "name": "real_baseline100",
+            "shape": [
+              21047,
+              100
+            ],
+            "dtype": "<f8"
+          },
+          {
+            "name": "real_role",
+            "shape": [
+              21047
+            ],
+            "dtype": "<U5"
+          },
+          {
+            "name": "source_val_ids",
+            "shape": [
+              512
+            ],
+            "dtype": "<U75"
+          },
+          {
+            "name": "real_val_original_index",
+            "shape": [
+              599
+            ],
+            "dtype": "<u4"
+          },
+          {
+            "name": "real_val_group",
+            "shape": [
+              599
+            ],
+            "dtype": "<u2"
+          },
+          {
+            "name": "source_val_role",
+            "shape": [
+              512
+            ],
+            "dtype": "<U3"
+          },
+          {
+            "name": "real_val_role",
+            "shape": [
+              599
+            ],
+            "dtype": "<U3"
+          }
+        ]
+      }
+    ],
+    "TRAIN_pilot": "DATASET008 contains source384, real384, observed real256, original real baseline100 and lineage/role metadata.",
+    "internal_DEV599": "DATASET008 contains only 599 DEV REAL identity/group/role metadata, not DEV numeric traces. target_val[599,480] resides in original TRAIN_PRIVATE.npz.",
+    "development_load": "Source original source_val[512,480] and target_val[599,480] with original identity binding; crop to first384, then existing source crop_existing_values / real observe_existing_carrier. See evaluate_window008._load_dev for numeric transformation only, without invoking its old fixed evaluation main.",
+    "labels": "Existing TRAIN/internal DEV are development evidence; no independent new acquisition, so do not call evaluation blind."
+  },
+  "one_job_lock": {
+    "path": "/home/rylan/projects/ej276d-n01/.n01_scientific_dispatch.lock",
+    "evidence": [
+      "scripts/start_shape010_remote.py:44",
+      "receipts/wp6_028_20261017/execution_01/REMOTE_SUPERVISOR.py:33-34"
+    ],
+    "minimal_reuse": "Acquire existing project lock once around the native supervisor command, e.g. Linux flock -n on this same path. Keep lock held for whole run; supervisor output run.lock alone is insufficient for project-wide one-job exclusion.",
+    "limits": "Keep owned process-group RSS and native stop receipt; add timeout wall bound and runner allocator limit using registered values. Do not alter other jobs.",
+    "monitoring": "One startup confirmation plus one heartbeat wakeup; no continuous remote polling."
+  },
+  "execution_counts": {
+    "scientific_array_opens": 0,
+    "checkpoint_opens": 0,
+    "model_forwards": 0,
+    "training_updates": 0,
+    "uploads": 0,
+    "remote_mutations": 0
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "schema": "n01/response029-model-audit-artificial/v1",
+  "scope": "only manufactured tensors, current source imports, no checkpoint/data/optimizer",
+  "global_initialization_seed": 29000,
+  "actual_loss_same_Q_shape_swap_counterexample": {
+    "mean_response": {
+      "wave": 6.709392631119104e-18,
+      "QPSD": 0.0,
+      "noise": 0.0,
+      "regular": 0.0,
+      "trend": 0.0,
+      "supported_QPSD_bins": 8
+    },
+    "joint_stochastic": {
+      "wave": 0.0,
+      "QPSD": 0.0,
+      "noise": 0.0,
+      "regular": 0.0,
+      "trend": 0.0,
+      "supported_QPSD_bins": 8
+    },
+    "truth_map_per_parent_RMSE_V": 0.01297636121341304,
+    "truth_map_per_parent_relative_RMSE": 0.45658849956660236,
+    "intended_Q_is_preserved": true,
+    "actual_Q_pair_difference_absmax_Vns": 1.7763568394002505e-15
+  },
+  "full008Fix01_artificial_signal_gradient": {
+    "shape_encoder": {
+      "parameters": 2944,
+      "grad_tensors": 8,
+      "norm": 0.0
+    },
+    "charge_head": {
+      "parameters": 594,
+      "grad_tensors": 2,
+      "norm": 0.5982721526838317
+    },
+    "response_filter": {
+      "parameters": 65,
+      "grad_tensors": 1,
+      "norm": 0.03308592822402128
+    },
+    "mean_time": {
+      "parameters": 161,
+      "grad_tensors": 4,
+      "norm": 0.036979892817149376
+    },
+    "unet": {
+      "parameters": 1473296,
+      "grad_tensors": 150,
+      "norm": 1.035675262781073
+    },
+    "mean_head": {
+      "parameters": 161,
+      "grad_tensors": 2,
+      "norm": 3.541324674391081
+    },
+    "physical_head": {
+      "parameters": 7886,
+      "grad_tensors": 8,
+      "norm": 1.332615783449659
+    },
+    "basis_head": {
+      "parameters": 1288,
+      "grad_tensors": 2,
+      "norm": 0.7287421131283073
+    },
+    "envelope_head": {
+      "parameters": 161,
+      "grad_tensors": 2,
+      "norm": 0.06908229092745354
+    },
+    "local_filter": {
+      "parameters": 17,
+      "grad_tensors": 1,
+      "norm": 0.0010391066088748229
+    }
+  },
+  "shape_encoder_initial_zero_gradient_reason": "zero-initialized charge_head.parameters_from_shape weight; not detached",
+  "canonical_charge_identity_absmax": 8.881784197001252e-16,
+  "basis_canonical_charge_absmax": 8.992806499463768e-14,
+  "source_sha256": {
+    "src/n01/model.py": "0a0488218d99f351a98e30f2b1525b837b4ad3195c19f2a76ff61ee01298587b",
+    "src/n01/model008.py": "56a6b41f9d2906c82757f4ca9f91a751ff8531428a7f38714e0a291359cd1b4f",
+    "src/n01/model008_fix01.py": "3bc826a1867f2658ae507ab2be683a6b901b7f481b1efaf005f3cf4953429abc",
+    "src/n01/model010.py": "3fbbee140477caf755feadf88175291c451c95a56899770a65eebf7be6204318",
+    "src/n01/model014.py": "b45080dd5d99aa51c6846affde021ad1e363aba086c665beb40f8f83a0e0082c",
+    "src/n01/model015.py": "149f7faefc9ca982700eea8c7ce7850e9c679d74985cb4fce90708743299dadc",
+    "src/n01/model016.py": "04c63f91ea5405937a940a9aee6eaed876db79149c857bfbe6ed8cfe6dcb138b",
+    "src/n01/response008.py": "cf8b14b377530a234b066c2fd958827172abb624e7a959ac9bb26a416ff3b2e7",
+    "src/n01/response008_fix01.py": "fbf365a219051ed6c0a3786a59ea3f4b216772610cd52da10101f35ac9515aef",
+    "src/n01/response008_resume01.py": "efcd7b473fdcbb3ecb69c736b5f2862d7e5769c60752f9c3912a235d5e8f32f1",
+    "src/n01/losses008.py": "68a9330b7e0620f12adbb3dc22a00c632a1b7577d44b92617da7d14979d9ea61",
+    "src/n01/losses008_v2.py": "6932772c4b00fa62383b5ca356f26d0cf81271be531888b474ae6146fa25f3d8",
+    "src/n01/observation008.py": "9f7b6c0a266c420af8c6c155103774bae1ed949cfe05ee6a1f19b75f9254c4ec"
+  },
+  "artificial_model_forwards": 1,
+  "artificial_loss_evaluations": 2,
+  "artificial_backward_queries": 1,
+  "scientific_forwards_on_real_data": 0,
+  "checkpoint_reads": 0,
+  "optimizer_updates": 0
+}

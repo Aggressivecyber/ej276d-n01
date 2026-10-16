@@ -1,0 +1,90 @@
+{
+  "schema": "n01/response029-model-audit/v1",
+  "status": "source_and_manufactured_tensor_semantics_complete",
+  "scientific_status": "response_match_not_established",
+  "scope": "Current model.py, model008/fix01, model010/014/015/016 and related 008 loss/replay code. No historical source, ledger, checkpoint or data mutation.",
+  "receipt": "receipts/response029_20261017/model_audit/ARTIFICIAL_SEMANTICS.json",
+  "implemented_candidate": {
+    "model": "src/n01/model029.py",
+    "engineering_check": "scripts/check_model029.py",
+    "engineering_receipt": "receipts/response029_20261017/model_audit/MODEL029_ENGINEERING.json",
+    "status": "new_files_only_artificial_semantics_passed_no_training",
+    "API": "N01Response029(stats, *, seed); forward(source384, {'joint': Bx9, 'local_white': Bx1x400}, enabled=True); parameter_groups()",
+    "accounting_separate_from_audit_below": "4 manufactured mean forwards, 13 rows, 1 AD query, 576 cached algebra quadrature nodes, zero checkpoints/data/optimizer updates",
+    "note": "The root authorized implementation after the read-only audit. Mean restriction and zero-Q voltage formulation recommendations below are now embodied in the candidate; recovery and detector-response acceptance remain untested."
+  },
+  "reproduction": "$env:PYTHONPATH='E:\\GAN\\research\\N01\\src'; $env:PYTHONDONTWRITEBYTECODE='1'; python -B receipts/response029_20261017/model_audit/check_artificial_semantics.py",
+  "findings": [
+    {
+      "id": "original_full008_nonpositive_shape_Q_was_real_but_is_already_fixed",
+      "evidence": ["src/n01/model008.py:205-216", "src/n01/model008_fix01.py:71-89", "provenance/window008_fix01_reference/legacy_failure.json"],
+      "conclusion": "Original full008 crashed when random nonzero-Q bases made the shape integral -0.6842861649644458. Fix01 projects each basis to canonical zero Q before normalization. Do not present this repaired historical bug as a cause of the current completed full008 endpoint."
+    },
+    {
+      "id": "no_global_gradient_disconnect_found",
+      "evidence": ["src/n01/response008.py:150-164", "src/n01/model.py:269-271", "ARTIFICIAL_SEMANTICS.json"],
+      "conclusion": "Actual endpoint replay re-evaluates signal and backpropagates the saved waveform adjoints. One manufactured full008Fix01 forward gives nonzero gradients to charge, response FIR, mean time, U-Net, mean head, joint physical head, shape head, envelope and local FIR. ShapeEncoder has zero first-step gradient because its downstream charge-head weight starts at zero; this is an initialization effect, not detach. This check does not establish good conditioning throughout scientific training."
+    },
+    {
+      "id": "objective_does_not_identify_conditional_mapping",
+      "evidence": ["src/n01/losses008_v2.py:199-229", "src/n01/losses008_v2.py:238-269", "ARTIFICIAL_SEMANTICS.json"],
+      "conclusion": "All wave losses compare output marginals. QPSD condition membership is output Q, not input condition. The actual loss cannot distinguish a correct source-to-response mapping from an output permutation that preserves all output marginals. The manufactured 256-row example swaps two different shapes at each same-Q source condition: all eight QPSD bins remain supported, joint wave=0 and QPSD=0, yet paired voltage RMSE=0.01297636121341304 V and relative RMSE=0.45658849956660236. This is a proven objective ambiguity, not proof that full008 specifically learned this bad mapping. Same-scene population/composition agreement or externally supported comparison weights remain necessary for broad simulation coverage to imply a reusable response."
+    },
+    {
+      "id": "full008_has_nontrivial_constraints_and_redundant_coordinates",
+      "evidence": ["src/n01/model008_fix01.py:57", "src/n01/model008_fix01.py:72-89", "src/n01/model.py:312-332", "src/n01/model.py:87-94"],
+      "conclusion": "The mean residual is bounded pointwise by 0.20 in unit-peak coordinates, deterministic mean time scale is restricted to (0.5,2), and the FIR has a total absolute raw perturbation below 0.5 around identity. Each stochastic basis is forced to RMS=1, so positive rescaling of a raw basis changes no signal while its direction and the Cholesky coefficients remain coupled. Charge log-std is below 0.30, hence signal-charge CV below sqrt(exp(0.09)-1)=0.306878. These are exact representation/coordinate facts; saturation and Jacobian/gradient conditioning at trained endpoints were not measured here, so they are hypotheses to test, not demonstrated causes of the failed fit."
+    },
+    {
+      "id": "deterministic_mean_path_is_not_full_conditional_waveform_expectation",
+      "evidence": ["src/n01/model008_fix01.py:64-96", "USER_PROPOSAL.md:293-321"],
+      "conclusion": "Joint charge/shape/time fluctuations are explicitly requested. Even with zero-Q bases, qsig multiplying a correlated zero-mean shape coefficient produces a nonzero waveform mean term: for fixed time, E[exp(eta_q-var(eta_q)/2)*eta_k]=Cov(eta_q,eta_k). Nonlinear random time warping also changes the mean shape. Qbar is the conditional mean canonical charge, but the zero-latent deterministic waveform is generally not E[signal|x]. This is a semantic/optimization coupling, not an implementation bug or a reason to discard the user's requested correlations."
+    },
+    {
+      "id": "010_014_015_016_training_scope_is_deliberate",
+      "evidence": ["src/n01/model010.py:45-56", "src/n01/model010.py:153-173", "src/n01/model014.py:20-49", "src/n01/model015.py:28-74", "src/n01/model016.py:58-95"],
+      "conclusion": "010/014 train only the 1288 shape-head parameters over a no-grad frozen A. 015 M1 trains six bounded mean-adapter controls, while its M0 trains the shape head. 016 freezes A and B and trains exactly two charge parameters. Inheriting a frozen wrapper and merely setting requires_grad on its parent would not reopen the actual mean computation because _baseline_once remains no_grad and the invariant/optimizer methods enforce freezing."
+    },
+    {
+      "id": "observation_proxy_mismatch_has_existing_local_evidence",
+      "evidence": ["reports/mechanism012_20261015/N01_MECHANISM012_REPORT.md"],
+      "conclusion": "The saved 012 report already shows one carrier direction where 0.1-LSB hard moving-crop finite difference has the opposite sign to the fixed-index STE derivative. Its supervised-proxy finite differences agree with AD. This supports testing observation optimization separately, but is a local frozen-010 result and cannot alone explain all full008 directions or training."
+    }
+  ],
+  "minimal_repair_recommendation": {
+    "implementation_scope": "A new signal class or thin N01Response008 subclass, approximately 120-180 lines, reusing existing source features, U-Net, charge/time means, FIR, observation and fixed005 components. Avoid inheriting the frozen 010/014 wrapper.",
+    "signal": "s = alpha(x,z)*A_theta(x) + sum_k B_theta_k(x)*eta_k(x,z) + local(x,z_local)",
+    "properties": [
+      "Reopen the actual A computation and optimizer membership under the newly registered run; preserve old closed endpoints.",
+      "Project each voltage B to canonical zero Q; do not divide B by RMS or shape_Q, and do not multiply B by qsig.",
+      "Use the same Gaussian bank for alpha and eta_shape through the joint head; correlation remains possible while E[alpha*A+B*eta|x]=A and canonical Q=alpha*Q_A.",
+      "Initialize B small with explicit seed and measure actual voltage/gradient scale. Do not silently inherit the fixed 0.05*tanh amplitude cap of 014.",
+      "Retain deterministic mean_time. Initially express time-like fluctuations through learnable zero-Q voltage bases, or explicitly account for the conditional-mean shift if a nonlinear random warp is retained.",
+      "Use the root's separately audited signed integral/conditional-mean objective repair; do not expect architecture changes to resolve marginal-loss nonidentifiability."
+    ],
+    "claim_boundary": "This is a minimal candidate formulation supported by algebra and current source facts. It is not a verified fix for the detector response until the registered truth diagnostic and actual TRAIN pilot pass."
+  },
+  "single_truth_diagnostic": {
+    "purpose": "Separate implementation/optimization failure from absence of an input-conditioned training signal before increasing network size.",
+    "teacher": "One frozen artificial teacher. Generate its deterministic A_star from explicitly hand-set, nonzero parameters of the existing 008 mean family, with charge/time/residual inside its admitted range; do not load a scientific checkpoint. Add independently hand-specified smooth canonical-zero-Q voltage bases and shared-Gaussian mean-corrected charge fluctuations. Keep explicit source/latent pairs and a second fixed latent bank.",
+    "sequence": [
+      "Fit the known paired teacher using voltage MSE on a small fixed manufactured source bank and explicit paired latents; report deterministic mean RMSE, conditional charge/PSD covariance error, and waveform error on the second fixed latent bank.",
+      "Only after paired fit succeeds, keep the same teacher, source bank, initialization and budget but apply the intended unpaired response loss. Recover known conditional quantities, not only global output distance.",
+      "If the in-family paired mean fit fails, investigate gradient/scale/optimization before claiming the mean family is too small. If paired fitting succeeds but unpaired recovery fails, prioritize objective/condition/population ambiguity. If both succeed, proceed to the single real TRAIN pilot and inspect signed charge-bin mean residual and activation/constraint saturation."
+    ],
+    "success_definition": "Root must freeze numeric tolerances before execution. Teacher fit is engineering/recovery evidence only; it does not identify a unique response from unpaired measured pulses or establish detector acceptance.",
+    "executed_here": false
+  },
+  "audit_work_accounting": {
+    "artificial_model_forwards_total": 2,
+    "artificial_loss_evaluations_total": 4,
+    "artificial_backward_queries_total": 2,
+    "note": "One initial 64-row exploratory permutation check was superseded by the saved, seeded 256-row same-Q shape-swap check with all eight supported bins. The saved receipt counters describe its reproducible final run.",
+    "scientific_training_or_evaluation_forwards": 0,
+    "checkpoint_reads": 0,
+    "raw_TRAIN_or_DEV_data_reads": 0,
+    "optimizer_updates": 0,
+    "existing_source_or_ledger_changes": 0,
+    "new_files_location": "E:/GAN/research/N01/receipts/response029_20261017/model_audit"
+  }
+}

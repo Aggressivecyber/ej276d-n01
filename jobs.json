@@ -1,6 +1,6 @@
 {
   "experiment_id": "N01",
-  "updated_UTC": "2026-10-16T18:03:56.400301+00:00",
+  "updated_UTC": "2026-10-16T19:48:36.328727+00:00",
   "active_scientific_jobs": 0,
   "jobs": [
     {
@@ -9228,6 +9228,33 @@
         "bytes": 5756,
         "sha256": "51c7d28402470b1d25604d7f9beb14d29cfc5e31f5683cac1518b2e31f480236"
       }
+    },
+    {
+      "run_id": "response029_20261017",
+      "status": "frozen_prepared",
+      "active": false,
+      "scientific_job_started": false,
+      "new_training_updates": 0,
+      "completed_updates_accounted": 0,
+      "cumulative_before": 187667,
+      "maximum_diagnostic_optimizer_updates": 4000,
+      "engineering_optimizer_updates": 2,
+      "config_path": "configs/response029_20261017.json",
+      "config_sha256": "683db14dba84e4afde83259d48f1987a2dfdf1b332c0fd8d17da3b3c7c0335d3",
+      "authority": "receipts/response029_20261017/USER_DIRECTION.json",
+      "remote_root": "/home/rylan/projects/ej276d-n01/response029_20261017",
+      "remote_host": "rylan@100.82.231.102",
+      "source_bindings": {
+        "scripts/run_response029.py": "a39f5ddd3fcbd0d8cf58db487d7fb51d1b17646f69603047a1e739fece74e7d5",
+        "src/n01/model029.py": "40c16bca31ff277912959a040a40770608c49f374eff76cffd45de0d716ea599"
+      },
+      "initial_seed_count": 2,
+      "updates_per_seed_mode": 1000,
+      "paired_failure_stops_unpaired": true,
+      "science_inputs": "artificial_only_no_REAL_no_checkpoint_reads",
+      "objective": "Diagnose and repair response learning, then fit existing SOURCE/REAL development data.",
+      "scientific_status": "response_match_not_established",
+      "prepared_UTC": "2026-10-16T19:48:36.328727+00:00"
     }
   ],
   "user_requested_pause": false,
@@ -9248,7 +9275,7 @@
     "receipt_sha256": "88e3c7cd151f7b6ba55480c412931275a3364065dfbeb32e187906a065d86f77"
   },
   "scientific_status": "response_match_not_established",
-  "active_scientific_jobs_status_basis": "One bounded028 snapshot at2026-10-16T17:50:12.250851Z recorded native exit0 and absent owned child/supervisor processes; no later job launched.",
+  "active_scientific_jobs_status_basis": "Fresh remote process/GPU snapshot at 2026-10-16T19:48:36.328727+00:00 found no N01 scientific process; 029 has not launched.",
   "wp2_readback_prepare_failure": {
     "path": "receipts\\wp2_014_20261015\\readback_registration_01\\ROOT_PREPARE_FAILURE_RECEIPT.json",
     "sha256": "6f89dedd516cd5612295060b074fa84625364774a6a8c5c74b5172608f2b83f5",
@@ -9297,18 +9324,18 @@
     "bytes": 83119,
     "sha256": "b24f3bb1e5644fc8db29b2db1b3b82b05a8793248b7c99af81b23fb4dc3d1e24"
   },
-  "status": "028_engineering_inference_complete_full_WP5_WP6_pending",
+  "status": "response029_frozen_prepared",
   "current_action": "Frozen research inference API, native CPU example and independent saved-output review completed.",
-  "next_action": "Prepare a bounded WP5 final-confirmation design for the already specified necessary baselines, full-pipeline grouped validation and independent C2ST/REAL-REAL; retain closed negative results and do not reopen architecture, T2 or candidate search.",
+  "next_action": "Launch the one frozen 029 diagnostic with existing reviewed source, verify native startup, then schedule one future heartbeat. Continue existing-data response fitting after the result.",
   "latest_user_review_direction": {
     "path": "receipts/review_017_20261016/ACCEPTED_NEXT_ACTIONS.json",
     "bytes": 3271,
     "sha256": "8c1fe73b73b7376a3299e6c43f8493a41f2cd45a5e1a2d33a82c961ab22642c2"
   },
-  "pending_run_id": null,
+  "pending_run_id": "response029_20261017",
   "latest_run_id": "wp6_028_20261017",
   "active_run_id": null,
-  "current_stage": "WP6_028_complete",
+  "current_stage": "response029_known_response_diagnosis",
   "wp4_018_result": {
     "path": "receipts/wp4_018_20261016/FINAL_RESULT_RECEIPT.json",
     "bytes": 6437,
@@ -11328,5 +11355,32 @@
   "latest_report": "reports/wp6_028_20261017/REPORT.md",
   "latest_completed_result": "receipts/wp6_028_20261017/FINAL_RESULT_RECEIPT.json",
   "latest_completion_receipt": "receipts/wp6_028_20261017/FINAL_RESULT_RECEIPT.json",
-  "latest_scientific_completion_receipt": "receipts/wp6_028_20261017/FINAL_RESULT_RECEIPT.json"
+  "latest_scientific_completion_receipt": "receipts/wp6_028_20261017/FINAL_RESULT_RECEIPT.json",
+  "response029_execution": {
+    "run_id": "response029_20261017",
+    "status": "frozen_prepared",
+    "active": false,
+    "scientific_job_started": false,
+    "new_training_updates": 0,
+    "completed_updates_accounted": 0,
+    "cumulative_before": 187667,
+    "maximum_diagnostic_optimizer_updates": 4000,
+    "engineering_optimizer_updates": 2,
+    "config_path": "configs/response029_20261017.json",
+    "config_sha256": "683db14dba84e4afde83259d48f1987a2dfdf1b332c0fd8d17da3b3c7c0335d3",
+    "authority": "receipts/response029_20261017/USER_DIRECTION.json",
+    "remote_root": "/home/rylan/projects/ej276d-n01/response029_20261017",
+    "remote_host": "rylan@100.82.231.102",
+    "source_bindings": {
+      "scripts/run_response029.py": "a39f5ddd3fcbd0d8cf58db487d7fb51d1b17646f69603047a1e739fece74e7d5",
+      "src/n01/model029.py": "40c16bca31ff277912959a040a40770608c49f374eff76cffd45de0d716ea599"
+    },
+    "initial_seed_count": 2,
+    "updates_per_seed_mode": 1000,
+    "paired_failure_stops_unpaired": true,
+    "science_inputs": "artificial_only_no_REAL_no_checkpoint_reads",
+    "objective": "Diagnose and repair response learning, then fit existing SOURCE/REAL development data.",
+    "scientific_status": "response_match_not_established"
+  },
+  "response029_engineering_optimizer_updates": 2
 }

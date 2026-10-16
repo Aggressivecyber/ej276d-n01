@@ -1,0 +1,44 @@
+{
+  "schema": "n01/response029-user-direction/v1",
+  "run_family": "response029_20261017",
+  "recorded_local_date": "2026-10-17",
+  "authority": "direct user instructions in the current chat",
+  "user_instruction": "推进 找到到底是什么原因导致的之后修复 我需要看到一个可以很好拟合探测器响应的神经网络 我的需求是我提供一定量的实测数据和与他应用场景相同的广泛的仿真数据 我就能学习仿真数据如何映射到实测数据 通过这种机制补充实测数据集甚至拓展低计数能区",
+  "data_availability_reply": "先用现有数据推进，暂无新增数据",
+  "latest_question": "现有数据有仿真也有实测还不够吗",
+  "objective": "Diagnose and repair the neural stochastic SOURCE-to-REAL response, demonstrate current-scenario waveform and charge/PSD/width fit using existing data, then evaluate data augmentation and low-count support separately.",
+  "new_trial_authorized": true,
+  "architecture_and_training_repair_authorized": true,
+  "existing_data_sufficient_to_proceed": true,
+  "additional_acquisition_is_not_a_prerequisite": true,
+  "supersedes_for_new_trial": [
+    "The previous next_action restricting work to WP5 final-confirmation preparation",
+    "The previous protected-mean architecture restriction for future candidates",
+    "The original prohibition on adding a known-response diagnostic before training, as the user now explicitly continues the proposed root-cause diagnosis and repair"
+  ],
+  "preserved": [
+    "Historical protocols, source files, checkpoints, results and closed negative decisions",
+    "Original data identities and train/validation roles",
+    "No event IDs or file/row identifiers as neural inputs",
+    "One scientific job at a time; correct startup then scheduled follow-up",
+    "All new local artifacts on E or D; no new data on C"
+  ],
+  "implementation_direction": {
+    "mean": "Trainable original deterministic response including its U-Net, charge and deterministic time structure",
+    "stochastic": "Direct voltage zero-charge shape bases with shared Gaussian charge/shape dependence and trainable local signal fluctuation",
+    "objective": "Retain signed integral distribution matching and the existing hard observation evaluation; validate any auxiliary objective prospectively",
+    "diagnosis": "Small known-response paired/unpaired comparison before a fixed-budget existing-REAL pilot",
+    "acceptance": "Check complete waveform, Q/PSD, peak/rise/FWHM, conditional stochastic recovery, source dependence and low-count strata; report developmental and independent evidence separately"
+  },
+  "state": "registered_design_and_implementation_in_progress",
+  "new_scientific_job_started": false,
+  "new_training_updates_at_registration": 0,
+  "cumulative_training_updates_before_registration": 187667,
+  "new_experiment_configuration": "to_be_frozen_before_scientific_execution",
+  "storage": {
+    "local_root": "E:/GAN/research/N01",
+    "remote_root_parent": "/home/rylan/projects/ej276d-n01",
+    "D_large_backup": false,
+    "D_large_backup_reason": "Live free space approximately 9 MB; preserve existing files and use E snapshots plus owned remote outputs"
+  }
+}

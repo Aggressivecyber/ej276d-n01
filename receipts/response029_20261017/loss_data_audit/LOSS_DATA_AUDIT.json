@@ -1,0 +1,206 @@
+{
+  "schema": "n01/response029-loss-data-static-audit/v1",
+  "UTC": "2026-10-16T19:30:29.673462+00:00",
+  "status": "static_and_saved_JSON_audit_complete",
+  "scope": {
+    "original_SOURCE_REAL_DEV_decodes": 0,
+    "checkpoint_loads": 0,
+    "new_NN_forwards": 0,
+    "new_AD_queries": 0,
+    "new_training_updates": 0,
+    "original_code_or_ledger_mutations": 0,
+    "only_output": "E:\\GAN\\research\\N01\\receipts\\response029_20261017\\loss_data_audit"
+  },
+  "reviewed_sha256": {
+    "src/n01/losses008.py": "68a9330b7e0620f12adbb3dc22a00c632a1b7577d44b92617da7d14979d9ea61",
+    "src/n01/losses008_v2.py": "6932772c4b00fa62383b5ca356f26d0cf81271be531888b474ae6146fa25f3d8",
+    "src/n01/losses014.py": "86fded3226ae86a5aaae6d9066220923fb6b0aebfeaa09cb638642498e4f4114",
+    "src/n01/observation008.py": "9f7b6c0a266c420af8c6c155103774bae1ed949cfe05ee6a1f19b75f9254c4ec",
+    "src/n01/data008.py": "2a66a8800642cf6788ce268d326af9d128cb165daf60d555f802b2c881ac97af",
+    "src/n01/data.py": "2ec3363bc830043af053342b4638f5e6ab55d27303da037f383f4fe630d77bd2",
+    "src/n01/model.py": "0a0488218d99f351a98e30f2b1525b837b4ad3195c19f2a76ff61ee01298587b",
+    "src/n01/model008.py": "56a6b41f9d2906c82757f4ca9f91a751ff8531428a7f38714e0a291359cd1b4f",
+    "src/n01/model008_fix01.py": "3bc826a1867f2658ae507ab2be683a6b901b7f481b1efaf005f3cf4953429abc",
+    "src/n01/response008.py": "cf8b14b377530a234b066c2fd958827172abb624e7a959ac9bb26a416ff3b2e7",
+    "receipts/mean_random009_20261014/postrun_numeric_01/INTERPRETATION.json": "9d2a02de19b3c46067a821bcbf2dc9af05e6fe54524a955b6b8c0eac2701ebea",
+    "receipts/mechanism012_20261015/native_result_json/SUMMARY.json": "6317598775cedf4eb15796a1252154f68720fb02b3d125a41bc41336ba5f97fc",
+    "receipts/wp1_013_20261015/postrun_root_01/FINAL_RESULT_RECEIPT.json": "25dc92244511ca745e20be5e3c4dfdccccd29e9e7c591c51c5d1ace207eface3",
+    "reports/wp2_014_20261015/REPORT_DATA.json": "513b8bebdb436ed9ab1b1c7c123dfb2fccf32a945912ab909d8e310caa38d3f8",
+    "runs/window008_20261013/prepared/FIT_STATISTICS008.json": "aadd729364d0b6afac699a9d1774ac8d29fd2bcd10a9fd9f551141ecc2fbc2a0",
+    "runs/window008_20261013/prepared/FIT_DATA_STATISTICS.json": "e614c7b0a9861b468eb2c9e1bff5a80dadef901310539407141d1ff5c9241f3f",
+    "reports/window008_resume01_20261013/SUMMARY.json": "dd20fb203b5d5d2e146fcbbfa3f9b895543f192842f0f2c47ff545287d14fde0"
+  },
+  "findings": [
+    {
+      "id": "F1",
+      "confidence": "confirmed_saved_gradient_at_specific_head_endpoint",
+      "finding": "Native QPSD gradient dominates waveform gradient; numerical zero-Q is not the observed explanation.",
+      "source": "receipts/mechanism012_20261015/native_result_json/SUMMARY.json:gradient_attribution",
+      "QPSD_gradient_L2": 1.665471856977667,
+      "wave_gradient_L2": 0.0878638183329569,
+      "gradient_norm_ratio": 18.95515001028545,
+      "QPSD_cosine_total": 0.9987587049686192,
+      "real_train_min_Q": 0.12882866385887726,
+      "q_floor": 0.0005319378913383611,
+      "real_train_nearzero_Q_rows": 0,
+      "boundary": "012 is a later fixed shape-head diagnostic, not a measured attribution over the entire original full008 training."
+    },
+    {
+      "id": "F2",
+      "confidence": "confirmed_local_observation_nonsmoothness_not_global_training_cause",
+      "finding": "Hard first-argmax crop can reverse finite-difference sign relative to fixed-crop STE at some scales.",
+      "source": "observation008.py:45-48,95-99; mechanism012 SUMMARY:probe",
+      "AD_directional_derivative": -0.19733817075973742,
+      "finite_difference_0p1LSB": {
+        "S_clamp_surrogate_fixed_actual_crop": {
+          "central_difference_loss_per_V": -0.19799411966552463,
+          "AD_directional_derivative_loss_per_V": -0.19733817075973742,
+          "signed_difference_from_AD": -0.0006559489057872125,
+          "relative_to_AD": -0.003323983916856316,
+          "zero_AD_relative_reason": null,
+          "scale_normalized_difference": -0.0033129716523668477
+        },
+        "H_fixed_hard_ADC_fixed_actual_crop": {
+          "central_difference_loss_per_V": -0.1207256324418529,
+          "AD_directional_derivative_loss_per_V": -0.19733817075973742,
+          "signed_difference_from_AD": 0.07661253831788452,
+          "relative_to_AD": 0.3882296973917002,
+          "zero_AD_relative_reason": null,
+          "scale_normalized_difference": 0.3882296973917002
+        },
+        "H_moving_same_hard_ADC_first_argmax": {
+          "central_difference_loss_per_V": 4.9974806260810425,
+          "AD_directional_derivative_loss_per_V": -0.19733817075973742,
+          "signed_difference_from_AD": 5.19481879684078,
+          "relative_to_AD": 26.324449937085713,
+          "zero_AD_relative_reason": null,
+          "scale_normalized_difference": 1.0394875309230538
+        }
+      },
+      "counterevidence": "WP1/013 later found negative_saved012_total positive nominal1LSB adequate in all12 registered fixed-G2000 TRAIN cells; cannot call the observation proxy generally invalid."
+    },
+    {
+      "id": "F3",
+      "confidence": "confirmed_saved_repeat_mean_effect",
+      "finding": "Zero-mean random signal or charge does not preserve the hard observed waveform mean after ADC and moving argmax crop.",
+      "source": "receipts/mean_random009_20261014/postrun_numeric_01/INTERPRETATION.json",
+      "saved_evidence": {
+        "preADC_D_minus_C_finite_repeat_mean_drift_resolved": false,
+        "preADC_variance_corrected_average_parent_mean_square_V2": -2.0863658519920356e-06,
+        "preADC_fixed_bank_parent_CI95": [
+          -4.396990735731739e-06,
+          3.9210466072920996e-07
+        ],
+        "HARD_fast_variance_corrected_average_parent_mean_square_V2": 7.252882009431e-05,
+        "HARD_fast_fixed_bank_parent_CI95": [
+          6.887283638558303e-05,
+          7.649683789572018e-05
+        ],
+        "D_exactly_mean_of_individual_saved_B_observations": true,
+        "meanObs_B_differs_from_Obs_mean_carrier_for_all_512_parents": true,
+        "meanObs_minus_ObsMean_fast_mean_parent_RMS_mV": 8.117137396971332,
+        "all_81_saved_artifact_hashes_and_sizes_match": true,
+        "all_73728_observed_rows_preserved": true,
+        "all_complete_source_parent_clusters": 512,
+        "repeats_per_cluster": 16,
+        "covariance_blocks_checked": 21,
+        "representative_full_covariances_checked": 105,
+        "scalar_covariance_blocks_checked": 9,
+        "CPU_saved_CUDA_ADC_prefix_and_hard_replay_float_absmax_V": 1.1102230246251565e-16,
+        "exact_ADC_integer_codes_and_saved_common_carrier_prefixes_match": true
+      },
+      "mechanism": "Fixed canonical Q on [110,366) is distinct from observed Q on the noise-dependent peak crop. The random time warp, peak normalization, joint latent covariance and qsig multiply can also alter the waveform expectation.",
+      "boundary": "preADC D-minus-C population mean drift was not statistically resolved in009; do not claim it exactly zero."
+    },
+    {
+      "id": "F4",
+      "confidence": "confirmed_objective_semantics",
+      "finding": "mean_response trains population feature means, not E[observed waveform|source]. The stage compares means after per-event shape and PSD nonlinearities.",
+      "source": "losses008_v2.py:199-227,238-257; response008.py:238-302",
+      "implication": "The stage name is insufficient evidence of learned conditional mean. Joint stochastic stage re-enables all signal parameters, so its endpoint may move both conditional mean and scatter."
+    },
+    {
+      "id": "F5",
+      "confidence": "confirmed_prior_partial_fix",
+      "finding": "Denominator-free signed-asinh joint integral loss already mitigated the gradient imbalance but did not resolve absolute morphology mismatch.",
+      "source": "reports/wp2_014_20261015/REPORT_DATA.json",
+      "all_population_gradient_ratios": [
+        {
+          "trial": "seed0_C0",
+          "update": 0,
+          "ratio": 45.93336387801017,
+          "cosine": 0.17635082344280711
+        },
+        {
+          "trial": "seed0_C0",
+          "update": 2000,
+          "ratio": 50.28768047931794,
+          "cosine": 0.26020204398832186
+        },
+        {
+          "trial": "seed0_C1",
+          "update": 0,
+          "ratio": 5.479514378468844,
+          "cosine": -0.10762195775567841
+        },
+        {
+          "trial": "seed0_C1",
+          "update": 2000,
+          "ratio": 3.92394919969481,
+          "cosine": -0.15424883741033338
+        },
+        {
+          "trial": "seed1_C0",
+          "update": 0,
+          "ratio": 15.930512189605055,
+          "cosine": 0.495359491935331
+        },
+        {
+          "trial": "seed1_C0",
+          "update": 2000,
+          "ratio": 17.267560810641577,
+          "cosine": 0.21843063834710846
+        },
+        {
+          "trial": "seed1_C1",
+          "update": 0,
+          "ratio": 2.2831154682643557,
+          "cosine": 0.819123312236302
+        },
+        {
+          "trial": "seed1_C1",
+          "update": 2000,
+          "ratio": 2.6856717208110013,
+          "cosine": 0.7875456040228737
+        }
+      ],
+      "C1_useful_cells": 5,
+      "C1_ALL6_usefulness": false,
+      "C1_absolute_T_all_cells": false,
+      "implication": "Preserve C1 as justified training representation; changing ratio alone is not a successful response repair."
+    },
+    {
+      "id": "F6",
+      "confidence": "source_read_and_saved_statistics",
+      "finding": "Software units and crop operators agree across source/REAL/generated; hardware calibration remains unknown.",
+      "source": "data008.py:DEFAULT_SPEC,transform_domain; observation008.py:SAMPLE_INTERVAL_NS,_observation; losses008.py:window_charge,_qpsd",
+      "checked": "1 ns software grid; prefix100 baseline; p-16:p+240; tail46; REAL canonical ADC and generated ADC once; clean SOURCE no ADC",
+      "boundary": "No raw hardware timing or original raw data decoded in this audit."
+    },
+    {
+      "id": "F7",
+      "confidence": "confirmed_configuration_and_source",
+      "finding": "The full008 critic is an unconditional waveform critic and population learning is disabled. The noise loss is constant with respect to signal parameters because prefix100 is exactly zero and005 is frozen.",
+      "source": "response008.py:26-30,151-166,280-302; model008.py:137-147,223-225; window008_config.json",
+      "implication": "No critic/source conditioning prevents separation of spectrum mismatch and event response. Noise scalar should be reported as a diagnostic for signal training; increasing its coefficient cannot repair frozen noise."
+    }
+  ],
+  "minimal_repair_recommendation": {
+    "one_executable_candidate": "Train mean/shape and stochastic branches jointly from step1. Keep C1 hard256 waveform + 2*signed_asinh(Q,T,segments) objective. Add fixed0.25*L_voltage384 auxiliary; no discriminator in this bounded pilot.",
+    "voltage384_auxiliary": "Use the same one-pass ADC and baseline100 subtraction on generated384 and canonical REAL384. Compare fixed-index centered384 voltage with 0.5 coordinate W1 + 0.5 SWD, using TRAIN-only robust per-time statistics and a separately frozen evaluation projection bank. No moving argmax in this auxiliary.",
+    "observation_contract": "Original hard first-argmax256 remains formal evaluation. Fixed384 auxiliary is a software-index comparison, not hardware timing calibration. Never reconstruct missing REAL384 from cropped256.",
+    "known_teacher_precheck": "Use a known synthetic source-conditional teacher to test recovery of conditional mean and variance on independent latent draws; retaining a monotone charge architecture tests same-shape monotonicity without claiming input/REAL pairing.",
+    "real_pilot_decision": "Freeze seeds, budgets and loss weights before outcomes. Accept scale-up only from hard256 waveform improvement and noninferior Q/PSD/peak/rise/FWHM/defined-rate criteria, with source-parent uncertainty. Auxiliary384 loss reduction alone cannot pass.",
+    "scope_limit": "Input-conditioned generated trends are required diagnostics; they do not supply unavailable paired REAL conditional truth. Existing negative results remain closed and visible."
+  }
+}

@@ -1,0 +1,106 @@
+{
+  "schema": "n01/response029-minimal-runtime-recommendation/v1",
+  "recorded_UTC": "2026-10-16T19:30:58.6587540Z",
+  "status": "read_only_preparation_complete_no_scientific_execution",
+  "runtime": "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+  "runtime_reusable": true,
+  "psutil_required": false,
+  "scope": {
+    "scientific_array_opens": 0,
+    "checkpoint_opens": 0,
+    "scientific_forwards": 0,
+    "training_updates": 0,
+    "uploads": 0,
+    "remote_mutations": 0,
+    "shared_ledger_edits": 0
+  },
+  "local_storage": {
+    "E_free_bytes": 10784440320,
+    "D_free_bytes": 9011200,
+    "new_files": "E only; D too small for artifacts"
+  },
+  "reuse": {
+    "supervisor": {
+      "path": "scripts/supervise.py",
+      "lines": 83,
+      "bytes": 3032,
+      "sha256": "0223a8912196876f712072f064c9118a999f7e563244947cba7ad729d247a69b",
+      "dependencies": "Python standard library and Linux /proc; no psutil",
+      "outputs": [
+        "launch.json",
+        "console.log",
+        "resource_status.json",
+        "exit_receipt.json"
+      ],
+      "limits": "Enforces RSS on its own child process group. Add GNU timeout in command for wall time. Does not enforce output or GPU limits."
+    },
+    "launch_pattern": "scripts/launch_window008_resume01.sh provides env/PYTHONPATH/TMPDIR/cache/CUDA/determinism pattern. Replace hardcoded old run root and old training command.",
+    "minimal_model_modules": [
+      "src/n01/__init__.py",
+      "src/n01/model.py",
+      "src/n01/model008.py",
+      "src/n01/model010.py",
+      "src/n01/model014.py",
+      "src/n01/electronics_v3.py",
+      "src/n01/extension006.py",
+      "src/n01/observation008.py"
+    ],
+    "existing_M0_load": "Build N01Response008(statistics.model, deterministic), strict-load A, set saved stage, freeze/eval. Build FrozenDeterministicVoltageShape014 with saved M0 seed and strict-load CP[new_head]. Mean adapter is zero for saved M0. Load noise005 separately and wrap FrozenObservedNoise008.",
+    "API_boundary": "Use original observation008 hard ADC and first-argmax crop; source 480 -> carrier384 -> observed256 is already bound."
+  },
+  "avoid": {
+    "drivers": [
+      "scripts/run_wp3_015.py",
+      "scripts/run_wp3_016.py",
+      "scripts/run_wp6_028.py"
+    ],
+    "reason": "Historical batch/trial contracts, operation accounting and CPU-only 028 configuration are unsuitable as a new minimal GPU repair launcher.",
+    "inference028": "Useful frozen-loading reference. build_response028 hardcodes CPU and loads all six A/005/M0/Q1 checkpoints; do not wrap it for the new diagnostic.",
+    "no_fixed_inherited_protocol": true
+  },
+  "proposed_single_job": {
+    "registration": "ROOT must register exact repair/diagnostic scope and scientific budgets before implementation/deployment",
+    "fresh_remote_root": "/home/rylan/projects/ej276d-n01/response029_20261017",
+    "runner": "One new task-specific runner; direct existing module calls. No new controller framework or per-operation billing.",
+    "inputs": "Read existing absolute input paths, verify external artifact hashes once at job boundary; decode only registered TRAIN members.",
+    "execution": "One native GPU child under existing supervise.py plus GNU timeout; no automatic restart; no other process manipulation.",
+    "logging": "START.json contains config/source/input digests, device, seed and scope; metrics.jsonl or stdout once per coarse registered step block; at most one small rolling STATUS.json. No line-by-line audit stream.",
+    "checkpoint": "If training is authorized, save one latest checkpoint at complete update boundary and final.pt; include intended trainable state, optimizer, completed step and RNG. Keep imported A/005 unchanged and reference their hashes. Do not save every forward.",
+    "terminal": "RESULT.json or FAILED.json from runner; supervisor exit_receipt.json retains native code/signal. RESULT records executed counts at high level, decision and limitations, scientific_status=response_match_not_established unless registered acceptance passes.",
+    "receipt_collection": "Collect small JSON/log/final checkpoint to E. Leave large private arrays on execution host. D backup unavailable at current free space.",
+    "startup_and_wakeup": "Verify launch PID/cmd and first valid progress exactly once after start; schedule one future wakeup and end active turn. No continuous SSH polling."
+  },
+  "engineering_path": {
+    "executed_now": false,
+    "existing_checks": [
+      "Set PYTHONDONTWRITEBYTECODE=1 and PYTHONPATH=E:/GAN/research/N01/src; python -B -c \"from n01.data008 import self_test; print(self_test())\"",
+      "python -B -m unittest discover -s tests -p test_electronics_v3.py",
+      "python -B -m unittest discover -s tests -p test_extension006.py",
+      "python -B scripts/check_model010.py --out E:/GAN/research/N01/receipts/response029_20261017/runtime_preparation/engineering_model010_01"
+    ],
+    "existing_check_limitation": "check_model010.py explicitly requires a fresh Windows E/D output path and cannot run unchanged on Linux. These are artificial CPU semantics, not physical response acceptance.",
+    "new_runner_checks": [
+      "Artificial known-input output has correct units and 384/256 shapes; hard ADC and dynamic crop unchanged.",
+      "Explicit random streams reproduce same seed and vary different seed; IDs never enter NN.",
+      "For the selected registered repair only: intended parameter gradient is nonzero and one synthetic optimizer step changes only intended parameters; imported A/005 digest unchanged if scope keeps them frozen.",
+      "Terminal success/nonzero paths produce matching RESULT/FAILED and native exit receipts on a tiny artificial fixture."
+    ],
+    "full_suite": "Do not invoke historical scientific batch drivers as tests."
+  },
+  "open_decisions": [
+    "ROOT scientific audit determines the defect and which minimal parameter/loss/data-path change to implement.",
+    "Exact TRAIN member decode list, sample scope, update cap, wall/RSS/GPU/output caps and comparison rule must be bound by ROOT; none are invented here."
+  ],
+  "source_evidence": [
+    "AGENTS.md",
+    "DATA_REFERENCES.json",
+    "wp6_028_config.json",
+    "data/window008/PREPARATION_RECEIPT.json",
+    "scripts/supervise.py",
+    "scripts/launch_window008_resume01.sh",
+    "src/n01/inference028.py",
+    "src/n01/model014.py",
+    "src/n01/model015.py",
+    "OBSERVATION_CONTRACT.json"
+  ]
+}

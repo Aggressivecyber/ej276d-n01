@@ -1,0 +1,121 @@
+{
+  "UTC": "2026-10-16T19:45:41.839433+00:00",
+  "pid": 46240,
+  "config": {
+    "schema": "n01/response029-known-teacher/v1",
+    "run_id": "response029_20261017",
+    "status": "draft",
+    "stage": "teacher_paired_then_unpaired",
+    "data_kind": "artificial_known_response",
+    "learner_seeds": [
+      2026101799
+    ],
+    "teacher_seed": 2026101729,
+    "source": {
+      "TRAIN_per_template": 64,
+      "heldout_per_template": 32,
+      "Q_range_Vns": [
+        0.5,
+        8.0
+      ],
+      "Q_stratum_edges_Vns": [
+        0.5,
+        1.5,
+        4.0,
+        8.0
+      ],
+      "templates": [
+        {
+          "rise_width": 3.0,
+          "tail": 30.0
+        },
+        {
+          "rise_width": 5.0,
+          "tail": 60.0
+        }
+      ],
+      "peak": 126,
+      "prefix_zero": 100,
+      "carrier_samples": 384
+    },
+    "teacher": {
+      "mean_gain": 1.12,
+      "time_scale": 1.1,
+      "shape_weight_multiplier": 10.0,
+      "charge_v": [
+        0.08,
+        0.04,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "local_initialization_retained": true
+    },
+    "training": {
+      "paired_updates": 0,
+      "unpaired_updates": 0,
+      "parents_per_update": 64,
+      "draws_per_parent": 2,
+      "mean_lr": 0.0001,
+      "new_head_lr": 0.0003,
+      "weight_decay": 0.0,
+      "gradient_clip": 5.0,
+      "status_interval": 100,
+      "statistics_draws_per_TRAIN_parent": 8,
+      "wave_weight": 1.0,
+      "integral_weight": 2.0,
+      "carrier_weight": 0.25,
+      "regular_weight": 0.01
+    },
+    "evaluation": {
+      "analytic_parents": 64,
+      "MC_parent_rows": [
+        0,
+        4,
+        8,
+        12,
+        16,
+        20,
+        24,
+        28,
+        32,
+        36,
+        40,
+        44,
+        48,
+        52,
+        56,
+        60
+      ],
+      "MC_draws_per_parent": 256,
+      "projections": 9,
+      "mean_NRMSE_max": 0.03,
+      "charge_variance_relative_RMS_max": 0.15,
+      "standardized_covariance_relative_Frobenius_max": 0.2,
+      "require_all_template_Q_strata": true,
+      "MC_is_gate": false
+    },
+    "resources": {
+      "CPU_threads": 4,
+      "RSS_GiB": 12,
+      "GPU_GiB": 10,
+      "wall_seconds": 7200,
+      "output_MiB": 256
+    },
+    "execution_kind": "engineering_artificial_smoke",
+    "design_revision": "800/1200 was an unexecuted draft; both modes fixed at 1000 before training",
+    "no_REAL_or_checkpoint_reads": true,
+    "no_discriminator": true,
+    "no_noise005": true,
+    "automatic_restart": false,
+    "scientific_status": "response_match_not_established"
+  },
+  "device": "cpu",
+  "scientific_array_reads": 0,
+  "checkpoint_reads": 0,
+  "automatic_restart": false
+}

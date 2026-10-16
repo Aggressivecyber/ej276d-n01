@@ -1,0 +1,171 @@
+{
+  "schema": "n01/model029-independent-static-review/v1",
+  "UTC": "2026-10-16T19:48:08.114159+00:00",
+  "status": "no_blocking_findings_model_runner_and_existing_engineering_receipts_reviewed",
+  "model_sha256": "40c16bca31ff277912959a040a40770608c49f374eff76cffd45de0d716ea599",
+  "check_sha256": "02e188002629747bc1d72feb493808e18bded15a7cf3d8b03a0376adefdd6c9b",
+  "engineering_receipt_sha256": "ef58df7227196da28b016bb50c31db24b99f889d0c750589b892232de708697e",
+  "engineering_receipt_current_source_matches": true,
+  "model_conclusions": [
+    "A, B, v and local envelope depend on source alone; alpha=exp(v.z-0.5||v||^2) has mean1, shape B.z and projected local have mean0. Therefore exact preADC conditional signal mean is A.",
+    "Canonical zero-charge B/local guarantee Qsignal=Q_A*alpha. Shared v[1:] allows nonzero charge-shape covariance without moving waveform mean.",
+    "Existing engineering receipt confirms mean branch gradients, exact noiseoff A, same-seed deterministic replay, disjoint complete optimizer groups and zero-Q numerical identities. No redundant model execution performed.",
+    "Teacher gain1.12 is exactly expressible with charge spline bias17=atanh(log1.12/2); deterministic time1.10 with mean_time final bias=atanh(log1.10/log2); teacher built from029 class supplies an in-family optimum."
+  ],
+  "teacher_design_review": [
+    "Teacher uses the exact model029 family, fixed seed2026101729, nonzero gain1.12/time1.10, initial random basis weights multiplied10, v=[.08,.04,0,...], and unchanged local initialization. The initial constant-bias draft was replaced before training.",
+    "Mean recovery is source-only A. Charge variance is Q_A^2*expm1(||v||^2). Projected covariance includes expm1(||v||^2)*aaT, BPTBP, both charge-shape cross terms, and exact projected local FIR covariance.",
+    "All64 heldout parents are evaluated analytically. Nine fixed teacher projections consist of canonical charge and eight A-orthogonal QR shape directions, standardized by exact teacher conditional SD; this prevents global charge variance from automatically dominating the shape covariance metric.",
+    "The all-parent cell and all six predeclared template by Q strata use the unchanged0.03 mean,0.15 Qvariance,0.20 standardized covariance thresholds. Both per-run passed and final paired/unpaired passed require all cells. Q strata edges are0.5,1.5,4,8Vns.",
+    "The pretraining charge-only oracle uses closed-form per-parent best kappa, constrained to0.85..1.15 teacher kappa; every covariance cell must still fail0.20. Its fixed-teacher-A scope is explicitly saved.",
+    "Paired and unpaired each have1000 updates per learner seed. Each mode constructs the same initial learner state, source-parent RNG and learner latent RNG. Unpaired teacher source rows and latent draws use independent RNGs, so no paired latent supervision enters its objective.",
+    "Paired mean/residual MSE scales and unpaired loss statistics/ADC384 scales are fitted to128 TRAIN parents only. The heldout64 influence teacher-defined evaluation projections and metrics, never TRAIN fitting.",
+    "Unpaired objective is native hard256 waveform W1 plus2*signed integral W1 plus0.25*same-single-ADC baseline-subtracted carrier384 W1/SWD plus0.01 regularization. The initial preADC carrier auxiliary draft was corrected before training.",
+    "Fresh256-draw common-latent MC checks estimate sampling error and unchanged hardADC observation behavior; MC outputs do not control analytic recovery gates.",
+    "Conditional heldout support is Q interpolation for the same two manufactured shapes, not unseen-shape generalization. Nonzero local fluctuation stays at the same initial law, so no changed-local-law recovery is claimed.",
+    "Paired success plus unpaired failure means a difference under the fixed objectives and budget; neither that decision string nor the implementation asserts mathematical nonidentifiability as the unique cause. REAL fitting remains a separate next run."
+  ],
+  "work_accounting": {
+    "original_data_or_checkpoint_reads": 0,
+    "new_NN_forwards": 0,
+    "new_AD_queries": 0,
+    "new_training_updates": 0,
+    "historical_source_or_ledger_mutations": 0
+  },
+  "runner_sha256": "a39f5ddd3fcbd0d8cf58db487d7fb51d1b17646f69603047a1e739fece74e7d5",
+  "runner_AST_parse": "passed",
+  "runner_execution_receipt_review": "completed_JSON_readback_no_model_or_training_rerun",
+  "resolved_before_freeze": [
+    "800/1200 draft changed to equal1000/1000 without changing total4000 budget",
+    "Collinear constant-bias teacher replaced by fixed nonzero random-weight teacher",
+    "Global high-Q-dominated covariance replaced by teacher-SD standardized projections and all6 strata gates",
+    "PreADC384 auxiliary replaced by same-single-ADC centered384 auxiliary",
+    "Source statistics use clean crop without ADC",
+    "Charge-only oracle strengthened to constrained best scalar kappa"
+  ],
+  "blocking_findings": [],
+  "static_scope_limit": "No GPU runtime, optimizer convergence, physical detector response or actual REAL acceptance is asserted by source review. Existing model engineering receipt was reused after verifying current hashes; runner engineering execution is owned by the runtime agent.",
+  "engineering_receipt_readback": [
+    {
+      "path": "E:\\GAN\\research\\N01\\receipts\\response029_20261017\\runtime_preparation\\engineering_zero_update_01",
+      "native_status": "COMPLETE",
+      "engineering_updates": 0,
+      "diagnostic_updates": 0,
+      "initial_model_states_between_modes_identical": true,
+      "all64_parents_retained": true,
+      "seven_reported_and_gate_cells_agree": true,
+      "stratum_counts": {
+        "all": 64,
+        "template0_low": 13,
+        "template0_middle": 11,
+        "template0_high": 8,
+        "template1_low": 13,
+        "template1_middle": 11,
+        "template1_high": 8
+      },
+      "charge_only_oracle_errors": {
+        "all": 0.9719547576880716,
+        "template0_low": 0.9713870794472331,
+        "template0_middle": 0.971387079447233,
+        "template0_high": 0.9713870794472331,
+        "template1_low": 0.9725003443904512,
+        "template1_middle": 0.9725003443904511,
+        "template1_high": 0.9725003443904512
+      },
+      "teacher_hard_MC_rows": 4096,
+      "teacher_hard_MC_flags": {
+        "peak_at_search_boundary": 327,
+        "global_peak_outside_search": 505,
+        "Q_nonpositive": 0,
+        "PSD_undefined": 0,
+        "PSD_guarded": 0,
+        "ADC_rail_hit": 0,
+        "pre_ADC_out_of_range": 0
+      },
+      "optimizer_STATUS": [],
+      "file_sha256": {
+        "receipts\\response029_20261017\\runtime_preparation\\engineering_zero_update_01\\RESULT.json": "1383333e7118031ad121a6ebe249c948da9b5c6f9cfe5664bd95bf864543a6cf",
+        "receipts\\response029_20261017\\runtime_preparation\\engineering_zero_update_01\\TEACHER.json": "589930eae2ebcf87384c43ce3823cbe0c43dbea389e8fbbc4da0c7d1c2fdfe4d",
+        "receipts\\response029_20261017\\runtime_preparation\\engineering_zero_update_01\\TRAIN_SCALES.json": "8686ab14269f3fd961ce75907512d1123e6f5e1c92987020b76052c8df8c62e1",
+        "receipts\\response029_20261017\\runtime_preparation\\engineering_zero_update_01\\paired_seed2026101799\\INITIAL.json": "2e85e5e52b7489470e2425919b492445a8a34ca88f45217b89df16945e354d8b",
+        "receipts\\response029_20261017\\runtime_preparation\\engineering_zero_update_01\\unpaired_seed2026101799\\INITIAL.json": "1d89a137a5ca16adabf3bbf9d4ab6e37cfd684c1ff5ecbabb73694bb3447ef06"
+      }
+    },
+    {
+      "path": "E:\\GAN\\research\\N01\\receipts\\response029_20261017\\runtime_preparation\\engineering_one_update_01",
+      "native_status": "COMPLETE",
+      "engineering_updates": 2,
+      "diagnostic_updates": 0,
+      "initial_model_states_between_modes_identical": true,
+      "all64_parents_retained": true,
+      "seven_reported_and_gate_cells_agree": true,
+      "stratum_counts": {
+        "all": 64,
+        "template0_low": 13,
+        "template0_middle": 11,
+        "template0_high": 8,
+        "template1_low": 13,
+        "template1_middle": 11,
+        "template1_high": 8
+      },
+      "charge_only_oracle_errors": {
+        "all": 0.9719547576880716,
+        "template0_low": 0.9713870794472331,
+        "template0_middle": 0.971387079447233,
+        "template0_high": 0.9713870794472331,
+        "template1_low": 0.9725003443904512,
+        "template1_middle": 0.9725003443904511,
+        "template1_high": 0.9725003443904512
+      },
+      "teacher_hard_MC_rows": 4096,
+      "teacher_hard_MC_flags": {
+        "peak_at_search_boundary": 327,
+        "global_peak_outside_search": 505,
+        "Q_nonpositive": 0,
+        "PSD_undefined": 0,
+        "PSD_guarded": 0,
+        "ADC_rail_hit": 0,
+        "pre_ADC_out_of_range": 0
+      },
+      "optimizer_STATUS": [
+        {
+          "mode": "paired",
+          "seed": 2026101799,
+          "completed_updates": 1,
+          "objective": 1.2599871355382606,
+          "gradient_norm": 74.74022674560547,
+          "mean": 0.006100658649082155,
+          "residual": 1.2538864768891784,
+          "UTC": "2026-10-16T19:46:25.831276+00:00"
+        },
+        {
+          "mode": "unpaired",
+          "seed": 2026101799,
+          "completed_updates": 1,
+          "objective": 1.472204128681287,
+          "gradient_norm": 20.244884490966797,
+          "wave": 0.7821213503244506,
+          "signed_integrals": 0.2997061689183237,
+          "carrier384": 0.36264114107455936,
+          "regular": 0.0010155251549283277,
+          "UTC": "2026-10-16T19:46:27.662539+00:00"
+        }
+      ],
+      "file_sha256": {
+        "receipts\\response029_20261017\\runtime_preparation\\engineering_one_update_01\\RESULT.json": "6acea87abb586c95e660af5c79576c25b2f987c27dffe9d7124b0c5406249077",
+        "receipts\\response029_20261017\\runtime_preparation\\engineering_one_update_01\\TEACHER.json": "589930eae2ebcf87384c43ce3823cbe0c43dbea389e8fbbc4da0c7d1c2fdfe4d",
+        "receipts\\response029_20261017\\runtime_preparation\\engineering_one_update_01\\TRAIN_SCALES.json": "8686ab14269f3fd961ce75907512d1123e6f5e1c92987020b76052c8df8c62e1",
+        "receipts\\response029_20261017\\runtime_preparation\\engineering_one_update_01\\paired_seed2026101799\\INITIAL.json": "2e85e5e52b7489470e2425919b492445a8a34ca88f45217b89df16945e354d8b",
+        "receipts\\response029_20261017\\runtime_preparation\\engineering_one_update_01\\unpaired_seed2026101799\\INITIAL.json": "1d89a137a5ca16adabf3bbf9d4ab6e37cfd684c1ff5ecbabb73694bb3447ef06",
+        "receipts\\response029_20261017\\runtime_preparation\\engineering_one_update_01\\paired_seed2026101799\\STATUS.json": "540abcd8761b043beb0291b55286305e4279ef49f47aaa63174d8345c9c18258",
+        "receipts\\response029_20261017\\runtime_preparation\\engineering_one_update_01\\unpaired_seed2026101799\\STATUS.json": "23235aee70e4ddc041b01b7b649a517e235f6b363808c5b7ece34867bc239e3c"
+      }
+    }
+  ],
+  "remaining_scope_limits": [
+    "Engineering0/1 updates do not demonstrate optimization convergence or scientific conditional recovery. Science plan remains paired1000 and unpaired1000 per seed, at most4000 total.",
+    "Teacher hard-MC boundary327/4096 and outside-global-peak505/4096 rows remain unfiltered. These are additional observation stress relative to saved REAL TRAIN flags and do not identify the actual-data failure cause. No teacher, thresholds or observation contract changed after engineering results.",
+    "The final test covers the same two manufactured shape families with heldoutQ interpolation. It does not establish unseen-shape or real detector generalization.",
+    "No changed-local-law recovery is claimed. A bounded unpaired failure is not labeled mathematical nonidentifiability."
+  ]
+}
