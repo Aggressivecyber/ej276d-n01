@@ -1,0 +1,1514 @@
+{
+  "schema": "n01/response035-final-result-receipt/v1",
+  "UTC": "2026-10-16T22:30:38.636817+00:00",
+  "status": "zero_update_endpoint_exchange_complete_independently_reviewed",
+  "source_commit": "1c4159ee255c68b0a0e20af8dd8ae78c9006e41d",
+  "config_sha256": "af66a5568bb29420a8f93d6a53b635eb9b3b82cc84a974f27e55a0115086937f",
+  "evidence": {
+    "completion_01/run_01/RESULT.json": {
+      "path": "receipts/response035_20261017/completion_01/run_01/RESULT.json",
+      "sha256": "d3b3aabe38ce49f2e876d0d71b20bddbe00f765804fe4d795f24f30e100dabd9",
+      "bytes": 151356
+    },
+    "completion_01/run_01/metrics.jsonl": {
+      "path": "receipts/response035_20261017/completion_01/run_01/metrics.jsonl",
+      "sha256": "8517270083c75f07637a580c80b45c545228f15e9b2aeb2c8f62ab3646496c47",
+      "bytes": 360490
+    },
+    "completion_01/COLLECTION_RECEIPT.json": {
+      "path": "receipts/response035_20261017/completion_01/COLLECTION_RECEIPT.json",
+      "sha256": "353fdd8909b7d6c464fb53392f515ba11226817c0294d0c9bc3a2cbd047c6f0a",
+      "bytes": 322
+    },
+    "deployment_01/STARTUP_OR_TERMINAL_VERIFICATION.json": {
+      "path": "receipts/response035_20261017/deployment_01/STARTUP_OR_TERMINAL_VERIFICATION.json",
+      "sha256": "b1ae7ba1bb9809ca52ccb5e63d32df092f0a5f1999df3113dbcfabc5df3510b1",
+      "bytes": 25430
+    },
+    "independent_result_01/RESULT_REVIEW.json": {
+      "path": "receipts/response035_20261017/independent_result_01/RESULT_REVIEW.json",
+      "sha256": "a2a01202f54d618a4796a8f8cd6688f8f6ecb9930425979e409b44903bf0d383",
+      "bytes": 147403
+    },
+    "model_diagnosis_01/DIAGNOSIS.json": {
+      "path": "receipts/response035_20261017/model_diagnosis_01/DIAGNOSIS.json",
+      "sha256": "c6df2d850ae0763c0325af12181877aaa0b8c43998c86312cd5194ee9c508743",
+      "bytes": 131208
+    }
+  },
+  "native_execution": {
+    "exit_code": 0,
+    "supervisor_started_UTC": "2026-10-16T22:20:48.137854+00:00",
+    "supervisor_ended_UTC": "2026-10-16T22:20:53.141538+00:00",
+    "supervisor_elapsed_seconds": 5.003684,
+    "child_START_UTC": "2026-10-16T22:20:49.379286+00:00",
+    "peak_RSS_bytes": 2557394944,
+    "peak_RSS_GiB": 2.3817596435546875,
+    "registered_limits": {
+      "CPU_threads": 4,
+      "RSS_GiB": 12,
+      "GPU_GiB": 10,
+      "wall_seconds": 600,
+      "output_MiB": 128
+    },
+    "operation_counts": {
+      "NN_calls": 64,
+      "NN_rows": 4096,
+      "noise005_rows": 1024,
+      "extension_rows": 3072,
+      "generated_ADC_rows": 18432,
+      "checkpoint_loads": 3,
+      "TRAIN_archives_decoded": 1,
+      "REAL_existing_observation_rows": 21047,
+      "banks_cached": 8,
+      "AD_queries": 0,
+      "G_updates": 0,
+      "DEV_reads": 0,
+      "statistics_fits": 0,
+      "checkpoint_writes": 0,
+      "native_W1_runs": 0
+    },
+    "exact_registered_operation_counts": true,
+    "RSS_enforcement": "external supervise.py --rss-limit-gib 12; runner check_limits wall/output; GPU allocator10GiB",
+    "live_process_state": "ROOT reports none; no independent process query in this saved-output review",
+    "cumulative_G_updates": 197668,
+    "new_G_updates": 0,
+    "no_ledger_edits_by_reviewer": true,
+    "cumulative_count_evidence": "197668 and active0 reported by ROOT at task dispatch; no ledger was re-read or edited by this review."
+  },
+  "numeric_recomputation": {
+    "state_bank_records": 48,
+    "unique_state_bank_pairs": 48,
+    "states": [
+      "M0R0",
+      "M0Rf",
+      "MfR0",
+      "MfRf",
+      "A0_only",
+      "Af_only"
+    ],
+    "risk_banks": 8,
+    "state_data_estimates": 96,
+    "paired_data_estimates": 144,
+    "paired_full_objective_estimates": 60,
+    "all_mean_MCSE_estimates": 300,
+    "mean_MCSE_absolute_max_error": 0.0,
+    "all_saved_bank_values_absolute_max_error": 0.0,
+    "within_bank_contrasts_and_interactions": 1632,
+    "within_bank_contrast_absolute_max_error": 0.0,
+    "all_direction_labels_bank_counts_and_fresh_flags_exact": true,
+    "energy_regular_total_algebra_max_roundoff": 5.551115123125783e-17,
+    "flag_count_denominator_records_checked": 1008,
+    "all_flag_denominators128": true
+  },
+  "common_random_numbers_replay": {
+    "all48_index_and_parent_identity_records_exact033_baselines": true,
+    "distinct_bank_stream_row_index_hashes": 32,
+    "A_cross_R_M0_Mf_all8_banks": 0.0,
+    "pre_ADC_A_geometry_exact_across_R_and_cached_A_only": true,
+    "033_common_risk_scalar_pairs": 184,
+    "033_risk_max_absolute_difference": 2.7755575615628914e-17,
+    "033_baseline_flags_exact": true,
+    "allowed_difference": "At most2.7755575615628914e-17 in arithmetic risk totals/averages; common hard-observation flags are exact. This is floating reduction roundoff, not evidence of a changed forward contract.",
+    "latents_electronics_boundary": "Saved identities hash sampled indices/parents, not latent/noise tensors. Common latent/electronics reuse is established by the frozen once-per-bank cache implementation; no new tensor reproduction was attempted.",
+    "replay_errors": [
+      {
+        "bank_index": 1,
+        "metric": "data",
+        "absolute_error": 2.7755575615628914e-17
+      },
+      {
+        "bank_index": 1,
+        "metric": "regular",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 1,
+        "metric": "saturation",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 1,
+        "metric": "total",
+        "absolute_error": 2.7755575615628914e-17
+      },
+      {
+        "bank_index": 1,
+        "metric": "regular.mean",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 1,
+        "metric": "regular.basis",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 1,
+        "metric": "regular.charge",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 1,
+        "metric": "regular.local",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 1,
+        "metric": "fast.wave",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 1,
+        "metric": "fast.integral",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 1,
+        "metric": "fast.carrier",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 1,
+        "metric": "fast.data",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 1,
+        "metric": "slow.wave",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 1,
+        "metric": "slow.integral",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 1,
+        "metric": "slow.carrier",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 1,
+        "metric": "slow.data",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 1,
+        "metric": "common_level.wave",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 1,
+        "metric": "common_level.integral",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 1,
+        "metric": "common_level.carrier",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 1,
+        "metric": "common_level.data",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 1,
+        "metric": "fast.total",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 1,
+        "metric": "slow.total",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 1,
+        "metric": "common_level.total",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 2,
+        "metric": "data",
+        "absolute_error": 1.3877787807814457e-17
+      },
+      {
+        "bank_index": 2,
+        "metric": "regular",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 2,
+        "metric": "saturation",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 2,
+        "metric": "total",
+        "absolute_error": 1.3877787807814457e-17
+      },
+      {
+        "bank_index": 2,
+        "metric": "regular.mean",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 2,
+        "metric": "regular.basis",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 2,
+        "metric": "regular.charge",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 2,
+        "metric": "regular.local",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 2,
+        "metric": "fast.wave",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 2,
+        "metric": "fast.integral",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 2,
+        "metric": "fast.carrier",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 2,
+        "metric": "fast.data",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 2,
+        "metric": "slow.wave",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 2,
+        "metric": "slow.integral",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 2,
+        "metric": "slow.carrier",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 2,
+        "metric": "slow.data",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 2,
+        "metric": "common_level.wave",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 2,
+        "metric": "common_level.integral",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 2,
+        "metric": "common_level.carrier",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 2,
+        "metric": "common_level.data",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 2,
+        "metric": "fast.total",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 2,
+        "metric": "slow.total",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 2,
+        "metric": "common_level.total",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 3,
+        "metric": "data",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 3,
+        "metric": "regular",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 3,
+        "metric": "saturation",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 3,
+        "metric": "total",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 3,
+        "metric": "regular.mean",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 3,
+        "metric": "regular.basis",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 3,
+        "metric": "regular.charge",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 3,
+        "metric": "regular.local",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 3,
+        "metric": "fast.wave",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 3,
+        "metric": "fast.integral",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 3,
+        "metric": "fast.carrier",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 3,
+        "metric": "fast.data",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 3,
+        "metric": "slow.wave",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 3,
+        "metric": "slow.integral",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 3,
+        "metric": "slow.carrier",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 3,
+        "metric": "slow.data",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 3,
+        "metric": "common_level.wave",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 3,
+        "metric": "common_level.integral",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 3,
+        "metric": "common_level.carrier",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 3,
+        "metric": "common_level.data",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 3,
+        "metric": "fast.total",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 3,
+        "metric": "slow.total",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 3,
+        "metric": "common_level.total",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 4,
+        "metric": "data",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 4,
+        "metric": "regular",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 4,
+        "metric": "saturation",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 4,
+        "metric": "total",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 4,
+        "metric": "regular.mean",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 4,
+        "metric": "regular.basis",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 4,
+        "metric": "regular.charge",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 4,
+        "metric": "regular.local",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 4,
+        "metric": "fast.wave",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 4,
+        "metric": "fast.integral",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 4,
+        "metric": "fast.carrier",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 4,
+        "metric": "fast.data",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 4,
+        "metric": "slow.wave",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 4,
+        "metric": "slow.integral",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 4,
+        "metric": "slow.carrier",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 4,
+        "metric": "slow.data",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 4,
+        "metric": "common_level.wave",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 4,
+        "metric": "common_level.integral",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 4,
+        "metric": "common_level.carrier",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 4,
+        "metric": "common_level.data",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 4,
+        "metric": "fast.total",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 4,
+        "metric": "slow.total",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 4,
+        "metric": "common_level.total",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 5,
+        "metric": "data",
+        "absolute_error": 1.3877787807814457e-17
+      },
+      {
+        "bank_index": 5,
+        "metric": "regular",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 5,
+        "metric": "saturation",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 5,
+        "metric": "total",
+        "absolute_error": 1.3877787807814457e-17
+      },
+      {
+        "bank_index": 5,
+        "metric": "regular.mean",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 5,
+        "metric": "regular.basis",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 5,
+        "metric": "regular.charge",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 5,
+        "metric": "regular.local",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 5,
+        "metric": "fast.wave",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 5,
+        "metric": "fast.integral",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 5,
+        "metric": "fast.carrier",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 5,
+        "metric": "fast.data",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 5,
+        "metric": "slow.wave",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 5,
+        "metric": "slow.integral",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 5,
+        "metric": "slow.carrier",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 5,
+        "metric": "slow.data",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 5,
+        "metric": "common_level.wave",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 5,
+        "metric": "common_level.integral",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 5,
+        "metric": "common_level.carrier",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 5,
+        "metric": "common_level.data",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 5,
+        "metric": "fast.total",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 5,
+        "metric": "slow.total",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 5,
+        "metric": "common_level.total",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 6,
+        "metric": "data",
+        "absolute_error": 2.7755575615628914e-17
+      },
+      {
+        "bank_index": 6,
+        "metric": "regular",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 6,
+        "metric": "saturation",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 6,
+        "metric": "total",
+        "absolute_error": 2.7755575615628914e-17
+      },
+      {
+        "bank_index": 6,
+        "metric": "regular.mean",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 6,
+        "metric": "regular.basis",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 6,
+        "metric": "regular.charge",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 6,
+        "metric": "regular.local",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 6,
+        "metric": "fast.wave",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 6,
+        "metric": "fast.integral",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 6,
+        "metric": "fast.carrier",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 6,
+        "metric": "fast.data",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 6,
+        "metric": "slow.wave",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 6,
+        "metric": "slow.integral",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 6,
+        "metric": "slow.carrier",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 6,
+        "metric": "slow.data",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 6,
+        "metric": "common_level.wave",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 6,
+        "metric": "common_level.integral",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 6,
+        "metric": "common_level.carrier",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 6,
+        "metric": "common_level.data",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 6,
+        "metric": "fast.total",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 6,
+        "metric": "slow.total",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 6,
+        "metric": "common_level.total",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 7,
+        "metric": "data",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 7,
+        "metric": "regular",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 7,
+        "metric": "saturation",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 7,
+        "metric": "total",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 7,
+        "metric": "regular.mean",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 7,
+        "metric": "regular.basis",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 7,
+        "metric": "regular.charge",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 7,
+        "metric": "regular.local",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 7,
+        "metric": "fast.wave",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 7,
+        "metric": "fast.integral",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 7,
+        "metric": "fast.carrier",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 7,
+        "metric": "fast.data",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 7,
+        "metric": "slow.wave",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 7,
+        "metric": "slow.integral",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 7,
+        "metric": "slow.carrier",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 7,
+        "metric": "slow.data",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 7,
+        "metric": "common_level.wave",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 7,
+        "metric": "common_level.integral",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 7,
+        "metric": "common_level.carrier",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 7,
+        "metric": "common_level.data",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 7,
+        "metric": "fast.total",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 7,
+        "metric": "slow.total",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 7,
+        "metric": "common_level.total",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 8,
+        "metric": "data",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 8,
+        "metric": "regular",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 8,
+        "metric": "saturation",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 8,
+        "metric": "total",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 8,
+        "metric": "regular.mean",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 8,
+        "metric": "regular.basis",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 8,
+        "metric": "regular.charge",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 8,
+        "metric": "regular.local",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 8,
+        "metric": "fast.wave",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 8,
+        "metric": "fast.integral",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 8,
+        "metric": "fast.carrier",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 8,
+        "metric": "fast.data",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 8,
+        "metric": "slow.wave",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 8,
+        "metric": "slow.integral",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 8,
+        "metric": "slow.carrier",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 8,
+        "metric": "slow.data",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 8,
+        "metric": "common_level.wave",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 8,
+        "metric": "common_level.integral",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 8,
+        "metric": "common_level.carrier",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 8,
+        "metric": "common_level.data",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 8,
+        "metric": "fast.total",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 8,
+        "metric": "slow.total",
+        "absolute_error": 0.0
+      },
+      {
+        "bank_index": 8,
+        "metric": "common_level.total",
+        "absolute_error": 0.0
+      }
+    ],
+    "033_hard_Q_negative_area_summary_values_checked": 192,
+    "033_hard_Q_negative_area_max_absolute_difference": 0.0
+  },
+  "six_state_data_energy": {
+    "M0R0": {
+      "data": {
+        "mean": 0.13280849763622798,
+        "MCSE": 0.007077996775505758,
+        "banks": 8,
+        "bank_values": [
+          0.14955156557047475,
+          0.1205669014470697,
+          0.12525782359476578,
+          0.13889041311901673,
+          0.10838124900163491,
+          0.17117059530306897,
+          0.13019884093909329,
+          0.11845059211469988
+        ],
+        "descriptive_3MCSE_direction": "positive",
+        "fresh_confirmation": false
+      },
+      "wave": {
+        "mean": 0.03200257780469809,
+        "MCSE": 0.0014116962831240835,
+        "banks": 8,
+        "bank_values": [
+          0.0377966898432219,
+          0.0362346327484056,
+          0.028718915292146343,
+          0.034473864932014216,
+          0.031291646189481014,
+          0.028320125556798883,
+          0.026630459728962098,
+          0.03255428814655467
+        ],
+        "descriptive_3MCSE_direction": "positive",
+        "fresh_confirmation": false
+      },
+      "integral": {
+        "mean": 0.01826338813698144,
+        "MCSE": 0.0031702492000254875,
+        "banks": 8,
+        "bank_values": [
+          0.025060665156435236,
+          0.01682099955091454,
+          0.005812108155169378,
+          0.01745238444407271,
+          0.010200837007954452,
+          0.035362074394732566,
+          0.017049214280165186,
+          0.018348822106407425
+        ],
+        "descriptive_3MCSE_direction": "positive",
+        "fresh_confirmation": false
+      },
+      "carrier": {
+        "mean": 0.2571165742302682,
+        "MCSE": 0.01705816307718545,
+        "banks": 8,
+        "bank_values": [
+          0.2465341816575294,
+          0.20276107838734014,
+          0.33965876796912275,
+          0.27804711719542835,
+          0.22675171518497997,
+          0.2885052838272199,
+          0.2778798105992033,
+          0.19679463902132147
+        ],
+        "descriptive_3MCSE_direction": "positive",
+        "fresh_confirmation": false
+      }
+    },
+    "M0Rf": {
+      "data": {
+        "mean": 0.6703916895526223,
+        "MCSE": 0.04051875246739521,
+        "banks": 8,
+        "bank_values": [
+          0.8142011123748709,
+          0.825696824589588,
+          0.5932700792461308,
+          0.7060101170927071,
+          0.5390315212959034,
+          0.6349373650876724,
+          0.7179644557780437,
+          0.5320220409560624
+        ],
+        "descriptive_3MCSE_direction": "positive",
+        "fresh_confirmation": false
+      },
+      "wave": {
+        "mean": 0.4168969638342501,
+        "MCSE": 0.04283149998701582,
+        "banks": 8,
+        "bank_values": [
+          0.5442335068991921,
+          0.6216997733823626,
+          0.32805196968615274,
+          0.4251171017450133,
+          0.33500254330924645,
+          0.2662654086585785,
+          0.46672159073449837,
+          0.34808381625895707
+        ],
+        "descriptive_3MCSE_direction": "positive",
+        "fresh_confirmation": false
+      },
+      "integral": {
+        "mean": 0.0656934185520326,
+        "MCSE": 0.008756946079722109,
+        "banks": 8,
+        "bank_values": [
+          0.07564514666543039,
+          0.0462402380488803,
+          0.06424604291341074,
+          0.07367079429407541,
+          0.04445177751114726,
+          0.11616079112890847,
+          0.06685450340637311,
+          0.03827805444803515
+        ],
+        "descriptive_3MCSE_direction": "positive",
+        "fresh_confirmation": false
+      },
+      "carrier": {
+        "mean": 0.48843155445722775,
+        "MCSE": 0.016543989643162903,
+        "banks": 8,
+        "bank_values": [
+          0.47470924857927127,
+          0.4460663004378596,
+          0.5469040949326264,
+          0.5342057070381715,
+          0.46050169185744944,
+          0.5454014966851078,
+          0.47013543292319615,
+          0.42952846320414
+        ],
+        "descriptive_3MCSE_direction": "positive",
+        "fresh_confirmation": false
+      }
+    },
+    "MfR0": {
+      "data": {
+        "mean": 0.24281888469257903,
+        "MCSE": 0.020606951627382446,
+        "banks": 8,
+        "bank_values": [
+          0.27776728247266796,
+          0.3169583597672882,
+          0.19597936149170544,
+          0.16324701002401146,
+          0.30006778182765115,
+          0.23248385715595865,
+          0.17947228712015126,
+          0.2765751376811982
+        ],
+        "descriptive_3MCSE_direction": "positive",
+        "fresh_confirmation": false
+      },
+      "wave": {
+        "mean": 0.20608013795381872,
+        "MCSE": 0.019162917624985183,
+        "banks": 8,
+        "bank_values": [
+          0.22225731541679994,
+          0.27896505461442955,
+          0.17104589911753296,
+          0.14231304548740586,
+          0.2761289219705854,
+          0.18289007757551298,
+          0.14531207939008042,
+          0.2297287100582026
+        ],
+        "descriptive_3MCSE_direction": "positive",
+        "fresh_confirmation": false
+      },
+      "integral": {
+        "mean": 0.015581614156814113,
+        "MCSE": 0.0022269613356779437,
+        "banks": 8,
+        "bank_values": [
+          0.024604894585335362,
+          0.016566777297378172,
+          0.009563694176540757,
+          0.007748453840317045,
+          0.009525727815125432,
+          0.02161937901293376,
+          0.014581209076246271,
+          0.02044277745063609
+        ],
+        "descriptive_3MCSE_direction": "positive",
+        "fresh_confirmation": false
+      },
+      "carrier": {
+        "mean": 0.02230207370052842,
+        "MCSE": 0.0008739364631099445,
+        "banks": 8,
+        "bank_values": [
+          0.025200711540789216,
+          0.01943900223240913,
+          0.023224296084363976,
+          0.021748227423886046,
+          0.01954961690725961,
+          0.025420086218312637,
+          0.019991158310313173,
+          0.023843490886893564
+        ],
+        "descriptive_3MCSE_direction": "positive",
+        "fresh_confirmation": false
+      }
+    },
+    "MfRf": {
+      "data": {
+        "mean": 0.2604883425129434,
+        "MCSE": 0.02978051661798847,
+        "banks": 8,
+        "bank_values": [
+          0.411833199294308,
+          0.33664925032043386,
+          0.22718247204739864,
+          0.18991991342399359,
+          0.30643126988422337,
+          0.20561692722775146,
+          0.16332298383721963,
+          0.24295072406821874
+        ],
+        "descriptive_3MCSE_direction": "positive",
+        "fresh_confirmation": false
+      },
+      "wave": {
+        "mean": 0.21503994068947846,
+        "MCSE": 0.026925175005532525,
+        "banks": 8,
+        "bank_values": [
+          0.32570357615840845,
+          0.29214029551347775,
+          0.19690887699677476,
+          0.15141464555811066,
+          0.2869732909534726,
+          0.15440702288560185,
+          0.12248254875113844,
+          0.19028926869884302
+        ],
+        "descriptive_3MCSE_direction": "positive",
+        "fresh_confirmation": false
+      },
+      "integral": {
+        "mean": 0.020257370127913524,
+        "MCSE": 0.0033744002863206105,
+        "banks": 8,
+        "bank_values": [
+          0.03977642832481254,
+          0.020049315478707547,
+          0.01282582410868253,
+          0.01683658729678354,
+          0.007479243314953236,
+          0.022920586091287148,
+          0.01809074496683453,
+          0.02408023144124712
+        ],
+        "descriptive_3MCSE_direction": "positive",
+        "fresh_confirmation": false
+      },
+      "carrier": {
+        "mean": 0.019734646270551652,
+        "MCSE": 0.0010311739979970255,
+        "banks": 8,
+        "bank_values": [
+          0.026307065945097758,
+          0.01764129539816402,
+          0.018487787333035282,
+          0.019328373089263495,
+          0.017997969203377002,
+          0.02147492863830121,
+          0.018635780609648434,
+          0.018003969947525993
+        ],
+        "descriptive_3MCSE_direction": "positive",
+        "fresh_confirmation": false
+      }
+    },
+    "A0_only": {
+      "data": {
+        "mean": 0.1342999574718805,
+        "MCSE": 0.004116308433374486,
+        "banks": 8,
+        "bank_values": [
+          0.1466871594047979,
+          0.13855886896228217,
+          0.11087448759796197,
+          0.13212355307722154,
+          0.12954280856875364,
+          0.138599436180916,
+          0.1473244529871535,
+          0.1306888929959572
+        ],
+        "descriptive_3MCSE_direction": "positive",
+        "fresh_confirmation": false
+      },
+      "wave": {
+        "mean": 0.029187989611731163,
+        "MCSE": 0.0013343211097388836,
+        "banks": 8,
+        "bank_values": [
+          0.028747045526243447,
+          0.034489696438339955,
+          0.021707463192912488,
+          0.03166272704638448,
+          0.029403890404462053,
+          0.029554597287175355,
+          0.031095428243978568,
+          0.02684306875435295
+        ],
+        "descriptive_3MCSE_direction": "positive",
+        "fresh_confirmation": false
+      },
+      "integral": {
+        "mean": 0.01609671633559684,
+        "MCSE": 0.0020220136787161423,
+        "banks": 8,
+        "bank_values": [
+          0.0232853237575964,
+          0.016134581505313956,
+          0.005792283748496792,
+          0.014524538932525402,
+          0.010981579499175146,
+          0.01920977933210155,
+          0.021729971204857684,
+          0.01711567270470778
+        ],
+        "descriptive_3MCSE_direction": "positive",
+        "fresh_confirmation": false
+      },
+      "carrier": {
+        "mean": 0.2916741407558226,
+        "MCSE": 0.0045201085216548574,
+        "banks": 8,
+        "bank_values": [
+          0.28547786545344667,
+          0.28720003805325717,
+          0.31032982763222355,
+          0.2856469926631451,
+          0.31270303666376514,
+          0.2825011209181502,
+          0.2910763293338383,
+          0.2784579153287548
+        ],
+        "descriptive_3MCSE_direction": "positive",
+        "fresh_confirmation": false
+      }
+    },
+    "Af_only": {
+      "data": {
+        "mean": 0.2243856952891992,
+        "MCSE": 0.010482563606607388,
+        "banks": 8,
+        "bank_values": [
+          0.24459195354791086,
+          0.2514684691991335,
+          0.18851716124750126,
+          0.18458985928715133,
+          0.24068823772678152,
+          0.22566062641845774,
+          0.19965335848624785,
+          0.2599158964004095
+        ],
+        "descriptive_3MCSE_direction": "positive",
+        "fresh_confirmation": false
+      },
+      "wave": {
+        "mean": 0.17585122256586336,
+        "MCSE": 0.008888664238549383,
+        "banks": 8,
+        "bank_values": [
+          0.18036531188347213,
+          0.20305021499107753,
+          0.15393262741085714,
+          0.14757419579768974,
+          0.20504881858722668,
+          0.17093089771485967,
+          0.14565191760187304,
+          0.20025579653985096
+        ],
+        "descriptive_3MCSE_direction": "positive",
+        "fresh_confirmation": false
+      },
+      "integral": {
+        "mean": 0.02108951011249129,
+        "MCSE": 0.0020107526157292876,
+        "banks": 8,
+        "bank_values": [
+          0.028749103890365335,
+          0.021400688433284205,
+          0.014050279805657132,
+          0.01539044314318605,
+          0.014844582075536442,
+          0.023663350968336494,
+          0.023827288036355698,
+          0.026790344547208966
+        ],
+        "descriptive_3MCSE_direction": "positive",
+        "fresh_confirmation": false
+      },
+      "carrier": {
+        "mean": 0.025421809993413008,
+        "MCSE": 0.0007659836614851549,
+        "banks": 8,
+        "bank_values": [
+          0.026913735534832266,
+          0.02246750936595025,
+          0.025935896901319328,
+          0.024939108812357908,
+          0.023801019953927954,
+          0.029612107067700306,
+          0.02538745924665357,
+          0.024317643064562484
+        ],
+        "descriptive_3MCSE_direction": "positive",
+        "fresh_confirmation": false
+      }
+    }
+  },
+  "weighted_component_contrasts": {
+    "Af_only_minus_A0_only": {
+      "wave": 0.1466632329541322,
+      "2_integral": 0.009985587553788903,
+      ".25_carrier": -0.0665630826906024,
+      "data": 0.09008573781731871
+    },
+    "MfRf_minus_M0R0": {
+      "wave": 0.18303736288478037,
+      "2_integral": 0.003987963981864174,
+      ".25_carrier": -0.05934548198992913,
+      "data": 0.1276798448767154
+    }
+  },
+  "findings": [
+    "M0R0 data=.1328084976; M0Rf=.6703916896; MfR0=.2428188847; MfRf=.2604883425. Every full corner exchange is worse than M0R0 on all8 reused banks.",
+    "Af-only minus A0-only data+.0900857378 MCSE.0099663661; wave+.1466632330 MCSE.0087346202; integral+.0049927938 MCSE.0010338922; carrier-.2662523308 MCSE.0047431958. All8 paired signs agree for each of these components.",
+    "A0-only versus M0R0 data+.0014914598 MCSE.0067062677 is unresolved. This audit does not establish that initial randomness helped or harmed total proper energy.",
+    "M0Rf-M0R0 data+.5375831919 MCSE.0388933955, but MfRf-MfR0+.0176694578 MCSE.0187571550 is unresolved. Interaction-.5199137341 MCSE.0319559888 is large and negative. A separable single-head cause is unsupported.",
+    "Pure Af mean canonicalQ drops4.5758684206 to4.0774852555 Vns and mean carrierRMS.0336197491 to.0276050420 V; peak.1783316648 to.1257637038 V. Af-only and MfR0 have zero boundary/global-outside/rail flags in all3H despite much worse wave energy. The deterministic-output deterioration cannot be entirely attributed to the flagged crop-search failures.",
+    "MfRf pure stochastic signal has100/1024 global peaks outside search and135/1024 selected boundary peaks; fast hard observation has92/1024 outside,138/1024 boundary,47/1024 rail hits. These characterize the sampled random branch failure, not its unique cause or the whole TRAIN population.",
+    "Decoded/pooled globalRMS changes only1.0686015674 to1.1587673866 and.8686284626 to1.0037079877. R0 physical B RMS drops.0019949643 to.0016971992 V under Mf; B/A RMS also drops.0531613040 to.0466911507. Do not call this a generic feature explosion.",
+    "With learned Rf, mean charge log variance rises.0912635733 under M0 to.4222713433 under Mf and local-envelope globalRMS.0002246263 to.0056577503 V; functional M/R coupling is present. This does not identify the training-history cause or imply the coupling must be removed.",
+    "Whole endpoint data increase+.1276798449 MCSE.0313581246; full objective increase+.1321230412 MCSE.0312789944. Regular/saturation are too small to reverse that conclusion. Proper-energy optimization did not attain a better endpoint on these reused banks.",
+    "Carrier improvement opposes normalized-wave deterioration, but complete data risk also rises. Carrier coefficient alone is not established as the cause; STE optimization, learned mean geometry and random-law interactions remain unresolved."
+  ],
+  "evidence_boundaries": [
+    "These are the already examined033 TRAIN diagnostic banks, not a new confirmation set or DEV. MCSE describes repeated-bank Monte Carlo variation and the3MCSE label is descriptive.",
+    "A-only is deterministic mean output plus electronics, not the conditional mean after nonlinear ADC/argmax/crop.",
+    "State exchange is functional intervention at saved parameter endpoints, not training-history causal attribution.",
+    "No native W1/acceptance reevaluation, CP decoding, waveform recovery or formal new gate was performed.034 failure remains closed; conditional response matching is unestablished."
+  ],
+  "one_next_step": {
+    "status": "ROOT_SELECTED_FOR036_CODE_PREPARATION_NOT_EXECUTED_NOT_CAUSALLY_ESTABLISHED",
+    "candidate": "One matched objective-only repair test: remove the centered-carrier auxiliary from training data loss, coefficient .25 to0.",
+    "unchanged": "Keep034 initial state, mean and random groups fully trainable, wave+2integral, all frozen statistics, seed2026101732, all sampling/CRN streams, optimizer3groups and LRs, observation contract, regularization, evaluation and fixed2000-update budget. Continue reporting original carrier risk.",
+    "reason": "The Af-A0 paired weighted decomposition is wave+.1466632330,2integral+.0099855876,.25carrier-.0665630827, yielding netdata+.0900857378. Removing this auxiliary is a minimal one-factor test of the observed competing direction; it preserves mean learning and introduces no new architecture or LR substitute.",
+    "prediction_and_limit": "If normalized wave/formal endpoint improves, this supports a contribution of carrier-driven tradeoff only. It does not prove sole causation, proper optimizer convergence or conditional kernel recovery.",
+    "success": "Use exactly the existing032/034 six-cell formal decision, including original TRAIN wave improvement and positive-T noninferiority on TRAIN/DEV; no threshold adjustment and no acceptance from low training loss alone.",
+    "stop": "One candidate, exactly2000 updates maximum, one frozen final DEV evaluation. If any original required gate fails, close this candidate as negative; no automatic alternate LR, mean freeze, checkpoint selection or parameter grid.",
+    "initialization": "Reconstruct the same G0 from original deterministicA+005 and seed2026101732 as034; preserve all three034 learning rates; do not warm-start034final.",
+    "lost_constraint": "Removing the carrier auxiliary removes the direct TRAIN constraint in the original384-sample coordinate system, including parts outside the hard256 crop. This is an acknowledged tradeoff; preserve and report original global-outside, boundary, rail and tail-related native metrics and gates.",
+    "planned_implementation": "Reuse033 energy_parts on the same existing observations: optimize wave+2integral, retain carrier and original wave+2integral+.25carrier data as logs only. Do not increase NN/ADC/CP counts. ROOT will freeze/review a separate036 source/config before scientific execution."
+  },
+  "new_postrun_NN_AD_CP_deserializations_or_observations": 0,
+  "cumulative_training_updates": 197668,
+  "new_training_updates": 0,
+  "scientific_status": "response_match_not_established",
+  "weights_selected_or_promoted": false,
+  "report": "reports/response035_20261017/REPORT.md",
+  "report_sha256": "7ccbb6d6f7f3482e603a15f98b6c3615bba9cfd9ff22c9083e8b39f5babf6d27",
+  "plot_receipt_sha256": "5eb373081276fb62f2d625f24bb00ab6ee7f328a737fdb8714662e733ab92aa9",
+  "root_png_QA": "Both final PNGs viewed22:32UTC approximately; readable axes, uncertainty and denominator labels, no overlapping contents."
+}
