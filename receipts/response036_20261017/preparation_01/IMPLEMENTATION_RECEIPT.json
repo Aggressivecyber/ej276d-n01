@@ -1,0 +1,135 @@
+{
+  "schema": "n01/response036-implementation-receipt/v1",
+  "UTC": "2026-10-16T22:31:13.405586+00:00",
+  "status": "implemented_static_checked_pending_independent_review_ROOT_freeze_no_execution",
+  "files": {
+    "scripts/run_response036.py": {
+      "sha256": "8d5e3a1348d8f1c8ef5e55e8baceb74bcd534262e5500ee80e58ced3283b6178",
+      "bytes": 33032,
+      "UTF8_LF": true
+    },
+    "receipts/response036_20261017/preparation_01/PLAN.json": {
+      "sha256": "f4fe212bdf1b92daba9febea9e07a2486c3483963a5594b8e30de5f2066eec81",
+      "bytes": 7064,
+      "UTF8_LF": true
+    },
+    "receipts/response036_20261017/preparation_01/CONFIG_DRAFT.json": {
+      "sha256": "29d16fae1dbdb0ec7bcbc19b0a1356fe296022d34340f27304522348ed6b2a50",
+      "bytes": 11023,
+      "UTF8_LF": true
+    },
+    "receipts/response036_20261017/preparation_01/SEMANTIC_DIFF.json": {
+      "sha256": "8d2ecac1e1fbac473d811cc834fa1cd3e48d77d134aabfdc38835c0ada8dc6de",
+      "bytes": 5950,
+      "UTF8_LF": true
+    }
+  },
+  "static_validation": {
+    "AST_parse": true,
+    "AST_compile_without_exec": true,
+    "source_text_exact_after_enumerated_reverse": true,
+    "AST_exact_after_enumerated_reverse": true,
+    "configuration_exact_after_enumerated_reverse": true,
+    "old034_source_SHA_unchanged": true,
+    "config_identity_normalization_scoped_to_schema_run_id_decision": true,
+    "old37_dependency_pins_unchanged": true,
+    "old033_helper_SHA_unchanged": true,
+    "all_source_pins": 39,
+    "AST_local_dependency_count": 37,
+    "AST_local_dependency_paths": [
+      "scripts/mechanism012_losses.py",
+      "scripts/mechanism012_ops.py",
+      "scripts/run_response029.py",
+      "scripts/run_response031.py",
+      "scripts/run_response032.py",
+      "scripts/run_response033.py",
+      "scripts/run_response036.py",
+      "scripts/run_wp1_013.py",
+      "scripts/stability011_metrics.py",
+      "scripts/supervise_mechanism012.py",
+      "scripts/wp1_boundary_saved.py",
+      "scripts/wp1_evaluation.py",
+      "scripts/wp1_input_information.py",
+      "scripts/wp1_ops.py",
+      "scripts/wp1_parameter_probe.py",
+      "src/n01/__init__.py",
+      "src/n01/ablation009.py",
+      "src/n01/data.py",
+      "src/n01/data008.py",
+      "src/n01/diagnose_mean_random009.py",
+      "src/n01/electronics_v3.py",
+      "src/n01/evaluate.py",
+      "src/n01/evaluate_window008.py",
+      "src/n01/extension006.py",
+      "src/n01/losses.py",
+      "src/n01/losses008.py",
+      "src/n01/losses008_v2.py",
+      "src/n01/losses014.py",
+      "src/n01/model.py",
+      "src/n01/model008.py",
+      "src/n01/model008_fix01.py",
+      "src/n01/model010.py",
+      "src/n01/model029.py",
+      "src/n01/observation008.py",
+      "src/n01/response008.py",
+      "src/n01/train.py",
+      "src/n01/train_shape010.py"
+    ],
+    "AST_closure_fully_pinned": true,
+    "backward_call_sites": 1,
+    "optimizer_step_call_sites": 1,
+    "torch_load_call_sites": 2,
+    "energy_parts_call_sites": 1,
+    "AdamW_group_count": 3,
+    "only_new_training_config_field": "training.carrier_weight=0.0",
+    "UTF8_LF_and_JSON_readback": true
+  },
+  "saved_scalar_validation": {
+    "source": "035 saved metrics only",
+    "failed_endpoints_still_worse_without_carrier": true,
+    "first_preupdate_data": 0.02590496122504783,
+    "first_preupdate_objective": 0.025969073091282775,
+    "no_new_gradient_norm_expectation": true
+  },
+  "native_budget": {
+    "G_updates": 2000,
+    "NN_calls": 4446,
+    "NN_rows": 312840,
+    "noise005_rows": 310792,
+    "extension_rows": 932376,
+    "generated_ADC_rows": 1017636,
+    "checkpoint_loads": 2,
+    "TRAIN_archives_decoded": 1,
+    "DEV_archives_decoded": 1,
+    "DEV_metadata_archives_decoded": 1,
+    "training_AD_queries": 2000
+  },
+  "resources": {
+    "wall_seconds": 3600,
+    "RSS_GiB": 12,
+    "GPU_GiB": 10,
+    "CPU_threads": 4,
+    "output_MiB": 1024
+  },
+  "preparation_actual_counts": {
+    "NN_forwards": 0,
+    "AD_queries": 0,
+    "CP_deserializations": 0,
+    "raw_scientific_array_decodes": 0,
+    "observation_calls": 0,
+    "optimizer_updates": 0,
+    "launches": 0,
+    "numeric_module_imports": 0
+  },
+  "same_initial_digest_expected": {
+    "source": "receipts/response033_20261017/completion_01/run_01/INITIAL_BINDING.json",
+    "initial_G0_model_state_sha256": "354b9828bdb6f552ab747e2aab06e988b27b1c7aad4d71580bdab6d8bdfc5f58",
+    "original_A_state_sha256": "529f9a67594ac5232b932d7af246a934f1f5e01c62e7502fc3a50736cf5644c7",
+    "frozen005_extension_state_sha256": "bba9cc181344d60a9a00f5c5b8850d30a2020d30a785814b7295496949d85912",
+    "method": "Compare native036 WARMSTART_BINDING fields to these saved JSON values; no additional CP/NN/AD/draw/bank."
+  },
+  "no_old_source_model_loss_result_ledger_modified": true,
+  "no_extra_scientific_execution": true,
+  "next": "Independent static review, ROOT freeze and separate execution authorization. Do not auto-launch.",
+  "scientific_status": "response_match_not_established"
+}

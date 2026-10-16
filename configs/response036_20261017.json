@@ -1,0 +1,204 @@
+{
+  "schema": "n01/response036-real-pilot-config/v1",
+  "run_id": "response036_20261017",
+  "status": "ready_for_real_pilot",
+  "objective": "fixed_joint_energy_without_carrier",
+  "seed": 2026101732,
+  "training": {
+    "updates": 2000,
+    "generated_bank_rows": 64,
+    "real_bank_rows": 128,
+    "mean_lr": 0.0001,
+    "new_head_lr": 0.0003,
+    "weight_decay": 0.0,
+    "clip_norm": 5.0,
+    "regular_weight": 0.01,
+    "status_interval": 100,
+    "checkpoint_interval": 1000,
+    "shape_lr": 1.875e-05,
+    "carrier_weight": 0.0
+  },
+  "evaluation": {
+    "draws_per_parent": 4,
+    "NN_chunk_rows": 128,
+    "W1_column_chunk": 16,
+    "TRAIN_banks": 1,
+    "DEV_banks": 1,
+    "TRAIN_seed": 2026101732100,
+    "DEV_seed": 2026101732200,
+    "projection_training_seed": 2026101426,
+    "projection_evaluation_seed": 2026101430,
+    "projection_fingerprint": "27ed58d90114de6bfa5bf30ff5ad251516cdc9bcadfb5eb10e2a6ec45ed11482",
+    "integral_seed": 2026101732300,
+    "relative_wave_improvement_min": 0.02,
+    "DEV_previously_exposed": true,
+    "example_parents_max": 32
+  },
+  "resources": {
+    "wall_seconds": 3600,
+    "RSS_GiB": 12,
+    "GPU_GiB": 10,
+    "CPU_threads": 4,
+    "output_MiB": 1024
+  },
+  "hypotheses": [
+    "fast",
+    "slow",
+    "common_level"
+  ],
+  "source_mixture": "recorded_uniform_count_weights_physical_weights_unknown",
+  "inputs": {
+    "dataset": {
+      "path": "/home/rylan/projects/ej276d-n01/window008_resume01_20261013/data/window008/DATASET008.npz",
+      "local_path": "E:/GAN/research/N01/data/window008/DATASET008.npz",
+      "sha256": "8d43418595f4fa992a9b83735c4bf50863a659584d58888f8f965ec1339a1993",
+      "bytes": 66440265
+    },
+    "deterministic": {
+      "path": "/home/rylan/projects/ej276d-n01/window008_resume01_20261013/provenance/window008_fix01_reference/deterministic_final.pt",
+      "local_path": "E:/GAN/research/N01/provenance/window008_fix01_reference/deterministic_final.pt",
+      "sha256": "2096523d53b62dbbc6b41d2788a8fba203af89c3cf753133bbbe81ab5c036849",
+      "bytes": 21256763
+    },
+    "noise005": {
+      "path": "/home/rylan/projects/ej276d-n01/window008_resume01_20261013/provenance/integration006_reference/noise005.pt",
+      "local_path": "E:/GAN/research/N01/provenance/integration006_reference/noise005.pt",
+      "sha256": "1e45d3369b85d2f5f635ad44dbeb5a730f6d86864cc3dc9163384fccd48bd417",
+      "bytes": 1199865
+    },
+    "statistics": {
+      "path": "/home/rylan/projects/ej276d-n01/window008_resume01_20261013/data/window008/FIT_STATISTICS008.json",
+      "local_path": "E:/GAN/research/N01/data/window008/FIT_STATISTICS008.json",
+      "sha256": "aadd729364d0b6afac699a9d1774ac8d29fd2bcd10a9fd9f551141ecc2fbc2a0",
+      "bytes": 104199
+    },
+    "data_statistics": {
+      "path": "/home/rylan/projects/ej276d-n01/window008_resume01_20261013/data/window008/FIT_DATA_STATISTICS.json",
+      "local_path": "E:/GAN/research/N01/data/window008/FIT_DATA_STATISTICS.json",
+      "sha256": "e614c7b0a9861b468eb2c9e1bff5a80dadef901310539407141d1ff5c9241f3f",
+      "bytes": 36311
+    },
+    "base_config": {
+      "path": "/home/rylan/projects/ej276d-n01/window008_resume01_20261013/window008_config.json",
+      "local_path": "E:/GAN/research/N01/window008_config.json",
+      "sha256": "f5500c65f2d17a2fe6964bfc5908dedb68c27b9391cb30bf30c0ba161509d145",
+      "bytes": 6448
+    },
+    "original_container": {
+      "path": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R33_REMOTE_20261009_175239_UTC/inputs/TRAIN_PRIVATE.npz",
+      "local_path": "E:/GAN/research/sim2real_two_papers_20261008_0305/work/R23_ONLINE_STANDARDIZED_CRITIC_001/TRAIN_PRIVATE.npz",
+      "sha256": "9e2f2c3c18470f4b2f3374a39590a9c27b18222bd1b22b5d7467e561409ad854",
+      "bytes": 26858280
+    },
+    "identities": {
+      "path": "/home/rylan/projects/ej276d-n01/window008_resume01_20261013/data/PARENT_IDENTITIES.npz",
+      "sha256": "5145ea04d038510c9ca740d997e0cf9d060ed69210a4515e20110d884db7e845",
+      "bytes": 32484
+    },
+    "tolerances": {
+      "path": "/home/rylan/projects/ej276d-n01/wp1_013_repeat_fix01_20261015/runs/primary/artifacts/CALIBRATED_TOLERANCES.json",
+      "sha256": "f33217e07b1872dfd51f56e86ed30cda665a705568f2f9ada937865d8a33607b",
+      "bytes": 8271
+    }
+  },
+  "source_pins": {
+    "scripts/mechanism012_losses.py": "3fc84ccaf255b660d8eda4f96d43e2c236045a756e777c9b2d490f7137dc04ed",
+    "scripts/mechanism012_ops.py": "98a18eef018beebff82565da9ed5b31208cf2bff6db6bff0c492eff9bf2a7816",
+    "scripts/run_response029.py": "a39f5ddd3fcbd0d8cf58db487d7fb51d1b17646f69603047a1e739fece74e7d5",
+    "scripts/run_response031.py": "bfe819d4ae09b4ed58cd6211e32948af14970e610a29ce3ec2960f1536c4115d",
+    "scripts/run_response032.py": "541f09ab8b9610ceda7371ea81911dd098e8319f0b330523f04caa3d25a245b8",
+    "scripts/run_wp1_013.py": "e7cbcf782e19e139c02260bbe1d67e0a50108785ed5b093975800a28b103657d",
+    "scripts/stability011_metrics.py": "fd87e544673f63887e57c8efafeb0327bbe4db430b04c9697c71cd2e244c3f78",
+    "scripts/supervise.py": "0223a8912196876f712072f064c9118a999f7e563244947cba7ad729d247a69b",
+    "scripts/supervise_mechanism012.py": "43b6fffd076a1e6d57db67e85e433e71d3f2cda91f3a3d5fe31f0fcb430486a4",
+    "scripts/wp1_boundary_saved.py": "ea1317c2a6e8616f5b30e2aa6ea1900fde17a711b57e2f02ae84fa5cc5782065",
+    "scripts/wp1_evaluation.py": "3f5e4f9e8ca147cfbad8b75085c59d9c2081deda9b7532f1732f1d5e932cc895",
+    "scripts/wp1_input_information.py": "bb8278d2651ddcaf10830a4589d66242d69a7e22d10321171ad7f4b71dec8b17",
+    "scripts/wp1_ops.py": "f8ddbbdb2f2f6df033e964f27bf03dcbda07055cc7378775591ef69b9caf85b5",
+    "scripts/wp1_parameter_probe.py": "bf7901db6e1b99084894fdc8f4c5d1685de2ca00cacb7a0a6a9801c39b8823fa",
+    "src/n01/__init__.py": "d17d880249fa0f50920dd14c505b15b4de74419849f86296913c31576c31e891",
+    "src/n01/ablation009.py": "8100bbedb765f08f689a4bce5cb9ea1af133e6f2b895b544656f6e9fbd058d3b",
+    "src/n01/data.py": "2ec3363bc830043af053342b4638f5e6ab55d27303da037f383f4fe630d77bd2",
+    "src/n01/data008.py": "2a66a8800642cf6788ce268d326af9d128cb165daf60d555f802b2c881ac97af",
+    "src/n01/diagnose_mean_random009.py": "31a07360e9ab53e987fe6d2bec3b466398a2c7125e64c1c94b712708ae62dfc4",
+    "src/n01/electronics_v3.py": "816b12bf4814f23ff4455498ec385df335cdb38827548c969e38ef08b9763926",
+    "src/n01/evaluate.py": "baaaf0c50c98a15b3c04cddf07ea4c1b5b4503156c50fd78d774cf3fb5baf8bb",
+    "src/n01/evaluate_window008.py": "75f8988415a181a31a7c2b5890418b1f7685e0d8fb141cdea84f4174af783cc0",
+    "src/n01/extension006.py": "caa2eff66555773d04a72482c8375b5896a241e0a858070a80f689aa3def5040",
+    "src/n01/losses.py": "4371a6d5924f0f664935b5d6eb6715c530f80af39ae276c7dc34ba02c5f4b1a7",
+    "src/n01/losses008.py": "68a9330b7e0620f12adbb3dc22a00c632a1b7577d44b92617da7d14979d9ea61",
+    "src/n01/losses008_v2.py": "6932772c4b00fa62383b5ca356f26d0cf81271be531888b474ae6146fa25f3d8",
+    "src/n01/losses014.py": "86fded3226ae86a5aaae6d9066220923fb6b0aebfeaa09cb638642498e4f4114",
+    "src/n01/model.py": "0a0488218d99f351a98e30f2b1525b837b4ad3195c19f2a76ff61ee01298587b",
+    "src/n01/model008.py": "56a6b41f9d2906c82757f4ca9f91a751ff8531428a7f38714e0a291359cd1b4f",
+    "src/n01/model008_fix01.py": "3bc826a1867f2658ae507ab2be683a6b901b7f481b1efaf005f3cf4953429abc",
+    "src/n01/model010.py": "3fbbee140477caf755feadf88175291c451c95a56899770a65eebf7be6204318",
+    "src/n01/model029.py": "40c16bca31ff277912959a040a40770608c49f374eff76cffd45de0d716ea599",
+    "src/n01/observation008.py": "9f7b6c0a266c420af8c6c155103774bae1ed949cfe05ee6a1f19b75f9254c4ec",
+    "src/n01/response008.py": "cf8b14b377530a234b066c2fd958827172abb624e7a959ac9bb26a416ff3b2e7",
+    "src/n01/train.py": "9cb6b0a9cfad3fd9163eee919de7b2d64ca422513093e204f62a934e25684169",
+    "src/n01/train_shape010.py": "5c94a6d947c1cfcb926ea2b39e77fbdeb6600f231f503fdf4c43c7ff7033e6d9",
+    "scripts/run_response034.py": "10843ad2bee21d8e99612e91dd662145635bafc7c8e03bccb2e757ae93030c26",
+    "scripts/run_response033.py": "710be3a025dd7f7611bcecc8480d4e3813531e9a3b57fbeb47419bc2a32b1d11",
+    "scripts/run_response036.py": "8d5e3a1348d8f1c8ef5e55e8baceb74bcd534262e5500ee80e58ced3283b6178"
+  },
+  "RR_reference": {
+    "wave": 0.029421917,
+    "QPSD": 0.024070024,
+    "noise": 0.02436251,
+    "rows_per_side": 10475,
+    "groups_per_side": 210,
+    "tolerance_source": false
+  },
+  "source_physical_weights": "unknown",
+  "DEV_numeric_reads_during_training": 0,
+  "independent_acquisitions": 1,
+  "scientific_status": "response_match_not_established",
+  "project_lock": "/home/rylan/projects/ej276d-n01/.n01_scientific_dispatch.lock",
+  "automatic_restart": false,
+  "preparation_only": false,
+  "pilot_relative_progress": {
+    "TRAIN_wave_relative_gain_min_all_hypotheses": 0.02,
+    "TRAIN_and_DEV_defined_positive_calibrated_component_delta_vs_A_max": "T_by_hypothesis",
+    "DEV_wave_gain_is_reported_not_required": true,
+    "physical_response_acceptance": false
+  },
+  "input_metadata_verification": "receipts/response032_20261017/preparation_01/REMOTE_INPUT_SHA_VERIFICATION.json",
+  "observation_contract_metadata": {
+    "local_path": "E:/GAN/research/N01/OBSERVATION_CONTRACT.json",
+    "sha256": "c894abe80d7d9a31e4ffe670484123dd1eea5ee75dad7742e52d304e23054c6c",
+    "not_a_runtime_input": true
+  },
+  "decision": "receipts/response036_20261017/ROOT_DECISION.json",
+  "carrier_report_only": {
+    "training_weight": 0.0,
+    "original_report_weight": 0.25,
+    "fields": [
+      "hypothesis_energy_parts_report_only",
+      "carrier_energy_report_only",
+      "data_with_carrier_report_only",
+      "objective_with_carrier_report_only"
+    ],
+    "same_original_observations_and_parts": true,
+    "extra_NN_AD_ADC_CP_banks": 0
+  },
+  "startup_expected_preupdate_from_saved033": {
+    "data": 0.02590496122504783,
+    "objective": 0.025969073091282775,
+    "regular": 0.006411186623494439,
+    "saturation": 0.0,
+    "original_with_carrier_data_report_only": 0.09570950875194757,
+    "original_with_carrier_objective_report_only": 0.09577362061818252,
+    "loss_tolerance": "abs1e-8+rel1e-6*abs(expected), ROOT compares existing native step1 log; no extra query.",
+    "gradient_expectation": "Four group norms finite and nonzero; do not require the old033 gradient norms because objective changed."
+  },
+  "initial_native_digest_reference": {
+    "source": "receipts/response033_20261017/completion_01/run_01/INITIAL_BINDING.json",
+    "initial_G0_model_state_sha256": "354b9828bdb6f552ab747e2aab06e988b27b1c7aad4d71580bdab6d8bdfc5f58",
+    "original_A_state_sha256": "529f9a67594ac5232b932d7af246a934f1f5e01c62e7502fc3a50736cf5644c7",
+    "frozen005_extension_state_sha256": "bba9cc181344d60a9a00f5c5b8850d30a2020d30a785814b7295496949d85912",
+    "method": "Compare native036 WARMSTART_BINDING fields to these saved JSON values; no additional CP/NN/AD/draw/bank."
+  },
+  "repair_decision": "Single one-factor actual REAL trial: carrier training weight .25 to0; not a claim that carrier was the sole failure cause.",
+  "frozen_UTC": "2026-10-16T22:33:42.053766+00:00"
+}

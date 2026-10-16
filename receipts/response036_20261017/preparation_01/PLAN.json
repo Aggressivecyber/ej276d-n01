@@ -1,0 +1,143 @@
+{
+  "schema": "n01/response036-no-carrier-repair-plan/v1",
+  "status": "code_preparation_only_not_frozen",
+  "decision": "Only carrier training weight .25 to0; one actual fixed REAL trial, not a proven sole-cause repair.",
+  "rationale": "035 Af-only carrier energy improved .291674 to .025422 while waveform energy worsened .029188 to .175851. Complete original data also worsened, so both optimizer non-descent and auxiliary conflict remain possible.",
+  "reference": {
+    "source": "scripts/run_response034.py",
+    "sha256": "10843ad2bee21d8e99612e91dd662145635bafc7c8e03bccb2e757ae93030c26",
+    "diagnosis": "receipts/response035_20261017/model_diagnosis_01/DIAGNOSIS.json",
+    "diagnosis_sha256": "c6df2d850ae0763c0325af12181877aaa0b8c43998c86312cd5194ee9c508743"
+  },
+  "sole_scientific_intervention": "mean_H(wave+2*joint signed integrals) +.01*(model_regular+preADC_saturation); original carrier coefficient .25 becomes0 in training only.",
+  "report_only": "Compute original energy_parts once per H from the same observations; record carrier, per-H components and original with-carrier data/objective. No extra NN, ADC, source/REAL bank, CP or AD.",
+  "initialization": "Reconstruct original034 initial from whole strict old deterministicA warmstart and original frozen005, seed2026101732; never continue034final. All mean and random parameters remain trainable.",
+  "training": {
+    "updates": 2000,
+    "generated_bank_rows": 64,
+    "real_bank_rows": 128,
+    "mean_lr": 0.0001,
+    "new_head_lr": 0.0003,
+    "weight_decay": 0.0,
+    "clip_norm": 5.0,
+    "regular_weight": 0.01,
+    "status_interval": 100,
+    "checkpoint_interval": 1000,
+    "shape_lr": 1.875e-05,
+    "carrier_weight": 0.0
+  },
+  "seed": 2026101732,
+  "optimizer_groups": [
+    {
+      "parameters": "mean",
+      "lr": 0.0001
+    },
+    {
+      "parameters": "shape",
+      "lr": 1.875e-05
+    },
+    {
+      "parameters": "charge+local",
+      "lr": 0.0003
+    }
+  ],
+  "unchanged": [
+    "All9 input paths/bytes/SHA and originalTRAIN-only statistics/integral/carrier-scale fits.",
+    "All6593SOURCE and21047REAL legal TRAIN rows, original count weights/physical weights unknown, four independent IID index streams and six torch streams.",
+    "Frozen original005 electronics and three H extension, one combined backward, AdamW defaults, weight_decay0 and globalclip5.",
+    "FullTRAIN one4draw bank, A/G0 shared initial forward and final RNGreplay; oneDEV512x4 vs599 after final freeze with A/final sharedRNG.",
+    "Native full-wave W1, QPSD/noise, signed integral/PSD/rise/support/rail flags, every original calibratedT check, row denominators and pilot gates.",
+    "2000steps, status100/checkpoint1000, original resource caps and all execution counts."
+  ],
+  "tradeoff": "Raw trigger position and carrier tail outside the256 readout lose a direct training term. Keep carrier as report-only and all native boundary/outside/rail/PSD non-inferiority gates. A proper marginal256 voltage-energy target does not identify conditional response or the complete preADC carrier.",
+  "necessary_validation": {
+    "saved_scalars_only": {
+      "Af_only_minus_A0_only": {
+        "mean": 0.1566488205079211,
+        "MCSE": 0.010015576379447578,
+        "bank_values": [
+          0.16254582662276656,
+          0.17909273240867807,
+          0.14874115633226534,
+          0.11764327717262656,
+          0.1833709333354872,
+          0.1502834437001542,
+          0.1187511230208905,
+          0.19276207147050037
+        ],
+        "descriptive_3MCSE_direction": "positive"
+      },
+      "MfRf_minus_M0R0": {
+        "mean": 0.18702532686664453,
+        "MCSE": 0.02908803173973663,
+        "bank_values": [
+          0.3173384126519412,
+          0.2623622946206582,
+          0.18221739361165473,
+          0.11570918633151811,
+          0.25023845737798917,
+          0.10120392072191213,
+          0.09793515039551501,
+          0.16919779922196773
+        ],
+        "descriptive_3MCSE_direction": "positive"
+      }
+    },
+    "implication": "Both failed endpoints remain worse after removingcarrier; old endpoint rescoring is not training success.",
+    "source_recovery": "Undo labels plus enumerated objective/report/entry changes and recover frozen034 source text andAST exactly.",
+    "config_recovery": "Remove only carrier_weight, report/startup metadata/new helper+runner pins, restore objective/identity metadata and recover034config exactly.",
+    "no_extra_scientific_diagnostic": true
+  },
+  "startup_expected_preupdate": {
+    "data": 0.02590496122504783,
+    "objective": 0.025969073091282775,
+    "regular": 0.006411186623494439,
+    "saturation": 0.0,
+    "original_with_carrier_data_report_only": 0.09570950875194757,
+    "original_with_carrier_objective_report_only": 0.09577362061818252,
+    "loss_tolerance": "abs1e-8+rel1e-6*abs(expected), ROOT compares existing native step1 log; no extra query.",
+    "gradient_expectation": "Four group norms finite and nonzero; do not require the old033 gradient norms because objective changed."
+  },
+  "initial_native_digest_reference": {
+    "source": "receipts/response033_20261017/completion_01/run_01/INITIAL_BINDING.json",
+    "initial_G0_model_state_sha256": "354b9828bdb6f552ab747e2aab06e988b27b1c7aad4d71580bdab6d8bdfc5f58",
+    "original_A_state_sha256": "529f9a67594ac5232b932d7af246a934f1f5e01c62e7502fc3a50736cf5644c7",
+    "frozen005_extension_state_sha256": "bba9cc181344d60a9a00f5c5b8850d30a2020d30a785814b7295496949d85912",
+    "method": "Compare native036 WARMSTART_BINDING fields to these saved JSON values; no additional CP/NN/AD/draw/bank."
+  },
+  "pilot_success": "Original gates: TRAIN native wave gain>=2percent vsA in all3H AND every defined positive-calibrated component final-minus-A<=T onTRAIN+DEV. DEVwave gain separate; absoluteT andRR ratios separate;2percent is progress, not well-fit.",
+  "failure_rule": "One fixed2000-step endpoint. Any old gate failure closes036 negative. No automatic LR/weight alternative, moresteps, candidategrid, bestcheckpoint or DEV selection.",
+  "budget": {
+    "G_updates": 2000,
+    "NN_calls": 4446,
+    "NN_rows": 312840,
+    "noise005_rows": 310792,
+    "extension_rows": 932376,
+    "generated_ADC_rows": 1017636,
+    "checkpoint_loads": 2,
+    "TRAIN_archives_decoded": 1,
+    "DEV_archives_decoded": 1,
+    "DEV_metadata_archives_decoded": 1,
+    "training_AD_queries": 2000
+  },
+  "resources": {
+    "wall_seconds": 3600,
+    "RSS_GiB": 12,
+    "GPU_GiB": 10,
+    "CPU_threads": 4,
+    "output_MiB": 1024
+  },
+  "project_lock": "/home/rylan/projects/ej276d-n01/.n01_scientific_dispatch.lock",
+  "preparation_actual_counts": {
+    "NN_forwards": 0,
+    "AD_queries": 0,
+    "CP_deserializations": 0,
+    "raw_scientific_array_decodes": 0,
+    "observation_calls": 0,
+    "optimizer_updates": 0,
+    "launches": 0,
+    "numeric_module_imports": 0
+  },
+  "release": "Independent static review and ROOT frozen config/source plus supervisor/project lock are required before execution.",
+  "scientific_status": "response_match_not_established"
+}

@@ -1,0 +1,178 @@
+{
+  "schema": "n01/response036-independent-static-review/v1",
+  "UTC": "2026-10-16T22:34:53.963467+00:00",
+  "reviewer": "response029_loss_data_diagnosis",
+  "status": "NO_BLOCKERS_STATIC_SOURCE_CONFIG_AND_SAVED_SCALAR_REVIEW_ONLY",
+  "blockers": [],
+  "decision": "The exact frozen036 runner/config implements one bounded carrier-auxiliary removal trial. This is permission-scope/static implementation review, not native execution, proven root cause or response-match acceptance.",
+  "artifacts": {
+    "scripts/run_response036.py": {
+      "sha256": "8d5e3a1348d8f1c8ef5e55e8baceb74bcd534262e5500ee80e58ced3283b6178",
+      "bytes": 33032,
+      "LF_only": true
+    },
+    "configs/response036_20261017.json": {
+      "sha256": "330f013e8b6f17fc7b576f08e6f66c1761f51e9942054a105f88f5ac82e04f86",
+      "bytes": 11080,
+      "LF_only": true
+    },
+    "receipts/response036_20261017/preparation_01/CONFIG_DRAFT.json": {
+      "sha256": "29d16fae1dbdb0ec7bcbc19b0a1356fe296022d34340f27304522348ed6b2a50",
+      "bytes": 11023,
+      "LF_only": true
+    },
+    "receipts/response036_20261017/preparation_01/PLAN.json": {
+      "sha256": "f4fe212bdf1b92daba9febea9e07a2486c3483963a5594b8e30de5f2066eec81",
+      "bytes": 7064,
+      "LF_only": true
+    },
+    "receipts/response036_20261017/preparation_01/SEMANTIC_DIFF.json": {
+      "sha256": "8d2ecac1e1fbac473d811cc834fa1cd3e48d77d134aabfdc38835c0ada8dc6de",
+      "bytes": 5950,
+      "LF_only": true
+    },
+    "receipts/response036_20261017/preparation_01/IMPLEMENTATION_RECEIPT.json": {
+      "sha256": "0462dbb4277aa5da9173825ed52a6cdf093eb477fbec98f92b2c2aaefd0ab2fa",
+      "bytes": 4966,
+      "LF_only": true
+    }
+  },
+  "frozen_configuration": {
+    "status": "ready_for_real_pilot",
+    "preparation_only": false,
+    "frozen_UTC": "2026-10-16T22:33:42.053766+00:00",
+    "exact_draft_after_restore": true,
+    "only_draft_to_frozen_changes": [
+      "status",
+      "preparation_only",
+      "frozen_UTC"
+    ]
+  },
+  "semantic_recovery": {
+    "five_enumerated_reverse_replacements_and_identity_labels_recover034_text": true,
+    "recovered_AST_exact034": true,
+    "draft_configuration_recovers034_after_enumerated_metadata_carrier_and_newpin_removal": true,
+    "old034_source_sha256": "10843ad2bee21d8e99612e91dd662145635bafc7c8e03bccb2e757ae93030c26",
+    "all9_input_records_exact034": true,
+    "evaluation_resources_hypotheses_exact034": true,
+    "source_pins": 39,
+    "all39_hashes_match": true,
+    "all_old03437_pins_unchanged": true,
+    "known_AST_local_dependency_paths_pinned": true,
+    "known_AST_local_dependency_count": 37
+  },
+  "objective_and_gradient": {
+    "old_data": "mean_H(wave+2*integral+.25*carrier)",
+    "new_data": "mean_H(wave+2*integral)",
+    "objective": "new_data+.01*(same model regular+same preADC saturation)",
+    "parts_reuse": "One call site of frozen033.energy_parts per H on the already created generatedA/generatedB/REALT/REALU observations. It uses frozen031 standardized_banks/energy_four_banks. No new model, observation, target sampling, latent, projection RNG or AD query.",
+    "carrier_report_only": "parts[carrier] and parts[data] are computed once but not connected as objective terms. Only wave/integral feed data_term; original_data_term is used solely in detached scalar logs, never passed to backward. Shared waveform inputs do not make the unused carrier-distance branch part of the objective.",
+    "report_fields": [
+      "hypothesis_energy_parts_report_only",
+      "carrier_energy_report_only",
+      "data_with_carrier_report_only",
+      "objective_with_carrier_report_only"
+    ],
+    "backward_call_sites": [
+      332
+    ],
+    "optimizer_step_call_sites": [
+      344
+    ],
+    "clip_order": "Combined backward; startup four-group gradients; global clip5 with error_if_nonfinite=True; single AdamW step.",
+    "startup_four_groups": "Mean,shape,charge,local gradients are recorded from the same first backward; zero norm is rejected, global finite-gradient clipping rejects any nonfinite norm. All four finite/nonzero remains a required native result, not a static success claim.",
+    "old_gradient_norm_not_required": "The target changed;033 norms including21.1663818359375 are not valid exact expectations for036.",
+    "proper_energy_limit": "Proper marginal distance for the selected observed features does not identify the eventwise conditional response or justify a STE/hard-observation gradient claim."
+  },
+  "initialization_training_RNG": {
+    "initialization": "Rebuild original sameG0 from strict whole old deterministicA warmstart plus frozen005, seed2026101732. No034final warmstart. New and mean parameters remain trainable.",
+    "native_digest_reference": {
+      "source": "receipts/response033_20261017/completion_01/run_01/INITIAL_BINDING.json",
+      "initial_G0_model_state_sha256": "354b9828bdb6f552ab747e2aab06e988b27b1c7aad4d71580bdab6d8bdfc5f58",
+      "original_A_state_sha256": "529f9a67594ac5232b932d7af246a934f1f5e01c62e7502fc3a50736cf5644c7",
+      "frozen005_extension_state_sha256": "bba9cc181344d60a9a00f5c5b8850d30a2020d30a785814b7295496949d85912",
+      "method": "Compare native036 WARMSTART_BINDING fields to these saved JSON values; no additional CP/NN/AD/draw/bank."
+    },
+    "optimizer_groups": {
+      "mean": 0.0001,
+      "shape": 1.875e-05,
+      "charge_plus_local": 0.0003
+    },
+    "AdamW": "Unchanged defaults,weight_decay0,globalclip5,regular_weight.01.",
+    "sampling": "Unchanged6593SOURCE/21047REAL TRAIN rows, uniform source count weights with physical weights unknown, four independent IID-with-replacement index streams and six independent Torch streams. Generated64A+64B/REAL128T+128U each update;2000 updates.",
+    "RNG_identity": "Exact034 recovery preserves stream creation, projection seeds/fingerprints, draw order, initial A/G0 paired bank and final RNG replay. energy_parts contains no new random draw."
+  },
+  "observation_and_evaluation": {
+    "TRAIN_REAL": "Unchanged originalCPU existingADC adapter; bitwise prepared window256/baseline100 equality checks, authoritative target window, no redigitization or row filtering.",
+    "generated": "Original hard ADC forward with STE only for training; same argmax112:144,crop256,carrier384,prefix100 and three electronics extension hypotheses.",
+    "mean_parameters": "Whole mean model remains trainable. A_reference and005 remain frozen and digest-checked.",
+    "native_evaluation": "Exactly the original034 native W1/QPSD/noise/integral/PSD/rise/support/rail metrics and denominators, referenceA,G0 and frozen final; DEV after FINAL_ENDPOINT_FREEZE only.",
+    "formal_gates": "Unchanged TRAIN native wave relative gain>=.02 vsA for all3H AND all defined positive-calibrated components final-minus-A<=T onTRAIN andDEV. DEV wave gain,absolute final/T andRR ratios remain separately reported; no added or relaxed gate.",
+    "lost_direct_term": "Original384 coordinate/carrier marginal term, including information outside hard256 crop, loses its direct training gradient. Carrier remains logged; all original outside/boundary/rail/tail evaluation remains. Full-signal saturation and model regularization still apply; this is not a claim that all out-of-window constraints disappear.",
+    "stop_rule": "One fixed2000-step endpoint. Any old gate failure closes036 negative. No automatic LR/weight alternative, moresteps, candidategrid, bestcheckpoint or DEV selection."
+  },
+  "saved_scalar_first_forward_check": {
+    "source": "receipts/response033_20261017/completion_01/run_01/metrics.jsonl",
+    "source_sha256": "5c1355cdea7d3244410da8badca8030ce4b7ce2bc471a4a570caeaaab4c7c50f",
+    "saved_bank": 0,
+    "saved_state": "baseline",
+    "per_H_data_without_carrier": {
+      "fast": 0.025408871125940515,
+      "slow": 0.025955024217952483,
+      "common_level": 0.02635098833125049
+    },
+    "recomputed_data": 0.025904961225047828,
+    "frozen_expected_data": 0.02590496122504783,
+    "absolute_data_difference": 3.469446951953614e-18,
+    "recomputed_objective": 0.025969073091282772,
+    "frozen_expected_objective": 0.025969073091282775,
+    "absolute_objective_difference": 3.469446951953614e-18,
+    "regular": 0.006411186623494439,
+    "saturation": 0.0,
+    "original_with_carrier_data": 0.09570950875194757,
+    "original_with_carrier_objective": 0.09577362061818252,
+    "native_comparison_tolerance": "abs1e-8+rel1e-6*abs(expected), ROOT compares existing native step1 log; no extra query.",
+    "method": "Saved scalar arithmetic only; compare the existing native step1 log without any extra forward/AD. Floating reduction difference of3.47e-18 is immaterial."
+  },
+  "expected_execution_counts": {
+    "G_updates": 2000,
+    "NN_calls": 4446,
+    "NN_rows": 312840,
+    "noise005_rows": 310792,
+    "extension_rows": 932376,
+    "generated_ADC_rows": 1017636,
+    "checkpoint_loads": 2,
+    "TRAIN_archives_decoded": 1,
+    "DEV_archives_decoded": 1,
+    "DEV_metadata_archives_decoded": 1,
+    "training_AD_queries": 2000
+  },
+  "registered_resources": {
+    "wall_seconds": 3600,
+    "RSS_GiB": 12,
+    "GPU_GiB": 10,
+    "CPU_threads": 4,
+    "output_MiB": 1024
+  },
+  "resource_enforcement": "Existing runner check_limits checks wall/output; external supervise.py --rss-limit-gib 12 checks RSS; GPU allocator10GiB. No automatic restart; existing project lock and supervisor apply.",
+  "evidence_boundary": [
+    "035 no-carrier rescoring still worsens both failed endpoints on all8 reused banks; changing their score did not make them successful.",
+    "036 is one prospective actual-training comparison, not proof carrier was the sole root cause. A result change can support a contribution only.",
+    "Native launch/budget/gradient/metric acceptance remains to be observed. No conditional response recovery, physical calibration or new acquisition evidence is claimed."
+  ],
+  "review_execution_counts": {
+    "project_imports": 0,
+    "NN_calls": 0,
+    "AD_queries": 0,
+    "G_updates": 0,
+    "CP_byte_reads": 0,
+    "CP_deserializations": 0,
+    "raw_scientific_array_decodes": 0,
+    "observation_calls": 0,
+    "jobs_launched": 0
+  },
+  "old_sources_models_results_ledgers_modified": false,
+  "modified_by_reviewer": [
+    "receipts/response036_20261017/independent_review_01/REVIEW.json"
+  ]
+}

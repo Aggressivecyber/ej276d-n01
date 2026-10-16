@@ -1,0 +1,163 @@
+{
+  "schema": "n01/response036-root-decision/v1",
+  "UTC": "2026-10-16T22:36:09.543165+00:00",
+  "decision": "REGISTER_ONE_FIXED_REAL_TRIAL_REMOVE_CARRIER_TRAINING_TERM",
+  "authority": "receipts/response029_20261017/USER_DIRECTION.json and continuing repair heartbeat; implementation and independent review by registered gpt-6.1-sol/max agents",
+  "scientific_status": "response_match_not_established",
+  "predecessor_closeout": "receipts/response035_20261017/FINAL_RESULT_RECEIPT.json",
+  "predecessor_delivery": "receipts/response035_20261017/closeout_publication_01/DELIVERY_RECEIPT.json",
+  "rationale": "035 Af-only carrier energy improved .291674 to .025422 while waveform energy worsened .029188 to .175851. Complete original data also worsened, so both optimizer non-descent and auxiliary conflict remain possible.",
+  "sole_intervention": "mean_H(wave+2*joint signed integrals) +.01*(model_regular+preADC_saturation); original carrier coefficient .25 becomes0 in training only.",
+  "initialization": "Reconstruct original034 initial from whole strict old deterministicA warmstart and original frozen005, seed2026101732; never continue034final. All mean and random parameters remain trainable.",
+  "unchanged": [
+    "All9 input paths/bytes/SHA and originalTRAIN-only statistics/integral/carrier-scale fits.",
+    "All6593SOURCE and21047REAL legal TRAIN rows, original count weights/physical weights unknown, four independent IID index streams and six torch streams.",
+    "Frozen original005 electronics and three H extension, one combined backward, AdamW defaults, weight_decay0 and globalclip5.",
+    "FullTRAIN one4draw bank, A/G0 shared initial forward and final RNGreplay; oneDEV512x4 vs599 after final freeze with A/final sharedRNG.",
+    "Native full-wave W1, QPSD/noise, signed integral/PSD/rise/support/rail flags, every original calibratedT check, row denominators and pilot gates.",
+    "2000steps, status100/checkpoint1000, original resource caps and all execution counts."
+  ],
+  "tradeoff": "Raw trigger position and carrier tail outside the256 readout lose a direct training term. Keep carrier as report-only and all native boundary/outside/rail/PSD non-inferiority gates. A proper marginal256 voltage-energy target does not identify conditional response or the complete preADC carrier.",
+  "saved_scalar_rescore": {
+    "Af_only_minus_A0_only": {
+      "mean": 0.1566488205079211,
+      "MCSE": 0.010015576379447578,
+      "bank_values": [
+        0.16254582662276656,
+        0.17909273240867807,
+        0.14874115633226534,
+        0.11764327717262656,
+        0.1833709333354872,
+        0.1502834437001542,
+        0.1187511230208905,
+        0.19276207147050037
+      ],
+      "descriptive_3MCSE_direction": "positive"
+    },
+    "MfRf_minus_M0R0": {
+      "mean": 0.18702532686664453,
+      "MCSE": 0.02908803173973663,
+      "bank_values": [
+        0.3173384126519412,
+        0.2623622946206582,
+        0.18221739361165473,
+        0.11570918633151811,
+        0.25023845737798917,
+        0.10120392072191213,
+        0.09793515039551501,
+        0.16919779922196773
+      ],
+      "descriptive_3MCSE_direction": "positive"
+    }
+  },
+  "first_preupdate_expected": {
+    "data": 0.02590496122504783,
+    "objective": 0.025969073091282775,
+    "regular": 0.006411186623494439,
+    "saturation": 0.0,
+    "original_with_carrier_data_report_only": 0.09570950875194757,
+    "original_with_carrier_objective_report_only": 0.09577362061818252,
+    "loss_tolerance": "abs1e-8+rel1e-6*abs(expected), ROOT compares existing native step1 log; no extra query.",
+    "gradient_expectation": "Four group norms finite and nonzero; do not require the old033 gradient norms because objective changed."
+  },
+  "initial_native_digest_reference": {
+    "source": "receipts/response033_20261017/completion_01/run_01/INITIAL_BINDING.json",
+    "initial_G0_model_state_sha256": "354b9828bdb6f552ab747e2aab06e988b27b1c7aad4d71580bdab6d8bdfc5f58",
+    "original_A_state_sha256": "529f9a67594ac5232b932d7af246a934f1f5e01c62e7502fc3a50736cf5644c7",
+    "frozen005_extension_state_sha256": "bba9cc181344d60a9a00f5c5b8850d30a2020d30a785814b7295496949d85912",
+    "method": "Compare native036 WARMSTART_BINDING fields to these saved JSON values; no additional CP/NN/AD/draw/bank."
+  },
+  "config": {
+    "path": "configs/response036_20261017.json",
+    "sha256": "330f013e8b6f17fc7b576f08e6f66c1761f51e9942054a105f88f5ac82e04f86",
+    "bytes": 11080
+  },
+  "source_pins": {
+    "scripts/mechanism012_losses.py": "3fc84ccaf255b660d8eda4f96d43e2c236045a756e777c9b2d490f7137dc04ed",
+    "scripts/mechanism012_ops.py": "98a18eef018beebff82565da9ed5b31208cf2bff6db6bff0c492eff9bf2a7816",
+    "scripts/run_response029.py": "a39f5ddd3fcbd0d8cf58db487d7fb51d1b17646f69603047a1e739fece74e7d5",
+    "scripts/run_response031.py": "bfe819d4ae09b4ed58cd6211e32948af14970e610a29ce3ec2960f1536c4115d",
+    "scripts/run_response032.py": "541f09ab8b9610ceda7371ea81911dd098e8319f0b330523f04caa3d25a245b8",
+    "scripts/run_wp1_013.py": "e7cbcf782e19e139c02260bbe1d67e0a50108785ed5b093975800a28b103657d",
+    "scripts/stability011_metrics.py": "fd87e544673f63887e57c8efafeb0327bbe4db430b04c9697c71cd2e244c3f78",
+    "scripts/supervise.py": "0223a8912196876f712072f064c9118a999f7e563244947cba7ad729d247a69b",
+    "scripts/supervise_mechanism012.py": "43b6fffd076a1e6d57db67e85e433e71d3f2cda91f3a3d5fe31f0fcb430486a4",
+    "scripts/wp1_boundary_saved.py": "ea1317c2a6e8616f5b30e2aa6ea1900fde17a711b57e2f02ae84fa5cc5782065",
+    "scripts/wp1_evaluation.py": "3f5e4f9e8ca147cfbad8b75085c59d9c2081deda9b7532f1732f1d5e932cc895",
+    "scripts/wp1_input_information.py": "bb8278d2651ddcaf10830a4589d66242d69a7e22d10321171ad7f4b71dec8b17",
+    "scripts/wp1_ops.py": "f8ddbbdb2f2f6df033e964f27bf03dcbda07055cc7378775591ef69b9caf85b5",
+    "scripts/wp1_parameter_probe.py": "bf7901db6e1b99084894fdc8f4c5d1685de2ca00cacb7a0a6a9801c39b8823fa",
+    "src/n01/__init__.py": "d17d880249fa0f50920dd14c505b15b4de74419849f86296913c31576c31e891",
+    "src/n01/ablation009.py": "8100bbedb765f08f689a4bce5cb9ea1af133e6f2b895b544656f6e9fbd058d3b",
+    "src/n01/data.py": "2ec3363bc830043af053342b4638f5e6ab55d27303da037f383f4fe630d77bd2",
+    "src/n01/data008.py": "2a66a8800642cf6788ce268d326af9d128cb165daf60d555f802b2c881ac97af",
+    "src/n01/diagnose_mean_random009.py": "31a07360e9ab53e987fe6d2bec3b466398a2c7125e64c1c94b712708ae62dfc4",
+    "src/n01/electronics_v3.py": "816b12bf4814f23ff4455498ec385df335cdb38827548c969e38ef08b9763926",
+    "src/n01/evaluate.py": "baaaf0c50c98a15b3c04cddf07ea4c1b5b4503156c50fd78d774cf3fb5baf8bb",
+    "src/n01/evaluate_window008.py": "75f8988415a181a31a7c2b5890418b1f7685e0d8fb141cdea84f4174af783cc0",
+    "src/n01/extension006.py": "caa2eff66555773d04a72482c8375b5896a241e0a858070a80f689aa3def5040",
+    "src/n01/losses.py": "4371a6d5924f0f664935b5d6eb6715c530f80af39ae276c7dc34ba02c5f4b1a7",
+    "src/n01/losses008.py": "68a9330b7e0620f12adbb3dc22a00c632a1b7577d44b92617da7d14979d9ea61",
+    "src/n01/losses008_v2.py": "6932772c4b00fa62383b5ca356f26d0cf81271be531888b474ae6146fa25f3d8",
+    "src/n01/losses014.py": "86fded3226ae86a5aaae6d9066220923fb6b0aebfeaa09cb638642498e4f4114",
+    "src/n01/model.py": "0a0488218d99f351a98e30f2b1525b837b4ad3195c19f2a76ff61ee01298587b",
+    "src/n01/model008.py": "56a6b41f9d2906c82757f4ca9f91a751ff8531428a7f38714e0a291359cd1b4f",
+    "src/n01/model008_fix01.py": "3bc826a1867f2658ae507ab2be683a6b901b7f481b1efaf005f3cf4953429abc",
+    "src/n01/model010.py": "3fbbee140477caf755feadf88175291c451c95a56899770a65eebf7be6204318",
+    "src/n01/model029.py": "40c16bca31ff277912959a040a40770608c49f374eff76cffd45de0d716ea599",
+    "src/n01/observation008.py": "9f7b6c0a266c420af8c6c155103774bae1ed949cfe05ee6a1f19b75f9254c4ec",
+    "src/n01/response008.py": "cf8b14b377530a234b066c2fd958827172abb624e7a959ac9bb26a416ff3b2e7",
+    "src/n01/train.py": "9cb6b0a9cfad3fd9163eee919de7b2d64ca422513093e204f62a934e25684169",
+    "src/n01/train_shape010.py": "5c94a6d947c1cfcb926ea2b39e77fbdeb6600f231f503fdf4c43c7ff7033e6d9",
+    "scripts/run_response034.py": "10843ad2bee21d8e99612e91dd662145635bafc7c8e03bccb2e757ae93030c26",
+    "scripts/run_response033.py": "710be3a025dd7f7611bcecc8480d4e3813531e9a3b57fbeb47419bc2a32b1d11",
+    "scripts/run_response036.py": "8d5e3a1348d8f1c8ef5e55e8baceb74bcd534262e5500ee80e58ced3283b6178"
+  },
+  "source_review": {
+    "path": "receipts/response036_20261017/independent_review_01/REVIEW.json",
+    "sha256": "8f73a4f1a4a9afcb23a87991b009f68c59c3cf85a845e5bd87abb978fe38232a",
+    "blocking_findings": []
+  },
+  "counts": {
+    "G_updates": 2000,
+    "NN_calls": 4446,
+    "NN_rows": 312840,
+    "noise005_rows": 310792,
+    "extension_rows": 932376,
+    "generated_ADC_rows": 1017636,
+    "checkpoint_loads": 2,
+    "TRAIN_archives_decoded": 1,
+    "DEV_archives_decoded": 1,
+    "DEV_metadata_archives_decoded": 1,
+    "training_AD_queries": 2000
+  },
+  "resources": {
+    "wall_seconds": 3600,
+    "RSS_GiB": 12,
+    "GPU_GiB": 10,
+    "CPU_threads": 4,
+    "output_MiB": 1024
+  },
+  "project_lock": "/home/rylan/projects/ej276d-n01/.n01_scientific_dispatch.lock",
+  "progression_criterion": {
+    "TRAIN_wave_relative_gain_min_all_hypotheses": 0.02,
+    "TRAIN_and_DEV_defined_positive_calibrated_component_delta_vs_A_max": "T_by_hypothesis",
+    "DEV_wave_gain_is_reported_not_required": true,
+    "physical_response_acceptance": false
+  },
+  "failure_rule": "One fixed2000-step endpoint. Any old gate failure closes036 negative. No automatic LR/weight alternative, moresteps, candidategrid, bestcheckpoint or DEV selection.",
+  "startup_policy": "Single fresh ownership/resource check; project flock; existing RSS supervisor plus outer3600s timeout. Verify one actual native startup, same A/G0/005 digests, expected new step1 data/objective and finite nonzero four-group gradients. Schedule a single future heartbeat and stop monitoring if running. No automatic restart.",
+  "publication": "Only authorized source, aggregate metrics, figures and receipts to existing repository. No raw waveform, private arrays or weights.",
+  "preparation_actual_counts": {
+    "NN_forwards": 0,
+    "AD_queries": 0,
+    "CP_deserializations": 0,
+    "raw_scientific_array_decodes": 0,
+    "observation_calls": 0,
+    "optimizer_updates": 0,
+    "launches": 0,
+    "numeric_module_imports": 0
+  },
+  "cumulative_before": 197668,
+  "future_work": "After036 terminal collect and independently recalculate saved metrics; preserve failure. No alternative candidate authorized by this fixed registration."
+}
