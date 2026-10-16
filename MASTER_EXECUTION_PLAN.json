@@ -10,9 +10,9 @@
   },
   "objective": "Deliver a usable and verifiable conditional effective stochastic response kernel with explicit data and physical scope; assess engineering, in-domain effectiveness and cross-condition reuse separately.",
   "mainline": "protected deterministic A plus input-dependent stochastic response, fixed256 hard output/384 carrier/100 baseline/1ns software sampling; originalfull19k retained as negative control",
-  "status": "response034_frozen_ready_for_single_real_trial",
-  "active_work_package": null,
-  "active_scientific_jobs": 0,
+  "status": "response034_real_training_startup_verified",
+  "active_work_package": "response_learning_repair",
+  "active_scientific_jobs": 1,
   "work_packages": [
     {
       "id": "WP1",
@@ -5538,22 +5538,27 @@
     "root_planning_SolMax_implementation_and_review": true,
     "scientific_success_not_guaranteed_by_state_fields": true
   },
-  "current_action": "Deploy and start the reviewed shape-LR-only repair on existing data.",
-  "updated_UTC": "2026-10-16T21:40:22.516255+00:00",
+  "current_action": "Fixed targeted shape-learning-rate repair is running; initial model and gradients verified.",
+  "updated_UTC": "2026-10-16T21:46:05.161537+00:00",
   "followup": {
-    "schema": "n01/wp6-028-completed-job-followup/v1",
-    "verified_UTC": "2026-10-16T18:03:56.400301+00:00",
+    "schema": "n01/response034-followup/v1",
+    "verified_UTC": "2026-10-16T21:46:05.161537+00:00",
     "automation_id": "n01",
-    "status": "PAUSED",
-    "settings_sha256": "b8b084af700860c3c43b236e3ed90f0ce0cdd6dc0cdbfff940fcfd948f1f85ae",
-    "mutated_for028": false,
-    "next_wake_local": null,
-    "active_scientific_jobs": 0,
+    "kind": "heartbeat",
+    "name": "N01 探测器响应学习修复",
+    "status": "ACTIVE",
+    "target_thread_id": "01a12bad-8839-7522-89a5-f028b107d7ff",
+    "next_wake_local": "2026-10-17T05:55:00+08:00",
+    "single_future_wake": true,
+    "prompt_verified_equal": true,
+    "settings_sha256": "75791d71a004267f3a49a1404ee8b7fa33de762a14c9976e6f9ac4a9671ef6d9",
     "continuous_monitoring": false,
-    "reason": "The single short028 job completed before its first bounded snapshot; no wake is needed for this finished job.",
-    "user_resumption_preserved": true,
-    "receipt": "receipts/wp6_028_20261017/FINAL_RESULT_RECEIPT.json",
-    "receipt_sha256": "88e3c7cd151f7b6ba55480c412931275a3364065dfbeb32e187906a065d86f77"
+    "prior_run_followup_replaced": true,
+    "execution_status_basis": "One native startup snapshot at2026-10-16T21:43:32.145605Z; no subsequent remote checks in this turn.",
+    "completed_updates_accounted": 301,
+    "cumulative_training_updates": 195969,
+    "source_commit": "f2b926a26dc0eb2c155780623c07d65fad4df90b",
+    "startup_receipt": "receipts/response034_20261017/STARTUP_ASSESSMENT.json"
   },
   "runtime_repair": {
     "failed_attempt": 1,
@@ -5842,10 +5847,10 @@
     "independent_saved_array_scope": "36pairs/176NPZ/1898784hard_rows; not complete loss replay"
   },
   "current_work_package": "response_learning_repair",
-  "current_stage": "response034_targeted_shape_step_repair_ready",
-  "active_research": null,
-  "next_action": "Verify native startup once, then schedule one future wake and rest.",
-  "last_verified_UTC": "2026-10-16T10:29:39.963997+00:00",
+  "current_stage": "response034_real_energy_training",
+  "active_research": "response034_20261017",
+  "next_action": "At 2026-10-17T05:55:00+08:00 read one bounded status; if terminal collect and independently review, if still running schedule one future wake and rest.",
+  "last_verified_UTC": "2026-10-16T21:43:32.145605+00:00",
   "wp2_collection": {
     "path": "receipts\\wp2_014_20261015\\collection_01\\COLLECTION_RECEIPT.json",
     "sha256": "6e333a4e5a6bde1744a406a41a00ffadcec97637b9c4adc6640661181cf54fc7",
@@ -6018,7 +6023,7 @@
     "role": "historical provisional record retained"
   },
   "active_scientific_jobs_status_basis": "Terminal032 native0 and no owned processes at 2026-10-16T21:06:28.020138+00:00",
-  "latest_source_commit": "9e8f98ad4b1a8e78e6a922ed067959f307c581ee",
+  "latest_source_commit": "f2b926a26dc0eb2c155780623c07d65fad4df90b",
   "wp2_readback_prepare_failure": {
     "path": "receipts\\wp2_014_20261015\\readback_registration_01\\ROOT_PREPARE_FAILURE_RECEIPT.json",
     "sha256": "6f89dedd516cd5612295060b074fa84625364774a6a8c5c74b5172608f2b83f5",
@@ -6047,14 +6052,14 @@
     "scientific_status": "response_match_not_established",
     "source_commit": "dfddb7a2eef45b4e7f4253fcb89ef2ec3b608b4a"
   },
-  "latest_run_id": "response033_20261017",
-  "current_run_training_updates": 0,
-  "latest_training_run_id": "response032_20261017",
+  "latest_run_id": "response034_20261017",
+  "current_run_training_updates": 301,
+  "latest_training_run_id": "response034_20261017",
   "followup_automation_id": "n01",
   "followup_automation_status": "ACTIVE",
-  "followup_next_run_local": null,
-  "followup_receipt": "receipts/response029_20261017/FOLLOWUP_RECEIPT.json",
-  "followup_receipt_sha256": "8712af7b44b8afa10a7bfe799225c1f81df51e5b36d5dc4a3db3983f83666107",
+  "followup_next_run_local": "2026-10-17T05:55:00+08:00",
+  "followup_receipt": "receipts/response034_20261017/FOLLOWUP_RECEIPT.json",
+  "followup_receipt_sha256": "b4c0e8e2a6360f8be6a79920fb53dee3946fb3c473653cdb7df65ae1df5768a3",
   "wp2_saved_array_closeout": {
     "path": "receipts\\wp2_014_20261015\\postrun_independent_02\\CLOSEOUT_REVIEW.json",
     "sha256": "70a6ed688cb3769e5cefc1a83dd06960f40ee7cf12a58bc9f9e942ef972a6537",
@@ -6476,7 +6481,7 @@
     }
   },
   "followup_last_delivered_UTC": "2026-10-16T09:20:29.108Z",
-  "current_followup_status": "scheduled0505_heartbeat_consumed_current_continuation_active",
+  "current_followup_status": "single_future_wake_scheduled_startup_verified",
   "wp3_terminal_readback": {
     "path": "receipts/wp3_015_20261015/postrun_root_01/NATIVE_COMPLETION_READBACK.json",
     "sha256": "a9bbc3a9f1694d649b352ad2fd96dc4fa05470bab2856107fe5e35fe6036136f",
@@ -6520,8 +6525,8 @@
     "formal_response_acceptance": false,
     "independent_saved_array_scope": "36pairs/161SHA/160evaluationNPZ/1898784hardrows; no full distance replay"
   },
-  "new_training_updates": 195668,
-  "cumulative_training_updates": 195668,
+  "new_training_updates": 195969,
+  "cumulative_training_updates": 195969,
   "wp3_G_updates": 12000,
   "wp3_AD_queries": 12000,
   "short_candidate_runs_completed": 10,
@@ -6714,7 +6719,7 @@
       "sha256": "105fca8429d9814afefd414e238d9789ce8f0e1ca2bf6d3540b8a2da9c650f87"
     }
   },
-  "latest_training_source_commit": "cc68f75d7e17f675a5ad0605167320cc3e9c93a3",
+  "latest_training_source_commit": "f2b926a26dc0eb2c155780623c07d65fad4df90b",
   "previous_agent_model_policy": {
     "path": "receipts/wp3_015_20261015/readback_registration_01/AGENT_MODEL_POLICY.json",
     "bytes": 1244,
@@ -6979,7 +6984,7 @@
       "scientific_acceptance": false
     }
   },
-  "pending_run_id": "response034_20261017",
+  "pending_run_id": null,
   "wp3_016_execution": {
     "configuration": "wp3_016_config.json",
     "configuration_sha256": "5279597aed74feae87448bfc71aa1387bd711609591eabde775142fa6d1303ab",
@@ -9284,7 +9289,7 @@
     }
   },
   "wp3_completed": true,
-  "active_run_id": null,
+  "active_run_id": "response034_20261017",
   "wp4_017_local_delivery": {
     "document": {
       "path": "receipts/wp4_017_20261015/LOCAL_DELIVERY.md",
@@ -10962,7 +10967,7 @@
       "sha256": "f13d09a8120de685c980e0d52f782c212cb3d4ea41d7da7f77cbfbd21621128e"
     }
   },
-  "followup_scheduled_local": null,
+  "followup_scheduled_local": "2026-10-17T05:55:00+08:00",
   "followup_last_consumed_local": "2026-10-17T04:00:20.341+08:00",
   "wp3_025_G_updates": 0,
   "wp3_025_AD_queries": 0,
@@ -11486,7 +11491,7 @@
   },
   "response029_engineering_optimizer_updates": 2,
   "response029_G_updates": 4000,
-  "training_update_accounting": "195667 after032 +033 one diagnostic Adam update =195668.033 is not a long training run; prior engineering updates remain separately excluded.",
+  "training_update_accounting": "195668 before034 +301 confirmed complete034 updates =195969. STATUS300 is an earlier full counter snapshot, not an additional count. On completion add final confirmed updates minus301 only. Prior engineering updates remain separately excluded.",
   "response030_execution": {
     "run_id": "response030_20261017",
     "status": "native0_both_seeds_failed_all_cells",
@@ -11794,12 +11799,12 @@
   },
   "response033_G_updates": 1,
   "response033_AD_queries": 1,
-  "response034_G_updates": 0,
+  "response034_G_updates": 301,
   "response034_execution": {
     "run_id": "response034_20261017",
-    "status": "ready_frozen_reviewed_not_started",
-    "active": false,
-    "scientific_job_started": false,
+    "status": "native_training_startup_verified",
+    "active": true,
+    "scientific_job_started": true,
     "config_path": "configs/response034_20261017.json",
     "config_sha256": "fe1b3bb2a56b191f61d4a7e5825005961c52c1a9e44e85511c3d7e215a3ff849",
     "source_bindings": {
@@ -11865,12 +11870,39 @@
       "output_MiB": 1024
     },
     "cumulative_before": 195668,
-    "completed_updates_accounted": 0,
-    "new_training_updates": 0,
+    "completed_updates_accounted": 301,
+    "new_training_updates": 301,
     "independent_source_review": "receipts/response034_20261017/independent_review_01/REVIEW.json",
     "independent_source_review_sha256": "fe4a1c7b777bf7f385a7e16aafc7a41effd9e0c7b7118317fb074b4779a0411e",
     "independent_source_review_no_blockers": true,
     "scientific_status": "response_match_not_established",
-    "prepared_UTC": "2026-10-16T21:40:22.516255+00:00"
+    "prepared_UTC": "2026-10-16T21:40:22.516255+00:00",
+    "source_commit": "f2b926a26dc0eb2c155780623c07d65fad4df90b",
+    "dispatch_UTC": "2026-10-16T21:42:34.990575+00:00",
+    "dispatcher_pid": 62246,
+    "dispatcher_start_ticks": "1656795",
+    "owned_native_pid": 62255,
+    "owned_native_start_ticks": "1656797",
+    "startup_verified": true,
+    "completed_updates_lower_bound": 301,
+    "last_verified_UTC": "2026-10-16T21:43:32.145605+00:00",
+    "startup_verification": "receipts/response034_20261017/deployment_01/STARTUP_VERIFICATION.json",
+    "startup_assessment": "receipts/response034_20261017/STARTUP_ASSESSMENT.json",
+    "latest_full_counter_snapshot": {
+      "G_updates": 300,
+      "NN_calls": 807,
+      "NN_rows": 64772,
+      "noise005_rows": 64772,
+      "extension_rows": 194316,
+      "generated_ADC_rows": 273432,
+      "checkpoint_loads": 2,
+      "TRAIN_archives_decoded": 1,
+      "DEV_archives_decoded": 0,
+      "DEV_metadata_archives_decoded": 0,
+      "training_AD_queries": 300
+    },
+    "counter_snapshot_step": 300,
+    "training_step_lower_bound_from_complete_metrics_record": 301,
+    "followup": "receipts/response034_20261017/FOLLOWUP_RECEIPT.json"
   }
 }
