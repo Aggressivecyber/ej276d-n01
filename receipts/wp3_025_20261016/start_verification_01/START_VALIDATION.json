@@ -1,0 +1,141 @@
+{
+  "schema": "n01/wp3-025-correct-start-validation/v1",
+  "UTC": "2026-10-16T08:59:41.839543+00:00",
+  "actual_snapshot_UTC": "2026-10-16T08:58:53.470939+00:00",
+  "status": "PASS_actual_CDF_and_current_owned_process_resource_health",
+  "source_commit": "79f0f11b9ca19ce450262877a7c4d42f664d5033",
+  "verified_freeze": {
+    "config_sha256": "88949f9adf3e94c452fe2ffbc61f83796df6411d01c48778084486047819b525",
+    "source_manifest_sha256": "86c7c42214ffb3ed53732800690809f609baa55026c8341ab7fa8868b0e5ed67",
+    "supervisor_sha256": "b37c24795bdaa8a2697b7d652abcf62472ec4a8e474139f0628e5915d548a0cb",
+    "source_and_input_contract_raw_hashes_verified": true
+  },
+  "actual_first_CDF": {
+    "UTC": "2026-10-16T08:57:47.627481+00:00",
+    "pid": 165801,
+    "cell": "zero_b0_fast",
+    "group": "swd:voltage",
+    "actual_CDF_columns": 16,
+    "actual_support_values": 758704,
+    "exact_float64_CDF_completed": true,
+    "first_block_mean_W1": 0.13215773334059855
+  },
+  "current_phase": "score_plus2_b0_fast",
+  "current_processes": {
+    "supervisor": {
+      "pid": 165794,
+      "alive": true,
+      "parent_pid": 1,
+      "start_ticks": 5508586,
+      "command": [
+        "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+        "-B",
+        "/home/rylan/projects/ej276d-n01/wp3_025_20261016/REMOTE_SUPERVISOR.py",
+        "--config",
+        "/home/rylan/projects/ej276d-n01/wp3_025_20261016/wp3_025_config.json",
+        "--config-sha256",
+        "88949f9adf3e94c452fe2ffbc61f83796df6411d01c48778084486047819b525"
+      ],
+      "cwd": "/home/rylan/projects/ej276d-n01/wp3_025_20261016",
+      "CPU_affinity": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "RSS_bytes": 14974976
+    },
+    "child": {
+      "pid": 165801,
+      "alive": true,
+      "parent_pid": 165794,
+      "start_ticks": 5508589,
+      "command": [
+        "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+        "-B",
+        "/home/rylan/projects/ej276d-n01/wp3_025_20261016/scripts/run_wp3_025.py",
+        "--config",
+        "/home/rylan/projects/ej276d-n01/wp3_025_20261016/wp3_025_config.json",
+        "--config-sha256",
+        "88949f9adf3e94c452fe2ffbc61f83796df6411d01c48778084486047819b525",
+        "--output",
+        "/home/rylan/projects/ej276d-n01/wp3_025_20261016/runs/primary/artifacts"
+      ],
+      "cwd": "/home/rylan/projects/ej276d-n01/wp3_025_20261016",
+      "CPU_affinity": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "RSS_bytes": 1183895552
+    }
+  },
+  "boot_id": "06177e53-90a1-4d8c-a942-03b487a0684d",
+  "elapsed_seconds": 67.59891125600552,
+  "current_RSS_bytes": 1198870528,
+  "current_output_bytes": 6817883,
+  "durable_child_progress": {
+    "entered_counts": {
+      "total_scalar_W1_columns_cap": 16482,
+      "marginal_scalar_W1_columns_cap": 8,
+      "REAL_TRAIN_waveform_rows_read": 21047,
+      "new_diagnostic_jobs": 1,
+      "global_QPSD_scalar_W1_columns_exact": 18,
+      "CDF_support_scalar_values_cap": 781227609,
+      "DATASET_numeric_members_read": 1,
+      "saved_hard_files": 2,
+      "saved_hard_rows_decoded": 52744,
+      "CDF_create_calls_cap": 1049,
+      "wave_and_Q_feature_rows": 73791,
+      "conditional_scalar_W1_columns_cap": 8,
+      "wave_scalar_W1_columns_exact": 16448,
+      "point_to_REAL_evaluations": 1,
+      "real_waveform_read_operations": 1
+    },
+    "completed_counts": {
+      "total_scalar_W1_columns_cap": 16466,
+      "marginal_scalar_W1_columns_cap": 8,
+      "REAL_TRAIN_waveform_rows_read": 21047,
+      "new_diagnostic_jobs": 1,
+      "global_QPSD_scalar_W1_columns_exact": 18,
+      "CDF_support_scalar_values_cap": 780468905,
+      "DATASET_numeric_members_read": 1,
+      "saved_hard_files": 2,
+      "saved_hard_rows_decoded": 52744,
+      "CDF_create_calls_cap": 1048,
+      "wave_and_Q_feature_rows": 73791,
+      "conditional_scalar_W1_columns_cap": 8,
+      "wave_scalar_W1_columns_exact": 16432,
+      "point_to_REAL_evaluations": 1,
+      "real_waveform_read_operations": 1
+    },
+    "unknown_inflight_ids": [
+      1056
+    ],
+    "failed_ids": [],
+    "truncated_tail": false,
+    "counts_are_durable_lower_bounds": true
+  },
+  "inflight_completion": "unknown_not_credited",
+  "new_NN_CP_AD_G_RNG_ADC": 0,
+  "project_G_lower_bound": 187667,
+  "scientific_status": "response_match_not_established",
+  "future_progress": "unknown_no_more_remote_queries_until_single_futurewake"
+}
