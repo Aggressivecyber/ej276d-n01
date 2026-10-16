@@ -1,0 +1,52 @@
+{
+  "schema": "n01/response030-independent-sampling-only-review/v1",
+  "UTC": "2026-10-16T20:13:26.850429+00:00",
+  "status": "no_blocking_findings_static_and_existing_engineering_reviewed",
+  "blocking_findings": [],
+  "source_sha256": {
+    "scripts/run_response030.py": "b6ee750393e327ea26e41be920b1b35f6953201a0b0b891086a6fb14aaccba02",
+    "scripts/run_response029.py": "a39f5ddd3fcbd0d8cf58db487d7fb51d1b17646f69603047a1e739fece74e7d5",
+    "src/n01/model029.py": "40c16bca31ff277912959a040a40770608c49f374eff76cffd45de0d716ea599",
+    "receipts/response030_20261017/implementation_01/CONFIG_DRAFT.json": "a870452e8d6c2a9c031d0114a588c3854a74322f1f528635b4a53c8c9ffc7e65"
+  },
+  "controlled_change": "Both marginal batches use all128 source parents once instead of independent64-parent subsets with2draws each;128rows per learner and teacher update are preserved.",
+  "checks": [
+    "029 source hash is guarded at030 execution boundary and remains byte-identical; model029 remains byte-identical.",
+    "All source, teacher, initialization seeds, moment/evaluation rules, loss weights and optimizer settings match029. Science training config changes only removal of paired retraining, parent count64to128 and draws2to1; wall bound reduced to3600seconds.",
+    "Learner z seed+300 and independent teacher z seed+400 retain128draws and identical RNG addresses per update. No paired MSE or conditional labels enter the unpaired objective.",
+    "029 make_sources/make_teacher/factors/evaluate and N01Loss014 implementations are reused. The hard256 observer and same-single-ADC centered384 auxiliary are unchanged.",
+    "Fixed TRAIN scale population128x8 and generator202610172901 are unchanged; existing CPU one-step engineering TRAIN_SCALES.json equals029 engineering exactly.",
+    "Same engineering learnerseed2026101799 INITIAL model digest equals029 engineering exactly. Formal seed1701/1702 initial digests should be retained for post-run comparison.",
+    "Existing030 engineering smoke completes one optimizer update with finite objective and gradient;64heldout parents and all7gate cells are retained, without calling their failure scientific acceptance."
+  ],
+  "engineering": {
+    "path": "E:\\GAN\\research\\N01\\receipts\\response030_20261017\\implementation_01\\engineering_one_update_01",
+    "native_status": "COMPLETE",
+    "execution_kind": "engineering_artificial_smoke",
+    "engineering_updates": 1,
+    "diagnostic_updates": 0,
+    "objective": 1.3468137763625327,
+    "preclip_gradient_norm": 22.96997833251953,
+    "source_unique_parents": 128,
+    "teacher_unique_parents": 128,
+    "same_TRAIN_scales_exact": true,
+    "same_initial_model_exact": true
+  },
+  "engineering_selected_JSON_sha256": {
+    "receipts\\response030_20261017\\implementation_01\\engineering_one_update_01\\RESULT.json": "d4841bb9f139305b0d531e8349834b6f5a31253685268538e190a60afd3c72b4",
+    "receipts\\response030_20261017\\implementation_01\\engineering_one_update_01\\TRAIN_SCALES.json": "8686ab14269f3fd961ce75907512d1123e6f5e1c92987020b76052c8df8c62e1",
+    "receipts\\response030_20261017\\implementation_01\\engineering_one_update_01\\unpaired_seed2026101799\\INITIAL.json": "5ab46649d0544c8c97ed25e0221d209e7a90611fafe625c91d925cdd56b7426e",
+    "receipts\\response030_20261017\\implementation_01\\engineering_one_update_01\\unpaired_seed2026101799\\STATUS.json": "de56eb667bec3748fa0605ddb8cd267723dc9f8b46615a2375060f12f02e97fa"
+  },
+  "success_definition": "Both030learner seeds must pass every original029all-parent and6stratum cell at0.03meanNRMSE,0.15charge-variance error and0.20standardized covariance error. Partial improvement is evidence only that finite-source composition noise contributed.",
+  "interpretation_limit": "This one controlled artificial comparison cannot establish a detector response or a unique mathematical cause. Actual REAL fitting has not begun. Preserve029negative results and do not expand into an unbounded teacher strategy grid.",
+  "reviewer_work_accounting": {
+    "new_model_forwards": 0,
+    "new_AD_queries": 0,
+    "new_training_updates": 0,
+    "checkpoint_loads": 0,
+    "original_REAL_SOURCE_DEV_reads": 0,
+    "new_source_mutations": 0,
+    "existing_engineering_JSON_only": true
+  }
+}

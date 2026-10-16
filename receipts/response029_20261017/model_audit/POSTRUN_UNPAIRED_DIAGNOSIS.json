@@ -1,0 +1,48 @@
+{
+  "schema": "n01/response029-postrun-unpaired-diagnosis/v1",
+  "scope": "Read current source and saved 029 JSON/JSONL/NPZ result arrays only; no checkpoint reads, model forwards, raw TRAIN/REAL/DEV reads or training.",
+  "evidence": [
+    "receipts/response029_20261017/completion_01/REMOTE_TERMINAL_SNAPSHOT.json",
+    "receipts/response029_20261017/completion_01/run_01/unpaired_seed2026101701/metrics.jsonl",
+    "receipts/response029_20261017/completion_01/run_01/unpaired_seed2026101702/metrics.jsonl",
+    "receipts/response029_20261017/completion_01/run_01/unpaired_seed2026101701/SUMMARY.npz",
+    "receipts/response029_20261017/completion_01/run_01/unpaired_seed2026101702/SUMMARY.npz",
+    "scripts/run_response029.py:63-81",
+    "scripts/run_response029.py:260-290"
+  ],
+  "conclusion": "029 demonstrates that the candidate architecture and optimizer can recover this in-family teacher under paired supervision. Its unpaired failure belongs to the objective, sampling and observation problem, without establishing which component dominates. It does not justify another architecture expansion.",
+  "saved_endpoint_readback": {
+    "paired_seed1701": {"mean_NRMSE": 0.004129757029034797, "charge_variance_relative_RMS": 0.006563381082669813, "covariance_relative_Frobenius": 0.016273199927679574, "all_six_strata_passed": true},
+    "paired_seed1702": {"mean_NRMSE": 0.004338925915460525, "charge_variance_relative_RMS": 0.008165393678333322, "covariance_relative_Frobenius": 0.04011694271017029, "all_six_strata_passed": true},
+    "unpaired_seed1701": {"mean_NRMSE": 0.16313491704937785, "charge_variance_relative_RMS": 0.6143260700400298, "covariance_relative_Frobenius": 7.68960605217966, "derived_canonical_Q_mean_relative_RMS": 0.040731835178445426, "derived_conditional_CV_ratio_median": 0.7296942039828096, "derived_projection9_variance_ratio_median": 27.719249753235175},
+    "unpaired_seed1702": {"mean_NRMSE": 0.10430285205695149, "charge_variance_relative_RMS": 2.6336248299804863, "covariance_relative_Frobenius": 11.045930289466778, "derived_canonical_Q_mean_relative_RMS": 0.01686894430573234, "derived_conditional_CV_ratio_median": 1.8624586104978265, "derived_projection9_variance_ratio_median": 38.92057051514859},
+    "interpretation": "One seed shrinks conditional charge CV while the other inflates it. Both put excessive variance into a weak teacher projection and have substantial mean waveform error despite smaller mean-charge error. Do not reduce the failure to a single scalar charge-width problem or describe all conditional variance as uniformly inflated."
+  },
+  "finite_population_algebra": {
+    "population": "Two templates, each with the same 64-point log-Q grid from 0.5 to 8 Vns; N=128 parents. Each 029 side samples n=64 parents without replacement and repeats each twice with independent latents.",
+    "Q_mean_Vns": 2.7296227602757708,
+    "Q_sample_variance_Vns2": 4.409712554491066,
+    "independent_bag_mean_Q_population_difference_SD_over_mean": 0.09616400066513651,
+    "independent_bag_mean_Q_response_difference_SD_over_mean": 0.014113747894637164,
+    "population_to_response_difference_SD_ratio": 6.8135,
+    "independent_template_fraction_difference_SD": 0.06274558051381586,
+    "formula_population": "sqrt(2*(1-n/N)*sample_variance(Q)/n)/mean(Q)",
+    "formula_response": "sqrt(2*expm1(0.08^2+0.04^2)*mean(Q^2)/(n*2))/mean(Q)",
+    "scope": "Exact finite artificial-source design and canonical preADC charge; not a measurement of the hard cropped 256-point Q objective or a proof that this term caused all observed errors."
+  },
+  "single_control_selected_by_root": {
+    "run": "030",
+    "change": "Use all 128 artificial TRAIN parents once on each side, with independently ordered rows and independent response Gaussian draws. Replace the old independently sampled 64-parent bags with two draws per parent.",
+    "fixed": "Same model, initialization seeds, 1000-update budget, optimizer, hard observation/STE, loss representations and weights. Both conditions have 128 neural rows per update and the same loss-matrix dimensions.",
+    "supervision": "Loss sees two unpaired bags only. It never receives template labels, source-parent correspondences, true means, true variances or shared teacher/learner latents.",
+    "discrimination": "This removes finite parent-population mixture fluctuations and within-parent duplicate sampling from the training estimator. Recovery would support a sampling/empirical-objective cause. Failure would retain conditional-vs-marginal ambiguity, finite-sample distribution-loss bias and hard-observation optimization as candidates; it would not restore an architecture explanation already contradicted by the paired control.",
+    "not_a_REAL_label_method": "The artificial complete-parent construction is available because the teacher population is explicitly defined. It must not be described as source-parent identities or energy labels available for existing unpaired REAL events."
+  },
+  "executable_REAL_objective_path_if_control_supports_it": {
+    "objective": "Compute the response distribution objective over the fixed legal REAL TRAIN empirical measure and the complete registered SOURCE TRAIN population, with its existing physical comparison weights, instead of optimizing separately against independent small population bags.",
+    "implementation": "Accumulate generated waveform endpoints in microbatches, evaluate one macro-bag loss, then replay the saved endpoint adjoints through each signal microbatch as in response008.replay_backward. Hold the REAL measure and source-population weights fixed; response latents remain independent. This changes the stochastic estimator, not model capacity or REAL labels.",
+    "population_boundary": "A broader simulation sampling proposal must retain its physical population weights during detector-response fitting. Uniformly giving coverage events target-population mass can make population differences look like response. Use only documented existing weights and acquisition conditions; do not invent weights or fit REAL source-energy labels from the candidate response.",
+    "claim_boundary": "Even a successful macro-bag fit establishes an empirical response under the bound population. It does not prove a unique physical response kernel from unpaired populations. A weak contribution of conditional charge variance to marginal Q indicates weak information, not complete unidentifiability: waveform, shape and shared covariance structure can still carry information."
+  },
+  "new_execution_counts": {"model_forwards": 0, "checkpoint_reads": 0, "raw_scientific_data_reads": 0, "optimizer_updates": 0, "existing_source_or_ledger_changes": 0}
+}

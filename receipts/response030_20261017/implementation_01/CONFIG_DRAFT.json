@@ -1,0 +1,126 @@
+{
+  "schema": "n01/response030-unpaired-allparents/v1",
+  "run_id": "response030_20261017",
+  "status": "draft",
+  "stage": "unpaired_all_parents",
+  "data_kind": "artificial_known_response",
+  "learner_seeds": [
+    2026101701,
+    2026101702
+  ],
+  "teacher_seed": 2026101729,
+  "source": {
+    "TRAIN_per_template": 64,
+    "heldout_per_template": 32,
+    "Q_range_Vns": [
+      0.5,
+      8.0
+    ],
+    "Q_stratum_edges_Vns": [
+      0.5,
+      1.5,
+      4.0,
+      8.0
+    ],
+    "templates": [
+      {
+        "rise_width": 3.0,
+        "tail": 30.0
+      },
+      {
+        "rise_width": 5.0,
+        "tail": 60.0
+      }
+    ],
+    "peak": 126,
+    "prefix_zero": 100,
+    "carrier_samples": 384
+  },
+  "teacher": {
+    "mean_gain": 1.12,
+    "time_scale": 1.1,
+    "shape_weight_multiplier": 10.0,
+    "charge_v": [
+      0.08,
+      0.04,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "local_initialization_retained": true
+  },
+  "training": {
+    "paired_updates": 0,
+    "unpaired_updates": 1000,
+    "parents_per_update": 128,
+    "draws_per_parent": 1,
+    "mean_lr": 0.0001,
+    "new_head_lr": 0.0003,
+    "weight_decay": 0.0,
+    "gradient_clip": 5.0,
+    "status_interval": 100,
+    "statistics_draws_per_TRAIN_parent": 8,
+    "wave_weight": 1.0,
+    "integral_weight": 2.0,
+    "carrier_weight": 0.25,
+    "regular_weight": 0.01
+  },
+  "evaluation": {
+    "analytic_parents": 64,
+    "MC_parent_rows": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      28,
+      32,
+      36,
+      40,
+      44,
+      48,
+      52,
+      56,
+      60
+    ],
+    "MC_draws_per_parent": 256,
+    "projections": 9,
+    "mean_NRMSE_max": 0.03,
+    "charge_variance_relative_RMS_max": 0.15,
+    "standardized_covariance_relative_Frobenius_max": 0.2,
+    "require_all_template_Q_strata": true,
+    "MC_is_gate": false
+  },
+  "resources": {
+    "CPU_threads": 4,
+    "RSS_GiB": 12,
+    "GPU_GiB": 10,
+    "wall_seconds": 3600,
+    "output_MiB": 256
+  },
+  "execution_kind": "known_teacher_diagnostic",
+  "design_revision": "029 closed; one controlled change to the source marginal sampler",
+  "no_REAL_or_checkpoint_reads": true,
+  "no_discriminator": true,
+  "no_noise005": true,
+  "automatic_restart": false,
+  "scientific_status": "response_match_not_established",
+  "controlled_change": "all128parents_x1draw_per_update_for_both_independent_marginal_sets",
+  "reference_runner_sha256": "a39f5ddd3fcbd0d8cf58db487d7fb51d1b17646f69603047a1e739fece74e7d5",
+  "design_provenance": {
+    "authority": "Continuing user repair authorization, ROOT controlled030 instruction after029 native4000 closure",
+    "only_training_change": "Independent64of128parents_x2draw -> all128parents_x1draw in both marginal sets; equal128model rows per update.",
+    "target_independence": "Learner z seed+300 and teacher z seed+400 remain independent. Full-population parent ordering gives no conditional-label or per-row MSE objective.",
+    "unchanged": "Model029, fixedteacher2026101729, learner initialseeds1701/1702, sourcefit/heldout, stats fit RNG202610172901, losses/weights, projection seeds/banks, AdamW/LRs/clip,1000updates/seed, all64heldout analytic7cells and16x256MCQA.",
+    "not_retrained": "Paired recovery positive controls are retained from029; no paired training or old CP loading in030.",
+    "resource_budget": "One native job, maximum2000diagnostic updates, CPU4/GPU10GiB/RSS12GiB/output256MiB/wall3600s.",
+    "engineering": "Exactly one localCPU seed2026101799, one unpaired update; separate engineering count, no scientific selection or parameter changes from its outcome.",
+    "source_reuse_tradeoff": "Imports unchanged029 functions; repeats only the unexposed approximately20-line TRAIN statistics preparation and a concise unpaired loop, preserving historical bytes."
+  }
+}
