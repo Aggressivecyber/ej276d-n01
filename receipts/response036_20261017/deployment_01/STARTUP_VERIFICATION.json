@@ -1,0 +1,826 @@
+{
+  "UTC": "2026-10-16T22:39:41.698176+00:00",
+  "remote_root": "/home/rylan/projects/ej276d-n01/response036_20261017",
+  "processes": [
+    {
+      "pid": 73652,
+      "start_ticks": "1991870",
+      "argv": [
+        "flock",
+        "-n",
+        "/home/rylan/projects/ej276d-n01/.n01_scientific_dispatch.lock",
+        "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+        "-B",
+        "/home/rylan/projects/ej276d-n01/response036_20261017/scripts/supervise.py",
+        "--output",
+        "/home/rylan/projects/ej276d-n01/response036_20261017/control_01",
+        "--rss-limit-gib",
+        "12",
+        "--",
+        "timeout",
+        "--signal=TERM",
+        "--kill-after=20s",
+        "3600s",
+        "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+        "-B",
+        "/home/rylan/projects/ej276d-n01/response036_20261017/scripts/run_response036.py",
+        "--config",
+        "/home/rylan/projects/ej276d-n01/response036_20261017/configs/response036_20261017.json",
+        "--config-sha256",
+        "330f013e8b6f17fc7b576f08e6f66c1761f51e9942054a105f88f5ac82e04f86",
+        "--out",
+        "/home/rylan/projects/ej276d-n01/response036_20261017/run_01",
+        "--device",
+        "cuda:0"
+      ],
+      "cwd": "/home/rylan/projects/ej276d-n01/response036_20261017",
+      "status": [
+        "State:\tS (sleeping)",
+        "VmRSS:\t    2040 kB",
+        "Threads:\t1",
+        "Cpus_allowed_list:\t0-15"
+      ]
+    },
+    {
+      "pid": 73653,
+      "start_ticks": "1991870",
+      "argv": [
+        "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+        "-B",
+        "/home/rylan/projects/ej276d-n01/response036_20261017/scripts/supervise.py",
+        "--output",
+        "/home/rylan/projects/ej276d-n01/response036_20261017/control_01",
+        "--rss-limit-gib",
+        "12",
+        "--",
+        "timeout",
+        "--signal=TERM",
+        "--kill-after=20s",
+        "3600s",
+        "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+        "-B",
+        "/home/rylan/projects/ej276d-n01/response036_20261017/scripts/run_response036.py",
+        "--config",
+        "/home/rylan/projects/ej276d-n01/response036_20261017/configs/response036_20261017.json",
+        "--config-sha256",
+        "330f013e8b6f17fc7b576f08e6f66c1761f51e9942054a105f88f5ac82e04f86",
+        "--out",
+        "/home/rylan/projects/ej276d-n01/response036_20261017/run_01",
+        "--device",
+        "cuda:0"
+      ],
+      "cwd": "/home/rylan/projects/ej276d-n01/response036_20261017",
+      "status": [
+        "State:\tS (sleeping)",
+        "VmRSS:\t   14532 kB",
+        "Threads:\t1",
+        "Cpus_allowed_list:\t0-15"
+      ]
+    },
+    {
+      "pid": 73660,
+      "start_ticks": "1991872",
+      "argv": [
+        "timeout",
+        "--signal=TERM",
+        "--kill-after=20s",
+        "3600s",
+        "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+        "-B",
+        "/home/rylan/projects/ej276d-n01/response036_20261017/scripts/run_response036.py",
+        "--config",
+        "/home/rylan/projects/ej276d-n01/response036_20261017/configs/response036_20261017.json",
+        "--config-sha256",
+        "330f013e8b6f17fc7b576f08e6f66c1761f51e9942054a105f88f5ac82e04f86",
+        "--out",
+        "/home/rylan/projects/ej276d-n01/response036_20261017/run_01",
+        "--device",
+        "cuda:0"
+      ],
+      "cwd": "/home/rylan/projects/ej276d-n01/response036_20261017",
+      "status": [
+        "State:\tS (sleeping)",
+        "VmRSS:\t    2116 kB",
+        "Threads:\t1",
+        "Cpus_allowed_list:\t0-15"
+      ]
+    },
+    {
+      "pid": 73661,
+      "start_ticks": "1991872",
+      "argv": [
+        "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+        "-B",
+        "/home/rylan/projects/ej276d-n01/response036_20261017/scripts/run_response036.py",
+        "--config",
+        "/home/rylan/projects/ej276d-n01/response036_20261017/configs/response036_20261017.json",
+        "--config-sha256",
+        "330f013e8b6f17fc7b576f08e6f66c1761f51e9942054a105f88f5ac82e04f86",
+        "--out",
+        "/home/rylan/projects/ej276d-n01/response036_20261017/run_01",
+        "--device",
+        "cuda:0"
+      ],
+      "cwd": "/home/rylan/projects/ej276d-n01/response036_20261017",
+      "status": [
+        "State:\tS (sleeping)",
+        "VmRSS:\t 2924704 kB",
+        "Threads:\t14",
+        "Cpus_allowed_list:\t0-15"
+      ]
+    }
+  ],
+  "files": {
+    "control_01/launch.json": {
+      "bytes": 685,
+      "sha256": "e3c02debea876c836b64428df7c5e26066e2449a72841ca71dc51e51bb11680f",
+      "content": {
+        "supervisor_pid": 73653,
+        "child_pid": 73660,
+        "command": [
+          "timeout",
+          "--signal=TERM",
+          "--kill-after=20s",
+          "3600s",
+          "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+          "-B",
+          "/home/rylan/projects/ej276d-n01/response036_20261017/scripts/run_response036.py",
+          "--config",
+          "/home/rylan/projects/ej276d-n01/response036_20261017/configs/response036_20261017.json",
+          "--config-sha256",
+          "330f013e8b6f17fc7b576f08e6f66c1761f51e9942054a105f88f5ac82e04f86",
+          "--out",
+          "/home/rylan/projects/ej276d-n01/response036_20261017/run_01",
+          "--device",
+          "cuda:0"
+        ],
+        "started_utc": "2026-10-16T22:38:25.763707+00:00"
+      }
+    },
+    "control_01/resource_status.json": {
+      "bytes": 200,
+      "sha256": "6d2229bf1e86fa44e447a792010c6a8eefc08f8d46b10011293313917cb82d85",
+      "content": {
+        "supervisor_pid": 73653,
+        "child_pid": 73660,
+        "rss_bytes": 2997063680,
+        "peak_rss_bytes": 3072876544,
+        "child_tree": [
+          73660,
+          73661
+        ],
+        "utc": "2026-10-16T22:39:40.810319+00:00"
+      }
+    },
+    "run_01/START.json": {
+      "bytes": 11649,
+      "sha256": "eb32e349fc424fb68aa80eae06c38faada5f0c9a3dedf77c03643b3f40415a01",
+      "content": {
+        "config": {
+          "schema": "n01/response036-real-pilot-config/v1",
+          "run_id": "response036_20261017",
+          "status": "ready_for_real_pilot",
+          "objective": "fixed_joint_energy_without_carrier",
+          "seed": 2026101732,
+          "training": {
+            "updates": 2000,
+            "generated_bank_rows": 64,
+            "real_bank_rows": 128,
+            "mean_lr": 0.0001,
+            "new_head_lr": 0.0003,
+            "weight_decay": 0.0,
+            "clip_norm": 5.0,
+            "regular_weight": 0.01,
+            "status_interval": 100,
+            "checkpoint_interval": 1000,
+            "shape_lr": 1.875e-05,
+            "carrier_weight": 0.0
+          },
+          "evaluation": {
+            "draws_per_parent": 4,
+            "NN_chunk_rows": 128,
+            "W1_column_chunk": 16,
+            "TRAIN_banks": 1,
+            "DEV_banks": 1,
+            "TRAIN_seed": 2026101732100,
+            "DEV_seed": 2026101732200,
+            "projection_training_seed": 2026101426,
+            "projection_evaluation_seed": 2026101430,
+            "projection_fingerprint": "27ed58d90114de6bfa5bf30ff5ad251516cdc9bcadfb5eb10e2a6ec45ed11482",
+            "integral_seed": 2026101732300,
+            "relative_wave_improvement_min": 0.02,
+            "DEV_previously_exposed": true,
+            "example_parents_max": 32
+          },
+          "resources": {
+            "wall_seconds": 3600,
+            "RSS_GiB": 12,
+            "GPU_GiB": 10,
+            "CPU_threads": 4,
+            "output_MiB": 1024
+          },
+          "hypotheses": [
+            "fast",
+            "slow",
+            "common_level"
+          ],
+          "source_mixture": "recorded_uniform_count_weights_physical_weights_unknown",
+          "inputs": {
+            "dataset": {
+              "path": "/home/rylan/projects/ej276d-n01/window008_resume01_20261013/data/window008/DATASET008.npz",
+              "local_path": "E:/GAN/research/N01/data/window008/DATASET008.npz",
+              "sha256": "8d43418595f4fa992a9b83735c4bf50863a659584d58888f8f965ec1339a1993",
+              "bytes": 66440265
+            },
+            "deterministic": {
+              "path": "/home/rylan/projects/ej276d-n01/window008_resume01_20261013/provenance/window008_fix01_reference/deterministic_final.pt",
+              "local_path": "E:/GAN/research/N01/provenance/window008_fix01_reference/deterministic_final.pt",
+              "sha256": "2096523d53b62dbbc6b41d2788a8fba203af89c3cf753133bbbe81ab5c036849",
+              "bytes": 21256763
+            },
+            "noise005": {
+              "path": "/home/rylan/projects/ej276d-n01/window008_resume01_20261013/provenance/integration006_reference/noise005.pt",
+              "local_path": "E:/GAN/research/N01/provenance/integration006_reference/noise005.pt",
+              "sha256": "1e45d3369b85d2f5f635ad44dbeb5a730f6d86864cc3dc9163384fccd48bd417",
+              "bytes": 1199865
+            },
+            "statistics": {
+              "path": "/home/rylan/projects/ej276d-n01/window008_resume01_20261013/data/window008/FIT_STATISTICS008.json",
+              "local_path": "E:/GAN/research/N01/data/window008/FIT_STATISTICS008.json",
+              "sha256": "aadd729364d0b6afac699a9d1774ac8d29fd2bcd10a9fd9f551141ecc2fbc2a0",
+              "bytes": 104199
+            },
+            "data_statistics": {
+              "path": "/home/rylan/projects/ej276d-n01/window008_resume01_20261013/data/window008/FIT_DATA_STATISTICS.json",
+              "local_path": "E:/GAN/research/N01/data/window008/FIT_DATA_STATISTICS.json",
+              "sha256": "e614c7b0a9861b468eb2c9e1bff5a80dadef901310539407141d1ff5c9241f3f",
+              "bytes": 36311
+            },
+            "base_config": {
+              "path": "/home/rylan/projects/ej276d-n01/window008_resume01_20261013/window008_config.json",
+              "local_path": "E:/GAN/research/N01/window008_config.json",
+              "sha256": "f5500c65f2d17a2fe6964bfc5908dedb68c27b9391cb30bf30c0ba161509d145",
+              "bytes": 6448
+            },
+            "original_container": {
+              "path": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R33_REMOTE_20261009_175239_UTC/inputs/TRAIN_PRIVATE.npz",
+              "local_path": "E:/GAN/research/sim2real_two_papers_20261008_0305/work/R23_ONLINE_STANDARDIZED_CRITIC_001/TRAIN_PRIVATE.npz",
+              "sha256": "9e2f2c3c18470f4b2f3374a39590a9c27b18222bd1b22b5d7467e561409ad854",
+              "bytes": 26858280
+            },
+            "identities": {
+              "path": "/home/rylan/projects/ej276d-n01/window008_resume01_20261013/data/PARENT_IDENTITIES.npz",
+              "sha256": "5145ea04d038510c9ca740d997e0cf9d060ed69210a4515e20110d884db7e845",
+              "bytes": 32484
+            },
+            "tolerances": {
+              "path": "/home/rylan/projects/ej276d-n01/wp1_013_repeat_fix01_20261015/runs/primary/artifacts/CALIBRATED_TOLERANCES.json",
+              "sha256": "f33217e07b1872dfd51f56e86ed30cda665a705568f2f9ada937865d8a33607b",
+              "bytes": 8271
+            }
+          },
+          "source_pins": {
+            "scripts/mechanism012_losses.py": "3fc84ccaf255b660d8eda4f96d43e2c236045a756e777c9b2d490f7137dc04ed",
+            "scripts/mechanism012_ops.py": "98a18eef018beebff82565da9ed5b31208cf2bff6db6bff0c492eff9bf2a7816",
+            "scripts/run_response029.py": "a39f5ddd3fcbd0d8cf58db487d7fb51d1b17646f69603047a1e739fece74e7d5",
+            "scripts/run_response031.py": "bfe819d4ae09b4ed58cd6211e32948af14970e610a29ce3ec2960f1536c4115d",
+            "scripts/run_response032.py": "541f09ab8b9610ceda7371ea81911dd098e8319f0b330523f04caa3d25a245b8",
+            "scripts/run_wp1_013.py": "e7cbcf782e19e139c02260bbe1d67e0a50108785ed5b093975800a28b103657d",
+            "scripts/stability011_metrics.py": "fd87e544673f63887e57c8efafeb0327bbe4db430b04c9697c71cd2e244c3f78",
+            "scripts/supervise.py": "0223a8912196876f712072f064c9118a999f7e563244947cba7ad729d247a69b",
+            "scripts/supervise_mechanism012.py": "43b6fffd076a1e6d57db67e85e433e71d3f2cda91f3a3d5fe31f0fcb430486a4",
+            "scripts/wp1_boundary_saved.py": "ea1317c2a6e8616f5b30e2aa6ea1900fde17a711b57e2f02ae84fa5cc5782065",
+            "scripts/wp1_evaluation.py": "3f5e4f9e8ca147cfbad8b75085c59d9c2081deda9b7532f1732f1d5e932cc895",
+            "scripts/wp1_input_information.py": "bb8278d2651ddcaf10830a4589d66242d69a7e22d10321171ad7f4b71dec8b17",
+            "scripts/wp1_ops.py": "f8ddbbdb2f2f6df033e964f27bf03dcbda07055cc7378775591ef69b9caf85b5",
+            "scripts/wp1_parameter_probe.py": "bf7901db6e1b99084894fdc8f4c5d1685de2ca00cacb7a0a6a9801c39b8823fa",
+            "src/n01/__init__.py": "d17d880249fa0f50920dd14c505b15b4de74419849f86296913c31576c31e891",
+            "src/n01/ablation009.py": "8100bbedb765f08f689a4bce5cb9ea1af133e6f2b895b544656f6e9fbd058d3b",
+            "src/n01/data.py": "2ec3363bc830043af053342b4638f5e6ab55d27303da037f383f4fe630d77bd2",
+            "src/n01/data008.py": "2a66a8800642cf6788ce268d326af9d128cb165daf60d555f802b2c881ac97af",
+            "src/n01/diagnose_mean_random009.py": "31a07360e9ab53e987fe6d2bec3b466398a2c7125e64c1c94b712708ae62dfc4",
+            "src/n01/electronics_v3.py": "816b12bf4814f23ff4455498ec385df335cdb38827548c969e38ef08b9763926",
+            "src/n01/evaluate.py": "baaaf0c50c98a15b3c04cddf07ea4c1b5b4503156c50fd78d774cf3fb5baf8bb",
+            "src/n01/evaluate_window008.py": "75f8988415a181a31a7c2b5890418b1f7685e0d8fb141cdea84f4174af783cc0",
+            "src/n01/extension006.py": "caa2eff66555773d04a72482c8375b5896a241e0a858070a80f689aa3def5040",
+            "src/n01/losses.py": "4371a6d5924f0f664935b5d6eb6715c530f80af39ae276c7dc34ba02c5f4b1a7",
+            "src/n01/losses008.py": "68a9330b7e0620f12adbb3dc22a00c632a1b7577d44b92617da7d14979d9ea61",
+            "src/n01/losses008_v2.py": "6932772c4b00fa62383b5ca356f26d0cf81271be531888b474ae6146fa25f3d8",
+            "src/n01/losses014.py": "86fded3226ae86a5aaae6d9066220923fb6b0aebfeaa09cb638642498e4f4114",
+            "src/n01/model.py": "0a0488218d99f351a98e30f2b1525b837b4ad3195c19f2a76ff61ee01298587b",
+            "src/n01/model008.py": "56a6b41f9d2906c82757f4ca9f91a751ff8531428a7f38714e0a291359cd1b4f",
+            "src/n01/model008_fix01.py": "3bc826a1867f2658ae507ab2be683a6b901b7f481b1efaf005f3cf4953429abc",
+            "src/n01/model010.py": "3fbbee140477caf755feadf88175291c451c95a56899770a65eebf7be6204318",
+            "src/n01/model029.py": "40c16bca31ff277912959a040a40770608c49f374eff76cffd45de0d716ea599",
+            "src/n01/observation008.py": "9f7b6c0a266c420af8c6c155103774bae1ed949cfe05ee6a1f19b75f9254c4ec",
+            "src/n01/response008.py": "cf8b14b377530a234b066c2fd958827172abb624e7a959ac9bb26a416ff3b2e7",
+            "src/n01/train.py": "9cb6b0a9cfad3fd9163eee919de7b2d64ca422513093e204f62a934e25684169",
+            "src/n01/train_shape010.py": "5c94a6d947c1cfcb926ea2b39e77fbdeb6600f231f503fdf4c43c7ff7033e6d9",
+            "scripts/run_response034.py": "10843ad2bee21d8e99612e91dd662145635bafc7c8e03bccb2e757ae93030c26",
+            "scripts/run_response033.py": "710be3a025dd7f7611bcecc8480d4e3813531e9a3b57fbeb47419bc2a32b1d11",
+            "scripts/run_response036.py": "8d5e3a1348d8f1c8ef5e55e8baceb74bcd534262e5500ee80e58ced3283b6178"
+          },
+          "RR_reference": {
+            "wave": 0.029421917,
+            "QPSD": 0.024070024,
+            "noise": 0.02436251,
+            "rows_per_side": 10475,
+            "groups_per_side": 210,
+            "tolerance_source": false
+          },
+          "source_physical_weights": "unknown",
+          "DEV_numeric_reads_during_training": 0,
+          "independent_acquisitions": 1,
+          "scientific_status": "response_match_not_established",
+          "project_lock": "/home/rylan/projects/ej276d-n01/.n01_scientific_dispatch.lock",
+          "automatic_restart": false,
+          "preparation_only": false,
+          "pilot_relative_progress": {
+            "TRAIN_wave_relative_gain_min_all_hypotheses": 0.02,
+            "TRAIN_and_DEV_defined_positive_calibrated_component_delta_vs_A_max": "T_by_hypothesis",
+            "DEV_wave_gain_is_reported_not_required": true,
+            "physical_response_acceptance": false
+          },
+          "input_metadata_verification": "receipts/response032_20261017/preparation_01/REMOTE_INPUT_SHA_VERIFICATION.json",
+          "observation_contract_metadata": {
+            "local_path": "E:/GAN/research/N01/OBSERVATION_CONTRACT.json",
+            "sha256": "c894abe80d7d9a31e4ffe670484123dd1eea5ee75dad7742e52d304e23054c6c",
+            "not_a_runtime_input": true
+          },
+          "decision": "receipts/response036_20261017/ROOT_DECISION.json",
+          "carrier_report_only": {
+            "training_weight": 0.0,
+            "original_report_weight": 0.25,
+            "fields": [
+              "hypothesis_energy_parts_report_only",
+              "carrier_energy_report_only",
+              "data_with_carrier_report_only",
+              "objective_with_carrier_report_only"
+            ],
+            "same_original_observations_and_parts": true,
+            "extra_NN_AD_ADC_CP_banks": 0
+          },
+          "startup_expected_preupdate_from_saved033": {
+            "data": 0.02590496122504783,
+            "objective": 0.025969073091282775,
+            "regular": 0.006411186623494439,
+            "saturation": 0.0,
+            "original_with_carrier_data_report_only": 0.09570950875194757,
+            "original_with_carrier_objective_report_only": 0.09577362061818252,
+            "loss_tolerance": "abs1e-8+rel1e-6*abs(expected), ROOT compares existing native step1 log; no extra query.",
+            "gradient_expectation": "Four group norms finite and nonzero; do not require the old033 gradient norms because objective changed."
+          },
+          "initial_native_digest_reference": {
+            "source": "receipts/response033_20261017/completion_01/run_01/INITIAL_BINDING.json",
+            "initial_G0_model_state_sha256": "354b9828bdb6f552ab747e2aab06e988b27b1c7aad4d71580bdab6d8bdfc5f58",
+            "original_A_state_sha256": "529f9a67594ac5232b932d7af246a934f1f5e01c62e7502fc3a50736cf5644c7",
+            "frozen005_extension_state_sha256": "bba9cc181344d60a9a00f5c5b8850d30a2020d30a785814b7295496949d85912",
+            "method": "Compare native036 WARMSTART_BINDING fields to these saved JSON values; no additional CP/NN/AD/draw/bank."
+          },
+          "repair_decision": "Single one-factor actual REAL trial: carrier training weight .25 to0; not a claim that carrier was the sole failure cause.",
+          "frozen_UTC": "2026-10-16T22:33:42.053766+00:00"
+        },
+        "UTC": "2026-10-16T22:38:26.960473+00:00",
+        "pid": 73661,
+        "device": "cuda:0",
+        "automatic_restart": false,
+        "scientific_acceptance": false
+      }
+    },
+    "run_01/WARMSTART_BINDING.json": {
+      "bytes": 536,
+      "sha256": "9824fecdbb6f6869427fe73da3e226b5218382e9ede63c844edd34d4350d87f1",
+      "content": {
+        "mean_state_sha256": "529f9a67594ac5232b932d7af246a934f1f5e01c62e7502fc3a50736cf5644c7",
+        "initial_model_state_sha256": "354b9828bdb6f552ab747e2aab06e988b27b1c7aad4d71580bdab6d8bdfc5f58",
+        "strict_whole_mean_loaded": true,
+        "mean_trainable": true,
+        "frozen005_extension_state_sha256": "bba9cc181344d60a9a00f5c5b8850d30a2020d30a785814b7295496949d85912",
+        "mean_parameters": 1477221,
+        "new_parameters": 5987,
+        "source_mixture": "uniform_count",
+        "calibrated_physical_weights": "unknown",
+        "no_neural_identity_inputs": true
+      }
+    },
+    "run_01/STARTUP_GROUP_GRADIENTS.json": {
+      "bytes": 723,
+      "sha256": "89349f6e46f4b5b48f77e8a8651804fe6b4b3bdc0848c894ad39187758e7f928",
+      "content": {
+        "mean": {
+          "norm": 1.982516898678526,
+          "nonzero_parameter_tensors": 167,
+          "last_nonzero_parameter": [
+            "mean_model.mean_head.bias",
+            0.8865342140197754
+          ]
+        },
+        "shape": {
+          "norm": 17.825005341507595,
+          "nonzero_parameter_tensors": 2,
+          "last_nonzero_parameter": [
+            "basis_head.bias",
+            1.0502771000420918
+          ]
+        },
+        "charge": {
+          "norm": 0.15482444980192636,
+          "nonzero_parameter_tensors": 2,
+          "last_nonzero_parameter": [
+            "charge_head.2.bias",
+            0.10481857196094223
+          ]
+        },
+        "local": {
+          "norm": 0.0028701649044776314,
+          "nonzero_parameter_tensors": 3,
+          "last_nonzero_parameter": [
+            "local_filter.raw",
+            1.1772551775685826e-05
+          ]
+        }
+      }
+    },
+    "run_01/STATUS.json": {
+      "bytes": 1472,
+      "sha256": "d6159fa6cb9d2a38f74928b1badd48dd2f7e65186571c52da6e0cab351bdc266",
+      "content": {
+        "step": 500,
+        "data": 0.26420522225370857,
+        "regular": 0.969233544627662,
+        "saturation": 0.00010042514451597388,
+        "objective": 0.27389856195143036,
+        "preclip_gradient_norm": 22.803905487060547,
+        "hypothesis_energy": {
+          "fast": 0.26477610675572005,
+          "slow": 0.26372847652907916,
+          "common_level": 0.26411108347632656
+        },
+        "hypothesis_energy_parts_report_only": {
+          "fast": {
+            "wave": 0.23337990950063006,
+            "integral": 0.01569809862754501,
+            "carrier": 0.048207511462877495,
+            "data": 0.2768279846214394
+          },
+          "slow": {
+            "wave": 0.2333863313562762,
+            "integral": 0.01517107258640149,
+            "carrier": 0.04835668953903771,
+            "data": 0.2758176489138386
+          },
+          "common_level": {
+            "wave": 0.23330918429226905,
+            "integral": 0.015400949592028756,
+            "carrier": 0.048542145865198894,
+            "data": 0.2762466199426263
+          }
+        },
+        "carrier_energy_report_only": 0.04836878228903803,
+        "data_with_carrier_report_only": 0.2762974178259681,
+        "objective_with_carrier_report_only": 0.2859907575236899,
+        "mean_residual_saturation_fraction": 0.03889686395759717,
+        "execution_counts": {
+          "G_updates": 500,
+          "NN_calls": 1207,
+          "NN_rows": 90372,
+          "noise005_rows": 90372,
+          "extension_rows": 271116,
+          "generated_ADC_rows": 350232,
+          "checkpoint_loads": 2,
+          "TRAIN_archives_decoded": 1,
+          "DEV_archives_decoded": 0,
+          "DEV_metadata_archives_decoded": 0,
+          "training_AD_queries": 500
+        }
+      }
+    }
+  },
+  "source_files": [
+    {
+      "path": "scripts/mechanism012_losses.py",
+      "bytes": 12854,
+      "sha256": "3fc84ccaf255b660d8eda4f96d43e2c236045a756e777c9b2d490f7137dc04ed",
+      "match": true
+    },
+    {
+      "path": "scripts/mechanism012_ops.py",
+      "bytes": 62946,
+      "sha256": "98a18eef018beebff82565da9ed5b31208cf2bff6db6bff0c492eff9bf2a7816",
+      "match": true
+    },
+    {
+      "path": "scripts/run_response029.py",
+      "bytes": 28408,
+      "sha256": "a39f5ddd3fcbd0d8cf58db487d7fb51d1b17646f69603047a1e739fece74e7d5",
+      "match": true
+    },
+    {
+      "path": "scripts/run_response031.py",
+      "bytes": 16907,
+      "sha256": "bfe819d4ae09b4ed58cd6211e32948af14970e610a29ce3ec2960f1536c4115d",
+      "match": true
+    },
+    {
+      "path": "scripts/run_response032.py",
+      "bytes": 32069,
+      "sha256": "541f09ab8b9610ceda7371ea81911dd098e8319f0b330523f04caa3d25a245b8",
+      "match": true
+    },
+    {
+      "path": "scripts/run_wp1_013.py",
+      "bytes": 49484,
+      "sha256": "e7cbcf782e19e139c02260bbe1d67e0a50108785ed5b093975800a28b103657d",
+      "match": true
+    },
+    {
+      "path": "scripts/stability011_metrics.py",
+      "bytes": 10778,
+      "sha256": "fd87e544673f63887e57c8efafeb0327bbe4db430b04c9697c71cd2e244c3f78",
+      "match": true
+    },
+    {
+      "path": "scripts/supervise.py",
+      "bytes": 3032,
+      "sha256": "0223a8912196876f712072f064c9118a999f7e563244947cba7ad729d247a69b",
+      "match": true
+    },
+    {
+      "path": "scripts/supervise_mechanism012.py",
+      "bytes": 6505,
+      "sha256": "43b6fffd076a1e6d57db67e85e433e71d3f2cda91f3a3d5fe31f0fcb430486a4",
+      "match": true
+    },
+    {
+      "path": "scripts/wp1_boundary_saved.py",
+      "bytes": 20337,
+      "sha256": "ea1317c2a6e8616f5b30e2aa6ea1900fde17a711b57e2f02ae84fa5cc5782065",
+      "match": true
+    },
+    {
+      "path": "scripts/wp1_evaluation.py",
+      "bytes": 15891,
+      "sha256": "3f5e4f9e8ca147cfbad8b75085c59d9c2081deda9b7532f1732f1d5e932cc895",
+      "match": true
+    },
+    {
+      "path": "scripts/wp1_input_information.py",
+      "bytes": 31436,
+      "sha256": "bb8278d2651ddcaf10830a4589d66242d69a7e22d10321171ad7f4b71dec8b17",
+      "match": true
+    },
+    {
+      "path": "scripts/wp1_ops.py",
+      "bytes": 12872,
+      "sha256": "f8ddbbdb2f2f6df033e964f27bf03dcbda07055cc7378775591ef69b9caf85b5",
+      "match": true
+    },
+    {
+      "path": "scripts/wp1_parameter_probe.py",
+      "bytes": 15178,
+      "sha256": "bf7901db6e1b99084894fdc8f4c5d1685de2ca00cacb7a0a6a9801c39b8823fa",
+      "match": true
+    },
+    {
+      "path": "src/n01/__init__.py",
+      "bytes": 196,
+      "sha256": "d17d880249fa0f50920dd14c505b15b4de74419849f86296913c31576c31e891",
+      "match": true
+    },
+    {
+      "path": "src/n01/ablation009.py",
+      "bytes": 15415,
+      "sha256": "8100bbedb765f08f689a4bce5cb9ea1af133e6f2b895b544656f6e9fbd058d3b",
+      "match": true
+    },
+    {
+      "path": "src/n01/data.py",
+      "bytes": 6850,
+      "sha256": "2ec3363bc830043af053342b4638f5e6ab55d27303da037f383f4fe630d77bd2",
+      "match": true
+    },
+    {
+      "path": "src/n01/data008.py",
+      "bytes": 12184,
+      "sha256": "2a66a8800642cf6788ce268d326af9d128cb165daf60d555f802b2c881ac97af",
+      "match": true
+    },
+    {
+      "path": "src/n01/diagnose_mean_random009.py",
+      "bytes": 53768,
+      "sha256": "31a07360e9ab53e987fe6d2bec3b466398a2c7125e64c1c94b712708ae62dfc4",
+      "match": true
+    },
+    {
+      "path": "src/n01/electronics_v3.py",
+      "bytes": 10945,
+      "sha256": "816b12bf4814f23ff4455498ec385df335cdb38827548c969e38ef08b9763926",
+      "match": true
+    },
+    {
+      "path": "src/n01/evaluate.py",
+      "bytes": 57852,
+      "sha256": "baaaf0c50c98a15b3c04cddf07ea4c1b5b4503156c50fd78d774cf3fb5baf8bb",
+      "match": true
+    },
+    {
+      "path": "src/n01/evaluate_window008.py",
+      "bytes": 53172,
+      "sha256": "75f8988415a181a31a7c2b5890418b1f7685e0d8fb141cdea84f4174af783cc0",
+      "match": true
+    },
+    {
+      "path": "src/n01/extension006.py",
+      "bytes": 12727,
+      "sha256": "caa2eff66555773d04a72482c8375b5896a241e0a858070a80f689aa3def5040",
+      "match": true
+    },
+    {
+      "path": "src/n01/losses.py",
+      "bytes": 22993,
+      "sha256": "4371a6d5924f0f664935b5d6eb6715c530f80af39ae276c7dc34ba02c5f4b1a7",
+      "match": true
+    },
+    {
+      "path": "src/n01/losses008.py",
+      "bytes": 23288,
+      "sha256": "68a9330b7e0620f12adbb3dc22a00c632a1b7577d44b92617da7d14979d9ea61",
+      "match": true
+    },
+    {
+      "path": "src/n01/losses008_v2.py",
+      "bytes": 20347,
+      "sha256": "6932772c4b00fa62383b5ca356f26d0cf81271be531888b474ae6146fa25f3d8",
+      "match": true
+    },
+    {
+      "path": "src/n01/losses014.py",
+      "bytes": 7155,
+      "sha256": "86fded3226ae86a5aaae6d9066220923fb6b0aebfeaa09cb638642498e4f4114",
+      "match": true
+    },
+    {
+      "path": "src/n01/model.py",
+      "bytes": 34459,
+      "sha256": "0a0488218d99f351a98e30f2b1525b837b4ad3195c19f2a76ff61ee01298587b",
+      "match": true
+    },
+    {
+      "path": "src/n01/model008.py",
+      "bytes": 14264,
+      "sha256": "56a6b41f9d2906c82757f4ca9f91a751ff8531428a7f38714e0a291359cd1b4f",
+      "match": true
+    },
+    {
+      "path": "src/n01/model008_fix01.py",
+      "bytes": 7433,
+      "sha256": "3bc826a1867f2658ae507ab2be683a6b901b7f481b1efaf005f3cf4953429abc",
+      "match": true
+    },
+    {
+      "path": "src/n01/model010.py",
+      "bytes": 13883,
+      "sha256": "3fbbee140477caf755feadf88175291c451c95a56899770a65eebf7be6204318",
+      "match": true
+    },
+    {
+      "path": "src/n01/model029.py",
+      "bytes": 7205,
+      "sha256": "40c16bca31ff277912959a040a40770608c49f374eff76cffd45de0d716ea599",
+      "match": true
+    },
+    {
+      "path": "src/n01/observation008.py",
+      "bytes": 19023,
+      "sha256": "9f7b6c0a266c420af8c6c155103774bae1ed949cfe05ee6a1f19b75f9254c4ec",
+      "match": true
+    },
+    {
+      "path": "src/n01/response008.py",
+      "bytes": 23490,
+      "sha256": "cf8b14b377530a234b066c2fd958827172abb624e7a959ac9bb26a416ff3b2e7",
+      "match": true
+    },
+    {
+      "path": "src/n01/train.py",
+      "bytes": 27521,
+      "sha256": "9cb6b0a9cfad3fd9163eee919de7b2d64ca422513093e204f62a934e25684169",
+      "match": true
+    },
+    {
+      "path": "src/n01/train_shape010.py",
+      "bytes": 35254,
+      "sha256": "5c94a6d947c1cfcb926ea2b39e77fbdeb6600f231f503fdf4c43c7ff7033e6d9",
+      "match": true
+    },
+    {
+      "path": "scripts/run_response034.py",
+      "bytes": 32190,
+      "sha256": "10843ad2bee21d8e99612e91dd662145635bafc7c8e03bccb2e757ae93030c26",
+      "match": true
+    },
+    {
+      "path": "scripts/run_response033.py",
+      "bytes": 21386,
+      "sha256": "710be3a025dd7f7611bcecc8480d4e3813531e9a3b57fbeb47419bc2a32b1d11",
+      "match": true
+    },
+    {
+      "path": "scripts/run_response036.py",
+      "bytes": 33032,
+      "sha256": "8d5e3a1348d8f1c8ef5e55e8baceb74bcd534262e5500ee80e58ced3283b6178",
+      "match": true
+    },
+    {
+      "path": "configs/response036_20261017.json",
+      "bytes": 11080,
+      "sha256": "330f013e8b6f17fc7b576f08e6f66c1761f51e9942054a105f88f5ac82e04f86",
+      "match": true
+    }
+  ],
+  "boot_id": "146cb4b8-530c-4496-976f-21740f6f3629",
+  "control_01/dispatch_console.log_tail": "",
+  "control_01/console.log_tail": "}}, \"carrier_energy_report_only\": 0.10892940231970241, \"data_with_carrier_report_only\": 0.3798847026388473, \"objective_with_carrier_report_only\": 0.3859035153109647, \"mean_residual_saturation_fraction\": 0.049718418727915194}\n{\"step\": 500, \"data\": 0.26420522225370857, \"regular\": 0.969233544627662, \"saturation\": 0.00010042514451597388, \"objective\": 0.27389856195143036, \"preclip_gradient_norm\": 22.803905487060547, \"hypothesis_energy\": {\"fast\": 0.26477610675572005, \"slow\": 0.26372847652907916, \"common_level\": 0.26411108347632656}, \"hypothesis_energy_parts_report_only\": {\"fast\": {\"wave\": 0.23337990950063006, \"integral\": 0.01569809862754501, \"carrier\": 0.048207511462877495, \"data\": 0.2768279846214394}, \"slow\": {\"wave\": 0.2333863313562762, \"integral\": 0.01517107258640149, \"carrier\": 0.04835668953903771, \"data\": 0.2758176489138386}, \"common_level\": {\"wave\": 0.23330918429226905, \"integral\": 0.015400949592028756, \"carrier\": 0.048542145865198894, \"data\": 0.2762466199426263}}, \"carrier_energy_report_only\": 0.04836878228903803, \"data_with_carrier_report_only\": 0.2762974178259681, \"objective_with_carrier_report_only\": 0.2859907575236899, \"mean_residual_saturation_fraction\": 0.03889686395759717}\n",
+  "metrics": {
+    "complete_records": 578,
+    "first": {
+      "step": 1,
+      "data": 0.025904961225047825,
+      "regular": 0.006411186623494439,
+      "saturation": 0.0,
+      "objective": 0.02596907309128277,
+      "preclip_gradient_norm": 17.935585021972656,
+      "hypothesis_energy": {
+        "fast": 0.025408871125940515,
+        "slow": 0.025955024217952483,
+        "common_level": 0.02635098833125049
+      },
+      "hypothesis_energy_parts_report_only": {
+        "fast": {
+          "wave": 0.023713661520044317,
+          "integral": 0.0008476048029480987,
+          "carrier": 0.2795365130076488,
+          "data": 0.09529299937785271
+        },
+        "slow": {
+          "wave": 0.023684021497679453,
+          "integral": 0.001135501360136515,
+          "carrier": 0.27928238551026663,
+          "data": 0.09577562059551914
+        },
+        "common_level": {
+          "wave": 0.023587650500128232,
+          "integral": 0.0013816689155611295,
+          "carrier": 0.27883567180488167,
+          "data": 0.09605990628247091
+        }
+      },
+      "carrier_energy_report_only": 0.279218190107599,
+      "data_with_carrier_report_only": 0.09570950875194757,
+      "objective_with_carrier_report_only": 0.09577362061818252,
+      "mean_residual_saturation_fraction": 0.024514134275618375
+    },
+    "last": {
+      "step": 578,
+      "data": 0.582676912032575,
+      "regular": 1.7091101065925454,
+      "saturation": 0.0001182802515857631,
+      "objective": 0.5997691959010163,
+      "preclip_gradient_norm": 28.437280654907227,
+      "hypothesis_energy": {
+        "fast": 0.5834656315052575,
+        "slow": 0.5827273708680182,
+        "common_level": 0.5818377337244494
+      },
+      "hypothesis_energy_parts_report_only": {
+        "fast": {
+          "wave": 0.4908405897231645,
+          "integral": 0.04631252089104654,
+          "carrier": 0.03846127706640523,
+          "data": 0.5930809507718589
+        },
+        "slow": {
+          "wave": 0.49089670371356287,
+          "integral": 0.04591533357722766,
+          "carrier": 0.03818417185573497,
+          "data": 0.5922734138319519
+        },
+        "common_level": {
+          "wave": 0.4897458463292939,
+          "integral": 0.04604594369757775,
+          "carrier": 0.0381612354030989,
+          "data": 0.5913780425752241
+        }
+      },
+      "carrier_energy_report_only": 0.0382688947750797,
+      "data_with_carrier_report_only": 0.5922441357263449,
+      "objective_with_carrier_report_only": 0.6093364195947862,
+      "mean_residual_saturation_fraction": 0.049304328621908124
+    },
+    "bytes_snapshot": 561835,
+    "sha256_snapshot": "b01efa7ee145cf8dc7e62979246a70b2143358d0e7a0a0190b81d2ef33608226"
+  },
+  "all_source_files_match": true,
+  "GPU": "0, 3339, 75",
+  "GPU_compute": "73661, /home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python, 3104"
+}

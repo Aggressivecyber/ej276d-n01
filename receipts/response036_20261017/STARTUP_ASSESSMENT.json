@@ -1,0 +1,126 @@
+{
+  "schema": "n01/response036-startup-assessment/v1",
+  "UTC": "2026-10-16T22:39:41.698176+00:00",
+  "status": "RUNNING_STARTUP_VERIFIED",
+  "snapshot": "receipts/response036_20261017/deployment_01/STARTUP_VERIFICATION.json",
+  "config_sha256": "330f013e8b6f17fc7b576f08e6f66c1761f51e9942054a105f88f5ac82e04f86",
+  "source_commit": "46cef3aff18e9d6130ab86c246a8db4f352f3c81",
+  "source_files_verified": 40,
+  "owned_native_pid": 73661,
+  "owned_native_start_ticks": "1991872",
+  "dispatcher_pid": 73652,
+  "dispatcher_start_ticks": "1991870",
+  "A_G0_005_state_digests_match": true,
+  "whole_mean_trainable": true,
+  "four_group_gradients": {
+    "mean": {
+      "norm": 1.982516898678526,
+      "nonzero_parameter_tensors": 167,
+      "last_nonzero_parameter": [
+        "mean_model.mean_head.bias",
+        0.8865342140197754
+      ]
+    },
+    "shape": {
+      "norm": 17.825005341507595,
+      "nonzero_parameter_tensors": 2,
+      "last_nonzero_parameter": [
+        "basis_head.bias",
+        1.0502771000420918
+      ]
+    },
+    "charge": {
+      "norm": 0.15482444980192636,
+      "nonzero_parameter_tensors": 2,
+      "last_nonzero_parameter": [
+        "charge_head.2.bias",
+        0.10481857196094223
+      ]
+    },
+    "local": {
+      "norm": 0.0028701649044776314,
+      "nonzero_parameter_tensors": 3,
+      "last_nonzero_parameter": [
+        "local_filter.raw",
+        1.1772551775685826e-05
+      ]
+    }
+  },
+  "first_preupdate_record": {
+    "step": 1,
+    "data": 0.025904961225047825,
+    "regular": 0.006411186623494439,
+    "saturation": 0.0,
+    "objective": 0.02596907309128277,
+    "preclip_gradient_norm": 17.935585021972656,
+    "hypothesis_energy": {
+      "fast": 0.025408871125940515,
+      "slow": 0.025955024217952483,
+      "common_level": 0.02635098833125049
+    },
+    "hypothesis_energy_parts_report_only": {
+      "fast": {
+        "wave": 0.023713661520044317,
+        "integral": 0.0008476048029480987,
+        "carrier": 0.2795365130076488,
+        "data": 0.09529299937785271
+      },
+      "slow": {
+        "wave": 0.023684021497679453,
+        "integral": 0.001135501360136515,
+        "carrier": 0.27928238551026663,
+        "data": 0.09577562059551914
+      },
+      "common_level": {
+        "wave": 0.023587650500128232,
+        "integral": 0.0013816689155611295,
+        "carrier": 0.27883567180488167,
+        "data": 0.09605990628247091
+      }
+    },
+    "carrier_energy_report_only": 0.279218190107599,
+    "data_with_carrier_report_only": 0.09570950875194757,
+    "objective_with_carrier_report_only": 0.09577362061818252,
+    "mean_residual_saturation_fraction": 0.024514134275618375
+  },
+  "first_expected_absolute_errors": {
+    "data": 6.938893903907228e-18,
+    "objective": 6.938893903907228e-18,
+    "regular": 0.0,
+    "saturation": 0.0,
+    "data_with_carrier_report_only": 0.0,
+    "objective_with_carrier_report_only": 0.0
+  },
+  "all_first_losses_match_registered_tolerance": true,
+  "CPU_REAL_window256_and_prefix100_bitwise_check": "Passed before native WARMSTART_BINDING by frozen runner control flow. No extra observations.",
+  "completed_updates_lower_bound": 578,
+  "latest_full_counter_snapshot": {
+    "G_updates": 500,
+    "NN_calls": 1207,
+    "NN_rows": 90372,
+    "noise005_rows": 90372,
+    "extension_rows": 271116,
+    "generated_ADC_rows": 350232,
+    "checkpoint_loads": 2,
+    "TRAIN_archives_decoded": 1,
+    "DEV_archives_decoded": 0,
+    "DEV_metadata_archives_decoded": 0,
+    "training_AD_queries": 500
+  },
+  "counter_snapshot_step": 500,
+  "native_failure_or_exit_observed": false,
+  "GPU": "0, 3339, 75",
+  "resource_snapshot": {
+    "supervisor_pid": 73653,
+    "child_pid": 73660,
+    "rss_bytes": 2997063680,
+    "peak_rss_bytes": 3072876544,
+    "child_tree": [
+      73660,
+      73661
+    ],
+    "utc": "2026-10-16T22:39:40.810319+00:00"
+  },
+  "scientific_acceptance": "not_evaluated_running",
+  "next_action": "Set single future heartbeat and stop monitoring."
+}

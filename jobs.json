@@ -1,7 +1,7 @@
 {
   "experiment_id": "N01",
-  "updated_UTC": "2026-10-16T22:36:09.543165+00:00",
-  "active_scientific_jobs": 0,
+  "updated_UTC": "2026-10-16T22:41:05.501175+00:00",
+  "active_scientific_jobs": 1,
   "jobs": [
     {
       "job_id": "N01_RUN_001_20261012",
@@ -9815,9 +9815,9 @@
     },
     {
       "run_id": "response036_20261017",
-      "status": "registered_ready_no_execution",
-      "active": false,
-      "scientific_job_started": false,
+      "status": "running_native_startup_verified",
+      "active": true,
+      "scientific_job_started": true,
       "config_path": "configs/response036_20261017.json",
       "config_sha256": "330f013e8b6f17fc7b576f08e6f66c1761f51e9942054a105f88f5ac82e04f86",
       "source_bindings": {
@@ -9885,13 +9885,40 @@
         "output_MiB": 1024
       },
       "cumulative_before": 197668,
-      "completed_updates_accounted": 0,
-      "new_training_updates": 0,
+      "completed_updates_accounted": 578,
+      "new_training_updates": 578,
       "independent_source_review": "receipts/response036_20261017/independent_review_01/REVIEW.json",
       "independent_source_review_sha256": "8f73a4f1a4a9afcb23a87991b009f68c59c3cf85a845e5bd87abb978fe38232a",
       "independent_source_review_no_blockers": true,
       "scientific_status": "response_match_not_established",
-      "prepared_UTC": "2026-10-16T22:36:09.543165+00:00"
+      "prepared_UTC": "2026-10-16T22:36:09.543165+00:00",
+      "source_commit": "46cef3aff18e9d6130ab86c246a8db4f352f3c81",
+      "dispatch_UTC": "2026-10-16T22:38:25.741209+00:00",
+      "dispatcher_pid": 73652,
+      "dispatcher_start_ticks": "1991870",
+      "owned_native_pid": 73661,
+      "owned_native_start_ticks": "1991872",
+      "startup_verified": true,
+      "completed_updates_lower_bound": 578,
+      "last_verified_UTC": "2026-10-16T22:39:41.698176+00:00",
+      "startup_verification": "receipts/response036_20261017/deployment_01/STARTUP_VERIFICATION.json",
+      "startup_assessment": "receipts/response036_20261017/STARTUP_ASSESSMENT.json",
+      "latest_full_counter_snapshot": {
+        "G_updates": 500,
+        "NN_calls": 1207,
+        "NN_rows": 90372,
+        "noise005_rows": 90372,
+        "extension_rows": 271116,
+        "generated_ADC_rows": 350232,
+        "checkpoint_loads": 2,
+        "TRAIN_archives_decoded": 1,
+        "DEV_archives_decoded": 0,
+        "DEV_metadata_archives_decoded": 0,
+        "training_AD_queries": 500
+      },
+      "counter_snapshot_step": 500,
+      "training_step_lower_bound_from_complete_metrics_record": 578,
+      "followup": "receipts/response036_20261017/FOLLOWUP_RECEIPT.json"
     }
   ],
   "user_requested_pause": false,
@@ -9918,7 +9945,7 @@
     "consumed_at_local": "2026-10-17T05:55:22+08:00"
   },
   "scientific_status": "response_match_not_established",
-  "active_scientific_jobs_status_basis": "No N01 processes and project lock free at 2026-10-16T22:34:14.306944+00:00",
+  "active_scientific_jobs_status_basis": "One owned native036 process verified by PID/start_ticks/command/cwd at 2026-10-16T22:39:41.698176+00:00",
   "wp2_readback_prepare_failure": {
     "path": "receipts\\wp2_014_20261015\\readback_registration_01\\ROOT_PREPARE_FAILURE_RECEIPT.json",
     "sha256": "6f89dedd516cd5612295060b074fa84625364774a6a8c5c74b5172608f2b83f5",
@@ -9936,11 +9963,11 @@
   },
   "followup_automation_id": "n01",
   "followup_automation_status": "ACTIVE",
-  "followup_next_run_local": null,
-  "followup_receipt": "receipts/response034_20261017/FOLLOWUP_RECEIPT.json",
-  "followup_receipt_sha256": "b4c0e8e2a6360f8be6a79920fb53dee3946fb3c473653cdb7df65ae1df5768a3",
+  "followup_next_run_local": "2026-10-17T06:50:00+08:00",
+  "followup_receipt": "receipts/response036_20261017/FOLLOWUP_RECEIPT.json",
+  "followup_receipt_sha256": "c89d21f5a6d82cee1b304c9346099ae97fe7fa84d3cb34e6dfe3346f54e7d095",
   "followup_last_delivered_UTC": "2026-10-16T09:20:29.108Z",
-  "current_followup_status": "prior_wake_consumed_preparing_single036_trial",
+  "current_followup_status": "single_future_wake_scheduled",
   "agent_model_policy": {
     "path": "receipts/wp3_015_20261015/postrun_root_02/AGENT_MODEL_POLICY_SOLMAX.json",
     "bytes": 813,
@@ -9967,18 +9994,18 @@
     "bytes": 83119,
     "sha256": "b24f3bb1e5644fc8db29b2db1b3b82b05a8793248b7c99af81b23fb4dc3d1e24"
   },
-  "status": "response036_registered_ready",
-  "current_action": "Deploy and launch the one independently reviewed fixed2000 RESPONSE036 carrier-removal trial.",
-  "next_action": "Publish frozen source, deploy, verify startup once, schedule one future wake.",
+  "status": "response036_running",
+  "current_action": "036 startup verified; single follow-up scheduled 2026-10-17 06:50 Asia/Singapore. Rest until wake.",
+  "next_action": "At wake inspect once, collect terminal artifacts or reschedule if still running.",
   "latest_user_review_direction": {
     "path": "receipts/review_017_20261016/ACCEPTED_NEXT_ACTIONS.json",
     "bytes": 3271,
     "sha256": "8c1fe73b73b7376a3299e6c43f8493a41f2cd45a5e1a2d33a82c961ab22642c2"
   },
-  "pending_run_id": "response036_20261017",
-  "latest_run_id": "response035_20261017",
-  "active_run_id": null,
-  "current_stage": "response036_carrier_removal_registered",
+  "pending_run_id": null,
+  "latest_run_id": "response036_20261017",
+  "active_run_id": "response036_20261017",
+  "current_stage": "response036_fixed2000_no_carrier_pilot_running",
   "wp4_018_result": {
     "path": "receipts/wp4_018_20261016/FINAL_RESULT_RECEIPT.json",
     "bytes": 6437,
@@ -10127,10 +10154,10 @@
       "sha256": "08ef80ae1e9262bbcb2c5a95862df4b721f6ca3e1c8bd8ff5cfd3bcae8f2f62e"
     }
   },
-  "last_verified_UTC": "2026-10-16T22:34:14.306944+00:00",
+  "last_verified_UTC": "2026-10-16T22:39:41.698176+00:00",
   "wp4_019_G_updates": 2000,
   "wp4_019_AD_queries": 2000,
-  "cumulative_training_updates": 197668,
+  "cumulative_training_updates": 198246,
   "wp4_019_result": {
     "path": "receipts/wp4_019_20261016/FINAL_RESULT_RECEIPT.json",
     "bytes": 9955,
@@ -10560,7 +10587,7 @@
       "sha256": "1dec5ea77c06f4c815337e53457f7e4e35f96538bf0f566fb7c83cc7a9bcaf4d"
     }
   },
-  "current_run_training_updates": 0,
+  "current_run_training_updates": 578,
   "wp4_total_completed_G_updates_lower_bound": 8000,
   "wp4_022_result": {
     "path": "receipts/wp4_022_20261016/FINAL_RESULT_RECEIPT.json",
@@ -10866,7 +10893,7 @@
   },
   "wp4_023_G_updates": 0,
   "wp4_023_AD_queries": 0,
-  "new_training_updates": 197668,
+  "new_training_updates": 198246,
   "wp4_023_result": {
     "path": "receipts/wp4_023_20261016/FINAL_RESULT_RECEIPT.json",
     "bytes": 14173,
@@ -11187,7 +11214,7 @@
     },
     "followup_status": "DELIVERED_terminal"
   },
-  "latest_source_commit": "1c4159ee255c68b0a0e20af8dd8ae78c9006e41d",
+  "latest_source_commit": "46cef3aff18e9d6130ab86c246a8db4f352f3c81",
   "wp3_024_G_updates": 0,
   "wp3_024_AD_queries": 0,
   "wp3_024_population_mean_cells_last_verified": 78,
@@ -11513,7 +11540,7 @@
       "sha256": "f13d09a8120de685c980e0d52f782c212cb3d4ea41d7da7f77cbfbd21621128e"
     }
   },
-  "followup_scheduled_local": "2026-10-17T05:55:00+08:00",
+  "followup_scheduled_local": "2026-10-17T06:50:00+08:00",
   "followup_last_consumed_local": "2026-10-17T05:55:22+08:00",
   "wp3_025_G_updates": 0,
   "wp3_025_AD_queries": 0,
@@ -11720,7 +11747,7 @@
     "bytes": 33510,
     "sha256": "f13d09a8120de685c980e0d52f782c212cb3d4ea41d7da7f77cbfbd21621128e"
   },
-  "master_plan_sha256": "4247ab38ea002a4574d655a7c71838db25aafe38408032bc4b55b12d22f34bcd",
+  "master_plan_sha256": "3f6601c5388c0c5719e9b8a65e3878ea8b323f754012271cfe792a038cc5d0c1",
   "wp6_027_execution": {
     "run_id": "wp6_027_20261016",
     "status": "static_documentation_delivered_independent_review_no_blockers",
@@ -12347,7 +12374,7 @@
   },
   "response033_G_updates": 1,
   "response033_AD_queries": 1,
-  "latest_training_run_id": "response034_20261017",
+  "latest_training_run_id": "response036_20261017",
   "response034_G_updates": 2000,
   "response034_execution": {
     "run_id": "response034_20261017",
@@ -12478,7 +12505,7 @@
     "report": "reports/response034_20261017/REPORT.md",
     "closed_UTC": "2026-10-16T22:08:36.182514+00:00"
   },
-  "latest_training_source_commit": "f2b926a26dc0eb2c155780623c07d65fad4df90b",
+  "latest_training_source_commit": "46cef3aff18e9d6130ab86c246a8db4f352f3c81",
   "response034_result": "receipts/response034_20261017/FINAL_RESULT_RECEIPT.json",
   "response034_report": "reports/response034_20261017/REPORT.md",
   "response035_execution": {
@@ -12604,9 +12631,9 @@
   "response035_report": "reports/response035_20261017/REPORT.md",
   "response036_execution": {
     "run_id": "response036_20261017",
-    "status": "registered_ready_no_execution",
-    "active": false,
-    "scientific_job_started": false,
+    "status": "running_native_startup_verified",
+    "active": true,
+    "scientific_job_started": true,
     "config_path": "configs/response036_20261017.json",
     "config_sha256": "330f013e8b6f17fc7b576f08e6f66c1761f51e9942054a105f88f5ac82e04f86",
     "source_bindings": {
@@ -12674,13 +12701,40 @@
       "output_MiB": 1024
     },
     "cumulative_before": 197668,
-    "completed_updates_accounted": 0,
-    "new_training_updates": 0,
+    "completed_updates_accounted": 578,
+    "new_training_updates": 578,
     "independent_source_review": "receipts/response036_20261017/independent_review_01/REVIEW.json",
     "independent_source_review_sha256": "8f73a4f1a4a9afcb23a87991b009f68c59c3cf85a845e5bd87abb978fe38232a",
     "independent_source_review_no_blockers": true,
     "scientific_status": "response_match_not_established",
-    "prepared_UTC": "2026-10-16T22:36:09.543165+00:00"
+    "prepared_UTC": "2026-10-16T22:36:09.543165+00:00",
+    "source_commit": "46cef3aff18e9d6130ab86c246a8db4f352f3c81",
+    "dispatch_UTC": "2026-10-16T22:38:25.741209+00:00",
+    "dispatcher_pid": 73652,
+    "dispatcher_start_ticks": "1991870",
+    "owned_native_pid": 73661,
+    "owned_native_start_ticks": "1991872",
+    "startup_verified": true,
+    "completed_updates_lower_bound": 578,
+    "last_verified_UTC": "2026-10-16T22:39:41.698176+00:00",
+    "startup_verification": "receipts/response036_20261017/deployment_01/STARTUP_VERIFICATION.json",
+    "startup_assessment": "receipts/response036_20261017/STARTUP_ASSESSMENT.json",
+    "latest_full_counter_snapshot": {
+      "G_updates": 500,
+      "NN_calls": 1207,
+      "NN_rows": 90372,
+      "noise005_rows": 90372,
+      "extension_rows": 271116,
+      "generated_ADC_rows": 350232,
+      "checkpoint_loads": 2,
+      "TRAIN_archives_decoded": 1,
+      "DEV_archives_decoded": 0,
+      "DEV_metadata_archives_decoded": 0,
+      "training_AD_queries": 500
+    },
+    "counter_snapshot_step": 500,
+    "training_step_lower_bound_from_complete_metrics_record": 578,
+    "followup": "receipts/response036_20261017/FOLLOWUP_RECEIPT.json"
   },
-  "response036_G_updates": 0
+  "response036_G_updates": 578
 }
