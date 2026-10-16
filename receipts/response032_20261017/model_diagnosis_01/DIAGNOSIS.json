@@ -1,0 +1,690 @@
+{
+  "schema": "n01/response032-saved-output-model-diagnosis/v1",
+  "status": "read_only_diagnosis_complete_no_new_science",
+  "conclusion": "032 has a measured non-small stochastic initialization and a pronounced mid-run loss/regularization instability, followed by bipolar low-charge contamination and mean-charge distortion. No wrong-sign energy formula, global autograd detach, or dominant global wrong-peak explanation was found. Existing receipts cannot identify which trainable branch caused the instability or prove that the current STE gradient is a descent direction for hard risk.",
+  "evidence_scope": {
+    "saved_metrics_steps": 2000,
+    "saved_endpoint_JSONs_used": 15,
+    "saved_example_NPZs_used": 15,
+    "example_rows_each": 32,
+    "examples_represent_full_population": false,
+    "population_mean_std_are_full_bank_summaries": true,
+    "checkpoint_deserializations": 0,
+    "NN_forwards": 0,
+    "AD_queries": 0,
+    "new_observation_calls": 0,
+    "raw_scientific_arrays_opened": 0,
+    "optimizer_updates": 0,
+    "source_modifications": 0
+  },
+  "confirmed_findings": [
+    {
+      "id": "F1_initialization_discontinuity",
+      "finding": "Adding new random heads already worsens the actual A warmstart before any optimizer update, with matched mean forward and identical electronics. Small weight std is not a physical output-scale guarantee after an already-trained decoder.",
+      "evidence": {
+        "TRAIN_fast_wave_A": 0.15383882672116173,
+        "TRAIN_fast_wave_G0": 0.22599851174518137,
+        "TRAIN_fast_QPSD_A": 0.05143300426564523,
+        "TRAIN_fast_QPSD_G0": 0.2758686204152584,
+        "population_observed_Q_A": 4.6037408062441,
+        "population_observed_Q_G0": 4.605305636993967,
+        "G0_ADC_rail_rows": 13,
+        "denominator": 26372,
+        "startup_mean_gradient_norm": 3.0439902770576053,
+        "startup_shape_gradient_norm": 20.945805331290273
+      },
+      "source": [
+        "src/n01/model029.py:38",
+        "src/n01/model029.py:78",
+        "src/n01/model029.py:82",
+        "scripts/run_response032.py:146"
+      ],
+      "boundary": "The saved observed G0-A differences combine random charge, shape, local response and recropping. They are not direct measurements of B alone."
+    },
+    {
+      "id": "F2_mid_run_instability",
+      "finding": "The own stochastic objective improves through the middle and then degrades sharply; this is not evidence that energy was successfully minimized to the bad final waveform.",
+      "evidence": {
+        "step1_data": 0.09570950875194757,
+        "step2_data": 0.36051015371185074,
+        "step1_preclip_norm": 21.1663818359375,
+        "step2_preclip_norm": 70.08210754394531,
+        "steps301_400_data_median": 0.03262453490122114,
+        "steps501_600_data_median": 0.4577235058590784,
+        "step440_data": 0.0011367305918490247,
+        "step470_data": 0.1891668759490637,
+        "step490_data": 0.43356909557555146,
+        "step500_data": 0.4169251164762571,
+        "step2000_data": 0.1804961076565832,
+        "all_steps_fraction_clipped": 0.803
+      },
+      "boundary": "These are different IID minibatches; no frozen-bank energy value or hard metrics were recorded near step400. A low individual minibatch energy is not a fitted endpoint or a recoverable accepted checkpoint."
+    },
+    {
+      "id": "F3_stochastic_head_regularization_must_grow",
+      "finding": "The logged regular increase cannot come solely from the bounded old mean residual. At least one of basis voltage energy, local envelope energy or charge log-variance is substantial.",
+      "derivation": "r=.2*tanh(u)*gate implies R_mean=mean(r^2)+mean(diff(r)^2) <= .04*(mean(gate^2)+mean((gate[1:]+gate[:-1])^2)) for every mean parameter state. Other model029 regular terms are nonnegative.",
+      "evidence": {
+        "universal_mean_regular_upper_bound": 0.14298418073412325,
+        "step500_total_regular": 0.44161966502871774,
+        "step500_new_heads_regular_lower_bound": 0.2986354842945945,
+        "final_total_regular": 0.329153825081242,
+        "final_new_heads_regular_lower_bound": 0.18616964434711877,
+        "last100_total_regular_median": 0.48920220305394235,
+        "last100_new_heads_regular_lower_bound_median": 0.34621802231981913,
+        "final_mean_residual_tanh_saturation_fraction": 0.045660335689045935
+      },
+      "source": [
+        "src/n01/model008.py:191",
+        "src/n01/model008.py:226",
+        "src/n01/model029.py:104",
+        "src/n01/model029.py:107"
+      ],
+      "boundary": "The logged scalar does not separate B, charge_v and local. It does not prove a particular head exploded or prove mean itself remained well conditioned."
+    },
+    {
+      "id": "F4_wrong_peak_not_dominant_whole_explanation",
+      "finding": "Wrong peaks exist at final, but most failed/censored rows are not explained by global maxima falling outside the registered search. The selected examples also exhibit severe bipolar shapes while keeping their global maximum at crop index16.",
+      "evidence": {
+        "TRAIN_fast_final_outside_search": {
+          "rows": 73,
+          "denominator": 26372
+        },
+        "TRAIN_fast_final_search_boundary": {
+          "rows": 190,
+          "denominator": 26372
+        },
+        "TRAIN_fast_final_rise_prepeak_censored": {
+          "rows": 3361,
+          "denominator": 26372
+        },
+        "TRAIN_fast_A_rise_prepeak_censored": {
+          "rows": 262,
+          "denominator": 26372
+        },
+        "TRAIN_fast_final_ADC_rail": {
+          "rows": 738,
+          "denominator": 26372
+        },
+        "TRAIN_fast_final_example_global_peak_non16": 0,
+        "TRAIN_fast_final_example_PSD_min": -3.9325749795470877,
+        "TRAIN_fast_final_example_negative_area_over_Q_max": 6.507262963672141
+      },
+      "source": [
+        "src/n01/observation008.py:96",
+        "src/n01/observation008.py:98"
+      ],
+      "boundary": "Global-outside flags do not reveal peak-index changes within112..143. Hidden internal recropping or STE/argmax instability remains possible; it is not established by these saved outputs."
+    },
+    {
+      "id": "F5_mean_charge_and_lowQ_distribution_distortion",
+      "finding": "Full-bank observed mean charge falls about11% on both TRAIN and DEV, and the lowest output-Q bin doubles its mass with extreme PSD tails. This is marginal waveform damage, not merely an unobservable conditional permutation.",
+      "evidence": {
+        "TRAIN_observed_Q_mean_A": 4.6037408062441,
+        "TRAIN_observed_Q_mean_final": 4.085725962139838,
+        "TRAIN_Q_mean_ratio": 0.8874795810829156,
+        "DEV_Q_mean_ratio": 0.8839859513827595,
+        "TRAIN_lowest_outputQ_bin_final_rows": 6631,
+        "TRAIN_generated_total_rows": 26372,
+        "TRAIN_lowest_outputQ_bin_REAL_rows": 2631,
+        "TRAIN_REAL_total_rows": 21047,
+        "TRAIN_lowest_bin_final_PSD_p01": -2.8238899125981423,
+        "TRAIN_lowest_bin_final_PSD_p99": 1.2553069158075745
+      },
+      "boundary": "Output-Q bins are diagnostics, not true source energy or event labels. Observed mean-Q change cannot be equated to change of qbar without pre-ADC factors because random gain, clipping and crop positions can also change it."
+    }
+  ],
+  "static_gradient_mechanisms": [
+    {
+      "mechanism": "Energy formula and graph",
+      "status": "no concrete sign/detach defect found",
+      "source": [
+        "scripts/run_response031.py:62",
+        "scripts/run_response031.py:66",
+        "scripts/run_response031.py:74",
+        "scripts/run_response032.py:319",
+        "scripts/run_response032.py:328"
+      ],
+      "analysis": "The four-cross average and both negative independent self terms are correctly signed. Both generated paths remain differentiable. The evaluation wave_components no_grad decorator is not used by energy_data, which calls _wave_views and _z directly. There is one combined objective backward. Proper marginal scoring does not guarantee successful nonlinear optimization, conditional identification or STE correctness."
+    },
+    {
+      "mechanism": "Old mean normalization can amplify cancellation",
+      "status": "concrete unbounded conditioning path, realized severity unmeasured",
+      "source": [
+        "src/n01/model008.py:214",
+        "src/n01/model008.py:216",
+        "src/n01/model008.py:223",
+        "src/n01/model008.py:226"
+      ],
+      "analysis": "A=qbar*raw_shape/Q(raw_shape). Positive Q>1e-6 does not limit ||raw_shape||/Q or its Jacobian, qbar*(I/Q-raw_shape*c^T/Q^2). The bounded residual penalty is on the pre-normalized residual, so it does not bound the actual normalized mean waveform or its undershoot. A tanh saturation fraction near5% cannot rule this out."
+    },
+    {
+      "mechanism": "Learned mean amplitude couples to all random widths",
+      "status": "concrete coupling, causal contribution unmeasured",
+      "source": [
+        "src/n01/model029.py:78",
+        "src/n01/model029.py:82",
+        "src/n01/model029.py:84",
+        "src/n01/model029.py:90"
+      ],
+      "analysis": "Basis and local envelope scale with abs(A).amax, including a large negative undershoot. The shared trainable decoder also drives B, v and local envelope. Thus a mean update changes random width even when a head weight barely changes; exp(v*z-.5||v||^2) introduces another nonlinear path. The confirmed regular lower bound warrants separating these factors before changing architecture."
+    },
+    {
+      "mechanism": "Peak normalization and hard observation",
+      "status": "known piecewise/STE conditioning issue, not proven cause",
+      "source": [
+        "src/n01/losses008.py:60",
+        "src/n01/losses008.py:61",
+        "src/n01/model.py:43",
+        "src/n01/observation008.py:96",
+        "src/n01/observation008.py:98"
+      ],
+      "analysis": "Shape features use y/max(max(y),peak_floor), so their Jacobian contains1/peak and a dense max-coordinate term; bipolar cancellation and small positive peaks can amplify it. The hard first-argmax/gather has no gradient through an index switch. ADC STE is identity inside rails and zero outside. Proper energy loss does not remove these differences from hard finite changes. Final small wrong-global-peak counts limit a broad wrong-peak explanation but do not settle local switch dynamics."
+    },
+    {
+      "mechanism": "Signed asinh integrals",
+      "status": "no implementation defect found; incomplete conditioning control",
+      "source": [
+        "src/n01/losses014.py:21",
+        "src/n01/losses014.py:36",
+        "scripts/run_response031.py:75",
+        "scripts/run_response031.py:87"
+      ],
+      "analysis": "The six signed raw sums use frozen TRAIN scales. d asinh(I/s)/dI=1/sqrt(s^2+I^2); there is no Q denominator in this term. Positive and negative lobes inside a coarse segment can cancel, and zero-canonical-Q bases do not imply zero observed-Q after dynamic crop/clipping. Full joint voltage/carrier views still see those lobes, so the complete population objective is not algebraically blind to them. Weak per-component gradient weighting remains an untested optimization hypothesis because 032 logged only total energy and total gradient."
+    }
+  ],
+  "ruled_out_or_not_supported": {
+    "noise005_updated": "Ruled out by frozen digests and exactly unchanged A/final noise distances.",
+    "mean_untrainable": "Ruled out by startup mean norm3.04399 and167 nonzero mean parameter tensors.",
+    "whole_graph_detached": "Ruled out by all four nonzero startup groups and static energy graph.",
+    "all_mean_tanh_units_saturated": "Not supported: about4.57% at final; this does not imply well-conditioned normalization.",
+    "sample_W1_bias_as_sole_cause": "Not supported: this run optimizes energy and has its own mid-run loss/regularization deterioration.",
+    "more_steps_or_larger_network_will_fix": "No evidence; not recommended."
+  },
+  "one_minimal_next_step": {
+    "name": "ROOT-selected033 exact-first-Adam-step and parameter-group direction audit",
+    "status": "design_review_only_not_executed",
+    "purpose": "Test whether the actual first update overshoots independent TRAIN marginal risk, and localize the responsible parameter-group perturbation before another training run. This supersedes the unexecuted two-endpoint factor-audit suggestion; no parallel extra diagnosis is proposed.",
+    "fixed_points": [
+      "baseline",
+      "full_step",
+      "quarter_step",
+      "sixteenth_step",
+      "mean_parameter_group_only",
+      "shape_parameter_group_only",
+      "charge_parameter_group_only",
+      "local_parameter_group_only"
+    ],
+    "banks": "One exact032first-step bank plus8 independent IID TRAIN risk banks, each with two independent SOURCE64 banks and two independent REAL128 banks. Response/electronics/indices are common across parameter points and independent across risk banks.",
+    "proposed_budget_only_not_executed": {
+      "checkpoint_deserializations": 2,
+      "checkpoints": [
+        "response032 initial.pt",
+        "original noise005.pt"
+      ],
+      "NN_mean_forward_calls": 144,
+      "NN_mean_rows": 9216,
+      "combined_AD_queries": 1,
+      "diagnostic_Adam_updates": 1,
+      "long_training_updates": 0,
+      "DEV_reads": 0,
+      "native_full_W1_runs": 0
+    },
+    "necessary_controls": [
+      "Reproduce032first-step data, regular, saturation, objective and gradient norm using saved initial model/statistics/scales/RNG and exactly matching AdamW group LR, eps, betas, weight_decay0 and clip5. The AD baseline forward is reused inside the144-call budget.",
+      "Use one delta from the matched Adam update. Every branch/fraction point is independently copied from the same initial state; do not accumulate updates or run an optimizer for every point.",
+      "Report data energy decompositions and the actual total including.01*(regular+saturation). Record regular_mean/basis/charge/local, A absolute peak, B physical RMS, charge_v norm and local envelope from already-required forwards; no extra AD.",
+      "mean-only denotes a mean parameter-group perturbation. It also changes the shared decoder and abs(A) scaling of B/v/local, so it is not a pure deterministic-signal intervention.",
+      "Report paired parameter-point minus baseline risk means and MCSE over the8 independent banks. Keep the training bank separate. Fractional delta is a local-step diagnostic, not proof of a stable long-run smaller-LR fit."
+    ],
+    "decision": "If full delta increases independent risk while smaller fractions do not, there is measured first-step overshoot. If every fraction increases risk, test whether the particular parameter group or the STE/normalization direction is responsible before using a lower learning rate as a presumed fix. First-bank improvement and one-step improvement are not final waveform-fit or conditional-response acceptance.",
+    "requires_ROOT_registration": true
+  },
+  "blocks100": [
+    {
+      "step_start": 1,
+      "step_end": 100,
+      "data_median": 0.17835017610240173,
+      "regular_median": 0.008130956878295301,
+      "gradient_median": 12.487565994262695,
+      "fraction_clipped": 1.0
+    },
+    {
+      "step_start": 101,
+      "step_end": 200,
+      "data_median": 0.1353409348895966,
+      "regular_median": 0.04264954059770046,
+      "gradient_median": 10.066779136657715,
+      "fraction_clipped": 0.98
+    },
+    {
+      "step_start": 201,
+      "step_end": 300,
+      "data_median": 0.05406051707050855,
+      "regular_median": 0.024573413870427434,
+      "gradient_median": 5.917806148529053,
+      "fraction_clipped": 0.6
+    },
+    {
+      "step_start": 301,
+      "step_end": 400,
+      "data_median": 0.03262453490122114,
+      "regular_median": 0.02458703180654042,
+      "gradient_median": 3.70429003238678,
+      "fraction_clipped": 0.18
+    },
+    {
+      "step_start": 401,
+      "step_end": 500,
+      "data_median": 0.06466559068618044,
+      "regular_median": 0.05309555181331733,
+      "gradient_median": 3.765990734100342,
+      "fraction_clipped": 0.36
+    },
+    {
+      "step_start": 501,
+      "step_end": 600,
+      "data_median": 0.4577235058590784,
+      "regular_median": 0.27194143522959013,
+      "gradient_median": 10.77078914642334,
+      "fraction_clipped": 1.0
+    },
+    {
+      "step_start": 601,
+      "step_end": 700,
+      "data_median": 0.40458202814313293,
+      "regular_median": 0.21904312640169704,
+      "gradient_median": 9.91228723526001,
+      "fraction_clipped": 1.0
+    },
+    {
+      "step_start": 701,
+      "step_end": 800,
+      "data_median": 0.3727450557335492,
+      "regular_median": 0.26041058084601054,
+      "gradient_median": 9.178443431854248,
+      "fraction_clipped": 1.0
+    },
+    {
+      "step_start": 801,
+      "step_end": 900,
+      "data_median": 0.357022759918149,
+      "regular_median": 0.24321578074997857,
+      "gradient_median": 8.721136569976807,
+      "fraction_clipped": 0.99
+    },
+    {
+      "step_start": 901,
+      "step_end": 1000,
+      "data_median": 0.32351022835483223,
+      "regular_median": 0.2764194074950465,
+      "gradient_median": 8.115328788757324,
+      "fraction_clipped": 0.96
+    },
+    {
+      "step_start": 1001,
+      "step_end": 1100,
+      "data_median": 0.31887145412737417,
+      "regular_median": 0.31974511125467453,
+      "gradient_median": 6.995800018310547,
+      "fraction_clipped": 0.95
+    },
+    {
+      "step_start": 1101,
+      "step_end": 1200,
+      "data_median": 0.29643341104633747,
+      "regular_median": 0.32862588946031634,
+      "gradient_median": 6.945188045501709,
+      "fraction_clipped": 0.86
+    },
+    {
+      "step_start": 1201,
+      "step_end": 1300,
+      "data_median": 0.27549370473451906,
+      "regular_median": 0.3302585429811655,
+      "gradient_median": 6.956085443496704,
+      "fraction_clipped": 0.9
+    },
+    {
+      "step_start": 1301,
+      "step_end": 1400,
+      "data_median": 0.2608993144743371,
+      "regular_median": 0.3514670682424835,
+      "gradient_median": 6.367383003234863,
+      "fraction_clipped": 0.84
+    },
+    {
+      "step_start": 1401,
+      "step_end": 1500,
+      "data_median": 0.2310713380514881,
+      "regular_median": 0.38896259330987215,
+      "gradient_median": 6.128682613372803,
+      "fraction_clipped": 0.89
+    },
+    {
+      "step_start": 1501,
+      "step_end": 1600,
+      "data_median": 0.20415897131785837,
+      "regular_median": 0.3812284027929219,
+      "gradient_median": 5.646345376968384,
+      "fraction_clipped": 0.66
+    },
+    {
+      "step_start": 1601,
+      "step_end": 1700,
+      "data_median": 0.21296583663674173,
+      "regular_median": 0.42076312139156247,
+      "gradient_median": 5.84771990776062,
+      "fraction_clipped": 0.78
+    },
+    {
+      "step_start": 1701,
+      "step_end": 1800,
+      "data_median": 0.20463954372165172,
+      "regular_median": 0.43186788965444567,
+      "gradient_median": 5.734971523284912,
+      "fraction_clipped": 0.72
+    },
+    {
+      "step_start": 1801,
+      "step_end": 1900,
+      "data_median": 0.22993894379553353,
+      "regular_median": 0.48153953638108526,
+      "gradient_median": 6.107068061828613,
+      "fraction_clipped": 0.74
+    },
+    {
+      "step_start": 1901,
+      "step_end": 2000,
+      "data_median": 0.21073096814112724,
+      "regular_median": 0.48920220305394235,
+      "gradient_median": 5.493093013763428,
+      "fraction_clipped": 0.65
+    }
+  ],
+  "compact_outputQ_bin_summaries": {
+    "TRAIN_A_fast": [
+      {
+        "output_Q_bin": 0,
+        "fake_rows": 3206,
+        "real_rows": 2631,
+        "rise_undefined_rows": 23,
+        "PSD_mean": 0.16096183181943371,
+        "PSD_p01": -0.005743466497840053,
+        "PSD_p99": 0.33105368185074424,
+        "peak_mean": 0.0418093489557839,
+        "REAL_peak_mean": 0.06837981023102138
+      },
+      {
+        "output_Q_bin": 1,
+        "fake_rows": 3487,
+        "real_rows": 2631,
+        "rise_undefined_rows": 16,
+        "PSD_mean": 0.18456552308635915,
+        "PSD_p01": 0.05487991610769886,
+        "PSD_p99": 0.3298283739944525,
+        "peak_mean": 0.06791183674852617,
+        "REAL_peak_mean": 0.08652493558959581
+      },
+      {
+        "output_Q_bin": 2,
+        "fake_rows": 3268,
+        "real_rows": 2631,
+        "rise_undefined_rows": 223,
+        "PSD_mean": 0.17807162193739995,
+        "PSD_p01": 0.07167440801044053,
+        "PSD_p99": 0.3205779877710909,
+        "peak_mean": 0.09308904836946617,
+        "REAL_peak_mean": 0.1081890991053129
+      },
+      {
+        "output_Q_bin": 3,
+        "fake_rows": 3336,
+        "real_rows": 2631,
+        "rise_undefined_rows": 0,
+        "PSD_mean": 0.18513863562462843,
+        "PSD_p01": 0.08472729473855317,
+        "PSD_p99": 0.2986007855395448,
+        "peak_mean": 0.1386221665407099,
+        "REAL_peak_mean": 0.13260894286201552
+      },
+      {
+        "output_Q_bin": 4,
+        "fake_rows": 3214,
+        "real_rows": 2630,
+        "rise_undefined_rows": 0,
+        "PSD_mean": 0.1968588333661501,
+        "PSD_p01": 0.09783404542073465,
+        "PSD_p99": 0.28666826906242626,
+        "peak_mean": 0.18451430408401018,
+        "REAL_peak_mean": 0.15954124685028928
+      },
+      {
+        "output_Q_bin": 5,
+        "fake_rows": 3338,
+        "real_rows": 2631,
+        "rise_undefined_rows": 0,
+        "PSD_mean": 0.20893550472652042,
+        "PSD_p01": 0.11494441166141109,
+        "PSD_p99": 0.29430256363494417,
+        "peak_mean": 0.23727199682758732,
+        "REAL_peak_mean": 0.19365443009926325
+      },
+      {
+        "output_Q_bin": 6,
+        "fake_rows": 3317,
+        "real_rows": 2631,
+        "rise_undefined_rows": 0,
+        "PSD_mean": 0.22628089140162969,
+        "PSD_p01": 0.14079643041802195,
+        "PSD_p99": 0.3116787768359161,
+        "peak_mean": 0.306132802425715,
+        "REAL_peak_mean": 0.23486249768088208
+      },
+      {
+        "output_Q_bin": 7,
+        "fake_rows": 3206,
+        "real_rows": 2631,
+        "rise_undefined_rows": 0,
+        "PSD_mean": 0.267982351549745,
+        "PSD_p01": 0.19526317176034844,
+        "PSD_p99": 0.35025495288805614,
+        "peak_mean": 0.37561114199863843,
+        "REAL_peak_mean": 0.2901851252908308
+      }
+    ],
+    "TRAIN_G0_fast": [
+      {
+        "output_Q_bin": 0,
+        "fake_rows": 3216,
+        "real_rows": 2631,
+        "rise_undefined_rows": 59,
+        "PSD_mean": 0.157218272367381,
+        "PSD_p01": -0.15539510256352046,
+        "PSD_p99": 0.3785604999243156,
+        "peak_mean": 0.04199585565731739,
+        "REAL_peak_mean": 0.06837981023102138
+      },
+      {
+        "output_Q_bin": 1,
+        "fake_rows": 3471,
+        "real_rows": 2631,
+        "rise_undefined_rows": 41,
+        "PSD_mean": 0.1812029146759392,
+        "PSD_p01": -0.11484177583343898,
+        "PSD_p99": 0.4285871565387937,
+        "peak_mean": 0.06830923651578386,
+        "REAL_peak_mean": 0.08652493558959581
+      },
+      {
+        "output_Q_bin": 2,
+        "fake_rows": 3274,
+        "real_rows": 2631,
+        "rise_undefined_rows": 149,
+        "PSD_mean": 0.17812479744950094,
+        "PSD_p01": -0.07996792224807298,
+        "PSD_p99": 0.4068848489048648,
+        "peak_mean": 0.09347355496972647,
+        "REAL_peak_mean": 0.1081890991053129
+      },
+      {
+        "output_Q_bin": 3,
+        "fake_rows": 3313,
+        "real_rows": 2631,
+        "rise_undefined_rows": 0,
+        "PSD_mean": 0.18296451971704797,
+        "PSD_p01": -0.09428586041115394,
+        "PSD_p99": 0.41736991015055674,
+        "peak_mean": 0.13860672534247961,
+        "REAL_peak_mean": 0.13260894286201552
+      },
+      {
+        "output_Q_bin": 4,
+        "fake_rows": 3237,
+        "real_rows": 2630,
+        "rise_undefined_rows": 0,
+        "PSD_mean": 0.19364088006539212,
+        "PSD_p01": -0.08902993759421195,
+        "PSD_p99": 0.4200644977131519,
+        "peak_mean": 0.184828526092406,
+        "REAL_peak_mean": 0.15954124685028928
+      },
+      {
+        "output_Q_bin": 5,
+        "fake_rows": 3338,
+        "real_rows": 2631,
+        "rise_undefined_rows": 16,
+        "PSD_mean": 0.20865554009280196,
+        "PSD_p01": -0.05980526114594601,
+        "PSD_p99": 0.43420676789517254,
+        "peak_mean": 0.23729584240367824,
+        "REAL_peak_mean": 0.19365443009926325
+      },
+      {
+        "output_Q_bin": 6,
+        "fake_rows": 3277,
+        "real_rows": 2631,
+        "rise_undefined_rows": 1,
+        "PSD_mean": 0.226783621393501,
+        "PSD_p01": -0.04557397089693262,
+        "PSD_p99": 0.4431974105366184,
+        "peak_mean": 0.3046010254122355,
+        "REAL_peak_mean": 0.23486249768088208
+      },
+      {
+        "output_Q_bin": 7,
+        "fake_rows": 3246,
+        "real_rows": 2631,
+        "rise_undefined_rows": 0,
+        "PSD_mean": 0.2657913464173516,
+        "PSD_p01": 0.06479137073592349,
+        "PSD_p99": 0.43594633559837753,
+        "peak_mean": 0.37920114037780694,
+        "REAL_peak_mean": 0.2901851252908308
+      }
+    ],
+    "TRAIN_final_fast": [
+      {
+        "output_Q_bin": 0,
+        "fake_rows": 6631,
+        "real_rows": 2631,
+        "rise_undefined_rows": 1056,
+        "PSD_mean": 0.14944721801516658,
+        "PSD_p01": -2.8238899125981423,
+        "PSD_p99": 1.2553069158075745,
+        "peak_mean": 0.09806111745632577,
+        "REAL_peak_mean": 0.06837981023102138
+      },
+      {
+        "output_Q_bin": 1,
+        "fake_rows": 1957,
+        "real_rows": 2631,
+        "rise_undefined_rows": 417,
+        "PSD_mean": 0.1982073218652644,
+        "PSD_p01": 0.016646870862523398,
+        "PSD_p99": 0.36415798687878637,
+        "peak_mean": 0.07896265465301704,
+        "REAL_peak_mean": 0.08652493558959581
+      },
+      {
+        "output_Q_bin": 2,
+        "fake_rows": 2601,
+        "real_rows": 2631,
+        "rise_undefined_rows": 505,
+        "PSD_mean": 0.18016446288100935,
+        "PSD_p01": 0.03586900518385365,
+        "PSD_p99": 0.33670352567897116,
+        "peak_mean": 0.0944731838779534,
+        "REAL_peak_mean": 0.1081890991053129
+      },
+      {
+        "output_Q_bin": 3,
+        "fake_rows": 2948,
+        "real_rows": 2631,
+        "rise_undefined_rows": 504,
+        "PSD_mean": 0.1839854011064159,
+        "PSD_p01": 0.060285637277163615,
+        "PSD_p99": 0.3231986198086469,
+        "peak_mean": 0.11959113970524599,
+        "REAL_peak_mean": 0.13260894286201552
+      },
+      {
+        "output_Q_bin": 4,
+        "fake_rows": 3328,
+        "real_rows": 2630,
+        "rise_undefined_rows": 369,
+        "PSD_mean": 0.19281438518145963,
+        "PSD_p01": 0.08092960741063315,
+        "PSD_p99": 0.3057802217448022,
+        "peak_mean": 0.1554013741158166,
+        "REAL_peak_mean": 0.15954124685028928
+      },
+      {
+        "output_Q_bin": 5,
+        "fake_rows": 3173,
+        "real_rows": 2631,
+        "rise_undefined_rows": 205,
+        "PSD_mean": 0.21107521361316703,
+        "PSD_p01": 0.11073812056975776,
+        "PSD_p99": 0.32540381891430026,
+        "peak_mean": 0.21395361379708802,
+        "REAL_peak_mean": 0.19365443009926325
+      },
+      {
+        "output_Q_bin": 6,
+        "fake_rows": 3273,
+        "real_rows": 2631,
+        "rise_undefined_rows": 217,
+        "PSD_mean": 0.23395893046456673,
+        "PSD_p01": 0.1387819971427697,
+        "PSD_p99": 0.36138253386405034,
+        "peak_mean": 0.2965212622781072,
+        "REAL_peak_mean": 0.23486249768088208
+      },
+      {
+        "output_Q_bin": 7,
+        "fake_rows": 2461,
+        "real_rows": 2631,
+        "rise_undefined_rows": 88,
+        "PSD_mean": 0.25968412039878885,
+        "PSD_p01": 0.16590816195945987,
+        "PSD_p99": 0.3458437463004531,
+        "peak_mean": 0.4187515442948698,
+        "REAL_peak_mean": 0.2901851252908308
+      }
+    ]
+  },
+  "previous_negative_results_preserved": true,
+  "formal_response_acceptance": false,
+  "source_SHA256": {
+    "src/n01/model029.py": "40c16bca31ff277912959a040a40770608c49f374eff76cffd45de0d716ea599",
+    "src/n01/model008.py": "56a6b41f9d2906c82757f4ca9f91a751ff8531428a7f38714e0a291359cd1b4f",
+    "scripts/run_response032.py": "541f09ab8b9610ceda7371ea81911dd098e8319f0b330523f04caa3d25a245b8",
+    "scripts/run_response031.py": "bfe819d4ae09b4ed58cd6211e32948af14970e610a29ce3ec2960f1536c4115d",
+    "src/n01/observation008.py": "9f7b6c0a266c420af8c6c155103774bae1ed949cfe05ee6a1f19b75f9254c4ec",
+    "src/n01/losses008.py": "68a9330b7e0620f12adbb3dc22a00c632a1b7577d44b92617da7d14979d9ea61",
+    "src/n01/losses014.py": "86fded3226ae86a5aaae6d9066220923fb6b0aebfeaa09cb638642498e4f4114"
+  },
+  "analysis_artifact": "SAVED_EXAMPLE_SUMMARIES.json",
+  "cause_boundary": "The run jointly changes the mean backbone and all random heads. No matched frozen-mean control was run under identical032 conditions; enabling the mean alone is not an identified cause. Confirmed initialization discontinuity and stochastic-head regular growth are stronger evidence than a claim of a single architecture defect."
+}

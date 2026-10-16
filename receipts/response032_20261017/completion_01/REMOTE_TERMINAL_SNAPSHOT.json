@@ -1,0 +1,1482 @@
+{
+  "UTC": "2026-10-16T21:06:28.020138+00:00",
+  "remote_root": "/home/rylan/projects/ej276d-n01/response032_20261017",
+  "processes": [],
+  "launch": {
+    "supervisor_pid": 52287,
+    "child_pid": 52294,
+    "command": [
+      "timeout",
+      "--signal=TERM",
+      "--kill-after=20s",
+      "3600s",
+      "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+      "-B",
+      "/home/rylan/projects/ej276d-n01/response032_20261017/scripts/run_response032.py",
+      "--config",
+      "/home/rylan/projects/ej276d-n01/response032_20261017/configs/response032_20261017.json",
+      "--config-sha256",
+      "45a02a7a9e7050a60dbb40085825851828829cdadc377145332b29672ca99fdd",
+      "--out",
+      "/home/rylan/projects/ej276d-n01/response032_20261017/run_01",
+      "--device",
+      "cuda:0"
+    ],
+    "started_utc": "2026-10-16T20:55:29.412410+00:00"
+  },
+  "resources": {
+    "supervisor_pid": 52287,
+    "child_pid": 52294,
+    "rss_bytes": 3057770496,
+    "peak_rss_bytes": 3245621248,
+    "child_tree": [
+      52294,
+      52295
+    ],
+    "utc": "2026-10-16T20:58:53.547822+00:00"
+  },
+  "exit": {
+    "exit_code": 0,
+    "reason": null,
+    "peak_rss_bytes": 3245621248,
+    "started_utc": "2026-10-16T20:55:29.412410+00:00",
+    "ended_utc": "2026-10-16T20:58:54.548552+00:00",
+    "supervisor_pid": 52287,
+    "child_pid": 52294
+  },
+  "status": {
+    "step": 2000,
+    "data": 0.1804961076565832,
+    "regular": 0.329153825081242,
+    "saturation": 4.5963023742637326e-05,
+    "objective": 0.18378810553763303,
+    "preclip_gradient_norm": 5.262343406677246,
+    "hypothesis_energy": {
+      "fast": 0.1809559782412736,
+      "slow": 0.18095183672712922,
+      "common_level": 0.17958050800134676
+    },
+    "mean_residual_saturation_fraction": 0.045660335689045935,
+    "execution_counts": {
+      "G_updates": 2000,
+      "NN_calls": 4207,
+      "NN_rows": 282372,
+      "noise005_rows": 282372,
+      "extension_rows": 847116,
+      "generated_ADC_rows": 926232,
+      "checkpoint_loads": 2,
+      "TRAIN_archives_decoded": 1,
+      "DEV_archives_decoded": 0,
+      "DEV_metadata_archives_decoded": 0,
+      "training_AD_queries": 2000
+    }
+  },
+  "failure": null,
+  "complete": {
+    "native_status": "COMPLETE",
+    "RESULT_sha256": "bd613aa71880e623d7b6afbad2f11073e4e81979295d0a3a39aad6278a37ac42",
+    "final_checkpoint_sha256": "130bdab9a76be3a3597d9aafbb6b4b12419dcd28e0034ea9323aaffe7ffbb677",
+    "execution_counts": {
+      "G_updates": 2000,
+      "NN_calls": 4446,
+      "NN_rows": 312840,
+      "noise005_rows": 310792,
+      "extension_rows": 932376,
+      "generated_ADC_rows": 1017636,
+      "checkpoint_loads": 2,
+      "TRAIN_archives_decoded": 1,
+      "DEV_archives_decoded": 1,
+      "DEV_metadata_archives_decoded": 1,
+      "training_AD_queries": 2000
+    }
+  },
+  "result": {
+    "schema": "n01/response032-real-pilot-result/v1",
+    "native_status": "COMPLETE",
+    "G_updates": 2000,
+    "execution_counts": {
+      "G_updates": 2000,
+      "NN_calls": 4446,
+      "NN_rows": 312840,
+      "noise005_rows": 310792,
+      "extension_rows": 932376,
+      "generated_ADC_rows": 1017636,
+      "checkpoint_loads": 2,
+      "TRAIN_archives_decoded": 1,
+      "DEV_archives_decoded": 1,
+      "DEV_metadata_archives_decoded": 1,
+      "training_AD_queries": 2000
+    },
+    "comparisons": {
+      "TRAIN": {
+        "fast": {
+          "relative_wave_improvement": -3.685581094148131,
+          "useful_2percent": false,
+          "A_wave": 0.15383882672116173,
+          "final_wave": 0.7208242980306058,
+          "calibrated_components": {
+            "wave": {
+              "status": "defined",
+              "threshold": 0.18835690066187133,
+              "final_over_T": 3.8269067684681892,
+              "final_minus_A": 0.566985471309444,
+              "noninferior": false,
+              "absolute_within_T": false
+            },
+            "QPSD": {
+              "status": "defined",
+              "threshold": 0.048271307926588014,
+              "final_over_T": 12.912476627492294,
+              "final_minus_A": 0.571869131114906,
+              "noninferior": false,
+              "absolute_within_T": false
+            },
+            "noise": {
+              "status": "defined",
+              "threshold": 0.24513525857737978,
+              "final_over_T": 0.508106551782854,
+              "final_minus_A": 0.0,
+              "noninferior": true,
+              "absolute_within_T": true
+            },
+            "Q_Vns": {
+              "status": "defined",
+              "threshold": 0.14006821393078955,
+              "final_over_T": 3.99152078609042,
+              "final_minus_A": 0.5140308272604517,
+              "noninferior": false,
+              "absolute_within_T": false
+            },
+            "front_Vns": {
+              "status": "defined",
+              "threshold": 0.1090464838504471,
+              "final_over_T": 4.21183707989437,
+              "final_minus_A": 0.3543802689043621,
+              "noninferior": false,
+              "absolute_within_T": false
+            },
+            "tail_Vns": {
+              "status": "defined",
+              "threshold": 0.03108613086926998,
+              "final_over_T": 3.3240429822367985,
+              "final_minus_A": 0.08021209649869296,
+              "noninferior": false,
+              "absolute_within_T": false
+            },
+            "PSD_raw": {
+              "status": "defined",
+              "threshold": 0.0042836374482436,
+              "final_over_T": 19.237181247967577,
+              "final_minus_A": 0.07820022273838494,
+              "noninferior": false,
+              "absolute_within_T": false
+            },
+            "PSD_guarded": {
+              "status": "defined",
+              "threshold": 0.0042836374482436,
+              "final_over_T": 19.237181247967577,
+              "final_minus_A": 0.07820022273838494,
+              "noninferior": false,
+              "absolute_within_T": false
+            },
+            "peak_voltage_V": {
+              "status": "defined",
+              "threshold": 0.005499862543299458,
+              "final_over_T": 5.097773711352515,
+              "final_minus_A": -0.008681376130816675,
+              "noninferior": true,
+              "absolute_within_T": false
+            },
+            "rise10_90_ns": {
+              "status": "defined",
+              "threshold": 0.21159366879623287,
+              "final_over_T": 5.343993558939876,
+              "final_minus_A": -0.42876787423917384,
+              "noninferior": true,
+              "absolute_within_T": false
+            },
+            "FWHM_ns": {
+              "status": "defined",
+              "threshold": 0.5129398878764326,
+              "final_over_T": 5.336786881714886,
+              "final_minus_A": 0.16190593004522968,
+              "noninferior": true,
+              "absolute_within_T": false
+            },
+            "baseline_mean_V": {
+              "status": "defined",
+              "threshold": 4.506386193005153e-07,
+              "final_over_T": 33.53803270853031,
+              "final_minus_A": 0.0,
+              "noninferior": true,
+              "absolute_within_T": false
+            },
+            "baseline_RMS_V": {
+              "status": "defined",
+              "threshold": 6.316818201581438e-05,
+              "final_over_T": 0.2972377321761938,
+              "final_minus_A": 0.0,
+              "noninferior": true,
+              "absolute_within_T": true
+            },
+            "Q_nonpositive_rate": {
+              "status": "not_calibrated"
+            },
+            "PSD_undefined_rate": {
+              "status": "not_calibrated"
+            },
+            "PSD_guarded_rate": {
+              "status": "not_calibrated"
+            },
+            "rise_undefined_rate": {
+              "status": "defined",
+              "threshold": 0.003173828125,
+              "final_over_T": 38.74802801924199,
+              "final_minus_A": 0.11751099651145154,
+              "noninferior": false,
+              "absolute_within_T": false
+            },
+            "FWHM_undefined_rate": {
+              "status": "not_calibrated"
+            },
+            "temporal_nonpositive_peak_rate": {
+              "status": "not_calibrated"
+            },
+            "rise_prepeak_censored_rate": {
+              "status": "defined",
+              "threshold": 0.003173828125,
+              "final_over_T": 38.74802801924199,
+              "final_minus_A": 0.11751099651145154,
+              "noninferior": false,
+              "absolute_within_T": false
+            },
+            "FWHM_prepeak_censored_rate": {
+              "status": "not_calibrated"
+            },
+            "FWHM_postpeak_censored_rate": {
+              "status": "not_calibrated"
+            }
+          },
+          "defined_positive_calibrated_components_noninferior": false,
+          "undefined_positive_calibrated_components": [],
+          "RR_ratios": {
+            "wave": 24.49956942066711,
+            "QPSD": 25.89536825474504,
+            "noise": 5.1125615117716
+          },
+          "RR_is_threshold": false,
+          "G0_values": {
+            "wave": 0.22599851174518137,
+            "QPSD": 0.2758686204152584,
+            "noise": 0.12455483095615072,
+            "Q_Vns": 0.04254443423012627,
+            "front_Vns": 0.053798161479631915,
+            "tail_Vns": 0.06809798294691792,
+            "PSD_raw": 0.027630920307308827,
+            "PSD_guarded": 0.027630920307308827,
+            "peak_voltage_V": 0.03737621190075194,
+            "rise10_90_ns": 1.2631885030517336,
+            "FWHM_ns": 2.1659072316744714,
+            "baseline_mean_V": 1.511353275382762e-05,
+            "baseline_RMS_V": 1.87759671680737e-05,
+            "Q_nonpositive_rate": 0.0,
+            "PSD_undefined_rate": 0.0,
+            "PSD_guarded_rate": 0.0,
+            "rise_undefined_rate": 0.0056202606243279584,
+            "FWHM_undefined_rate": 0.00014162650180392998,
+            "temporal_nonpositive_peak_rate": 0.0,
+            "rise_prepeak_censored_rate": 0.0056202606243279584,
+            "FWHM_prepeak_censored_rate": 0.00014162650180392998,
+            "FWHM_postpeak_censored_rate": 0.0
+          },
+          "final_minus_G0": {
+            "wave": 0.4948257862854244,
+            "QPSD": 0.34743351496529284,
+            "noise": 0.0,
+            "Q_Vns": 0.51654075314518,
+            "front_Vns": 0.4054878626337838,
+            "tail_Vns": 0.03523365221397366,
+            "PSD_raw": 0.05477418968513464,
+            "PSD_guarded": 0.05477418968513464,
+            "peak_voltage_V": -0.00933915721146758,
+            "rise10_90_ns": -0.13243329989220776,
+            "FWHM_ns": 0.5715436330527788,
+            "baseline_mean_V": 0.0,
+            "baseline_RMS_V": 0.0,
+            "Q_nonpositive_rate": 0.0,
+            "PSD_undefined_rate": 0.0,
+            "PSD_guarded_rate": 0.0,
+            "rise_undefined_rate": 0.11735932049143032,
+            "FWHM_undefined_rate": 0.006484149855907781,
+            "temporal_nonpositive_peak_rate": 0.0,
+            "rise_prepeak_censored_rate": 0.11735932049143032,
+            "FWHM_prepeak_censored_rate": 0.006484149855907781,
+            "FWHM_postpeak_censored_rate": 0.0
+          }
+        },
+        "slow": {
+          "relative_wave_improvement": -3.6504007149956257,
+          "useful_2percent": false,
+          "A_wave": 0.1549152936706664,
+          "final_wave": 0.7204181924498243,
+          "calibrated_components": {
+            "wave": {
+              "status": "defined",
+              "threshold": 0.19015560932077008,
+              "final_over_T": 3.788571870286318,
+              "final_minus_A": 0.5655028987791579,
+              "noninferior": false,
+              "absolute_within_T": false
+            },
+            "QPSD": {
+              "status": "defined",
+              "threshold": 0.045608667099154225,
+              "final_over_T": 16.531366371814425,
+              "final_minus_A": 0.7067846945193323,
+              "noninferior": false,
+              "absolute_within_T": false
+            },
+            "noise": {
+              "status": "defined",
+              "threshold": 0.24513525857737978,
+              "final_over_T": 0.508106551782854,
+              "final_minus_A": 0.0,
+              "noninferior": true,
+              "absolute_within_T": true
+            },
+            "Q_Vns": {
+              "status": "defined",
+              "threshold": 0.1400669323527055,
+              "final_over_T": 3.991358352749699,
+              "final_minus_A": 0.5143623286868066,
+              "noninferior": false,
+              "absolute_within_T": false
+            },
+            "front_Vns": {
+              "status": "defined",
+              "threshold": 0.10900203842445293,
+              "final_over_T": 4.214353353092054,
+              "final_minus_A": 0.35471740230582766,
+              "noninferior": false,
+              "absolute_within_T": false
+            },
+            "tail_Vns": {
+              "status": "defined",
+              "threshold": 0.031110665638543,
+              "final_over_T": 3.3179612178574103,
+              "final_minus_A": 0.08237127979935951,
+              "noninferior": false,
+              "absolute_within_T": false
+            },
+            "PSD_raw": {
+              "status": "defined",
+              "threshold": 0.004280475598982037,
+              "final_over_T": 24.244603219462533,
+              "final_minus_A": 0.10014810460503705,
+              "noninferior": false,
+              "absolute_within_T": false
+            },
+            "PSD_guarded": {
+              "status": "defined",
+              "threshold": 0.004280475598982037,
+              "final_over_T": 24.244603219462533,
+              "final_minus_A": 0.10014810460503705,
+              "noninferior": false,
+              "absolute_within_T": false
+            },
+            "peak_voltage_V": {
+              "status": "defined",
+              "threshold": 0.005499869994334829,
+              "final_over_T": 5.098851826130545,
+              "final_minus_A": -0.008683460355544882,
+              "noninferior": true,
+              "absolute_within_T": false
+            },
+            "rise10_90_ns": {
+              "status": "defined",
+              "threshold": 0.21101546028178209,
+              "final_over_T": 5.360126308719578,
+              "final_minus_A": -0.4245596746902842,
+              "noninferior": true,
+              "absolute_within_T": false
+            },
+            "FWHM_ns": {
+              "status": "defined",
+              "threshold": 0.5149414509583063,
+              "final_over_T": 5.310155024747823,
+              "final_minus_A": 0.16255698928672357,
+              "noninferior": true,
+              "absolute_within_T": false
+            },
+            "baseline_mean_V": {
+              "status": "defined",
+              "threshold": 4.506386193005153e-07,
+              "final_over_T": 33.53803270853031,
+              "final_minus_A": 0.0,
+              "noninferior": true,
+              "absolute_within_T": false
+            },
+            "baseline_RMS_V": {
+              "status": "defined",
+              "threshold": 6.316818201581438e-05,
+              "final_over_T": 0.2972377321761938,
+              "final_minus_A": 0.0,
+              "noninferior": true,
+              "absolute_within_T": true
+            },
+            "Q_nonpositive_rate": {
+              "status": "not_calibrated"
+            },
+            "PSD_undefined_rate": {
+              "status": "not_calibrated"
+            },
+            "PSD_guarded_rate": {
+              "status": "not_calibrated"
+            },
+            "rise_undefined_rate": {
+              "status": "defined",
+              "threshold": 0.0025634765625,
+              "final_over_T": 48.12166920906317,
+              "final_minus_A": 0.11758683452146215,
+              "noninferior": false,
+              "absolute_within_T": false
+            },
+            "FWHM_undefined_rate": {
+              "status": "not_calibrated"
+            },
+            "temporal_nonpositive_peak_rate": {
+              "status": "not_calibrated"
+            },
+            "rise_prepeak_censored_rate": {
+              "status": "defined",
+              "threshold": 0.0025634765625,
+              "final_over_T": 48.12166920906317,
+              "final_minus_A": 0.11758683452146215,
+              "noninferior": false,
+              "absolute_within_T": false
+            },
+            "FWHM_prepeak_censored_rate": {
+              "status": "not_calibrated"
+            },
+            "FWHM_postpeak_censored_rate": {
+              "status": "not_calibrated"
+            }
+          },
+          "defined_positive_calibrated_components_noninferior": false,
+          "undefined_positive_calibrated_components": [],
+          "RR_ratios": {
+            "wave": 24.485766595352178,
+            "QPSD": 31.324172570257392,
+            "noise": 5.1125615117716
+          },
+          "RR_is_threshold": false,
+          "G0_values": {
+            "wave": 0.2254408214675766,
+            "QPSD": 0.2823912800102868,
+            "noise": 0.12455483095615072,
+            "Q_Vns": 0.04228312084275164,
+            "front_Vns": 0.053967925983218284,
+            "tail_Vns": 0.06844733158398586,
+            "PSD_raw": 0.028534019250753398,
+            "PSD_guarded": 0.028534019250753398,
+            "peak_voltage_V": 0.037383558860601,
+            "rise10_90_ns": 1.2616457567849992,
+            "FWHM_ns": 2.163586164396162,
+            "baseline_mean_V": 1.511353275382762e-05,
+            "baseline_RMS_V": 1.87759671680737e-05,
+            "Q_nonpositive_rate": 0.0,
+            "PSD_undefined_rate": 0.0,
+            "PSD_guarded_rate": 0.0,
+            "rise_undefined_rate": 0.005582341619322649,
+            "FWHM_undefined_rate": 0.00021746451181454726,
+            "temporal_nonpositive_peak_rate": 0.0,
+            "rise_prepeak_censored_rate": 0.005582341619322649,
+            "FWHM_prepeak_censored_rate": 0.00021746451181454726,
+            "FWHM_postpeak_censored_rate": 0.0
+          },
+          "final_minus_G0": {
+            "wave": 0.4949773709822477,
+            "QPSD": 0.47158230553595026,
+            "noise": 0.0,
+            "Q_Vns": 0.5167741995472466,
+            "front_Vns": 0.4054051801447438,
+            "tail_Vns": 0.03477665046642896,
+            "PSD_raw": 0.07524441323715732,
+            "PSD_guarded": 0.07524441323715732,
+            "peak_voltage_V": -0.009340536696506266,
+            "rise10_90_ns": -0.13057623658204798,
+            "FWHM_ns": 0.5708327688610231,
+            "baseline_mean_V": 0.0,
+            "baseline_RMS_V": 0.0,
+            "Q_nonpositive_rate": 7.583801001061732e-05,
+            "PSD_undefined_rate": 0.0,
+            "PSD_guarded_rate": 0.0,
+            "rise_undefined_rate": 0.11777642954648869,
+            "FWHM_undefined_rate": 0.006408311845897164,
+            "temporal_nonpositive_peak_rate": 0.0,
+            "rise_prepeak_censored_rate": 0.11777642954648869,
+            "FWHM_prepeak_censored_rate": 0.006408311845897164,
+            "FWHM_postpeak_censored_rate": 0.0
+          }
+        },
+        "common_level": {
+          "relative_wave_improvement": -3.6572557743822944,
+          "useful_2percent": false,
+          "A_wave": 0.15486618422219295,
+          "final_wave": 0.7212514307253604,
+          "calibrated_components": {
+            "wave": {
+              "status": "defined",
+              "threshold": 0.1905364603858985,
+              "final_over_T": 3.785372255077012,
+              "final_minus_A": 0.5663852465031673,
+              "noninferior": false,
+              "absolute_within_T": false
+            },
+            "QPSD": {
+              "status": "defined",
+              "threshold": 0.046214249198750015,
+              "final_over_T": 13.458752103316632,
+              "final_minus_A": 0.5687507779268369,
+              "noninferior": false,
+              "absolute_within_T": false
+            },
+            "noise": {
+              "status": "defined",
+              "threshold": 0.24513525857737978,
+              "final_over_T": 0.508106551782854,
+              "final_minus_A": 0.0,
+              "noninferior": true,
+              "absolute_within_T": true
+            },
+            "Q_Vns": {
+              "status": "defined",
+              "threshold": 0.14006769980934886,
+              "final_over_T": 3.992340968142312,
+              "final_minus_A": 0.5140626607139511,
+              "noninferior": false,
+              "absolute_within_T": false
+            },
+            "front_Vns": {
+              "status": "defined",
+              "threshold": 0.10901502706931349,
+              "final_over_T": 4.213472486411379,
+              "final_minus_A": 0.35424909630417334,
+              "noninferior": false,
+              "absolute_within_T": false
+            },
+            "tail_Vns": {
+              "status": "defined",
+              "threshold": 0.031056340139645512,
+              "final_over_T": 3.32946708150697,
+              "final_minus_A": 0.07968024429464013,
+              "noninferior": false,
+              "absolute_within_T": false
+            },
+            "PSD_raw": {
+              "status": "defined",
+              "threshold": 0.004264454906522381,
+              "final_over_T": 19.284532889828526,
+              "final_minus_A": 0.07793008800621072,
+              "noninferior": false,
+              "absolute_within_T": false
+            },
+            "PSD_guarded": {
+              "status": "defined",
+              "threshold": 0.004264454906522381,
+              "final_over_T": 19.284532889828526,
+              "final_minus_A": 0.07793008800621072,
+              "noninferior": false,
+              "absolute_within_T": false
+            },
+            "peak_voltage_V": {
+              "status": "defined",
+              "threshold": 0.00550009352539599,
+              "final_over_T": 5.098555932102817,
+              "final_minus_A": -0.008684506454408637,
+              "noninferior": true,
+              "absolute_within_T": false
+            },
+            "rise10_90_ns": {
+              "status": "defined",
+              "threshold": 0.21177797877203527,
+              "final_over_T": 5.347297113034229,
+              "final_minus_A": -0.42309503582241903,
+              "noninferior": true,
+              "absolute_within_T": false
+            },
+            "FWHM_ns": {
+              "status": "defined",
+              "threshold": 0.5147888093676196,
+              "final_over_T": 5.3077744164146585,
+              "final_minus_A": 0.16024897403025884,
+              "noninferior": true,
+              "absolute_within_T": false
+            },
+            "baseline_mean_V": {
+              "status": "defined",
+              "threshold": 4.506386193005153e-07,
+              "final_over_T": 33.53803270853031,
+              "final_minus_A": 0.0,
+              "noninferior": true,
+              "absolute_within_T": false
+            },
+            "baseline_RMS_V": {
+              "status": "defined",
+              "threshold": 6.316818201581438e-05,
+              "final_over_T": 0.2972377321761938,
+              "final_minus_A": 0.0,
+              "noninferior": true,
+              "absolute_within_T": true
+            },
+            "Q_nonpositive_rate": {
+              "status": "not_calibrated"
+            },
+            "PSD_undefined_rate": {
+              "status": "not_calibrated"
+            },
+            "PSD_guarded_rate": {
+              "status": "not_calibrated"
+            },
+            "rise_undefined_rate": {
+              "status": "defined",
+              "threshold": 0.001953125,
+              "final_over_T": 63.00437459239366,
+              "final_minus_A": 0.11728348248141968,
+              "noninferior": false,
+              "absolute_within_T": false
+            },
+            "FWHM_undefined_rate": {
+              "status": "not_calibrated"
+            },
+            "temporal_nonpositive_peak_rate": {
+              "status": "not_calibrated"
+            },
+            "rise_prepeak_censored_rate": {
+              "status": "defined",
+              "threshold": 0.001953125,
+              "final_over_T": 63.00437459239366,
+              "final_minus_A": 0.11728348248141968,
+              "noninferior": false,
+              "absolute_within_T": false
+            },
+            "FWHM_prepeak_censored_rate": {
+              "status": "not_calibrated"
+            },
+            "FWHM_postpeak_censored_rate": {
+              "status": "not_calibrated"
+            }
+          },
+          "defined_positive_calibrated_components_noninferior": false,
+          "undefined_positive_calibrated_components": [],
+          "RR_ratios": {
+            "wave": 24.514086921166978,
+            "QPSD": 25.840693952231863,
+            "noise": 5.1125615117716
+          },
+          "RR_is_threshold": false,
+          "G0_values": {
+            "wave": 0.22106573201459234,
+            "QPSD": 0.2750715598831485,
+            "noise": 0.12455483095615072,
+            "Q_Vns": 0.04257530107133694,
+            "front_Vns": 0.053918058979601474,
+            "tail_Vns": 0.0679448716089462,
+            "PSD_raw": 0.027553374011097528,
+            "PSD_guarded": 0.027553374011097528,
+            "peak_voltage_V": 0.03738383745987781,
+            "rise10_90_ns": 1.2612401681986873,
+            "FWHM_ns": 2.163307879142441,
+            "baseline_mean_V": 1.511353275382762e-05,
+            "baseline_RMS_V": 1.87759671680737e-05,
+            "Q_nonpositive_rate": 0.0,
+            "PSD_undefined_rate": 0.0,
+            "PSD_guarded_rate": 0.0,
+            "rise_undefined_rate": 0.005658179629333268,
+            "FWHM_undefined_rate": 0.00021746451181454726,
+            "temporal_nonpositive_peak_rate": 0.0,
+            "rise_prepeak_censored_rate": 0.005658179629333268,
+            "FWHM_prepeak_censored_rate": 0.00021746451181454726,
+            "FWHM_postpeak_censored_rate": 0.0
+          },
+          "final_minus_G0": {
+            "wave": 0.500185698710768,
+            "QPSD": 0.34691456372372725,
+            "noise": 0.0,
+            "Q_Vns": 0.5166227151909857,
+            "front_Vns": 0.4054137581823426,
+            "tail_Vns": 0.0354561905580871,
+            "PSD_raw": 0.05468464689092395,
+            "PSD_guarded": 0.05468464689092395,
+            "peak_voltage_V": -0.00934130298884979,
+            "rise10_90_ns": -0.12880039370675878,
+            "FWHM_ns": 0.569074993075573,
+            "baseline_mean_V": 0.0,
+            "baseline_RMS_V": 0.0,
+            "Q_nonpositive_rate": 0.0,
+            "PSD_undefined_rate": 0.0,
+            "PSD_guarded_rate": 0.0,
+            "rise_undefined_rate": 0.1173972394964356,
+            "FWHM_undefined_rate": 0.006218716820870621,
+            "temporal_nonpositive_peak_rate": 0.0,
+            "rise_prepeak_censored_rate": 0.1173972394964356,
+            "FWHM_prepeak_censored_rate": 0.006218716820870621,
+            "FWHM_postpeak_censored_rate": 0.0
+          }
+        }
+      },
+      "DEV": {
+        "fast": {
+          "relative_wave_improvement": -3.31349616467835,
+          "useful_2percent": false,
+          "A_wave": 0.17576602721519846,
+          "final_wave": 0.758166084273509,
+          "calibrated_components": {
+            "wave": {
+              "status": "defined",
+              "threshold": 0.18835690066187133,
+              "final_over_T": 4.025156931385965,
+              "final_minus_A": 0.5824000570583105,
+              "noninferior": false,
+              "absolute_within_T": false
+            },
+            "QPSD": {
+              "status": "defined",
+              "threshold": 0.048271307926588014,
+              "final_over_T": 13.145265701450727,
+              "final_minus_A": 0.5247391628471385,
+              "noninferior": false,
+              "absolute_within_T": false
+            },
+            "noise": {
+              "status": "defined",
+              "threshold": 0.24513525857737978,
+              "final_over_T": 0.5864427824107614,
+              "final_minus_A": 0.0,
+              "noninferior": true,
+              "absolute_within_T": true
+            },
+            "Q_Vns": {
+              "status": "defined",
+              "threshold": 0.14006821393078955,
+              "final_over_T": 3.96980449712555,
+              "final_minus_A": 0.31814310138363316,
+              "noninferior": false,
+              "absolute_within_T": false
+            },
+            "front_Vns": {
+              "status": "defined",
+              "threshold": 0.1090464838504471,
+              "final_over_T": 4.001282987096319,
+              "final_minus_A": 0.24558928315470244,
+              "noninferior": false,
+              "absolute_within_T": false
+            },
+            "tail_Vns": {
+              "status": "defined",
+              "threshold": 0.03108613086926998,
+              "final_over_T": 4.049245204662413,
+              "final_minus_A": 0.06724300800930884,
+              "noninferior": false,
+              "absolute_within_T": false
+            },
+            "PSD_raw": {
+              "status": "defined",
+              "threshold": 0.0042836374482436,
+              "final_over_T": 18.383853892320403,
+              "final_minus_A": 0.0739212607829034,
+              "noninferior": false,
+              "absolute_within_T": false
+            },
+            "PSD_guarded": {
+              "status": "defined",
+              "threshold": 0.0042836374482436,
+              "final_over_T": 18.383853892320403,
+              "final_minus_A": 0.0739212607829034,
+              "noninferior": false,
+              "absolute_within_T": false
+            },
+            "peak_voltage_V": {
+              "status": "defined",
+              "threshold": 0.005499862543299458,
+              "final_over_T": 4.296737476801151,
+              "final_minus_A": -0.012468656190494,
+              "noninferior": true,
+              "absolute_within_T": false
+            },
+            "rise10_90_ns": {
+              "status": "defined",
+              "threshold": 0.21159366879623287,
+              "final_over_T": 4.93657333849782,
+              "final_minus_A": -0.5020175664444437,
+              "noninferior": true,
+              "absolute_within_T": false
+            },
+            "FWHM_ns": {
+              "status": "defined",
+              "threshold": 0.5129398878764326,
+              "final_over_T": 4.94065513344411,
+              "final_minus_A": -0.17000993128844044,
+              "noninferior": true,
+              "absolute_within_T": false
+            },
+            "baseline_mean_V": {
+              "status": "defined",
+              "threshold": 4.506386193005153e-07,
+              "final_over_T": 48.37249693050558,
+              "final_minus_A": 0.0,
+              "noninferior": true,
+              "absolute_within_T": false
+            },
+            "baseline_RMS_V": {
+              "status": "defined",
+              "threshold": 6.316818201581438e-05,
+              "final_over_T": 0.2628547627196892,
+              "final_minus_A": 0.0,
+              "noninferior": true,
+              "absolute_within_T": true
+            },
+            "Q_nonpositive_rate": {
+              "status": "not_calibrated"
+            },
+            "PSD_undefined_rate": {
+              "status": "not_calibrated"
+            },
+            "PSD_guarded_rate": {
+              "status": "not_calibrated"
+            },
+            "rise_undefined_rate": {
+              "status": "defined",
+              "threshold": 0.003173828125,
+              "final_over_T": 39.96044689867728,
+              "final_minus_A": 0.12304687499999999,
+              "noninferior": false,
+              "absolute_within_T": false
+            },
+            "FWHM_undefined_rate": {
+              "status": "not_calibrated"
+            },
+            "temporal_nonpositive_peak_rate": {
+              "status": "not_calibrated"
+            },
+            "rise_prepeak_censored_rate": {
+              "status": "defined",
+              "threshold": 0.003173828125,
+              "final_over_T": 39.96044689867728,
+              "final_minus_A": 0.12304687499999999,
+              "noninferior": false,
+              "absolute_within_T": false
+            },
+            "FWHM_prepeak_censored_rate": {
+              "status": "not_calibrated"
+            },
+            "FWHM_postpeak_censored_rate": {
+              "status": "not_calibrated"
+            }
+          },
+          "defined_positive_calibrated_components_noninferior": false,
+          "undefined_positive_calibrated_components": [],
+          "RR_ratios": {
+            "wave": 25.768752059001084,
+            "QPSD": 26.362215860339152,
+            "noise": 5.900779644917542
+          },
+          "RR_is_threshold": false
+        },
+        "slow": {
+          "relative_wave_improvement": -3.280672603261865,
+          "useful_2percent": false,
+          "A_wave": 0.17703928004560265,
+          "final_wave": 0.7578471957924162,
+          "calibrated_components": {
+            "wave": {
+              "status": "defined",
+              "threshold": 0.19015560932077008,
+              "final_over_T": 3.985405418748481,
+              "final_minus_A": 0.5808079157468136,
+              "noninferior": false,
+              "absolute_within_T": false
+            },
+            "QPSD": {
+              "status": "defined",
+              "threshold": 0.045608667099154225,
+              "final_over_T": 14.346043984876657,
+              "final_minus_A": 0.5495858355103389,
+              "noninferior": false,
+              "absolute_within_T": false
+            },
+            "noise": {
+              "status": "defined",
+              "threshold": 0.24513525857737978,
+              "final_over_T": 0.5864427824107614,
+              "final_minus_A": 0.0,
+              "noninferior": true,
+              "absolute_within_T": true
+            },
+            "Q_Vns": {
+              "status": "defined",
+              "threshold": 0.1400669323527055,
+              "final_over_T": 3.9662409233192943,
+              "final_minus_A": 0.3187915669972479,
+              "noninferior": false,
+              "absolute_within_T": false
+            },
+            "front_Vns": {
+              "status": "defined",
+              "threshold": 0.10900203842445293,
+              "final_over_T": 4.002629046356236,
+              "final_minus_A": 0.2457737189303126,
+              "noninferior": false,
+              "absolute_within_T": false
+            },
+            "tail_Vns": {
+              "status": "defined",
+              "threshold": 0.031110665638543,
+              "final_over_T": 4.045573685513402,
+              "final_minus_A": 0.06836290788043353,
+              "noninferior": false,
+              "absolute_within_T": false
+            },
+            "PSD_raw": {
+              "status": "defined",
+              "threshold": 0.004280475598982037,
+              "final_over_T": 19.17841153727562,
+              "final_minus_A": 0.07819164918466365,
+              "noninferior": false,
+              "absolute_within_T": false
+            },
+            "PSD_guarded": {
+              "status": "defined",
+              "threshold": 0.004280475598982037,
+              "final_over_T": 19.17841153727562,
+              "final_minus_A": 0.07819164918466365,
+              "noninferior": false,
+              "absolute_within_T": false
+            },
+            "peak_voltage_V": {
+              "status": "defined",
+              "threshold": 0.005499869994334829,
+              "final_over_T": 4.298514221280001,
+              "final_minus_A": -0.012468747286678308,
+              "noninferior": true,
+              "absolute_within_T": false
+            },
+            "rise10_90_ns": {
+              "status": "defined",
+              "threshold": 0.21101546028178209,
+              "final_over_T": 4.932144278019348,
+              "final_minus_A": -0.5024852174934256,
+              "noninferior": true,
+              "absolute_within_T": false
+            },
+            "FWHM_ns": {
+              "status": "defined",
+              "threshold": 0.5149414509583063,
+              "final_over_T": 4.899149892886418,
+              "final_minus_A": -0.18150999718757355,
+              "noninferior": true,
+              "absolute_within_T": false
+            },
+            "baseline_mean_V": {
+              "status": "defined",
+              "threshold": 4.506386193005153e-07,
+              "final_over_T": 48.37249693050558,
+              "final_minus_A": 0.0,
+              "noninferior": true,
+              "absolute_within_T": false
+            },
+            "baseline_RMS_V": {
+              "status": "defined",
+              "threshold": 6.316818201581438e-05,
+              "final_over_T": 0.2628547627196892,
+              "final_minus_A": 0.0,
+              "noninferior": true,
+              "absolute_within_T": true
+            },
+            "Q_nonpositive_rate": {
+              "status": "not_calibrated"
+            },
+            "PSD_undefined_rate": {
+              "status": "not_calibrated"
+            },
+            "PSD_guarded_rate": {
+              "status": "not_calibrated"
+            },
+            "rise_undefined_rate": {
+              "status": "defined",
+              "threshold": 0.0025634765625,
+              "final_over_T": 49.85579139836235,
+              "final_minus_A": 0.12402343749999999,
+              "noninferior": false,
+              "absolute_within_T": false
+            },
+            "FWHM_undefined_rate": {
+              "status": "not_calibrated"
+            },
+            "temporal_nonpositive_peak_rate": {
+              "status": "not_calibrated"
+            },
+            "rise_prepeak_censored_rate": {
+              "status": "defined",
+              "threshold": 0.0025634765625,
+              "final_over_T": 49.85579139836235,
+              "final_minus_A": 0.12402343749999999,
+              "noninferior": false,
+              "absolute_within_T": false
+            },
+            "FWHM_prepeak_censored_rate": {
+              "status": "not_calibrated"
+            },
+            "FWHM_postpeak_censored_rate": {
+              "status": "not_calibrated"
+            }
+          },
+          "defined_positive_calibrated_components_noninferior": false,
+          "undefined_positive_calibrated_components": [],
+          "RR_ratios": {
+            "wave": 25.757913591844346,
+            "QPSD": 27.183352384528714,
+            "noise": 5.900779644917542
+          },
+          "RR_is_threshold": false
+        },
+        "common_level": {
+          "relative_wave_improvement": -3.2678151173029364,
+          "useful_2percent": false,
+          "A_wave": 0.17763197900882424,
+          "final_wave": 0.758100445330298,
+          "calibrated_components": {
+            "wave": {
+              "status": "defined",
+              "threshold": 0.1905364603858985,
+              "final_over_T": 3.9787683879237457,
+              "final_minus_A": 0.5804684663214738,
+              "noninferior": false,
+              "absolute_within_T": false
+            },
+            "QPSD": {
+              "status": "defined",
+              "threshold": 0.046214249198750015,
+              "final_over_T": 13.900293198593388,
+              "final_minus_A": 0.5311214906204355,
+              "noninferior": false,
+              "absolute_within_T": false
+            },
+            "noise": {
+              "status": "defined",
+              "threshold": 0.24513525857737978,
+              "final_over_T": 0.5864427824107614,
+              "final_minus_A": 0.0,
+              "noninferior": true,
+              "absolute_within_T": true
+            },
+            "Q_Vns": {
+              "status": "defined",
+              "threshold": 0.14006769980934886,
+              "final_over_T": 3.9631838302360447,
+              "final_minus_A": 0.3173101355716866,
+              "noninferior": false,
+              "absolute_within_T": false
+            },
+            "front_Vns": {
+              "status": "defined",
+              "threshold": 0.10901502706931349,
+              "final_over_T": 4.0001197343616575,
+              "final_minus_A": 0.24512949372655268,
+              "noninferior": false,
+              "absolute_within_T": false
+            },
+            "tail_Vns": {
+              "status": "defined",
+              "threshold": 0.031056340139645512,
+              "final_over_T": 4.0318002127046695,
+              "final_minus_A": 0.0660354974860247,
+              "noninferior": false,
+              "absolute_within_T": false
+            },
+            "PSD_raw": {
+              "status": "defined",
+              "threshold": 0.004264454906522381,
+              "final_over_T": 18.67492103646429,
+              "final_minus_A": 0.07483469662191197,
+              "noninferior": false,
+              "absolute_within_T": false
+            },
+            "PSD_guarded": {
+              "status": "defined",
+              "threshold": 0.004264454906522381,
+              "final_over_T": 18.67492103646429,
+              "final_minus_A": 0.07483469662191197,
+              "noninferior": false,
+              "absolute_within_T": false
+            },
+            "peak_voltage_V": {
+              "status": "defined",
+              "threshold": 0.00550009352539599,
+              "final_over_T": 4.297544172314548,
+              "final_minus_A": -0.012472168062739604,
+              "noninferior": true,
+              "absolute_within_T": false
+            },
+            "rise10_90_ns": {
+              "status": "defined",
+              "threshold": 0.21177797877203527,
+              "final_over_T": 4.928199535071792,
+              "final_minus_A": -0.5006992527949985,
+              "noninferior": true,
+              "absolute_within_T": false
+            },
+            "FWHM_ns": {
+              "status": "defined",
+              "threshold": 0.5147888093676196,
+              "final_over_T": 4.901960120001917,
+              "final_minus_A": -0.18006263143209367,
+              "noninferior": true,
+              "absolute_within_T": false
+            },
+            "baseline_mean_V": {
+              "status": "defined",
+              "threshold": 4.506386193005153e-07,
+              "final_over_T": 48.37249693050558,
+              "final_minus_A": 0.0,
+              "noninferior": true,
+              "absolute_within_T": false
+            },
+            "baseline_RMS_V": {
+              "status": "defined",
+              "threshold": 6.316818201581438e-05,
+              "final_over_T": 0.2628547627196892,
+              "final_minus_A": 0.0,
+              "noninferior": true,
+              "absolute_within_T": true
+            },
+            "Q_nonpositive_rate": {
+              "status": "not_calibrated"
+            },
+            "PSD_undefined_rate": {
+              "status": "not_calibrated"
+            },
+            "PSD_guarded_rate": {
+              "status": "not_calibrated"
+            },
+            "rise_undefined_rate": {
+              "status": "defined",
+              "threshold": 0.001953125,
+              "final_over_T": 65.18572621035058,
+              "final_minus_A": 0.12402343749999999,
+              "noninferior": false,
+              "absolute_within_T": false
+            },
+            "FWHM_undefined_rate": {
+              "status": "not_calibrated"
+            },
+            "temporal_nonpositive_peak_rate": {
+              "status": "not_calibrated"
+            },
+            "rise_prepeak_censored_rate": {
+              "status": "defined",
+              "threshold": 0.001953125,
+              "final_over_T": 65.18572621035058,
+              "final_minus_A": 0.12402343749999999,
+              "noninferior": false,
+              "absolute_within_T": false
+            },
+            "FWHM_prepeak_censored_rate": {
+              "status": "not_calibrated"
+            },
+            "FWHM_postpeak_censored_rate": {
+              "status": "not_calibrated"
+            }
+          },
+          "defined_positive_calibrated_components_noninferior": false,
+          "undefined_positive_calibrated_components": [],
+          "RR_ratios": {
+            "wave": 25.76652110500815,
+            "QPSD": 26.688449243568883,
+            "noise": 5.900779644917542
+          },
+          "RR_is_threshold": false
+        }
+      }
+    },
+    "all_TRAIN_hypotheses_wave_improve_2percent": false,
+    "all_TRAIN_DEV_defined_positive_calibrated_components_noninferior": false,
+    "pilot_relative_progress": false,
+    "actual_coverage": {
+      "source_unique": 6593,
+      "source_total": 6593,
+      "real_unique": 21047,
+      "real_total": 21047
+    },
+    "DEV_previously_exposed": true,
+    "DEV_used_for_training_or_selection": false,
+    "DEV_rows": 599,
+    "source_physical_weights": "unknown",
+    "source_mixture": "uniform_count",
+    "conditional_identification": false,
+    "noise005_frozen": true,
+    "independent_acquisition_acceptance": false,
+    "scientific_status": "response_match_not_established",
+    "original_A_state_sha256": "529f9a67594ac5232b932d7af246a934f1f5e01c62e7502fc3a50736cf5644c7",
+    "frozen005_extension_state_sha256": "bba9cc181344d60a9a00f5c5b8850d30a2020d30a785814b7295496949d85912",
+    "final_model_state_sha256": "cb9ea9521e65aa6034054608a23cb178678d335d31f650a79578cb8e65275d08",
+    "one_training_seed": true,
+    "one_evaluation_MC_bank": true
+  },
+  "source_commit": "997daeb56cf0ac48e2c63b52f1a0d6d4b1e5e255",
+  "source_checks": {
+    "configs/response032_20261017.json": true,
+    "scripts/mechanism012_losses.py": true,
+    "scripts/mechanism012_ops.py": true,
+    "scripts/run_response029.py": true,
+    "scripts/run_response031.py": true,
+    "scripts/run_response032.py": true,
+    "scripts/run_wp1_013.py": true,
+    "scripts/stability011_metrics.py": true,
+    "scripts/supervise.py": true,
+    "scripts/supervise_mechanism012.py": true,
+    "scripts/wp1_boundary_saved.py": true,
+    "scripts/wp1_evaluation.py": true,
+    "scripts/wp1_input_information.py": true,
+    "scripts/wp1_ops.py": true,
+    "scripts/wp1_parameter_probe.py": true,
+    "src/n01/__init__.py": true,
+    "src/n01/ablation009.py": true,
+    "src/n01/data.py": true,
+    "src/n01/data008.py": true,
+    "src/n01/diagnose_mean_random009.py": true,
+    "src/n01/electronics_v3.py": true,
+    "src/n01/evaluate.py": true,
+    "src/n01/evaluate_window008.py": true,
+    "src/n01/extension006.py": true,
+    "src/n01/losses.py": true,
+    "src/n01/losses008.py": true,
+    "src/n01/losses008_v2.py": true,
+    "src/n01/losses014.py": true,
+    "src/n01/model.py": true,
+    "src/n01/model008.py": true,
+    "src/n01/model008_fix01.py": true,
+    "src/n01/model010.py": true,
+    "src/n01/model029.py": true,
+    "src/n01/observation008.py": true,
+    "src/n01/response008.py": true,
+    "src/n01/train.py": true,
+    "src/n01/train_shape010.py": true
+  },
+  "files": [
+    {
+      "path": "control_01/DISPATCH_RECEIPT.json",
+      "bytes": 1306
+    },
+    {
+      "path": "control_01/console.log",
+      "bytes": 7585
+    },
+    {
+      "path": "control_01/dispatcher.log",
+      "bytes": 0
+    },
+    {
+      "path": "control_01/exit_receipt.json",
+      "bytes": 224
+    },
+    {
+      "path": "control_01/launch.json",
+      "bytes": 685
+    },
+    {
+      "path": "control_01/resource_status.json",
+      "bytes": 200
+    },
+    {
+      "path": "control_01/run.lock",
+      "bytes": 0
+    },
+    {
+      "path": "run_01/COMPLETE.json",
+      "bytes": 572
+    },
+    {
+      "path": "run_01/DEV_A_common_level.json",
+      "bytes": 78127
+    },
+    {
+      "path": "run_01/DEV_A_common_level_examples.npz",
+      "bytes": 52436
+    },
+    {
+      "path": "run_01/DEV_A_fast.json",
+      "bytes": 78136
+    },
+    {
+      "path": "run_01/DEV_A_fast_examples.npz",
+      "bytes": 52466
+    },
+    {
+      "path": "run_01/DEV_A_slow.json",
+      "bytes": 78111
+    },
+    {
+      "path": "run_01/DEV_A_slow_examples.npz",
+      "bytes": 52397
+    },
+    {
+      "path": "run_01/DEV_LINEAGE.npz",
+      "bytes": 28279
+    },
+    {
+      "path": "run_01/DEV_final_common_level.json",
+      "bytes": 78163
+    },
+    {
+      "path": "run_01/DEV_final_common_level_examples.npz",
+      "bytes": 50740
+    },
+    {
+      "path": "run_01/DEV_final_fast.json",
+      "bytes": 78158
+    },
+    {
+      "path": "run_01/DEV_final_fast_examples.npz",
+      "bytes": 50935
+    },
+    {
+      "path": "run_01/DEV_final_slow.json",
+      "bytes": 78150
+    },
+    {
+      "path": "run_01/DEV_final_slow_examples.npz",
+      "bytes": 50836
+    },
+    {
+      "path": "run_01/FINAL_ENDPOINT_FREEZE.json",
+      "bytes": 720
+    },
+    {
+      "path": "run_01/REAL_REFERENCE_FLAGS.json",
+      "bytes": 1733
+    },
+    {
+      "path": "run_01/RESULT.json",
+      "bytes": 40352
+    },
+    {
+      "path": "run_01/START.json",
+      "bytes": 9560
+    },
+    {
+      "path": "run_01/STARTUP_GROUP_GRADIENTS.json",
+      "bytes": 723
+    },
+    {
+      "path": "run_01/STATUS.json",
+      "bytes": 752
+    },
+    {
+      "path": "run_01/TRAIN_A_common_level.json",
+      "bytes": 78765
+    },
+    {
+      "path": "run_01/TRAIN_A_common_level_examples.npz",
+      "bytes": 51186
+    },
+    {
+      "path": "run_01/TRAIN_A_fast.json",
+      "bytes": 78757
+    },
+    {
+      "path": "run_01/TRAIN_A_fast_examples.npz",
+      "bytes": 51190
+    },
+    {
+      "path": "run_01/TRAIN_A_slow.json",
+      "bytes": 78791
+    },
+    {
+      "path": "run_01/TRAIN_A_slow_examples.npz",
+      "bytes": 50899
+    },
+    {
+      "path": "run_01/TRAIN_COVERAGE.npz",
+      "bytes": 391571
+    },
+    {
+      "path": "run_01/TRAIN_G0_common_level.json",
+      "bytes": 78809
+    },
+    {
+      "path": "run_01/TRAIN_G0_common_level_examples.npz",
+      "bytes": 52252
+    },
+    {
+      "path": "run_01/TRAIN_G0_fast.json",
+      "bytes": 78794
+    },
+    {
+      "path": "run_01/TRAIN_G0_fast_examples.npz",
+      "bytes": 52409
+    },
+    {
+      "path": "run_01/TRAIN_G0_slow.json",
+      "bytes": 78778
+    },
+    {
+      "path": "run_01/TRAIN_G0_slow_examples.npz",
+      "bytes": 52277
+    },
+    {
+      "path": "run_01/TRAIN_LINEAGE.npz",
+      "bytes": 368096
+    },
+    {
+      "path": "run_01/TRAIN_STATISTICS.json",
+      "bytes": 11612
+    },
+    {
+      "path": "run_01/TRAIN_final_common_level.json",
+      "bytes": 78791
+    },
+    {
+      "path": "run_01/TRAIN_final_common_level_examples.npz",
+      "bytes": 49766
+    },
+    {
+      "path": "run_01/TRAIN_final_fast.json",
+      "bytes": 78788
+    },
+    {
+      "path": "run_01/TRAIN_final_fast_examples.npz",
+      "bytes": 49929
+    },
+    {
+      "path": "run_01/TRAIN_final_slow.json",
+      "bytes": 78818
+    },
+    {
+      "path": "run_01/TRAIN_final_slow_examples.npz",
+      "bytes": 49713
+    },
+    {
+      "path": "run_01/WARMSTART_BINDING.json",
+      "bytes": 436
+    },
+    {
+      "path": "run_01/final.pt",
+      "bytes": 18458866
+    },
+    {
+      "path": "run_01/initial.pt",
+      "bytes": 6446996
+    },
+    {
+      "path": "run_01/metrics.jsonl",
+      "bytes": 725018
+    },
+    {
+      "path": "run_01/periodic_01000.pt",
+      "bytes": 18465427
+    }
+  ],
+  "console_tail": "14, \"slow\": 0.14254376609336794, \"common_level\": 0.1419350712384416}, \"mean_residual_saturation_fraction\": 0.03285114840989399}\n{\"step\": 200, \"data\": 0.11588513423119554, \"regular\": 0.015393789980157002, \"saturation\": 0.0, \"objective\": 0.11603907213099711, \"preclip_gradient_norm\": 6.658464431762695, \"hypothesis_energy\": {\"fast\": 0.1164826723772864, \"slow\": 0.11596401545258223, \"common_level\": 0.115208714863718}, \"mean_residual_saturation_fraction\": 0.009248012367491166}\n{\"step\": 300, \"data\": 0.04224649433094828, \"regular\": 0.025098880886648304, \"saturation\": 0.0, \"objective\": 0.04249748313981476, \"preclip_gradient_norm\": 4.809554100036621, \"hypothesis_energy\": {\"fast\": 0.04149254151485913, \"slow\": 0.04254062841526366, \"common_level\": 0.04270631306272206}, \"mean_residual_saturation_fraction\": 5.521201413427562e-05}\n{\"step\": 400, \"data\": 0.03591409399695649, \"regular\": 0.038632526493153053, \"saturation\": 0.0, \"objective\": 0.03630041926188802, \"preclip_gradient_norm\": 3.619194269180298, \"hypothesis_energy\": {\"fast\": 0.03545116504905339, \"slow\": 0.03667015490608107, \"common_level\": 0.03562096203573502}, \"mean_residual_saturation_fraction\": 0.0036992049469964667}\n{\"step\": 500, \"data\": 0.4169251164762571, \"regular\": 0.44161966502871774, \"saturation\": 5.585045109952027e-05, \"objective\": 0.42134187163105524, \"preclip_gradient_norm\": 7.864406585693359, \"hypothesis_energy\": {\"fast\": 0.41750996741259744, \"slow\": 0.4183295372833814, \"common_level\": 0.41493584473279255}, \"mean_residual_saturation_fraction\": 0.005548807420494699}\n{\"step\": 600, \"data\": 0.41295446016542525, \"regular\": 0.21158850538001203, \"saturation\": 1.0390022491869238e-05, \"objective\": 0.4150704491194503, \"preclip_gradient_norm\": 7.720442771911621, \"hypothesis_energy\": {\"fast\": 0.4125440016019703, \"slow\": 0.4142550857408576, \"common_level\": 0.41206429315344795}, \"mean_residual_saturation_fraction\": 0.03779262367491166}\n{\"step\": 700, \"data\": 0.4243388956129133, \"regular\": 0.2108686870157363, \"saturation\": 2.5186068315006827e-07, \"objective\": 0.4264475850016775, \"preclip_gradient_norm\": 10.779438972473145, \"hypothesis_energy\": {\"fast\": 0.42650335396873, \"slow\": 0.42335889735828786, \"common_level\": 0.4231544355117222}, \"mean_residual_saturation_fraction\": 0.04590878975265018}\n{\"step\": 800, \"data\": 0.39242461410857477, \"regular\": 0.2756688606466916, \"saturation\": 7.362828378256119e-08, \"objective\": 0.3951813034513245, \"preclip_gradient_norm\": 11.279688835144043, \"hypothesis_energy\": {\"fast\": 0.3924415869562091, \"slow\": 0.39272031893134296, \"common_level\": 0.3921119364381723}, \"mean_residual_saturation_fraction\": 0.04946996466431096}\n{\"step\": 900, \"data\": 0.2931916457302933, \"regular\": 0.2760178578583309, \"saturation\": 5.368466945889585e-07, \"objective\": 0.29595182967734357, \"preclip_gradient_norm\": 6.3160719871521, \"hypothesis_energy\": {\"fast\": 0.29333253914135454, \"slow\": 0.2932064617041938, \"common_level\": 0.2930359363453317}, \"mean_residual_saturation_fraction\": 0.051540415194346295}\n{\"step\": 1000, \"data\": 0.2654474277919886, \"regular\": 0.3159376947580143, \"saturation\": 2.7341334510059233e-07, \"objective\": 0.2686068074737022, \"preclip_gradient_norm\": 6.431596755981445, \"hypothesis_energy\": {\"fast\": 0.262315947399519, \"slow\": 0.2684847926594492, \"common_level\": 0.26554154331699775}, \"mean_residual_saturation_fraction\": 0.051595627208480564}\n{\"step\": 1100, \"data\": 0.36761040431519976, \"regular\": 0.31054127223139166, \"saturation\": 3.02320354413116e-06, \"objective\": 0.3707158472695491, \"preclip_gradient_norm\": 7.000372409820557, \"hypothesis_energy\": {\"fast\": 0.36790276374308034, \"slow\": 0.3675657871843813, \"common_level\": 0.3673626620181376}, \"mean_residual_saturation_fraction\": 0.05805543286219081}\n{\"step\": 1200, \"data\": 0.23991435352527163, \"regular\": 0.3668890554650789, \"saturation\": 3.774737753185039e-05, \"objective\": 0.24358362155369773, \"preclip_gradient_norm\": 5.703451156616211, \"hypothesis_energy\": {\"fast\": 0.24333451666380318, \"slow\": 0.23865196239353978, \"common_level\": 0.237756581518472}, \"mean_residual_saturation_fraction\": 0.06007067137809187}\n{\"step\": 1300, \"data\": 0.3728631699933579, \"regular\": 0.30714029514797425, \"saturation\": 2.53377095460606e-05, \"objective\": 0.3759348263219331, \"preclip_gradient_norm\": 8.048758506774902, \"hypothesis_energy\": {\"fast\": 0.3763675675511977, \"slow\": 0.3710351887408284, \"common_level\": 0.37118675368804777}, \"mean_residual_saturation_fraction\": 0.054908348056537104}\n{\"step\": 1400, \"data\": 0.27245204253856486, \"regular\": 0.29789872414033247, \"saturation\": 0.00029793988553423177, \"objective\": 0.27543400917882355, \"preclip_gradient_norm\": 6.95648717880249, \"hypothesis_energy\": {\"fast\": 0.2716482215331336, \"slow\": 0.27298213264018584, \"common_level\": 0.2727257734423752}, \"mean_residual_saturation_fraction\": 0.05786219081272085}\n{\"step\": 1500, \"data\": 0.2921047909659432, \"regular\": 0.4299303664876043, \"saturation\": 7.235415109542831e-06, \"objective\": 0.29640416698497035, \"preclip_gradient_norm\": 6.754187107086182, \"hypothesis_energy\": {\"fast\": 0.29456828995243123, \"slow\": 0.2907727324621609, \"common_level\": 0.2909733504832375}, \"mean_residual_saturation_fraction\": 0.05018772084805653}\n{\"step\": 1600, \"data\": 0.18700933105287057, \"regular\": 0.44565766441227794, \"saturation\": 3.0027378388909946e-05, \"objective\": 0.19146620797077724, \"preclip_gradient_norm\": 7.898645401000977, \"hypothesis_energy\": {\"fast\": 0.18721411991878034, \"slow\": 0.18608975807509737, \"common_level\": 0.18772411516473408}, \"mean_residual_saturation_fraction\": 0.05137477915194347}\n{\"step\": 1700, \"data\": 0.29914233245288857, \"regular\": 0.5424788278752506, \"saturation\": 2.4820920509745454e-06, \"objective\": 0.3045671455525616, \"preclip_gradient_norm\": 5.999244689941406, \"hypothesis_energy\": {\"fast\": 0.29777666383301776, \"slow\": 0.2986442470001182, \"common_level\": 0.3010060865255298}, \"mean_residual_saturation_fraction\": 0.04946996466431096}\n{\"step\": 1800, \"data\": 0.1469663509745171, \"regular\": 0.45663387304900915, \"saturation\": 1.1657373129175578e-05, \"objective\": 0.1515328062787385, \"preclip_gradient_norm\": 3.870741128921509, \"hypothesis_energy\": {\"fast\": 0.14624192103245048, \"slow\": 0.14736665630890966, \"common_level\": 0.14729047558219116}, \"mean_residual_saturation_fraction\": 0.051733657243816254}\n{\"step\": 1900, \"data\": 0.28994323147733037, \"regular\": 0.4702673481092021, \"saturation\": 1.43573027962462e-05, \"objective\": 0.2946460485314503, \"preclip_gradient_norm\": 6.190120697021484, \"hypothesis_energy\": {\"fast\": 0.29039226053189254, \"slow\": 0.28919081568618005, \"common_level\": 0.29024661821391856}, \"mean_residual_saturation_fraction\": 0.04701303003533569}\n{\"step\": 2000, \"data\": 0.1804961076565832, \"regular\": 0.329153825081242, \"saturation\": 4.5963023742637326e-05, \"objective\": 0.18378810553763303, \"preclip_gradient_norm\": 5.262343406677246, \"hypothesis_energy\": {\"fast\": 0.1809559782412736, \"slow\": 0.18095183672712922, \"common_level\": 0.17958050800134676}, \"mean_residual_saturation_fraction\": 0.045660335689045935}\n",
+  "gpu": "0, 227, 0"
+}

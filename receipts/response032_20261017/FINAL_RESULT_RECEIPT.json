@@ -1,0 +1,405 @@
+{
+  "schema": "n01/response032-final-result-receipt/v1",
+  "UTC": "2026-10-16T21:18:39.693391+00:00",
+  "status": "complete_independently_reviewed_negative_REAL_pilot",
+  "native_exit_code": 0,
+  "scientific_status": "response_match_not_established",
+  "pilot_relative_progress": false,
+  "weights_promoted": false,
+  "evidence": {
+    "completion_01/run_01/RESULT.json": {
+      "path": "receipts/response032_20261017/completion_01/run_01/RESULT.json",
+      "bytes": 40352,
+      "sha256": "bd613aa71880e623d7b6afbad2f11073e4e81979295d0a3a39aad6278a37ac42"
+    },
+    "completion_01/run_01/COMPLETE.json": {
+      "path": "receipts/response032_20261017/completion_01/run_01/COMPLETE.json",
+      "bytes": 572,
+      "sha256": "eda826d5edc5cdb70697fea24801868253e4bbeae8d0e93955a2c78ce4d74eda"
+    },
+    "completion_01/REMOTE_TERMINAL_SNAPSHOT.json": {
+      "path": "receipts/response032_20261017/completion_01/REMOTE_TERMINAL_SNAPSHOT.json",
+      "bytes": 58687,
+      "sha256": "5783a15f7433ab3ac0117ea23c0026af7d491b4e9c73ec3c65be396875dacb18"
+    },
+    "completion_01/COLLECTION_RECEIPT.json": {
+      "path": "receipts/response032_20261017/completion_01/COLLECTION_RECEIPT.json",
+      "bytes": 9543,
+      "sha256": "ad56cd2facb591abb3c360bccc866465f7cc7897dee9c2e170662ed7966ec4c1"
+    },
+    "independent_result_01/RESULT_REVIEW.json": {
+      "path": "receipts/response032_20261017/independent_result_01/RESULT_REVIEW.json",
+      "bytes": 75163,
+      "sha256": "27b3a8ccc7c5d90ddeb6ea5bf3a60b8897321e1014bb225b77afbcedb45b4fd1"
+    },
+    "model_diagnosis_01/DIAGNOSIS.json": {
+      "path": "receipts/response032_20261017/model_diagnosis_01/DIAGNOSIS.json",
+      "bytes": 29609,
+      "sha256": "17f64cc81144313359bad2ae590f72e3388ad451ef9593a3130d7f62be9d624f"
+    }
+  },
+  "executed_source_commit": "997daeb56cf0ac48e2c63b52f1a0d6d4b1e5e255",
+  "config_sha256": "45a02a7a9e7050a60dbb40085825851828829cdadc377145332b29672ca99fdd",
+  "execution_counts": {
+    "G_updates": 2000,
+    "NN_calls": 4446,
+    "NN_rows": 312840,
+    "noise005_rows": 310792,
+    "extension_rows": 932376,
+    "generated_ADC_rows": 1017636,
+    "checkpoint_loads": 2,
+    "TRAIN_archives_decoded": 1,
+    "DEV_archives_decoded": 1,
+    "DEV_metadata_archives_decoded": 1,
+    "training_AD_queries": 2000
+  },
+  "elapsed_seconds": 205.136142,
+  "peak_RSS_GiB": 3.0227203369140625,
+  "formal_gates": {
+    "cell_table": [
+      {
+        "split": "TRAIN",
+        "hypothesis": "fast",
+        "wave_relative_gain": -3.685581094148131,
+        "wave_gain_pass": false,
+        "wave_gain_is_pilot_requirement": true,
+        "positive_T_defined_components": 15,
+        "noninferior_components": 6,
+        "noninferiority_pass": false,
+        "failed_components": [
+          "wave",
+          "QPSD",
+          "Q_Vns",
+          "front_Vns",
+          "tail_Vns",
+          "PSD_raw",
+          "PSD_guarded",
+          "rise_undefined_rate",
+          "rise_prepeak_censored_rate"
+        ],
+        "undefined_positive_T_components": []
+      },
+      {
+        "split": "TRAIN",
+        "hypothesis": "slow",
+        "wave_relative_gain": -3.6504007149956257,
+        "wave_gain_pass": false,
+        "wave_gain_is_pilot_requirement": true,
+        "positive_T_defined_components": 15,
+        "noninferior_components": 6,
+        "noninferiority_pass": false,
+        "failed_components": [
+          "wave",
+          "QPSD",
+          "Q_Vns",
+          "front_Vns",
+          "tail_Vns",
+          "PSD_raw",
+          "PSD_guarded",
+          "rise_undefined_rate",
+          "rise_prepeak_censored_rate"
+        ],
+        "undefined_positive_T_components": []
+      },
+      {
+        "split": "TRAIN",
+        "hypothesis": "common_level",
+        "wave_relative_gain": -3.6572557743822944,
+        "wave_gain_pass": false,
+        "wave_gain_is_pilot_requirement": true,
+        "positive_T_defined_components": 15,
+        "noninferior_components": 6,
+        "noninferiority_pass": false,
+        "failed_components": [
+          "wave",
+          "QPSD",
+          "Q_Vns",
+          "front_Vns",
+          "tail_Vns",
+          "PSD_raw",
+          "PSD_guarded",
+          "rise_undefined_rate",
+          "rise_prepeak_censored_rate"
+        ],
+        "undefined_positive_T_components": []
+      },
+      {
+        "split": "DEV",
+        "hypothesis": "fast",
+        "wave_relative_gain": -3.31349616467835,
+        "wave_gain_pass": false,
+        "wave_gain_is_pilot_requirement": false,
+        "positive_T_defined_components": 15,
+        "noninferior_components": 6,
+        "noninferiority_pass": false,
+        "failed_components": [
+          "wave",
+          "QPSD",
+          "Q_Vns",
+          "front_Vns",
+          "tail_Vns",
+          "PSD_raw",
+          "PSD_guarded",
+          "rise_undefined_rate",
+          "rise_prepeak_censored_rate"
+        ],
+        "undefined_positive_T_components": []
+      },
+      {
+        "split": "DEV",
+        "hypothesis": "slow",
+        "wave_relative_gain": -3.280672603261865,
+        "wave_gain_pass": false,
+        "wave_gain_is_pilot_requirement": false,
+        "positive_T_defined_components": 15,
+        "noninferior_components": 6,
+        "noninferiority_pass": false,
+        "failed_components": [
+          "wave",
+          "QPSD",
+          "Q_Vns",
+          "front_Vns",
+          "tail_Vns",
+          "PSD_raw",
+          "PSD_guarded",
+          "rise_undefined_rate",
+          "rise_prepeak_censored_rate"
+        ],
+        "undefined_positive_T_components": []
+      },
+      {
+        "split": "DEV",
+        "hypothesis": "common_level",
+        "wave_relative_gain": -3.2678151173029364,
+        "wave_gain_pass": false,
+        "wave_gain_is_pilot_requirement": false,
+        "positive_T_defined_components": 15,
+        "noninferior_components": 6,
+        "noninferiority_pass": false,
+        "failed_components": [
+          "wave",
+          "QPSD",
+          "Q_Vns",
+          "front_Vns",
+          "tail_Vns",
+          "PSD_raw",
+          "PSD_guarded",
+          "rise_undefined_rate",
+          "rise_prepeak_censored_rate"
+        ],
+        "undefined_positive_T_components": []
+      }
+    ],
+    "TRAIN_wave_passes": 0,
+    "TRAIN_wave_total": 3,
+    "all_six_cell_positive_T_noninferiority_passes": 0,
+    "cell_total": 6,
+    "positive_T_component_noninferiority_passes": 36,
+    "positive_T_component_checks": 90,
+    "pilot_relative_progress_recomputed": false,
+    "reported_booleans_match_recomputed": true,
+    "thresholds_unchanged": true,
+    "DEV_wave_gain_not_a_required_pilot_gate": true,
+    "no_response_match_or_conditional_recovery_established": true
+  },
+  "full_precision_cell_summary": [
+    {
+      "split": "TRAIN",
+      "hypothesis": "fast",
+      "A_wave": 0.15383882672116173,
+      "G0_wave": 0.22599851174518137,
+      "final_wave": 0.7208242980306058,
+      "A_QPSD": 0.05143300426564523,
+      "G0_QPSD": 0.2758686204152584,
+      "final_QPSD": 0.6233021353805512,
+      "relative_wave_gain": -3.685581094148131,
+      "final_A_ratio": 4.685581094148132
+    },
+    {
+      "split": "TRAIN",
+      "hypothesis": "slow",
+      "A_wave": 0.1549152936706664,
+      "G0_wave": 0.2254408214675766,
+      "final_wave": 0.7204181924498243,
+      "A_QPSD": 0.04718889102690473,
+      "G0_QPSD": 0.2823912800102868,
+      "final_QPSD": 0.7539735855462371,
+      "relative_wave_gain": -3.6504007149956257,
+      "final_A_ratio": 4.650400714995626
+    },
+    {
+      "split": "TRAIN",
+      "hypothesis": "common_level",
+      "A_wave": 0.15486618422219295,
+      "G0_wave": 0.22106573201459234,
+      "final_wave": 0.7212514307253604,
+      "A_QPSD": 0.05323534568003885,
+      "G0_QPSD": 0.2750715598831485,
+      "final_QPSD": 0.6219861236068758,
+      "relative_wave_gain": -3.6572557743822944,
+      "final_A_ratio": 4.657255774382294
+    },
+    {
+      "split": "DEV",
+      "hypothesis": "fast",
+      "A_wave": 0.17576602721519846,
+      "G0_wave": null,
+      "final_wave": 0.758166084273509,
+      "A_QPSD": 0.10980000560440553,
+      "G0_QPSD": null,
+      "final_QPSD": 0.634539168451544,
+      "relative_wave_gain": -3.31349616467835,
+      "final_A_ratio": 4.31349616467835
+    },
+    {
+      "split": "DEV",
+      "hypothesis": "slow",
+      "A_wave": 0.17703928004560265,
+      "G0_wave": null,
+      "final_wave": 0.7578471957924162,
+      "A_QPSD": 0.10471810878572443,
+      "G0_QPSD": null,
+      "final_QPSD": 0.6543039442960633,
+      "relative_wave_gain": -3.280672603261865,
+      "final_A_ratio": 4.2806726032618645
+    },
+    {
+      "split": "DEV",
+      "hypothesis": "common_level",
+      "A_wave": 0.17763197900882424,
+      "G0_wave": null,
+      "final_wave": 0.758100445330298,
+      "A_QPSD": 0.1112701231950494,
+      "G0_QPSD": null,
+      "final_QPSD": 0.6423916138154848,
+      "relative_wave_gain": -3.2678151173029364,
+      "final_A_ratio": 4.267815117302936
+    }
+  ],
+  "coverage": {
+    "TRAIN_rows": [
+      6593,
+      21047
+    ],
+    "DEV_rows": [
+      512,
+      599
+    ],
+    "TRAIN_roles": {
+      "source_role": [
+        "TRAIN"
+      ],
+      "real_role": [
+        "TRAIN"
+      ]
+    },
+    "DEV_roles": {
+      "source_role": [
+        "DEV"
+      ],
+      "real_role": [
+        "DEV"
+      ]
+    },
+    "unique_parent_counts": {
+      "TRAIN": {
+        "source_ids": 6593,
+        "real_ids": 21047
+      },
+      "DEV": {
+        "source_ids": 512,
+        "real_ids": 599
+      }
+    },
+    "parent_overlap": {
+      "source_ids": 0,
+      "real_ids": 0
+    },
+    "REAL_group_counts": {
+      "TRAIN": 422,
+      "DEV": 12,
+      "overlap": 0
+    },
+    "coverage_IDs_match_lineage": {
+      "source_ids": true,
+      "real_ids": true
+    },
+    "count_weights_all_one": true,
+    "calibrated_physical_weights": "unknown",
+    "visits": {
+      "source_visits": {
+        "sum": 256000,
+        "nonzero": 6593,
+        "min": 19,
+        "max": 63,
+        "mean": 38.82906112543607,
+        "sd": 6.176757733400933
+      },
+      "real_visits": {
+        "sum": 512000,
+        "nonzero": 21047,
+        "min": 7,
+        "max": 47,
+        "mean": 24.32650734071364,
+        "sd": 4.930602359087937
+      }
+    }
+  },
+  "independent_result_reconstruction": {
+    "errors": [],
+    "recomputed_scalar_comparisons": 432,
+    "maximum_numeric_reconstruction_error": 0.0,
+    "small_collected_non_CP_files_SHA_verified": 49,
+    "CP_files_explicitly_not_opened": [
+      {
+        "path": "run_01/final.pt",
+        "bytes_reported": 18458866,
+        "sha256_reported": "130bdab9a76be3a3597d9aafbb6b4b12419dcd28e0034ea9323aaffe7ffbb677"
+      },
+      {
+        "path": "run_01/initial.pt",
+        "bytes_reported": 6446996,
+        "sha256_reported": "7915369e098128ec818658c96bb92afa5aba7cdb25cacaa3de70ac3e1c6b4376"
+      }
+    ],
+    "all_saved_result_vs_snapshot_and_config_bindings_match": true
+  },
+  "training_update_accounting": {
+    "before032": 193667,
+    "response032_completed": 2000,
+    "startup_previously_accounted": 545,
+    "terminal_increment": 1455,
+    "cumulative": 195667,
+    "new_updates_from_saved_output_review": 0
+  },
+  "confirmed_findings": [
+    "Initial stochastic G0 already degrades native wave and QPSD versus A.",
+    "Optimization reverses around steps460-500; new-head regularization necessarily grows beyond the absolute mean-only bound.",
+    "Hard-window charge and PSD deformation, prepeak censoring and saturation increase in all hypotheses.",
+    "Existing005 is frozen; all TRAIN parents visited; original TRAIN/DEV identities and roles preserved."
+  ],
+  "unresolved": [
+    "Which parameter-group update first destabilizes the initialized model.",
+    "Shared mean features, abs(A) stochastic scaling, hard argmax and normalized view gradients remain possible contributors.",
+    "Saved minibatch losses do not determine population energy risk or prove a unique cause."
+  ],
+  "next_step": {
+    "run": "response033_20261017",
+    "stage": "implementation_only_not_started",
+    "purpose": "One exact first-Adam-update direction audit, with fixed fractional/group perturbations and independent TRAIN risk banks.",
+    "prospective_optimizer_updates": 1,
+    "prospective_AD_queries": 1,
+    "DEV_reads": 0
+  },
+  "delivery": {
+    "final_checkpoint": {
+      "path": "receipts/response032_20261017/completion_01/run_01/final.pt",
+      "bytes": 18458866,
+      "sha256": "130bdab9a76be3a3597d9aafbb6b4b12419dcd28e0034ea9323aaffe7ffbb677",
+      "private_not_for_Git": true
+    },
+    "report": "reports/response032_20261017/REPORT.md",
+    "postrun_checkpoint_deserializations": 0,
+    "postrun_NN_AD_observation_calls": 0
+  }
+}
