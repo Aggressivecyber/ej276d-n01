@@ -1,0 +1,151 @@
+{
+  "schema": "n01/wp4-022-prospective-scope/v1",
+  "run_id": "wp4_022_20261016",
+  "UTC": "2026-10-16T04:37:04.591964+00:00",
+  "status": "registered_implementation_and_source_review_pending_no_scientific_execution",
+  "question": "Before any original fixedT2 model-misspecification training trial, determine whether its declared non-Gaussian zero-Q shape mechanism is detectable at the existing hard256 O19 tolerance under all three frozen electronics hypotheses. Report full257 contrast descriptively.",
+  "scientific_reason": "021 separately quantified canonical population/within-parent variance and parameter-column compensation; the fixedT2 perturbation is in zero-Q shape and preserves its coefficient mean/variance, so canonical charge moments cannot establish hard-observation detectability. ExistingT1 paired qualification does not test this prerequisite.",
+  "prior021_result": {
+    "path": "receipts/wp5_021_20261016/FINAL_RESULT_RECEIPT.json",
+    "bytes": 3635,
+    "sha256": "13cf3cabaeabd852111df74a9d70fe459d0bae790690778ccc12700e93c1587f"
+  },
+  "prior020_scientific_gate": "unpaired seed0 1183pass89fail;seed1 1272pass;dual-seed qualification false; unchanged",
+  "human_authorization": {
+    "path": "receipts/wp4_020_20261016/authorization_01/USER_AUTHORIZATION.json",
+    "sha256": "d1dcdd2002cf52c792aa307e14cc11fb3b1ad25d035ff0cd46a8bb84cc0040fa",
+    "autonomous_registered_additional_NN_RNG_computation_authorized": true,
+    "repeat_confirmation_required": false
+  },
+  "mechanism": {
+    "original_fixed017_T2": true,
+    "component": 0,
+    "mixture_m": 0.9,
+    "replacement": "eta0 = 0.9*Rademacher + sqrt(0.19)*N(0,1)",
+    "other7_shape_coefficients": "original standard Gaussian",
+    "shape_B0": "original immutable cached first zero-canonical-Q column",
+    "T1_a_fraction_qref": 0.01,
+    "T1_b": 0.0025,
+    "charge_and005_and_observation": "unchanged original017 fixedT1 charge coefficients, frozen005, 3electronics hypotheses and hard256 observation"
+  },
+  "data_and_namespace": {
+    "parents": 6593,
+    "original_fit": 5274,
+    "original_heldout": 1319,
+    "banks": 2,
+    "draws_per_bank": 32,
+    "hypotheses": [
+      "fast",
+      "slow",
+      "common_level"
+    ],
+    "old_A_B_Q_read_only": true,
+    "original_SOURCE_REAL_DEV_waveform_reads": 0,
+    "T1_saved_teacher_outputs_and018_scales_nulls_reference_reused": true,
+    "initial_or_trained_T1_endpoints_used": false,
+    "original_teacher_bank_namespace_preserved": true,
+    "same_bank_Gaussian_prefix_shared_between_T1_and_T2": true,
+    "same_bank_or_pooled64_cross_distance_for_independent_energy_forbidden": true,
+    "cross_pairs": [
+      "T2_bank0_vs_T1_bank1",
+      "T2_bank1_vs_T1_bank0"
+    ],
+    "paired_cross_direction_combination": "average the two independent-bank U-statistic contrasts per parent before population weights/parent-cluster standard error; two directions are correlated estimates, not independent replicates"
+  },
+  "score_definitions": {
+    "O19": "four within-bank U self terms once + two cross-family cross-bank terms + one T2 interbank null cross term reusing T2self;2x32 draws, same018 fixed scales/censoring state representation",
+    "O19_distance_pairs": "7*6593*32^2*3 = 141775872",
+    "full257": "existing wave_energy018 with semantic bank-axis reversal forT2, minus savedT1 reference; no parent-axis reversal; no final-initial recovery gate",
+    "full257_distance_pairs": "4*6593*32^2*3 = 81014784"
+  },
+  "prospective_decision": {
+    "required_primary_cells": [
+      {
+        "group": "all_heldout",
+        "weights": "nominal",
+        "hypothesis": "fast"
+      },
+      {
+        "group": "all_heldout",
+        "weights": "nominal",
+        "hypothesis": "slow"
+      },
+      {
+        "group": "all_heldout",
+        "weights": "nominal",
+        "hypothesis": "common_level"
+      }
+    ],
+    "all3_required": true,
+    "unchanged_O19_delta": 0.1,
+    "unchanged_MC_halfwidth_limit": 0.05,
+    "T1_teacher32_null_abs_upper95_limit": 0.05,
+    "T2_teacher32_null_abs_upper95_limit": 0.05,
+    "support": "unchanged018 support rules; no parent dropping/state imputation",
+    "supported_at_registered_tolerance": "all3 primary cross lower95 > .10, halfwidth95 <=.05, T1 andT2 null absupper95 <=.05 and support resolved",
+    "MC_unresolved": "any required support/null/MC resolution unresolved, never treat as detection/pass",
+    "not_established_or_hypothesis_sensitive": "resolved controls but not all3 lower95 exceed .10; report exact per-hypothesis outcomes and intervals; tolerance-straddling remains unresolved",
+    "all36_group_weight_hypothesis_cells": "report all existing4groups x3weights x3hypotheses; secondary cells not selected after looking",
+    "full257": "signed excess and finite parent-weighted uncertainty, descriptive only; no borrowedO19 threshold or fitted recovery acceptance",
+    "limits": "finite fixed-ensemble detection benchmark; no statistical power curve or simultaneous-test calibration, no mechanism absence from non-detection, no statement all hard observables equivalent"
+  },
+  "budget_caps": {
+    "new_teacher_kernels": 1,
+    "evaluation_signal_rows": 421952,
+    "teacher_charge_module_rows": 421952,
+    "shape_cached_basis_assembly_rows": 421952,
+    "noise005_rows": 421952,
+    "all_three_extensions_rows": 1265856,
+    "hard_ADC_rows": 1265856,
+    "hard_first_argmax_gather_rows": 1265856,
+    "normal_shape_scalar_requests": 3375616,
+    "normal_charge_scalar_requests": 421952,
+    "normal_noise005_scalar_requests": 42617152,
+    "normal_extension284_scalar_requests": 119834368,
+    "total_scalar_normal_requests": 166249088,
+    "T2_teacher_sign_uniform_requests": 421952,
+    "coverage_PIT_uniform_requests_incidental_to_unchanged_teacher_evaluation": 7595136,
+    "evaluation_energy_pair_distances": 81014784,
+    "evaluation_observable_pair_distances": 141775872,
+    "new_pair_distances_total": 222790656,
+    "noise005_checkpoint_loads": 1,
+    "A_M0_checkpoint_loads": 0,
+    "cached_A_B_Q_mmap_files": 3,
+    "G_updates": 0,
+    "new_AD_queries": 0,
+    "optimizer_steps": 0,
+    "training_trial_slots": 0,
+    "parent_sampler_streams": 0,
+    "original_SOURCE_REAL_DEV_waveform_reads": 0
+  },
+  "engineering_check_scope": {
+    "new_branch_only": "one fixed artificial cross-bank/parent-axis/U-self semantic regression, originalT2 coefficient/sign namespace by source review and first actual kernel progress proof",
+    "artificial_fixture_NN_AD_G_RNG_CP": 0,
+    "artificial_fixture_distance_pairs_cap_separate_from_scientific_budget": 100000,
+    "repeat_existing_005_observation_codec_or_passed_full_engineering_suites": false,
+    "no_oneoff_helper_framework_or_controller": true
+  },
+  "resources": {
+    "CPU_threads": 12,
+    "GPU_GiB": 10,
+    "job_tree_RSS_GiB": 8,
+    "wall_seconds": 21600,
+    "single_kernel_wall_seconds": 7200,
+    "output_MiB": 5120,
+    "single_kernel_output_MiB": 1536,
+    "shared_output_MiB": 2048,
+    "selected_collection_MiB": 128
+  },
+  "native_success_and_rest": "one owned frozen native supervisor/worker; verify actualT2 sign/kernel/hard progress and same-snapshot CPU12/cmd/cwd/boot/startticks/resources, then save one future wake and rest, no continuous polling",
+  "stopping_rules": [
+    "no T2 training or model extension started by022 regardless of outcome",
+    "no original017 stage2 reopening or threshold/weight/window change",
+    "native0 and detectable artificial contrast are not response recovery/REAL/hardware acceptance",
+    "preserve failures and negative outcomes; autonomous minimal engineering repair allowed only as a separately pinned bounded attempt, not blind retry"
+  ],
+  "original_teacher_training_G_used": 8000,
+  "original_teacher_training_G_limit": 16000,
+  "project_G_before022": 187667,
+  "project_G_after022": 187667,
+  "scientific_status": "response_match_not_established"
+}

@@ -1,0 +1,10 @@
+--- fixture-tested-source
++++ final-source-resource-scope-only
+@@ -320,6 +320,7 @@
+             non_detection_does_not_establish_mechanism_absence=True,T2_training_started=False,
+             old017_pending_preserved=True,old020_nonpass_preserved=True,scientific_acceptance=False)
+         legacy.compact_report017(store.root/'CONTRAST022.json',report)
++        kernel_resources=rt.guard(store.root/'T2',kernel_started)
+         rt.verify(files=True)
+         require(not store.inflight and store.counts==store.attempted==p['budget_caps'], '022 exact additive counters differ')
+         shared_bytes=sum(q.stat().st_size for q in store.root.rglob('*') if q.is_file() and q.relative_to(store.root).parts[0]!='T2')
