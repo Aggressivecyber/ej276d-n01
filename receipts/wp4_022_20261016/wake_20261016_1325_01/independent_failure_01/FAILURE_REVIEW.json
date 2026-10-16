@@ -1,0 +1,181 @@
+{
+  "schema": "n01/wp4-022-independent-failure-review/v1",
+  "run_id": "wp4_022_20261016",
+  "UTC": "2026-10-16T05:28:45.800396+00:00",
+  "verdict": "engineering_failure_verified_scientific_contrast_unknown",
+  "native_exit_code": 1,
+  "scientific_acceptance": false,
+  "snapshot": {
+    "path": "E:\\GAN\\research\\N01\\receipts\\wp4_022_20261016\\wake_20261016_1325_01\\SNAPSHOT.json",
+    "bytes": 95692,
+    "sha256": "6b957ba5d641a0a0f2036cf6dd895a619d16aab757b9f7bf403f52b68638a3a9",
+    "UTC": "2026-10-16T05:26:08.620764+00:00"
+  },
+  "frozen_identity": {
+    "configuration_sha256": "9e812f7f1fbd857886e39a9c4df9bcaa04e1a76bb83dcd2ecf858550c184d814",
+    "driver_sha256": "93b7f09fe44b0aa3ccc0689cf107fdb8e796c1faec597604dc960ee9f2c17a8d",
+    "source_manifest_sha256": "f70d1a447a0e7e0bba346ec2df36510caef333b059066ff51599a60ef055b751",
+    "source_commit_recorded_by_install": "ee325cb440bb0df1daa4482f20012d94708d2e3c",
+    "source_modified_during_review": false
+  },
+  "engineering_cause": {
+    "error_type": "ImportError",
+    "error": "cannot import name 'Z95' from 'n01.stats017' (/home/rylan/projects/ej276d-n01/wp4_022_20261016/src/n01/stats017.py)",
+    "source_location": "scripts/run_wp4_022.py:159,contrast_cell022",
+    "caller": "run022 line296,the first fast cell aggregation",
+    "incorrect_import": "from n01.stats017 import support_cell017, weighted017, Z95",
+    "actual_symbol_provider": "n01.stats018.Z95 = 1.959963984540054",
+    "source_only_confirmation": "Unchanged stats017 has no Z95 binding; unchanged stats018 declares Z95. No numerical module import or test was needed to confirm the mismatch.",
+    "trace": "Traceback (most recent call last):\n  File \"/home/rylan/projects/ej276d-n01/wp4_022_20261016/scripts/run_wp4_022.py\", line 364, in <module>\n    main()\n  File \"/home/rylan/projects/ej276d-n01/wp4_022_20261016/scripts/run_wp4_022.py\", line 357, in main\n    result = run022(args.config, args.config_sha256, args.output, args.device)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/rylan/projects/ej276d-n01/wp4_022_20261016/scripts/run_wp4_022.py\", line 296, in run022\n    cells.append(dict(contrast_cell022(selected,T1_null[test],groups[group],weights[weight]),\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/rylan/projects/ej276d-n01/wp4_022_20261016/scripts/run_wp4_022.py\", line 159, in contrast_cell022\n    from n01.stats017 import support_cell017, weighted017, Z95\nImportError: cannot import name 'Z95' from 'n01.stats017' (/home/rylan/projects/ej276d-n01/wp4_022_20261016/src/n01/stats017.py)\n",
+    "failure_outside_charged_operation": "The ImportError happens after a completed crossbank score operation; journal failed_ids empty does not mean native success.",
+    "stale_phase_label": "FAILED/status phase=frozen_inputs is retained Store metadata, not evidence the job stopped before generation; use durable counters, evaluation metadata and traceback for the actual boundary."
+  },
+  "durable_termination": {
+    "supervisor_pid": 123656,
+    "worker_pid": 123668,
+    "supervisor_alive_at_snapshot": false,
+    "worker_alive_at_snapshot": false,
+    "native_ended_UTC": "2026-10-16T05:01:54.169291+00:00",
+    "FAILED_UTC": "2026-10-16T05:01:52.044682+00:00",
+    "operations_entered": 26393,
+    "operations_completed": 26393,
+    "attempted_equals_completed_counters": true,
+    "journal_entered_completed_and_status_counters_match": true,
+    "inflight": {},
+    "unknown_inflight_ids": [],
+    "failed_ids": [],
+    "truncated_tail": false,
+    "protected_file_errors": []
+  },
+  "completed_scientific_work": {
+    "full_T2_teacher_generation_complete_by_durable_counts_and_EVALUATION_metadata": true,
+    "T2_banks": 2,
+    "draws_per_bank": 32,
+    "parents": 6593,
+    "heldout": 1319,
+    "actual005_NN_rows": 421952,
+    "normal_scalar_requests": 166249088,
+    "T2_sign_uniform_requests": 421952,
+    "incidental_PIT_uniform_requests": 7595136,
+    "hard_ADC_rows_all3_hypotheses": 1265856,
+    "noise005_CP_loads": 1,
+    "G_AD_optimizer_training_trial_CP_saves": 0,
+    "nonzero_completed_counters": {
+      "checkpoint_loads": 1,
+      "teacher_charge_module_rows": 421952,
+      "shape_cached_basis_assembly_rows": 421952,
+      "noise005_rows": 421952,
+      "all_three_extensions_rows": 1265856,
+      "hard_ADC_rows": 1265856,
+      "hard_first_argmax_gather_rows": 1265856,
+      "evaluation_kernel_snapshots": 1,
+      "evaluation_signal_rows": 421952,
+      "normal_shape_scalar_requests": 3375616,
+      "normal_charge_scalar_requests": 421952,
+      "normal_noise005_scalar_requests": 42617152,
+      "normal_extension284_scalar_requests": 119834368,
+      "total_scalar_normal_requests": 166249088,
+      "T2_teacher_sign_uniform_requests": 421952,
+      "coverage_PIT_uniform_requests": 7595136,
+      "evaluation_energy_pair_distances": 27004928,
+      "noise005_checkpoint_loads": 1,
+      "cached_array_mmap_files": 3,
+      "reused_teacher_kernel_sets": 1,
+      "evaluation_observable_pair_distances": 47258624,
+      "new_teacher_kernels": 1,
+      "new_pair_distances_total": 74263552
+    },
+    "completed_fast_full257_pairs": 27004928,
+    "completed_fast_O19_pairs": 47258624,
+    "completed_fast_pair_total": 74263552,
+    "whole_registered_contrast_completions": 0,
+    "missing_remaining_pair_budget": {
+      "full257": 54009856,
+      "O19": 94517248,
+      "total": 148527104
+    },
+    "fast_saved_score_evidence_boundary": "Source/trace place the fast score save before the failed first cell. Full remote inventory and selection now contain PARENT_SCORES022_fast.npz with fixed byte/SHA record; this reviewer has not read or numerically validated its NPZ payload. All T2 EVALUATION array metadata records, including six hard banks, match the full inventory."
+  },
+  "resource_evidence": {
+    "elapsed_seconds": 203.74154302600073,
+    "peak_RSS_bytes": 6721544192,
+    "peak_GPU_bytes": 371195904,
+    "peak_output_bytes": 1028809535,
+    "native_supervisor_resource_stop_reason": null,
+    "native_supervisor_error": null,
+    "recorded_peaks_and_elapsed_below_frozen_caps": true,
+    "unit_output_bound": "Even whole recorded output1,028,809,535B is below the1536MiB T2 subdirectory cap; the2048MiB shared and5120MiB whole caps are also respected.",
+    "native_failure_is_import_error_not_resource_exhaustion": true
+  },
+  "scientific_result_boundary": {
+    "COMPLETE_present": false,
+    "CONTRAST022_present": false,
+    "ARTIFACT_INVENTORY_present": false,
+    "first_cell_did_not_complete": true,
+    "complete36_cell_signature_or3_primary_intervals_available": false,
+    "T2_hard_observability_result": "unknown; no scientific supported/not-established classification",
+    "original_gates_scales_and_thresholds_unchanged": true,
+    "old017_pending_018_qualification_019_failure_020_89fails_021_results_preserved": true,
+    "project_G_before": 187667,
+    "project_G_after": 187667
+  },
+  "withdrawal_of_prior_engineering_readiness": {
+    "original_review": {
+      "path": "E:\\GAN\\research\\N01\\receipts\\wp4_022_20261016\\independent_01\\FINAL_SOURCE_REVIEW.json",
+      "bytes": 29476,
+      "sha256": "53cb47290255afa24107d14756b7c7b1371bdf6539b2d3525ace1b3acdad4a65"
+    },
+    "original_receipt_preserved_unchanged": true,
+    "withdrawn_scope": "The prior no_blockers and ready_for_one_registered_native_observability_prerequisite verdict cannot stand as proof that the complete022 aggregation/report path was executable. That engineering-readiness conclusion is withdrawn for the failed source.",
+    "reviewer_missed_check": "I did not verify the imported Z95 symbol provider in the lazy contrast_cell022 entry. The one fixture exercised crossbank_scores022 and weighted017 directly, not contrast_cell022, so its PASS did not cover this import.",
+    "facts_not_rewritten": "The recorded raw source/config/archive SHA, tested crossbank mathematical fixture scope and preserved historical records remain facts. They are not substituted for end-to-end cell execution."
+  },
+  "bounded_next_action": "Await ROOT prospective registration and stable023 CPU-only recovery sources/contract for the same continuing independent audit. Reuse the complete savedT2 outputs and validated fast score file; compute only remaining slow/common_level scores and complete all36 cell aggregations with Z95 from stats018. Register exact remaining CPU distance budget and immutable reuse inputs before execution. This failure review starts no recovery, NN,CP,AD,G,RNG or new fixture, and does not authorize T2 training.",
+  "audit_actions": {
+    "metadata_and_source_read_only": true,
+    "SSH": 0,
+    "private_array_or_CP_loads": 0,
+    "NN_AD_G_RNG": 0,
+    "fixture_or_old_suite_runs": 0,
+    "scientific_threshold_or_source_edits": 0,
+    "shared_metadata_or_Git_edits": 0,
+    "owned_output_only": "wake_20261016_1325_01/independent_failure_01/FAILURE_REVIEW.json"
+  },
+  "collection_inventory_crosscheck": {
+    "review_scope": "JSON metadata only; no archive/NPZ/CP payload read.",
+    "collection_receipt": {
+      "path": "E:\\GAN\\research\\N01\\receipts\\wp4_022_20261016\\wake_20261016_1325_01\\collection_01\\COLLECTION_RECEIPT.json",
+      "bytes": 729,
+      "sha256": "656d4378eac4c230f1662a7d4ebf55b63e533d22ef77a4ed2d23bb784eb05aa6"
+    },
+    "full_remote_inventory": {
+      "path": "E:\\GAN\\research\\N01\\receipts\\wp4_022_20261016\\wake_20261016_1325_01\\collection_01\\REMOTE_FULL_INVENTORY.json",
+      "bytes": 31800,
+      "sha256": "7fd5bb7089b1e8f3b1acc1dd2a2ac5198652584c71011af563cae5ff6df32f89"
+    },
+    "whole_files": 85,
+    "selected_files": 27,
+    "omitted_remote_files": 58,
+    "selected_archive_bytes": 12994560,
+    "selected_archive_sha256": "fbc22d3df949e5ff999d5048e2511a1c9fdd4fd373ab9985646492dc6a574c74",
+    "whole_selected_omitted_partition_exact": true,
+    "selected_T2_EVALUATION_JSON_actual_bytes_SHA_match_full_inventory": true,
+    "T2_evaluation_array_record_count": 22,
+    "all_T2_EVALUATION_array_records_equal_full_inventory": true,
+    "all6_T2_hard_bank_records_present": true,
+    "T2_evaluation_metadata": {
+      "bytes": 4761,
+      "sha256": "5892eb88dd9f2430d9a7ece3010ab25a8c8bab261c3eeaabc6d340f95945250d"
+    },
+    "fast_saved_scores": {
+      "relative_path": "runs/primary/artifacts/PARENT_SCORES022_fast.npz",
+      "bytes": 1024912,
+      "sha256": "52a96823c9b2d5ce336ca567823110292aa4d06829d8cadb0bf4676c6fa7508b",
+      "selected_for_future_CPU_reuse": true,
+      "payload_not_read_or_numerically_validated_by_this_review": true
+    },
+    "full_operation_and_console_logs_in_selected_inventory": true,
+    "original_producer_ARTIFACT_INVENTORY_missing_due_failure": true,
+    "root_full_remote_byte_SHA_verification_claim": true
+  }
+}

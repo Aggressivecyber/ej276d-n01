@@ -10,9 +10,9 @@
   },
   "objective": "Deliver a usable and verifiable conditional effective stochastic response kernel with explicit data and physical scope; assess engineering, in-domain effectiveness and cross-condition reuse separately.",
   "mainline": "protected deterministic A plus input-dependent stochastic response, fixed256 hard output/384 carrier/100 baseline/1ns software sampling; originalfull19k retained as negative control",
-  "status": "WP4_022_fixedT2_observability_running",
+  "status": "WP4_023_CPU_only_scoring_recovery_registered",
   "active_work_package": "WP4",
-  "active_scientific_jobs": 1,
+  "active_scientific_jobs": 0,
   "work_packages": [
     {
       "id": "WP1",
@@ -2113,7 +2113,7 @@
     },
     {
       "id": "WP4",
-      "status": "T1_closed_unpaired_nonpass_T2_observability022_running_no_training",
+      "status": "T1_closed_unpaired_nonpass_T2_kernel_saved_scoring_recovery_pending",
       "scope": [
         "one_in_family_teacher",
         "one_fixed_out_of_family_teacher",
@@ -3910,8 +3910,8 @@
       },
       "fixed_T2_observability022": {
         "run_id": "wp4_022_20261016",
-        "status": "running_fixedT2_teacher_generation_correct_start_verified",
-        "active": true,
+        "status": "closed_native1_T2_generated_scoring_incomplete_recovery_registered_next",
+        "active": false,
         "native_started": true,
         "remote_root": "/home/rylan/projects/ej276d-n01/wp4_022_20261016",
         "config_sha256": "9e812f7f1fbd857886e39a9c4df9bcaa04e1a76bb83dcd2ecf858550c184d814",
@@ -3922,7 +3922,7 @@
         "source_files": 43,
         "input_files": 27,
         "input_bytes": 833895817,
-        "source_review_no_blockers": true,
+        "source_review_no_blockers": false,
         "source_review": {
           "path": "receipts/wp4_022_20261016/independent_01/FINAL_SOURCE_REVIEW.json",
           "bytes": 29476,
@@ -3942,34 +3942,40 @@
         "T2_training_started": false,
         "scientific_status": "response_match_not_established",
         "source_commit": "ee325cb440bb0df1daa4482f20012d94708d2e3c",
-        "supervisor_pid": 123656,
-        "worker_pid": 123668,
+        "supervisor_pid": null,
+        "worker_pid": null,
         "boot_id": "06177e53-90a1-4d8c-a942-03b487a0684d",
         "supervisor_start_ticks": 4073008,
         "worker_start_ticks": 4073044,
         "correct_start_verified": true,
-        "last_verified_UTC": "2026-10-16T04:59:38.468136+00:00",
-        "last_verified_phase": "fixedT2_teacher_generation_in_progress",
+        "last_verified_UTC": "2026-10-16T05:26:08.620764+00:00",
+        "last_verified_phase": "native1_first_fast_cell_ImportError",
         "durable_completed_counts": {
-          "evaluation_signal_rows": 210976,
-          "shape_cached_basis_assembly_rows": 210976,
-          "normal_noise005_scalar_requests": 21308576,
+          "new_pair_distances_total": 74263552,
+          "shape_cached_basis_assembly_rows": 421952,
           "cached_array_mmap_files": 3,
-          "normal_extension284_scalar_requests": 59917184,
-          "hard_first_argmax_gather_rows": 632928,
-          "all_three_extensions_rows": 632928,
-          "teacher_charge_module_rows": 210976,
-          "normal_charge_scalar_requests": 210976,
-          "noise005_checkpoint_loads": 1,
-          "total_scalar_normal_requests": 83124544,
-          "T2_teacher_sign_uniform_requests": 210976,
-          "normal_shape_scalar_requests": 1687808,
+          "evaluation_kernel_snapshots": 1,
+          "normal_extension284_scalar_requests": 119834368,
+          "all_three_extensions_rows": 1265856,
+          "total_scalar_normal_requests": 166249088,
+          "evaluation_energy_pair_distances": 27004928,
+          "new_teacher_kernels": 1,
           "reused_teacher_kernel_sets": 1,
+          "hard_first_argmax_gather_rows": 1265856,
+          "noise005_rows": 421952,
+          "normal_noise005_scalar_requests": 42617152,
+          "evaluation_signal_rows": 421952,
           "checkpoint_loads": 1,
-          "noise005_rows": 210976,
-          "hard_ADC_rows": 632928
+          "teacher_charge_module_rows": 421952,
+          "normal_charge_scalar_requests": 421952,
+          "noise005_checkpoint_loads": 1,
+          "hard_ADC_rows": 1265856,
+          "coverage_PIT_uniform_requests": 7595136,
+          "T2_teacher_sign_uniform_requests": 421952,
+          "evaluation_observable_pair_distances": 47258624,
+          "normal_shape_scalar_requests": 3375616
         },
-        "inflight_after_snapshot": "unknown_until_next_actual_snapshot",
+        "inflight_after_snapshot": "none_terminal_exact_journal",
         "current_resource_health": {
           "collected_by_native_snapshot": true,
           "snapshot_UTC": "2026-10-16T04:59:38.468136+00:00",
@@ -3995,7 +4001,7 @@
           "UTC": "2026-10-16T05:02:27.069654+00:00",
           "automation_id": "n01",
           "kind": "heartbeat",
-          "status": "ACTIVE",
+          "status": "DELIVERED_then_PAUSED_terminal",
           "count": 1,
           "next_wake_local": "2026-10-16T13:25:00+08:00",
           "next_wake_UTC": "2026-10-16T05:25:00+00:00",
@@ -4034,6 +4040,29 @@
           "path": "receipts/wp4_022_20261016/SOURCE_COMMIT_RECEIPT.json",
           "bytes": 7769,
           "sha256": "3fe3382b7b5b967c7e95c37574f5e29a786b4a942ddd5224594c6ec0dff00d56"
+        },
+        "native_exit_code": 1,
+        "completed_UTC": "2026-10-16T05:01:54.169291+00:00",
+        "original_source_review_execution_ready_withdrawn": true,
+        "historical_supervisor_pid": 123656,
+        "historical_worker_pid": 123668,
+        "scientific_result": "unknown_incomplete_cell_scoring",
+        "T2_kernel_generation_complete": true,
+        "fast_scores_saved": true,
+        "independent_failure_review": {
+          "path": "receipts/wp4_022_20261016/wake_20261016_1325_01/independent_failure_01/FAILURE_REVIEW.json",
+          "bytes": 11034,
+          "sha256": "cc5497aec83482c21b4e09246d3fa18dabe88ec5a3d18d24c3a77fcad65c8c8c"
+        },
+        "result": {
+          "path": "receipts/wp4_022_20261016/FINAL_RESULT_RECEIPT.json",
+          "bytes": 7462,
+          "sha256": "f83ab370385b6e6946aaf6e98bd01bfb9d27653798c337d9d85018f6ccab3452"
+        },
+        "report": {
+          "path": "reports/wp4_022_20261016/REPORT.md",
+          "bytes": 2296,
+          "sha256": "1dec5ea77c06f4c815337e53457f7e4e35f96538bf0f566fb7c83cc7a9bcaf4d"
         }
       }
     },
@@ -4930,14 +4959,14 @@
     "root_planning_SolMax_implementation_and_review": true,
     "scientific_success_not_guaranteed_by_state_fields": true
   },
-  "current_action": "022 actual fixedT2 generation verified; no further remote queries before one saved wake.",
-  "updated_UTC": "2026-10-16T05:02:27.069654+00:00",
+  "current_action": "Implement023 remaining CPU scoring only, preserving completed022 generation andfast scores.",
+  "updated_UTC": "2026-10-16T05:33:42.913699+00:00",
   "followup": {
     "schema": "n01/wp4-022-single-followup/v1",
     "UTC": "2026-10-16T05:02:27.069654+00:00",
     "automation_id": "n01",
     "kind": "heartbeat",
-    "status": "ACTIVE",
+    "status": "DELIVERED_then_PAUSED_terminal",
     "count": 1,
     "next_wake_local": "2026-10-16T13:25:00+08:00",
     "next_wake_UTC": "2026-10-16T05:25:00+00:00",
@@ -5244,9 +5273,9 @@
     "independent_saved_array_scope": "36pairs/176NPZ/1898784hard_rows; not complete loss replay"
   },
   "current_work_package": "WP4",
-  "current_stage": "WP4_022_T2_teacher_generation_then_crossbank_CPU_scoring",
+  "current_stage": "WP4_023_minimal_CPU_scoring_recovery_implementation",
   "active_research": null,
-  "next_action": "At the saved wake inspect actual phase or native terminal, then inventory/hash/select <=128MiB and necessary saved-vector numerical readback; no automatic T2 training.",
+  "next_action": "Freeze exact inputs/source/budgets, one newcell artificial semantic check and one source audit, then executeCPU recovery.",
   "last_verified_UTC": "2026-10-16T04:59:38.468136+00:00",
   "wp2_collection": {
     "path": "receipts\\wp2_014_20261015\\collection_01\\COLLECTION_RECEIPT.json",
@@ -5453,8 +5482,8 @@
   "current_run_training_updates": 0,
   "latest_training_run_id": "wp4_017_20261015",
   "followup_automation_id": "n01",
-  "followup_automation_status": "ACTIVE",
-  "followup_next_run_local": "2026-10-16T13:25:00+08:00",
+  "followup_automation_status": "PAUSED",
+  "followup_next_run_local": null,
   "followup_receipt": "receipts/wp4_022_20261016/FOLLOWUP_RECEIPT.json",
   "followup_receipt_sha256": "2c034090bd97ce21754694cf02056bc5a8850e3eb69f229d8d4b2e554172e2b7",
   "wp2_saved_array_closeout": {
@@ -6381,7 +6410,7 @@
       "scientific_acceptance": false
     }
   },
-  "pending_run_id": null,
+  "pending_run_id": "wp4_023_20261016",
   "wp3_016_execution": {
     "configuration": "wp3_016_config.json",
     "configuration_sha256": "5279597aed74feae87448bfc71aa1387bd711609591eabde775142fa6d1303ab",
@@ -8686,7 +8715,7 @@
     }
   },
   "wp3_completed": true,
-  "active_run_id": "wp4_022_20261016",
+  "active_run_id": null,
   "wp4_017_local_delivery": {
     "document": {
       "path": "receipts/wp4_017_20261015/LOCAL_DELIVERY.md",
@@ -9261,8 +9290,8 @@
   },
   "wp4_022_execution": {
     "run_id": "wp4_022_20261016",
-    "status": "running_fixedT2_teacher_generation_correct_start_verified",
-    "active": true,
+    "status": "closed_native1_T2_generated_scoring_incomplete_recovery_registered_next",
+    "active": false,
     "native_started": true,
     "remote_root": "/home/rylan/projects/ej276d-n01/wp4_022_20261016",
     "config_sha256": "9e812f7f1fbd857886e39a9c4df9bcaa04e1a76bb83dcd2ecf858550c184d814",
@@ -9273,7 +9302,7 @@
     "source_files": 43,
     "input_files": 27,
     "input_bytes": 833895817,
-    "source_review_no_blockers": true,
+    "source_review_no_blockers": false,
     "source_review": {
       "path": "receipts/wp4_022_20261016/independent_01/FINAL_SOURCE_REVIEW.json",
       "bytes": 29476,
@@ -9293,34 +9322,40 @@
     "T2_training_started": false,
     "scientific_status": "response_match_not_established",
     "source_commit": "ee325cb440bb0df1daa4482f20012d94708d2e3c",
-    "supervisor_pid": 123656,
-    "worker_pid": 123668,
+    "supervisor_pid": null,
+    "worker_pid": null,
     "boot_id": "06177e53-90a1-4d8c-a942-03b487a0684d",
     "supervisor_start_ticks": 4073008,
     "worker_start_ticks": 4073044,
     "correct_start_verified": true,
-    "last_verified_UTC": "2026-10-16T04:59:38.468136+00:00",
-    "last_verified_phase": "fixedT2_teacher_generation_in_progress",
+    "last_verified_UTC": "2026-10-16T05:26:08.620764+00:00",
+    "last_verified_phase": "native1_first_fast_cell_ImportError",
     "durable_completed_counts": {
-      "evaluation_signal_rows": 210976,
-      "shape_cached_basis_assembly_rows": 210976,
-      "normal_noise005_scalar_requests": 21308576,
+      "new_pair_distances_total": 74263552,
+      "shape_cached_basis_assembly_rows": 421952,
       "cached_array_mmap_files": 3,
-      "normal_extension284_scalar_requests": 59917184,
-      "hard_first_argmax_gather_rows": 632928,
-      "all_three_extensions_rows": 632928,
-      "teacher_charge_module_rows": 210976,
-      "normal_charge_scalar_requests": 210976,
-      "noise005_checkpoint_loads": 1,
-      "total_scalar_normal_requests": 83124544,
-      "T2_teacher_sign_uniform_requests": 210976,
-      "normal_shape_scalar_requests": 1687808,
+      "evaluation_kernel_snapshots": 1,
+      "normal_extension284_scalar_requests": 119834368,
+      "all_three_extensions_rows": 1265856,
+      "total_scalar_normal_requests": 166249088,
+      "evaluation_energy_pair_distances": 27004928,
+      "new_teacher_kernels": 1,
       "reused_teacher_kernel_sets": 1,
+      "hard_first_argmax_gather_rows": 1265856,
+      "noise005_rows": 421952,
+      "normal_noise005_scalar_requests": 42617152,
+      "evaluation_signal_rows": 421952,
       "checkpoint_loads": 1,
-      "noise005_rows": 210976,
-      "hard_ADC_rows": 632928
+      "teacher_charge_module_rows": 421952,
+      "normal_charge_scalar_requests": 421952,
+      "noise005_checkpoint_loads": 1,
+      "hard_ADC_rows": 1265856,
+      "coverage_PIT_uniform_requests": 7595136,
+      "T2_teacher_sign_uniform_requests": 421952,
+      "evaluation_observable_pair_distances": 47258624,
+      "normal_shape_scalar_requests": 3375616
     },
-    "inflight_after_snapshot": "unknown_until_next_actual_snapshot",
+    "inflight_after_snapshot": "none_terminal_exact_journal",
     "current_resource_health": {
       "collected_by_native_snapshot": true,
       "snapshot_UTC": "2026-10-16T04:59:38.468136+00:00",
@@ -9346,7 +9381,7 @@
       "UTC": "2026-10-16T05:02:27.069654+00:00",
       "automation_id": "n01",
       "kind": "heartbeat",
-      "status": "ACTIVE",
+      "status": "DELIVERED_then_PAUSED_terminal",
       "count": 1,
       "next_wake_local": "2026-10-16T13:25:00+08:00",
       "next_wake_UTC": "2026-10-16T05:25:00+00:00",
@@ -9385,7 +9420,45 @@
       "path": "receipts/wp4_022_20261016/SOURCE_COMMIT_RECEIPT.json",
       "bytes": 7769,
       "sha256": "3fe3382b7b5b967c7e95c37574f5e29a786b4a942ddd5224594c6ec0dff00d56"
+    },
+    "native_exit_code": 1,
+    "completed_UTC": "2026-10-16T05:01:54.169291+00:00",
+    "original_source_review_execution_ready_withdrawn": true,
+    "historical_supervisor_pid": 123656,
+    "historical_worker_pid": 123668,
+    "scientific_result": "unknown_incomplete_cell_scoring",
+    "T2_kernel_generation_complete": true,
+    "fast_scores_saved": true,
+    "independent_failure_review": {
+      "path": "receipts/wp4_022_20261016/wake_20261016_1325_01/independent_failure_01/FAILURE_REVIEW.json",
+      "bytes": 11034,
+      "sha256": "cc5497aec83482c21b4e09246d3fa18dabe88ec5a3d18d24c3a77fcad65c8c8c"
+    },
+    "result": {
+      "path": "receipts/wp4_022_20261016/FINAL_RESULT_RECEIPT.json",
+      "bytes": 7462,
+      "sha256": "f83ab370385b6e6946aaf6e98bd01bfb9d27653798c337d9d85018f6ccab3452"
+    },
+    "report": {
+      "path": "reports/wp4_022_20261016/REPORT.md",
+      "bytes": 2296,
+      "sha256": "1dec5ea77c06f4c815337e53457f7e4e35f96538bf0f566fb7c83cc7a9bcaf4d"
     }
   },
-  "wp4_total_completed_G_updates_lower_bound": 8000
+  "wp4_total_completed_G_updates_lower_bound": 8000,
+  "wp4_022_result": {
+    "path": "receipts/wp4_022_20261016/FINAL_RESULT_RECEIPT.json",
+    "bytes": 7462,
+    "sha256": "f83ab370385b6e6946aaf6e98bd01bfb9d27653798c337d9d85018f6ccab3452"
+  },
+  "wp4_022_report": {
+    "path": "reports/wp4_022_20261016/REPORT.md",
+    "bytes": 2296,
+    "sha256": "1dec5ea77c06f4c815337e53457f7e4e35f96538bf0f566fb7c83cc7a9bcaf4d"
+  },
+  "wp4_023_prospective_scope": {
+    "path": "receipts/wp4_023_20261016/registration_01/PROSPECTIVE_SCOPE.json",
+    "bytes": 6175,
+    "sha256": "d547c1d6b0f926c51d8f29188329c6ee7c4da2351e8049277df733e62cf272a7"
+  }
 }
