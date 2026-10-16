@@ -1,0 +1,90 @@
+{
+  "schema": "n01/wp6-028-prospective-independent-readback/v1",
+  "run_id": "wp6_028_20261017",
+  "registered_UTC": "2026-10-16T17:53:01.467071+00:00",
+  "status": "authorized_one_saved_output_readback",
+  "input": {
+    "path": "E:\\GAN\\research\\N01\\runs\\wp6_028_20261017\\selected_collected_01\\runs\\primary\\artifacts\\EXAMPLE.npz",
+    "bytes": 359127,
+    "sha256": "1b35cee1fbcc266cef5640934ba6a0f5e9549cfe6e44227c044fe6a8204fd6cd",
+    "ROOT_verification": "Size checked; exact raw SHA independently verified during collection. ROOT has decoded no NPZ."
+  },
+  "bindings": {
+    "runs/wp6_028_20261017/selected_collected_01/runs/primary/artifacts/ARRAY_SCHEMA.json": {
+      "bytes": 5609,
+      "sha256": "976ffc421cefe9ee626cdb875c2f725a1745ed85eca03436e675516dc218aca6"
+    },
+    "runs/wp6_028_20261017/selected_collected_01/runs/primary/artifacts/COMPLETE.json": {
+      "bytes": 23744,
+      "sha256": "151c7b94fc8d423179fdf95e11035b3c8d326c36ebcfc7250ca21b733774ec52"
+    },
+    "runs/wp6_028_20261017/selected_collected_01/runs/primary/supervisor/NATIVE_EXIT.json": {
+      "bytes": 2295,
+      "sha256": "fde69a9fe9e268be85ea8eebfa7751d404f6948a691d08dfd3f7b1bba77bfed5"
+    },
+    "receipts/wp6_028_20261017/collection_01/COLLECTION_RECEIPT.json": {
+      "bytes": 5756,
+      "sha256": "51c7d28402470b1d25604d7f9beb14d29cfc5e31f5683cac1518b2e31f480236"
+    },
+    "receipts/wp6_028_20261017/independent_01/READBACK_PROPOSAL.json": {
+      "bytes": 4886,
+      "sha256": "f0c3ec6949385e953239b55e20754d0a0477d02b47a2a5419b79e551f6fba7ad"
+    }
+  },
+  "actual_ARRAY_SCHEMA_pure_JSON_precheck": true,
+  "footprint": {
+    "NPZ_archive_opens": 1,
+    "member_value_loads": 37,
+    "total_values": 182940,
+    "total_payload_bytes": 1386296,
+    "NPY_headers": "37 headers; actual uncompressed ZIP bytes recorded from final manifest/header metadata without value decode",
+    "original_CP_binary_reads": 0,
+    "original_DATASET_reads": 0,
+    "new_NN_rows": 0,
+    "new_RNG": 0,
+    "new_ADC": 0,
+    "AD": 0,
+    "loss_CDF_fits_training": 0,
+    "scientific_reruns": 0
+  },
+  "checks": [
+    "Exact 37-member dtype, shape, count and payload against final ARRAY_SCHEMA and this prospective footprint",
+    "Recompute every call tensor_state_digest010 encoding from saved ndarray bytes using stdlib SHA/JSON; compare all 12 producer result SHA values",
+    "Returned ADC prefix copies, baseline-centered gather, first-argmax/search/global peak/crop geometry, all seven flags and parent/draw mapping",
+    "Q and tail reduction plus baseline mean under the prospective floating reduction rule below",
+    "PSD_raw including NaN/undefined and protected PSD algebra from saved Q/tail/bound floor; no ADC reapplication",
+    "Within each model seed: complete fast replay byte identity; shared full latent libraries/prefix/scale across all six calls; chargeoff signal equals original saved M0 reference bytes; shapeoff M0 equals saved A while charge remains enabled",
+    "Across model seeds: same source-conditioned A and same sampling latent bank/prefix/scale; original per-seed heads kept distinct without selecting one",
+    "Reconcile accounting, frozen before/after, flags totals, native exit and resource receipts as saved JSON evidence"
+  ],
+  "float64_reduction_rule": {
+    "epsilon": "numpy.finfo(float64).eps",
+    "gamma": "gamma_k=(k*eps)/(1-k*eps)",
+    "Q_tail_sum": "abs(NumPy_sum - saved_Torch_sum) <= 2*gamma_(n+1)*sum(abs(values)); n=256 for Q, n=210 for tail",
+    "baseline_mean": "abs(NumPy_mean - saved_Torch_mean) <= 2*gamma_101*sum(abs(prefix))/100",
+    "interpretation": "Covers both reductions and mean division; fixed before output inspection, no tolerance retuning",
+    "records": "Per-check maximum absolute residual and maximum bound; exact dtype/shape/raw-byte comparisons remain exact for copies, replay, latent banks and disabled-branch identities"
+  },
+  "resources": {
+    "execution_host": "local Windows, E-drive working/output/tmp/cache directories only",
+    "scientific_imports": "NumPy only after ROOT registration; no torch/n01 import",
+    "CPU_process_affinity_count": 1,
+    "numeric_thread_environment": 1,
+    "wall_seconds_terminal_acceptance": 120,
+    "peak_RSS_terminal_limit_bytes": 1073741824,
+    "review_output_limit_bytes": 2097152,
+    "source_or_binary_mutations": 0,
+    "helper_scripts_created": 0
+  },
+  "failure_rule": "Preserve attempted/open/member accounting and failure text. No second decode, new original input read, NN/RNG/ADC rerun, formula change or automatic retry.",
+  "output_directory": "E:/GAN/research/N01/receipts/wp6_028_20261017/postrun_independent_01",
+  "output_privacy": "Only check results, counts, residual/bound summaries and hashes; no parent IDs or row waveform/latent values.",
+  "no_second_file_decode_or_new_native_authorized": true,
+  "new_G": 0,
+  "new_AD": 0,
+  "new_NN": 0,
+  "new_CP": 0,
+  "new_RNG": 0,
+  "new_ADC": 0,
+  "scientific_status": "response_match_not_established"
+}

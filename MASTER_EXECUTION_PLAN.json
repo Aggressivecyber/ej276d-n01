@@ -10,8 +10,8 @@
   },
   "objective": "Deliver a usable and verifiable conditional effective stochastic response kernel with explicit data and physical scope; assess engineering, in-domain effectiveness and cross-condition reuse separately.",
   "mainline": "protected deterministic A plus input-dependent stochastic response, fixed256 hard output/384 carrier/100 baseline/1ns software sampling; originalfull19k retained as negative control",
-  "status": "source_frozen_reviewed_ready_for_single_native_dispatch",
-  "active_work_package": "WP6_preparation",
+  "status": "028_engineering_inference_complete_full_WP5_WP6_pending",
+  "active_work_package": null,
   "active_scientific_jobs": 0,
   "work_packages": [
     {
@@ -4575,7 +4575,7 @@
     },
     {
       "id": "WP6",
-      "status": "028_inference_source_reviewed_native_pending_full_WP6_pending",
+      "status": "028_engineering_inference_complete_full_WP6_pending",
       "scope": [
         "all_legal_TRAIN_deployment_refit",
         "response_sample_interface",
@@ -4602,11 +4602,11 @@
       },
       "execution028": {
         "run_id": "wp6_028_20261017",
-        "status": "source_frozen_reviewed_ready_for_single_native_dispatch",
+        "status": "native0_collected_independently_read_back_complete",
         "host": "rylan@100.82.231.102",
         "remote_root": "/home/rylan/projects/ej276d-n01/wp6_028_20261017",
         "active": false,
-        "native_started": false,
+        "native_started": true,
         "source_review_no_blockers": true,
         "registration": {
           "path": "receipts/wp6_028_20261017/registration_01/PROSPECTIVE_REGISTRATION.json",
@@ -4683,7 +4683,80 @@
         "new_G": 0,
         "new_AD": 0,
         "project_G_lower_bound": 187667,
-        "scientific_status": "response_match_not_established"
+        "scientific_status": "response_match_not_established",
+        "source_commit": "c0432fba8867f9c79c0016e4c98b496cffa75ef6",
+        "dispatch_UTC": "2026-10-16T17:48:33.218326Z",
+        "supervisor_pid": 15083,
+        "supervisor_start_ticks": 252618,
+        "actual_scientific_counts": "pending native progress or terminal accounting",
+        "native_exit_code": 0,
+        "completed_UTC": "2026-10-16T17:48:35.109644+00:00",
+        "terminal_snapshot": {
+          "path": "receipts/wp6_028_20261017/dispatch_01/BOUNDED_SNAPSHOT_STDOUT.json",
+          "bytes": 38412,
+          "sha256": "ddf91e962bddce5c5467fcefd6a7a25a89db3c1d94c46f0682012378d07f88d8"
+        },
+        "exact_completed_counts": {
+          "sample_calls": 12,
+          "CP_loads": 6,
+          "constructor_uniform_requests": 118,
+          "constructor_uniform_scalars": 1475668,
+          "constructor_normal_requests": 2,
+          "constructor_normal_scalars": 2560,
+          "sampling_generator_instances": 48,
+          "sampling_randn_requests": 60,
+          "sampling_normal_scalars": 18912,
+          "shape_f32_scalars": 384,
+          "noise005_gaussian_f32_scalars": 4800,
+          "noise005_scale_f32_scalars": 48,
+          "extension_f32_scalars": 13632,
+          "charge_f64_scalars": 48,
+          "response_rows": 48,
+          "old_A_rows": 48,
+          "head_actual_parameter_forward_rows": 48,
+          "charge_module_enabled_rows": 40,
+          "shape_enabled_rows": 40,
+          "noise005_rows": 48,
+          "selected_extension_rows": 48,
+          "hard_observation_rows": 48,
+          "ADC_carrier_scalar_samples": 18432,
+          "NPZ_archive_opens": 1,
+          "NPZ_member_value_loads": 3,
+          "AD_G_D_noise_updates_loss_CDF_fits_training_trials_old_suites": 0
+        },
+        "native_resources": {
+          "elapsed_seconds": 1.8684517239998968,
+          "peak_RSS_KiB": 823996,
+          "output_bytes": 391057,
+          "resource_violations": []
+        },
+        "actual_runtime_n01_imports": 10,
+        "full_WP5_WP6_complete": false,
+        "independent_result_review_complete": true,
+        "independent_review_no_blockers": true,
+        "collection_complete": true,
+        "engineering_scope_complete": true,
+        "report_text_QA_complete": true,
+        "result": {
+          "path": "receipts/wp6_028_20261017/FINAL_RESULT_RECEIPT.json",
+          "bytes": 14061,
+          "sha256": "88e3c7cd151f7b6ba55480c412931275a3364065dfbeb32e187906a065d86f77"
+        },
+        "report": {
+          "path": "reports/wp6_028_20261017/REPORT.md",
+          "bytes": 5933,
+          "sha256": "7b866cebf49311ef19f5c2dc4e3c0dac0a567d5235594186223b6187d7f0b985"
+        },
+        "independent_result_review": {
+          "path": "receipts/wp6_028_20261017/postrun_independent_01/RESULT_REVIEW.json",
+          "bytes": 6929,
+          "sha256": "3a36033547a4712d28b646b94ea40e287771062390a5af7a1bd77298f6cd58f6"
+        },
+        "collection": {
+          "path": "receipts/wp6_028_20261017/collection_01/COLLECTION_RECEIPT.json",
+          "bytes": 5756,
+          "sha256": "51c7d28402470b1d25604d7f9beb14d29cfc5e31f5683cac1518b2e31f480236"
+        }
       }
     }
   ],
@@ -5465,36 +5538,22 @@
     "root_planning_SolMax_implementation_and_review": true,
     "scientific_success_not_guaranteed_by_state_fields": true
   },
-  "current_action": "Server reconnected and fresh boot/resource/no-owned-N01-process snapshot verified. Prepare minimal reusable028 inference wrapper and bounded fixed native examples.",
-  "updated_UTC": "2026-10-16T17:42:15.782764+00:00",
+  "current_action": "Frozen research inference API, native CPU example and independent saved-output review completed.",
+  "updated_UTC": "2026-10-16T18:03:56.400301+00:00",
   "followup": {
-    "schema": "n01/wp6-027-user-requested-rest/v1",
-    "UTC": "2026-10-16T10:33:21.558392+00:00",
+    "schema": "n01/wp6-028-completed-job-followup/v1",
+    "verified_UTC": "2026-10-16T18:03:56.400301+00:00",
     "automation_id": "n01",
     "status": "PAUSED",
-    "actual_saved_settings_verified": true,
     "settings_sha256": "b8b084af700860c3c43b236e3ed90f0ce0cdd6dc0cdbfff940fcfd948f1f85ae",
-    "prompt_and_rule_preserved": true,
+    "mutated_for028": false,
     "next_wake_local": null,
-    "next_wake_UTC": null,
-    "previous_scheduled_wake_local": "2026-10-16T19:00:00+08:00",
-    "previous_wake_status": "disabled_by_user_requested_rest_before_delivery",
-    "user_request": {
-      "path": "receipts/wp6_027_20261016/user_pause_01/USER_PAUSE_REQUEST.json",
-      "bytes": 680,
-      "sha256": "d7709b2ae30b3452a12c24fb41c285d0feb30b514e3a49c2d7b1ba04ea0939fc"
-    },
-    "official_tool_request": "AUTOMATION_PAUSE_REQUEST.json",
-    "official_tool_result": "AUTOMATION_PAUSE_TOOL_RESULT.json",
     "active_scientific_jobs": 0,
-    "local_work_remaining": "Finish current explicit GitHub text/source/summary delivery only.",
-    "resume_condition": "User resumes work; do not reactivate from the old heartbeat prompt alone.",
-    "new_remote_queries_or_jobs_after_pause_request": 0,
-    "new_scientific_computation_after_pause_request": 0,
-    "project_G_lower_bound": 187667,
-    "scientific_status": "response_match_not_established",
-    "receipt": "receipts/wp6_027_20261016/user_pause_01/PAUSE_RECEIPT.json",
-    "receipt_sha256": "8712af7b44b8afa10a7bfe799225c1f81df51e5b36d5dc4a3db3983f83666107"
+    "continuous_monitoring": false,
+    "reason": "The single short028 job completed before its first bounded snapshot; no wake is needed for this finished job.",
+    "user_resumption_preserved": true,
+    "receipt": "receipts/wp6_028_20261017/FINAL_RESULT_RECEIPT.json",
+    "receipt_sha256": "88e3c7cd151f7b6ba55480c412931275a3364065dfbeb32e187906a065d86f77"
   },
   "runtime_repair": {
     "failed_attempt": 1,
@@ -5783,9 +5842,9 @@
     "independent_saved_array_scope": "36pairs/176NPZ/1898784hard_rows; not complete loss replay"
   },
   "current_work_package": "WP6",
-  "current_stage": "WP6_028_inference_native_ready",
+  "current_stage": "WP6_028_complete",
   "active_research": null,
-  "next_action": "Commit the frozen source then dispatch the one reviewed bounded CPU example; confirm actual start or terminal state and collect only whitelisted output.",
+  "next_action": "Prepare a bounded WP5 final-confirmation design for the already specified necessary baselines, full-pipeline grouped validation and independent C2ST/REAL-REAL; retain closed negative results and do not reopen architecture, T2 or candidate search.",
   "last_verified_UTC": "2026-10-16T10:29:39.963997+00:00",
   "wp2_collection": {
     "path": "receipts\\wp2_014_20261015\\collection_01\\COLLECTION_RECEIPT.json",
@@ -5958,8 +6017,8 @@
     },
     "role": "historical provisional record retained"
   },
-  "active_scientific_jobs_status_basis": "At 2026-10-16T17:08:39.938621+00:00 fresh boot 146cb4b8-530c-4496-976f-21740f6f3629 had no owned matching N01 processes. No new job launched since this snapshot.",
-  "latest_source_commit": "f41f8ef38266561b27bd5760f19f26e0ee2c8375",
+  "active_scientific_jobs_status_basis": "One bounded028 snapshot at2026-10-16T17:50:12.250851Z recorded native exit0 and absent owned child/supervisor processes; no later job launched.",
+  "latest_source_commit": "c0432fba8867f9c79c0016e4c98b496cffa75ef6",
   "wp2_readback_prepare_failure": {
     "path": "receipts\\wp2_014_20261015\\readback_registration_01\\ROOT_PREPARE_FAILURE_RECEIPT.json",
     "sha256": "6f89dedd516cd5612295060b074fa84625364774a6a8c5c74b5172608f2b83f5",
@@ -5988,7 +6047,7 @@
     "scientific_status": "response_match_not_established",
     "source_commit": "dfddb7a2eef45b4e7f4253fcb89ef2ec3b608b4a"
   },
-  "latest_run_id": "wp5_026_20261016",
+  "latest_run_id": "wp6_028_20261017",
   "current_run_training_updates": 0,
   "latest_training_run_id": "wp4_017_20261015",
   "followup_automation_id": "n01",
@@ -6417,7 +6476,7 @@
     }
   },
   "followup_last_delivered_UTC": "2026-10-16T09:20:29.108Z",
-  "current_followup_status": "resumed_interactive_work_new_future_wake_not_yet_saved",
+  "current_followup_status": "no_active_job_no_wake_needed_for_completed028",
   "wp3_terminal_readback": {
     "path": "receipts/wp3_015_20261015/postrun_root_01/NATIVE_COMPLETION_READBACK.json",
     "sha256": "a9bbc3a9f1694d649b352ad2fd96dc4fa05470bab2856107fe5e35fe6036136f",
@@ -6920,7 +6979,7 @@
       "scientific_acceptance": false
     }
   },
-  "pending_run_id": "wp6_028_20261017",
+  "pending_run_id": null,
   "wp3_016_execution": {
     "configuration": "wp3_016_config.json",
     "configuration_sha256": "5279597aed74feae87448bfc71aa1387bd711609591eabde775142fa6d1303ab",
@@ -11203,11 +11262,11 @@
   },
   "wp6_028_execution": {
     "run_id": "wp6_028_20261017",
-    "status": "source_frozen_reviewed_ready_for_single_native_dispatch",
+    "status": "native0_collected_independently_read_back_complete",
     "host": "rylan@100.82.231.102",
     "remote_root": "/home/rylan/projects/ej276d-n01/wp6_028_20261017",
     "active": false,
-    "native_started": false,
+    "native_started": true,
     "source_review_no_blockers": true,
     "registration": {
       "path": "receipts/wp6_028_20261017/registration_01/PROSPECTIVE_REGISTRATION.json",
@@ -11284,6 +11343,105 @@
     "new_G": 0,
     "new_AD": 0,
     "project_G_lower_bound": 187667,
-    "scientific_status": "response_match_not_established"
-  }
+    "scientific_status": "response_match_not_established",
+    "source_commit": "c0432fba8867f9c79c0016e4c98b496cffa75ef6",
+    "dispatch_UTC": "2026-10-16T17:48:33.218326Z",
+    "supervisor_pid": 15083,
+    "supervisor_start_ticks": 252618,
+    "actual_scientific_counts": "pending native progress or terminal accounting",
+    "native_exit_code": 0,
+    "completed_UTC": "2026-10-16T17:48:35.109644+00:00",
+    "terminal_snapshot": {
+      "path": "receipts/wp6_028_20261017/dispatch_01/BOUNDED_SNAPSHOT_STDOUT.json",
+      "bytes": 38412,
+      "sha256": "ddf91e962bddce5c5467fcefd6a7a25a89db3c1d94c46f0682012378d07f88d8"
+    },
+    "exact_completed_counts": {
+      "sample_calls": 12,
+      "CP_loads": 6,
+      "constructor_uniform_requests": 118,
+      "constructor_uniform_scalars": 1475668,
+      "constructor_normal_requests": 2,
+      "constructor_normal_scalars": 2560,
+      "sampling_generator_instances": 48,
+      "sampling_randn_requests": 60,
+      "sampling_normal_scalars": 18912,
+      "shape_f32_scalars": 384,
+      "noise005_gaussian_f32_scalars": 4800,
+      "noise005_scale_f32_scalars": 48,
+      "extension_f32_scalars": 13632,
+      "charge_f64_scalars": 48,
+      "response_rows": 48,
+      "old_A_rows": 48,
+      "head_actual_parameter_forward_rows": 48,
+      "charge_module_enabled_rows": 40,
+      "shape_enabled_rows": 40,
+      "noise005_rows": 48,
+      "selected_extension_rows": 48,
+      "hard_observation_rows": 48,
+      "ADC_carrier_scalar_samples": 18432,
+      "NPZ_archive_opens": 1,
+      "NPZ_member_value_loads": 3,
+      "AD_G_D_noise_updates_loss_CDF_fits_training_trials_old_suites": 0
+    },
+    "native_resources": {
+      "elapsed_seconds": 1.8684517239998968,
+      "peak_RSS_KiB": 823996,
+      "output_bytes": 391057,
+      "resource_violations": []
+    },
+    "actual_runtime_n01_imports": 10,
+    "full_WP5_WP6_complete": false,
+    "independent_result_review_complete": true,
+    "independent_review_no_blockers": true,
+    "collection_complete": true,
+    "engineering_scope_complete": true,
+    "report_text_QA_complete": true,
+    "result": {
+      "path": "receipts/wp6_028_20261017/FINAL_RESULT_RECEIPT.json",
+      "bytes": 14061,
+      "sha256": "88e3c7cd151f7b6ba55480c412931275a3364065dfbeb32e187906a065d86f77"
+    },
+    "report": {
+      "path": "reports/wp6_028_20261017/REPORT.md",
+      "bytes": 5933,
+      "sha256": "7b866cebf49311ef19f5c2dc4e3c0dac0a567d5235594186223b6187d7f0b985"
+    },
+    "independent_result_review": {
+      "path": "receipts/wp6_028_20261017/postrun_independent_01/RESULT_REVIEW.json",
+      "bytes": 6929,
+      "sha256": "3a36033547a4712d28b646b94ea40e287771062390a5af7a1bd77298f6cd58f6"
+    },
+    "collection": {
+      "path": "receipts/wp6_028_20261017/collection_01/COLLECTION_RECEIPT.json",
+      "bytes": 5756,
+      "sha256": "51c7d28402470b1d25604d7f9beb14d29cfc5e31f5683cac1518b2e31f480236"
+    }
+  },
+  "full_WP5_complete": false,
+  "full_WP6_complete": false,
+  "full_WP5_WP6_complete": false,
+  "wp6_028_completed": true,
+  "wp6_028_G_updates": 0,
+  "wp6_028_AD_queries": 0,
+  "wp6_028_result": {
+    "path": "receipts/wp6_028_20261017/FINAL_RESULT_RECEIPT.json",
+    "bytes": 14061,
+    "sha256": "88e3c7cd151f7b6ba55480c412931275a3364065dfbeb32e187906a065d86f77"
+  },
+  "wp6_028_report": {
+    "path": "reports/wp6_028_20261017/REPORT.md",
+    "bytes": 5933,
+    "sha256": "7b866cebf49311ef19f5c2dc4e3c0dac0a567d5235594186223b6187d7f0b985"
+  },
+  "wp6_028_independent_result_review": {
+    "path": "receipts/wp6_028_20261017/postrun_independent_01/RESULT_REVIEW.json",
+    "bytes": 6929,
+    "sha256": "3a36033547a4712d28b646b94ea40e287771062390a5af7a1bd77298f6cd58f6"
+  },
+  "wp6_028_report_text_QA_complete": true,
+  "latest_report": "reports/wp6_028_20261017/REPORT.md",
+  "latest_completed_result": "receipts/wp6_028_20261017/FINAL_RESULT_RECEIPT.json",
+  "latest_completion_receipt": "receipts/wp6_028_20261017/FINAL_RESULT_RECEIPT.json",
+  "latest_scientific_completion_receipt": "receipts/wp6_028_20261017/FINAL_RESULT_RECEIPT.json"
 }

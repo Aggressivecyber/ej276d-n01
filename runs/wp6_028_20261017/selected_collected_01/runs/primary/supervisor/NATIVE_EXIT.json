@@ -1,0 +1,68 @@
+{
+  "schema": "n01/wp6-028-native-exit/v1",
+  "run_id": "wp6_028_20261017",
+  "UTC": "2026-10-16T17:48:35.109644+00:00",
+  "config_sha256": "48fbc9639a9435dd3d02bfde4d3568f4feabcf9b6f18f2f4d0fc48b6acde4b0a",
+  "supervisor": {
+    "pid": 15083,
+    "parent_pid": 1,
+    "start_ticks": 252618,
+    "command": [
+      "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+      "-B",
+      "/home/rylan/projects/ej276d-n01/wp6_028_20261017/REMOTE_SUPERVISOR.py",
+      "--config",
+      "/home/rylan/projects/ej276d-n01/wp6_028_20261017/wp6_028_config.json",
+      "--config-sha256",
+      "48fbc9639a9435dd3d02bfde4d3568f4feabcf9b6f18f2f4d0fc48b6acde4b0a"
+    ],
+    "cwd": "/home/rylan/projects/ej276d-n01/wp6_028_20261017",
+    "boot_id": "146cb4b8-530c-4496-976f-21740f6f3629",
+    "CPU_affinity": [
+      0
+    ]
+  },
+  "child": {
+    "pid": 15084,
+    "parent_pid": 15083,
+    "start_ticks": 252620,
+    "process_group": 15084,
+    "command": [
+      "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+      "-B",
+      "/home/rylan/projects/ej276d-n01/wp6_028_20261017/scripts/run_wp6_028.py",
+      "--config",
+      "/home/rylan/projects/ej276d-n01/wp6_028_20261017/wp6_028_config.json",
+      "--config-sha256",
+      "48fbc9639a9435dd3d02bfde4d3568f4feabcf9b6f18f2f4d0fc48b6acde4b0a",
+      "--output",
+      "/home/rylan/projects/ej276d-n01/wp6_028_20261017/runs/primary/artifacts"
+    ],
+    "cwd": "/home/rylan/projects/ej276d-n01/wp6_028_20261017",
+    "boot_id": "146cb4b8-530c-4496-976f-21740f6f3629",
+    "CPU_affinity": [
+      0
+    ]
+  },
+  "child_native_returncode": 0,
+  "child_terminated_by_signal": null,
+  "reason": null,
+  "elapsed_seconds": 1.8684517239998968,
+  "peak_RSS_KiB": 823996,
+  "output_bytes": 391057,
+  "child_user_CPU_seconds": 1.570555,
+  "child_system_CPU_seconds": 0.18542499999999998,
+  "resource_violations": [],
+  "limits": {
+    "CPU_threads": 1,
+    "driver_AS_bytes": 8589934592,
+    "RSS_bytes": 4294967296,
+    "wall_seconds": 600,
+    "driver_CPU_soft_seconds": 590,
+    "driver_CPU_hard_seconds": 600,
+    "output_bytes": 67108864
+  },
+  "log": "/home/rylan/projects/ej276d-n01/wp6_028_20261017/runs/primary/supervisor/driver_console.log",
+  "automatic_restart": false,
+  "scientific_acceptance": false
+}

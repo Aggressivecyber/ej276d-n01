@@ -1,0 +1,169 @@
+{
+  "schema": "n01/wp6-028-independent-saved-output-review/v1",
+  "run_id": "wp6_028_20261017",
+  "review_UTC": "2026-10-16T17:55:54.022148+00:00",
+  "status": "passed",
+  "no_blockers": true,
+  "registration_sha256": "0e66699e9b388d450237f0010469dc5c9a4247c7cf12a4b022a5e827b9e6cf87",
+  "input": {
+    "bytes": 359127,
+    "sha256": "1b35cee1fbcc266cef5640934ba6a0f5e9549cfe6e44227c044fe6a8204fd6cd"
+  },
+  "bindings": {
+    "runs/wp6_028_20261017/selected_collected_01/runs/primary/artifacts/ARRAY_SCHEMA.json": {
+      "bytes": 5609,
+      "sha256": "976ffc421cefe9ee626cdb875c2f725a1745ed85eca03436e675516dc218aca6"
+    },
+    "runs/wp6_028_20261017/selected_collected_01/runs/primary/artifacts/COMPLETE.json": {
+      "bytes": 23744,
+      "sha256": "151c7b94fc8d423179fdf95e11035b3c8d326c36ebcfc7250ca21b733774ec52"
+    },
+    "runs/wp6_028_20261017/selected_collected_01/runs/primary/supervisor/NATIVE_EXIT.json": {
+      "bytes": 2295,
+      "sha256": "fde69a9fe9e268be85ea8eebfa7751d404f6948a691d08dfd3f7b1bba77bfed5"
+    },
+    "receipts/wp6_028_20261017/collection_01/COLLECTION_RECEIPT.json": {
+      "bytes": 5756,
+      "sha256": "51c7d28402470b1d25604d7f9beb14d29cfc5e31f5683cac1518b2e31f480236"
+    },
+    "receipts/wp6_028_20261017/independent_01/READBACK_PROPOSAL.json": {
+      "bytes": 4886,
+      "sha256": "f0c3ec6949385e953239b55e20754d0a0477d02b47a2a5419b79e551f6fba7ad"
+    }
+  },
+  "accounting": {
+    "NPZ_raw_file_reads_attempted": 1,
+    "NPZ_raw_file_reads_completed": 1,
+    "NPZ_archive_opens_attempted": 1,
+    "NPZ_archive_opens_completed": 1,
+    "member_value_loads_attempted": 37,
+    "member_value_loads_completed": 37,
+    "decoded_values": 182940,
+    "decoded_payload_bytes": 1386296
+  },
+  "footprint": {
+    "unique_NPZ_files": 1,
+    "archive_opens": 1,
+    "member_loads": 37,
+    "values": 182940,
+    "payload_bytes": 1386296,
+    "NPY_ZIP_uncompressed_bytes": 1391032,
+    "NPY_header_bytes": 4736
+  },
+  "checks": {
+    "registered_JSON_and_native_budget_resource_evidence": true,
+    "all37_members_dtype_shape_values_payload": true,
+    "all12_call_tensor_SHA_and60_latent_SHA": true,
+    "copies_fast_replay_latents_prefix_scale_chargeoff_shapeoff_byteexact": true,
+    "all48_rows_ADC_geometry_all7_flags_parent_draw": true,
+    "Q_tail_baseline_prospective_bounds_raw_and_protected_PSD": true
+  },
+  "call_result_hashes": [
+    "db6e563db1aca742a719da40da7d2afbd2b7ee07d415449ece97f5482bb034c8",
+    "1e9f07f2e6fdd4ef5ce548b1a934a118359df0343b653c9fb532639c861585b2",
+    "3a10ca85f88974a31c65cc70721b13ae80bf38d07d6ddecb22d69cc0023b0b0a",
+    "db6e563db1aca742a719da40da7d2afbd2b7ee07d415449ece97f5482bb034c8",
+    "43fed5a09dce805db0191dfcae31f6a2541780aef056cc36b86fd8d4bec2c4ab",
+    "f82a4e21993d075c46fc399b3cc2da512d3bd04bfadb17f1662f031b5f241c6d",
+    "d597a219ddfcc641f18f8bcab3123e910d8e165a0bc87ca0754547967112e487",
+    "2daac15b8537a7edeb3e2ab461fdcea951de9addb76481a0fb695b7a0f27c938",
+    "cda351205b8ed895b6de0be2f0989a9f5e567aa86e1a9261515c0b8e60802a6e",
+    "d597a219ddfcc641f18f8bcab3123e910d8e165a0bc87ca0754547967112e487",
+    "17c433cc04bdc6da398a5052466ff3ed56aa94931afafd313869118e224524df",
+    "52bf83215b4712d833bd0097d6b573745e90c44af167d3f17305cece50b0f5df"
+  ],
+  "latent_hash_checks": 60,
+  "parent_reference_raw_sha256": "c4fa23e0537ad759604f09c08a477cabbaa712440a11ac1986bbb30691f6d6b5",
+  "flag_totals": {
+    "peak_at_search_boundary": 0,
+    "global_peak_outside_search": 0,
+    "Q_nonpositive": 0,
+    "PSD_undefined": 0,
+    "PSD_guarded": 0,
+    "ADC_rail_hit": 0,
+    "pre_ADC_out_of_range": 0
+  },
+  "float64_reduction_rule": {
+    "epsilon": "numpy.finfo(float64).eps",
+    "gamma": "gamma_k=(k*eps)/(1-k*eps)",
+    "Q_tail_sum": "abs(NumPy_sum - saved_Torch_sum) <= 2*gamma_(n+1)*sum(abs(values)); n=256 for Q, n=210 for tail",
+    "baseline_mean": "abs(NumPy_mean - saved_Torch_mean) <= 2*gamma_101*sum(abs(prefix))/100",
+    "interpretation": "Covers both reductions and mean division; fixed before output inspection, no tolerance retuning",
+    "records": "Per-check maximum absolute residual and maximum bound; exact dtype/shape/raw-byte comparisons remain exact for copies, replay, latent banks and disabled-branch identities"
+  },
+  "reduction_results": {
+    "Q": {
+      "rows": 48,
+      "max_absolute_residual": 3.1086244689504383e-15,
+      "max_allowed_bound": 4.4545196981633846e-13,
+      "all_within_bound": true,
+      "n": 256,
+      "divisor": 1
+    },
+    "tail": {
+      "rows": 48,
+      "max_absolute_residual": 6.661338147750939e-16,
+      "max_allowed_bound": 1.0262664022226321e-13,
+      "all_within_bound": true,
+      "n": 210,
+      "divisor": 1
+    },
+    "baseline_mean_V": {
+      "rows": 48,
+      "max_absolute_residual": 0.0,
+      "max_allowed_bound": 2.3627020568981164e-17,
+      "all_within_bound": true,
+      "n": 100,
+      "divisor": 100
+    }
+  },
+  "native_evidence": {
+    "native_returncode": 0,
+    "sample_calls": 12,
+    "response_rows": 48,
+    "CP_loads": 6,
+    "sampling_randn_requests": 60,
+    "sampling_normal_scalars": 18912,
+    "constructor_distribution_requests": 120,
+    "constructor_requested_scalars": 1478228,
+    "wall_seconds": 1.8684517239998968,
+    "peak_RSS_bytes": 843771904,
+    "artifact_bytes": 391057,
+    "frozen_before_equals_after": true
+  },
+  "review_resources": {
+    "python": "3.13.3 (tags/v3.13.3:6280bb5, Apr  8 2025, 14:47:33) [MSC v.1943 64 bit (AMD64)]",
+    "numpy": "2.2.6",
+    "CPU_affinity_mask": 1,
+    "CPU_affinity_count": 1,
+    "numeric_threads": 1,
+    "elapsed_seconds": 1.5544165999745019,
+    "peak_RSS_bytes": 33148928,
+    "pre_NumPy_peak_RSS_bytes": 18759680,
+    "resource_enforcement": "CPU affinity and numeric environment fixed before NumPy; wall/RSS terminal acceptance",
+    "RSS_measurement_stage": "after numeric checks and before result serialization"
+  },
+  "new_cost": {
+    "original_CP_binary_reads": 0,
+    "original_DATASET_reads": 0,
+    "torch_n01_imports": 0,
+    "NN": 0,
+    "RNG": 0,
+    "ADC": 0,
+    "AD": 0,
+    "loss_CDF_fits_training": 0,
+    "helper_scripts_created": 0,
+    "second_NPZ_decode": 0
+  },
+  "evidence_boundary": {
+    "serialized_identity": "exact bytes checked; Python object alias is supported by reviewed producer code and its native check",
+    "input_immutability_and_global_CPU_RNG": "native completion evidence from reviewed driver; originals not reread here",
+    "cross_condition_or_distribution_acceptance": false,
+    "deployment_seed_selected": null,
+    "weights_promoted": false,
+    "scientific_acceptance": false,
+    "scientific_status": "response_match_not_established",
+    "full_WP5_WP6_complete": false
+  },
+  "output_privacy": "No parent IDs or per-row waveform/latent values are included."
+}
