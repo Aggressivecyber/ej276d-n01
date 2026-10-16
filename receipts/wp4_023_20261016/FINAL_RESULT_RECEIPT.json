@@ -1,0 +1,330 @@
+{
+  "schema": "n01/wp4-023-final-result/v1",
+  "run_id": "wp4_023_20261016",
+  "UTC": "2026-10-16T06:23:23.948715+00:00",
+  "status": "native0_closed_independent_saved_parent_vector_readback_complete",
+  "scientific_status": "response_match_not_established",
+  "source_commit": "c43e0e81f5427e8d7e47b859435ebd557a24978c",
+  "config_sha256": "796a62486a30336c82468076b1490cf6bb56585e55fedfe790a0e4bf86c12361",
+  "native_exit_code": 0,
+  "completed_UTC": "2026-10-16T05:55:11.149185+00:00",
+  "actual_snapshot_UTC": "2026-10-16T06:10:45.785820+00:00",
+  "source022_native1_not_rewritten": true,
+  "native_resources": {
+    "child_native_returncode": 0,
+    "reason": null,
+    "elapsed_seconds": 42.960083312995266,
+    "peak_RSS_KiB": 4315840,
+    "output_bytes": 89758327,
+    "child_user_CPU_seconds": 39.713341,
+    "child_system_CPU_seconds": 3.9561159999999997,
+    "resource_violations": [],
+    "limits": {
+      "CPU_threads": 12,
+      "driver_AS_bytes": 8589934592,
+      "RSS_bytes": 8589934592,
+      "wall_seconds": 7200,
+      "driver_CPU_soft_seconds": 21590,
+      "driver_CPU_hard_seconds": 21600,
+      "output_bytes": 1610612736
+    }
+  },
+  "durable": {
+    "operations_entered": 10,
+    "operations_completed": 10,
+    "failed_ids": [],
+    "inflight_ids": [],
+    "journal_truncated": false,
+    "exact_completed_counts": {
+      "new_teacher_kernels": 0,
+      "NN_forward_rows": 0,
+      "noise005_rows": 0,
+      "checkpoint_loads": 0,
+      "new_AD_queries": 0,
+      "G_updates": 0,
+      "optimizer_steps": 0,
+      "new_RNG_requests": 0,
+      "new_normal_requests": 0,
+      "new_sign_uniform_requests": 0,
+      "new_PIT_uniform_requests": 0,
+      "new_hard_ADC_or_argmax_rows": 0,
+      "original_SOURCE_REAL_DEV_waveform_reads": 0,
+      "parameter_fits": 0,
+      "training_trial_slots": 0,
+      "reused_fast_parent_score_rows": 6593,
+      "new_parent_score_rows": 13186,
+      "reported_group_weight_hypothesis_cells": 36,
+      "required_primary_cells": 3,
+      "saved_T2_hard_rows_decoded": 843904,
+      "saved_T1_hard_rows_decoded": 843904,
+      "total_saved_hard_rows_decoded": 1687808,
+      "evaluation_energy_pair_distances": 54009856,
+      "evaluation_observable_pair_distances": 94517248,
+      "new_pair_distances_total": 148527104
+    }
+  },
+  "accounting": {
+    "project_G_before": 187667,
+    "new_G_updates": 0,
+    "new_AD_queries": 0,
+    "project_G_after": 187667,
+    "old022_fast_distances_reused": 74263552,
+    "new_slow_common_distances": 148527104,
+    "combined_three_hypothesis_distances": 222790656,
+    "new_NN_CP_RNG_ADC_original_waveform_reads": 0
+  },
+  "registered_decision": {
+    "complete_unique_signatures": 36,
+    "expected_grid": "3hypotheses x4original_groups x3original_comparison_weights",
+    "primary_group": "all_heldout",
+    "primary_weights": "nominal",
+    "primary_count": 3,
+    "all36_status_counts": {
+      "not_established_at_registered_tolerance": 36
+    },
+    "primary_results": [
+      {
+        "hypothesis": "fast",
+        "parents": 1319,
+        "mean": -0.002223077577234012,
+        "SE": 0.0041178102270053455,
+        "lower95": -0.010293837317335193,
+        "upper95": 0.00584768216286717,
+        "half_width95": 0.008070759740101182,
+        "T1_null_abs_upper95": 0.010715208340585147,
+        "T2_null_abs_upper95": 0.010373446558026064,
+        "status": "not_established_at_registered_tolerance",
+        "full257_mean": 0.01001575405230643,
+        "full257_lower95": -0.00727112359755012,
+        "full257_upper95": 0.02730263170216298
+      },
+      {
+        "hypothesis": "slow",
+        "parents": 1319,
+        "mean": -0.003192114453133509,
+        "SE": 0.00409643937667165,
+        "lower95": -0.011220988096261651,
+        "upper95": 0.004836759189994632,
+        "half_width95": 0.008028873643128142,
+        "T1_null_abs_upper95": 0.011916353876808918,
+        "T2_null_abs_upper95": 0.010715619780356449,
+        "status": "not_established_at_registered_tolerance",
+        "full257_mean": 0.01429501305840068,
+        "full257_lower95": -0.0020773865170372833,
+        "full257_upper95": 0.030667412633838646
+      },
+      {
+        "hypothesis": "common_level",
+        "parents": 1319,
+        "mean": -0.003568253123227109,
+        "SE": 0.004079899673083746,
+        "lower95": -0.011564709543007992,
+        "upper95": 0.004428203296553773,
+        "half_width95": 0.007996456419780883,
+        "T1_null_abs_upper95": 0.012687855189628755,
+        "T2_null_abs_upper95": 0.010644250128383782,
+        "status": "not_established_at_registered_tolerance",
+        "full257_mean": 0.020502892484600174,
+        "full257_lower95": 0.004081416938061674,
+        "full257_upper95": 0.036924368031138674
+      }
+    ],
+    "all3_primary_supported": false,
+    "support_weight_mass_fraction_min": 1.0,
+    "all36_MC_halfwidth_max": 0.020314023436889334,
+    "all36_T1_T2_null_abs_upper95_max": 0.025111577432836603,
+    "O19_tolerance": 0.1,
+    "MC_halfwidth_and_null_limits": 0.05,
+    "support_or_MC_unresolved_cells": 0,
+    "science_status": "not_established_at_registered_tolerance",
+    "T2_training_prequalification_supported": false,
+    "T2_training_started": false,
+    "response_match_established": false
+  },
+  "full257_descriptive": {
+    "positive_lower95_cells": [
+      {
+        "hypothesis": "fast",
+        "group": "fit_Q_tertile1_heldout",
+        "weights": "nominal",
+        "mean": 0.022405064553470008,
+        "lower95": 0.00038455302228780283,
+        "upper95": 0.04442557608465221
+      },
+      {
+        "hypothesis": "fast",
+        "group": "fit_Q_tertile1_heldout",
+        "weights": "low",
+        "mean": 0.02184971743233581,
+        "lower95": 0.001024346902284954,
+        "upper95": 0.04267508796238667
+      },
+      {
+        "hypothesis": "common_level",
+        "group": "all_heldout",
+        "weights": "nominal",
+        "mean": 0.020502892484600174,
+        "lower95": 0.004081416938061674,
+        "upper95": 0.036924368031138674
+      },
+      {
+        "hypothesis": "common_level",
+        "group": "all_heldout",
+        "weights": "low",
+        "mean": 0.019331977139014755,
+        "lower95": 0.005259899197779704,
+        "upper95": 0.03340405508024981
+      }
+    ],
+    "count": 4,
+    "threshold_or_training_gate_applied": false,
+    "simultaneous_calibration": false,
+    "interpretation": "The common_level all-heldout nominal signed full257 CI is positive descriptively. O19 non-detection at the fixed .10 tolerance does not establish equality of all hard observables or mechanism absence."
+  },
+  "collection": {
+    "schema": "n01/wp4-023-selective-collection/v1",
+    "status": "native0_full_inventory_and_necessary_outputs_raw_SHA_verified",
+    "collected_root": "E:\\GAN\\research\\N01\\runs\\wp4_023_20261016\\selected_collected_01",
+    "archive_bytes": 4136960,
+    "archive_sha256": "52e696615a815bdcdf63402b3e6b3aedba39e22b622a10c55c8e2d624ec0ae00",
+    "selected_file_count": 25,
+    "whole_file_count": 37,
+    "omitted_file_count": 12,
+    "selected_payload_bytes": 4087036,
+    "producer_inventory_entries_verified": 11,
+    "full_operation_and_console_logs_included": true,
+    "full_remote_inventory_SHA_verified": true,
+    "large_O19_arrays_retained_remote": true
+  },
+  "independent_numeric_readback_complete": true,
+  "independent_numeric_readback": {
+    "path": "receipts/wp4_023_20261016/wake_20261016_1410_01/independent_result_01/RESULT_REVIEW.json",
+    "bytes": 13649,
+    "sha256": "883277aafd83d957b4f121fb0c8129d6ec50353c408fa80d0bacbb38b095ffd6"
+  },
+  "readback_summary": {
+    "method": "Independent scalar math.fsum weighted mean and parent HC1 SE; algebraic saved self/cross U identities, fixed signatures and all36 classifications. No production scoring import or distance recomputation.",
+    "unique_NPZ_archives_decoded": 5,
+    "unique_arrays_decoded": 108,
+    "NPZ_payload_open_count_including_stopped_first_pass": 11,
+    "NPZ_pins": {
+      "PARENT_AXES.npz": {
+        "bytes": 418428,
+        "sha256": "df40906d4f3c8f81b4c0e18411f2c1f5f0b34a18e77834d9e4128b5314207200"
+      },
+      "CONTRAST023.npz": {
+        "bytes": 413984,
+        "sha256": "7abd599be6cf73ad4fca553e571b38718fc7b38bbc625efc881a54d8f029183b"
+      },
+      "PARENT_SCORES023_fast.npz": {
+        "bytes": 1024912,
+        "sha256": "52a96823c9b2d5ce336ca567823110292aa4d06829d8cadb0bf4676c6fa7508b"
+      },
+      "PARENT_SCORES023_slow.npz": {
+        "bytes": 1024903,
+        "sha256": "168331a07c9df7f1a4d410684ad33fa8ad2ae20c678b208e65113671c67df3fb"
+      },
+      "PARENT_SCORES023_common_level.npz": {
+        "bytes": 1024887,
+        "sha256": "57ce239cdb5d58e643d1d17d5eae8f8b22e68049804c565471ec36be6aa9ca14"
+      }
+    },
+    "closed_formula": "mean=sum(w*x)/sum(w); SE=sqrt(n/(n-1)*sum((w/sum(w))^2*(x-mean)^2)); ESS=sum(w)^2/sum(w^2); CI=mean +/- 1.959963984540054*SE",
+    "scalar_comparisons": 828,
+    "maximum_absolute_difference": 4.547473508864641e-13,
+    "maximum_relative_difference": 1.384942109327928e-14,
+    "comparison_absolute_tolerance": 2e-12,
+    "comparison_relative_tolerance": 2e-13,
+    "primitive_parent_U_vector_exact_equalities": 12,
+    "compact_array_reference_checks": 48,
+    "original_axes_raw_SHA_identical_to018": true,
+    "fast_score_archive_raw_SHA_identical_to022": true,
+    "source_ID_fit_test_Q_physical_weight_group_comparison_weight_axes_verified": true,
+    "original_fit_group_cut_and_heldout_rank_weights_reproduced": true,
+    "recomputed_transcendental_weight_max_abs_difference": 2.220446049250313e-16,
+    "bank_directions_averaged_within_parent_before_SE": true,
+    "bank_directions_not_independent_replicates": true,
+    "negative_U_counts": {
+      "fast": {
+        "allparent_negative_U": 4239,
+        "heldout_negative_U": 849
+      },
+      "slow": {
+        "allparent_negative_U": 4269,
+        "heldout_negative_U": 857
+      },
+      "common_level": {
+        "allparent_negative_U": 4283,
+        "heldout_negative_U": 865
+      }
+    },
+    "new_pair_distances_computed_by_reviewer": 0,
+    "private_hard_OBS_CP_original_waveforms_decoded_by_reviewer": 0,
+    "engineering_fixture_or_source_suite_reruns": 0,
+    "reviewer_first_pass_error": {
+      "native_returncode": 1,
+      "exception": "AssertionError at audit stdin line57",
+      "cause": "Audit used np.array_equal for locally recomputed exp comparison weights; saved Linux and local Windows transcendental results differ at most 2.220446049250313e-16.",
+      "evidence": "Saved parent-axis archive is raw-SHA identical to018; all group masks exactly match. A targeted axis-only diagnosis found no role/data mismatch.",
+      "correction": "Use finite numeric comparison for independent exp recomputation only (rtol=atol=1e-14); stored arrays, gates, tolerances and source unchanged.",
+      "decode_sequence": "Initial 5archives; targeted axis1; completed numeric pass5. Metadata/SHA/native/journal checks passed before failure and were not rerun.",
+      "error_is_native_scientific_failure": false
+    }
+  },
+  "evidence_limits": [
+    "Readback verifies stored parent vectors and aggregations; primitive hard/O19 pair distances were not independently recomputed.",
+    "Finite fixed parent/draw libraries, fixed transformed score and scales; no power curve or simultaneous-test calibration.",
+    "Two crossbank directions share each parent and are averaged before parent-cluster SE; they are not independent replicates.",
+    "No scientific qualification for T2 training/REAL follows from native0 or descriptive full257 positivity."
+  ],
+  "history_preserved": {
+    "original022_native_exit_code": 1,
+    "original022_source_readiness_withdrawal_unchanged": true,
+    "old017_pending_unchanged": true,
+    "old020_89fail_unchanged": true,
+    "original023_source_review_not_relabelled_as_result_review": true
+  },
+  "automation_terminal": {
+    "schema": "n01/wp4-023-terminal-automation/v1",
+    "UTC": "2026-10-16T06:14:48.748884+00:00",
+    "automation_id": "n01",
+    "status": "DELIVERED_then_PAUSED_terminal",
+    "actual_saved_settings_verified": true,
+    "settings_sha256": "2e882c3778e9a98f69ef1aa0414ddabd81c4dc0c3d18bc811d40f44d40b04e9d",
+    "next_wake": null,
+    "reason": "023 native0 terminal; independent saved-vector readback and bounded next-plan registration underway"
+  },
+  "next_action": "Prospectively register a distinct bounded six-parameter mean-response diagnostic under continuing human authorization; no T2 training, WP2/WP3 slot transfer or REAL long training.",
+  "evidence": [
+    {
+      "path": "receipts/wp4_023_20261016/wake_20261016_1410_01/SNAPSHOT.json",
+      "bytes": 131164,
+      "sha256": "0e9ff8d518ff1e465fb5bf75b7bf60994fc6ff84c8d7af2af03abd66a5e11055"
+    },
+    {
+      "path": "receipts/wp4_023_20261016/wake_20261016_1410_01/collection_01/COLLECTION_RECEIPT.json",
+      "bytes": 711,
+      "sha256": "53acd7922bd9a9b7ae5261f89412db4896bb9a94702caef2a257d93ac2b71c25"
+    },
+    {
+      "path": "receipts/wp4_023_20261016/wake_20261016_1410_01/collection_01/REMOTE_FULL_INVENTORY.json",
+      "bytes": 22822,
+      "sha256": "6faa6fc4f1682e65fefc545fe0ee7c457a831910a258f856a78df2868244354c"
+    },
+    {
+      "path": "receipts/wp4_023_20261016/wake_20261016_1410_01/independent_result_01/RESULT_REVIEW.json",
+      "bytes": 13649,
+      "sha256": "883277aafd83d957b4f121fb0c8129d6ec50353c408fa80d0bacbb38b095ffd6"
+    },
+    {
+      "path": "receipts/wp4_023_20261016/wake_20261016_1410_01/AUTOMATION_TERMINAL_RECEIPT.json",
+      "bytes": 447,
+      "sha256": "5177e990bc8435c4768b1bc1a43947f1dfbc55aab867e6eb15fd5527f4e634c5"
+    },
+    {
+      "path": "receipts/wp4_022_20261016/FINAL_RESULT_RECEIPT.json",
+      "bytes": 7462,
+      "sha256": "f83ab370385b6e6946aaf6e98bd01bfb9d27653798c337d9d85018f6ccab3452"
+    }
+  ]
+}

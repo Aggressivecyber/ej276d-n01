@@ -1,0 +1,3247 @@
+{
+  "UTC": "2026-10-16T06:10:45.785820+00:00",
+  "boot_id": "06177e53-90a1-4d8c-a942-03b487a0684d",
+  "root": "/home/rylan/projects/ej276d-n01/wp4_023_20261016",
+  "launch": {
+    "schema": "n01/wp4-023-native-launch/v1",
+    "run_id": "wp4_023_20261016",
+    "UTC": "2026-10-16T05:54:28.189252+00:00",
+    "supervisor_started_monotonic": 44088.20657603,
+    "config_sha256": "796a62486a30336c82468076b1490cf6bb56585e55fedfe790a0e4bf86c12361",
+    "supervisor": {
+      "pid": 133652,
+      "parent_pid": 1,
+      "start_ticks": 4408818,
+      "command": [
+        "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+        "-B",
+        "/home/rylan/projects/ej276d-n01/wp4_023_20261016/REMOTE_SUPERVISOR.py",
+        "--config",
+        "/home/rylan/projects/ej276d-n01/wp4_023_20261016/wp4_023_config.json",
+        "--config-sha256",
+        "796a62486a30336c82468076b1490cf6bb56585e55fedfe790a0e4bf86c12361"
+      ],
+      "cwd": "/home/rylan/projects/ej276d-n01/wp4_023_20261016",
+      "boot_id": "06177e53-90a1-4d8c-a942-03b487a0684d",
+      "CPU_affinity": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ]
+    },
+    "child": {
+      "pid": 133659,
+      "parent_pid": 133652,
+      "start_ticks": 4408820,
+      "process_group": 133659,
+      "command": [
+        "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+        "-B",
+        "/home/rylan/projects/ej276d-n01/wp4_023_20261016/scripts/run_wp4_023.py",
+        "--config",
+        "/home/rylan/projects/ej276d-n01/wp4_023_20261016/wp4_023_config.json",
+        "--config-sha256",
+        "796a62486a30336c82468076b1490cf6bb56585e55fedfe790a0e4bf86c12361",
+        "--output",
+        "/home/rylan/projects/ej276d-n01/wp4_023_20261016/runs/primary/artifacts"
+      ],
+      "cwd": "/home/rylan/projects/ej276d-n01/wp4_023_20261016",
+      "boot_id": "06177e53-90a1-4d8c-a942-03b487a0684d",
+      "CPU_affinity": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ]
+    },
+    "log": "/home/rylan/projects/ej276d-n01/wp4_023_20261016/runs/primary/supervisor/driver_console.log",
+    "lock": "/home/rylan/projects/ej276d-n01/.n01_scientific_dispatch.lock",
+    "lock_inherited_by_driver": true,
+    "automatic_restart": false,
+    "limits": {
+      "CPU_threads": 12,
+      "driver_AS_bytes": 8589934592,
+      "RSS_bytes": 8589934592,
+      "wall_seconds": 7200,
+      "driver_CPU_soft_seconds": 21590,
+      "driver_CPU_hard_seconds": 21600,
+      "output_bytes": 1610612736
+    }
+  },
+  "started": {
+    "schema": "n01/wp4-023-started/v1",
+    "run_id": "wp4_023_20261016",
+    "UTC": "2026-10-16T05:54:28.535437+00:00",
+    "pid": 133659,
+    "artificial_only": false,
+    "phase": "frozen_inputs",
+    "counters": {
+      "new_teacher_kernels": 0,
+      "NN_forward_rows": 0,
+      "noise005_rows": 0,
+      "checkpoint_loads": 0,
+      "new_AD_queries": 0,
+      "G_updates": 0,
+      "optimizer_steps": 0,
+      "new_RNG_requests": 0,
+      "new_normal_requests": 0,
+      "new_sign_uniform_requests": 0,
+      "new_PIT_uniform_requests": 0,
+      "new_hard_ADC_or_argmax_rows": 0,
+      "original_SOURCE_REAL_DEV_waveform_reads": 0,
+      "parameter_fits": 0,
+      "training_trial_slots": 0,
+      "reused_fast_parent_score_rows": 0,
+      "new_parent_score_rows": 0,
+      "reported_group_weight_hypothesis_cells": 0,
+      "required_primary_cells": 0,
+      "saved_T2_hard_rows_decoded": 0,
+      "saved_T1_hard_rows_decoded": 0,
+      "total_saved_hard_rows_decoded": 0,
+      "evaluation_energy_pair_distances": 0,
+      "evaluation_observable_pair_distances": 0,
+      "new_pair_distances_total": 0
+    },
+    "attempted_counters": {
+      "new_teacher_kernels": 0,
+      "NN_forward_rows": 0,
+      "noise005_rows": 0,
+      "checkpoint_loads": 0,
+      "new_AD_queries": 0,
+      "G_updates": 0,
+      "optimizer_steps": 0,
+      "new_RNG_requests": 0,
+      "new_normal_requests": 0,
+      "new_sign_uniform_requests": 0,
+      "new_PIT_uniform_requests": 0,
+      "new_hard_ADC_or_argmax_rows": 0,
+      "original_SOURCE_REAL_DEV_waveform_reads": 0,
+      "parameter_fits": 0,
+      "training_trial_slots": 0,
+      "reused_fast_parent_score_rows": 0,
+      "new_parent_score_rows": 0,
+      "reported_group_weight_hypothesis_cells": 0,
+      "required_primary_cells": 0,
+      "saved_T2_hard_rows_decoded": 0,
+      "saved_T1_hard_rows_decoded": 0,
+      "total_saved_hard_rows_decoded": 0,
+      "evaluation_energy_pair_distances": 0,
+      "evaluation_observable_pair_distances": 0,
+      "new_pair_distances_total": 0
+    },
+    "operations_entered": 0,
+    "operations_completed": 0,
+    "inflight": {},
+    "unknown_inflight_completion": "never_asserted_completed",
+    "immutable_files_sha256": {
+      "/home/rylan/projects/ej276d-n01/wp4_023_20261016/wp4_023_config.json": "796a62486a30336c82468076b1490cf6bb56585e55fedfe790a0e4bf86c12361",
+      "/home/rylan/projects/ej276d-n01/wp4_023_20261016/WP4_023_SAVED_INPUTS.json": "0153109069d04cd76737f0178f36db91519fdd04adcf087eeac7d5f54a9a4a57",
+      "/home/rylan/projects/ej276d-n01/wp4_023_20261016/scripts/run_wp4_023.py": "f9ba779223a8d241776ced0b384b87cf7173a176af8ece901042339a2915e52d",
+      "/home/rylan/projects/ej276d-n01/wp4_023_20261016/scripts/run_wp4_022.py": "93b7f09fe44b0aa3ccc0689cf107fdb8e796c1faec597604dc960ee9f2c17a8d",
+      "/home/rylan/projects/ej276d-n01/wp4_023_20261016/scripts/run_wp4_019.py": "d76661d3004a326cbff06798318000be441e10734cdba94302bc5e767e5290f9",
+      "/home/rylan/projects/ej276d-n01/wp4_023_20261016/scripts/run_wp4_018.py": "4903798a66adef3e664103d94b604191c8180e9ca6d52cd56088da9e7259a0bb",
+      "/home/rylan/projects/ej276d-n01/wp4_023_20261016/scripts/run_wp4_017.py": "34e8604b7be53359f8b50ffc4de882845d561f49190063931614e25ec6bc5e62",
+      "/home/rylan/projects/ej276d-n01/wp4_023_20261016/scripts/wp1_ops.py": "f8ddbbdb2f2f6df033e964f27bf03dcbda07055cc7378775591ef69b9caf85b5",
+      "/home/rylan/projects/ej276d-n01/wp4_023_20261016/src/n01/stats017.py": "9dc33275b66257397e2382cd2989f74701026a897e847af76fa459c72859dd0a",
+      "/home/rylan/projects/ej276d-n01/wp4_023_20261016/src/n01/stats018.py": "7a5e31ef5c8c7074a2cd826849c76ebbf485168f5cecc0d64e16fba343767cc8",
+      "/home/rylan/projects/ej276d-n01/wp4_023_20261016/src/n01/saved_array_kernels017.py": "fe1366f35f36e97974f1a4037a36ad858c03dd8453957c1b45b65080f0fee3ac",
+      "/home/rylan/projects/ej276d-n01/wp4_023_20261016/receipts/wp4_018_20261016/FINAL_RESULT_RECEIPT.json": "bbbed5f554f6de4548a5131d6df68445c160d01c001a36c3d9d2d918be748bfe",
+      "/home/rylan/projects/ej276d-n01/wp4_023_20261016/receipts/wp4_022_20261016/FINAL_RESULT_RECEIPT.json": "f83ab370385b6e6946aaf6e98bd01bfb9d27653798c337d9d85018f6ccab3452",
+      "/home/rylan/projects/ej276d-n01/wp4_023_20261016/receipts/wp4_020_20261016/authorization_01/USER_AUTHORIZATION.json": "d1dcdd2002cf52c792aa307e14cc11fb3b1ad25d035ff0cd46a8bb84cc0040fa",
+      "/home/rylan/projects/ej276d-n01/wp4_023_20261016/receipts/wp4_023_20261016/registration_01/PROSPECTIVE_SCOPE.json": "d547c1d6b0f926c51d8f29188329c6ee7c4da2351e8049277df733e62cf272a7",
+      "/home/rylan/projects/ej276d-n01/wp4_023_20261016/docs/WP4_023_CONFIGURATION.md": "3268a5a473626c003ba0c0d38fcab6902a8ff03be8842f9978d5af9661c03d08",
+      "/home/rylan/projects/ej276d-n01/wp4_023_20261016/REMOTE_SUPERVISOR.py": "604dc38e0a8c744a9d6a6ce5da97f30815e998784c8c51d4283220b232ecd6b5",
+      "/home/rylan/projects/ej276d-n01/wp4_018_20261016/runs/primary/artifacts/PARENT_AXES.npz": "df40906d4f3c8f81b4c0e18411f2c1f5f0b34a18e77834d9e4128b5314207200",
+      "/home/rylan/projects/ej276d-n01/wp4_018_20261016/wp4_018_config.json": "3eb6d180e63a7cbd4560da5cb4b2e99e10054ff5504aef1b96212c58cc8acc8a",
+      "/home/rylan/projects/ej276d-n01/wp4_017_20261015/runs/primary/artifacts/T1/bank0_slow_HARD_ROWS.npz": "ec2b7bcb490470c43e94e9f2ef02f09cc3980e2e6af6442339cade034474e0f0",
+      "/home/rylan/projects/ej276d-n01/wp4_017_20261015/runs/primary/artifacts/T1/bank1_slow_HARD_ROWS.npz": "9bd49b3e793a08cc34af295ceef8e0f7d37d2986a98c540a99c163694ea92b24",
+      "/home/rylan/projects/ej276d-n01/wp4_018_20261016/runs/primary/artifacts/T1_slow_OBSERVABLE.npz": "6f8a77cac4e8e6a81df0084bfee6b9c067ee6bf15324673c8fdda67cef019bfb",
+      "/home/rylan/projects/ej276d-n01/wp4_018_20261016/runs/primary/artifacts/T1_slow_CONTROLS.npz": "939ce67efb458ceaa507dccb84a96293acb1f3d57b1aeb1f57444a75db883d61",
+      "/home/rylan/projects/ej276d-n01/wp4_017_20261015/runs/primary/artifacts/T1/bank0_common_level_HARD_ROWS.npz": "df295da7d89d3ac0f4dc92f844fc40799e156c0a3a48aca31017dceffc1bbcda",
+      "/home/rylan/projects/ej276d-n01/wp4_017_20261015/runs/primary/artifacts/T1/bank1_common_level_HARD_ROWS.npz": "cec42f0f6ac3e58ccbd7a013c17d6bbb896d961940a23c11d38dadf0103f3f44",
+      "/home/rylan/projects/ej276d-n01/wp4_018_20261016/runs/primary/artifacts/T1_common_level_OBSERVABLE.npz": "959065e01a9ddf49b8650724fa4addf4820ebf7c56db341259bb84fca3c417e8",
+      "/home/rylan/projects/ej276d-n01/wp4_018_20261016/runs/primary/artifacts/T1_common_level_CONTROLS.npz": "18ac939d254cd9957a0e026edbd542a8a4b2238c004337ea035526f60ddae996",
+      "/home/rylan/projects/ej276d-n01/wp4_022_20261016/runs/primary/artifacts/PARENT_SCORES022_fast.npz": "52a96823c9b2d5ce336ca567823110292aa4d06829d8cadb0bf4676c6fa7508b",
+      "/home/rylan/projects/ej276d-n01/wp4_022_20261016/wp4_022_config.json": "9e812f7f1fbd857886e39a9c4df9bcaa04e1a76bb83dcd2ecf858550c184d814",
+      "/home/rylan/projects/ej276d-n01/wp4_022_20261016/runs/primary/artifacts/T2/EVALUATION.json": "5892eb88dd9f2430d9a7ece3010ab25a8c8bab261c3eeaabc6d340f95945250d",
+      "/home/rylan/projects/ej276d-n01/wp4_022_20261016/runs/primary/artifacts/T2/bank0_BASELINE100.npz": "42fdce9659ae4f4bfa88692d5417ee638aceed8d4ae27517137d4c7d9dc8ae96",
+      "/home/rylan/projects/ej276d-n01/wp4_022_20261016/runs/primary/artifacts/T2/bank1_BASELINE100.npz": "e79f704c560aa891eb1bf0c69a60b1f692c9d5440c09e4db7fd3fec4578f56e4",
+      "/home/rylan/projects/ej276d-n01/wp4_022_20261016/runs/primary/artifacts/T2/bank0_slow_HARD_ROWS.npz": "43187a1984fd6742c6047a0fb334e03cd049bd4980f1b8761281f24be9c724e7",
+      "/home/rylan/projects/ej276d-n01/wp4_022_20261016/runs/primary/artifacts/T2/bank0_slow_REPORT.npz": "5a6b0127ffda0afb1f6be0fb8a772c1eb713f64db958df04607a6706ec97aa4f",
+      "/home/rylan/projects/ej276d-n01/wp4_022_20261016/runs/primary/artifacts/T2/bank1_slow_HARD_ROWS.npz": "be993ac808c18be5fe91805daa28c5839f0438aabcd4b59a56c449e93e446e03",
+      "/home/rylan/projects/ej276d-n01/wp4_022_20261016/runs/primary/artifacts/T2/bank1_slow_REPORT.npz": "03b60010852760bd70c12d2f00eb4b97ae168cb3e722a6a3faa1345027245be0",
+      "/home/rylan/projects/ej276d-n01/wp4_022_20261016/runs/primary/artifacts/T2/bank0_common_level_HARD_ROWS.npz": "d03682dcf3c9b396b32779b734c48cbbcabd23e9b1baed8ed1a0e695e8426144",
+      "/home/rylan/projects/ej276d-n01/wp4_022_20261016/runs/primary/artifacts/T2/bank0_common_level_REPORT.npz": "030ea1116b7ac9dc182221fbe3cb365591e2a20ae2dd7a5046544465586b7fc0",
+      "/home/rylan/projects/ej276d-n01/wp4_022_20261016/runs/primary/artifacts/T2/bank1_common_level_HARD_ROWS.npz": "a12a871c1e3a79864a7fc533cba9fc4235e0d135ef30cfd8e65d3ea50fb6cec3",
+      "/home/rylan/projects/ej276d-n01/wp4_022_20261016/runs/primary/artifacts/T2/bank1_common_level_REPORT.npz": "b3f9f1db13a63776fbcb9b8257dd0a8bf8b71be504497efcfbc1eace8093b1df"
+    },
+    "error": null,
+    "scientific_training_updates": 0,
+    "scientific_status": "response_match_not_established",
+    "native_status": "STARTED",
+    "config_sha256": "796a62486a30336c82468076b1490cf6bb56585e55fedfe790a0e4bf86c12361",
+    "manifest_verified": true,
+    "input_files": 23,
+    "NN_CP_AD_G_RNG_ADC": 0,
+    "source_run_id": "wp4_022_20261016",
+    "original022_native_exit_code": 1,
+    "fast_distances_recomputed": 0
+  },
+  "phase": {
+    "schema": "n01/wp4-023-phase/v1",
+    "run_id": "wp4_023_20261016",
+    "UTC": "2026-10-16T05:55:10.780566+00:00",
+    "pid": 133659,
+    "artificial_only": false,
+    "phase": "scored_common_level",
+    "counters": {
+      "new_teacher_kernels": 0,
+      "NN_forward_rows": 0,
+      "noise005_rows": 0,
+      "checkpoint_loads": 0,
+      "new_AD_queries": 0,
+      "G_updates": 0,
+      "optimizer_steps": 0,
+      "new_RNG_requests": 0,
+      "new_normal_requests": 0,
+      "new_sign_uniform_requests": 0,
+      "new_PIT_uniform_requests": 0,
+      "new_hard_ADC_or_argmax_rows": 0,
+      "original_SOURCE_REAL_DEV_waveform_reads": 0,
+      "parameter_fits": 0,
+      "training_trial_slots": 0,
+      "reused_fast_parent_score_rows": 6593,
+      "new_parent_score_rows": 13186,
+      "reported_group_weight_hypothesis_cells": 36,
+      "required_primary_cells": 3,
+      "saved_T2_hard_rows_decoded": 843904,
+      "saved_T1_hard_rows_decoded": 843904,
+      "total_saved_hard_rows_decoded": 1687808,
+      "evaluation_energy_pair_distances": 54009856,
+      "evaluation_observable_pair_distances": 94517248,
+      "new_pair_distances_total": 148527104
+    },
+    "attempted_counters": {
+      "new_teacher_kernels": 0,
+      "NN_forward_rows": 0,
+      "noise005_rows": 0,
+      "checkpoint_loads": 0,
+      "new_AD_queries": 0,
+      "G_updates": 0,
+      "optimizer_steps": 0,
+      "new_RNG_requests": 0,
+      "new_normal_requests": 0,
+      "new_sign_uniform_requests": 0,
+      "new_PIT_uniform_requests": 0,
+      "new_hard_ADC_or_argmax_rows": 0,
+      "original_SOURCE_REAL_DEV_waveform_reads": 0,
+      "parameter_fits": 0,
+      "training_trial_slots": 0,
+      "reused_fast_parent_score_rows": 6593,
+      "new_parent_score_rows": 13186,
+      "reported_group_weight_hypothesis_cells": 36,
+      "required_primary_cells": 3,
+      "saved_T2_hard_rows_decoded": 843904,
+      "saved_T1_hard_rows_decoded": 843904,
+      "total_saved_hard_rows_decoded": 1687808,
+      "evaluation_energy_pair_distances": 54009856,
+      "evaluation_observable_pair_distances": 94517248,
+      "new_pair_distances_total": 148527104
+    },
+    "operations_entered": 10,
+    "operations_completed": 10,
+    "inflight": {},
+    "unknown_inflight_completion": "never_asserted_completed",
+    "immutable_files_sha256": {
+      "/home/rylan/projects/ej276d-n01/wp4_023_20261016/wp4_023_config.json": "796a62486a30336c82468076b1490cf6bb56585e55fedfe790a0e4bf86c12361",
+      "/home/rylan/projects/ej276d-n01/wp4_023_20261016/WP4_023_SAVED_INPUTS.json": "0153109069d04cd76737f0178f36db91519fdd04adcf087eeac7d5f54a9a4a57",
+      "/home/rylan/projects/ej276d-n01/wp4_023_20261016/scripts/run_wp4_023.py": "f9ba779223a8d241776ced0b384b87cf7173a176af8ece901042339a2915e52d",
+      "/home/rylan/projects/ej276d-n01/wp4_023_20261016/scripts/run_wp4_022.py": "93b7f09fe44b0aa3ccc0689cf107fdb8e796c1faec597604dc960ee9f2c17a8d",
+      "/home/rylan/projects/ej276d-n01/wp4_023_20261016/scripts/run_wp4_019.py": "d76661d3004a326cbff06798318000be441e10734cdba94302bc5e767e5290f9",
+      "/home/rylan/projects/ej276d-n01/wp4_023_20261016/scripts/run_wp4_018.py": "4903798a66adef3e664103d94b604191c8180e9ca6d52cd56088da9e7259a0bb",
+      "/home/rylan/projects/ej276d-n01/wp4_023_20261016/scripts/run_wp4_017.py": "34e8604b7be53359f8b50ffc4de882845d561f49190063931614e25ec6bc5e62",
+      "/home/rylan/projects/ej276d-n01/wp4_023_20261016/scripts/wp1_ops.py": "f8ddbbdb2f2f6df033e964f27bf03dcbda07055cc7378775591ef69b9caf85b5",
+      "/home/rylan/projects/ej276d-n01/wp4_023_20261016/src/n01/stats017.py": "9dc33275b66257397e2382cd2989f74701026a897e847af76fa459c72859dd0a",
+      "/home/rylan/projects/ej276d-n01/wp4_023_20261016/src/n01/stats018.py": "7a5e31ef5c8c7074a2cd826849c76ebbf485168f5cecc0d64e16fba343767cc8",
+      "/home/rylan/projects/ej276d-n01/wp4_023_20261016/src/n01/saved_array_kernels017.py": "fe1366f35f36e97974f1a4037a36ad858c03dd8453957c1b45b65080f0fee3ac",
+      "/home/rylan/projects/ej276d-n01/wp4_023_20261016/receipts/wp4_018_20261016/FINAL_RESULT_RECEIPT.json": "bbbed5f554f6de4548a5131d6df68445c160d01c001a36c3d9d2d918be748bfe",
+      "/home/rylan/projects/ej276d-n01/wp4_023_20261016/receipts/wp4_022_20261016/FINAL_RESULT_RECEIPT.json": "f83ab370385b6e6946aaf6e98bd01bfb9d27653798c337d9d85018f6ccab3452",
+      "/home/rylan/projects/ej276d-n01/wp4_023_20261016/receipts/wp4_020_20261016/authorization_01/USER_AUTHORIZATION.json": "d1dcdd2002cf52c792aa307e14cc11fb3b1ad25d035ff0cd46a8bb84cc0040fa",
+      "/home/rylan/projects/ej276d-n01/wp4_023_20261016/receipts/wp4_023_20261016/registration_01/PROSPECTIVE_SCOPE.json": "d547c1d6b0f926c51d8f29188329c6ee7c4da2351e8049277df733e62cf272a7",
+      "/home/rylan/projects/ej276d-n01/wp4_023_20261016/docs/WP4_023_CONFIGURATION.md": "3268a5a473626c003ba0c0d38fcab6902a8ff03be8842f9978d5af9661c03d08",
+      "/home/rylan/projects/ej276d-n01/wp4_023_20261016/REMOTE_SUPERVISOR.py": "604dc38e0a8c744a9d6a6ce5da97f30815e998784c8c51d4283220b232ecd6b5",
+      "/home/rylan/projects/ej276d-n01/wp4_018_20261016/runs/primary/artifacts/PARENT_AXES.npz": "df40906d4f3c8f81b4c0e18411f2c1f5f0b34a18e77834d9e4128b5314207200",
+      "/home/rylan/projects/ej276d-n01/wp4_018_20261016/wp4_018_config.json": "3eb6d180e63a7cbd4560da5cb4b2e99e10054ff5504aef1b96212c58cc8acc8a",
+      "/home/rylan/projects/ej276d-n01/wp4_017_20261015/runs/primary/artifacts/T1/bank0_slow_HARD_ROWS.npz": "ec2b7bcb490470c43e94e9f2ef02f09cc3980e2e6af6442339cade034474e0f0",
+      "/home/rylan/projects/ej276d-n01/wp4_017_20261015/runs/primary/artifacts/T1/bank1_slow_HARD_ROWS.npz": "9bd49b3e793a08cc34af295ceef8e0f7d37d2986a98c540a99c163694ea92b24",
+      "/home/rylan/projects/ej276d-n01/wp4_018_20261016/runs/primary/artifacts/T1_slow_OBSERVABLE.npz": "6f8a77cac4e8e6a81df0084bfee6b9c067ee6bf15324673c8fdda67cef019bfb",
+      "/home/rylan/projects/ej276d-n01/wp4_018_20261016/runs/primary/artifacts/T1_slow_CONTROLS.npz": "939ce67efb458ceaa507dccb84a96293acb1f3d57b1aeb1f57444a75db883d61",
+      "/home/rylan/projects/ej276d-n01/wp4_017_20261015/runs/primary/artifacts/T1/bank0_common_level_HARD_ROWS.npz": "df295da7d89d3ac0f4dc92f844fc40799e156c0a3a48aca31017dceffc1bbcda",
+      "/home/rylan/projects/ej276d-n01/wp4_017_20261015/runs/primary/artifacts/T1/bank1_common_level_HARD_ROWS.npz": "cec42f0f6ac3e58ccbd7a013c17d6bbb896d961940a23c11d38dadf0103f3f44",
+      "/home/rylan/projects/ej276d-n01/wp4_018_20261016/runs/primary/artifacts/T1_common_level_OBSERVABLE.npz": "959065e01a9ddf49b8650724fa4addf4820ebf7c56db341259bb84fca3c417e8",
+      "/home/rylan/projects/ej276d-n01/wp4_018_20261016/runs/primary/artifacts/T1_common_level_CONTROLS.npz": "18ac939d254cd9957a0e026edbd542a8a4b2238c004337ea035526f60ddae996",
+      "/home/rylan/projects/ej276d-n01/wp4_022_20261016/runs/primary/artifacts/PARENT_SCORES022_fast.npz": "52a96823c9b2d5ce336ca567823110292aa4d06829d8cadb0bf4676c6fa7508b",
+      "/home/rylan/projects/ej276d-n01/wp4_022_20261016/wp4_022_config.json": "9e812f7f1fbd857886e39a9c4df9bcaa04e1a76bb83dcd2ecf858550c184d814",
+      "/home/rylan/projects/ej276d-n01/wp4_022_20261016/runs/primary/artifacts/T2/EVALUATION.json": "5892eb88dd9f2430d9a7ece3010ab25a8c8bab261c3eeaabc6d340f95945250d",
+      "/home/rylan/projects/ej276d-n01/wp4_022_20261016/runs/primary/artifacts/T2/bank0_BASELINE100.npz": "42fdce9659ae4f4bfa88692d5417ee638aceed8d4ae27517137d4c7d9dc8ae96",
+      "/home/rylan/projects/ej276d-n01/wp4_022_20261016/runs/primary/artifacts/T2/bank1_BASELINE100.npz": "e79f704c560aa891eb1bf0c69a60b1f692c9d5440c09e4db7fd3fec4578f56e4",
+      "/home/rylan/projects/ej276d-n01/wp4_022_20261016/runs/primary/artifacts/T2/bank0_slow_HARD_ROWS.npz": "43187a1984fd6742c6047a0fb334e03cd049bd4980f1b8761281f24be9c724e7",
+      "/home/rylan/projects/ej276d-n01/wp4_022_20261016/runs/primary/artifacts/T2/bank0_slow_REPORT.npz": "5a6b0127ffda0afb1f6be0fb8a772c1eb713f64db958df04607a6706ec97aa4f",
+      "/home/rylan/projects/ej276d-n01/wp4_022_20261016/runs/primary/artifacts/T2/bank1_slow_HARD_ROWS.npz": "be993ac808c18be5fe91805daa28c5839f0438aabcd4b59a56c449e93e446e03",
+      "/home/rylan/projects/ej276d-n01/wp4_022_20261016/runs/primary/artifacts/T2/bank1_slow_REPORT.npz": "03b60010852760bd70c12d2f00eb4b97ae168cb3e722a6a3faa1345027245be0",
+      "/home/rylan/projects/ej276d-n01/wp4_022_20261016/runs/primary/artifacts/T2/bank0_common_level_HARD_ROWS.npz": "d03682dcf3c9b396b32779b734c48cbbcabd23e9b1baed8ed1a0e695e8426144",
+      "/home/rylan/projects/ej276d-n01/wp4_022_20261016/runs/primary/artifacts/T2/bank0_common_level_REPORT.npz": "030ea1116b7ac9dc182221fbe3cb365591e2a20ae2dd7a5046544465586b7fc0",
+      "/home/rylan/projects/ej276d-n01/wp4_022_20261016/runs/primary/artifacts/T2/bank1_common_level_HARD_ROWS.npz": "a12a871c1e3a79864a7fc533cba9fc4235e0d135ef30cfd8e65d3ea50fb6cec3",
+      "/home/rylan/projects/ej276d-n01/wp4_022_20261016/runs/primary/artifacts/T2/bank1_common_level_REPORT.npz": "b3f9f1db13a63776fbcb9b8257dd0a8bf8b71be504497efcfbc1eace8093b1df"
+    },
+    "error": null,
+    "scientific_training_updates": 0,
+    "scientific_status": "response_match_not_established",
+    "completed_distance_counts": {
+      "19": 94517248,
+      "257": 54009856
+    },
+    "fast_distances_recomputed": 0,
+    "elapsed_seconds": 42.246611381997354,
+    "peak_RSS_bytes": 4419420160,
+    "user_CPU_seconds": 39.430345,
+    "system_CPU_seconds": 3.871444,
+    "output_bytes": 89254104
+  },
+  "native_exit": {
+    "schema": "n01/wp4-023-native-exit/v1",
+    "run_id": "wp4_023_20261016",
+    "UTC": "2026-10-16T05:55:11.149185+00:00",
+    "config_sha256": "796a62486a30336c82468076b1490cf6bb56585e55fedfe790a0e4bf86c12361",
+    "supervisor": {
+      "pid": 133652,
+      "parent_pid": 1,
+      "start_ticks": 4408818,
+      "command": [
+        "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+        "-B",
+        "/home/rylan/projects/ej276d-n01/wp4_023_20261016/REMOTE_SUPERVISOR.py",
+        "--config",
+        "/home/rylan/projects/ej276d-n01/wp4_023_20261016/wp4_023_config.json",
+        "--config-sha256",
+        "796a62486a30336c82468076b1490cf6bb56585e55fedfe790a0e4bf86c12361"
+      ],
+      "cwd": "/home/rylan/projects/ej276d-n01/wp4_023_20261016",
+      "boot_id": "06177e53-90a1-4d8c-a942-03b487a0684d",
+      "CPU_affinity": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ]
+    },
+    "child": {
+      "pid": 133659,
+      "parent_pid": 133652,
+      "start_ticks": 4408820,
+      "process_group": 133659,
+      "command": [
+        "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+        "-B",
+        "/home/rylan/projects/ej276d-n01/wp4_023_20261016/scripts/run_wp4_023.py",
+        "--config",
+        "/home/rylan/projects/ej276d-n01/wp4_023_20261016/wp4_023_config.json",
+        "--config-sha256",
+        "796a62486a30336c82468076b1490cf6bb56585e55fedfe790a0e4bf86c12361",
+        "--output",
+        "/home/rylan/projects/ej276d-n01/wp4_023_20261016/runs/primary/artifacts"
+      ],
+      "cwd": "/home/rylan/projects/ej276d-n01/wp4_023_20261016",
+      "boot_id": "06177e53-90a1-4d8c-a942-03b487a0684d",
+      "CPU_affinity": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ]
+    },
+    "child_native_returncode": 0,
+    "child_terminated_by_signal": null,
+    "reason": null,
+    "elapsed_seconds": 42.960083312995266,
+    "peak_RSS_KiB": 4315840,
+    "output_bytes": 89758327,
+    "child_user_CPU_seconds": 39.713341,
+    "child_system_CPU_seconds": 3.9561159999999997,
+    "resource_violations": [],
+    "limits": {
+      "CPU_threads": 12,
+      "driver_AS_bytes": 8589934592,
+      "RSS_bytes": 8589934592,
+      "wall_seconds": 7200,
+      "driver_CPU_soft_seconds": 21590,
+      "driver_CPU_hard_seconds": 21600,
+      "output_bytes": 1610612736
+    },
+    "log": "/home/rylan/projects/ej276d-n01/wp4_023_20261016/runs/primary/supervisor/driver_console.log",
+    "automatic_restart": false,
+    "scientific_acceptance": false
+  },
+  "failed": null,
+  "driver_failed": null,
+  "complete": {
+    "schema": "n01/wp4-023-complete/v1",
+    "run_id": "wp4_023_20261016",
+    "UTC": "2026-10-16T05:55:11.131998+00:00",
+    "pid": 133659,
+    "artificial_only": false,
+    "phase": "scored_common_level",
+    "counters": {
+      "new_teacher_kernels": 0,
+      "NN_forward_rows": 0,
+      "noise005_rows": 0,
+      "checkpoint_loads": 0,
+      "new_AD_queries": 0,
+      "G_updates": 0,
+      "optimizer_steps": 0,
+      "new_RNG_requests": 0,
+      "new_normal_requests": 0,
+      "new_sign_uniform_requests": 0,
+      "new_PIT_uniform_requests": 0,
+      "new_hard_ADC_or_argmax_rows": 0,
+      "original_SOURCE_REAL_DEV_waveform_reads": 0,
+      "parameter_fits": 0,
+      "training_trial_slots": 0,
+      "reused_fast_parent_score_rows": 6593,
+      "new_parent_score_rows": 13186,
+      "reported_group_weight_hypothesis_cells": 36,
+      "required_primary_cells": 3,
+      "saved_T2_hard_rows_decoded": 843904,
+      "saved_T1_hard_rows_decoded": 843904,
+      "total_saved_hard_rows_decoded": 1687808,
+      "evaluation_energy_pair_distances": 54009856,
+      "evaluation_observable_pair_distances": 94517248,
+      "new_pair_distances_total": 148527104
+    },
+    "attempted_counters": {
+      "new_teacher_kernels": 0,
+      "NN_forward_rows": 0,
+      "noise005_rows": 0,
+      "checkpoint_loads": 0,
+      "new_AD_queries": 0,
+      "G_updates": 0,
+      "optimizer_steps": 0,
+      "new_RNG_requests": 0,
+      "new_normal_requests": 0,
+      "new_sign_uniform_requests": 0,
+      "new_PIT_uniform_requests": 0,
+      "new_hard_ADC_or_argmax_rows": 0,
+      "original_SOURCE_REAL_DEV_waveform_reads": 0,
+      "parameter_fits": 0,
+      "training_trial_slots": 0,
+      "reused_fast_parent_score_rows": 6593,
+      "new_parent_score_rows": 13186,
+      "reported_group_weight_hypothesis_cells": 36,
+      "required_primary_cells": 3,
+      "saved_T2_hard_rows_decoded": 843904,
+      "saved_T1_hard_rows_decoded": 843904,
+      "total_saved_hard_rows_decoded": 1687808,
+      "evaluation_energy_pair_distances": 54009856,
+      "evaluation_observable_pair_distances": 94517248,
+      "new_pair_distances_total": 148527104
+    },
+    "operations_entered": 10,
+    "operations_completed": 10,
+    "inflight": {},
+    "unknown_inflight_completion": "never_asserted_completed",
+    "immutable_files_sha256": {
+      "/home/rylan/projects/ej276d-n01/wp4_023_20261016/wp4_023_config.json": "796a62486a30336c82468076b1490cf6bb56585e55fedfe790a0e4bf86c12361",
+      "/home/rylan/projects/ej276d-n01/wp4_023_20261016/WP4_023_SAVED_INPUTS.json": "0153109069d04cd76737f0178f36db91519fdd04adcf087eeac7d5f54a9a4a57",
+      "/home/rylan/projects/ej276d-n01/wp4_023_20261016/scripts/run_wp4_023.py": "f9ba779223a8d241776ced0b384b87cf7173a176af8ece901042339a2915e52d",
+      "/home/rylan/projects/ej276d-n01/wp4_023_20261016/scripts/run_wp4_022.py": "93b7f09fe44b0aa3ccc0689cf107fdb8e796c1faec597604dc960ee9f2c17a8d",
+      "/home/rylan/projects/ej276d-n01/wp4_023_20261016/scripts/run_wp4_019.py": "d76661d3004a326cbff06798318000be441e10734cdba94302bc5e767e5290f9",
+      "/home/rylan/projects/ej276d-n01/wp4_023_20261016/scripts/run_wp4_018.py": "4903798a66adef3e664103d94b604191c8180e9ca6d52cd56088da9e7259a0bb",
+      "/home/rylan/projects/ej276d-n01/wp4_023_20261016/scripts/run_wp4_017.py": "34e8604b7be53359f8b50ffc4de882845d561f49190063931614e25ec6bc5e62",
+      "/home/rylan/projects/ej276d-n01/wp4_023_20261016/scripts/wp1_ops.py": "f8ddbbdb2f2f6df033e964f27bf03dcbda07055cc7378775591ef69b9caf85b5",
+      "/home/rylan/projects/ej276d-n01/wp4_023_20261016/src/n01/stats017.py": "9dc33275b66257397e2382cd2989f74701026a897e847af76fa459c72859dd0a",
+      "/home/rylan/projects/ej276d-n01/wp4_023_20261016/src/n01/stats018.py": "7a5e31ef5c8c7074a2cd826849c76ebbf485168f5cecc0d64e16fba343767cc8",
+      "/home/rylan/projects/ej276d-n01/wp4_023_20261016/src/n01/saved_array_kernels017.py": "fe1366f35f36e97974f1a4037a36ad858c03dd8453957c1b45b65080f0fee3ac",
+      "/home/rylan/projects/ej276d-n01/wp4_023_20261016/receipts/wp4_018_20261016/FINAL_RESULT_RECEIPT.json": "bbbed5f554f6de4548a5131d6df68445c160d01c001a36c3d9d2d918be748bfe",
+      "/home/rylan/projects/ej276d-n01/wp4_023_20261016/receipts/wp4_022_20261016/FINAL_RESULT_RECEIPT.json": "f83ab370385b6e6946aaf6e98bd01bfb9d27653798c337d9d85018f6ccab3452",
+      "/home/rylan/projects/ej276d-n01/wp4_023_20261016/receipts/wp4_020_20261016/authorization_01/USER_AUTHORIZATION.json": "d1dcdd2002cf52c792aa307e14cc11fb3b1ad25d035ff0cd46a8bb84cc0040fa",
+      "/home/rylan/projects/ej276d-n01/wp4_023_20261016/receipts/wp4_023_20261016/registration_01/PROSPECTIVE_SCOPE.json": "d547c1d6b0f926c51d8f29188329c6ee7c4da2351e8049277df733e62cf272a7",
+      "/home/rylan/projects/ej276d-n01/wp4_023_20261016/docs/WP4_023_CONFIGURATION.md": "3268a5a473626c003ba0c0d38fcab6902a8ff03be8842f9978d5af9661c03d08",
+      "/home/rylan/projects/ej276d-n01/wp4_023_20261016/REMOTE_SUPERVISOR.py": "604dc38e0a8c744a9d6a6ce5da97f30815e998784c8c51d4283220b232ecd6b5",
+      "/home/rylan/projects/ej276d-n01/wp4_018_20261016/runs/primary/artifacts/PARENT_AXES.npz": "df40906d4f3c8f81b4c0e18411f2c1f5f0b34a18e77834d9e4128b5314207200",
+      "/home/rylan/projects/ej276d-n01/wp4_018_20261016/wp4_018_config.json": "3eb6d180e63a7cbd4560da5cb4b2e99e10054ff5504aef1b96212c58cc8acc8a",
+      "/home/rylan/projects/ej276d-n01/wp4_017_20261015/runs/primary/artifacts/T1/bank0_slow_HARD_ROWS.npz": "ec2b7bcb490470c43e94e9f2ef02f09cc3980e2e6af6442339cade034474e0f0",
+      "/home/rylan/projects/ej276d-n01/wp4_017_20261015/runs/primary/artifacts/T1/bank1_slow_HARD_ROWS.npz": "9bd49b3e793a08cc34af295ceef8e0f7d37d2986a98c540a99c163694ea92b24",
+      "/home/rylan/projects/ej276d-n01/wp4_018_20261016/runs/primary/artifacts/T1_slow_OBSERVABLE.npz": "6f8a77cac4e8e6a81df0084bfee6b9c067ee6bf15324673c8fdda67cef019bfb",
+      "/home/rylan/projects/ej276d-n01/wp4_018_20261016/runs/primary/artifacts/T1_slow_CONTROLS.npz": "939ce67efb458ceaa507dccb84a96293acb1f3d57b1aeb1f57444a75db883d61",
+      "/home/rylan/projects/ej276d-n01/wp4_017_20261015/runs/primary/artifacts/T1/bank0_common_level_HARD_ROWS.npz": "df295da7d89d3ac0f4dc92f844fc40799e156c0a3a48aca31017dceffc1bbcda",
+      "/home/rylan/projects/ej276d-n01/wp4_017_20261015/runs/primary/artifacts/T1/bank1_common_level_HARD_ROWS.npz": "cec42f0f6ac3e58ccbd7a013c17d6bbb896d961940a23c11d38dadf0103f3f44",
+      "/home/rylan/projects/ej276d-n01/wp4_018_20261016/runs/primary/artifacts/T1_common_level_OBSERVABLE.npz": "959065e01a9ddf49b8650724fa4addf4820ebf7c56db341259bb84fca3c417e8",
+      "/home/rylan/projects/ej276d-n01/wp4_018_20261016/runs/primary/artifacts/T1_common_level_CONTROLS.npz": "18ac939d254cd9957a0e026edbd542a8a4b2238c004337ea035526f60ddae996",
+      "/home/rylan/projects/ej276d-n01/wp4_022_20261016/runs/primary/artifacts/PARENT_SCORES022_fast.npz": "52a96823c9b2d5ce336ca567823110292aa4d06829d8cadb0bf4676c6fa7508b",
+      "/home/rylan/projects/ej276d-n01/wp4_022_20261016/wp4_022_config.json": "9e812f7f1fbd857886e39a9c4df9bcaa04e1a76bb83dcd2ecf858550c184d814",
+      "/home/rylan/projects/ej276d-n01/wp4_022_20261016/runs/primary/artifacts/T2/EVALUATION.json": "5892eb88dd9f2430d9a7ece3010ab25a8c8bab261c3eeaabc6d340f95945250d",
+      "/home/rylan/projects/ej276d-n01/wp4_022_20261016/runs/primary/artifacts/T2/bank0_BASELINE100.npz": "42fdce9659ae4f4bfa88692d5417ee638aceed8d4ae27517137d4c7d9dc8ae96",
+      "/home/rylan/projects/ej276d-n01/wp4_022_20261016/runs/primary/artifacts/T2/bank1_BASELINE100.npz": "e79f704c560aa891eb1bf0c69a60b1f692c9d5440c09e4db7fd3fec4578f56e4",
+      "/home/rylan/projects/ej276d-n01/wp4_022_20261016/runs/primary/artifacts/T2/bank0_slow_HARD_ROWS.npz": "43187a1984fd6742c6047a0fb334e03cd049bd4980f1b8761281f24be9c724e7",
+      "/home/rylan/projects/ej276d-n01/wp4_022_20261016/runs/primary/artifacts/T2/bank0_slow_REPORT.npz": "5a6b0127ffda0afb1f6be0fb8a772c1eb713f64db958df04607a6706ec97aa4f",
+      "/home/rylan/projects/ej276d-n01/wp4_022_20261016/runs/primary/artifacts/T2/bank1_slow_HARD_ROWS.npz": "be993ac808c18be5fe91805daa28c5839f0438aabcd4b59a56c449e93e446e03",
+      "/home/rylan/projects/ej276d-n01/wp4_022_20261016/runs/primary/artifacts/T2/bank1_slow_REPORT.npz": "03b60010852760bd70c12d2f00eb4b97ae168cb3e722a6a3faa1345027245be0",
+      "/home/rylan/projects/ej276d-n01/wp4_022_20261016/runs/primary/artifacts/T2/bank0_common_level_HARD_ROWS.npz": "d03682dcf3c9b396b32779b734c48cbbcabd23e9b1baed8ed1a0e695e8426144",
+      "/home/rylan/projects/ej276d-n01/wp4_022_20261016/runs/primary/artifacts/T2/bank0_common_level_REPORT.npz": "030ea1116b7ac9dc182221fbe3cb365591e2a20ae2dd7a5046544465586b7fc0",
+      "/home/rylan/projects/ej276d-n01/wp4_022_20261016/runs/primary/artifacts/T2/bank1_common_level_HARD_ROWS.npz": "a12a871c1e3a79864a7fc533cba9fc4235e0d135ef30cfd8e65d3ea50fb6cec3",
+      "/home/rylan/projects/ej276d-n01/wp4_022_20261016/runs/primary/artifacts/T2/bank1_common_level_REPORT.npz": "b3f9f1db13a63776fbcb9b8257dd0a8bf8b71be504497efcfbc1eace8093b1df"
+    },
+    "error": null,
+    "scientific_training_updates": 0,
+    "scientific_status": "response_match_not_established",
+    "native_status": "COMPLETE",
+    "decision": "not_established_at_registered_tolerance",
+    "all3_primary_supported": false,
+    "reported_cells": 36,
+    "required_primary_cells": 3,
+    "resources": {
+      "elapsed_seconds": 42.57258684899716,
+      "peak_RSS_bytes": 4419420160,
+      "user_CPU_seconds": 39.687181,
+      "system_CPU_seconds": 3.937521,
+      "output_bytes": 89746997,
+      "snapshot_before_terminal_receipts": true
+    },
+    "new_distance_counts": {
+      "19": 94517248,
+      "257": 54009856
+    },
+    "old022_completed_distances": 74263552,
+    "old022_plus023_distances": 222790656,
+    "original022_native_exit_code": 1,
+    "NN_CP_AD_G_RNG_ADC": 0,
+    "T2_training_started": false,
+    "scientific_acceptance": false
+  },
+  "status": {
+    "schema": "n01/wp1-state/v1",
+    "run_id": "wp4_023_20261016",
+    "UTC": "2026-10-16T05:55:11.132838+00:00",
+    "pid": 133659,
+    "artificial_only": false,
+    "phase": "scored_common_level",
+    "counters": {
+      "new_teacher_kernels": 0,
+      "NN_forward_rows": 0,
+      "noise005_rows": 0,
+      "checkpoint_loads": 0,
+      "new_AD_queries": 0,
+      "G_updates": 0,
+      "optimizer_steps": 0,
+      "new_RNG_requests": 0,
+      "new_normal_requests": 0,
+      "new_sign_uniform_requests": 0,
+      "new_PIT_uniform_requests": 0,
+      "new_hard_ADC_or_argmax_rows": 0,
+      "original_SOURCE_REAL_DEV_waveform_reads": 0,
+      "parameter_fits": 0,
+      "training_trial_slots": 0,
+      "reused_fast_parent_score_rows": 6593,
+      "new_parent_score_rows": 13186,
+      "reported_group_weight_hypothesis_cells": 36,
+      "required_primary_cells": 3,
+      "saved_T2_hard_rows_decoded": 843904,
+      "saved_T1_hard_rows_decoded": 843904,
+      "total_saved_hard_rows_decoded": 1687808,
+      "evaluation_energy_pair_distances": 54009856,
+      "evaluation_observable_pair_distances": 94517248,
+      "new_pair_distances_total": 148527104
+    },
+    "attempted_counters": {
+      "new_teacher_kernels": 0,
+      "NN_forward_rows": 0,
+      "noise005_rows": 0,
+      "checkpoint_loads": 0,
+      "new_AD_queries": 0,
+      "G_updates": 0,
+      "optimizer_steps": 0,
+      "new_RNG_requests": 0,
+      "new_normal_requests": 0,
+      "new_sign_uniform_requests": 0,
+      "new_PIT_uniform_requests": 0,
+      "new_hard_ADC_or_argmax_rows": 0,
+      "original_SOURCE_REAL_DEV_waveform_reads": 0,
+      "parameter_fits": 0,
+      "training_trial_slots": 0,
+      "reused_fast_parent_score_rows": 6593,
+      "new_parent_score_rows": 13186,
+      "reported_group_weight_hypothesis_cells": 36,
+      "required_primary_cells": 3,
+      "saved_T2_hard_rows_decoded": 843904,
+      "saved_T1_hard_rows_decoded": 843904,
+      "total_saved_hard_rows_decoded": 1687808,
+      "evaluation_energy_pair_distances": 54009856,
+      "evaluation_observable_pair_distances": 94517248,
+      "new_pair_distances_total": 148527104
+    },
+    "operations_entered": 10,
+    "operations_completed": 10,
+    "inflight": {},
+    "unknown_inflight_completion": "never_asserted_completed",
+    "immutable_files_sha256": {
+      "/home/rylan/projects/ej276d-n01/wp4_023_20261016/wp4_023_config.json": "796a62486a30336c82468076b1490cf6bb56585e55fedfe790a0e4bf86c12361",
+      "/home/rylan/projects/ej276d-n01/wp4_023_20261016/WP4_023_SAVED_INPUTS.json": "0153109069d04cd76737f0178f36db91519fdd04adcf087eeac7d5f54a9a4a57",
+      "/home/rylan/projects/ej276d-n01/wp4_023_20261016/scripts/run_wp4_023.py": "f9ba779223a8d241776ced0b384b87cf7173a176af8ece901042339a2915e52d",
+      "/home/rylan/projects/ej276d-n01/wp4_023_20261016/scripts/run_wp4_022.py": "93b7f09fe44b0aa3ccc0689cf107fdb8e796c1faec597604dc960ee9f2c17a8d",
+      "/home/rylan/projects/ej276d-n01/wp4_023_20261016/scripts/run_wp4_019.py": "d76661d3004a326cbff06798318000be441e10734cdba94302bc5e767e5290f9",
+      "/home/rylan/projects/ej276d-n01/wp4_023_20261016/scripts/run_wp4_018.py": "4903798a66adef3e664103d94b604191c8180e9ca6d52cd56088da9e7259a0bb",
+      "/home/rylan/projects/ej276d-n01/wp4_023_20261016/scripts/run_wp4_017.py": "34e8604b7be53359f8b50ffc4de882845d561f49190063931614e25ec6bc5e62",
+      "/home/rylan/projects/ej276d-n01/wp4_023_20261016/scripts/wp1_ops.py": "f8ddbbdb2f2f6df033e964f27bf03dcbda07055cc7378775591ef69b9caf85b5",
+      "/home/rylan/projects/ej276d-n01/wp4_023_20261016/src/n01/stats017.py": "9dc33275b66257397e2382cd2989f74701026a897e847af76fa459c72859dd0a",
+      "/home/rylan/projects/ej276d-n01/wp4_023_20261016/src/n01/stats018.py": "7a5e31ef5c8c7074a2cd826849c76ebbf485168f5cecc0d64e16fba343767cc8",
+      "/home/rylan/projects/ej276d-n01/wp4_023_20261016/src/n01/saved_array_kernels017.py": "fe1366f35f36e97974f1a4037a36ad858c03dd8453957c1b45b65080f0fee3ac",
+      "/home/rylan/projects/ej276d-n01/wp4_023_20261016/receipts/wp4_018_20261016/FINAL_RESULT_RECEIPT.json": "bbbed5f554f6de4548a5131d6df68445c160d01c001a36c3d9d2d918be748bfe",
+      "/home/rylan/projects/ej276d-n01/wp4_023_20261016/receipts/wp4_022_20261016/FINAL_RESULT_RECEIPT.json": "f83ab370385b6e6946aaf6e98bd01bfb9d27653798c337d9d85018f6ccab3452",
+      "/home/rylan/projects/ej276d-n01/wp4_023_20261016/receipts/wp4_020_20261016/authorization_01/USER_AUTHORIZATION.json": "d1dcdd2002cf52c792aa307e14cc11fb3b1ad25d035ff0cd46a8bb84cc0040fa",
+      "/home/rylan/projects/ej276d-n01/wp4_023_20261016/receipts/wp4_023_20261016/registration_01/PROSPECTIVE_SCOPE.json": "d547c1d6b0f926c51d8f29188329c6ee7c4da2351e8049277df733e62cf272a7",
+      "/home/rylan/projects/ej276d-n01/wp4_023_20261016/docs/WP4_023_CONFIGURATION.md": "3268a5a473626c003ba0c0d38fcab6902a8ff03be8842f9978d5af9661c03d08",
+      "/home/rylan/projects/ej276d-n01/wp4_023_20261016/REMOTE_SUPERVISOR.py": "604dc38e0a8c744a9d6a6ce5da97f30815e998784c8c51d4283220b232ecd6b5",
+      "/home/rylan/projects/ej276d-n01/wp4_018_20261016/runs/primary/artifacts/PARENT_AXES.npz": "df40906d4f3c8f81b4c0e18411f2c1f5f0b34a18e77834d9e4128b5314207200",
+      "/home/rylan/projects/ej276d-n01/wp4_018_20261016/wp4_018_config.json": "3eb6d180e63a7cbd4560da5cb4b2e99e10054ff5504aef1b96212c58cc8acc8a",
+      "/home/rylan/projects/ej276d-n01/wp4_017_20261015/runs/primary/artifacts/T1/bank0_slow_HARD_ROWS.npz": "ec2b7bcb490470c43e94e9f2ef02f09cc3980e2e6af6442339cade034474e0f0",
+      "/home/rylan/projects/ej276d-n01/wp4_017_20261015/runs/primary/artifacts/T1/bank1_slow_HARD_ROWS.npz": "9bd49b3e793a08cc34af295ceef8e0f7d37d2986a98c540a99c163694ea92b24",
+      "/home/rylan/projects/ej276d-n01/wp4_018_20261016/runs/primary/artifacts/T1_slow_OBSERVABLE.npz": "6f8a77cac4e8e6a81df0084bfee6b9c067ee6bf15324673c8fdda67cef019bfb",
+      "/home/rylan/projects/ej276d-n01/wp4_018_20261016/runs/primary/artifacts/T1_slow_CONTROLS.npz": "939ce67efb458ceaa507dccb84a96293acb1f3d57b1aeb1f57444a75db883d61",
+      "/home/rylan/projects/ej276d-n01/wp4_017_20261015/runs/primary/artifacts/T1/bank0_common_level_HARD_ROWS.npz": "df295da7d89d3ac0f4dc92f844fc40799e156c0a3a48aca31017dceffc1bbcda",
+      "/home/rylan/projects/ej276d-n01/wp4_017_20261015/runs/primary/artifacts/T1/bank1_common_level_HARD_ROWS.npz": "cec42f0f6ac3e58ccbd7a013c17d6bbb896d961940a23c11d38dadf0103f3f44",
+      "/home/rylan/projects/ej276d-n01/wp4_018_20261016/runs/primary/artifacts/T1_common_level_OBSERVABLE.npz": "959065e01a9ddf49b8650724fa4addf4820ebf7c56db341259bb84fca3c417e8",
+      "/home/rylan/projects/ej276d-n01/wp4_018_20261016/runs/primary/artifacts/T1_common_level_CONTROLS.npz": "18ac939d254cd9957a0e026edbd542a8a4b2238c004337ea035526f60ddae996",
+      "/home/rylan/projects/ej276d-n01/wp4_022_20261016/runs/primary/artifacts/PARENT_SCORES022_fast.npz": "52a96823c9b2d5ce336ca567823110292aa4d06829d8cadb0bf4676c6fa7508b",
+      "/home/rylan/projects/ej276d-n01/wp4_022_20261016/wp4_022_config.json": "9e812f7f1fbd857886e39a9c4df9bcaa04e1a76bb83dcd2ecf858550c184d814",
+      "/home/rylan/projects/ej276d-n01/wp4_022_20261016/runs/primary/artifacts/T2/EVALUATION.json": "5892eb88dd9f2430d9a7ece3010ab25a8c8bab261c3eeaabc6d340f95945250d",
+      "/home/rylan/projects/ej276d-n01/wp4_022_20261016/runs/primary/artifacts/T2/bank0_BASELINE100.npz": "42fdce9659ae4f4bfa88692d5417ee638aceed8d4ae27517137d4c7d9dc8ae96",
+      "/home/rylan/projects/ej276d-n01/wp4_022_20261016/runs/primary/artifacts/T2/bank1_BASELINE100.npz": "e79f704c560aa891eb1bf0c69a60b1f692c9d5440c09e4db7fd3fec4578f56e4",
+      "/home/rylan/projects/ej276d-n01/wp4_022_20261016/runs/primary/artifacts/T2/bank0_slow_HARD_ROWS.npz": "43187a1984fd6742c6047a0fb334e03cd049bd4980f1b8761281f24be9c724e7",
+      "/home/rylan/projects/ej276d-n01/wp4_022_20261016/runs/primary/artifacts/T2/bank0_slow_REPORT.npz": "5a6b0127ffda0afb1f6be0fb8a772c1eb713f64db958df04607a6706ec97aa4f",
+      "/home/rylan/projects/ej276d-n01/wp4_022_20261016/runs/primary/artifacts/T2/bank1_slow_HARD_ROWS.npz": "be993ac808c18be5fe91805daa28c5839f0438aabcd4b59a56c449e93e446e03",
+      "/home/rylan/projects/ej276d-n01/wp4_022_20261016/runs/primary/artifacts/T2/bank1_slow_REPORT.npz": "03b60010852760bd70c12d2f00eb4b97ae168cb3e722a6a3faa1345027245be0",
+      "/home/rylan/projects/ej276d-n01/wp4_022_20261016/runs/primary/artifacts/T2/bank0_common_level_HARD_ROWS.npz": "d03682dcf3c9b396b32779b734c48cbbcabd23e9b1baed8ed1a0e695e8426144",
+      "/home/rylan/projects/ej276d-n01/wp4_022_20261016/runs/primary/artifacts/T2/bank0_common_level_REPORT.npz": "030ea1116b7ac9dc182221fbe3cb365591e2a20ae2dd7a5046544465586b7fc0",
+      "/home/rylan/projects/ej276d-n01/wp4_022_20261016/runs/primary/artifacts/T2/bank1_common_level_HARD_ROWS.npz": "a12a871c1e3a79864a7fc533cba9fc4235e0d135ef30cfd8e65d3ea50fb6cec3",
+      "/home/rylan/projects/ej276d-n01/wp4_022_20261016/runs/primary/artifacts/T2/bank1_common_level_REPORT.npz": "b3f9f1db13a63776fbcb9b8257dd0a8bf8b71be504497efcfbc1eace8093b1df"
+    },
+    "error": null,
+    "scientific_training_updates": 0,
+    "scientific_status": "response_match_not_established",
+    "native_status": "COMPLETE"
+  },
+  "contrast": {
+    "schema": "n01/wp4-023-hard-contrast/v1",
+    "run_id": "wp4_023_20261016",
+    "cells": [
+      {
+        "status": "not_established_at_registered_tolerance",
+        "reasons": [],
+        "original_parents": 1319,
+        "supported_parents": 1319,
+        "original_weight": 1319.0,
+        "supported_weight": 1319.0,
+        "supported_weight_fraction": 1.0,
+        "ESS": 1319.0,
+        "supported_at_registered_tolerance": false,
+        "cross_parent_cluster": {
+          "mean": -0.0022230775772340084,
+          "SE": 0.0041178102270053455,
+          "ESS": 1319.0000000000005,
+          "parents": 1319
+        },
+        "lower95": -0.01029383731733519,
+        "upper95": 0.005847682162867174,
+        "half_width95": 0.008070759740101182,
+        "T1_teacher32_null": {
+          "mean": -0.002665159175165032,
+          "SE": 0.00410724341310242,
+          "ESS": 1319.0000000000005,
+          "parents": 1319
+        },
+        "T2_teacher32_null": {
+          "mean": -0.002135536632784822,
+          "SE": 0.004203092500791253,
+          "ESS": 1319.0000000000005,
+          "parents": 1319
+        },
+        "T1_null_abs_upper95": 0.010715208340585144,
+        "T2_null_abs_upper95": 0.010373446558026066,
+        "full257_descriptive": {
+          "mean": 0.010015754052306435,
+          "SE": 0.00881999760516685,
+          "ESS": 1319.0000000000005,
+          "parents": 1319,
+          "lower95": -0.007271123597550118,
+          "upper95": 0.02730263170216299,
+          "no_O19_threshold_or_training_gate": true
+        },
+        "supported_parent_indices": {
+          "array": "root/cells/0/supported_parent_indices",
+          "file": "CONTRAST023.npz",
+          "shape": [
+            1319
+          ],
+          "dtype": "int64"
+        },
+        "original_draws_per_bank": 32,
+        "directions_averaged_before_parent_SE": true,
+        "independent_direction_replicates": false,
+        "O19_tolerance": 0.1,
+        "MC_half_width_limit": 0.05,
+        "null_abs_upper_limit": 0.05,
+        "hypothesis": "fast",
+        "group": "all_heldout",
+        "weights": "nominal",
+        "primary": true
+      },
+      {
+        "status": "not_established_at_registered_tolerance",
+        "reasons": [],
+        "original_parents": 1319,
+        "supported_parents": 1319,
+        "original_weight": 1427.1860035107075,
+        "supported_weight": 1427.1860035107075,
+        "supported_weight_fraction": 1.0,
+        "ESS": 1141.7489604614466,
+        "supported_at_registered_tolerance": false,
+        "cross_parent_cluster": {
+          "mean": -0.003379623883673272,
+          "SE": 0.003670243656257347,
+          "ESS": 1141.7489604614464,
+          "parents": 1319
+        },
+        "lower95": -0.01057316926442428,
+        "upper95": 0.003813921497077735,
+        "half_width95": 0.007193545380751007,
+        "T1_teacher32_null": {
+          "mean": -0.0035898632483373177,
+          "SE": 0.003656420942843478,
+          "ESS": 1141.7489604614464,
+          "parents": 1319
+        },
+        "T2_teacher32_null": {
+          "mean": -0.0036177561714816537,
+          "SE": 0.003814785428588049,
+          "ESS": 1141.7489604614464,
+          "parents": 1319
+        },
+        "T1_null_abs_upper95": 0.010756316608628521,
+        "T2_null_abs_upper95": 0.011094598220262424,
+        "full257_descriptive": {
+          "mean": 0.008932556680626534,
+          "SE": 0.007147653746384922,
+          "ESS": 1141.7489604614464,
+          "parents": 1319,
+          "lower95": -0.0050765872362507035,
+          "upper95": 0.02294170059750377,
+          "no_O19_threshold_or_training_gate": true
+        },
+        "supported_parent_indices": {
+          "array": "root/cells/1/supported_parent_indices",
+          "file": "CONTRAST023.npz",
+          "shape": [
+            1319
+          ],
+          "dtype": "int64"
+        },
+        "original_draws_per_bank": 32,
+        "directions_averaged_before_parent_SE": true,
+        "independent_direction_replicates": false,
+        "O19_tolerance": 0.1,
+        "MC_half_width_limit": 0.05,
+        "null_abs_upper_limit": 0.05,
+        "hypothesis": "fast",
+        "group": "all_heldout",
+        "weights": "low",
+        "primary": false
+      },
+      {
+        "status": "not_established_at_registered_tolerance",
+        "reasons": [],
+        "original_parents": 1319,
+        "supported_parents": 1319,
+        "original_weight": 1427.1860035107075,
+        "supported_weight": 1427.1860035107075,
+        "supported_weight_fraction": 1.0,
+        "ESS": 1141.7489604614466,
+        "supported_at_registered_tolerance": false,
+        "cross_parent_cluster": {
+          "mean": -6.420788493129159e-05,
+          "SE": 0.005400554347418944,
+          "ESS": 1141.7489604614464,
+          "parents": 1319
+        },
+        "lower95": -0.010649099902423638,
+        "upper95": 0.010520684132561055,
+        "half_width95": 0.010584892017492346,
+        "T1_teacher32_null": {
+          "mean": -0.0006378570101637573,
+          "SE": 0.005398067646883126,
+          "ESS": 1141.7489604614464,
+          "parents": 1319
+        },
+        "T2_teacher32_null": {
+          "mean": 0.0002465978050870772,
+          "SE": 0.005451188637007048,
+          "ESS": 1141.7489604614464,
+          "parents": 1319
+        },
+        "T1_null_abs_upper95": 0.011217875184165563,
+        "T2_null_abs_upper95": 0.010930731206554876,
+        "full257_descriptive": {
+          "mean": 0.009118413687317299,
+          "SE": 0.012642627817120673,
+          "ESS": 1141.7489604614464,
+          "parents": 1319,
+          "lower95": -0.01566068150418346,
+          "upper95": 0.03389750887881806,
+          "no_O19_threshold_or_training_gate": true
+        },
+        "supported_parent_indices": {
+          "array": "root/cells/2/supported_parent_indices",
+          "file": "CONTRAST023.npz",
+          "shape": [
+            1319
+          ],
+          "dtype": "int64"
+        },
+        "original_draws_per_bank": 32,
+        "directions_averaged_before_parent_SE": true,
+        "independent_direction_replicates": false,
+        "O19_tolerance": 0.1,
+        "MC_half_width_limit": 0.05,
+        "null_abs_upper_limit": 0.05,
+        "hypothesis": "fast",
+        "group": "all_heldout",
+        "weights": "high",
+        "primary": false
+      },
+      {
+        "status": "not_established_at_registered_tolerance",
+        "reasons": [],
+        "original_parents": 435,
+        "supported_parents": 435,
+        "original_weight": 435.0,
+        "supported_weight": 435.0,
+        "supported_weight_fraction": 1.0,
+        "ESS": 435.0,
+        "supported_at_registered_tolerance": false,
+        "cross_parent_cluster": {
+          "mean": -0.005257866481295699,
+          "SE": 0.005397112200778753,
+          "ESS": 435.00000000000017,
+          "parents": 435
+        },
+        "lower95": -0.015836012015343764,
+        "upper95": 0.005320279052752366,
+        "half_width95": 0.010578145534048065,
+        "T1_teacher32_null": {
+          "mean": -0.005641795221420647,
+          "SE": 0.005352804161739416,
+          "ESS": 435.00000000000017,
+          "parents": 435
+        },
+        "T2_teacher32_null": {
+          "mean": -0.005902276983515534,
+          "SE": 0.005804409555527286,
+          "ESS": 435.00000000000017,
+          "parents": 435
+        },
+        "T1_null_abs_upper95": 0.016133098594726017,
+        "T2_null_abs_upper95": 0.017278710663869157,
+        "full257_descriptive": {
+          "mean": 0.003505684487823335,
+          "SE": 0.00990427813658688,
+          "ESS": 435.00000000000017,
+          "parents": 435,
+          "lower95": -0.015906343952754427,
+          "upper95": 0.0229177129284011,
+          "no_O19_threshold_or_training_gate": true
+        },
+        "supported_parent_indices": {
+          "array": "root/cells/3/supported_parent_indices",
+          "file": "CONTRAST023.npz",
+          "shape": [
+            435
+          ],
+          "dtype": "int64"
+        },
+        "original_draws_per_bank": 32,
+        "directions_averaged_before_parent_SE": true,
+        "independent_direction_replicates": false,
+        "O19_tolerance": 0.1,
+        "MC_half_width_limit": 0.05,
+        "null_abs_upper_limit": 0.05,
+        "hypothesis": "fast",
+        "group": "fit_Q_tertile0_heldout",
+        "weights": "nominal",
+        "primary": false
+      },
+      {
+        "status": "not_established_at_registered_tolerance",
+        "reasons": [],
+        "original_parents": 435,
+        "supported_parents": 435,
+        "original_weight": 698.259472077177,
+        "supported_weight": 698.259472077177,
+        "supported_weight_fraction": 1.0,
+        "ESS": 427.5779572511635,
+        "supported_at_registered_tolerance": false,
+        "cross_parent_cluster": {
+          "mean": -0.004133679423892086,
+          "SE": 0.005472744902754419,
+          "ESS": 427.5779572511635,
+          "parents": 435
+        },
+        "lower95": -0.014860062329865907,
+        "upper95": 0.006592703482081736,
+        "half_width95": 0.010726382905973822,
+        "T1_teacher32_null": {
+          "mean": -0.004118795346339923,
+          "SE": 0.005445846808976744,
+          "ESS": 427.5779572511635,
+          "parents": 435
+        },
+        "T2_teacher32_null": {
+          "mean": -0.005085290837960207,
+          "SE": 0.005828245803416499,
+          "ESS": 427.5779572511635,
+          "parents": 435
+        },
+        "T1_null_abs_upper95": 0.01479245895725672,
+        "T2_null_abs_upper95": 0.016508442705703258,
+        "full257_descriptive": {
+          "mean": 0.0018726813756349894,
+          "SE": 0.010085040316463583,
+          "ESS": 427.5779572511635,
+          "parents": 435,
+          "lower95": -0.017893634427268063,
+          "upper95": 0.021638997178538042,
+          "no_O19_threshold_or_training_gate": true
+        },
+        "supported_parent_indices": {
+          "array": "root/cells/4/supported_parent_indices",
+          "file": "CONTRAST023.npz",
+          "shape": [
+            435
+          ],
+          "dtype": "int64"
+        },
+        "original_draws_per_bank": 32,
+        "directions_averaged_before_parent_SE": true,
+        "independent_direction_replicates": false,
+        "O19_tolerance": 0.1,
+        "MC_half_width_limit": 0.05,
+        "null_abs_upper_limit": 0.05,
+        "hypothesis": "fast",
+        "group": "fit_Q_tertile0_heldout",
+        "weights": "low",
+        "primary": false
+      },
+      {
+        "status": "not_established_at_registered_tolerance",
+        "reasons": [],
+        "original_parents": 435,
+        "supported_parents": 435,
+        "original_weight": 275.74865293982157,
+        "supported_weight": 275.74865293982157,
+        "supported_weight_fraction": 1.0,
+        "ESS": 427.5779572511635,
+        "supported_at_registered_tolerance": false,
+        "cross_parent_cluster": {
+          "mean": -0.0062462621474144294,
+          "SE": 0.005466647614691226,
+          "ESS": 427.5779572511635,
+          "parents": 435
+        },
+        "lower95": -0.016960694588381026,
+        "upper95": 0.0044681702935521666,
+        "half_width95": 0.010714432440966596,
+        "T1_teacher32_null": {
+          "mean": -0.00701460454481515,
+          "SE": 0.005400458052110415,
+          "ESS": 427.5779572511635,
+          "parents": 435
+        },
+        "T2_teacher32_null": {
+          "mean": -0.00660399614794799,
+          "SE": 0.005937508241281035,
+          "ESS": 427.5779572511635,
+          "parents": 435
+        },
+        "T1_null_abs_upper95": 0.017599307826970896,
+        "T2_null_abs_upper95": 0.018241298458768575,
+        "full257_descriptive": {
+          "mean": 0.0050674528723809896,
+          "SE": 0.009841711861182757,
+          "ESS": 427.5779572511635,
+          "parents": 435,
+          "lower95": -0.014221947921757877,
+          "upper95": 0.024356853666519858,
+          "no_O19_threshold_or_training_gate": true
+        },
+        "supported_parent_indices": {
+          "array": "root/cells/5/supported_parent_indices",
+          "file": "CONTRAST023.npz",
+          "shape": [
+            435
+          ],
+          "dtype": "int64"
+        },
+        "original_draws_per_bank": 32,
+        "directions_averaged_before_parent_SE": true,
+        "independent_direction_replicates": false,
+        "O19_tolerance": 0.1,
+        "MC_half_width_limit": 0.05,
+        "null_abs_upper_limit": 0.05,
+        "hypothesis": "fast",
+        "group": "fit_Q_tertile0_heldout",
+        "weights": "high",
+        "primary": false
+      },
+      {
+        "status": "not_established_at_registered_tolerance",
+        "reasons": [],
+        "original_parents": 474,
+        "supported_parents": 474,
+        "original_weight": 474.0,
+        "supported_weight": 474.0,
+        "supported_weight_fraction": 1.0,
+        "ESS": 474.0,
+        "supported_at_registered_tolerance": false,
+        "cross_parent_cluster": {
+          "mean": -0.0036024468924748406,
+          "SE": 0.0059592386039554685,
+          "ESS": 474.0000000000001,
+          "parents": 474
+        },
+        "lower95": -0.01528233993150831,
+        "upper95": 0.008077446146558628,
+        "half_width95": 0.01167989303903347,
+        "T1_teacher32_null": {
+          "mean": -0.004263379136728737,
+          "SE": 0.005914503109269491,
+          "ESS": 474.0000000000001,
+          "parents": 474
+        },
+        "T2_teacher32_null": {
+          "mean": -0.0028090358737836037,
+          "SE": 0.006052627994935819,
+          "ESS": 474.0000000000001,
+          "parents": 474
+        },
+        "T1_null_abs_upper95": 0.015855592217347107,
+        "T2_null_abs_upper95": 0.01467196875567669,
+        "full257_descriptive": {
+          "mean": 0.022405064553470008,
+          "SE": 0.01123516131157368,
+          "ESS": 474.0000000000001,
+          "parents": 474,
+          "lower95": 0.00038455302228779936,
+          "upper95": 0.04442557608465222,
+          "no_O19_threshold_or_training_gate": true
+        },
+        "supported_parent_indices": {
+          "array": "root/cells/6/supported_parent_indices",
+          "file": "CONTRAST023.npz",
+          "shape": [
+            474
+          ],
+          "dtype": "int64"
+        },
+        "original_draws_per_bank": 32,
+        "directions_averaged_before_parent_SE": true,
+        "independent_direction_replicates": false,
+        "O19_tolerance": 0.1,
+        "MC_half_width_limit": 0.05,
+        "null_abs_upper_limit": 0.05,
+        "hypothesis": "fast",
+        "group": "fit_Q_tertile1_heldout",
+        "weights": "nominal",
+        "primary": false
+      },
+      {
+        "status": "not_established_at_registered_tolerance",
+        "reasons": [],
+        "original_parents": 474,
+        "supported_parents": 474,
+        "original_weight": 472.6661532165397,
+        "supported_weight": 472.6661532165397,
+        "supported_weight_fraction": 1.0,
+        "ESS": 464.4340249749192,
+        "supported_at_registered_tolerance": false,
+        "cross_parent_cluster": {
+          "mean": -0.004498597432475722,
+          "SE": 0.005636967640029052,
+          "ESS": 464.4340249749192,
+          "parents": 474
+        },
+        "lower95": -0.015546850988950407,
+        "upper95": 0.006549656123998963,
+        "half_width95": 0.011048253556474685,
+        "T1_teacher32_null": {
+          "mean": -0.00509391165720795,
+          "SE": 0.005602828935961354,
+          "ESS": 464.4340249749192,
+          "parents": 474
+        },
+        "T2_teacher32_null": {
+          "mean": -0.0037546680556952623,
+          "SE": 0.0057205425305875916,
+          "ESS": 464.4340249749192,
+          "parents": 474
+        },
+        "T1_null_abs_upper95": 0.01607525458323108,
+        "T2_null_abs_upper95": 0.014966725387676561,
+        "full257_descriptive": {
+          "mean": 0.021849717432335807,
+          "SE": 0.01062538428987406,
+          "ESS": 464.4340249749192,
+          "parents": 474,
+          "lower95": 0.0010243469022849505,
+          "upper95": 0.042675087962386664,
+          "no_O19_threshold_or_training_gate": true
+        },
+        "supported_parent_indices": {
+          "array": "root/cells/7/supported_parent_indices",
+          "file": "CONTRAST023.npz",
+          "shape": [
+            474
+          ],
+          "dtype": "int64"
+        },
+        "original_draws_per_bank": 32,
+        "directions_averaged_before_parent_SE": true,
+        "independent_direction_replicates": false,
+        "O19_tolerance": 0.1,
+        "MC_half_width_limit": 0.05,
+        "null_abs_upper_limit": 0.05,
+        "hypothesis": "fast",
+        "group": "fit_Q_tertile1_heldout",
+        "weights": "low",
+        "primary": false
+      },
+      {
+        "status": "not_established_at_registered_tolerance",
+        "reasons": [],
+        "original_parents": 474,
+        "supported_parents": 474,
+        "original_weight": 485.25028667553875,
+        "supported_weight": 485.25028667553875,
+        "supported_weight_fraction": 1.0,
+        "ESS": 464.4340249749193,
+        "supported_at_registered_tolerance": false,
+        "cross_parent_cluster": {
+          "mean": -0.0028283208438724637,
+          "SE": 0.006352922088321444,
+          "ESS": 464.4340249749192,
+          "parents": 474
+        },
+        "lower95": -0.015279819333571483,
+        "upper95": 0.009623177645826556,
+        "half_width95": 0.01245149848969902,
+        "T1_teacher32_null": {
+          "mean": -0.003546563495538545,
+          "SE": 0.006298600369913291,
+          "ESS": 464.4340249749192,
+          "parents": 474
+        },
+        "T2_teacher32_null": {
+          "mean": -0.0019910764034058092,
+          "SE": 0.006455943617597906,
+          "ESS": 464.4340249749192,
+          "parents": 474
+        },
+        "T1_null_abs_upper95": 0.015891593373579257,
+        "T2_null_abs_upper95": 0.014644493380118934,
+        "full257_descriptive": {
+          "mean": 0.02273478896610396,
+          "SE": 0.011913848811814233,
+          "ESS": 464.4340249749192,
+          "parents": 474,
+          "lower95": -0.0006159256223072541,
+          "upper95": 0.04608550355451517,
+          "no_O19_threshold_or_training_gate": true
+        },
+        "supported_parent_indices": {
+          "array": "root/cells/8/supported_parent_indices",
+          "file": "CONTRAST023.npz",
+          "shape": [
+            474
+          ],
+          "dtype": "int64"
+        },
+        "original_draws_per_bank": 32,
+        "directions_averaged_before_parent_SE": true,
+        "independent_direction_replicates": false,
+        "O19_tolerance": 0.1,
+        "MC_half_width_limit": 0.05,
+        "null_abs_upper_limit": 0.05,
+        "hypothesis": "fast",
+        "group": "fit_Q_tertile1_heldout",
+        "weights": "high",
+        "primary": false
+      },
+      {
+        "status": "not_established_at_registered_tolerance",
+        "reasons": [],
+        "original_parents": 410,
+        "supported_parents": 410,
+        "original_weight": 410.0,
+        "supported_weight": 410.0,
+        "supported_weight_fraction": 1.0,
+        "ESS": 410.0,
+        "supported_at_registered_tolerance": false,
+        "cross_parent_cluster": {
+          "mean": 0.002591444931768396,
+          "SE": 0.009768636502266038,
+          "ESS": 409.99999999999994,
+          "parents": 410
+        },
+        "lower95": -0.016554730790736365,
+        "upper95": 0.02173762065427316,
+        "half_width95": 0.019146175722504762,
+        "T1_teacher32_null": {
+          "mean": 0.0023406772684993245,
+          "SE": 0.009786017262118623,
+          "ESS": 409.99999999999994,
+          "parents": 410
+        },
+        "T2_teacher32_null": {
+          "mean": 0.0026395138374622072,
+          "SE": 0.009805040017612498,
+          "ESS": 409.99999999999994,
+          "parents": 410
+        },
+        "T1_null_abs_upper95": 0.02152091865433909,
+        "T2_null_abs_upper95": 0.021857039138956678,
+        "full257_descriptive": {
+          "mean": 0.0025995274254737594,
+          "SE": 0.022947525316608198,
+          "ESS": 409.99999999999994,
+          "parents": 410,
+          "lower95": -0.04237679572939941,
+          "upper95": 0.047575850580346926,
+          "no_O19_threshold_or_training_gate": true
+        },
+        "supported_parent_indices": {
+          "array": "root/cells/9/supported_parent_indices",
+          "file": "CONTRAST023.npz",
+          "shape": [
+            410
+          ],
+          "dtype": "int64"
+        },
+        "original_draws_per_bank": 32,
+        "directions_averaged_before_parent_SE": true,
+        "independent_direction_replicates": false,
+        "O19_tolerance": 0.1,
+        "MC_half_width_limit": 0.05,
+        "null_abs_upper_limit": 0.05,
+        "hypothesis": "fast",
+        "group": "fit_Q_tertile2_heldout",
+        "weights": "nominal",
+        "primary": false
+      },
+      {
+        "status": "not_established_at_registered_tolerance",
+        "reasons": [],
+        "original_parents": 410,
+        "supported_parents": 410,
+        "original_weight": 256.2603782169907,
+        "supported_weight": 256.2603782169907,
+        "supported_weight_fraction": 1.0,
+        "ESS": 403.7712580672947,
+        "supported_at_registered_tolerance": false,
+        "cross_parent_cluster": {
+          "mean": 0.0007389501761834779,
+          "SE": 0.009379270287669958,
+          "ESS": 403.77125806729475,
+          "parents": 410
+        },
+        "lower95": -0.01764408178891627,
+        "upper95": 0.019121982141283224,
+        "half_width95": 0.018383031965099748,
+        "T1_teacher32_null": {
+          "mean": 0.0006255547991362688,
+          "SE": 0.009396712961065102,
+          "ESS": 403.77125806729475,
+          "parents": 410
+        },
+        "T2_teacher32_null": {
+          "mean": 0.000633519826357763,
+          "SE": 0.009409207441990055,
+          "ESS": 403.77125806729475,
+          "parents": 410
+        },
+        "T1_null_abs_upper95": 0.019042773775884595,
+        "T2_null_abs_upper95": 0.01907522753572452,
+        "full257_descriptive": {
+          "mean": 0.004343942990997553,
+          "SE": 0.021105866484624276,
+          "ESS": 403.77125806729475,
+          "parents": 410,
+          "lower95": -0.03702279518137703,
+          "upper95": 0.04571068116337213,
+          "no_O19_threshold_or_training_gate": true
+        },
+        "supported_parent_indices": {
+          "array": "root/cells/10/supported_parent_indices",
+          "file": "CONTRAST023.npz",
+          "shape": [
+            410
+          ],
+          "dtype": "int64"
+        },
+        "original_draws_per_bank": 32,
+        "directions_averaged_before_parent_SE": true,
+        "independent_direction_replicates": false,
+        "O19_tolerance": 0.1,
+        "MC_half_width_limit": 0.05,
+        "null_abs_upper_limit": 0.05,
+        "hypothesis": "fast",
+        "group": "fit_Q_tertile2_heldout",
+        "weights": "low",
+        "primary": false
+      },
+      {
+        "status": "not_established_at_registered_tolerance",
+        "reasons": [],
+        "original_parents": 410,
+        "supported_parents": 410,
+        "original_weight": 666.1870638953471,
+        "supported_weight": 666.1870638953471,
+        "supported_weight_fraction": 1.0,
+        "ESS": 403.7712580672948,
+        "supported_at_registered_tolerance": false,
+        "cross_parent_cluster": {
+          "mean": 0.004508051028653497,
+          "SE": 0.010364488121783748,
+          "ESS": 403.7712580672948,
+          "parents": 410
+        },
+        "lower95": -0.015805972408235835,
+        "upper95": 0.024822074465542833,
+        "half_width95": 0.020314023436889334,
+        "T1_teacher32_null": {
+          "mean": 0.004120311333973478,
+          "SE": 0.010381725778100917,
+          "ESS": 403.7712580672948,
+          "parents": 410
+        },
+        "T2_teacher32_null": {
+          "mean": 0.004712121479698785,
+          "SE": 0.010408076941232658,
+          "ESS": 403.7712580672948,
+          "parents": 410
+        },
+        "T1_null_abs_upper95": 0.024468119956422344,
+        "T2_null_abs_upper95": 0.025111577432836603,
+        "full257_descriptive": {
+          "mean": 0.00087703027230592,
+          "SE": 0.025346085831812786,
+          "ESS": 403.7712580672948,
+          "parents": 410,
+          "lower95": -0.048800385107108074,
+          "upper95": 0.05055444565171992,
+          "no_O19_threshold_or_training_gate": true
+        },
+        "supported_parent_indices": {
+          "array": "root/cells/11/supported_parent_indices",
+          "file": "CONTRAST023.npz",
+          "shape": [
+            410
+          ],
+          "dtype": "int64"
+        },
+        "original_draws_per_bank": 32,
+        "directions_averaged_before_parent_SE": true,
+        "independent_direction_replicates": false,
+        "O19_tolerance": 0.1,
+        "MC_half_width_limit": 0.05,
+        "null_abs_upper_limit": 0.05,
+        "hypothesis": "fast",
+        "group": "fit_Q_tertile2_heldout",
+        "weights": "high",
+        "primary": false
+      },
+      {
+        "status": "not_established_at_registered_tolerance",
+        "reasons": [],
+        "original_parents": 1319,
+        "supported_parents": 1319,
+        "original_weight": 1319.0,
+        "supported_weight": 1319.0,
+        "supported_weight_fraction": 1.0,
+        "ESS": 1319.0,
+        "supported_at_registered_tolerance": false,
+        "cross_parent_cluster": {
+          "mean": -0.0031921144531335092,
+          "SE": 0.00409643937667165,
+          "ESS": 1319.0000000000005,
+          "parents": 1319
+        },
+        "lower95": -0.011220988096261651,
+        "upper95": 0.004836759189994632,
+        "half_width95": 0.008028873643128142,
+        "T1_teacher32_null": {
+          "mean": -0.0038069538755503727,
+          "SE": 0.004137525008226916,
+          "ESS": 1319.0000000000005,
+          "parents": 1319
+        },
+        "T2_teacher32_null": {
+          "mean": -0.002585472086101408,
+          "SE": 0.00414811076039387,
+          "ESS": 1319.0000000000005,
+          "parents": 1319
+        },
+        "T1_null_abs_upper95": 0.011916353876808918,
+        "T2_null_abs_upper95": 0.01071561978035645,
+        "full257_descriptive": {
+          "mean": 0.014295013058400684,
+          "SE": 0.00835341858553594,
+          "ESS": 1319.0000000000005,
+          "parents": 1319,
+          "lower95": -0.00207738651703728,
+          "upper95": 0.030667412633838646,
+          "no_O19_threshold_or_training_gate": true
+        },
+        "supported_parent_indices": {
+          "array": "root/cells/12/supported_parent_indices",
+          "file": "CONTRAST023.npz",
+          "shape": [
+            1319
+          ],
+          "dtype": "int64"
+        },
+        "original_draws_per_bank": 32,
+        "directions_averaged_before_parent_SE": true,
+        "independent_direction_replicates": false,
+        "O19_tolerance": 0.1,
+        "MC_half_width_limit": 0.05,
+        "null_abs_upper_limit": 0.05,
+        "hypothesis": "slow",
+        "group": "all_heldout",
+        "weights": "nominal",
+        "primary": true
+      },
+      {
+        "status": "not_established_at_registered_tolerance",
+        "reasons": [],
+        "original_parents": 1319,
+        "supported_parents": 1319,
+        "original_weight": 1427.1860035107075,
+        "supported_weight": 1427.1860035107075,
+        "supported_weight_fraction": 1.0,
+        "ESS": 1141.7489604614466,
+        "supported_at_registered_tolerance": false,
+        "cross_parent_cluster": {
+          "mean": -0.004548407414271644,
+          "SE": 0.0036255014682350047,
+          "ESS": 1141.7489604614464,
+          "parents": 1319
+        },
+        "lower95": -0.01165425971790934,
+        "upper95": 0.002557444889366052,
+        "half_width95": 0.007105852303637696,
+        "T1_teacher32_null": {
+          "mean": -0.005139239477433558,
+          "SE": 0.0037401450321201844,
+          "ESS": 1141.7489604614464,
+          "parents": 1319
+        },
+        "T2_teacher32_null": {
+          "mean": -0.003885443729559585,
+          "SE": 0.003708767131284321,
+          "ESS": 1141.7489604614464,
+          "parents": 1319
+        },
+        "T1_null_abs_upper95": 0.012469789037345524,
+        "T2_null_abs_upper95": 0.011154493733922789,
+        "full257_descriptive": {
+          "mean": 0.012440137954919122,
+          "SE": 0.007054588936069209,
+          "ESS": 1141.7489604614464,
+          "parents": 1319,
+          "lower95": -0.0013866022855112646,
+          "upper95": 0.026266878195349508,
+          "no_O19_threshold_or_training_gate": true
+        },
+        "supported_parent_indices": {
+          "array": "root/cells/13/supported_parent_indices",
+          "file": "CONTRAST023.npz",
+          "shape": [
+            1319
+          ],
+          "dtype": "int64"
+        },
+        "original_draws_per_bank": 32,
+        "directions_averaged_before_parent_SE": true,
+        "independent_direction_replicates": false,
+        "O19_tolerance": 0.1,
+        "MC_half_width_limit": 0.05,
+        "null_abs_upper_limit": 0.05,
+        "hypothesis": "slow",
+        "group": "all_heldout",
+        "weights": "low",
+        "primary": false
+      },
+      {
+        "status": "not_established_at_registered_tolerance",
+        "reasons": [],
+        "original_parents": 1319,
+        "supported_parents": 1319,
+        "original_weight": 1427.1860035107075,
+        "supported_weight": 1427.1860035107075,
+        "supported_weight_fraction": 1.0,
+        "ESS": 1141.7489604614466,
+        "supported_at_registered_tolerance": false,
+        "cross_parent_cluster": {
+          "mean": -0.000843919313245563,
+          "SE": 0.00538557259697801,
+          "ESS": 1141.7489604614464,
+          "parents": 1319
+        },
+        "lower95": -0.011399447639448312,
+        "upper95": 0.009711609012957185,
+        "half_width95": 0.010555528326202749,
+        "T1_teacher32_null": {
+          "mean": -0.001501231032059484,
+          "SE": 0.00539596159193973,
+          "ESS": 1141.7489604614464,
+          "parents": 1319
+        },
+        "T2_teacher32_null": {
+          "mean": -0.0002317760222850431,
+          "SE": 0.005425842625921411,
+          "ESS": 1141.7489604614464,
+          "parents": 1319
+        },
+        "T1_null_abs_upper95": 0.01207712141422277,
+        "T2_null_abs_upper95": 0.010866232154873243,
+        "full257_descriptive": {
+          "mean": 0.015854742639694955,
+          "SE": 0.011663158403727265,
+          "ESS": 1141.7489604614464,
+          "parents": 1319,
+          "lower95": -0.0070046277775961535,
+          "upper95": 0.03871411305698606,
+          "no_O19_threshold_or_training_gate": true
+        },
+        "supported_parent_indices": {
+          "array": "root/cells/14/supported_parent_indices",
+          "file": "CONTRAST023.npz",
+          "shape": [
+            1319
+          ],
+          "dtype": "int64"
+        },
+        "original_draws_per_bank": 32,
+        "directions_averaged_before_parent_SE": true,
+        "independent_direction_replicates": false,
+        "O19_tolerance": 0.1,
+        "MC_half_width_limit": 0.05,
+        "null_abs_upper_limit": 0.05,
+        "hypothesis": "slow",
+        "group": "all_heldout",
+        "weights": "high",
+        "primary": false
+      },
+      {
+        "status": "not_established_at_registered_tolerance",
+        "reasons": [],
+        "original_parents": 435,
+        "supported_parents": 435,
+        "original_weight": 435.0,
+        "supported_weight": 435.0,
+        "supported_weight_fraction": 1.0,
+        "ESS": 435.0,
+        "supported_at_registered_tolerance": false,
+        "cross_parent_cluster": {
+          "mean": -0.0069729618376141965,
+          "SE": 0.005249716109688236,
+          "ESS": 435.00000000000017,
+          "parents": 435
+        },
+        "lower95": -0.01726221634166286,
+        "upper95": 0.0033162926664344686,
+        "half_width95": 0.010289254504048665,
+        "T1_teacher32_null": {
+          "mean": -0.007707955496885875,
+          "SE": 0.005576388738578624,
+          "ESS": 435.00000000000017,
+          "parents": 435
+        },
+        "T2_teacher32_null": {
+          "mean": -0.006318636661290665,
+          "SE": 0.005426638143713204,
+          "ESS": 435.00000000000017,
+          "parents": 435
+        },
+        "T1_null_abs_upper95": 0.018637476588294722,
+        "T2_null_abs_upper95": 0.01695465198009984,
+        "full257_descriptive": {
+          "mean": 0.006086944756889297,
+          "SE": 0.01005058597577503,
+          "ESS": 435.00000000000017,
+          "parents": 435,
+          "lower95": -0.013611841779153117,
+          "upper95": 0.025785731292931713,
+          "no_O19_threshold_or_training_gate": true
+        },
+        "supported_parent_indices": {
+          "array": "root/cells/15/supported_parent_indices",
+          "file": "CONTRAST023.npz",
+          "shape": [
+            435
+          ],
+          "dtype": "int64"
+        },
+        "original_draws_per_bank": 32,
+        "directions_averaged_before_parent_SE": true,
+        "independent_direction_replicates": false,
+        "O19_tolerance": 0.1,
+        "MC_half_width_limit": 0.05,
+        "null_abs_upper_limit": 0.05,
+        "hypothesis": "slow",
+        "group": "fit_Q_tertile0_heldout",
+        "weights": "nominal",
+        "primary": false
+      },
+      {
+        "status": "not_established_at_registered_tolerance",
+        "reasons": [],
+        "original_parents": 435,
+        "supported_parents": 435,
+        "original_weight": 698.259472077177,
+        "supported_weight": 698.259472077177,
+        "supported_weight_fraction": 1.0,
+        "ESS": 427.5779572511635,
+        "supported_at_registered_tolerance": false,
+        "cross_parent_cluster": {
+          "mean": -0.005839951332592316,
+          "SE": 0.005342714623967892,
+          "ESS": 427.5779572511635,
+          "parents": 435
+        },
+        "lower95": -0.01631147957524484,
+        "upper95": 0.004631576910060211,
+        "half_width95": 0.010471528242652527,
+        "T1_teacher32_null": {
+          "mean": -0.006530783433571876,
+          "SE": 0.005677625004459283,
+          "ESS": 427.5779572511635,
+          "parents": 435
+        },
+        "T2_teacher32_null": {
+          "mean": -0.0050596334690776144,
+          "SE": 0.005529018549667388,
+          "ESS": 427.5779572511635,
+          "parents": 435
+        },
+        "T1_null_abs_upper95": 0.017658723960036135,
+        "T2_null_abs_upper95": 0.01589631069627958,
+        "full257_descriptive": {
+          "mean": 0.006594405655150579,
+          "SE": 0.01035971418121324,
+          "ESS": 427.5779572511635,
+          "parents": 435,
+          "lower95": -0.013710261030156224,
+          "upper95": 0.02689907234045738,
+          "no_O19_threshold_or_training_gate": true
+        },
+        "supported_parent_indices": {
+          "array": "root/cells/16/supported_parent_indices",
+          "file": "CONTRAST023.npz",
+          "shape": [
+            435
+          ],
+          "dtype": "int64"
+        },
+        "original_draws_per_bank": 32,
+        "directions_averaged_before_parent_SE": true,
+        "independent_direction_replicates": false,
+        "O19_tolerance": 0.1,
+        "MC_half_width_limit": 0.05,
+        "null_abs_upper_limit": 0.05,
+        "hypothesis": "slow",
+        "group": "fit_Q_tertile0_heldout",
+        "weights": "low",
+        "primary": false
+      },
+      {
+        "status": "not_established_at_registered_tolerance",
+        "reasons": [],
+        "original_parents": 435,
+        "supported_parents": 435,
+        "original_weight": 275.74865293982157,
+        "supported_weight": 275.74865293982157,
+        "supported_weight_fraction": 1.0,
+        "ESS": 427.5779572511635,
+        "supported_at_registered_tolerance": false,
+        "cross_parent_cluster": {
+          "mean": -0.007970860870593928,
+          "SE": 0.005297597559906385,
+          "ESS": 427.5779572511635,
+          "parents": 435
+        },
+        "lower95": -0.018353961292597715,
+        "upper95": 0.002412239551409859,
+        "half_width95": 0.010383100422003787,
+        "T1_teacher32_null": {
+          "mean": -0.008748876533571256,
+          "SE": 0.005635017646776987,
+          "ESS": 427.5779572511635,
+          "parents": 435
+        },
+        "T2_teacher32_null": {
+          "mean": -0.007438179490939648,
+          "SE": 0.005470071510782519,
+          "ESS": 427.5779572511635,
+          "parents": 435
+        },
+        "T1_null_abs_upper95": 0.0197933081735018,
+        "T2_null_abs_upper95": 0.01815932264493199,
+        "full257_descriptive": {
+          "mean": 0.005505994774848935,
+          "SE": 0.009882899161905812,
+          "ESS": 427.5779572511635,
+          "parents": 435,
+          "lower95": -0.01386413164532754,
+          "upper95": 0.02487612119502541,
+          "no_O19_threshold_or_training_gate": true
+        },
+        "supported_parent_indices": {
+          "array": "root/cells/17/supported_parent_indices",
+          "file": "CONTRAST023.npz",
+          "shape": [
+            435
+          ],
+          "dtype": "int64"
+        },
+        "original_draws_per_bank": 32,
+        "directions_averaged_before_parent_SE": true,
+        "independent_direction_replicates": false,
+        "O19_tolerance": 0.1,
+        "MC_half_width_limit": 0.05,
+        "null_abs_upper_limit": 0.05,
+        "hypothesis": "slow",
+        "group": "fit_Q_tertile0_heldout",
+        "weights": "high",
+        "primary": false
+      },
+      {
+        "status": "not_established_at_registered_tolerance",
+        "reasons": [],
+        "original_parents": 474,
+        "supported_parents": 474,
+        "original_weight": 474.0,
+        "supported_weight": 474.0,
+        "supported_weight_fraction": 1.0,
+        "ESS": 474.0,
+        "supported_at_registered_tolerance": false,
+        "cross_parent_cluster": {
+          "mean": -0.004475293493535671,
+          "SE": 0.0059534676755731535,
+          "ESS": 474.0000000000001,
+          "parents": 474
+        },
+        "lower95": -0.016143875720782443,
+        "upper95": 0.007193288733711101,
+        "half_width95": 0.011668582227246772,
+        "T1_teacher32_null": {
+          "mean": -0.0051483570954017,
+          "SE": 0.005902663595297122,
+          "ESS": 474.0000000000001,
+          "parents": 474
+        },
+        "T2_teacher32_null": {
+          "mean": -0.0036507452909361714,
+          "SE": 0.006049869328746833,
+          "ESS": 474.0000000000001,
+          "parents": 474
+        },
+        "T1_null_abs_upper95": 0.01671736515503977,
+        "T2_null_abs_upper95": 0.015508271286453476,
+        "full257_descriptive": {
+          "mean": 0.01763395113317671,
+          "SE": 0.011281807498839985,
+          "ESS": 474.0000000000001,
+          "parents": 474,
+          "lower95": -0.004477985245063567,
+          "upper95": 0.039745887511416986,
+          "no_O19_threshold_or_training_gate": true
+        },
+        "supported_parent_indices": {
+          "array": "root/cells/18/supported_parent_indices",
+          "file": "CONTRAST023.npz",
+          "shape": [
+            474
+          ],
+          "dtype": "int64"
+        },
+        "original_draws_per_bank": 32,
+        "directions_averaged_before_parent_SE": true,
+        "independent_direction_replicates": false,
+        "O19_tolerance": 0.1,
+        "MC_half_width_limit": 0.05,
+        "null_abs_upper_limit": 0.05,
+        "hypothesis": "slow",
+        "group": "fit_Q_tertile1_heldout",
+        "weights": "nominal",
+        "primary": false
+      },
+      {
+        "status": "not_established_at_registered_tolerance",
+        "reasons": [],
+        "original_parents": 474,
+        "supported_parents": 474,
+        "original_weight": 472.6661532165397,
+        "supported_weight": 472.6661532165397,
+        "supported_weight_fraction": 1.0,
+        "ESS": 464.4340249749192,
+        "supported_at_registered_tolerance": false,
+        "cross_parent_cluster": {
+          "mean": -0.005368180657951558,
+          "SE": 0.005634542820006731,
+          "ESS": 464.4340249749192,
+          "parents": 474
+        },
+        "lower95": -0.016411681654513503,
+        "upper95": 0.005675320338610387,
+        "half_width95": 0.011043500996561945,
+        "T1_teacher32_null": {
+          "mean": -0.005977533473566946,
+          "SE": 0.005594660464696372,
+          "ESS": 464.4340249749192,
+          "parents": 474
+        },
+        "T2_teacher32_null": {
+          "mean": -0.004605794868213507,
+          "SE": 0.005721462362425118,
+          "ESS": 464.4340249749192,
+          "parents": 474
+        },
+        "T1_null_abs_upper95": 0.01694286649010196,
+        "T2_null_abs_upper95": 0.01581965503746819,
+        "full257_descriptive": {
+          "mean": 0.017198501369666032,
+          "SE": 0.010503034508963952,
+          "ESS": 464.4340249749192,
+          "parents": 474,
+          "lower95": -0.0033870679962846456,
+          "upper95": 0.03778407073561671,
+          "no_O19_threshold_or_training_gate": true
+        },
+        "supported_parent_indices": {
+          "array": "root/cells/19/supported_parent_indices",
+          "file": "CONTRAST023.npz",
+          "shape": [
+            474
+          ],
+          "dtype": "int64"
+        },
+        "original_draws_per_bank": 32,
+        "directions_averaged_before_parent_SE": true,
+        "independent_direction_replicates": false,
+        "O19_tolerance": 0.1,
+        "MC_half_width_limit": 0.05,
+        "null_abs_upper_limit": 0.05,
+        "hypothesis": "slow",
+        "group": "fit_Q_tertile1_heldout",
+        "weights": "low",
+        "primary": false
+      },
+      {
+        "status": "not_established_at_registered_tolerance",
+        "reasons": [],
+        "original_parents": 474,
+        "supported_parents": 474,
+        "original_weight": 485.25028667553875,
+        "supported_weight": 485.25028667553875,
+        "supported_weight_fraction": 1.0,
+        "ESS": 464.4340249749193,
+        "supported_at_registered_tolerance": false,
+        "cross_parent_cluster": {
+          "mean": -0.0036923997860594986,
+          "SE": 0.006344596434064582,
+          "ESS": 464.4340249749192,
+          "parents": 474
+        },
+        "lower95": -0.016127580293267336,
+        "upper95": 0.008742780721148338,
+        "half_width95": 0.012435180507207837,
+        "T1_teacher32_null": {
+          "mean": -0.004420194419209475,
+          "SE": 0.006284306921624445,
+          "ESS": 464.4340249749192,
+          "parents": 474
+        },
+        "T2_teacher32_null": {
+          "mean": -0.002812840921638897,
+          "SE": 0.00645021526250959,
+          "ESS": 464.4340249749192,
+          "parents": 474
+        },
+        "T1_null_abs_upper95": 0.016737209653389165,
+        "T2_null_abs_upper95": 0.015455030528688265,
+        "full257_descriptive": {
+          "mean": 0.017876303841415815,
+          "SE": 0.01212495178772898,
+          "ESS": 464.4340249749192,
+          "parents": 474,
+          "lower95": -0.0058881649768175275,
+          "upper95": 0.04164077265964916,
+          "no_O19_threshold_or_training_gate": true
+        },
+        "supported_parent_indices": {
+          "array": "root/cells/20/supported_parent_indices",
+          "file": "CONTRAST023.npz",
+          "shape": [
+            474
+          ],
+          "dtype": "int64"
+        },
+        "original_draws_per_bank": 32,
+        "directions_averaged_before_parent_SE": true,
+        "independent_direction_replicates": false,
+        "O19_tolerance": 0.1,
+        "MC_half_width_limit": 0.05,
+        "null_abs_upper_limit": 0.05,
+        "hypothesis": "slow",
+        "group": "fit_Q_tertile1_heldout",
+        "weights": "high",
+        "primary": false
+      },
+      {
+        "status": "not_established_at_registered_tolerance",
+        "reasons": [],
+        "original_parents": 410,
+        "supported_parents": 410,
+        "original_weight": 410.0,
+        "supported_weight": 410.0,
+        "supported_weight_fraction": 1.0,
+        "ESS": 410.0,
+        "supported_at_registered_tolerance": false,
+        "cross_parent_cluster": {
+          "mean": 0.002302752564914608,
+          "SE": 0.009769106458536257,
+          "ESS": 409.99999999999994,
+          "parents": 410
+        },
+        "lower95": -0.01684434425495409,
+        "upper95": 0.02144984938478331,
+        "half_width95": 0.0191470968198687,
+        "T1_teacher32_null": {
+          "mean": 0.0018827066890605424,
+          "SE": 0.009785609667861924,
+          "ESS": 409.99999999999994,
+          "parents": 410
+        },
+        "T2_teacher32_null": {
+          "mean": 0.0026068842292620294,
+          "SE": 0.009807572678870906,
+          "ESS": 409.99999999999994,
+          "parents": 410
+        },
+        "T1_null_abs_upper95": 0.021062149204836875,
+        "T2_null_abs_upper95": 0.021829373455608023,
+        "full257_descriptive": {
+          "mean": 0.01914343516501924,
+          "SE": 0.020958149177187125,
+          "ESS": 409.99999999999994,
+          "parents": 410,
+          "lower95": -0.02193378240488529,
+          "upper95": 0.060220652734923774,
+          "no_O19_threshold_or_training_gate": true
+        },
+        "supported_parent_indices": {
+          "array": "root/cells/21/supported_parent_indices",
+          "file": "CONTRAST023.npz",
+          "shape": [
+            410
+          ],
+          "dtype": "int64"
+        },
+        "original_draws_per_bank": 32,
+        "directions_averaged_before_parent_SE": true,
+        "independent_direction_replicates": false,
+        "O19_tolerance": 0.1,
+        "MC_half_width_limit": 0.05,
+        "null_abs_upper_limit": 0.05,
+        "hypothesis": "slow",
+        "group": "fit_Q_tertile2_heldout",
+        "weights": "nominal",
+        "primary": false
+      },
+      {
+        "status": "not_established_at_registered_tolerance",
+        "reasons": [],
+        "original_parents": 410,
+        "supported_parents": 410,
+        "original_weight": 256.2603782169907,
+        "supported_weight": 256.2603782169907,
+        "supported_weight_fraction": 1.0,
+        "ESS": 403.7712580672947,
+        "supported_at_registered_tolerance": false,
+        "cross_parent_cluster": {
+          "mean": 0.00048284965770293404,
+          "SE": 0.009400242796380843,
+          "ESS": 403.77125806729475,
+          "parents": 410
+        },
+        "lower95": -0.0179412876691356,
+        "upper95": 0.01890698698454147,
+        "half_width95": 0.018424137326838536,
+        "T1_teacher32_null": {
+          "mean": 0.00019865924932137334,
+          "SE": 0.009418655723969467,
+          "ESS": 403.77125806729475,
+          "parents": 410
+        },
+        "T2_teacher32_null": {
+          "mean": 0.0006426644289495857,
+          "SE": 0.00943168665833685,
+          "ESS": 403.77125806729475,
+          "parents": 410
+        },
+        "T1_null_abs_upper95": 0.018658885251083557,
+        "T2_null_abs_upper95": 0.019128430592756745,
+        "full257_descriptive": {
+          "mean": 0.019591928767989254,
+          "SE": 0.019315409493072123,
+          "ESS": 403.77125806729475,
+          "parents": 410,
+          "lower95": -0.01826557818507517,
+          "upper95": 0.05744943572105368,
+          "no_O19_threshold_or_training_gate": true
+        },
+        "supported_parent_indices": {
+          "array": "root/cells/22/supported_parent_indices",
+          "file": "CONTRAST023.npz",
+          "shape": [
+            410
+          ],
+          "dtype": "int64"
+        },
+        "original_draws_per_bank": 32,
+        "directions_averaged_before_parent_SE": true,
+        "independent_direction_replicates": false,
+        "O19_tolerance": 0.1,
+        "MC_half_width_limit": 0.05,
+        "null_abs_upper_limit": 0.05,
+        "hypothesis": "slow",
+        "group": "fit_Q_tertile2_heldout",
+        "weights": "low",
+        "primary": false
+      },
+      {
+        "status": "not_established_at_registered_tolerance",
+        "reasons": [],
+        "original_parents": 410,
+        "supported_parents": 410,
+        "original_weight": 666.1870638953471,
+        "supported_weight": 666.1870638953471,
+        "supported_weight_fraction": 1.0,
+        "ESS": 403.7712580672948,
+        "supported_at_registered_tolerance": false,
+        "cross_parent_cluster": {
+          "mean": 0.004180901313664933,
+          "SE": 0.010345411714463548,
+          "ESS": 403.7712580672948,
+          "parents": 410
+        },
+        "lower95": -0.01609573305192239,
+        "upper95": 0.02445753567925226,
+        "half_width95": 0.020276634365587326,
+        "T1_teacher32_null": {
+          "mean": 0.0036248911782235152,
+          "SE": 0.010359183455338422,
+          "ESS": 403.7712580672948,
+          "parents": 410
+        },
+        "T2_teacher32_null": {
+          "mean": 0.004631150184085892,
+          "SE": 0.010392111309632699,
+          "ESS": 403.7712580672948,
+          "parents": 410
+        },
+        "T1_null_abs_upper95": 0.023928517659930013,
+        "T2_null_abs_upper95": 0.024999314074297358,
+        "full257_descriptive": {
+          "mean": 0.01866580012215029,
+          "SE": 0.023033332729053533,
+          "ESS": 403.7712580672948,
+          "parents": 410,
+          "lower95": -0.02647870247072231,
+          "upper95": 0.06381030271502289,
+          "no_O19_threshold_or_training_gate": true
+        },
+        "supported_parent_indices": {
+          "array": "root/cells/23/supported_parent_indices",
+          "file": "CONTRAST023.npz",
+          "shape": [
+            410
+          ],
+          "dtype": "int64"
+        },
+        "original_draws_per_bank": 32,
+        "directions_averaged_before_parent_SE": true,
+        "independent_direction_replicates": false,
+        "O19_tolerance": 0.1,
+        "MC_half_width_limit": 0.05,
+        "null_abs_upper_limit": 0.05,
+        "hypothesis": "slow",
+        "group": "fit_Q_tertile2_heldout",
+        "weights": "high",
+        "primary": false
+      },
+      {
+        "status": "not_established_at_registered_tolerance",
+        "reasons": [],
+        "original_parents": 1319,
+        "supported_parents": 1319,
+        "original_weight": 1319.0,
+        "supported_weight": 1319.0,
+        "supported_weight_fraction": 1.0,
+        "ESS": 1319.0,
+        "supported_at_registered_tolerance": false,
+        "cross_parent_cluster": {
+          "mean": -0.0035682531232271064,
+          "SE": 0.004079899673083746,
+          "ESS": 1319.0000000000005,
+          "parents": 1319
+        },
+        "lower95": -0.011564709543007989,
+        "upper95": 0.004428203296553777,
+        "half_width95": 0.007996456419780883,
+        "T1_teacher32_null": {
+          "mean": -0.004672512668293291,
+          "SE": 0.004089535616245738,
+          "ESS": 1319.0000000000005,
+          "parents": 1319
+        },
+        "T2_teacher32_null": {
+          "mean": -0.0025131123664724996,
+          "SE": 0.00414861590623535,
+          "ESS": 1319.0000000000005,
+          "parents": 1319
+        },
+        "T1_null_abs_upper95": 0.012687855189628752,
+        "T2_null_abs_upper95": 0.010644250128383784,
+        "full257_descriptive": {
+          "mean": 0.020502892484600174,
+          "SE": 0.008378457806403079,
+          "ESS": 1319.0000000000005,
+          "parents": 1319,
+          "lower95": 0.004081416938061674,
+          "upper95": 0.036924368031138674,
+          "no_O19_threshold_or_training_gate": true
+        },
+        "supported_parent_indices": {
+          "array": "root/cells/24/supported_parent_indices",
+          "file": "CONTRAST023.npz",
+          "shape": [
+            1319
+          ],
+          "dtype": "int64"
+        },
+        "original_draws_per_bank": 32,
+        "directions_averaged_before_parent_SE": true,
+        "independent_direction_replicates": false,
+        "O19_tolerance": 0.1,
+        "MC_half_width_limit": 0.05,
+        "null_abs_upper_limit": 0.05,
+        "hypothesis": "common_level",
+        "group": "all_heldout",
+        "weights": "nominal",
+        "primary": true
+      },
+      {
+        "status": "not_established_at_registered_tolerance",
+        "reasons": [],
+        "original_parents": 1319,
+        "supported_parents": 1319,
+        "original_weight": 1427.1860035107075,
+        "supported_weight": 1427.1860035107075,
+        "supported_weight_fraction": 1.0,
+        "ESS": 1141.7489604614466,
+        "supported_at_registered_tolerance": false,
+        "cross_parent_cluster": {
+          "mean": -0.005136188528133537,
+          "SE": 0.0035929071355228354,
+          "ESS": 1141.7489604614464,
+          "parents": 1319
+        },
+        "lower95": -0.012178157113555264,
+        "upper95": 0.0019057800572881917,
+        "half_width95": 0.0070419685854217285,
+        "T1_teacher32_null": {
+          "mean": -0.0064537036311456825,
+          "SE": 0.0036246217851923506,
+          "ESS": 1141.7489604614464,
+          "parents": 1319
+        },
+        "T2_teacher32_null": {
+          "mean": -0.0038483123265342905,
+          "SE": 0.0037168285369424446,
+          "ESS": 1141.7489604614464,
+          "parents": 1319
+        },
+        "T1_null_abs_upper95": 0.013557831787701966,
+        "T2_null_abs_upper95": 0.011133162395652183,
+        "full257_descriptive": {
+          "mean": 0.01933197713901475,
+          "SE": 0.007179763532510703,
+          "ESS": 1141.7489604614464,
+          "parents": 1319,
+          "lower95": 0.005259899197779701,
+          "upper95": 0.0334040550802498,
+          "no_O19_threshold_or_training_gate": true
+        },
+        "supported_parent_indices": {
+          "array": "root/cells/25/supported_parent_indices",
+          "file": "CONTRAST023.npz",
+          "shape": [
+            1319
+          ],
+          "dtype": "int64"
+        },
+        "original_draws_per_bank": 32,
+        "directions_averaged_before_parent_SE": true,
+        "independent_direction_replicates": false,
+        "O19_tolerance": 0.1,
+        "MC_half_width_limit": 0.05,
+        "null_abs_upper_limit": 0.05,
+        "hypothesis": "common_level",
+        "group": "all_heldout",
+        "weights": "low",
+        "primary": false
+      },
+      {
+        "status": "not_established_at_registered_tolerance",
+        "reasons": [],
+        "original_parents": 1319,
+        "supported_parents": 1319,
+        "original_weight": 1427.1860035107075,
+        "supported_weight": 1427.1860035107075,
+        "supported_weight_fraction": 1.0,
+        "ESS": 1141.7489604614466,
+        "supported_at_registered_tolerance": false,
+        "cross_parent_cluster": {
+          "mean": -0.0010307483006565567,
+          "SE": 0.0053599725793239145,
+          "ESS": 1141.7489604614464,
+          "parents": 1319
+        },
+        "lower95": -0.011536101514253687,
+        "upper95": 0.009474604912940573,
+        "half_width95": 0.01050535321359713,
+        "T1_teacher32_null": {
+          "mean": -0.001989605383465619,
+          "SE": 0.005364681611555462,
+          "ESS": 1141.7489604614464,
+          "parents": 1319
+        },
+        "T2_teacher32_null": {
+          "mean": -0.00013097279373183376,
+          "SE": 0.005403764408152303,
+          "ESS": 1141.7489604614464,
+          "parents": 1319
+        },
+        "T1_null_abs_upper95": 0.01250418813063862,
+        "T2_null_abs_upper95": 0.010722156414649749,
+        "full257_descriptive": {
+          "mean": 0.021863336750676116,
+          "SE": 0.011679958759092638,
+          "ESS": 1141.7489604614464,
+          "parents": 1319,
+          "lower95": -0.001028961758058597,
+          "upper95": 0.04475563525941083,
+          "no_O19_threshold_or_training_gate": true
+        },
+        "supported_parent_indices": {
+          "array": "root/cells/26/supported_parent_indices",
+          "file": "CONTRAST023.npz",
+          "shape": [
+            1319
+          ],
+          "dtype": "int64"
+        },
+        "original_draws_per_bank": 32,
+        "directions_averaged_before_parent_SE": true,
+        "independent_direction_replicates": false,
+        "O19_tolerance": 0.1,
+        "MC_half_width_limit": 0.05,
+        "null_abs_upper_limit": 0.05,
+        "hypothesis": "common_level",
+        "group": "all_heldout",
+        "weights": "high",
+        "primary": false
+      },
+      {
+        "status": "not_established_at_registered_tolerance",
+        "reasons": [],
+        "original_parents": 435,
+        "supported_parents": 435,
+        "original_weight": 435.0,
+        "supported_weight": 435.0,
+        "supported_weight_fraction": 1.0,
+        "ESS": 435.0,
+        "supported_at_registered_tolerance": false,
+        "cross_parent_cluster": {
+          "mean": -0.008588941176359896,
+          "SE": 0.005198323251325384,
+          "ESS": 435.00000000000017,
+          "parents": 435
+        },
+        "lower95": -0.018777467528954803,
+        "upper95": 0.0015995851762350115,
+        "half_width95": 0.010188526352594908,
+        "T1_teacher32_null": {
+          "mean": -0.010849137666822188,
+          "SE": 0.005292529019439479,
+          "ESS": 435.00000000000017,
+          "parents": 435
+        },
+        "T2_teacher32_null": {
+          "mean": -0.006561781875684637,
+          "SE": 0.0055032520022050046,
+          "ESS": 435.00000000000017,
+          "parents": 435
+        },
+        "T1_null_abs_upper95": 0.021222303932056655,
+        "T2_null_abs_upper95": 0.017347957597854388,
+        "full257_descriptive": {
+          "mean": 0.01785132005932149,
+          "SE": 0.010559823974747903,
+          "ESS": 435.00000000000017,
+          "parents": 435,
+          "lower95": -0.002845554614267002,
+          "upper95": 0.03854819473290998,
+          "no_O19_threshold_or_training_gate": true
+        },
+        "supported_parent_indices": {
+          "array": "root/cells/27/supported_parent_indices",
+          "file": "CONTRAST023.npz",
+          "shape": [
+            435
+          ],
+          "dtype": "int64"
+        },
+        "original_draws_per_bank": 32,
+        "directions_averaged_before_parent_SE": true,
+        "independent_direction_replicates": false,
+        "O19_tolerance": 0.1,
+        "MC_half_width_limit": 0.05,
+        "null_abs_upper_limit": 0.05,
+        "hypothesis": "common_level",
+        "group": "fit_Q_tertile0_heldout",
+        "weights": "nominal",
+        "primary": false
+      },
+      {
+        "status": "not_established_at_registered_tolerance",
+        "reasons": [],
+        "original_parents": 435,
+        "supported_parents": 435,
+        "original_weight": 698.259472077177,
+        "supported_weight": 698.259472077177,
+        "supported_weight_fraction": 1.0,
+        "ESS": 427.5779572511635,
+        "supported_at_registered_tolerance": false,
+        "cross_parent_cluster": {
+          "mean": -0.0072878536748458705,
+          "SE": 0.0052541925343462135,
+          "ESS": 427.5779572511635,
+          "parents": 435
+        },
+        "lower95": -0.01758588181000368,
+        "upper95": 0.0030101744603119387,
+        "half_width95": 0.01029802813515781,
+        "T1_teacher32_null": {
+          "mean": -0.009515139541136614,
+          "SE": 0.005356852854343545,
+          "ESS": 427.5779572511635,
+          "parents": 435
+        },
+        "T2_teacher32_null": {
+          "mean": -0.005210892468518656,
+          "SE": 0.005556292133624661,
+          "ESS": 427.5779572511635,
+          "parents": 435
+        },
+        "T1_null_abs_upper95": 0.02001437820613055,
+        "T2_null_abs_upper95": 0.016101024938006206,
+        "full257_descriptive": {
+          "mean": 0.01795278105893663,
+          "SE": 0.010800426436796576,
+          "ESS": 427.5779572511635,
+          "parents": 435,
+          "lower95": -0.0032156657748589265,
+          "upper95": 0.03912122789273219,
+          "no_O19_threshold_or_training_gate": true
+        },
+        "supported_parent_indices": {
+          "array": "root/cells/28/supported_parent_indices",
+          "file": "CONTRAST023.npz",
+          "shape": [
+            435
+          ],
+          "dtype": "int64"
+        },
+        "original_draws_per_bank": 32,
+        "directions_averaged_before_parent_SE": true,
+        "independent_direction_replicates": false,
+        "O19_tolerance": 0.1,
+        "MC_half_width_limit": 0.05,
+        "null_abs_upper_limit": 0.05,
+        "hypothesis": "common_level",
+        "group": "fit_Q_tertile0_heldout",
+        "weights": "low",
+        "primary": false
+      },
+      {
+        "status": "not_established_at_registered_tolerance",
+        "reasons": [],
+        "original_parents": 435,
+        "supported_parents": 435,
+        "original_weight": 275.74865293982157,
+        "supported_weight": 275.74865293982157,
+        "supported_weight_fraction": 1.0,
+        "ESS": 427.5779572511635,
+        "supported_at_registered_tolerance": false,
+        "cross_parent_cluster": {
+          "mean": -0.009766451547776143,
+          "SE": 0.005270536697813002,
+          "ESS": 427.5779572511635,
+          "parents": 435
+        },
+        "lower95": -0.020096513654686295,
+        "upper95": 0.0005636105591340073,
+        "half_width95": 0.01033006210691015,
+        "T1_teacher32_null": {
+          "mean": -0.012065819176057358,
+          "SE": 0.005361199645029624,
+          "ESS": 427.5779572511635,
+          "parents": 435
+        },
+        "T2_teacher32_null": {
+          "mean": -0.007788837917682108,
+          "SE": 0.005588104268348349,
+          "ESS": 427.5779572511635,
+          "parents": 435
+        },
+        "T1_null_abs_upper95": 0.022573577394244343,
+        "T2_null_abs_upper95": 0.01874132102549942,
+        "full257_descriptive": {
+          "mean": 0.017634418517896416,
+          "SE": 0.010470444863536873,
+          "ESS": 427.5779572511635,
+          "parents": 435,
+          "lower95": -0.002887276316748257,
+          "upper95": 0.038156113352541085,
+          "no_O19_threshold_or_training_gate": true
+        },
+        "supported_parent_indices": {
+          "array": "root/cells/29/supported_parent_indices",
+          "file": "CONTRAST023.npz",
+          "shape": [
+            435
+          ],
+          "dtype": "int64"
+        },
+        "original_draws_per_bank": 32,
+        "directions_averaged_before_parent_SE": true,
+        "independent_direction_replicates": false,
+        "O19_tolerance": 0.1,
+        "MC_half_width_limit": 0.05,
+        "null_abs_upper_limit": 0.05,
+        "hypothesis": "common_level",
+        "group": "fit_Q_tertile0_heldout",
+        "weights": "high",
+        "primary": false
+      },
+      {
+        "status": "not_established_at_registered_tolerance",
+        "reasons": [],
+        "original_parents": 474,
+        "supported_parents": 474,
+        "original_weight": 474.0,
+        "supported_weight": 474.0,
+        "supported_weight_fraction": 1.0,
+        "ESS": 474.0,
+        "supported_at_registered_tolerance": false,
+        "cross_parent_cluster": {
+          "mean": -0.004192514693654591,
+          "SE": 0.005972349215744211,
+          "ESS": 474.0000000000001,
+          "parents": 474
+        },
+        "lower95": -0.015898104059609282,
+        "upper95": 0.0075130746723001,
+        "half_width95": 0.01170558936595469,
+        "T1_teacher32_null": {
+          "mean": -0.004717691507922252,
+          "SE": 0.005926270768261079,
+          "ESS": 474.0000000000001,
+          "parents": 474
+        },
+        "T2_teacher32_null": {
+          "mean": -0.0033846542701893093,
+          "SE": 0.006068135881601015,
+          "ESS": 474.0000000000001,
+          "parents": 474
+        },
+        "T1_null_abs_upper95": 0.016332968776346483,
+        "T2_null_abs_upper95": 0.015277982051422508,
+        "full257_descriptive": {
+          "mean": 0.017987830307819586,
+          "SE": 0.010832564399786207,
+          "ESS": 474.0000000000001,
+          "parents": 474,
+          "lower95": -0.003243605775972127,
+          "upper95": 0.0392192663916113,
+          "no_O19_threshold_or_training_gate": true
+        },
+        "supported_parent_indices": {
+          "array": "root/cells/30/supported_parent_indices",
+          "file": "CONTRAST023.npz",
+          "shape": [
+            474
+          ],
+          "dtype": "int64"
+        },
+        "original_draws_per_bank": 32,
+        "directions_averaged_before_parent_SE": true,
+        "independent_direction_replicates": false,
+        "O19_tolerance": 0.1,
+        "MC_half_width_limit": 0.05,
+        "null_abs_upper_limit": 0.05,
+        "hypothesis": "common_level",
+        "group": "fit_Q_tertile1_heldout",
+        "weights": "nominal",
+        "primary": false
+      },
+      {
+        "status": "not_established_at_registered_tolerance",
+        "reasons": [],
+        "original_parents": 474,
+        "supported_parents": 474,
+        "original_weight": 472.6661532165397,
+        "supported_weight": 472.6661532165397,
+        "supported_weight_fraction": 1.0,
+        "ESS": 464.4340249749192,
+        "supported_at_registered_tolerance": false,
+        "cross_parent_cluster": {
+          "mean": -0.005147245701114862,
+          "SE": 0.005650837343341265,
+          "ESS": 464.4340249749192,
+          "parents": 474
+        },
+        "lower95": -0.01622268337655774,
+        "upper95": 0.005928191974328017,
+        "half_width95": 0.01107543767544288,
+        "T1_teacher32_null": {
+          "mean": -0.005611498911979285,
+          "SE": 0.00561475129453478,
+          "ESS": 464.4340249749192,
+          "parents": 474
+        },
+        "T2_teacher32_null": {
+          "mean": -0.0044009101382100485,
+          "SE": 0.00573775904996327,
+          "ESS": 464.4340249749192,
+          "parents": 474
+        },
+        "T1_null_abs_upper95": 0.0166162092314171,
+        "T2_null_abs_upper95": 0.015646711228106812,
+        "full257_descriptive": {
+          "mean": 0.017760643108069494,
+          "SE": 0.010237275513999661,
+          "ESS": 464.4340249749192,
+          "parents": 474,
+          "lower95": -0.00230404819918361,
+          "upper95": 0.0378253344153226,
+          "no_O19_threshold_or_training_gate": true
+        },
+        "supported_parent_indices": {
+          "array": "root/cells/31/supported_parent_indices",
+          "file": "CONTRAST023.npz",
+          "shape": [
+            474
+          ],
+          "dtype": "int64"
+        },
+        "original_draws_per_bank": 32,
+        "directions_averaged_before_parent_SE": true,
+        "independent_direction_replicates": false,
+        "O19_tolerance": 0.1,
+        "MC_half_width_limit": 0.05,
+        "null_abs_upper_limit": 0.05,
+        "hypothesis": "common_level",
+        "group": "fit_Q_tertile1_heldout",
+        "weights": "low",
+        "primary": false
+      },
+      {
+        "status": "not_established_at_registered_tolerance",
+        "reasons": [],
+        "original_parents": 474,
+        "supported_parents": 474,
+        "original_weight": 485.25028667553875,
+        "supported_weight": 485.25028667553875,
+        "supported_weight_fraction": 1.0,
+        "ESS": 464.4340249749193,
+        "supported_at_registered_tolerance": false,
+        "cross_parent_cluster": {
+          "mean": -0.003351430032104864,
+          "SE": 0.006366376840607129,
+          "ESS": 464.4340249749192,
+          "parents": 474
+        },
+        "lower95": -0.015829299351704733,
+        "upper95": 0.009126439287495005,
+        "half_width95": 0.01247786931959987,
+        "T1_teacher32_null": {
+          "mean": -0.003930058649970027,
+          "SE": 0.006311240718355802,
+          "ESS": 464.4340249749192,
+          "parents": 474
+        },
+        "T2_teacher32_null": {
+          "mean": -0.0024904623648996666,
+          "SE": 0.006471188658601464,
+          "ESS": 464.4340249749192,
+          "parents": 474
+        },
+        "T1_null_abs_upper95": 0.0162998631557101,
+        "T2_null_abs_upper95": 0.0151737590729226,
+        "full257_descriptive": {
+          "mean": 0.017919887333240656,
+          "SE": 0.011467657093284508,
+          "ESS": 464.4340249749192,
+          "parents": 474,
+          "lower95": -0.0045563075566522615,
+          "upper95": 0.040396082223133574,
+          "no_O19_threshold_or_training_gate": true
+        },
+        "supported_parent_indices": {
+          "array": "root/cells/32/supported_parent_indices",
+          "file": "CONTRAST023.npz",
+          "shape": [
+            474
+          ],
+          "dtype": "int64"
+        },
+        "original_draws_per_bank": 32,
+        "directions_averaged_before_parent_SE": true,
+        "independent_direction_replicates": false,
+        "O19_tolerance": 0.1,
+        "MC_half_width_limit": 0.05,
+        "null_abs_upper_limit": 0.05,
+        "hypothesis": "common_level",
+        "group": "fit_Q_tertile1_heldout",
+        "weights": "high",
+        "primary": false
+      },
+      {
+        "status": "not_established_at_registered_tolerance",
+        "reasons": [],
+        "original_parents": 410,
+        "supported_parents": 410,
+        "original_weight": 410.0,
+        "supported_weight": 410.0,
+        "supported_weight_fraction": 1.0,
+        "ESS": 410.0,
+        "supported_at_registered_tolerance": false,
+        "cross_parent_cluster": {
+          "mean": 0.002480281724322627,
+          "SE": 0.009710640620942896,
+          "ESS": 409.99999999999994,
+          "parents": 410
+        },
+        "lower95": -0.016552224159537117,
+        "upper95": 0.02151278760818237,
+        "half_width95": 0.019032505883859744,
+        "T1_teacher32_null": {
+          "mean": 0.0019329669520584032,
+          "SE": 0.009730534754549798,
+          "ESS": 409.99999999999994,
+          "parents": 410
+        },
+        "T2_teacher32_null": {
+          "mean": 0.0027900147039398183,
+          "SE": 0.009746029033650147,
+          "ESS": 409.99999999999994,
+          "parents": 410
+        },
+        "T1_null_abs_upper95": 0.0210044646212913,
+        "T2_null_abs_upper95": 0.02189188060217581,
+        "full257_descriptive": {
+          "mean": 0.026223803403600705,
+          "SE": 0.021099797199197967,
+          "ESS": 409.99999999999994,
+          "parents": 410,
+          "lower95": -0.015131039187926416,
+          "upper95": 0.06757864599512783,
+          "no_O19_threshold_or_training_gate": true
+        },
+        "supported_parent_indices": {
+          "array": "root/cells/33/supported_parent_indices",
+          "file": "CONTRAST023.npz",
+          "shape": [
+            410
+          ],
+          "dtype": "int64"
+        },
+        "original_draws_per_bank": 32,
+        "directions_averaged_before_parent_SE": true,
+        "independent_direction_replicates": false,
+        "O19_tolerance": 0.1,
+        "MC_half_width_limit": 0.05,
+        "null_abs_upper_limit": 0.05,
+        "hypothesis": "common_level",
+        "group": "fit_Q_tertile2_heldout",
+        "weights": "nominal",
+        "primary": false
+      },
+      {
+        "status": "not_established_at_registered_tolerance",
+        "reasons": [],
+        "original_parents": 410,
+        "supported_parents": 410,
+        "original_weight": 256.2603782169907,
+        "supported_weight": 256.2603782169907,
+        "supported_weight_fraction": 1.0,
+        "ESS": 403.7712580672947,
+        "supported_at_registered_tolerance": false,
+        "cross_parent_cluster": {
+          "mean": 0.0007470733765692484,
+          "SE": 0.009348238118805162,
+          "ESS": 403.77125806729475,
+          "parents": 410
+        },
+        "lower95": -0.017575136655193335,
+        "upper95": 0.019069283408331833,
+        "half_width95": 0.018322210031762584,
+        "T1_teacher32_null": {
+          "mean": 0.0003346846853897918,
+          "SE": 0.009367050251987351,
+          "ESS": 403.77125806729475,
+          "parents": 410
+        },
+        "T2_teacher32_null": {
+          "mean": 0.0008837058690320302,
+          "SE": 0.009377609490607983,
+          "ESS": 403.77125806729475,
+          "parents": 410
+        },
+        "T1_null_abs_upper95": 0.018693765820661838,
+        "T2_null_abs_upper95": 0.019263482731704678,
+        "full257_descriptive": {
+          "mean": 0.025988305169355165,
+          "SE": 0.01945668118695086,
+          "ESS": 403.77125806729475,
+          "parents": 410,
+          "lower95": -0.012146089215746551,
+          "upper95": 0.06412269955445687,
+          "no_O19_threshold_or_training_gate": true
+        },
+        "supported_parent_indices": {
+          "array": "root/cells/34/supported_parent_indices",
+          "file": "CONTRAST023.npz",
+          "shape": [
+            410
+          ],
+          "dtype": "int64"
+        },
+        "original_draws_per_bank": 32,
+        "directions_averaged_before_parent_SE": true,
+        "independent_direction_replicates": false,
+        "O19_tolerance": 0.1,
+        "MC_half_width_limit": 0.05,
+        "null_abs_upper_limit": 0.05,
+        "hypothesis": "common_level",
+        "group": "fit_Q_tertile2_heldout",
+        "weights": "low",
+        "primary": false
+      },
+      {
+        "status": "not_established_at_registered_tolerance",
+        "reasons": [],
+        "original_parents": 410,
+        "supported_parents": 410,
+        "original_weight": 666.1870638953471,
+        "supported_weight": 666.1870638953471,
+        "supported_weight_fraction": 1.0,
+        "ESS": 403.7712580672948,
+        "supported_at_registered_tolerance": false,
+        "cross_parent_cluster": {
+          "mean": 0.004275523871116719,
+          "SE": 0.010278478788771965,
+          "ESS": 403.7712580672948,
+          "parents": 410
+        },
+        "lower95": -0.01586992437073521,
+        "upper95": 0.02442097211296865,
+        "half_width95": 0.02014544824185193,
+        "T1_teacher32_null": {
+          "mean": 0.00359457372403649,
+          "SE": 0.010298938643510346,
+          "ESS": 403.7712580672948,
+          "parents": 410
+        },
+        "T2_teacher32_null": {
+          "mean": 0.004757427416412212,
+          "SE": 0.010321197938998198,
+          "ESS": 403.7712580672948,
+          "parents": 410
+        },
+        "T1_null_abs_upper95": 0.023780122544304567,
+        "T2_null_abs_upper95": 0.024986603654157714,
+        "full257_descriptive": {
+          "mean": 0.02648618014300368,
+          "SE": 0.023205510126034556,
+          "ESS": 403.7712580672948,
+          "parents": 410,
+          "lower95": -0.018995783946903582,
+          "upper95": 0.07196814423291094,
+          "no_O19_threshold_or_training_gate": true
+        },
+        "supported_parent_indices": {
+          "array": "root/cells/35/supported_parent_indices",
+          "file": "CONTRAST023.npz",
+          "shape": [
+            410
+          ],
+          "dtype": "int64"
+        },
+        "original_draws_per_bank": 32,
+        "directions_averaged_before_parent_SE": true,
+        "independent_direction_replicates": false,
+        "O19_tolerance": 0.1,
+        "MC_half_width_limit": 0.05,
+        "null_abs_upper_limit": 0.05,
+        "hypothesis": "common_level",
+        "group": "fit_Q_tertile2_heldout",
+        "weights": "high",
+        "primary": false
+      }
+    ],
+    "primary_cells": [
+      {
+        "status": "not_established_at_registered_tolerance",
+        "reasons": [],
+        "original_parents": 1319,
+        "supported_parents": 1319,
+        "original_weight": 1319.0,
+        "supported_weight": 1319.0,
+        "supported_weight_fraction": 1.0,
+        "ESS": 1319.0,
+        "supported_at_registered_tolerance": false,
+        "cross_parent_cluster": {
+          "mean": -0.0022230775772340084,
+          "SE": 0.0041178102270053455,
+          "ESS": 1319.0000000000005,
+          "parents": 1319
+        },
+        "lower95": -0.01029383731733519,
+        "upper95": 0.005847682162867174,
+        "half_width95": 0.008070759740101182,
+        "T1_teacher32_null": {
+          "mean": -0.002665159175165032,
+          "SE": 0.00410724341310242,
+          "ESS": 1319.0000000000005,
+          "parents": 1319
+        },
+        "T2_teacher32_null": {
+          "mean": -0.002135536632784822,
+          "SE": 0.004203092500791253,
+          "ESS": 1319.0000000000005,
+          "parents": 1319
+        },
+        "T1_null_abs_upper95": 0.010715208340585144,
+        "T2_null_abs_upper95": 0.010373446558026066,
+        "full257_descriptive": {
+          "mean": 0.010015754052306435,
+          "SE": 0.00881999760516685,
+          "ESS": 1319.0000000000005,
+          "parents": 1319,
+          "lower95": -0.007271123597550118,
+          "upper95": 0.02730263170216299,
+          "no_O19_threshold_or_training_gate": true
+        },
+        "supported_parent_indices": {
+          "array": "root/primary_cells/0/supported_parent_indices",
+          "file": "CONTRAST023.npz",
+          "shape": [
+            1319
+          ],
+          "dtype": "int64"
+        },
+        "original_draws_per_bank": 32,
+        "directions_averaged_before_parent_SE": true,
+        "independent_direction_replicates": false,
+        "O19_tolerance": 0.1,
+        "MC_half_width_limit": 0.05,
+        "null_abs_upper_limit": 0.05,
+        "hypothesis": "fast",
+        "group": "all_heldout",
+        "weights": "nominal",
+        "primary": true
+      },
+      {
+        "status": "not_established_at_registered_tolerance",
+        "reasons": [],
+        "original_parents": 1319,
+        "supported_parents": 1319,
+        "original_weight": 1319.0,
+        "supported_weight": 1319.0,
+        "supported_weight_fraction": 1.0,
+        "ESS": 1319.0,
+        "supported_at_registered_tolerance": false,
+        "cross_parent_cluster": {
+          "mean": -0.0031921144531335092,
+          "SE": 0.00409643937667165,
+          "ESS": 1319.0000000000005,
+          "parents": 1319
+        },
+        "lower95": -0.011220988096261651,
+        "upper95": 0.004836759189994632,
+        "half_width95": 0.008028873643128142,
+        "T1_teacher32_null": {
+          "mean": -0.0038069538755503727,
+          "SE": 0.004137525008226916,
+          "ESS": 1319.0000000000005,
+          "parents": 1319
+        },
+        "T2_teacher32_null": {
+          "mean": -0.002585472086101408,
+          "SE": 0.00414811076039387,
+          "ESS": 1319.0000000000005,
+          "parents": 1319
+        },
+        "T1_null_abs_upper95": 0.011916353876808918,
+        "T2_null_abs_upper95": 0.01071561978035645,
+        "full257_descriptive": {
+          "mean": 0.014295013058400684,
+          "SE": 0.00835341858553594,
+          "ESS": 1319.0000000000005,
+          "parents": 1319,
+          "lower95": -0.00207738651703728,
+          "upper95": 0.030667412633838646,
+          "no_O19_threshold_or_training_gate": true
+        },
+        "supported_parent_indices": {
+          "array": "root/primary_cells/1/supported_parent_indices",
+          "file": "CONTRAST023.npz",
+          "shape": [
+            1319
+          ],
+          "dtype": "int64"
+        },
+        "original_draws_per_bank": 32,
+        "directions_averaged_before_parent_SE": true,
+        "independent_direction_replicates": false,
+        "O19_tolerance": 0.1,
+        "MC_half_width_limit": 0.05,
+        "null_abs_upper_limit": 0.05,
+        "hypothesis": "slow",
+        "group": "all_heldout",
+        "weights": "nominal",
+        "primary": true
+      },
+      {
+        "status": "not_established_at_registered_tolerance",
+        "reasons": [],
+        "original_parents": 1319,
+        "supported_parents": 1319,
+        "original_weight": 1319.0,
+        "supported_weight": 1319.0,
+        "supported_weight_fraction": 1.0,
+        "ESS": 1319.0,
+        "supported_at_registered_tolerance": false,
+        "cross_parent_cluster": {
+          "mean": -0.0035682531232271064,
+          "SE": 0.004079899673083746,
+          "ESS": 1319.0000000000005,
+          "parents": 1319
+        },
+        "lower95": -0.011564709543007989,
+        "upper95": 0.004428203296553777,
+        "half_width95": 0.007996456419780883,
+        "T1_teacher32_null": {
+          "mean": -0.004672512668293291,
+          "SE": 0.004089535616245738,
+          "ESS": 1319.0000000000005,
+          "parents": 1319
+        },
+        "T2_teacher32_null": {
+          "mean": -0.0025131123664724996,
+          "SE": 0.00414861590623535,
+          "ESS": 1319.0000000000005,
+          "parents": 1319
+        },
+        "T1_null_abs_upper95": 0.012687855189628752,
+        "T2_null_abs_upper95": 0.010644250128383784,
+        "full257_descriptive": {
+          "mean": 0.020502892484600174,
+          "SE": 0.008378457806403079,
+          "ESS": 1319.0000000000005,
+          "parents": 1319,
+          "lower95": 0.004081416938061674,
+          "upper95": 0.036924368031138674,
+          "no_O19_threshold_or_training_gate": true
+        },
+        "supported_parent_indices": {
+          "array": "root/primary_cells/2/supported_parent_indices",
+          "file": "CONTRAST023.npz",
+          "shape": [
+            1319
+          ],
+          "dtype": "int64"
+        },
+        "original_draws_per_bank": 32,
+        "directions_averaged_before_parent_SE": true,
+        "independent_direction_replicates": false,
+        "O19_tolerance": 0.1,
+        "MC_half_width_limit": 0.05,
+        "null_abs_upper_limit": 0.05,
+        "hypothesis": "common_level",
+        "group": "all_heldout",
+        "weights": "nominal",
+        "primary": true
+      }
+    ],
+    "decision": "not_established_at_registered_tolerance",
+    "all3_primary_supported": false,
+    "parent_ids": {
+      "array": "root/parent_ids",
+      "file": "CONTRAST023.npz",
+      "shape": [
+        6593
+      ],
+      "dtype": "<U75"
+    },
+    "heldout_source_rows": {
+      "array": "root/heldout_source_rows",
+      "file": "CONTRAST023.npz",
+      "shape": [
+        1319
+      ],
+      "dtype": "int64"
+    },
+    "groups": {
+      "all_heldout": {
+        "array": "root/groups/all_heldout",
+        "file": "CONTRAST023.npz",
+        "shape": [
+          1319
+        ],
+        "dtype": "bool"
+      },
+      "fit_Q_tertile0_heldout": {
+        "array": "root/groups/fit_Q_tertile0_heldout",
+        "file": "CONTRAST023.npz",
+        "shape": [
+          1319
+        ],
+        "dtype": "bool"
+      },
+      "fit_Q_tertile1_heldout": {
+        "array": "root/groups/fit_Q_tertile1_heldout",
+        "file": "CONTRAST023.npz",
+        "shape": [
+          1319
+        ],
+        "dtype": "bool"
+      },
+      "fit_Q_tertile2_heldout": {
+        "array": "root/groups/fit_Q_tertile2_heldout",
+        "file": "CONTRAST023.npz",
+        "shape": [
+          1319
+        ],
+        "dtype": "bool"
+      }
+    },
+    "comparison_weights": {
+      "nominal": {
+        "array": "root/comparison_weights/nominal",
+        "file": "CONTRAST023.npz",
+        "shape": [
+          1319
+        ],
+        "dtype": "float64"
+      },
+      "low": {
+        "array": "root/comparison_weights/low",
+        "file": "CONTRAST023.npz",
+        "shape": [
+          1319
+        ],
+        "dtype": "float64"
+      },
+      "high": {
+        "array": "root/comparison_weights/high",
+        "file": "CONTRAST023.npz",
+        "shape": [
+          1319
+        ],
+        "dtype": "float64"
+      }
+    },
+    "source_run_id": "wp4_022_20261016",
+    "original022_failure_preserved": true,
+    "fast_parent_scores_reused": true,
+    "fast_distances_recomputed": 0,
+    "parent_average_before_SE": true,
+    "pooled64_used": false,
+    "bank_directions_are_not_independent_replicates": true,
+    "O19_U_negative_values_preserved": true,
+    "full257_descriptive_only": true,
+    "statistical_power_or_simultaneous_test_calibration": false,
+    "non_detection_does_not_establish_mechanism_absence": true,
+    "T2_training_started": false,
+    "old017_pending_preserved": true,
+    "old020_nonpass_preserved": true,
+    "scientific_acceptance": false
+  },
+  "inventory": {
+    "schema": "n01/wp4-023-artifact-inventory/v1",
+    "run_id": "wp4_023_20261016",
+    "files": {
+      "CONTRAST023.json": {
+        "bytes": 78892,
+        "sha256": "098040ea6bd3545dfbcccd9fe89c2577f880d1c2d5bcc88311a09ad3ee27a5d1"
+      },
+      "CONTRAST023.npz": {
+        "bytes": 413984,
+        "sha256": "7abd599be6cf73ad4fca553e571b38718fc7b38bbc625efc881a54d8f029183b"
+      },
+      "PARENT_AXES.npz": {
+        "bytes": 418428,
+        "sha256": "df40906d4f3c8f81b4c0e18411f2c1f5f0b34a18e77834d9e4128b5314207200"
+      },
+      "PARENT_SCORES023_common_level.npz": {
+        "bytes": 1024887,
+        "sha256": "57ce239cdb5d58e643d1d17d5eae8f8b22e68049804c565471ec36be6aa9ca14"
+      },
+      "PARENT_SCORES023_fast.npz": {
+        "bytes": 1024912,
+        "sha256": "52a96823c9b2d5ce336ca567823110292aa4d06829d8cadb0bf4676c6fa7508b"
+      },
+      "PARENT_SCORES023_slow.npz": {
+        "bytes": 1024903,
+        "sha256": "168331a07c9df7f1a4d410684ad33fa8ad2ae20c678b208e65113671c67df3fb"
+      },
+      "PHASE.json": {
+        "bytes": 9195,
+        "sha256": "8f779b2a0fc119fe5f7575b6099d6282379c85191eb6cf62ddc002af33d84751"
+      },
+      "STARTED.json": {
+        "bytes": 9121,
+        "sha256": "04d215d0a70e836f7b9743e66643c6dfec5934ee5d6b336a86f5434a9e912cba"
+      },
+      "T2_common_level_OBSERVABLE.npz": {
+        "bytes": 42863042,
+        "sha256": "f1d2858b768cbaac6df04f436fe54876f9d7e42242f7deded27932a153bd7636"
+      },
+      "T2_slow_OBSERVABLE.npz": {
+        "bytes": 42866086,
+        "sha256": "fe13c17dc43e266f261611eb9c0295fa431630e8ea1ad4f5f437c543e1b84e71"
+      },
+      "operations.jsonl": {
+        "bytes": 4636,
+        "sha256": "c5718064fcce4f8e03f1a348cd3687fb861560a8864d254f0ca011f2cbc2fe05"
+      }
+    }
+  },
+  "elapsed_seconds": 977.5977274350007,
+  "processes": {
+    "supervisor": {
+      "pid": 133652,
+      "alive": false
+    },
+    "child": {
+      "pid": 133659,
+      "alive": false
+    }
+  },
+  "artifact_bytes": 89758327,
+  "driver_log_tail": "{\"native_status\": \"COMPLETE\", \"decision\": \"not_established_at_registered_tolerance\", \"new_G\": 0}\n",
+  "supervisor_log_tail": "{\"status\": \"driver_spawned\", \"supervisor_pid\": 133652, \"child_pid\": 133659}\n{\"status\": \"native_zero\", \"child_native_returncode\": 0, \"receipt\": \"/home/rylan/projects/ej276d-n01/wp4_023_20261016/runs/primary/supervisor/NATIVE_EXIT.json\"}\n",
+  "durable_child_progress": {
+    "entered_counts": {
+      "saved_T2_hard_rows_decoded": 843904,
+      "reported_group_weight_hypothesis_cells": 36,
+      "new_parent_score_rows": 13186,
+      "evaluation_observable_pair_distances": 94517248,
+      "reused_fast_parent_score_rows": 6593,
+      "total_saved_hard_rows_decoded": 1687808,
+      "evaluation_energy_pair_distances": 54009856,
+      "saved_T1_hard_rows_decoded": 843904,
+      "new_pair_distances_total": 148527104,
+      "required_primary_cells": 3
+    },
+    "completed_counts": {
+      "saved_T2_hard_rows_decoded": 843904,
+      "reported_group_weight_hypothesis_cells": 36,
+      "new_parent_score_rows": 13186,
+      "evaluation_observable_pair_distances": 94517248,
+      "reused_fast_parent_score_rows": 6593,
+      "total_saved_hard_rows_decoded": 1687808,
+      "evaluation_energy_pair_distances": 54009856,
+      "saved_T1_hard_rows_decoded": 843904,
+      "new_pair_distances_total": 148527104,
+      "required_primary_cells": 3
+    },
+    "unknown_inflight_ids": [],
+    "failed_ids": [],
+    "truncated_tail": false,
+    "counts_are_durable_lower_bounds": true
+  },
+  "current_RSS_bytes": 0,
+  "verified_freeze": {
+    "config_sha256": "796a62486a30336c82468076b1490cf6bb56585e55fedfe790a0e4bf86c12361",
+    "source_manifest_sha256": "723f842f4b6241b47902a91953902a0e99ed22bd2ef97db1c2511b05f5a476ad",
+    "supervisor_sha256": "604dc38e0a8c744a9d6a6ce5da97f30815e998784c8c51d4283220b232ecd6b5",
+    "source_and_input_contract_raw_hashes_verified": true
+  }
+}

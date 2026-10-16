@@ -1,0 +1,83 @@
+{
+  "schema": "n01/wp4-023-native-launch/v1",
+  "run_id": "wp4_023_20261016",
+  "UTC": "2026-10-16T05:54:28.189252+00:00",
+  "supervisor_started_monotonic": 44088.20657603,
+  "config_sha256": "796a62486a30336c82468076b1490cf6bb56585e55fedfe790a0e4bf86c12361",
+  "supervisor": {
+    "pid": 133652,
+    "parent_pid": 1,
+    "start_ticks": 4408818,
+    "command": [
+      "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+      "-B",
+      "/home/rylan/projects/ej276d-n01/wp4_023_20261016/REMOTE_SUPERVISOR.py",
+      "--config",
+      "/home/rylan/projects/ej276d-n01/wp4_023_20261016/wp4_023_config.json",
+      "--config-sha256",
+      "796a62486a30336c82468076b1490cf6bb56585e55fedfe790a0e4bf86c12361"
+    ],
+    "cwd": "/home/rylan/projects/ej276d-n01/wp4_023_20261016",
+    "boot_id": "06177e53-90a1-4d8c-a942-03b487a0684d",
+    "CPU_affinity": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ]
+  },
+  "child": {
+    "pid": 133659,
+    "parent_pid": 133652,
+    "start_ticks": 4408820,
+    "process_group": 133659,
+    "command": [
+      "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+      "-B",
+      "/home/rylan/projects/ej276d-n01/wp4_023_20261016/scripts/run_wp4_023.py",
+      "--config",
+      "/home/rylan/projects/ej276d-n01/wp4_023_20261016/wp4_023_config.json",
+      "--config-sha256",
+      "796a62486a30336c82468076b1490cf6bb56585e55fedfe790a0e4bf86c12361",
+      "--output",
+      "/home/rylan/projects/ej276d-n01/wp4_023_20261016/runs/primary/artifacts"
+    ],
+    "cwd": "/home/rylan/projects/ej276d-n01/wp4_023_20261016",
+    "boot_id": "06177e53-90a1-4d8c-a942-03b487a0684d",
+    "CPU_affinity": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ]
+  },
+  "log": "/home/rylan/projects/ej276d-n01/wp4_023_20261016/runs/primary/supervisor/driver_console.log",
+  "lock": "/home/rylan/projects/ej276d-n01/.n01_scientific_dispatch.lock",
+  "lock_inherited_by_driver": true,
+  "automatic_restart": false,
+  "limits": {
+    "CPU_threads": 12,
+    "driver_AS_bytes": 8589934592,
+    "RSS_bytes": 8589934592,
+    "wall_seconds": 7200,
+    "driver_CPU_soft_seconds": 21590,
+    "driver_CPU_hard_seconds": 21600,
+    "output_bytes": 1610612736
+  }
+}
