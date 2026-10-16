@@ -1,0 +1,47 @@
+{
+  "schema": "n01/response033-first-step-audit-plan/v1",
+  "status": "implementation_draft_only_no_scientific_execution",
+  "purpose": "One exact first032Adam update, then fixed parameter-group/step-fraction risk audit on current legal TRAIN, before any additional long fit.",
+  "input_boundary": "Only032initial checkpoint, original005checkpoint and DATASET008 actual inputs. TRAIN whitelist plus real_carrier384 only; no old deterministicA or DEV input paths. SHA-check all external inputs and complete pinned source payload before CP/array decode.",
+  "first_step": "Strict-load the whole029initial model, mean stage mean_response and model.train. Restore saved initial optimizer,4numpy and6CPUtorch stream states. Reproduce data/objective/regular/saturation/total preclip norm and4group norms within fixed tolerances before the one optimizer.step. Stop on mismatch.",
+  "state_construction": "Snapshot initial parameters, perform exactly one matched AdamW update and snapshot updated parameters. Every state is independently copied from these same snapshots. Full and active group fraction1 copy actual updated tensor bytes directly; quarter/sixteenth use initial+fraction*same delta, inactive groups use initial bytes. No accumulation, second optimizer experiment or saved candidate checkpoint.",
+  "bank_design": "Exact first training bank plus8 independent IID-with-replacement TRAIN banks. Each has SOURCE_A64,SOURCE_B64,REAL_T128,REAL_U128 with independent indices. Each bank caches two explicit response latent dictionaries and two electronics draws/threeH extensions once, shared across all8parameter states. RepeatedIDs are allowed across independent banks.",
+  "common_random_numbers": "First-bank4np/6torch streams restore from checkpoint. Independent banks use CONFIG_DRAFT.risk_bank_seeds, explicit base202610173300+100*bank_index plus disjoint stream offsets. Parameters do not redraw response or electronics noise.",
+  "loss": "Reuse031standardized_banks andenergy_four_banks. For each hypothesis report6-view full joint Euclidean energy mean, joint signed integral energy and centered384carrier energy; data=wave+2*integral+.25*carrier. Average3H then add.01*(mean model regular+mean3Hsaturation), exactly032. Negative finite energy estimates retained. Only first baseline uses STE backward; its hard forward values/report are reused. All other points hard ADC without AD.",
+  "report": "SmallJSON/JSONL only:72state-bank reports with3H energies/total, regular_mean/basis/charge/local, Apeak,BphysicalRMS,vnorm,alpha,local envelope/realization, observedQ/negative area, same observation flags and denominators, mean residual saturation, actual parameter-delta group norms, and identity index/parent-ID hashes. No fullwave bank or delta checkpoint.",
+  "statistics": "Use CP-frozen native/model statistics, signed integral scales and carrier RMS scale; do not fit anything. Cache originalREALCPUexistingADC observation once, verify originalpreparedREAL256/baseline100 and retainpreparedtarget; same frozen1nssoftware coordinate, no secondREALADC application.",
+  "independent_risk_summary": "For7nonbaseline states, report paired differences versus baseline over8independent risk banks: mean,MCSE,raw8deltas,descriptive3MCSE direction, separately for data,total,regular/saturation,4regular groups and eachHenergy decomposition/total. Exclude the first training bank from these summaries.",
+  "interpretation": "mean_only is a mean parameter-group perturbation: it changes shared decoder features and abs(A) scaling of random outputs. Fractional deltas test local overshoot, not long-run lowerLR success. First-bank improvement is not independent evidence. No best checkpoint selection, final response-fit claim or conditional identification.",
+  "bounds": {
+    "NN_calls": 144,
+    "NN_rows": 9216,
+    "noise005_rows": 1152,
+    "extension_rows": 3456,
+    "generated_ADC_rows": 27648,
+    "checkpoint_loads": 2,
+    "TRAIN_archives_decoded": 1,
+    "REAL_existing_observation_rows": 21047,
+    "AD_queries": 1,
+    "diagnostic_G_updates": 1,
+    "banks_cached": 9,
+    "DEV_reads": 0,
+    "native_W1_runs": 0
+  },
+  "resources": {
+    "CPU_threads": 4,
+    "RSS_GiB": 12,
+    "GPU_GiB": 10,
+    "wall_seconds": 600,
+    "output_MiB": 128
+  },
+  "supervision": "ROOT freezes/reviews config/source and invokes existing external project-lock supervisor with RSS/wall/output bounds. Validate one startup and schedule wakeup if needed. No launch from this preparation.",
+  "preparation_actual_counts": {
+    "NN_forwards": 0,
+    "AD_queries": 0,
+    "CP_deserializations": 0,
+    "scientific_array_decodes": 0,
+    "optimizer_updates": 0,
+    "launches": 0
+  },
+  "old_sources_unchanged": true
+}

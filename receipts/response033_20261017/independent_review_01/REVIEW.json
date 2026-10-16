@@ -1,0 +1,147 @@
+{
+  "schema": "n01/response033-independent-source-budget-review/v1",
+  "UTC": "2026-10-16T21:25:53.492411+00:00",
+  "status": "no_blockers_for_frozen_bounded_first_step_audit",
+  "blocking_findings": [],
+  "scope": "Read-only source, preparation metadata and saved032 summaries; no CP/raw-data access, NN, AD, observation or scientific execution.",
+  "identity": {
+    "source": "scripts/run_response033.py",
+    "source_sha256": "710be3a025dd7f7611bcecc8480d4e3813531e9a3b57fbeb47419bc2a32b1d11",
+    "source_bytes": 21386,
+    "frozen_config": "configs/response033_20261017.json",
+    "frozen_config_sha256": "d8b841ac35225290ec5fbdbf38ed956d8e3b627ef35b869c217d69578c607697",
+    "CONFIG_DRAFT_sha256": "fef2f0d1220265b1350a27c516c561f53e89173162ba2d3a61fa29205b27a04b",
+    "PLAN_sha256": "921195f33deeb82af383d3f9bb8322d08ebb89992d7bf15590e9b3fbd331b2ef",
+    "IMPLEMENTATION_RECEIPT_sha256": "28fdf1d12e17d55d84a5916a51fe75df7afe7676983f0a4b5ee980b114843b56",
+    "37_source_pins_recomputed_all_match": true,
+    "original032_36_dependency_pins_unchanged": true,
+    "frozen_config_changes_only": {
+      "preparation_only": {
+        "draft": true,
+        "frozen": false
+      },
+      "status": {
+        "draft": "draft_not_frozen",
+        "frozen": "ready_for_first_step_audit"
+      }
+    }
+  },
+  "checks": [
+    {
+      "name": "initial_checkpoint_and_first_step_replay",
+      "result": "pass_static",
+      "evidence": "The only model CP is exact032initial.pt, metadata SHA/bytes bound to collected manifest without opening CP here. Strict whole model load, mean_response stage and model.train, original empty AdamW optimizer state and both ordered groups restored. All4 NumPy bit-generator states and6 CPU torch generator states restored from checkpoint, not inferred from seeds.",
+      "RNG_order": "make_bank caches both generated-bank explicit draws before model calls. This preserves032 per-stream draw sequences: the reviewed model has no Dropout/BatchNorm or implicit random forward draw/updated running statistics. Replaying first-bank data/objective/norm and all4 group norms must pass before the sole optimizer step.",
+      "frozen_targets": {
+        "data": 0.09570950875194757,
+        "objective": 0.09577362061818252,
+        "regular": 0.006411186623494439,
+        "saturation": 0.0,
+        "preclip_gradient_norm": 21.1663818359375,
+        "group_gradient_norms": {
+          "mean": 3.0439902770576053,
+          "shape": 20.945805331290273,
+          "charge": 0.15193670701350645,
+          "local": 0.001978266293444085
+        }
+      },
+      "fixed_tolerances": {
+        "loss": [
+          1e-08,
+          1e-06
+        ],
+        "norm": [
+          1e-05,
+          1e-06
+        ],
+        "formula": "absolute + relative*abs(expected)",
+        "failure_action": "stop_no_tolerance_change_no_optimizer_update"
+      },
+      "boundary": "Actual native replay remains unexecuted by reviewer; a mismatch must stop without changed tolerance or optimizer update."
+    },
+    {
+      "name": "Adam_and_clipping",
+      "result": "pass_static",
+      "evidence": "Same mean group lr1e-4 and combined shape/charge/local lr3e-4; restored AdamW betas(.9,.999),eps1e-8,decay0 and parameter ordering. Exactly one combined energy objective.backward(), then group norms, global clip_grad_norm(all model parameters,5), replay validation, then one actual optimizer.step(). No per-group optimizer trials or additional AD.",
+      "AST_call_lines": {
+        "backward": [
+          198
+        ],
+        "optimizer_step": [
+          218
+        ]
+      }
+    },
+    {
+      "name": "eight_independent_parameter_states",
+      "result": "pass_static",
+      "evidence": "Initial and actual-updated named parameters are detached independent clones. Every state overwrites all model parameters from these snapshots: baseline0, full1, quarter.25,sixteenth.0625, or the sole active group at1 and others0. Fraction1 directly copies actual updated tensor bytes; zero copies initial bytes. No state is constructed from its predecessor. Buffers are unchanged; no stateful BN statistics require restoration.",
+      "interpretation": "mean_only is a mean parameter-group perturbation. Shared decoder features and abs(A) scaling also change stochastic outputs, so it is not a pure deterministic signal intervention. Quarter/sixteenth are fractions of one realized Adam delta, not proof of long-run smaller-learning-rate success."
+    },
+    {
+      "name": "common_random_banks_and_baseline_AD_reuse",
+      "result": "pass_static",
+      "evidence": "Exact first bank plus8 fixed independent risk banks. Each has independent sourceA/sourceB64 and REALT/REALU128 draws with replacement. Per bank, two response latent dictionaries and frozen005/threeH noise draws are cached once and reused across all8 states. Targets/indices/noise are not redrawn across states. All80 risk stream seeds are explicit and unique.",
+      "baseline": "First training-bank baseline uses its existing AD forward/report with hard forward ADC values. That report is copied into the72-point output instead of repeating its two NN/ADC passes. Remaining71 points are under no_grad/hard ADC. No extra A-only forward or nativeW1 exists."
+    },
+    {
+      "name": "exact_objective_and_decomposition",
+      "result": "pass_static",
+      "evidence": "energy_parts is the031 formula split into named terms: per-view joint Euclidean replica energy averaged over6 views, signed-integral joint energy and centered384-carrier joint energy; data=wave+2*integral+.25*carrier. Average3 hypotheses, then+.01*(mean two model regularizers+mean two-bank threeH saturation). Generated self-distance retains both gradients at sole AD. Negative finite estimates retained.",
+      "parts": "Each point reports regular_mean/basis/charge/local, global saturation and3H wave/integral/carrier/data/total. PerH total uses the shared regular plus that hypothesis two-bank saturation; averaging the3 perH totals reconstructs combined total. No detach occurs on the returned optimization objective."
+    },
+    {
+      "name": "PLAN_and_paired_summary_agreement",
+      "result": "pass_static",
+      "evidence": "72 state-bank records. risk_scalars contains23 metrics:4 combined data/regular/saturation/total,4 regular parts,3H x4 energy parts,3H total. All7 nonbaseline states receive paired deltas versus same-bank baseline for each of23 metrics, using only risk banks1..8. Mean and sampleSD(ddof1)/sqrt8, raw8 deltas and descriptive3MCSE direction are reported. First training bank0 remains separate and excluded.",
+      "boundary": "These are correlated descriptive probes, not a multiple-comparison-corrected acceptance gate, endpoint selection or response-fit success."
+    },
+    {
+      "name": "real_entry_statistics_and_units",
+      "result": "pass_static",
+      "evidence": "Only one DATASET008 TRAIN whitelist decode plus original real_carrier384; no DEV/original480/deterministicA inputs. Shared existing-ADC CPU replay checks prepared REAL256/baseline bitwise, then original target is transferred. Model/native/integral/carrier statistics are restored from032initial with zero refits.",
+      "units": "SAMPLE_INTERVAL_NS is frozen1.0 software coordinate. observed_Q is taken directly from shared observation Q. Negative area multiplies that imported constant; no assumption of2ns or hardware calibration. Existing REAL replay21047 is explicitly counted separately from new generated ADC27648."
+    },
+    {
+      "name": "frozen_electronics_and_resources",
+      "result": "pass_static",
+      "evidence": "005/extension loaded once, frozen and bound to initial032 state digest, verified unchanged at end. No noise/population/D update, DEV, checkpoint write or best-state selection. Four CPU threads, CUDA allocator10GiB, external owned-tree RSS12GiB/wall600s, output128MiB and existing project flock remain required. Runner enforces output/time checks per point and exact final budget counters.",
+      "boundary": "No runtime import, tensor toy, peak-memory test or native science was executed in this review."
+    }
+  ],
+  "recomputed_budget": {
+    "states": 8,
+    "banks": 9,
+    "generated_banks_per_point": 2,
+    "generated_rows_per_bank": 64,
+    "REAL_rows_per_target_bank": 128,
+    "NN_calls": 144,
+    "NN_rows": 9216,
+    "noise005_rows": 1152,
+    "extension_rows": 3456,
+    "generated_ADC_rows": 27648,
+    "checkpoint_loads": 2,
+    "TRAIN_archives_decoded": 1,
+    "REAL_existing_observation_rows": 21047,
+    "AD_queries": 1,
+    "diagnostic_G_updates": 1,
+    "banks_cached": 9,
+    "DEV_reads": 0,
+    "native_W1_runs": 0,
+    "new_checkpoint_writes": 0,
+    "budget_matches_CONFIG_PLAN_and_source": true
+  },
+  "reviewer_execution": {
+    "numeric_module_imports": 0,
+    "NN_forwards": 0,
+    "AD_queries": 0,
+    "checkpoint_deserializations": 0,
+    "CP_byte_reads": 0,
+    "raw_SOURCE_REAL_DEV_array_decodes": 0,
+    "observation_calls": 0,
+    "optimizer_updates": 0,
+    "new_scientific_jobs": 0,
+    "old_source_or_ledger_modifications": 0
+  },
+  "conclusion": "The frozen033 implementation is ready for one bounded first-step audit. Required first-step replay is a native execution gate, not yet a passed result. Results may distinguish realized-step magnitude/group sensitivity on this initial state; they cannot establish032 terminal root cause, long-run recovery or conditional response identification."
+}
