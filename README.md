@@ -1,12 +1,12 @@
-# N01 当前状态：022教师已保存，评分工程失败，准备023纯CPU恢复
+# N01 当前状态：022失败已保留，023纯CPU评分恢复已实际启动
 
-022 native1退出：T2生成全部完成，首个fast分组评分因Z95错误导入失败，完整科学结论未知。fast父分数及完整日志已选回；85文件完整SHA清单中选收27份，12.99MB，原大数组保留远端。源码与审核的完整可执行判断已撤回，原件保留。后续另行登记023，只修导入并续算剩余CPU评分，不重复教师生成、005或RNG，也不重算fast距离。
+022完整T2教师生成和fast父分数已保存；首个分组评分因Z95错误导入退出1，完整科学结果未知。失败、完整日志、原源码和原审核撤回记录已封存。023新版本通过源码独审，仅修cell导入并续算CPU评分，复用所有完成部分，不重复教师/005/RNG或fast距离。
 
-020为2455pass/89fail/0pending，89全部来自seed0、seed1全1272pass，双种子资格未过；021有限canonical解析及独立代数复核完成。项目累计G下界187667，新增G/AD0。当前无活动科学作业，已交付苏醒暂停；后续实际正确启动后再保存一次未来苏醒。用户持续允许必要工程恢复和新增具名有限计算，无需再逐项确认。
+2026-10-16 13:54:48（Asia/Singapore）快照已确认：fast的12个分组分类完成，slow的两方保存hard读取完成，距离op4在途、完成unknown，未计入completed。当前CPU12和进程资源健康。已保存今日14:10单次苏醒，之后状态未持续查询。023新增NN/CP/AD/G/RNG/ADC为0，新距离预算148527104，项目累计G下界187667。
 
-REAL响应匹配仍未建立，WP5完整稳健确认和WP6未完成，T2训练尚未启动；scientific_status=response_match_not_established。
+020为2455pass/89fail/0pending，89全部来自seed0、seed1全1272pass，双seed资格未过；021有限canonical解析及独立代数复核完成。完整WP5/WP6尚未完成，T2训练/REAL长训练未启动；scientific_status=response_match_not_established。后续必要工程恢复与具名有限新增计算沿用用户持续授权。
 
-[022失败报告](reports/wp4_022_20261016/REPORT.md) · [022最终回执](receipts/wp4_022_20261016/FINAL_RESULT_RECEIPT.json) · [021报告](reports/wp5_021_20261016/REPORT.md) · [020报告](reports/wp4_020_20261016/REPORT.md)
+[023运行报告](reports/wp4_023_20261016/REPORT.md) · [023实际启动](receipts/wp4_023_20261016/EXECUTION_STARTED.json) · [022失败报告](reports/wp4_022_20261016/REPORT.md) · [021报告](reports/wp5_021_20261016/REPORT.md) · [020报告](reports/wp4_020_20261016/REPORT.md)
 
 以下保留此前阶段说明，旧授权边界以最新直接人类授权为准。
 
