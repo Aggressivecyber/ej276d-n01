@@ -1,0 +1,104 @@
+{
+  "schema": "n01/response038-independent-control-deployment-review/v1",
+  "UTC": "2026-10-17T18:27:38.315431+00:00",
+  "reviewer": "Sol Max independent reviewer /root/response038_resume_review",
+  "outcome": "PASS_FOR_FROZEN_CONTROL_DEPLOYMENT",
+  "blockers": [],
+  "scope": "Static control/source/JSON/hash/archive-text review only. Does not attest native preflight, probe, classifier execution or scientific acceptance.",
+  "bound_artifacts": {
+    "PHASE_OUTPUT_COMMAND.py": {
+      "path": "receipts/response038_20261017/resume_20261018_01/wake_20261018_0200_01/repair_c2st_01/deployment_preparation_01/PHASE_OUTPUT_COMMAND.py",
+      "bytes": 7006,
+      "sha256": "bb73a2fbdd113c370f1db9223d3a34b3d623dfc0d11cf1160146a7cce9a89c4e"
+    },
+    "DEPLOYMENT_PLAN.json": {
+      "path": "receipts/response038_20261017/resume_20261018_01/wake_20261018_0200_01/repair_c2st_01/deployment_preparation_01/DEPLOYMENT_PLAN.json",
+      "bytes": 14864,
+      "sha256": "8ced4005eacdcb882745a43e2b4b314d55c5f5797c8ffaec783b8eeaf36faa35"
+    },
+    "DEPLOYMENT_PREPARATION_RECEIPT.json": {
+      "path": "receipts/response038_20261017/resume_20261018_01/wake_20261018_0200_01/repair_c2st_01/deployment_preparation_01/DEPLOYMENT_PREPARATION_RECEIPT.json",
+      "bytes": 1797,
+      "sha256": "272e14f56bee97c52711f7f4f8908b889a0692d67487eab3fb6573c5f94230cd"
+    },
+    "response038_c2st_supplement_payload.tar.gz": {
+      "path": "receipts/response038_20261017/resume_20261018_01/wake_20261018_0200_01/repair_c2st_01/deployment_preparation_01/response038_c2st_supplement_payload.tar.gz",
+      "bytes": 16901,
+      "sha256": "bfb3e967c890f8a264dca1b04b2020245cd21e9fda376f6762ee1441e29d65b6"
+    }
+  },
+  "scientific_review_unchanged": {
+    "path": "receipts/response038_20261017/resume_20261018_01/wake_20261018_0200_01/repair_c2st_01/independent_review/SOURCE_REVIEW.json",
+    "bytes": 10851,
+    "sha256": "dd673f8d659f80a9d5bf73e4818e18d8b8a9abfb0ca0a7c24a6f41833246e3e1"
+  },
+  "scientific_bindings": {
+    "scripts/complete_response038_c2st.py": {
+      "path": "scripts/complete_response038_c2st.py",
+      "bytes": 14304,
+      "sha256": "e3a26d84f4d5a4c4bf7f1dbde7105ebf802832b2b999e83df090085a03f8750e"
+    },
+    "configs/response038_c2st_completion_20261018.json": {
+      "path": "configs/response038_c2st_completion_20261018.json",
+      "bytes": 57135,
+      "sha256": "f4a741361d54f852c62e30688cb80548e593c2f38ae86bc11902d245f750b3fa"
+    },
+    "scripts/run_response038.py": {
+      "path": "scripts/run_response038.py",
+      "bytes": 126981,
+      "sha256": "ceffb5bc89430f1bd4c9ab731d09c426a99b8ad4cb88fb4f3ab210300f27e461"
+    },
+    "scripts/supervise.py": {
+      "path": "scripts/supervise.py",
+      "bytes": 3032,
+      "sha256": "0223a8912196876f712072f064c9118a999f7e563244947cba7ad729d247a69b"
+    }
+  },
+  "checks": {
+    "syntax": "AST parse of control, original supervisor, scientific supplement and saved preflight/install text passed without imports or execution.",
+    "payload": "Exactly four fixed text members; each archive member and local source byte length/SHA matches files_to_install_exclusive. No CP/raw/NPZ payload. Exclusive xb installation refuses existing targets and verifies installed hashes.",
+    "global_exclusion": "Actual argv includes taskset CPU0-3 and nonblocking project flock. Control verifies cwd and exact inherited affinity. Fresh preflight checks expected boot, existing N01 process metadata, lock and registered probe headroom; classify requires a separate resource binding.",
+    "process_ownership": "Original supervisor starts its timeout child in a new session. Control learns that owned child from supervisor launch.json, binds PID/start ticks/boot/cwd/full argv and verifies identity immediately before each output-overrun group signal. Unknown or changed identity raises without a signal. No unrelated project/process signals or NVML kill threshold.",
+    "existing_RSS": "Unmodified supervise.py monitors its own child process tree and sends TERM/KILL only to its own child group. New code adds phase output/control accounting rather than a new scientific supervisor.",
+    "phase_gate": "Probe and classify are separate explicit launch argv. Classify needs the bound engineering PASS SHA; scientific script still applies the strict gate already reviewed. No automatic classifier chain or restart.",
+    "frozen_science": "Scientific script/config/design bytes match prior SOURCE_REVIEW; classifier protocol and response endpoints unchanged. Original run_01 and control_01 are untouched."
+  },
+  "resource_semantics": {
+    "probe": {
+      "TERM_at_seconds": 180,
+      "kill_after_TERM_seconds": 20,
+      "RSS_GiB": 3,
+      "torch_allocator_GiB": 1,
+      "output_plus_control_MiB": 16,
+      "CPU_threads": 4
+    },
+    "classify": {
+      "TERM_at_seconds": 1800,
+      "kill_after_TERM_seconds": 20,
+      "internal_stop_seconds": 1650,
+      "RSS_GiB": 12,
+      "torch_allocator_GiB": 6,
+      "output_plus_control_MiB": 512,
+      "CPU_threads": 4
+    },
+    "wall_definition": "180/1800s are timeout TERM thresholds; timeout allows up to20s cleanup before KILL. They are not instantaneous process-disappearance deadlines. Cleanup grace is disclosed and is not a new scientific allocation.",
+    "output_definition": "Output+control size is sampled once per second and checked at exit. An overrun triggers TERM then at most20s grace/KILL of the verified owned timeout group and a failed receipt. Sampling/termination can overshoot the threshold; this is not a byte-exact filesystem quota.",
+    "GPU_definition": "Frozen scientific script torch allocator caps only, with fresh memory headroom check. No shared-GPU NVML kill threshold."
+  },
+  "remaining_native_steps": "ROOT/driver may perform the registered fresh preflight, selective exclusive install and bounded probe. A classifier launch requires strict probe PASS and separate fresh resource binding under the same frozen plan.",
+  "review_operations": {
+    "SSH": 0,
+    "remote_execution": 0,
+    "CP_decode": 0,
+    "NPZ_decode": 0,
+    "raw_array_load": 0,
+    "NN": 0,
+    "AD": 0,
+    "optimizer": 0,
+    "numeric_test": 0,
+    "scientific_script_execution": 0
+  },
+  "changed_files": [
+    "This independent DEPLOYMENT_REVIEW.json only"
+  ]
+}

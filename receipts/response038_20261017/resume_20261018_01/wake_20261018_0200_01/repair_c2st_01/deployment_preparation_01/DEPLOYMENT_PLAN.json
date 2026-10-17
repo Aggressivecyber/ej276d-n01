@@ -1,0 +1,196 @@
+{
+  "schema": "n01/response038-C2ST-supplement-deployment-preparation/v1",
+  "UTC": "2026-10-17T18:24:38.994103+00:00",
+  "status": "prepared_locally_control_source_review_pending_not_launched",
+  "remote_root": "/home/rylan/projects/ej276d-n01/response038_resume02_20261018",
+  "host": "rylan@100.82.231.102",
+  "frozen_scientific_source_commit": "53c76bcdef5ae09458e1404ce637b4963c72ace4",
+  "scientific_source_review": {
+    "path": "receipts/response038_20261017/resume_20261018_01/wake_20261018_0200_01/repair_c2st_01/independent_review/SOURCE_REVIEW.json",
+    "sha256": "dd673f8d659f80a9d5bf73e4818e18d8b8a9abfb0ca0a7c24a6f41833246e3e1"
+  },
+  "scientific_source_publication": {
+    "path": "receipts/response038_20261017/resume_20261018_01/wake_20261018_0200_01/repair_c2st_01/SOURCE_PUBLICATION_RECEIPT.json",
+    "sha256": "a9aac380c2dd606874b5949d4a1f4248aa4ac27cbe19573f5935544d7dadac4d"
+  },
+  "frozen_source_config_design_unchanged": true,
+  "new_control_command": {
+    "path": "receipts/response038_20261017/resume_20261018_01/wake_20261018_0200_01/repair_c2st_01/deployment_preparation_01/PHASE_OUTPUT_COMMAND.py",
+    "bytes": 7006,
+    "sha256": "bb73a2fbdd113c370f1db9223d3a34b3d623dfc0d11cf1160146a7cce9a89c4e",
+    "AST_and_compile_without_execution": true,
+    "independent_static_review_required": true
+  },
+  "reuse_assessment": {
+    "scripts/supervise.py": "Use unchanged RSS monitoring and its owned timeout process group; hard wall via original GNU timeout; taskset and project flock unchanged.",
+    "scripts/supervise_mechanism012.py": "Not run; main is bound to012 policy/root. No new generic supervisor.",
+    "new_control_scope": "Only phase output+control total sampled once per second, terminal size check, and persisted supervisor/timeout identity. Only output overrun permits TERM then20s grace/KILL of exact owned timeout group. GPU uses frozen torch allocator cap, no NVML threshold."
+  },
+  "files_to_install_exclusive": {
+    "scripts/complete_response038_c2st.py": {
+      "bytes": 14304,
+      "sha256": "e3a26d84f4d5a4c4bf7f1dbde7105ebf802832b2b999e83df090085a03f8750e"
+    },
+    "configs/response038_c2st_completion_20261018.json": {
+      "bytes": 57135,
+      "sha256": "f4a741361d54f852c62e30688cb80548e593c2f38ae86bc11902d245f750b3fa"
+    },
+    "receipts/response038_20261017/resume_20261018_01/wake_20261018_0200_01/repair_c2st_01/ROOT_DESIGN.json": {
+      "bytes": 8163,
+      "sha256": "56efae5cac3ddccb4a3ada24c5e41f462f901a16606a5bbc0e65a4bbb508d4d8"
+    },
+    "receipts/response038_20261017/resume_20261018_01/wake_20261018_0200_01/repair_c2st_01/deployment_preparation_01/PHASE_OUTPUT_COMMAND.py": {
+      "bytes": 7006,
+      "sha256": "bb73a2fbdd113c370f1db9223d3a34b3d623dfc0d11cf1160146a7cce9a89c4e"
+    }
+  },
+  "payload": {
+    "path": "receipts/response038_20261017/resume_20261018_01/wake_20261018_0200_01/repair_c2st_01/deployment_preparation_01/response038_c2st_supplement_payload.tar.gz",
+    "bytes": 16901,
+    "sha256": "bfb3e967c890f8a264dca1b04b2020245cd21e9fda376f6762ee1441e29d65b6",
+    "contains_private_arrays_or_checkpoints": false
+  },
+  "fresh_preflight": {
+    "authorization": "Wait for ROOT control-review PASS and explicit one-query/probe execution instruction. This source is saved only; not sent to SSH.",
+    "ssh_argv": [
+      "ssh",
+      "-T",
+      "rylan@100.82.231.102",
+      "python3",
+      "-"
+    ],
+    "stdin_python": "import datetime,fcntl,json,os,shutil,subprocess\nfrom pathlib import Path\nroot=Path('/home/rylan/projects/ej276d-n01/response038_resume02_20261018');base=root.parent\nboot=Path(\"/proc/sys/kernel/random/boot_id\").read_text().strip()\nif boot!=\"b6923bf3-a173-4b1a-a175-f746178ee99c\":raise ValueError(\"Server boot changed; rebind ownership before launch\")\nrows=[]\nfor proc in Path(\"/proc\").iterdir():\n if not proc.name.isdigit() or int(proc.name)==os.getpid():continue\n try:cmd=(proc/\"cmdline\").read_bytes().replace(bytes([0]),b\" \").decode(errors=\"replace\");cwd=os.readlink(proc/\"cwd\")\n except (FileNotFoundError,ProcessLookupError,PermissionError):continue\n if str(base)+\"/\" in cmd or cwd==str(base) or cwd.startswith(str(base)+\"/\"):rows.append(dict(pid=int(proc.name),cwd=cwd,cmd=cmd))\nif rows:raise RuntimeError(\"Existing N01 process: \"+str(rows))\nlock=(base/\".n01_scientific_dispatch.lock\").open(\"a\");fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)\ngpu=int(subprocess.check_output([\"nvidia-smi\",\"--query-gpu=memory.free\",\"--format=csv,noheader,nounits\"],text=True).strip())\navailable_kib=int(next(line.split()[1] for line in Path(\"/proc/meminfo\").read_text().splitlines() if line.startswith(\"MemAvailable:\")))\nif gpu<1024 or available_kib*1024<3*1024**3:raise RuntimeError(\"Probe registered memory headroom unavailable\")\nif not {0,1,2,3}<=os.sched_getaffinity(0):raise RuntimeError(\"Registered CPU affinity unavailable\")\nprint(json.dumps(dict(UTC=datetime.datetime.now(datetime.timezone.utc).isoformat(),boot_id=boot,project_processes=rows,project_lock_free=True,GPU_free_MiB=gpu,MemAvailable_bytes=available_kib*1024,disk_free_bytes=shutil.disk_usage(root).free,probe_eligible=True,scientific_operations=0,unrelated_processes_modified=False)))\n",
+    "only_probe_resource_thresholds": true,
+    "classifier_requires_its_own_prelaunch_resource_binding_not_an_automatic_probe_chain": true
+  },
+  "installation": {
+    "inbox": "/home/rylan/projects/ej276d-n01/response038_resume02_20261018/c2st_storage_repair01/deployment_inbox_01",
+    "scp_source": "E:\\GAN\\research\\N01\\receipts\\response038_20261017\\resume_20261018_01\\wake_20261018_0200_01\\repair_c2st_01\\deployment_preparation_01\\response038_c2st_supplement_payload.tar.gz",
+    "scp_target": "rylan@100.82.231.102:/home/rylan/projects/ej276d-n01/response038_resume02_20261018/c2st_storage_repair01/deployment_inbox_01/response038_c2st_supplement_payload.tar.gz",
+    "stdin_python": "import hashlib,json,tarfile\nfrom pathlib import Path\nroot=Path('/home/rylan/projects/ej276d-n01/response038_resume02_20261018')\narchive=root/\"c2st_storage_repair01/deployment_inbox_01\"/'response038_c2st_supplement_payload.tar.gz'\nfiles={'scripts/complete_response038_c2st.py': {'bytes': 14304, 'sha256': 'e3a26d84f4d5a4c4bf7f1dbde7105ebf802832b2b999e83df090085a03f8750e'}, 'configs/response038_c2st_completion_20261018.json': {'bytes': 57135, 'sha256': 'f4a741361d54f852c62e30688cb80548e593c2f38ae86bc11902d245f750b3fa'}, 'receipts/response038_20261017/resume_20261018_01/wake_20261018_0200_01/repair_c2st_01/ROOT_DESIGN.json': {'bytes': 8163, 'sha256': '56efae5cac3ddccb4a3ada24c5e41f462f901a16606a5bbc0e65a4bbb508d4d8'}, 'receipts/response038_20261017/resume_20261018_01/wake_20261018_0200_01/repair_c2st_01/deployment_preparation_01/PHASE_OUTPUT_COMMAND.py': {'bytes': 7006, 'sha256': 'bb73a2fbdd113c370f1db9223d3a34b3d623dfc0d11cf1160146a7cce9a89c4e'}}\nif hashlib.sha256(archive.read_bytes()).hexdigest()!='bfb3e967c890f8a264dca1b04b2020245cd21e9fda376f6762ee1441e29d65b6':raise ValueError(\"Supplement payload SHA differs\")\nif hashlib.sha256((root/\"scripts/run_response038.py\").read_bytes()).hexdigest()!=\"ceffb5bc89430f1bd4c9ab731d09c426a99b8ad4cb88fb4f3ab210300f27e461\":raise ValueError(\"Original runner changed\")\nif hashlib.sha256((root/\"configs/response038_resume02_20261018.json\").read_bytes()).hexdigest()!=\"8ce712ccd6194d588dc05f84747c0b9d719ff5dc57c6d0e3e2858540e6d46375\":raise ValueError(\"Original config changed\")\nfor name in files:\n if (root/name).exists():raise FileExistsError(str(root/name))\nwith tarfile.open(archive,\"r:gz\") as package:\n if package.getnames()!=list(files):raise ValueError(\"Supplement archive members differ\")\n for name,record in files.items():\n  data=package.extractfile(name).read()\n  if len(data)!=record[\"bytes\"] or hashlib.sha256(data).hexdigest()!=record[\"sha256\"]:raise ValueError(\"Supplement member differs: \"+name)\n  target=root/name;target.parent.mkdir(parents=True,exist_ok=True)\n  with target.open(\"xb\") as stream:stream.write(data)\n  if hashlib.sha256(target.read_bytes()).hexdigest()!=record[\"sha256\"]:raise ValueError(\"Installed supplement differs\")\nprint(json.dumps(dict(status=\"installed_and_byte_verified_no_scientific_execution\",files=files)))\n",
+    "no_import_help_or_scientific_test": true,
+    "preexisting_target_files_fail_without_overwrite": true
+  },
+  "phase_launch_commands": {
+    "probe": {
+      "argv": [
+        "taskset",
+        "-c",
+        "0-3",
+        "flock",
+        "-n",
+        "/home/rylan/projects/ej276d-n01/.n01_scientific_dispatch.lock",
+        "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+        "-B",
+        "/home/rylan/projects/ej276d-n01/response038_resume02_20261018/receipts/response038_20261017/resume_20261018_01/wake_20261018_0200_01/repair_c2st_01/deployment_preparation_01/PHASE_OUTPUT_COMMAND.py",
+        "--phase",
+        "probe"
+      ],
+      "shell_display_only": "taskset -c 0-3 flock -n /home/rylan/projects/ej276d-n01/.n01_scientific_dispatch.lock /home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python -B /home/rylan/projects/ej276d-n01/response038_resume02_20261018/receipts/response038_20261017/resume_20261018_01/wake_20261018_0200_01/repair_c2st_01/deployment_preparation_01/PHASE_OUTPUT_COMMAND.py --phase probe",
+      "cwd": "/home/rylan/projects/ej276d-n01/response038_resume02_20261018",
+      "environment_overrides": {
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": "/home/rylan/projects/ej276d-n01/response038_resume02_20261018/src",
+        "TMPDIR": "/home/rylan/projects/ej276d-n01/response038_resume02_20261018/cache",
+        "TEMP": "/home/rylan/projects/ej276d-n01/response038_resume02_20261018/cache",
+        "TMP": "/home/rylan/projects/ej276d-n01/response038_resume02_20261018/cache",
+        "XDG_CACHE_HOME": "/home/rylan/projects/ej276d-n01/response038_resume02_20261018/cache",
+        "TORCH_HOME": "/home/rylan/projects/ej276d-n01/response038_resume02_20261018/cache/torch",
+        "TORCH_EXTENSIONS_DIR": "/home/rylan/projects/ej276d-n01/response038_resume02_20261018/cache/extensions",
+        "MPLCONFIGDIR": "/home/rylan/projects/ej276d-n01/response038_resume02_20261018/cache/mpl",
+        "CUDA_CACHE_PATH": "/home/rylan/projects/ej276d-n01/response038_resume02_20261018/cache/cuda",
+        "OMP_NUM_THREADS": "4",
+        "OPENBLAS_NUM_THREADS": "4",
+        "MKL_NUM_THREADS": "4",
+        "NUMEXPR_NUM_THREADS": "4",
+        "CUBLAS_WORKSPACE_CONFIG": ":4096:8"
+      },
+      "start_new_session": true,
+      "stdin": "DEVNULL",
+      "stdout_stderr": "new phase dispatcher receipt/log only; original files untouched"
+    },
+    "classify": {
+      "argv": [
+        "taskset",
+        "-c",
+        "0-3",
+        "flock",
+        "-n",
+        "/home/rylan/projects/ej276d-n01/.n01_scientific_dispatch.lock",
+        "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+        "-B",
+        "/home/rylan/projects/ej276d-n01/response038_resume02_20261018/receipts/response038_20261017/resume_20261018_01/wake_20261018_0200_01/repair_c2st_01/deployment_preparation_01/PHASE_OUTPUT_COMMAND.py",
+        "--phase",
+        "classify",
+        "--engineering-check-sha256",
+        "<BOUND_ENGINEERING_PASS_SHA256>"
+      ],
+      "shell_display_only": "taskset -c 0-3 flock -n /home/rylan/projects/ej276d-n01/.n01_scientific_dispatch.lock /home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python -B /home/rylan/projects/ej276d-n01/response038_resume02_20261018/receipts/response038_20261017/resume_20261018_01/wake_20261018_0200_01/repair_c2st_01/deployment_preparation_01/PHASE_OUTPUT_COMMAND.py --phase classify --engineering-check-sha256 '<BOUND_ENGINEERING_PASS_SHA256>'",
+      "cwd": "/home/rylan/projects/ej276d-n01/response038_resume02_20261018",
+      "environment_overrides": {
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": "/home/rylan/projects/ej276d-n01/response038_resume02_20261018/src",
+        "TMPDIR": "/home/rylan/projects/ej276d-n01/response038_resume02_20261018/cache",
+        "TEMP": "/home/rylan/projects/ej276d-n01/response038_resume02_20261018/cache",
+        "TMP": "/home/rylan/projects/ej276d-n01/response038_resume02_20261018/cache",
+        "XDG_CACHE_HOME": "/home/rylan/projects/ej276d-n01/response038_resume02_20261018/cache",
+        "TORCH_HOME": "/home/rylan/projects/ej276d-n01/response038_resume02_20261018/cache/torch",
+        "TORCH_EXTENSIONS_DIR": "/home/rylan/projects/ej276d-n01/response038_resume02_20261018/cache/extensions",
+        "MPLCONFIGDIR": "/home/rylan/projects/ej276d-n01/response038_resume02_20261018/cache/mpl",
+        "CUDA_CACHE_PATH": "/home/rylan/projects/ej276d-n01/response038_resume02_20261018/cache/cuda",
+        "OMP_NUM_THREADS": "4",
+        "OPENBLAS_NUM_THREADS": "4",
+        "MKL_NUM_THREADS": "4",
+        "NUMEXPR_NUM_THREADS": "4",
+        "CUBLAS_WORKSPACE_CONFIG": ":4096:8"
+      },
+      "start_new_session": true,
+      "stdin": "DEVNULL",
+      "stdout_stderr": "new phase dispatcher receipt/log only; original files untouched"
+    }
+  },
+  "limits": {
+    "probe": {
+      "hard_wall_seconds": 180,
+      "timeout_TERM_grace_seconds": 20,
+      "RSS_GiB": 3,
+      "torch_allocator_GiB": 1,
+      "output_plus_control_MiB": 16,
+      "CPU_threads": 4,
+      "affinity": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    "classify": {
+      "hard_wall_seconds": 1800,
+      "timeout_TERM_grace_seconds": 20,
+      "RSS_GiB": 12,
+      "torch_allocator_GiB": 6,
+      "output_plus_control_MiB": 512,
+      "internal_stop_seconds": 1650,
+      "CPU_threads": 4,
+      "affinity": [
+        0,
+        1,
+        2,
+        3
+      ]
+    }
+  },
+  "ownership_and_startup": "Persist outer dispatcherPID/startticks/boot/cwd/argv in dispatch receipt; new control records supervisorPID/startticks and timeoutPID/startticks/boot/cwd/argv. One startup snapshot binds native START pid to live /proc startticks/cwd/argv, or collects bounded terminal result. Never use former20248/20240 identities for new process ownership. No signals to unrelated9828.",
+  "startup_policy": "One fresh resource/ownership preflight, one authorized probe, one bounded startup/terminal snapshot. If classifiers later launch correctly, schedule one future wake and rest. No continuous agent polling or automatic classifier launch.",
+  "original_run_01_and_control_01_untouched": true,
+  "actual_operations": {
+    "SSH": 0,
+    "CP_decode": 0,
+    "NPZ_decode": 0,
+    "NN": 0,
+    "AD": 0,
+    "optimizer": 0,
+    "probe": 0,
+    "classifier_launch": 0
+  }
+}
