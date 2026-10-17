@@ -1,0 +1,156 @@
+{
+  "schema": "n01/response038-c2st-storage-repair-root-design/v1",
+  "UTC": "2026-10-17T18:07:20.274677+00:00",
+  "authority": "Existing direct human authorization to continue the same038 unified repair and complete final evaluation; no new candidate or training design.",
+  "status": "REGISTERED_BOUNDED_ENGINEERING_CHECK_THEN_CONDITIONAL_C2ST_COMPLETION",
+  "problem": "resume02 finished PRIMARY_FINAL but failed before any classifier forward at the stored ADC float32 reconstruction guard.",
+  "failed_attempt_immutable": {
+    "remote_root": "/home/rylan/projects/ej276d-n01/response038_resume02_20261018",
+    "run": "run_01",
+    "control": "control_01",
+    "source_commit": "1f792ad067f41d95f7b16469332fe1d7726c3a52",
+    "runner_sha256": "ceffb5bc89430f1bd4c9ab731d09c426a99b8ad4cb88fb4f3ab210300f27e461",
+    "config_sha256": "8ce712ccd6194d588dc05f84747c0b9d719ff5dc57c6d0e3e2858540e6d46375",
+    "preserve_failed_exit_and_false_reconstruction_flags": true
+  },
+  "evidence": {
+    "COLLECTION_VERIFICATION.json": {
+      "sha256": "1be5e06a9dc80445c0c8e50738e01b9fe3f1fb97293ca61590cfcb0d54a236b1",
+      "bytes": 3875
+    },
+    "TERMINAL_FACTS_RECEIPT.json": {
+      "sha256": "74621bad8190de7aa764ccaca198f09b6434aac70623d59646313f529f2d1886",
+      "bytes": 15040
+    },
+    "REMOTE_OUTPUT_MANIFEST.json": {
+      "sha256": "a427c50ea67313f95f8ce8ca9d9d77edd231dbeaf9c45cb9096e1d01f59b628f",
+      "bytes": 70690
+    },
+    "collected_resume02/run_01/PRIMARY_FINAL.json": {
+      "sha256": "3fb24af3bd98f7a19ff00e95ae62e3f8d3ca5a968e5cd52a5706a8af6ea907ca",
+      "bytes": 195935
+    },
+    "collected_resume02/run_01/FAILED.json": {
+      "sha256": "204025840136c0b102e505caa263184acb4ccbd87f1f965985e76bb14b0904c0",
+      "bytes": 2804
+    }
+  },
+  "accounting": {
+    "response_Adam_confirmed": 53,
+    "FIT_AD_confirmed": 912,
+    "response_retained_teacher": 17,
+    "response_retained_REAL": 0,
+    "cumulative_project_confirmed": 199722,
+    "delta_from_previous_ledger": {
+      "Adam": 4,
+      "FIT_AD": 64,
+      "retained": 0
+    },
+    "unknown_old_restart_tail": "preserved unknown; not credited",
+    "classifier_before_repair": {
+      "AD": 0,
+      "optimizer": 0,
+      "forward": 0,
+      "completed": 0
+    },
+    "classifier_entry_common_prefix_NPZ_read_before_failure": 1,
+    "saved_generated_code_archive_counter_scope": "The counter increments per cell ADC archive only; original C2ST entry read one common prefix before failure despite cell archive counter0. No classifier model forward/AD/step occurred."
+  },
+  "root_decision": [
+    "Do not repeat response training, FINAL banks, teacher recovery/MC,013,026,RR, noise generation or old checkpoint decoding.",
+    "Preserve all405files and original failed run. Add only a minimal C2ST completion script/config and new output/control subtree within this same038 remote root.",
+    "Diagnose cross-backend float64 ADC reconstruction arithmetic with one finite code-domain check, not a training or model diagnostic.",
+    "Only if strict source-operation and persisted-example/prefix checks pass, compute the original33C2ST cells with unchanged classifier256, original groups, seeds, scaling,200steps, minibatch128,lr.001 and400bootstrap replicates.",
+    "C2ST supplement completion does not rewrite original native exit1 or imply interrupted teacher qualification."
+  ],
+  "engineering_probe": {
+    "hypothesis": "CPU NumPy division and original CUDA torch division can round the float64 ADC grid differently; this is a hypothesis until measured.",
+    "location": "same remote host/GPU and original Python/Torch environment; CPU4 affinity0-3; no response or classifier model created",
+    "code_domain": [
+      0,
+      16383
+    ],
+    "grid_values": 16384,
+    "canonical_LUT": "torch.arange(16384,dtype=torch.float64,device=original_device)/16383; then add(-.5) as separate original eager operations; lookup saved integer codes, then subtract saved original baseline_mean.",
+    "never_do": [
+      "redigitize original analog waves",
+      "choose a new peak/crop",
+      "recompute/substitute baseline means in final classifier inputs",
+      "use a tolerance instead of required exact checks",
+      "change old false flags"
+    ],
+    "scope": "FINAL_TRAIN_0 only: all33 classifier-input archives, their33 saved examples, and common prefix archive; other FINAL reports remain unchanged.",
+    "strict_checks": [
+      "Record all16384 float64 CPU versus CUDA code values, mismatch counts and max error, without saving large arrays to Git.",
+      "Reconstruct every saved example row across all33cells; require exact float64 waveform256 and float32 classifier-input bits, plus saved baseline100 bits.",
+      "Reconstruct every saved prefix via LUT; recompute prefix.mean using original128-row GPU chunk geometry including final remainder; require exact saved baseline_mean bits.",
+      "Verify source code-operation provenance and original dtype/device/runtime. Declare full-population original waveform bytes were not all saved; no claim of direct exhaustive original-wave replay."
+    ],
+    "stop_rule": "Any exact mismatch aborts this repair hypothesis before classifier training; preserve detailed failure. No FINAL regeneration.",
+    "budget_max": {
+      "CP_decodes": 0,
+      "NN": 0,
+      "AD": 0,
+      "optimizer": 0,
+      "saved_NPZ_archives_decoded": 67,
+      "prefix_rows": 26372,
+      "saved_example_waveform_rows": 1056,
+      "code_grid_values": 16384,
+      "wall_seconds": 180,
+      "RSS_GiB": 3,
+      "GPU_GiB": 1,
+      "output_MiB": 16
+    },
+    "receipt_required": "ENGINEERING_RECONSTRUCTION_CHECK.json with source/config/environment hashes and actual operations"
+  },
+  "classifier_completion": {
+    "depends_on": "Strict engineering check PASS and independent implementation review bound to final code/config hashes; existing human authorization unchanged.",
+    "input_cells": 33,
+    "rows_per_fake_cell": 26372,
+    "REAL_TRAIN_rows": 21047,
+    "data": "Read only pinned DATASET008 TRAIN members needed for REAL and original group/parent identities, and pinned TRAIN statistics. No DEV/PCA/responseCP decode.",
+    "reuse_original_function": "scripts/run_response038.py:classifier256 byte-unchanged; preserve loop order labels/H and stream_seed namespaces.",
+    "budget_max": {
+      "response_NN": 0,
+      "noise_NN": 0,
+      "response_AD": 0,
+      "response_Adam": 0,
+      "checkpoint_decodes": 0,
+      "saved_ADC_NPZ_decodes": 33,
+      "common_prefix_NPZ_decodes": 1,
+      "TRAIN_dataset_NPZ_decodes": 1,
+      "classifier_cells": 33,
+      "classifier_AD": 6600,
+      "classifier_Adam": 6600,
+      "classifier_forward_rows": 2409627,
+      "classifier_forward_calls": 18843,
+      "classifier_bootstrap_replicates": 13200,
+      "classifier_checkpoint_writes": 33
+    },
+    "resources": {
+      "CPU_threads": 4,
+      "CPU_affinity": "0-3",
+      "RSS_GiB": 12,
+      "GPU_GiB": 6,
+      "hard_wall_seconds": 1800,
+      "internal_stop_save_seconds": 1650,
+      "output_MiB": 512,
+      "single_project_flock": true,
+      "automatic_restart": false
+    },
+    "outputs": "New C2ST results/predictions/classifier weights, a supplement of saved PRIMARY_FINAL, COMPLETE/FAILED and counts. Original failed files untouched. Private arrays/weights never uploaded.",
+    "terminal_guard_limit": "Original A0/005 terminal state_digest check followed C2ST and was never reached. Do not claim it passed or reload responseCP solely to emulate it.",
+    "startup_policy": "Fresh resource/ownership preflight, one verified startup snapshot, then one reasonable future wake; no continuous polling."
+  },
+  "scientific_limits": {
+    "all_four_endpoints_frozen": true,
+    "all_four_tracks_complete": false,
+    "teacher1_interrupted": true,
+    "full_teacher_qualification": false,
+    "unified_scientific_acceptance": false,
+    "REAL_wave_gain_vs_matching_M0_all12TRAIN_cells": 0.0,
+    "no_response_settings_reopened": true,
+    "no_population_fitting_or_LR_search": true
+  },
+  "publication": "Only explicit source/config and aggregated reports/receipts; no raw, ADC arrays, prediction arrays or weights."
+}

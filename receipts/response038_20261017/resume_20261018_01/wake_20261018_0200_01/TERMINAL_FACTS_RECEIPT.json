@@ -1,0 +1,438 @@
+{
+  "schema": "n01/response038-resume02-0200-single-terminal-facts/v1",
+  "UTC": "2026-10-17T18:05:00.567057+00:00",
+  "status": "native_exit1_after_PRIMARY_FINAL_complete_output_collection_SHA_verified",
+  "remote_query_count": 1,
+  "remote_snapshot_UTC": "2026-10-17T18:02:37.614262+00:00",
+  "remote_root": "/home/rylan/projects/ej276d-n01/response038_resume02_20261018",
+  "remote_original_preserved": true,
+  "boot_id": "b6923bf3-a173-4b1a-a175-f746178ee99c",
+  "config_sha256": "8ce712ccd6194d588dc05f84747c0b9d719ff5dc57c6d0e3e2858540e6d46375",
+  "identity": {
+    "startup_native_pid": 20248,
+    "startup_native_start_ticks": "420513",
+    "dispatcher_pid": 20240,
+    "dispatcher_start_ticks": "420511",
+    "current_native_alive": false,
+    "current_dispatcher_alive": false,
+    "project_processes": [],
+    "project_lock_held": false,
+    "current_identity": "boot/config plus persisted dispatch/launch/START and prior startup ticks verified; exited process ticks are not claimed live",
+    "unrelated_PID9828_modified": false
+  },
+  "native_exit": {
+    "exit_code": 1,
+    "reason": null,
+    "peak_rss_bytes": 5439983616,
+    "started_utc": "2026-10-17T17:27:24.702693+00:00",
+    "ended_utc": "2026-10-17T17:45:28.653983+00:00",
+    "supervisor_pid": 20241,
+    "child_pid": 20247
+  },
+  "failure": {
+    "error_type": "RuntimeError",
+    "error": "038 stored ADC reconstruction changed classifier float32 inputs",
+    "execution_counts": {
+      "DEV_archives_decoded": 1,
+      "DEV_metadata_archives_decoded": 1,
+      "FIT_AD_queries": 912,
+      "PCA_archives_decoded": 3,
+      "TRAIN_archives_decoded": 3,
+      "accepted_optimizer_updates": 17,
+      "allocated_banks": 1572,
+      "charge_activation_trials": 0,
+      "checkpoint_loads": 23,
+      "classifier_AD_queries": 0,
+      "classifier_bootstrap_resamples": 0,
+      "classifier_forward_calls": 0,
+      "classifier_forward_rows": 0,
+      "classifier_optimizer_steps": 0,
+      "classifiers_completed": 0,
+      "conditional_MC_rows": 16384,
+      "directions": 52,
+      "generated_observation_rows": 4709200,
+      "noise005_calls": 6301,
+      "noise005_rows": 607949,
+      "noise005_rows_attempted": 607949,
+      "extension_rows": 1823847,
+      "old_A_calls": 166,
+      "old_A_rows": 20867,
+      "optimizer_steps": 53,
+      "original014_calls": 104,
+      "original014_rows": 13186,
+      "parameter_amplitude_trials": 180,
+      "raw_geometry_probes": 53,
+      "response_calls": 14554,
+      "response_rows": 1275134,
+      "saved_generated_code_archives_decoded": 0,
+      "source_pair_cached_signal_rows": 2420,
+      "teacher_cached_signal_rows": 316416
+    },
+    "automatic_restart": false,
+    "scientific_status": "response_match_not_established",
+    "completed_primary_FINAL": true,
+    "continuation_id": "resume02_20261018",
+    "teacher1_interrupted": true,
+    "all_four_tracks_complete": false,
+    "all_four_endpoints_frozen": true,
+    "full_teacher_qualification_established": false,
+    "unified_scientific_acceptance_established": false,
+    "execution_counts_scope": "attempt2 and explicit continuations verified lower bound; unpersisted restart tail excluded",
+    "prior_unpersisted_REAL_FINAL_DEV_execution": "unknown",
+    "FINAL_first_historical_computation_claim": false,
+    "old_unknown_tail": {
+      "status": "Visible records stop at teacher1 direction13. Because flush is not a durable fsync guarantee across server restart, unseen work may exceed the nearest direction14 reconstruction. No unseen call/update is counted as completed.",
+      "completed_counts_exclude_all_unpersisted_work": true,
+      "nearby_reconstruction": {
+        "directions": 1,
+        "FIT_AD": 16,
+        "Adam": 1,
+        "parameter_trials": 4,
+        "response_rows": 17408,
+        "noise005_rows": 12288,
+        "extension_rows": 36864,
+        "generated_ADC_rows": 69120
+      },
+      "nearby_reconstruction_scope": "The direction14 envelope only describes the next transaction implied by visible logs if all completed writes persisted. It is not an unconditional all-attempt hard cost bound.",
+      "unconditional_cost_bound": "Use the full original attempt2 operation_budget, never the nearest-direction reconstruction."
+    }
+  },
+  "saved_RESULT_native_status": "INCOMPLETE_AFTER_PRIMARY_FINAL",
+  "primary_FINAL_completed": true,
+  "COMPLETE_file_exists": false,
+  "C2ST_started": false,
+  "C2ST_counts": {
+    "classifier_AD_queries": 0,
+    "classifier_forward_calls": 0,
+    "classifier_optimizer_steps": 0,
+    "classifiers_completed": 0,
+    "saved_generated_code_archives_decoded": 0
+  },
+  "endpoint_summary": {
+    "teacher_seed0": {
+      "accepted_updates": 12,
+      "charge_enabled": false,
+      "phases": {
+        "mean": {
+          "accepted": 12,
+          "stop_reason": "equal900s track training allocation exhausted",
+          "last_direction": 30
+        }
+      }
+    },
+    "teacher_seed1": {
+      "accepted_updates": 5,
+      "charge_enabled": false,
+      "phases": {
+        "mean": {
+          "accepted": 5,
+          "stop_reason": "SERVER_INTERRUPTED",
+          "last_direction": 13
+        }
+      }
+    },
+    "REAL_seed0": {
+      "accepted_updates": 0,
+      "charge_enabled": false,
+      "phases": {
+        "mean": {
+          "accepted": 0,
+          "stop_reason": "five_consecutive_no_accept",
+          "last_direction": 5
+        }
+      }
+    },
+    "REAL_seed1": {
+      "accepted_updates": 0,
+      "charge_enabled": false,
+      "phases": {
+        "mean": {
+          "accepted": 0,
+          "stop_reason": "five_consecutive_no_accept",
+          "last_direction": 5
+        }
+      }
+    }
+  },
+  "all_four_endpoints_frozen": true,
+  "all_four_tracks_complete": false,
+  "teacher1_interrupted": true,
+  "full_teacher_qualification_established": false,
+  "unified_scientific_acceptance_established": false,
+  "FINAL_coverage": "two original full TRAIN banks and already-exposed DEV saved, plus teacher moments/MC, risk, source-pair summaries and REAL-REAL; no recomputation during this wake",
+  "saved_TRAIN_native_comparisons": [
+    {
+      "bank": "FINAL_TRAIN_0",
+      "seed": "0",
+      "hypothesis": "fast",
+      "wave_improvement_vs_A": 0.022196787212237112,
+      "wave_improvement_vs_M0": 0.0,
+      "wave_2percent_vs_both": false
+    },
+    {
+      "bank": "FINAL_TRAIN_0",
+      "seed": "0",
+      "hypothesis": "slow",
+      "wave_improvement_vs_A": 0.02403417109065311,
+      "wave_improvement_vs_M0": 0.0,
+      "wave_2percent_vs_both": false
+    },
+    {
+      "bank": "FINAL_TRAIN_0",
+      "seed": "0",
+      "hypothesis": "common_level",
+      "wave_improvement_vs_A": 0.03306768817181452,
+      "wave_improvement_vs_M0": 0.0,
+      "wave_2percent_vs_both": false
+    },
+    {
+      "bank": "FINAL_TRAIN_0",
+      "seed": "1",
+      "hypothesis": "fast",
+      "wave_improvement_vs_A": 0.02365421212395011,
+      "wave_improvement_vs_M0": 0.0,
+      "wave_2percent_vs_both": false
+    },
+    {
+      "bank": "FINAL_TRAIN_0",
+      "seed": "1",
+      "hypothesis": "slow",
+      "wave_improvement_vs_A": 0.025195202194926145,
+      "wave_improvement_vs_M0": 0.0,
+      "wave_2percent_vs_both": false
+    },
+    {
+      "bank": "FINAL_TRAIN_0",
+      "seed": "1",
+      "hypothesis": "common_level",
+      "wave_improvement_vs_A": 0.03352838826716204,
+      "wave_improvement_vs_M0": 0.0,
+      "wave_2percent_vs_both": false
+    },
+    {
+      "bank": "FINAL_TRAIN_1",
+      "seed": "0",
+      "hypothesis": "fast",
+      "wave_improvement_vs_A": 0.02510682559089038,
+      "wave_improvement_vs_M0": 0.0,
+      "wave_2percent_vs_both": false
+    },
+    {
+      "bank": "FINAL_TRAIN_1",
+      "seed": "0",
+      "hypothesis": "slow",
+      "wave_improvement_vs_A": 0.027515564643033806,
+      "wave_improvement_vs_M0": 0.0,
+      "wave_2percent_vs_both": false
+    },
+    {
+      "bank": "FINAL_TRAIN_1",
+      "seed": "0",
+      "hypothesis": "common_level",
+      "wave_improvement_vs_A": 0.03470135963621402,
+      "wave_improvement_vs_M0": 0.0,
+      "wave_2percent_vs_both": false
+    },
+    {
+      "bank": "FINAL_TRAIN_1",
+      "seed": "1",
+      "hypothesis": "fast",
+      "wave_improvement_vs_A": 0.025674814007737388,
+      "wave_improvement_vs_M0": 0.0,
+      "wave_2percent_vs_both": false
+    },
+    {
+      "bank": "FINAL_TRAIN_1",
+      "seed": "1",
+      "hypothesis": "slow",
+      "wave_improvement_vs_A": 0.029228942706313907,
+      "wave_improvement_vs_M0": 0.0,
+      "wave_2percent_vs_both": false
+    },
+    {
+      "bank": "FINAL_TRAIN_1",
+      "seed": "1",
+      "hypothesis": "common_level",
+      "wave_improvement_vs_A": 0.03736858147338628,
+      "wave_improvement_vs_M0": 0.0,
+      "wave_2percent_vs_both": false
+    }
+  ],
+  "saved_fresh_risk_improvement_resolved": {
+    "0": {
+      "fast": false,
+      "slow": false,
+      "common_level": false
+    },
+    "1": {
+      "fast": false,
+      "slow": false,
+      "common_level": false
+    }
+  },
+  "teachers": {
+    "0": {
+      "passed": false,
+      "all_finite": true,
+      "rows_retained": 64,
+      "available_endpoint_only": true,
+      "track_interrupted": false,
+      "full_teacher_qualification_established": false
+    },
+    "1": {
+      "passed": false,
+      "all_finite": true,
+      "rows_retained": 64,
+      "available_endpoint_only": true,
+      "track_interrupted": true,
+      "full_teacher_qualification_established": false
+    }
+  },
+  "cost_facts": {
+    "startup_ledger_counts": {
+      "DEV_archives_decoded": 0,
+      "DEV_metadata_archives_decoded": 0,
+      "FIT_AD_queries": 848,
+      "PCA_archives_decoded": 3,
+      "TRAIN_archives_decoded": 3,
+      "accepted_optimizer_updates": 17,
+      "allocated_banks": 1444,
+      "charge_activation_trials": 0,
+      "checkpoint_loads": 23,
+      "classifier_AD_queries": 0,
+      "classifier_bootstrap_resamples": 0,
+      "classifier_forward_calls": 0,
+      "classifier_forward_rows": 0,
+      "classifier_optimizer_steps": 0,
+      "classifiers_completed": 0,
+      "conditional_MC_rows": 0,
+      "directions": 47,
+      "generated_observation_rows": 2737224,
+      "noise005_calls": 5615,
+      "noise005_rows": 536773,
+      "noise005_rows_attempted": 536773,
+      "extension_rows": 1610319,
+      "old_A_calls": 162,
+      "old_A_rows": 20355,
+      "optimizer_steps": 49,
+      "original014_calls": 104,
+      "original014_rows": 13186,
+      "parameter_amplitude_trials": 164,
+      "raw_geometry_probes": 49,
+      "response_calls": 9328,
+      "response_rows": 666194,
+      "saved_generated_code_archives_decoded": 0,
+      "source_pair_cached_signal_rows": 0,
+      "teacher_cached_signal_rows": 316416
+    },
+    "terminal_counts": {
+      "DEV_archives_decoded": 1,
+      "DEV_metadata_archives_decoded": 1,
+      "FIT_AD_queries": 912,
+      "PCA_archives_decoded": 3,
+      "TRAIN_archives_decoded": 3,
+      "accepted_optimizer_updates": 17,
+      "allocated_banks": 1572,
+      "charge_activation_trials": 0,
+      "checkpoint_loads": 23,
+      "classifier_AD_queries": 0,
+      "classifier_bootstrap_resamples": 0,
+      "classifier_forward_calls": 0,
+      "classifier_forward_rows": 0,
+      "classifier_optimizer_steps": 0,
+      "classifiers_completed": 0,
+      "conditional_MC_rows": 16384,
+      "directions": 52,
+      "generated_observation_rows": 4709200,
+      "noise005_calls": 6301,
+      "noise005_rows": 607949,
+      "noise005_rows_attempted": 607949,
+      "extension_rows": 1823847,
+      "old_A_calls": 166,
+      "old_A_rows": 20867,
+      "optimizer_steps": 53,
+      "original014_calls": 104,
+      "original014_rows": 13186,
+      "parameter_amplitude_trials": 180,
+      "raw_geometry_probes": 53,
+      "response_calls": 14554,
+      "response_rows": 1275134,
+      "saved_generated_code_archives_decoded": 0,
+      "source_pair_cached_signal_rows": 2420,
+      "teacher_cached_signal_rows": 316416
+    },
+    "verified_delta_since_ledger": {
+      "DEV_archives_decoded": 1,
+      "DEV_metadata_archives_decoded": 1,
+      "FIT_AD_queries": 64,
+      "PCA_archives_decoded": 0,
+      "TRAIN_archives_decoded": 0,
+      "accepted_optimizer_updates": 0,
+      "allocated_banks": 128,
+      "charge_activation_trials": 0,
+      "checkpoint_loads": 0,
+      "classifier_AD_queries": 0,
+      "classifier_bootstrap_resamples": 0,
+      "classifier_forward_calls": 0,
+      "classifier_forward_rows": 0,
+      "classifier_optimizer_steps": 0,
+      "classifiers_completed": 0,
+      "conditional_MC_rows": 16384,
+      "directions": 5,
+      "generated_observation_rows": 1971976,
+      "noise005_calls": 686,
+      "noise005_rows": 71176,
+      "noise005_rows_attempted": 71176,
+      "extension_rows": 213528,
+      "old_A_calls": 4,
+      "old_A_rows": 512,
+      "optimizer_steps": 4,
+      "original014_calls": 0,
+      "original014_rows": 0,
+      "parameter_amplitude_trials": 16,
+      "raw_geometry_probes": 4,
+      "response_calls": 5226,
+      "response_rows": 608940,
+      "saved_generated_code_archives_decoded": 0,
+      "source_pair_cached_signal_rows": 2420,
+      "teacher_cached_signal_rows": 0
+    },
+    "scientific_Adam_lower_bound": 53,
+    "FIT_AD_lower_bound": 912,
+    "retained_teacher": 17,
+    "retained_REAL": 0,
+    "project_cumulative_scientific_Adam_prior": 199718,
+    "project_cumulative_scientific_Adam_after_verified_delta": 199722,
+    "resume02_invocation_only": {
+      "scientific_Adam": 5,
+      "FIT_AD": 96,
+      "retained_REAL": 0,
+      "runtime_CP_loads": 9
+    },
+    "prior_restart_unpersisted_work": "unknown, not credited; original full-attempt hard cost bound preserved"
+  },
+  "collection": {
+    "expected_files": 405,
+    "expected_bytes": 666597010,
+    "local_root": "E:\\GAN\\research\\N01\\receipts\\response038_20261017\\resume_20261018_01\\wake_20261018_0200_01\\collected_resume02",
+    "SHA_verification": "all405files666597010bytes matched remote SHA256",
+    "files_verified": 405,
+    "bytes_verified": 666597010,
+    "verification_receipt": "COLLECTION_VERIFICATION.json",
+    "verification_receipt_sha256": "1be5e06a9dc80445c0c8e50738e01b9fe3f1fb97293ca61590cfcb0d54a236b1"
+  },
+  "actions": {
+    "SSH_status_queries": 1,
+    "SCP_collection_in_progress": false,
+    "CP_deserializations": 0,
+    "NPZ_decodes": 0,
+    "NN": 0,
+    "AD": 0,
+    "scientific_recomputations": 0,
+    "scientific_restarts": 0,
+    "source_config_ledger_automation_mutations": 0,
+    "SCP_collection_completed": true
+  },
+  "scientific_status": "response_match_not_established",
+  "UTC_final_collection_verified": "2026-10-17T18:05:30.308135+00:00"
+}

@@ -1,0 +1,230 @@
+{
+  "schema": "n01/response038-C2ST-storage-completion-independent-source-review/v1",
+  "UTC": "2026-10-17T18:21:34.570275+00:00",
+  "reviewer": "independent Sol Max response038_resume_review",
+  "outcome": "PASS_FOR_BOUNDED_PROBE_AND_CONDITIONAL_ORIGINAL_C2ST",
+  "blockers": [],
+  "scope": "Static source/config/design and saved JSON/JSONL review only. No SSH, CP/NPZ decoding, model execution or numerical retest by this reviewer.",
+  "final_bindings": {
+    "script": {
+      "path": "scripts/complete_response038_c2st.py",
+      "bytes": 14304,
+      "sha256": "e3a26d84f4d5a4c4bf7f1dbde7105ebf802832b2b999e83df090085a03f8750e"
+    },
+    "config": {
+      "path": "configs/response038_c2st_completion_20261018.json",
+      "sha256": "f4a741361d54f852c62e30688cb80548e593c2f38ae86bc11902d245f750b3fa"
+    },
+    "ROOT_design": {
+      "path": "receipts/response038_20261017/resume_20261018_01/wake_20261018_0200_01/repair_c2st_01/ROOT_DESIGN.json",
+      "bytes": 8163,
+      "sha256": "56efae5cac3ddccb4a3ada24c5e41f462f901a16606a5bbc0e65a4bbb508d4d8"
+    },
+    "implementation_receipt_sha256": "71de55e66055a6be789c2c003759c46432a72e5d058225ce73ae8f3acff94264",
+    "original_runner_sha256": "ceffb5bc89430f1bd4c9ab731d09c426a99b8ad4cb88fb4f3ab210300f27e461",
+    "original_classifier256_source_segment_sha256": "7ff1de8f448f42c53041d7e2f908f54416c2b6a65baa267a2a461cd61d72ca4f",
+    "original_config_sha256": "8ce712ccd6194d588dc05f84747c0b9d719ff5dc57c6d0e3e2858540e6d46375",
+    "collection_verification_sha256": "1be5e06a9dc80445c0c8e50738e01b9fe3f1fb97293ca61590cfcb0d54a236b1",
+    "saved_PRIMARY_FINAL_sha256": "3fb24af3bd98f7a19ff00e95ae62e3f8d3ca5a968e5cd52a5706a8af6ea907ca"
+  },
+  "independent_static_checks": {
+    "AST_parse_passed": true,
+    "new_script_lines": 222,
+    "original_runner_and_classifier256_byte_unchanged": true,
+    "all_original_45_source_pins_unchanged": true,
+    "current_source_pins_checked": 46,
+    "source_pin_mismatches": [],
+    "saved_input_metadata_bindings_compared_to_remote_manifest": 68,
+    "saved_input_metadata_binding_mismatches": [],
+    "unique_probe_NPZ_inputs": 67,
+    "probe_NPZ_payloads_not_decoded_by_reviewer": true,
+    "TRAIN_dataset_statistics_and_seeds_equal_original": true,
+    "exact_original_11_label_by_3_hypothesis_loop_order": true,
+    "ROOT_design_SHA_bytes_and_budget_sections_match_config": true,
+    "no_torch_load_or_load_setup_call_in_completion_script": true,
+    "classifier_TRAIN_members_only": [
+      "real",
+      "source_ids",
+      "real_groups"
+    ],
+    "no_DEV_PCA_response_CP_or_noise_model_load": true
+  },
+  "engineering_review": {
+    "hypothesis_status": "Cross-backend float64 ADC arithmetic is a candidate explanation, not a diagnosed cause before the registered probe.",
+    "original_source_operations": "model.py:50 canonical float64 round()/16383 then add(-.5); observation008.py:94-98 subtracts actual prefix mean before gathering the saved crop.",
+    "candidate_decoder": "Same original CUDA device/runtime and float64 complete16384 code LUT; separate division then add(-.5), lookup stored integer ADC codes, separate subtraction of saved per-row baseline_mean. No redigitization, new peak, crop selection or baseline substitution.",
+    "probe_checks": [
+      "Full16384 CPU/CUDA code grid recorded privately with mismatch counts/max error",
+      "All26372 saved prefix rows decoded; mean recomputed in original128-row geometry including final4; exact saved mean bits required",
+      "All33 saved cells times32 example rows: exact float64 waveform, classifier float32 and baseline100 bits required"
+    ],
+    "failure_rule": "Any exact prefix/example mismatch raises before classifier creation; no tolerance and no fallback.",
+    "receipt_binding": "Classification requires passed and exact flags plus identical script hash, config SHA and full recorded environment; phase2 verifies engineering receipt SHA.",
+    "proof_scope": "Finite code-domain/source-operation equivalence plus all saved prefix means and1056saved example waveforms.",
+    "full_original_population_waveform_bytes_saved": false,
+    "direct_exhaustive_original_wave_replay_claim": false,
+    "old_false_reconstruction_flags_preserved": true,
+    "registered_probe_budget": {
+      "CP_decodes": 0,
+      "NN": 0,
+      "AD": 0,
+      "optimizer": 0,
+      "saved_NPZ_archives_decoded": 67,
+      "prefix_rows": 26372,
+      "saved_example_waveform_rows": 1056,
+      "code_grid_values": 16384,
+      "wall_seconds": 180,
+      "RSS_GiB": 3,
+      "GPU_GiB": 1,
+      "output_MiB": 16
+    },
+    "native_probe_result_this_review": "not executed; still pending"
+  },
+  "classifier_review": {
+    "strict_probe_PASS_required": true,
+    "function_reused": "Original byte-unchanged scripts/run_response038.py:classifier256",
+    "data_and_sampling": "Original REAL TRAIN, source parent IDs repeated4, original REAL groups, original voltage center/scale and fixed group splits.",
+    "seed_namespace": "stream_seed(original_seeds[0], 'C2ST', label, hypothesis)",
+    "training": "Original33 cells,200 Adam steps each, batch128, lr0.001,400 group-bootstrap replicates each; no classifier selection or response tuning.",
+    "decode": "Same LUT and saved original means as the bound probe; full cell fake arrays passed to the original classifier input conversion route.",
+    "response_noise_NN_AD_Adam_and_CP_decodes_added": 0,
+    "registered_classifier_budget": {
+      "response_NN": 0,
+      "noise_NN": 0,
+      "response_AD": 0,
+      "response_Adam": 0,
+      "checkpoint_decodes": 0,
+      "saved_ADC_NPZ_decodes": 33,
+      "common_prefix_NPZ_decodes": 1,
+      "TRAIN_dataset_NPZ_decodes": 1,
+      "classifier_cells": 33,
+      "classifier_AD": 6600,
+      "classifier_Adam": 6600,
+      "classifier_forward_rows": 2409627,
+      "classifier_forward_calls": 18843,
+      "classifier_bootstrap_replicates": 13200,
+      "classifier_checkpoint_writes": 33
+    },
+    "registered_classifier_resources": {
+      "CPU_threads": 4,
+      "CPU_affinity": "0-3",
+      "RSS_GiB": 12,
+      "GPU_GiB": 6,
+      "hard_wall_seconds": 1800,
+      "internal_stop_save_seconds": 1650,
+      "output_MiB": 512,
+      "single_project_flock": true,
+      "automatic_restart": false
+    },
+    "external_enforcement_pending": "ROOT deployment must enforce design CPU affinity, RSS, hard wall and project flock; native acceptance not established by this source review.",
+    "supplement_semantics": "New output subtree only; original PRIMARY_FINAL copied by bytes, original exit1 and FAILED/false reconstruction flags retained.",
+    "count_layout": "Original primary execution_counts remain unchanged; new classifier_execution_counts hold the supplementary C2ST work and must be read separately.",
+    "original_A0_005_terminal_guard": "Original check followed C2ST and was not reached; supplement explicitly does not rerun it or claim it passed.",
+    "no_FINAL_teacher_013_026_RR_or_response_training_repetition": true
+  },
+  "saved_primary_JSON_audit": {
+    "collection_receipt": "405 files,666597010bytes, no missing/extra/hash mismatch reported by collector; reviewer checked receipt hash and relevant JSON content, not binary payloads.",
+    "original_RESULT_native_status": "INCOMPLETE_AFTER_PRIMARY_FINAL",
+    "C2ST_results_and_original_COMPLETE_absent": true,
+    "original_classifier_forward_AD_optimizer_completed": 0,
+    "original_C2ST_entry_prefix_archive_read": 1,
+    "runtime_CP_counter": 23,
+    "response_Adam_saved_lower_bound": 53,
+    "FIT_AD_saved_lower_bound": 912,
+    "complete_metric_records": 52,
+    "complete_record_counts_by_track": {
+      "teacher0": 29,
+      "teacher1": 13,
+      "REAL0": 5,
+      "REAL1": 5
+    },
+    "teacher0_partial_direction30": "900s rollback;1Adam construction plus16FIT queries cost, no complete direction record. Complete-record FIT896 +partial16 =terminal912.",
+    "postlog_counter_semantics": "Last REAL1 metric raw directions51 increments after log.flush to terminal52; it is separate from partial teacher0 direction30.",
+    "response_retained_teacher": 17,
+    "response_retained_REAL": 0,
+    "all_four_endpoints_frozen": true,
+    "all_four_tracks_complete": false,
+    "teacher1_interrupted": true,
+    "full_teacher_qualification_established": false,
+    "unified_scientific_acceptance_established": false,
+    "FINAL_report_JSONs": 99,
+    "FINAL_scopes": [
+      "FINAL_TRAIN_0",
+      "FINAL_TRAIN_1",
+      "FINAL_DEV"
+    ],
+    "TRAIN_each_cell": {
+      "source_parents": 6593,
+      "draws": 4,
+      "fake_rows": 26372,
+      "REAL_rows": 21047
+    },
+    "DEV_each_cell": {
+      "source_parents": 512,
+      "draws": 4,
+      "fake_rows": 2048,
+      "REAL_rows": 599
+    },
+    "TRAIN_full_vs_matching_M0_wave_gain_all12_cells": 0.0,
+    "absolute_T_failed_out_of90": {
+      "FINAL_TRAIN_0": 42,
+      "FINAL_TRAIN_1": 44,
+      "FINAL_DEV": 60
+    },
+    "positive_T_all270_comparisons_defined": true,
+    "null_T_domains_per_cell": [
+      "Q_nonpositive_rate",
+      "PSD_undefined_rate",
+      "PSD_guarded_rate",
+      "FWHM_undefined_rate",
+      "temporal_nonpositive_peak_rate",
+      "FWHM_prepeak_censored_rate",
+      "FWHM_postpeak_censored_rate"
+    ],
+    "fresh_FINAL_RISK_banks": 16,
+    "fresh_risk_2seed_by3H_improvement_confirmation_all_false": true,
+    "teacher_exact_and_MC_JSON_plus_SUMMARY_inventory_present": true,
+    "teacher_all64_exact_mean_NRMSE": [
+      0.02503245205655765,
+      0.02555557938737738
+    ],
+    "teacher_charge_variance_relative_RMS": [
+      1.0,
+      1.0
+    ],
+    "teacher_standardized_covariance_relative_Frobenius": [
+      0.3096254439910543,
+      0.8756723821660988
+    ],
+    "teacher_conditional_gates_false_both": true,
+    "MC_agreement_not_conditional_recovery": "MC learner near-zero conditional charge-variance consistency and mixed-parent Q std are not teacher true conditional-variance recovery.",
+    "SOURCE_pair_records": 121,
+    "SOURCE_pair_prepared_and_PC1_nonzero_counts": [
+      121,
+      121
+    ],
+    "composition_026_three_fixed_weights_with_defined_denominators_present": true,
+    "separately_refitted_population_parameter_stability": "not_established",
+    "RR_record_groups": [
+      211,
+      211
+    ],
+    "RR_group_overlap": 0,
+    "old_ADC_reconstruction_false_all99_cells": true,
+    "old_reconstruction_max_abs_error_V": 1.1102230246251565e-16,
+    "C2ST_completion_will_not_change_saved_negative_response_conclusions": true
+  },
+  "execution_this_review": {
+    "SSH": 0,
+    "CP_decode": 0,
+    "NPZ_decode": 0,
+    "raw_arrays_read": 0,
+    "NN": 0,
+    "AD": 0,
+    "optimizer_updates": 0,
+    "numerical_retests": 0,
+    "remote_launches": 0,
+    "only_file_written": "repair_c2st_01/independent_review/SOURCE_REVIEW.json"
+  },
+  "scientific_status": "response_match_not_established"
+}

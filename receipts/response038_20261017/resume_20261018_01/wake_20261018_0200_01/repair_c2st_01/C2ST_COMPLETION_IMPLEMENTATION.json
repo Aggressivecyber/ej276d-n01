@@ -1,0 +1,125 @@
+{
+  "schema": "n01/response038-C2ST-completion-implementation/v1",
+  "UTC": "2026-10-17T18:18:39.918306+00:00",
+  "status": "static_self_checks_complete_independent_source_review_pending_probe_not_run",
+  "ROOT_design": {
+    "path": "receipts/response038_20261017/resume_20261018_01/wake_20261018_0200_01/repair_c2st_01/ROOT_DESIGN.json",
+    "bytes": 8163,
+    "sha256": "56efae5cac3ddccb4a3ada24c5e41f462f901a16606a5bbc0e65a4bbb508d4d8"
+  },
+  "script": {
+    "path": "scripts/complete_response038_c2st.py",
+    "bytes": 14304,
+    "sha256": "e3a26d84f4d5a4c4bf7f1dbde7105ebf802832b2b999e83df090085a03f8750e"
+  },
+  "derived_config": {
+    "path": "configs/response038_c2st_completion_20261018.json",
+    "bytes": 57135,
+    "sha256": "f4a741361d54f852c62e30688cb80548e593c2f38ae86bc11902d245f750b3fa"
+  },
+  "original_runner": {
+    "path": "scripts/run_response038.py",
+    "sha256": "ceffb5bc89430f1bd4c9ab731d09c426a99b8ad4cb88fb4f3ab210300f27e461",
+    "byte_unchanged": true,
+    "classifier256_lines": [
+      1013,
+      1068
+    ],
+    "classifier256_source_segment_sha256": "7ff1de8f448f42c53041d7e2f908f54416c2b6a65baa267a2a461cd61d72ca4f"
+  },
+  "static_checks": {
+    "Python_AST_and_compile_without_import_or_execution": true,
+    "source_pins_verified": 46,
+    "original_source_pins_unchanged": true,
+    "original_config_SHA_unchanged": true,
+    "probe_and_classifier_budget_sections_equal_ROOT_design": true,
+    "seeds_equal_original": true,
+    "label_order_matches_original_run038_states": true,
+    "hypothesis_order_matches_original_HYPOTHESES": [
+      "fast",
+      "slow",
+      "common_level"
+    ],
+    "cells": 33,
+    "archive_records_match_saved_remote_manifest": 68,
+    "private_archive_payloads_not_decoded": true,
+    "no_torch_load_call_in_supplement": true,
+    "old_ledger_history_nodes_unchanged": true
+  },
+  "implementation": {
+    "probe": "Original-device float64 ADC LUT division followed by separate add(-.5); full code-grid CPU/CUDA comparison, all26372 prefix rows in original128-row chunks, all1056saved example waveforms exact64/32 and prefix100 exact64; any mismatch aborts before classifier creation.",
+    "classifiers": "Only after bound strict PASS, decode saved ADC once per cell using the same LUT and saved original means; read TRAIN real/source_ids/real_groups and TRAIN statistics, then call byte-unchanged classifier256 in original states/H order with original stream_seed keys.",
+    "output_policy": "New output/control children only; oldrun/control false flags and nativeexit1 retained. Completion is supplemental. Original A0/005 terminal guard was not reached and is not rerun or claimed passed."
+  },
+  "proof_boundary": {
+    "full_original_population_waveform_bytes_saved": false,
+    "direct_exhaustive_original_waveform_replay_claim": false,
+    "finite_ADC_operation_provenance_plus_all_prefix_mean_and_saved_example_checks_only": true,
+    "any_exact_mismatch_stops": true
+  },
+  "reserved_probe_budget": {
+    "CP_decodes": 0,
+    "NN": 0,
+    "AD": 0,
+    "optimizer": 0,
+    "saved_NPZ_archives_decoded": 67,
+    "prefix_rows": 26372,
+    "saved_example_waveform_rows": 1056,
+    "code_grid_values": 16384,
+    "wall_seconds": 180,
+    "RSS_GiB": 3,
+    "GPU_GiB": 1,
+    "output_MiB": 16
+  },
+  "reserved_classifier_budget": {
+    "response_NN": 0,
+    "noise_NN": 0,
+    "response_AD": 0,
+    "response_Adam": 0,
+    "checkpoint_decodes": 0,
+    "saved_ADC_NPZ_decodes": 33,
+    "common_prefix_NPZ_decodes": 1,
+    "TRAIN_dataset_NPZ_decodes": 1,
+    "classifier_cells": 33,
+    "classifier_AD": 6600,
+    "classifier_Adam": 6600,
+    "classifier_forward_rows": 2409627,
+    "classifier_forward_calls": 18843,
+    "classifier_bootstrap_replicates": 13200,
+    "classifier_checkpoint_writes": 33
+  },
+  "resource_enforcement": "Script uses deterministic original Torch/CUDA,4threads and per-process allocator cap1GiB probe/6GiB classifiers. Parent deployment must apply ROOT-design CPU affinity,RSS and external hard wall; probe180s/3GiB RSS, classifier1800s/12GiB RSS. Classifier1650s internal/output512MiB use original check_limits.",
+  "accounting": {
+    "terminal_accounting_receipt": {
+      "path": "receipts/response038_20261017/resume_20261018_01/wake_20261018_0200_01/repair_c2st_01/TERMINAL_ACCOUNTING_UPDATE.json",
+      "sha256": "7d816ccf1f184fa22f3345dabe6831ceb706a09f4c5ccf08bf55927f95404eb7"
+    },
+    "response_scientific_Adam": 53,
+    "response_FIT_AD": 912,
+    "legacy_project_cumulative": 199722,
+    "response_retained_teacher": 17,
+    "response_retained_REAL": 0,
+    "complete_metric_records": 52,
+    "teacher0_direction30_construction_has_no_complete_result_record": true,
+    "classifier_costs_separate_from_response_costs": true,
+    "active_scientific_jobs": 0,
+    "REAL_Adam_direction_constructions_verified": 10,
+    "REAL_retained_updates_verified": 0
+  },
+  "actual_operations_this_implementation": {
+    "CP_decode": 0,
+    "NPZ_decode": 0,
+    "NN": 0,
+    "AD": 0,
+    "optimizer": 0,
+    "probe_executed": false,
+    "classifiers_executed": false,
+    "remote_launch": false
+  },
+  "scientific_status": "response_match_not_established",
+  "all_four_tracks_complete": false,
+  "teacher1_interrupted": true,
+  "full_teacher_qualification_established": false,
+  "unified_scientific_acceptance_established": false,
+  "next_step": "Parent and independent reviewer statically bind final code/config; parent chooses Git freeze and executes one bounded probe. No classifier launch before strict PASS and final internal binding."
+}
