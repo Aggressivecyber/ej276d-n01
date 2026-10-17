@@ -1,12 +1,14 @@
-# N01 当前状态：038续行已独审通过，等待启动剩余REAL双种子
+# N01 当前状态：038续行已进入REAL训练，首候选拒绝并回退
 
-2026-10-18（Asia/Singapore）实时核对：服务器boot已改变，N01进程0、项目锁空闲。原作业没有保存完整退出、失败或终点回执，按中断处理，实际终止原因和未落盘成本未知。全6593父、两个种子的M0纯信号/三假设硬输出逐位一致及全部A/M0/Q1起点评价已保存，将直接复用。
+2026-10-18 00:39（Asia/Singapore）一次正确启动快照：新服务器boot下原生PID11586存活、项目锁占用、无FAILED/exit。两教师模型/Adam/控制状态/RNG已按原SHA恢复；种子0的900秒资源终点与种子1的中断终点保留，不补跑教师。15份A/M0/Q1起点评价和双种子全6593父M0逐位一致证据直接复用。
 
-教师种子0在900秒资源上限闭块，12次接纳；教师种子1保存至均值阶段第13方向，5次接纳，REAL两轨没有已保存进度，是否存在未落盘执行未知。已确认科学Adam方向构造43次（含拒绝方向），接纳17次均属教师；额外在途成本未知。项目累计计算更新下界199712，科学状态仍为 `response_match_not_established`。此前一次苏醒已过时，不把旧PID和台账活动标志当作仍运行。
+REAL种子0已完成首方向32微批梯度累积，FIT data0.05806981、wave0.02896119、total0.05807935，carrier仅报告。4个幅度候选均未获接纳，按原完整回退流程继续，半径1降至0.5LSB；当前新REAL接纳数0。快照显存4806MiB、RSS约2.76GiB，CPU4/GPU分配6GiB/RSS12GiB上限保持，未操作其他作业。已安排今日01:10单次苏醒，此后停止持续监控。
 
-现按用户“服务器重启了 继续推进”恢复同一038，保存模型、Adam、控制状态及RNG已核对，57个科学函数未改，续行通过独立源码审核；保留旧根、日志与已完成结果，仅继续剩余有界工作，不因中断调整模型、损失或接纳门。
+本次仅执行剩余两个REAL种子（各900秒），再统一冻结终点并完成原FINAL/C2ST；57个科学计算/训练函数未改，独审通过。保存下界为科学Adam构造44次，其中新REAL1次、教师43次；已接纳教师17次，项目累计计算更新下界199713。重启前未落盘工作未知，以原整轮预算保守覆盖，不能当精确计数。教师种子1按中断处理，四轨完整资格与统一科学接受均未成立，状态仍为 `response_match_not_established`。
 
-[最新恢复检查](receipts/response038_20261017/resume_20261018_01/REMOTE_TERMINAL_AND_RESOURCES.json) · [用户继续授权](receipts/response038_20261017/resume_20261018_01/USER_RESUME_AUTHORIZATION.json) · [038续行配置](configs/response038_resume01_20261018.json) · [恢复设计](receipts/response038_20261017/resume_20261018_01/RESUMPTION_DESIGN.json) · [独立审核](receipts/response038_20261017/resume_20261018_01/independent_review/SOURCE_REVIEW.json) · [权威状态](PROGRAM.json)
+已有教师固定MONITOR波形energy两种子分别下降约29%/26%，积分项略升；这是内部教师库结果，REAL拟合效果仍待统一新库确认。成功启动、保护旧解、实际拟合收益与条件响应接受分别报告。
+
+[启动回执](receipts/response038_20261017/resume_20261018_01/deployment_01/STARTUP_ASSESSMENT.json) · [续行配置](configs/response038_resume01_20261018.json) · [恢复设计](receipts/response038_20261017/resume_20261018_01/RESUMPTION_DESIGN.json) · [独立审核](receipts/response038_20261017/resume_20261018_01/independent_review/SOURCE_REVIEW.json) · [单次苏醒](receipts/response038_20261017/resume_20261018_01/deployment_01/FOLLOWUP_RECEIPT.json) · [已保存进展](receipts/response038_20261017/resume_20261018_01/EXISTING_PROGRESS_SUMMARY.json) · [权威状态](PROGRAM.json)
 
 以下为保留的历史阶段记录；其中“当前”、计划与运行快照均指当时状态。最新状态以上文和PROGRAM/MASTER_EXECUTION_PLAN/jobs三台账为准。
 
