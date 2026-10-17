@@ -1,0 +1,325 @@
+{
+  "schema": "n01/response038-observed-TRAIN-family-design/v1",
+  "UTC": "2026-10-17T18:57:37.370558+00:00",
+  "status": "DESIGN_ONLY_NOT_IMPLEMENTED_NOT_REGISTERED_NOT_EXECUTED",
+  "parent_run_id": "response038_20261017",
+  "authority": "Original unified user implementation order section4.2 and direct continue/research instructions; no additional per-step confirmation required.",
+  "purpose": "One bounded descriptive reconstruction of actual REAL TRAIN observed256 waveforms by one fixed-template monotone-time family. Resolve residual structure within this defined family without claiming A0 conditional reachability or global impossibility.",
+  "closure_evidence": {
+    "primary_summary": {
+      "path": "reports/response038_20261017/PRIMARY_PUBLIC_SUMMARY.json",
+      "sha256": "ef6b0b0a691bb88f20ec0b8092f2258953fb18e194209edf95d7b5770568cb6c"
+    },
+    "C2ST_summary": {
+      "path": "reports/response038_20261017/FINAL_C2ST_PUBLIC_SUMMARY.json",
+      "sha256": "e8bb3f60d276b4c31b29a15b121b546cb3a91c9580bca12d3fea359491f88e6e"
+    },
+    "C2ST_terminal_review": {
+      "path": "receipts/response038_20261017/resume_20261018_01/wake_20261018_0245_01/independent_review/TERMINAL_RESULT_REVIEW.json",
+      "sha256": "f98bad3bcb5e87d97fc4c9d5db14fbd2fda1e60f78d6cf64937ea4de06c0829a"
+    },
+    "trigger": "Both REAL tracks retained0; full versus matchingM0 wave improvement0% in all12TRAIN cells; consistent saved TRAIN peak/rise/width residuals. All33C2ST completed, AUC0.9734168613160943..0.9937690408874881."
+  },
+  "inputs": {
+    "TRAIN_dataset": {
+      "path": "/home/rylan/projects/ej276d-n01/window008_resume01_20261013/data/window008/DATASET008.npz",
+      "local_path": "E:\\GAN\\research\\N01\\data\\window008\\DATASET008.npz",
+      "bytes": 66440265,
+      "sha256": "8d43418595f4fa992a9b83735c4bf50863a659584d58888f8f965ec1339a1993"
+    },
+    "TRAIN_statistics": {
+      "path": "/home/rylan/projects/ej276d-n01/window008_resume01_20261013/data/window008/FIT_STATISTICS008.json",
+      "local_path": "E:\\GAN\\research\\N01\\data\\window008\\FIT_STATISTICS008.json",
+      "bytes": 104199,
+      "sha256": "aadd729364d0b6afac699a9d1774ac8d29fd2bcd10a9fd9f551141ecc2fbc2a0"
+    },
+    "dataset_member_allowlist": [
+      "real",
+      "real_baseline100",
+      "real_ids",
+      "real_groups",
+      "real_role"
+    ],
+    "no_SOURCE_DEV_carrier_or_CP_members": true,
+    "expected_shapes": {
+      "real": [
+        21047,
+        256
+      ],
+      "real_baseline100": [
+        21047,
+        100
+      ],
+      "real_ids": [
+        21047
+      ],
+      "real_groups": [
+        21047
+      ],
+      "real_role": [
+        21047
+      ]
+    },
+    "role": "all TRAIN",
+    "dtype": "waveforms float64; preserve original identity/group types",
+    "expected_unique_groups": 422,
+    "expected_nonpositive_Q_rows": 0,
+    "expected_nonfinite_waveform_rows": 0,
+    "boundary_mismatch_action": "Fail fast, retain mismatch and all original data; no row deletion or alternate subpopulation.",
+    "saved_target_definedness": {
+      "rise_defined": 20953,
+      "rise_prepeak_censored": 94,
+      "FWHM_defined": 21042,
+      "FWHM_prepeak_censored": 5,
+      "selected_peak_below_global_crop_max": 0
+    },
+    "existing_q_floor_Vns": 0.0005319378913383611,
+    "new_statistics_fitting": "Only one declared template; no new PCA/noise/population/standardization or tolerance fitting"
+  },
+  "population": {
+    "rows": 21047,
+    "weights": "One per legal REAL TRAIN record; physical population weights remain unknown.",
+    "group_provenance": "Existing raw_original_index//50 blocks within one historical acquisition; not independent acquisitions or verified hardware/run groups.",
+    "split": "Numeric sorted unique real_groups; zero-based even positions template211groups, odd positions comparison211groups. Preserve dataset row order within each subset.",
+    "split_seed": null,
+    "subset_row_counts": "Record at future first authorized input read; do not assume half of21047.",
+    "all_rows_fitted_once": true,
+    "interpretation": "Per-event8parameter reconstruction is performed on both subsets. The comparison subset was excluded only from template construction; its parameters and observedQ are fitted from its own target. This is descriptive group stability, not prediction or end-to-end unseen validation."
+  },
+  "template": {
+    "number": 1,
+    "construction": "float64 count mean of raw saved real256 over declared template rows, then divide by its sum*1ns to unit observedQ.",
+    "construction_block_rows": 256,
+    "reduction_order": "Dataset row order, sequential float64 block sums; no shuffled reduction or outcome-based template selection.",
+    "freeze_before_any_fit": true,
+    "persist_before_fit": [
+      "template.npy",
+      "TEMPLATE_RECEIPT.json"
+    ],
+    "receipt_fields": [
+      "datasetSHA",
+      "sorted group split hashes",
+      "per-subset row/group counts",
+      "construction rule",
+      "templateSHA",
+      "templateQ",
+      "all8zero identity specification"
+    ],
+    "no_smoothing_no_positivity_clipping": true,
+    "target_as_own_template": false,
+    "boundary": "Frozen template finite, positive observedQ and positive index16 peak; mismatch fails with receipt, no fallback template."
+  },
+  "family": {
+    "time_samples": 256,
+    "sample_interval_ns": 1.0,
+    "sample_interval_scope": "Frozen software representation, not newly established hardware sampling proof.",
+    "anchors": [
+      0,
+      16,
+      255
+    ],
+    "source_knot_reference": [
+      100,
+      106,
+      112,
+      119,
+      126,
+      142,
+      158,
+      190,
+      254,
+      318,
+      383
+    ],
+    "observed_knots_formula": "k<=126:16*(k-100)/26; k>=126:16+239*(k-126)/257; include shared16 once. Float64 CPU.",
+    "mapping_scope": "Design-chosen normalized front/tail geometry; not the original event-specific crop transform. Canonical100 may be outside the recorded window. No extrapolated384 truth.",
+    "free_parameters_per_event": 8,
+    "front_free": 3,
+    "tail_free": 5,
+    "shared_learned_conditioner_parameters": 0,
+    "logits": "[theta0,theta1,theta2,0,theta3,theta4,theta5,theta6,theta7,0]",
+    "increments": "Each original observed knot interval length times exp(logit), separately normalized to16(front) or239(tail).",
+    "query": "Piecewise linear monotone map through fixed input knots and cumulative normalized mapped knots; linear interpolation of frozen template on original integer samples.",
+    "domain": "Strictly monotone in[0,255]; Qwarp/Qtemplate>=0.25; normalization_gain<=4. Illegal trial counted and rejected without replacing current point.",
+    "output": "fit_i[t]=observed_Q_i*warp_template_theta_i[t]/Q(warp_template_theta_i), Q(v)=sum(v)*1ns.",
+    "targetQ_fixed": true,
+    "free_amplitude_DC_or_charge_calibration": false,
+    "peak_or_crop_reselection": false,
+    "ADC_noise005_or_response_forward": false,
+    "negative_voltages": "Retain signed template/input/output; no clipping.",
+    "identifiability_scope": "This REAL-only template family differs from SOURCE-dependent A0 and the shared184parameter conditioner; no proof of that complete family reachability.",
+    "exact_anchor_assignment": "The implementation assigns query[0]=0, query[16]=16, query[255]=255 exactly before interpolation; the anchor bound depends on this family definition."
+  },
+  "objective": {
+    "per_event": "mean_t((fit_i[t]-real_i[t])**2), V^2, all256 samples equal weights.",
+    "penalties": null,
+    "additional_component_weights": null,
+    "no_distribution_matching_or_absolute_T_fit": true,
+    "Q_success_claim": false,
+    "Q_note": "Q matches by construction and is a numerical constraint diagnostic, not evidence of learned charge response."
+  },
+  "solver": {
+    "kind": "One deterministic derivative-free coordinate descent, no AD or optimizer object.",
+    "initializations": 1,
+    "initial_theta": "all zero",
+    "batch_rows": 256,
+    "batch_order": "Original dataset order; last batch retained.",
+    "coordinate_order": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "step_levels": [
+      0.5,
+      0.25,
+      0.125,
+      0.0625
+    ],
+    "max_sweeps_per_level": 2,
+    "candidates": "At each coordinate evaluate minus and plus from the same current point, separately for every active event. Current loss is cached.",
+    "selection": "Strict lower legal MSE wins; exact tie with current retains current; exact equal improving minus/plus chooses minus.",
+    "early_stop": "For each event, a full sweep with zero accepted changes ends only that level; proceed to next finer level. End after final level or fixed resource boundary.",
+    "no_restarts_or_parameter_scans": true,
+    "no_global_optimality_claim": true,
+    "record": [
+      "actual attempted/valid/domain-rejected/accepted coordinate candidates",
+      "per-level/sweep completed counts",
+      "identity and best loss",
+      "best8parameters",
+      "terminal reason",
+      "completed rows and untouched rows"
+    ],
+    "resource_stop": "Save only actually completed work as partial; preserve all21047 denominator and pending row identities; no automatic continuation."
+  },
+  "readout": {
+    "states": [
+      "original_REAL",
+      "identity_template_at_fixed_observedQ",
+      "best_fitted_template"
+    ],
+    "morphology_function": "src/n01/stats018.py:morphology018 unchanged definition, exactly once per state.",
+    "maximum_morphology_row_calls": 63141,
+    "integrals": "Q all256; front[0:46]; tail[46:256]; additionally fixed[0:16],[16:46],[46:96],[96:256]. Unit Vns.",
+    "baseline_RMS": "sqrt(mean((real_baseline100-its_row_mean)^2)), ddof0; compute once. Report RMSE/noiseRMS descriptively with zero-denominator count, never noise-floor subtraction.",
+    "residual_definition": "fitted_or_identity minus target at same saved observation coordinates; this is reconstruction pairing, never a SOURCE/REAL truth pairing.",
+    "reports": [
+      "count-weighted MSE/RMSE and physical signed residuals",
+      "per-event RMSE quantiles0,.25,.5,.75,.9,.95,1",
+      "timewise residual mean and pointwise10/50/90percentiles",
+      "peak_V/rise_ns/FWHM_ns with jointly-defined residual denominator and each-state undefined/censor flags",
+      "front/tail/segment_integrals/PSD_raw_and_guarded with existing qfloor",
+      "negative-area sum(max(-wave,0))*1ns",
+      "per-original50recordblock residual means and positive/zero/negative block counts; separately template/comparison/all",
+      "raw crop geometry fixed and original REAL preADC/rail/halfgrid unknown",
+      "feasible row count, Q normalization error, non-increasing best versus identity loss"
+    ],
+    "new_bootstrap_C2ST_energy_W1": false,
+    "group_weights": "Primary aggregate uses record count. Block sign summary uses one block vote solely as descriptive display, with block count and record count both shown.",
+    "scientific_threshold": "None invented. Original distributional T and response2% are not reconstruction tolerances.",
+    "anchor_lower_bound": {
+      "scope": "An analytic lower bound for this single fixed-template monotone family, not for SOURCE-dependent A0 or the original shared conditioner.",
+      "anchor_indices": [
+        0,
+        16,
+        255
+      ],
+      "anchor_vector": "a=template[[0,16,255]]; its peak entry is positive for the pinned positive-peak TRAIN template, so a dot a is positive.",
+      "ray_property": "Every feasible output at these anchors equals c_i*a, where c_i=Qi/Qwarp and 0<c_i<=4*Qi/Qtemplate.",
+      "relaxation": "Allow any scalar c in the closed interval[0,4*Qi/Qtemplate], a superset of feasible normalizing scalars.",
+      "minimizer": "c_star=clip(dot(a,real_i[[0,16,255]])/dot(a,a),0,4*Qi/Qtemplate)",
+      "lower_bound_V2": "sum((c_star*a-real_i[[0,16,255]])**2)/256 <= minimum full256 MSE over the defined family.",
+      "upper_bound_V2": "Loss of a retained feasible finite-solver output; identity provides a feasible upper bound before fitting.",
+      "report": "Save row-level L/U and U-L, count-weighted/quantile aggregates by template/comparison/all; count and disclose numerical ordering discrepancies, do not silently clip gaps.",
+      "boundary": "The anchor lower bound may be weak and includes observed noise/crop effects. No new numerical pass threshold or hardware/non-expressibility claim for broader families.",
+      "row_projections_max": 21047,
+      "anchor_values_per_row": 3,
+      "additional_family_evaluations": 0,
+      "additional_optimization_runs": 0,
+      "floating_point_scope": "An analytic inequality with ordinary float64 numerical readout, not interval-arithmetic-certified machine-rigorous bounds. U-L includes relaxation looseness and solver error, not an estimate equaling the optimizer error."
+    }
+  },
+  "future_finite_cost_bound": {
+    "TRAIN_NPZ_decodes": 1,
+    "TRAIN_members_decoded": 5,
+    "statistics_JSON_reads": 1,
+    "template_constructions": 1,
+    "family_row_evaluations_per_event_max": 130,
+    "family_row_evaluations_max": 2736110,
+    "identity_row_evaluations_max": 21047,
+    "candidate_row_evaluations_max": 2694016,
+    "final_render_row_evaluations_max": 21047,
+    "morphology_row_evaluations_max": 63141,
+    "synthetic_engineering_family_row_evaluations_max_separate": 16,
+    "response_NN": 0,
+    "noise005_NN": 0,
+    "classifier_NN": 0,
+    "AD": 0,
+    "Adam": 0,
+    "CP_decode": 0,
+    "PCA": 0,
+    "DEV_members_decode": 0,
+    "accounting_scope": "These are future upper bounds, not completed work. Family-evaluation counters stay independent of response53/912, classifier6600 and legacy199722.",
+    "anchor_scalar_projections_max": 21047
+  },
+  "future_resources": {
+    "device": "CPU only",
+    "CPU_threads": 4,
+    "affinity": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "RSS_GiB": 4,
+    "GPU_bytes": 0,
+    "hard_seconds": 900,
+    "TERM_cleanup_grace_seconds": 20,
+    "internal_seconds": 840,
+    "output_and_control_MiB": 128,
+    "project_flock": true,
+    "automatic_restart": false,
+    "scientific_jobs_max": 1,
+    "output_location": "E:/GAN/research/N01 same response038 receipt tree; optional remote deployment remains in the existing response038 owned root. No local C data/cache.",
+    "private_local_only": [
+      "per-event fitted arrays",
+      "theta parameters",
+      "record/group identities",
+      "residual arrays"
+    ],
+    "publishable": [
+      "source/config",
+      "aggregate tables/figures",
+      "bounded-cost and integrity receipts"
+    ]
+  },
+  "stop_and_interpretation": {
+    "delivery_success": "One frozen template and one finite fit specification; if later executed, all original rows accounted for, every retained point feasible and no worse than identity, full defined/undefined group reporting and SHA receipt. Resource-limited execution is partial, not completed.",
+    "low_residual": "A feasible example for this descriptive template family only. No learned conditional response or hardware identification claim.",
+    "high_residual": "An upper bound on the best achievable residual found by this finite solver. It is not a lower bound proving the full nonlinear family impossible.",
+    "next_branch": "After results, inspect stable residual structure and solver limitations before proposing any restricted smooth residual; no automatic production architecture addition.",
+    "prohibited": "No DEV tuning, new PCA, free population/noise fit, pairedSOURCE/REAL matching, larger network, LR/candidate sweep, 2000-step response rerun or duplicate diagnostics.",
+    "anchor_interval": "Pair the anchor relaxation lower bound with retained feasible MSE upper bound for this defined template family. Large gaps remain inconclusive; even nonzero bounds do not identify detector mechanisms or bound the full A0 conditioner family."
+  },
+  "this_design_actual_cost": {
+    "new_scientific_jobs": 0,
+    "NPZ_decodes": 0,
+    "CP_decodes": 0,
+    "NN": 0,
+    "AD": 0,
+    "Adam": 0,
+    "family_fits": 0
+  },
+  "source_definition_bindings": {
+    "src/n01/model038.py": "15d972b5951987dd6a7a0a5c488ecfcadf05f69f03aba8f198c2903fc802321f",
+    "src/n01/observation008.py": "9f7b6c0a266c420af8c6c155103774bae1ed949cfe05ee6a1f19b75f9254c4ec",
+    "src/n01/stats018.py": "7a5e31ef5c8c7074a2cd826849c76ebbf485168f5cecc0d64e16fba343767cc8",
+    "src/n01/losses014.py": "86fded3226ae86a5aaae6d9066220923fb6b0aebfeaa09cb638642498e4f4114"
+  },
+  "implementation_gate": "Complete root design and independent static review, then Sol Max minimal implementation and one bounded engineering check/source review before any registered native fit. No extra human confirmation imposed by this design.",
+  "document": "docs/RESPONSE038_TRAIN_FAMILY_DESIGN_20261018.md"
+}

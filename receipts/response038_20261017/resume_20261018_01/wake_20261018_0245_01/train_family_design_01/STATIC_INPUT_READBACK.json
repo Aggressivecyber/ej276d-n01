@@ -1,0 +1,140 @@
+{
+  "schema": "n01/response038-TRAIN-family-static-input-readback/v1",
+  "UTC": "2026-10-17T19:01:54.852022+00:00",
+  "status": "input_and_readout_static_facts_only_no_implementation_or_execution",
+  "future_design_path": "receipts/response038_20261017/resume_20261018_01/wake_20261018_0245_01/train_family_design_01/ROOT_DESIGN.json",
+  "future_design_binding": "Final design review pending; this receipt does not bind a draft design SHA.",
+  "input_bindings": {
+    "TRAIN_dataset": {
+      "path": "/home/rylan/projects/ej276d-n01/window008_resume01_20261013/data/window008/DATASET008.npz",
+      "local_path": "E:\\GAN\\research\\N01\\data\\window008\\DATASET008.npz",
+      "bytes": 66440265,
+      "sha256": "8d43418595f4fa992a9b83735c4bf50863a659584d58888f8f965ec1339a1993"
+    },
+    "TRAIN_statistics": {
+      "path": "/home/rylan/projects/ej276d-n01/window008_resume01_20261013/data/window008/FIT_STATISTICS008.json",
+      "local_path": "E:\\GAN\\research\\N01\\data\\window008\\FIT_STATISTICS008.json",
+      "bytes": 104199,
+      "sha256": "aadd729364d0b6afac699a9d1774ac8d29fd2bcd10a9fd9f551141ecc2fbc2a0"
+    }
+  },
+  "minimum_member_allowlist": [
+    "real",
+    "real_baseline100",
+    "real_ids",
+    "real_groups",
+    "real_role"
+  ],
+  "expected_shapes": {
+    "real": [
+      21047,
+      256
+    ],
+    "real_baseline100": [
+      21047,
+      100
+    ],
+    "real_ids": [
+      21047
+    ],
+    "real_groups": [
+      21047
+    ],
+    "real_role": [
+      21047
+    ]
+  },
+  "identity_group_dtype": "Preserve existing stored types; no new NPZ decode was used to infer exact dtypes.",
+  "prepared_coordinate_facts": {
+    "voltage_preserving": true,
+    "waveform_dtype": "float64",
+    "software_sample_interval_ns": 1.0,
+    "physical_hardware_sampling_calibration": "unknown",
+    "ADC": "Original canonical inclusive14bit[-0.5,0.5]V; no new ADC follows baseline subtraction.",
+    "baseline": "Mean of original carrier[0:100], not first100of cropped256. real_baseline100 retains actual uncentered ADC prefix.",
+    "selection": "First argmax over original carrier[112:144] then crop[p-16:p+240]; selected peak lands at cropped index16.",
+    "REAL_TRAIN_peak_original_index_range": [
+      120,
+      137
+    ],
+    "REAL_TRAIN_crop_start_range_derived": [
+      104,
+      121
+    ],
+    "crop_relative_time_ns": [
+      -16,
+      239
+    ],
+    "SOURCE_anchor_original_index": 126,
+    "old_signal_canonical_Q": "sum(centered carrier[110:366]); distinct from observed noisy recropped Q256.",
+    "observed_readout": "Q=sum(all256),front=sum([0:46]),tail=sum([46:256]),PSD=tail/Q; software V ns."
+  },
+  "group_facts": {
+    "unique_groups": 422,
+    "saved_TRAIN_RR_metadata_left": 211,
+    "saved_TRAIN_RR_metadata_right": 211,
+    "saved_TRAIN_RR_metadata_disjoint": true,
+    "origin": "Original raw record index//50 artificial groups in one acquisition. Not physical runs or independent acquisitions.",
+    "future_parity_split": "Numeric sorted unique-group position, even/odd0-based positions; not numeric groupID%2. Each side211groups, rowcounts must be recorded after future authorized input read.",
+    "metadata_proof": {
+      "path": "receipts/response038_20261017/resume_20261018_01/wake_20261018_0200_01/collected_resume02/run_01/FINAL_REAL_REAL.json",
+      "sha256": "6b2d6f292ec9ca26c3ab3dbdda0bb4ac18b6bbb6f841593d8eb7e350f53f5346"
+    },
+    "individual_group_ID_lists_published": false
+  },
+  "existing_TRAIN_facts": {
+    "rows": 21047,
+    "nonfinite_waveform_rows": 0,
+    "Q_nonpositive_rows": 0,
+    "Q_near_zero_rows": 0,
+    "all_original_rows_retained": true,
+    "Q256_minmax": [
+      0.12882866385887726,
+      20.854922785814566
+    ],
+    "peak_tied_rows": 269,
+    "negative_PSD_rows": 83,
+    "global_peak_outside_search_rows": 0
+  },
+  "readout_reuse": {
+    "function": "src/n01/stats018.py:morphology018",
+    "source_lines": [
+      23,
+      63
+    ],
+    "fixed_peak_coordinate": 16,
+    "crossings": "Nearest left/right10/50/90percent linear crossings within fixed256 window. No reperformed peak search or recrop.",
+    "undefined": "Keep prepeak/postpeak/other undefined flags and explicit denominators. No NaN-to-zero or row deletion.",
+    "baseline_RMS": "sqrt(mean((b-b.mean)^2)) over actual100prefix,ddof0 as wp1_evaluation.observable_features; do not substitute ddof1 TRAIN descriptive table.",
+    "frozen_q_floor_Vns": 0.0005319378913383611,
+    "frozen_real_q_reference_Vns": 3.7103998046755806,
+    "loss_scaling": "Existing median / (IQR/1.349) TRAIN scales are metadata. New planned raw-V MSE does not refit or silently use these scale coordinates."
+  },
+  "template_and_solver_scope": "One declared countweighted raw TRAIN-template-group mean, normalized once by its Q; differs from averaging eventwise Q-normalized shapes. Observed-window family is descriptive, not a reconstructed clean384 response or a SOURCE/REAL pairing. Candidate current MSE must be cached and negative/positive directions originate from the same pre-coordinate parameter state.",
+  "source_and_existing_TRAIN_metadata_hashes": {
+    "src/n01/data.py": "2ec3363bc830043af053342b4638f5e6ab55d27303da037f383f4fe630d77bd2",
+    "src/n01/data008.py": "2a66a8800642cf6788ce268d326af9d128cb165daf60d555f802b2c881ac97af",
+    "src/n01/observation008.py": "9f7b6c0a266c420af8c6c155103774bae1ed949cfe05ee6a1f19b75f9254c4ec",
+    "src/n01/losses008.py": "68a9330b7e0620f12adbb3dc22a00c632a1b7577d44b92617da7d14979d9ea61",
+    "src/n01/stats018.py": "7a5e31ef5c8c7074a2cd826849c76ebbf485168f5cecc0d64e16fba343767cc8",
+    "scripts/wp1_evaluation.py": "3f5e4f9e8ca147cfbad8b75085c59d9c2081deda9b7532f1732f1d5e932cc895",
+    "data/window008/FIT_STATISTICS008.json": "aadd729364d0b6afac699a9d1774ac8d29fd2bcd10a9fd9f551141ecc2fbc2a0",
+    "data/window008/FIT_DATA_STATISTICS.json": "e614c7b0a9861b468eb2c9e1bff5a80dadef901310539407141d1ff5c9241f3f",
+    "receipts/IDENTITY_BINDING.json": "2254193ea5db5287735cd1b0c33f053bc62af36327b57f7d5ac5fab436fb0eb6"
+  },
+  "actual_operations": {
+    "CP_decode": 0,
+    "NPZ_decode": 0,
+    "DEV_waveform_decode": 0,
+    "NN": 0,
+    "AD": 0,
+    "optimizer": 0,
+    "template_fits": 0,
+    "family_row_evaluations": 0,
+    "morphology_calls": 0
+  },
+  "DEV_values_used_for_design": false,
+  "incidental_prior_public_summary_note": "A grep of an already public minified summary emitted its whole single line, including previously exposed DEV aggregates; these were not used for this readback or new design. No DEV array or new scientific query occurred.",
+  "scientific_acceptance_claim": false,
+  "implementation_or_execution_authorization_created": false
+}

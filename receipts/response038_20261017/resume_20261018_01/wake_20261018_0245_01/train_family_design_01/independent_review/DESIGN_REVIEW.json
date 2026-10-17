@@ -1,0 +1,105 @@
+{
+  "schema": "n01/response038-independent-TRAIN-family-design-review/v1",
+  "UTC": "2026-10-17T19:04:03.702867+00:00",
+  "reviewer": "Sol Max independent reviewer /root/response038_resume_review",
+  "outcome": "PASS_DESIGN_ONLY_FOR_MINIMAL_IMPLEMENTATION_NOT_NATIVE_RUN_READY",
+  "blockers": [],
+  "bound_design_artifacts": {
+    "human_spec": {
+      "path": "docs/RESPONSE038_TRAIN_FAMILY_DESIGN_20261018.md",
+      "bytes": 12430,
+      "sha256": "1b19561857a81c505d82690004ff8b6cef268ca16e7ed4682d6693cefea8baa2"
+    },
+    "machine_spec": {
+      "path": "receipts/response038_20261017/resume_20261018_01/wake_20261018_0245_01/train_family_design_01/ROOT_DESIGN.json",
+      "bytes": 16789,
+      "sha256": "583cc4c07c7679f293b1b1616ecee7defcc964559b33289ff21e3ae4d66ad274"
+    },
+    "static_input_readback": {
+      "path": "receipts/response038_20261017/resume_20261018_01/wake_20261018_0245_01/train_family_design_01/STATIC_INPUT_READBACK.json",
+      "bytes": 6786,
+      "sha256": "3ffbd97b567f6ac9068e21caf07a57e1abd2f4bc0d5dffff5e825b8d77f44db0"
+    }
+  },
+  "bound_closure_reviews": {
+    "terminal_result": {
+      "path": "receipts/response038_20261017/resume_20261018_01/wake_20261018_0245_01/independent_review/TERMINAL_RESULT_REVIEW.json",
+      "bytes": 14040,
+      "sha256": "f98bad3bcb5e87d97fc4c9d5db14fbd2fda1e60f78d6cf64937ea4de06c0829a"
+    },
+    "final_report": {
+      "path": "receipts/response038_20261017/resume_20261018_01/wake_20261018_0245_01/independent_review/FINAL_REPORT_REVIEW.json",
+      "bytes": 8755,
+      "sha256": "2261ef8b4a264eae83b342b2c4fa649c1670786356821d309aeb26000e03c121"
+    }
+  },
+  "evidence": {
+    "source_bindings": {
+      "src/n01/model038.py": "15d972b5951987dd6a7a0a5c488ecfcadf05f69f03aba8f198c2903fc802321f",
+      "src/n01/observation008.py": "9f7b6c0a266c420af8c6c155103774bae1ed949cfe05ee6a1f19b75f9254c4ec",
+      "src/n01/stats018.py": "7a5e31ef5c8c7074a2cd826849c76ebbf485168f5cecc0d64e16fba343767cc8",
+      "src/n01/losses014.py": "86fded3226ae86a5aaae6d9066220923fb6b0aebfeaa09cb638642498e4f4114"
+    },
+    "TRAIN_preparation_receipt": {
+      "path": "data/window008/PREPARATION_RECEIPT.json",
+      "bytes": 2741,
+      "sha256": "47c6b2db9559801af1172c0e90fff25c0c849129b35f417ab5851351a8dd3cb3"
+    },
+    "TRAIN_statistics_receipt": {
+      "path": "data/window008/STATISTICS_RECEIPT.json",
+      "bytes": 934,
+      "sha256": "36bf293f30f20a3341ee37648812283c05eab890bc55fc28cc686db898627423"
+    },
+    "TRAIN_fit_statistics": {
+      "path": "data/window008/FIT_STATISTICS008.json",
+      "bytes": 104199,
+      "sha256": "aadd729364d0b6afac699a9d1774ac8d29fd2bcd10a9fd9f551141ecc2fbc2a0"
+    },
+    "TRAIN_data_statistics": {
+      "path": "data/window008/FIT_DATA_STATISTICS.json",
+      "bytes": 36311,
+      "sha256": "e614c7b0a9861b468eb2c9e1bff5a80dadef901310539407141d1ff5c9241f3f"
+    },
+    "metadata_scope": "Read only existing source and JSON metadata. Dataset binary was not decoded or newly array-inspected; its expected binding comes from SHA-bound preparation/statistics receipts. Future boundary checks must verify the pinned input before fitting."
+  },
+  "static_findings": {
+    "authority_and_stage": "Consistent with original038 unified workorder4.2 and continuing human authorization. This version is design-only, not a registered native scientific task or an implemented/configured executable. No new permission layer is imposed.",
+    "input_scope": "Only five actualREAL TRAIN members of oneDATASET008 open:real,real_baseline100,real_ids,real_groups,real_role; no SOURCE/carrier/DEV/PCA/CP decode. Existing metadata confirms21047rows,0removed/nonpositive-or-guardedQ, observedQmin0.12882866385887726Vns, andfrozenqfloor0.0005319378913383611. Allrows retained, mismatch fails without deleting/replacingpopulation.",
+    "coordinates": "Source observation008 takes firstargmax incarrier[112:144], subtracts actualprefix100mean, then croppeak-16 for256 samples; selectedpeak index16. Existing TRAIN peak120..137 implies actualcropstart104..121, so canonical100 is outside these crops.0/16/255 anchors and proportional038knots are explicitly chosen geometry, not an eventwise canonical-to-observed truth map. Software1ns is not newhardware calibration; observedQ256 differs fromcanonical110:366Q.",
+    "template": "Exactly one template from the sorted-position211templategroups: countmean of savedrawvoltage rows in originalorder, sequential256row float64 block sums, then oneunitQnormalization. Freeze/save template/inputs/split hashes before fitting. Not rowwise-normalize-then-average, not per-event self-template, not smoothed/clipped/outcome-selected. PositiveQ/peak16 are explicit templateboundaries.",
+    "population_and_split": "422groups are artificial originalrecordindex//50 blocks in one historical acquisition, not independentruns. Split uses parity ofzero-based positions in numeric-sorted uniquegroups, notIDparity.211/211group counts are fixed; actualrowcounts stay unknown untilfuture read. Everyrow fitted once with recordweight1; physicalpopulationweights remainunknown.",
+    "family": "8free log-increment parameters per event,3front/5tail, onefixedzero increment eachsegment; exp*baseinterval and separate16/239normalization. Exactqueries0/16/255, strictlymonotone support[0,255],Qwarp/Qtemplate>=.25 andgain<=4; signedvoltage retained. Q comesfrom each observedrecord and is imposed byconstruction. No extraamplitude/DC/charge/noise model orpeakrecrop.",
+    "descriptive_scope": "Each event supplies its own8parameters andobservedQ. Excludingcomparison groups fromtemplateconstruction does not make their reconstructedoutputs out-of-sample predictions. NoSOURCE/REAL matchingtruth, originalA0/shared184parameterconditioner reachability orclean conditionalmean/hardwareidentification claim.",
+    "solver": "One deterministic derivative-free coordinate-descent flow, onezero start. Coordinateorder0..7; levels.5,.25,.125,.0625,atmost2sweeps/level; bothsigns originatefrom sameprecoordinate point, currentMSEcached,strictdescent,tiescurrentfirst thenminus. Per-event noaccept sweep ends onlythatlevel. Noadaptive restarts/LR/modelscan. Boundstop savespartial actualwork andpendingrows, noautoresume.",
+    "readout": "Exactly original/identity/fitted states use unchanged morphology018 onceeach, fixedpeak16 andnearest crossing/censor definitions. BaselineRMS uses actual100prefix ddof0. Existing94rise/5FWHMprepeakundefined rows andjointlydefined denominators preserved; noNaNtozero, cropdeletion orT/2% reconstructionthreshold. Residualblocks andnoise ratios are descriptive; observedpreADC/rail/halfgrid unknowns persist.",
+    "budget": "128coordinatecandidate evaluations per event +1identity +1finalrender=130;21047*130=2736110familyrows, candidates2694016.3*21047=63141morphologyrows. Separate boundedengineering<=16familyrows; combined maximum2736126 ifcounted withthatseparatecheck.21047three-anchor scalarprojections add0familyeval/0fit. NoNN/AD/Adam/CP/PCA/DEV ornewW1/energy/C2ST/bootstrap.",
+    "resources": "CPU4/affinity0-3,RSS4GiB,GPU0; internal840s,TERM900s+up-to20scleanup,output+control128MiB,projectlock,onejob,noautomaticrestart. Allfuturecostcounters separate fromresponse53/912,classifier6600,legacy199722. Private eventcoefficients/identities/arrays remainE/D; public aggregates only."
+  },
+  "anchor_lower_bound_proof": {
+    "definition": "For fixed unit-observedQ template tau, a=tau[[0,16,255]], b_i=real_i atsameanchors. Exactfixedqueries imply fittedanchors=c(theta)*a, c(theta)=Qi/Qwarp(theta),0<c<=4Qi/Qtemplate.",
+    "inequality": "For every feasible theta, fullMSE(theta)>=||c(theta)*a-b_i||^2/256>=min_{0<=c<=cmax}||c*a-b_i||^2/256=L_i. Thus L_i<=inf_{theta feasible}MSE(theta)<=U_i for any retainedfeasiblefit. Here inf is used without assuming a globalminimum is attained on the strictmonotone family.",
+    "closed_form": "a dot a>0 frompositive templatepeak16. The scalar constrained leastsquares minimizer is clip((a dot b_i)/(a dot a),0,4Qi/Qtemplate). Includingc=0 andotherwiseunrealizable scalars onlyrelaxes thefeasible set andtherefore preserves the lowerbound.",
+    "minimality": "This is one fixedthree-anchor projection/readout of the samefamily, not a second nonlinearfit, responsecandidate or optimizationrun.",
+    "numerical_scope": "Ordinaryfloat64 evaluation ofan analyticinequality, not interval-arithmetic-certified machinebounds. PersistL,U,U-L andordering discrepancies without clipping. U-L includes relaxationlooseness andsolvererror, not an optimizererror estimate.",
+    "scientific_scope": "Potentiallyweak andcontains observednoise/crop effects; onlyboundsthis frozen-template description. LowU gives a feasibleexample; highfiniteU alone cannot provefamilyimpossibility. PositiveL does not identifydetectorcauses orbound the broaderA0/conditioner family."
+  },
+  "implementation_remaining": "Futureminimalimplementation mustbind the <=16familyrow syntheticfixture, preserve exactanchors andidentity/cached-evaluation accounting, pass thesource/engineering review andregister the bounded nativefit under existingauthorization. No suchcode/fixture/run hasbeenclaimedcomplete here.",
+  "this_review_operations": {
+    "SSH": 0,
+    "NPZ_decode": 0,
+    "CP_decode": 0,
+    "raw_array_load": 0,
+    "NN": 0,
+    "AD": 0,
+    "Adam": 0,
+    "template_construction": 0,
+    "family_fit": 0,
+    "family_evaluation": 0,
+    "morphology_call": 0,
+    "numerical_test": 0,
+    "scientific_job_registration": 0
+  },
+  "changed_files": [
+    "This single DESIGN_REVIEW.json only"
+  ]
+}
