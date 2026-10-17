@@ -1,0 +1,5085 @@
+{
+  "schema": "n01/response038-local-evidence-planning-review/v1",
+  "UTC": "2026-10-17T17:52:32.962510+00:00",
+  "status": "STATIC_SNAPSHOT_REVIEW_NOT_COMPLETE_EXPERIMENT_CONCLUSION",
+  "evidence_scope": {
+    "REAL_seed0": "all five persisted complete mean-direction records from failed resume01;20 amplitude trials; no accepted update",
+    "REAL_seed1": "only the first complete mean-direction record in the startup snapshot;4 amplitude trials; later trajectory unknown to this review",
+    "startup_snapshot_UTC": "2026-10-17T17:28:43.869044+00:00",
+    "current_remote_state_queried": false,
+    "no_independent_samples_claim": "Trials/hypotheses/metrics share CRN and parents; counts below are descriptive correlated cells, not independent tests",
+    "data_operations": "JSON/JSONL and source text only; scalar arithmetic on already-saved metrics; no distances or model outputs recomputed"
+  },
+  "inputs": [
+    {
+      "path": "receipts\\response038_20261017\\resume_20261018_01\\wake_20261018_0110_01\\repair_01\\preserved_failed_attempt\\run_01\\REAL_seed0\\metrics.jsonl",
+      "sha256": "37d775a310f93c4bd03d8e8df490b37b90afaa6e7d71992ef9d57ecac6581bff"
+    },
+    {
+      "path": "receipts\\response038_20261017\\resume_20261018_01\\wake_20261018_0110_01\\repair_01\\deployment_01\\STARTUP_SNAPSHOT.json",
+      "sha256": "83573733da82fbd50d23312fb380faefb159f27071052391a4aa956c5117fb48"
+    },
+    {
+      "path": "receipts\\response038_20261017\\user_materials_01\\IMPLEMENTATION_PLAN.md",
+      "sha256": "ce11d9dc33874e466118f4ccf1ec5bd4c4bee04884fe7d53f6812c860d9c1b61"
+    }
+  ],
+  "rejection_summary": {
+    "amplitude_candidates": 24,
+    "accepted": 0,
+    "counts": {
+      "TR_only": 6,
+      "hard_evaluated": 18,
+      "native_failed": 7,
+      "native_passed": 11,
+      "native_wave_failed_candidates": 2,
+      "PSD_failed_candidates": 2,
+      "positive_T_rise_rate_metric_failed_candidates": 5,
+      "Boolean_anomaly_failed_candidates": 0,
+      "negative_area_failed_candidates": 0,
+      "energy_resolved_adverse_candidates": 5,
+      "energy_unresolved_candidates": 13,
+      "registered_unresolved_true": 7
+    },
+    "crossed_native_energy_classes": {
+      "native_fail/energy_unresolved": 6,
+      "native_pass/energy_resolved_adverse": 4,
+      "native_pass/energy_unresolved": 7,
+      "native_fail/energy_resolved_adverse": 1
+    },
+    "energy_cells": {
+      "cells": 108,
+      "positive_point_estimates": 87,
+      "negative_point_estimates": 21,
+      "positive_lower3MCSE": 19,
+      "nonpositive_upper3MCSE": 0,
+      "point_estimate_conjunction_failed_candidates": 18
+    },
+    "TR_RMS_overshoot_percent_range": [
+      0.1925848055862378,
+      0.2494266763988673
+    ],
+    "other_TR_checks_failed": 0,
+    "full_CHECK_TR_failed_candidates": 0,
+    "domain_rejections": 0,
+    "failed_native_check_labels": {
+      "PSD_raw_current": 2,
+      "PSD_guarded_current": 2,
+      "rise_undefined_rate_current": 5,
+      "rise_undefined_rate_starting_M0": 5,
+      "rise_prepeak_censored_rate_current": 5,
+      "rise_prepeak_censored_rate_starting_M0": 5,
+      "wave_current": 4
+    },
+    "native_check_label_correlation": "PSD_raw/guarded duplicate here; rise undefined/prepeak-censor label the same one-event changes; current/M0 comparisons share the unchanged state",
+    "interpretation": "Six top-amplitude proposals hit RMS only, but18 smaller proposals pass full TR and all fail hard energy. Five have at least one adverse lower3MCSE;13 remain energy-unresolved. Native guards add rejection to7, never the sole failed family.",
+    "zero_MCSE_counterfactual": "At saved point estimates every hard-evaluated candidate has at least one positive H×data/wave delta. Removing the uncertainty margin alone would still fail the per-H conjunction; this does not prove the underlying true expectation is adverse.",
+    "descriptive_statistics_only": true
+  },
+  "direction_and_amplitude_comparisons": [
+    {
+      "direction": "REAL_seed0/mean/1",
+      "source": "receipts\\response038_20261017\\resume_20261018_01\\wake_20261018_0110_01\\repair_01\\preserved_failed_attempt\\run_01\\REAL_seed0\\metrics.jsonl:1",
+      "accepted_updates": 0,
+      "base_scale": 0.12253109499216175,
+      "FIT_before_proposal_means": {
+        "data": 0.05806981161976128,
+        "wave": 0.028961190728207412,
+        "integral": 0.014554310445776939,
+        "carrier_report_only": 0.29874950591339144,
+        "regular": 0.000953980440369077,
+        "saturation": 0.0,
+        "total": 0.05807935142416498
+      },
+      "largest_registered_factor": 1.0,
+      "largest_factor_hard_metrics": "not measured because TR RMS failed",
+      "largest_hard_evaluated_factor": 0.5,
+      "smallest_hard_evaluated_factor": 0.125,
+      "largest_vs_smallest_same_number_CHECK_banks": true,
+      "CHECK_bank_size_comparison_note": "same bank prefix and final bank count within this direction",
+      "amplitude_records": [
+        {
+          "factor": 0.5,
+          "scale": 0.061265547496080874,
+          "CHECK_banks": 8,
+          "energy_means": {
+            "fast": {
+              "data": -0.00010691727567997515,
+              "wave": -3.314877409905806e-05
+            },
+            "slow": {
+              "data": 1.728520615831841e-05,
+              "wave": 5.176392394551366e-05
+            },
+            "common_level": {
+              "data": 3.688840484243963e-05,
+              "wave": 9.475718371389653e-05
+            }
+          },
+          "native_wave_relative_delta_percent": {
+            "fast": -0.234633623764424,
+            "slow": 0.02648998487410825,
+            "common_level": -0.03297134580765236
+          },
+          "all_native_checks_passed": false
+        },
+        {
+          "factor": 0.25,
+          "scale": 0.030632773748040437,
+          "CHECK_banks": 8,
+          "energy_means": {
+            "fast": {
+              "data": -2.9423269918617614e-05,
+              "wave": 2.568756137407563e-06
+            },
+            "slow": {
+              "data": 7.857551870764628e-05,
+              "wave": 7.674226563688215e-05
+            },
+            "common_level": {
+              "data": 0.00012509004760032517,
+              "wave": 0.00011373124754664654
+            }
+          },
+          "native_wave_relative_delta_percent": {
+            "fast": -0.05424195684673017,
+            "slow": 0.10364433910800304,
+            "common_level": 0.03376028529563861
+          },
+          "all_native_checks_passed": false
+        },
+        {
+          "factor": 0.125,
+          "scale": 0.015316386874020219,
+          "CHECK_banks": 8,
+          "energy_means": {
+            "fast": {
+              "data": 3.268159463346975e-05,
+              "wave": -1.5736691069929715e-05
+            },
+            "slow": {
+              "data": 9.028928856466556e-05,
+              "wave": 6.269563124103317e-05
+            },
+            "common_level": {
+              "data": 3.7906513463614386e-06,
+              "wave": 9.459036164385579e-06
+            }
+          },
+          "native_wave_relative_delta_percent": {
+            "fast": -0.11990415977378618,
+            "slow": 0.04550953981304557,
+            "common_level": -0.04295608796312009
+          },
+          "all_native_checks_passed": false
+        }
+      ]
+    },
+    {
+      "direction": "REAL_seed0/mean/2",
+      "source": "receipts\\response038_20261017\\resume_20261018_01\\wake_20261018_0110_01\\repair_01\\preserved_failed_attempt\\run_01\\REAL_seed0\\metrics.jsonl:2",
+      "accepted_updates": 0,
+      "base_scale": 0.06152625479570815,
+      "FIT_before_proposal_means": {
+        "data": 0.05668882103388559,
+        "wave": 0.028822496953687708,
+        "integral": 0.013933162040098944,
+        "carrier_report_only": 0.3030718592795536,
+        "regular": 0.0009619349732166223,
+        "saturation": 0.0,
+        "total": 0.056698440383617765
+      },
+      "largest_registered_factor": 1.0,
+      "largest_factor_hard_metrics": "not measured because TR RMS failed",
+      "largest_hard_evaluated_factor": 0.5,
+      "smallest_hard_evaluated_factor": 0.125,
+      "largest_vs_smallest_same_number_CHECK_banks": false,
+      "CHECK_bank_size_comparison_note": "8 versus16 confounds an amplitude-only comparison",
+      "amplitude_records": [
+        {
+          "factor": 0.5,
+          "scale": 0.030763127397854074,
+          "CHECK_banks": 8,
+          "energy_means": {
+            "fast": {
+              "data": 5.4257931954872045e-05,
+              "wave": 6.201481052927607e-05
+            },
+            "slow": {
+              "data": -4.225291433289369e-05,
+              "wave": 5.619578457301223e-05
+            },
+            "common_level": {
+              "data": 0.0003240321812975448,
+              "wave": 0.00024362942427478586
+            }
+          },
+          "native_wave_relative_delta_percent": {
+            "fast": -0.07147771581577171,
+            "slow": 0.013178245789573792,
+            "common_level": 0.2590578946966118
+          },
+          "all_native_checks_passed": false
+        },
+        {
+          "factor": 0.25,
+          "scale": 0.015381563698927037,
+          "CHECK_banks": 16,
+          "energy_means": {
+            "fast": {
+              "data": -6.430455983976119e-05,
+              "wave": -4.540334304397025e-05
+            },
+            "slow": {
+              "data": -7.260281608277748e-06,
+              "wave": 2.2946344375616165e-05
+            },
+            "common_level": {
+              "data": 1.4244925102540641e-05,
+              "wave": 1.689538638281079e-05
+            }
+          },
+          "native_wave_relative_delta_percent": {
+            "fast": -0.02543975850026803,
+            "slow": 0.02038279283417014,
+            "common_level": -0.018288955659188345
+          },
+          "all_native_checks_passed": false
+        },
+        {
+          "factor": 0.125,
+          "scale": 0.0076907818494635185,
+          "CHECK_banks": 16,
+          "energy_means": {
+            "fast": {
+              "data": 6.037828004107522e-06,
+              "wave": 8.861438259175243e-06
+            },
+            "slow": {
+              "data": 3.317743696637336e-06,
+              "wave": 1.5571790211985938e-05
+            },
+            "common_level": {
+              "data": -4.182698576552955e-05,
+              "wave": -3.454532609246637e-05
+            }
+          },
+          "native_wave_relative_delta_percent": {
+            "fast": -0.007138016503675459,
+            "slow": -0.005088693967469353,
+            "common_level": -0.020183497260369474
+          },
+          "all_native_checks_passed": false
+        }
+      ]
+    },
+    {
+      "direction": "REAL_seed0/mean/3",
+      "source": "receipts\\response038_20261017\\resume_20261018_01\\wake_20261018_0110_01\\repair_01\\preserved_failed_attempt\\run_01\\REAL_seed0\\metrics.jsonl:3",
+      "accepted_updates": 0,
+      "base_scale": 0.029683971814457737,
+      "FIT_before_proposal_means": {
+        "data": 0.05923076862775879,
+        "wave": 0.029608224004623894,
+        "integral": 0.01481127231156745,
+        "carrier_report_only": 0.30414169055120355,
+        "regular": 0.0010035006183443619,
+        "saturation": 0.0,
+        "total": 0.05924080363394224
+      },
+      "largest_registered_factor": 1.0,
+      "largest_factor_hard_metrics": "not measured because TR RMS failed",
+      "largest_hard_evaluated_factor": 0.5,
+      "smallest_hard_evaluated_factor": 0.125,
+      "largest_vs_smallest_same_number_CHECK_banks": true,
+      "CHECK_bank_size_comparison_note": "same bank prefix and final bank count within this direction",
+      "amplitude_records": [
+        {
+          "factor": 0.5,
+          "scale": 0.014841985907228869,
+          "CHECK_banks": 8,
+          "energy_means": {
+            "fast": {
+              "data": 2.2291701345587313e-05,
+              "wave": 3.171123032071066e-05
+            },
+            "slow": {
+              "data": 3.201677277615009e-05,
+              "wave": 3.8726804100002506e-05
+            },
+            "common_level": {
+              "data": 3.676397124822116e-05,
+              "wave": 4.264551755456649e-05
+            }
+          },
+          "native_wave_relative_delta_percent": {
+            "fast": 0.0022812393594010823,
+            "slow": 0.030199524249091003,
+            "common_level": 0.029586496044745694
+          },
+          "all_native_checks_passed": true
+        },
+        {
+          "factor": 0.25,
+          "scale": 0.007420992953614434,
+          "CHECK_banks": 8,
+          "energy_means": {
+            "fast": {
+              "data": 1.0408606612921732e-05,
+              "wave": 1.5791431801503216e-05
+            },
+            "slow": {
+              "data": 1.6122708405342124e-05,
+              "wave": 1.917393311834381e-05
+            },
+            "common_level": {
+              "data": 1.6210141315540876e-05,
+              "wave": 1.942728868582202e-05
+            }
+          },
+          "native_wave_relative_delta_percent": {
+            "fast": 0.003374656525386105,
+            "slow": 0.011713996738617992,
+            "common_level": 0.00792119940626759
+          },
+          "all_native_checks_passed": true
+        },
+        {
+          "factor": 0.125,
+          "scale": 0.003710496476807217,
+          "CHECK_banks": 8,
+          "energy_means": {
+            "fast": {
+              "data": 4.529871587607287e-06,
+              "wave": 7.355890622335985e-06
+            },
+            "slow": {
+              "data": 7.968551538406216e-06,
+              "wave": 9.698900677405746e-06
+            },
+            "common_level": {
+              "data": 9.487069993972721e-06,
+              "wave": 1.0618700032702377e-05
+            }
+          },
+          "native_wave_relative_delta_percent": {
+            "fast": 0.0022672290666354835,
+            "slow": 0.011119703297180985,
+            "common_level": 0.005080592922341635
+          },
+          "all_native_checks_passed": true
+        }
+      ]
+    },
+    {
+      "direction": "REAL_seed0/mean/4",
+      "source": "receipts\\response038_20261017\\resume_20261018_01\\wake_20261018_0110_01\\repair_01\\preserved_failed_attempt\\run_01\\REAL_seed0\\metrics.jsonl:4",
+      "accepted_updates": 0,
+      "base_scale": 0.03115930081994704,
+      "FIT_before_proposal_means": {
+        "data": 0.06311784616894704,
+        "wave": 0.03178375388636591,
+        "integral": 0.01566704614129057,
+        "carrier_report_only": 0.3047679250161952,
+        "regular": 0.0010237253929579282,
+        "saturation": 0.0,
+        "total": 0.06312808342287662
+      },
+      "largest_registered_factor": 1.0,
+      "largest_factor_hard_metrics": "not measured because TR RMS failed",
+      "largest_hard_evaluated_factor": 0.5,
+      "smallest_hard_evaluated_factor": 0.125,
+      "largest_vs_smallest_same_number_CHECK_banks": true,
+      "CHECK_bank_size_comparison_note": "same bank prefix and final bank count within this direction",
+      "amplitude_records": [
+        {
+          "factor": 0.5,
+          "scale": 0.01557965040997352,
+          "CHECK_banks": 16,
+          "energy_means": {
+            "fast": {
+              "data": 0.0001299550186232366,
+              "wave": 8.417608638895159e-05
+            },
+            "slow": {
+              "data": 3.0106591136547494e-05,
+              "wave": 2.1913084556114204e-05
+            },
+            "common_level": {
+              "data": -2.346995749834377e-05,
+              "wave": -9.026665228591699e-06
+            }
+          },
+          "native_wave_relative_delta_percent": {
+            "fast": 0.07821869812748623,
+            "slow": 0.045218649955531875,
+            "common_level": 0.03146679819118951
+          },
+          "all_native_checks_passed": true
+        },
+        {
+          "factor": 0.25,
+          "scale": 0.00778982520498676,
+          "CHECK_banks": 16,
+          "energy_means": {
+            "fast": {
+              "data": 4.1829211333856836e-05,
+              "wave": 2.7071857485486085e-05
+            },
+            "slow": {
+              "data": 1.3981178162930522e-05,
+              "wave": 4.271602602058449e-06
+            },
+            "common_level": {
+              "data": 3.938169417969117e-05,
+              "wave": 3.8562519990903866e-05
+            }
+          },
+          "native_wave_relative_delta_percent": {
+            "fast": 0.022867430019894792,
+            "slow": 0.03327297014660323,
+            "common_level": 0.01973322656471548
+          },
+          "all_native_checks_passed": true
+        },
+        {
+          "factor": 0.125,
+          "scale": 0.00389491260249338,
+          "CHECK_banks": 16,
+          "energy_means": {
+            "fast": {
+              "data": 3.747370321049645e-05,
+              "wave": 2.1643202528229873e-05
+            },
+            "slow": {
+              "data": 1.2286896573326456e-05,
+              "wave": 1.1248506494724144e-05
+            },
+            "common_level": {
+              "data": 6.392046103124386e-06,
+              "wave": 1.0676905075441287e-05
+            }
+          },
+          "native_wave_relative_delta_percent": {
+            "fast": 0.03137885105804192,
+            "slow": 0.005452368004253612,
+            "common_level": 0.006775367722268386
+          },
+          "all_native_checks_passed": true
+        }
+      ]
+    },
+    {
+      "direction": "REAL_seed0/mean/5",
+      "source": "receipts\\response038_20261017\\resume_20261018_01\\wake_20261018_0110_01\\repair_01\\preserved_failed_attempt\\run_01\\REAL_seed0\\metrics.jsonl:5",
+      "accepted_updates": 0,
+      "base_scale": 0.030216340343941658,
+      "FIT_before_proposal_means": {
+        "data": 0.0581596000581454,
+        "wave": 0.029759190615183312,
+        "integral": 0.01420020472148104,
+        "carrier_report_only": 0.30738685615348627,
+        "regular": 0.0010118220800514187,
+        "saturation": 3.955647636256677e-09,
+        "total": 0.058169718318502386
+      },
+      "largest_registered_factor": 1.0,
+      "largest_factor_hard_metrics": "not measured because TR RMS failed",
+      "largest_hard_evaluated_factor": 0.5,
+      "smallest_hard_evaluated_factor": 0.125,
+      "largest_vs_smallest_same_number_CHECK_banks": true,
+      "CHECK_bank_size_comparison_note": "same bank prefix and final bank count within this direction",
+      "amplitude_records": [
+        {
+          "factor": 0.5,
+          "scale": 0.015108170171970829,
+          "CHECK_banks": 16,
+          "energy_means": {
+            "fast": {
+              "data": 9.44398162371976e-05,
+              "wave": 5.429722700190428e-05
+            },
+            "slow": {
+              "data": -2.360575444532555e-05,
+              "wave": 1.4287526717792192e-06
+            },
+            "common_level": {
+              "data": 2.7110584425956742e-05,
+              "wave": 1.6611880857602497e-05
+            }
+          },
+          "native_wave_relative_delta_percent": {
+            "fast": -0.009447822932862728,
+            "slow": -0.025098290705930778,
+            "common_level": 0.024064918734627086
+          },
+          "all_native_checks_passed": true
+        },
+        {
+          "factor": 0.25,
+          "scale": 0.007554085085985414,
+          "CHECK_banks": 16,
+          "energy_means": {
+            "fast": {
+              "data": 1.3806502417754857e-05,
+              "wave": 1.6146694241979962e-05
+            },
+            "slow": {
+              "data": -3.0362299892406405e-05,
+              "wave": -7.654052036981012e-06
+            },
+            "common_level": {
+              "data": 1.4607802498311541e-05,
+              "wave": 2.405950996464158e-05
+            }
+          },
+          "native_wave_relative_delta_percent": {
+            "fast": 0.007382221802133342,
+            "slow": -0.04166102263092781,
+            "common_level": 0.019321357518444666
+          },
+          "all_native_checks_passed": true
+        },
+        {
+          "factor": 0.125,
+          "scale": 0.003777042542992707,
+          "CHECK_banks": 16,
+          "energy_means": {
+            "fast": {
+              "data": 9.979084308499656e-06,
+              "wave": 2.262990797884351e-05
+            },
+            "slow": {
+              "data": -9.576625682526435e-05,
+              "wave": -4.1550735637188975e-05
+            },
+            "common_level": {
+              "data": 4.460109509517524e-05,
+              "wave": 3.4078971829694946e-05
+            }
+          },
+          "native_wave_relative_delta_percent": {
+            "fast": -0.0002824131086624822,
+            "slow": -0.08477711392757423,
+            "common_level": 0.020886040820761707
+          },
+          "all_native_checks_passed": true
+        }
+      ]
+    },
+    {
+      "direction": "REAL_seed1/mean/1",
+      "source": "receipts\\response038_20261017\\resume_20261018_01\\wake_20261018_0110_01\\repair_01\\deployment_01\\STARTUP_SNAPSHOT.json#/first_complete_metrics/run_01~1REAL_seed1~1metrics.jsonl",
+      "accepted_updates": 0,
+      "base_scale": 0.09917899939233454,
+      "FIT_before_proposal_means": {
+        "data": 0.06055683665684009,
+        "wave": 0.030520940132091105,
+        "integral": 0.015017948262374497,
+        "carrier_report_only": 0.2987734591018433,
+        "regular": 0.0009312873551523171,
+        "saturation": 0.0,
+        "total": 0.06056614953039162
+      },
+      "largest_registered_factor": 1.0,
+      "largest_factor_hard_metrics": "not measured because TR RMS failed",
+      "largest_hard_evaluated_factor": 0.5,
+      "smallest_hard_evaluated_factor": 0.125,
+      "largest_vs_smallest_same_number_CHECK_banks": false,
+      "CHECK_bank_size_comparison_note": "8 versus16 confounds an amplitude-only comparison",
+      "amplitude_records": [
+        {
+          "factor": 0.5,
+          "scale": 0.04958949969616727,
+          "CHECK_banks": 8,
+          "energy_means": {
+            "fast": {
+              "data": 0.0005810936927354293,
+              "wave": 0.0003634402638553469
+            },
+            "slow": {
+              "data": 0.0002415660636971356,
+              "wave": 0.00019571038929889172
+            },
+            "common_level": {
+              "data": 4.686892295676856e-06,
+              "wave": 9.015337991776298e-05
+            }
+          },
+          "native_wave_relative_delta_percent": {
+            "fast": 0.26216950265653244,
+            "slow": 0.3374962611336511,
+            "common_level": 0.2773768985396407
+          },
+          "all_native_checks_passed": false
+        },
+        {
+          "factor": 0.25,
+          "scale": 0.024794749848083636,
+          "CHECK_banks": 16,
+          "energy_means": {
+            "fast": {
+              "data": 0.00023382374049951866,
+              "wave": 0.000146668626554965
+            },
+            "slow": {
+              "data": -0.00016991917781669598,
+              "wave": -3.45122946973633e-05
+            },
+            "common_level": {
+              "data": 9.15051161363878e-05,
+              "wave": 0.00010700829887662746
+            }
+          },
+          "native_wave_relative_delta_percent": {
+            "fast": 0.08014383407130933,
+            "slow": -0.028800019379768588,
+            "common_level": 0.1365358160044623
+          },
+          "all_native_checks_passed": true
+        },
+        {
+          "factor": 0.125,
+          "scale": 0.012397374924041818,
+          "CHECK_banks": 16,
+          "energy_means": {
+            "fast": {
+              "data": 6.921491194650069e-06,
+              "wave": 5.227851553965155e-06
+            },
+            "slow": {
+              "data": -0.00013583107962561718,
+              "wave": -2.591810712034232e-05
+            },
+            "common_level": {
+              "data": 0.00010655852799341297,
+              "wave": 6.898331653264872e-05
+            }
+          },
+          "native_wave_relative_delta_percent": {
+            "fast": 0.016683329226613697,
+            "slow": -0.07131979965713206,
+            "common_level": 0.1041968365603456
+          },
+          "all_native_checks_passed": true
+        }
+      ]
+    }
+  ],
+  "per_amplitude_evidence": [
+    {
+      "direction": "REAL_seed0/mean/1",
+      "factor": 1.0,
+      "parameter_scale": 0.12253109499216175,
+      "active_RMS_V": 6.115643337947033e-05,
+      "radius_LSB": 1.0,
+      "source": "receipts\\response038_20261017\\resume_20261018_01\\wake_20261018_0110_01\\repair_01\\preserved_failed_attempt\\run_01\\REAL_seed0\\metrics.jsonl:1",
+      "attempt_index": 0,
+      "TR_checks": {
+        "RMS": false,
+        "event99": true,
+        "eventmax": true,
+        "coordinate": true,
+        "relative99": true,
+        "relativeMax": true,
+        "tail": true
+      },
+      "no_domain_rejection": true,
+      "primary_stage": "TR_only_not_hard_evaluated",
+      "RMS_radius_overshoot_percent": 0.1925848055862378,
+      "failed_TR_checks": [
+        "RMS"
+      ],
+      "hard_energy": null,
+      "native": null
+    },
+    {
+      "direction": "REAL_seed0/mean/1",
+      "factor": 0.5,
+      "parameter_scale": 0.061265547496080874,
+      "active_RMS_V": 3.058232648295781e-05,
+      "radius_LSB": 1.0,
+      "source": "receipts\\response038_20261017\\resume_20261018_01\\wake_20261018_0110_01\\repair_01\\preserved_failed_attempt\\run_01\\REAL_seed0\\metrics.jsonl:1",
+      "attempt_index": 1,
+      "TR_checks": {
+        "RMS": true,
+        "event99": true,
+        "eventmax": true,
+        "coordinate": true,
+        "relative99": true,
+        "relativeMax": true,
+        "tail": true
+      },
+      "no_domain_rejection": true,
+      "primary_stage": "hard_CHECK_after_full_TR_pass",
+      "CHECK_banks": 8,
+      "full_CHECK_TR": {
+        "passed": true,
+        "checks": {
+          "RMS": true,
+          "event99": true,
+          "eventmax": true,
+          "coordinate": true,
+          "relative99": true,
+          "relativeMax": true,
+          "tail": true
+        },
+        "radius_LSB": 1.0
+      },
+      "accepted": false,
+      "registered_unresolved": false,
+      "energy_class": "unresolved_under_registered_3MCSE_rule",
+      "hard_energy": {
+        "fast": {
+          "data": {
+            "mean": -0.00010691727567997515,
+            "MCSE": 0.00012054822722371434,
+            "banks": 8,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 0.0002547274059911679,
+            "lower3MCSE": -0.0004685619573511182,
+            "allowance": 0.0,
+            "passed": false
+          },
+          "wave": {
+            "mean": -3.314877409905806e-05,
+            "MCSE": 8.734157640678213e-05,
+            "banks": 8,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 0.00022887595512128834,
+            "lower3MCSE": -0.00029517350331940447,
+            "allowance": 0.0,
+            "passed": false
+          }
+        },
+        "slow": {
+          "data": {
+            "mean": 1.728520615831841e-05,
+            "MCSE": 0.00011691057207127802,
+            "banks": 8,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 0.0003680169223721525,
+            "lower3MCSE": -0.00033344651005551566,
+            "allowance": 0.0,
+            "passed": false
+          },
+          "wave": {
+            "mean": 5.176392394551366e-05,
+            "MCSE": 6.601279258920902e-05,
+            "banks": 8,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 0.0002498023017131407,
+            "lower3MCSE": -0.0001462744538221134,
+            "allowance": 0.0,
+            "passed": false
+          }
+        },
+        "common_level": {
+          "data": {
+            "mean": 3.688840484243963e-05,
+            "MCSE": 7.238622059823382e-05,
+            "banks": 8,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 0.0002540470666371411,
+            "lower3MCSE": -0.00018027025695226183,
+            "allowance": 0.0,
+            "passed": false
+          },
+          "wave": {
+            "mean": 9.475718371389653e-05,
+            "MCSE": 4.510234968794363e-05,
+            "banks": 8,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 0.00023006423277772742,
+            "lower3MCSE": -4.054986534993436e-05,
+            "allowance": 0.0,
+            "passed": false
+          }
+        }
+      },
+      "native": {
+        "fast": {
+          "failed_checks": [
+            "PSD_raw_current",
+            "PSD_guarded_current"
+          ],
+          "fake_rows": 1024,
+          "target_rows": 2048,
+          "wave_current": 0.1702829029134753,
+          "wave_candidate": 0.16988336196771817,
+          "wave_delta": -0.00039954094575714305,
+          "wave_relative_delta_percent": -0.234633623764424,
+          "native_wave_current_allowance_percent": 0.2,
+          "PSD_raw_current": 0.005633331447654547,
+          "PSD_raw_candidate": 0.005678050936964262,
+          "PSD_raw_delta": 4.471948930971463e-05,
+          "rise_undefined_metric_current": 0.00927734375,
+          "rise_undefined_metric_candidate": 0.00927734375,
+          "rise_undefined_metric_meaning": "absolute fake-target rate difference, not the raw fake rate",
+          "rise_undefined_fake_current": {
+            "count": 16,
+            "denominator": 1024
+          },
+          "rise_undefined_fake_candidate": {
+            "count": 16,
+            "denominator": 1024
+          },
+          "Boolean_extra_rate_allowance": 0.001,
+          "Boolean_rise_checks": {
+            "fake_flags:rise_undefined:current": true,
+            "fake_flags:rise_undefined:starting_M0": true,
+            "fake_flags:rise_prepeak_censored:current": true,
+            "fake_flags:rise_prepeak_censored:starting_M0": true,
+            "fake_flags:rise_other_undefined:current": true,
+            "fake_flags:rise_other_undefined:starting_M0": true
+          }
+        },
+        "slow": {
+          "failed_checks": [
+            "rise_undefined_rate_current",
+            "rise_undefined_rate_starting_M0",
+            "rise_prepeak_censored_rate_current",
+            "rise_prepeak_censored_rate_starting_M0"
+          ],
+          "fake_rows": 1024,
+          "target_rows": 2048,
+          "wave_current": 0.16877715771819782,
+          "wave_candidate": 0.16882186676174832,
+          "wave_delta": 4.470904355050043e-05,
+          "wave_relative_delta_percent": 0.02648998487410825,
+          "native_wave_current_allowance_percent": 0.2,
+          "PSD_raw_current": 0.006905166525364781,
+          "PSD_raw_candidate": 0.006907373303425129,
+          "PSD_raw_delta": 2.2067780603481774e-06,
+          "rise_undefined_metric_current": 0.01123046875,
+          "rise_undefined_metric_candidate": 0.01220703125,
+          "rise_undefined_metric_meaning": "absolute fake-target rate difference, not the raw fake rate",
+          "rise_undefined_fake_current": {
+            "count": 18,
+            "denominator": 1024
+          },
+          "rise_undefined_fake_candidate": {
+            "count": 19,
+            "denominator": 1024
+          },
+          "Boolean_extra_rate_allowance": 0.001,
+          "Boolean_rise_checks": {
+            "fake_flags:rise_undefined:current": true,
+            "fake_flags:rise_undefined:starting_M0": true,
+            "fake_flags:rise_prepeak_censored:current": true,
+            "fake_flags:rise_prepeak_censored:starting_M0": true,
+            "fake_flags:rise_other_undefined:current": true,
+            "fake_flags:rise_other_undefined:starting_M0": true
+          }
+        },
+        "common_level": {
+          "failed_checks": [],
+          "fake_rows": 1024,
+          "target_rows": 2048,
+          "wave_current": 0.167412920727917,
+          "wave_candidate": 0.1673577224348971,
+          "wave_delta": -5.519829301989243e-05,
+          "wave_relative_delta_percent": -0.03297134580765236,
+          "native_wave_current_allowance_percent": 0.2,
+          "PSD_raw_current": 0.0057320369169531465,
+          "PSD_raw_candidate": 0.005724956882713983,
+          "PSD_raw_delta": -7.080034239163174e-06,
+          "rise_undefined_metric_current": 0.01025390625,
+          "rise_undefined_metric_candidate": 0.01025390625,
+          "rise_undefined_metric_meaning": "absolute fake-target rate difference, not the raw fake rate",
+          "rise_undefined_fake_current": {
+            "count": 17,
+            "denominator": 1024
+          },
+          "rise_undefined_fake_candidate": {
+            "count": 17,
+            "denominator": 1024
+          },
+          "Boolean_extra_rate_allowance": 0.001,
+          "Boolean_rise_checks": {
+            "fake_flags:rise_undefined:current": true,
+            "fake_flags:rise_undefined:starting_M0": true,
+            "fake_flags:rise_prepeak_censored:current": true,
+            "fake_flags:rise_prepeak_censored:starting_M0": true,
+            "fake_flags:rise_other_undefined:current": true,
+            "fake_flags:rise_other_undefined:starting_M0": true
+          }
+        }
+      },
+      "point_mean_H_average": {
+        "data": -1.7581221559739037e-05,
+        "wave": 3.779077785345071e-05
+      }
+    },
+    {
+      "direction": "REAL_seed0/mean/1",
+      "factor": 0.25,
+      "parameter_scale": 0.030632773748040437,
+      "active_RMS_V": 1.5292190837453033e-05,
+      "radius_LSB": 1.0,
+      "source": "receipts\\response038_20261017\\resume_20261018_01\\wake_20261018_0110_01\\repair_01\\preserved_failed_attempt\\run_01\\REAL_seed0\\metrics.jsonl:1",
+      "attempt_index": 2,
+      "TR_checks": {
+        "RMS": true,
+        "event99": true,
+        "eventmax": true,
+        "coordinate": true,
+        "relative99": true,
+        "relativeMax": true,
+        "tail": true
+      },
+      "no_domain_rejection": true,
+      "primary_stage": "hard_CHECK_after_full_TR_pass",
+      "CHECK_banks": 8,
+      "full_CHECK_TR": {
+        "passed": true,
+        "checks": {
+          "RMS": true,
+          "event99": true,
+          "eventmax": true,
+          "coordinate": true,
+          "relative99": true,
+          "relativeMax": true,
+          "tail": true
+        },
+        "radius_LSB": 1.0
+      },
+      "accepted": false,
+      "registered_unresolved": false,
+      "energy_class": "unresolved_under_registered_3MCSE_rule",
+      "hard_energy": {
+        "fast": {
+          "data": {
+            "mean": -2.9423269918617614e-05,
+            "MCSE": 0.0001034195506876671,
+            "banks": 8,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 0.0002808353821443837,
+            "lower3MCSE": -0.0003396819219816189,
+            "allowance": 0.0,
+            "passed": false
+          },
+          "wave": {
+            "mean": 2.568756137407563e-06,
+            "MCSE": 7.87792251641054e-05,
+            "banks": 8,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 0.00023890643162972376,
+            "lower3MCSE": -0.00023376891935490864,
+            "allowance": 0.0,
+            "passed": false
+          }
+        },
+        "slow": {
+          "data": {
+            "mean": 7.857551870764628e-05,
+            "MCSE": 9.411205904072655e-05,
+            "banks": 8,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 0.00036091169582982594,
+            "lower3MCSE": -0.00020376065841453338,
+            "allowance": 0.0,
+            "passed": false
+          },
+          "wave": {
+            "mean": 7.674226563688215e-05,
+            "MCSE": 4.0567786780525014e-05,
+            "banks": 8,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 0.0001984456259784572,
+            "lower3MCSE": -4.496109470469289e-05,
+            "allowance": 0.0,
+            "passed": false
+          }
+        },
+        "common_level": {
+          "data": {
+            "mean": 0.00012509004760032517,
+            "MCSE": 0.00012534140329783036,
+            "banks": 8,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 0.0005011142574938162,
+            "lower3MCSE": -0.0002509341622931659,
+            "allowance": 0.0,
+            "passed": false
+          },
+          "wave": {
+            "mean": 0.00011373124754664654,
+            "MCSE": 5.968257928514758e-05,
+            "banks": 8,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 0.0002927789854020893,
+            "lower3MCSE": -6.531649030879622e-05,
+            "allowance": 0.0,
+            "passed": false
+          }
+        }
+      },
+      "native": {
+        "fast": {
+          "failed_checks": [],
+          "fake_rows": 1024,
+          "target_rows": 2048,
+          "wave_current": 0.1702829029134753,
+          "wave_candidate": 0.17019053813475962,
+          "wave_delta": -9.236477871568671e-05,
+          "wave_relative_delta_percent": -0.05424195684673017,
+          "native_wave_current_allowance_percent": 0.2,
+          "PSD_raw_current": 0.005633331447654547,
+          "PSD_raw_candidate": 0.005671031370239395,
+          "PSD_raw_delta": 3.769992258484747e-05,
+          "rise_undefined_metric_current": 0.00927734375,
+          "rise_undefined_metric_candidate": 0.00927734375,
+          "rise_undefined_metric_meaning": "absolute fake-target rate difference, not the raw fake rate",
+          "rise_undefined_fake_current": {
+            "count": 16,
+            "denominator": 1024
+          },
+          "rise_undefined_fake_candidate": {
+            "count": 16,
+            "denominator": 1024
+          },
+          "Boolean_extra_rate_allowance": 0.001,
+          "Boolean_rise_checks": {
+            "fake_flags:rise_undefined:current": true,
+            "fake_flags:rise_undefined:starting_M0": true,
+            "fake_flags:rise_prepeak_censored:current": true,
+            "fake_flags:rise_prepeak_censored:starting_M0": true,
+            "fake_flags:rise_other_undefined:current": true,
+            "fake_flags:rise_other_undefined:starting_M0": true
+          }
+        },
+        "slow": {
+          "failed_checks": [
+            "rise_undefined_rate_current",
+            "rise_undefined_rate_starting_M0",
+            "rise_prepeak_censored_rate_current",
+            "rise_prepeak_censored_rate_starting_M0"
+          ],
+          "fake_rows": 1024,
+          "target_rows": 2048,
+          "wave_current": 0.16877715771819782,
+          "wave_candidate": 0.16895208568788012,
+          "wave_delta": 0.00017492796968229807,
+          "wave_relative_delta_percent": 0.10364433910800304,
+          "native_wave_current_allowance_percent": 0.2,
+          "PSD_raw_current": 0.006905166525364781,
+          "PSD_raw_candidate": 0.006898176424712431,
+          "PSD_raw_delta": -6.990100652350291e-06,
+          "rise_undefined_metric_current": 0.01123046875,
+          "rise_undefined_metric_candidate": 0.01220703125,
+          "rise_undefined_metric_meaning": "absolute fake-target rate difference, not the raw fake rate",
+          "rise_undefined_fake_current": {
+            "count": 18,
+            "denominator": 1024
+          },
+          "rise_undefined_fake_candidate": {
+            "count": 19,
+            "denominator": 1024
+          },
+          "Boolean_extra_rate_allowance": 0.001,
+          "Boolean_rise_checks": {
+            "fake_flags:rise_undefined:current": true,
+            "fake_flags:rise_undefined:starting_M0": true,
+            "fake_flags:rise_prepeak_censored:current": true,
+            "fake_flags:rise_prepeak_censored:starting_M0": true,
+            "fake_flags:rise_other_undefined:current": true,
+            "fake_flags:rise_other_undefined:starting_M0": true
+          }
+        },
+        "common_level": {
+          "failed_checks": [],
+          "fake_rows": 1024,
+          "target_rows": 2048,
+          "wave_current": 0.167412920727917,
+          "wave_candidate": 0.1674694398075765,
+          "wave_delta": 5.651907965950609e-05,
+          "wave_relative_delta_percent": 0.03376028529563861,
+          "native_wave_current_allowance_percent": 0.2,
+          "PSD_raw_current": 0.0057320369169531465,
+          "PSD_raw_candidate": 0.00573675865456786,
+          "PSD_raw_delta": 4.721737614713298e-06,
+          "rise_undefined_metric_current": 0.01025390625,
+          "rise_undefined_metric_candidate": 0.01025390625,
+          "rise_undefined_metric_meaning": "absolute fake-target rate difference, not the raw fake rate",
+          "rise_undefined_fake_current": {
+            "count": 17,
+            "denominator": 1024
+          },
+          "rise_undefined_fake_candidate": {
+            "count": 17,
+            "denominator": 1024
+          },
+          "Boolean_extra_rate_allowance": 0.001,
+          "Boolean_rise_checks": {
+            "fake_flags:rise_undefined:current": true,
+            "fake_flags:rise_undefined:starting_M0": true,
+            "fake_flags:rise_prepeak_censored:current": true,
+            "fake_flags:rise_prepeak_censored:starting_M0": true,
+            "fake_flags:rise_other_undefined:current": true,
+            "fake_flags:rise_other_undefined:starting_M0": true
+          }
+        }
+      },
+      "point_mean_H_average": {
+        "data": 5.8080765463117946e-05,
+        "wave": 6.434742310697875e-05
+      }
+    },
+    {
+      "direction": "REAL_seed0/mean/1",
+      "factor": 0.125,
+      "parameter_scale": 0.015316386874020219,
+      "active_RMS_V": 7.646352336188909e-06,
+      "radius_LSB": 1.0,
+      "source": "receipts\\response038_20261017\\resume_20261018_01\\wake_20261018_0110_01\\repair_01\\preserved_failed_attempt\\run_01\\REAL_seed0\\metrics.jsonl:1",
+      "attempt_index": 3,
+      "TR_checks": {
+        "RMS": true,
+        "event99": true,
+        "eventmax": true,
+        "coordinate": true,
+        "relative99": true,
+        "relativeMax": true,
+        "tail": true
+      },
+      "no_domain_rejection": true,
+      "primary_stage": "hard_CHECK_after_full_TR_pass",
+      "CHECK_banks": 8,
+      "full_CHECK_TR": {
+        "passed": true,
+        "checks": {
+          "RMS": true,
+          "event99": true,
+          "eventmax": true,
+          "coordinate": true,
+          "relative99": true,
+          "relativeMax": true,
+          "tail": true
+        },
+        "radius_LSB": 1.0
+      },
+      "accepted": false,
+      "registered_unresolved": false,
+      "energy_class": "unresolved_under_registered_3MCSE_rule",
+      "hard_energy": {
+        "fast": {
+          "data": {
+            "mean": 3.268159463346975e-05,
+            "MCSE": 0.00015152683652443186,
+            "banks": 8,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 0.0004872621042067653,
+            "lower3MCSE": -0.0004218989149398258,
+            "allowance": 0.0,
+            "passed": false
+          },
+          "wave": {
+            "mean": -1.5736691069929715e-05,
+            "MCSE": 6.740196242253384e-05,
+            "banks": 8,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 0.0001864691961976718,
+            "lower3MCSE": -0.00021794257833753123,
+            "allowance": 0.0,
+            "passed": false
+          }
+        },
+        "slow": {
+          "data": {
+            "mean": 9.028928856466556e-05,
+            "MCSE": 8.730433679474828e-05,
+            "banks": 8,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 0.00035220229894891036,
+            "lower3MCSE": -0.00017162372181957924,
+            "allowance": 0.0,
+            "passed": false
+          },
+          "wave": {
+            "mean": 6.269563124103317e-05,
+            "MCSE": 3.869876488852923e-05,
+            "banks": 8,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 0.00017879192590662085,
+            "lower3MCSE": -5.340066342455452e-05,
+            "allowance": 0.0,
+            "passed": false
+          }
+        },
+        "common_level": {
+          "data": {
+            "mean": 3.7906513463614386e-06,
+            "MCSE": 6.5092859803649755e-06,
+            "banks": 8,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 2.3318509287456367e-05,
+            "lower3MCSE": -1.573720659473349e-05,
+            "allowance": 0.0,
+            "passed": false
+          },
+          "wave": {
+            "mean": 9.459036164385579e-06,
+            "MCSE": 6.9784270265705194e-06,
+            "banks": 8,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 3.0394317244097136e-05,
+            "lower3MCSE": -1.1476244915325979e-05,
+            "allowance": 0.0,
+            "passed": false
+          }
+        }
+      },
+      "native": {
+        "fast": {
+          "failed_checks": [],
+          "fake_rows": 1024,
+          "target_rows": 2048,
+          "wave_current": 0.1702829029134753,
+          "wave_candidate": 0.1700787266294985,
+          "wave_delta": -0.00020417628397681464,
+          "wave_relative_delta_percent": -0.11990415977378618,
+          "native_wave_current_allowance_percent": 0.2,
+          "PSD_raw_current": 0.005633331447654547,
+          "PSD_raw_candidate": 0.005634439989159735,
+          "PSD_raw_delta": 1.1085415051875769e-06,
+          "rise_undefined_metric_current": 0.00927734375,
+          "rise_undefined_metric_candidate": 0.00927734375,
+          "rise_undefined_metric_meaning": "absolute fake-target rate difference, not the raw fake rate",
+          "rise_undefined_fake_current": {
+            "count": 16,
+            "denominator": 1024
+          },
+          "rise_undefined_fake_candidate": {
+            "count": 16,
+            "denominator": 1024
+          },
+          "Boolean_extra_rate_allowance": 0.001,
+          "Boolean_rise_checks": {
+            "fake_flags:rise_undefined:current": true,
+            "fake_flags:rise_undefined:starting_M0": true,
+            "fake_flags:rise_prepeak_censored:current": true,
+            "fake_flags:rise_prepeak_censored:starting_M0": true,
+            "fake_flags:rise_other_undefined:current": true,
+            "fake_flags:rise_other_undefined:starting_M0": true
+          }
+        },
+        "slow": {
+          "failed_checks": [
+            "rise_undefined_rate_current",
+            "rise_undefined_rate_starting_M0",
+            "rise_prepeak_censored_rate_current",
+            "rise_prepeak_censored_rate_starting_M0"
+          ],
+          "fake_rows": 1024,
+          "target_rows": 2048,
+          "wave_current": 0.16877715771819782,
+          "wave_candidate": 0.1688539674259849,
+          "wave_delta": 7.680970778708995e-05,
+          "wave_relative_delta_percent": 0.04550953981304557,
+          "native_wave_current_allowance_percent": 0.2,
+          "PSD_raw_current": 0.006905166525364781,
+          "PSD_raw_candidate": 0.006900942952491712,
+          "PSD_raw_delta": -4.223572873068675e-06,
+          "rise_undefined_metric_current": 0.01123046875,
+          "rise_undefined_metric_candidate": 0.01220703125,
+          "rise_undefined_metric_meaning": "absolute fake-target rate difference, not the raw fake rate",
+          "rise_undefined_fake_current": {
+            "count": 18,
+            "denominator": 1024
+          },
+          "rise_undefined_fake_candidate": {
+            "count": 19,
+            "denominator": 1024
+          },
+          "Boolean_extra_rate_allowance": 0.001,
+          "Boolean_rise_checks": {
+            "fake_flags:rise_undefined:current": true,
+            "fake_flags:rise_undefined:starting_M0": true,
+            "fake_flags:rise_prepeak_censored:current": true,
+            "fake_flags:rise_prepeak_censored:starting_M0": true,
+            "fake_flags:rise_other_undefined:current": true,
+            "fake_flags:rise_other_undefined:starting_M0": true
+          }
+        },
+        "common_level": {
+          "failed_checks": [],
+          "fake_rows": 1024,
+          "target_rows": 2048,
+          "wave_current": 0.167412920727917,
+          "wave_candidate": 0.16734100668642748,
+          "wave_delta": -7.191404148951253e-05,
+          "wave_relative_delta_percent": -0.04295608796312009,
+          "native_wave_current_allowance_percent": 0.2,
+          "PSD_raw_current": 0.0057320369169531465,
+          "PSD_raw_candidate": 0.005732338366447908,
+          "PSD_raw_delta": 3.0144949476115096e-07,
+          "rise_undefined_metric_current": 0.01025390625,
+          "rise_undefined_metric_candidate": 0.01025390625,
+          "rise_undefined_metric_meaning": "absolute fake-target rate difference, not the raw fake rate",
+          "rise_undefined_fake_current": {
+            "count": 17,
+            "denominator": 1024
+          },
+          "rise_undefined_fake_candidate": {
+            "count": 17,
+            "denominator": 1024
+          },
+          "Boolean_extra_rate_allowance": 0.001,
+          "Boolean_rise_checks": {
+            "fake_flags:rise_undefined:current": true,
+            "fake_flags:rise_undefined:starting_M0": true,
+            "fake_flags:rise_prepeak_censored:current": true,
+            "fake_flags:rise_prepeak_censored:starting_M0": true,
+            "fake_flags:rise_other_undefined:current": true,
+            "fake_flags:rise_other_undefined:starting_M0": true
+          }
+        }
+      },
+      "point_mean_H_average": {
+        "data": 4.2253844848165585e-05,
+        "wave": 1.8805992111829678e-05
+      }
+    },
+    {
+      "direction": "REAL_seed0/mean/2",
+      "factor": 1.0,
+      "parameter_scale": 0.06152625479570815,
+      "active_RMS_V": 3.0585001616182034e-05,
+      "radius_LSB": 0.5,
+      "source": "receipts\\response038_20261017\\resume_20261018_01\\wake_20261018_0110_01\\repair_01\\preserved_failed_attempt\\run_01\\REAL_seed0\\metrics.jsonl:2",
+      "attempt_index": 0,
+      "TR_checks": {
+        "RMS": false,
+        "event99": true,
+        "eventmax": true,
+        "coordinate": true,
+        "relative99": true,
+        "relativeMax": true,
+        "tail": true
+      },
+      "no_domain_rejection": true,
+      "primary_stage": "TR_only_not_hard_evaluated",
+      "RMS_radius_overshoot_percent": 0.2148162955820654,
+      "failed_TR_checks": [
+        "RMS"
+      ],
+      "hard_energy": null,
+      "native": null
+    },
+    {
+      "direction": "REAL_seed0/mean/2",
+      "factor": 0.5,
+      "parameter_scale": 0.030763127397854074,
+      "active_RMS_V": 1.5293576656217996e-05,
+      "radius_LSB": 0.5,
+      "source": "receipts\\response038_20261017\\resume_20261018_01\\wake_20261018_0110_01\\repair_01\\preserved_failed_attempt\\run_01\\REAL_seed0\\metrics.jsonl:2",
+      "attempt_index": 1,
+      "TR_checks": {
+        "RMS": true,
+        "event99": true,
+        "eventmax": true,
+        "coordinate": true,
+        "relative99": true,
+        "relativeMax": true,
+        "tail": true
+      },
+      "no_domain_rejection": true,
+      "primary_stage": "hard_CHECK_after_full_TR_pass",
+      "CHECK_banks": 8,
+      "full_CHECK_TR": {
+        "passed": true,
+        "checks": {
+          "RMS": true,
+          "event99": true,
+          "eventmax": true,
+          "coordinate": true,
+          "relative99": true,
+          "relativeMax": true,
+          "tail": true
+        },
+        "radius_LSB": 0.5
+      },
+      "accepted": false,
+      "registered_unresolved": false,
+      "energy_class": "unresolved_under_registered_3MCSE_rule",
+      "hard_energy": {
+        "fast": {
+          "data": {
+            "mean": 5.4257931954872045e-05,
+            "MCSE": 5.0170065366636646e-05,
+            "banks": 8,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 0.00020476812805478198,
+            "lower3MCSE": -9.625226414503789e-05,
+            "allowance": 0.0,
+            "passed": false
+          },
+          "wave": {
+            "mean": 6.201481052927607e-05,
+            "MCSE": 4.370284439756682e-05,
+            "banks": 8,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 0.00019312334372197651,
+            "lower3MCSE": -6.909372266342438e-05,
+            "allowance": 0.0,
+            "passed": false
+          }
+        },
+        "slow": {
+          "data": {
+            "mean": -4.225291433289369e-05,
+            "MCSE": 0.000123494841164531,
+            "banks": 8,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 0.0003282316091606993,
+            "lower3MCSE": -0.0004127374378264867,
+            "allowance": 0.0,
+            "passed": false
+          },
+          "wave": {
+            "mean": 5.619578457301223e-05,
+            "MCSE": 4.361381634845243e-05,
+            "banks": 8,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 0.00018703723361836953,
+            "lower3MCSE": -7.464566447234507e-05,
+            "allowance": 0.0,
+            "passed": false
+          }
+        },
+        "common_level": {
+          "data": {
+            "mean": 0.0003240321812975448,
+            "MCSE": 0.00025012952941494193,
+            "banks": 8,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 0.0010744207695423706,
+            "lower3MCSE": -0.0004263564069472809,
+            "allowance": 0.0,
+            "passed": false
+          },
+          "wave": {
+            "mean": 0.00024362942427478586,
+            "MCSE": 0.00015575926692928474,
+            "banks": 8,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 0.0007109072250626401,
+            "lower3MCSE": -0.00022364837651306835,
+            "allowance": 0.0,
+            "passed": false
+          }
+        }
+      },
+      "native": {
+        "fast": {
+          "failed_checks": [],
+          "fake_rows": 1024,
+          "target_rows": 2048,
+          "wave_current": 0.165398781400532,
+          "wave_candidate": 0.16528055812959977,
+          "wave_delta": -0.00011822327093222174,
+          "wave_relative_delta_percent": -0.07147771581577171,
+          "native_wave_current_allowance_percent": 0.2,
+          "PSD_raw_current": 0.0038868464545684994,
+          "PSD_raw_candidate": 0.00388334944483693,
+          "PSD_raw_delta": -3.497009731569592e-06,
+          "rise_undefined_metric_current": 0.00390625,
+          "rise_undefined_metric_candidate": 0.00390625,
+          "rise_undefined_metric_meaning": "absolute fake-target rate difference, not the raw fake rate",
+          "rise_undefined_fake_current": {
+            "count": 7,
+            "denominator": 1024
+          },
+          "rise_undefined_fake_candidate": {
+            "count": 7,
+            "denominator": 1024
+          },
+          "Boolean_extra_rate_allowance": 0.001,
+          "Boolean_rise_checks": {
+            "fake_flags:rise_undefined:current": true,
+            "fake_flags:rise_undefined:starting_M0": true,
+            "fake_flags:rise_prepeak_censored:current": true,
+            "fake_flags:rise_prepeak_censored:starting_M0": true,
+            "fake_flags:rise_other_undefined:current": true,
+            "fake_flags:rise_other_undefined:starting_M0": true
+          }
+        },
+        "slow": {
+          "failed_checks": [],
+          "fake_rows": 1024,
+          "target_rows": 2048,
+          "wave_current": 0.16576397559516848,
+          "wave_candidate": 0.16578582037930298,
+          "wave_delta": 2.1844784134500417e-05,
+          "wave_relative_delta_percent": 0.013178245789573792,
+          "native_wave_current_allowance_percent": 0.2,
+          "PSD_raw_current": 0.00479117426359728,
+          "PSD_raw_candidate": 0.004799163598829465,
+          "PSD_raw_delta": 7.989335232184806e-06,
+          "rise_undefined_metric_current": 0.0048828125,
+          "rise_undefined_metric_candidate": 0.0048828125,
+          "rise_undefined_metric_meaning": "absolute fake-target rate difference, not the raw fake rate",
+          "rise_undefined_fake_current": {
+            "count": 8,
+            "denominator": 1024
+          },
+          "rise_undefined_fake_candidate": {
+            "count": 8,
+            "denominator": 1024
+          },
+          "Boolean_extra_rate_allowance": 0.001,
+          "Boolean_rise_checks": {
+            "fake_flags:rise_undefined:current": true,
+            "fake_flags:rise_undefined:starting_M0": true,
+            "fake_flags:rise_prepeak_censored:current": true,
+            "fake_flags:rise_prepeak_censored:starting_M0": true,
+            "fake_flags:rise_other_undefined:current": true,
+            "fake_flags:rise_other_undefined:starting_M0": true
+          }
+        },
+        "common_level": {
+          "failed_checks": [
+            "wave_current",
+            "PSD_raw_current",
+            "PSD_guarded_current"
+          ],
+          "fake_rows": 1024,
+          "target_rows": 2048,
+          "wave_current": 0.16377312670743022,
+          "wave_candidate": 0.1641973939215573,
+          "wave_delta": 0.0004242672141270831,
+          "wave_relative_delta_percent": 0.2590578946966118,
+          "native_wave_current_allowance_percent": 0.2,
+          "PSD_raw_current": 0.0036046208068807465,
+          "PSD_raw_candidate": 0.003654582374330107,
+          "PSD_raw_delta": 4.9961567449360346e-05,
+          "rise_undefined_metric_current": 0.0048828125,
+          "rise_undefined_metric_candidate": 0.0048828125,
+          "rise_undefined_metric_meaning": "absolute fake-target rate difference, not the raw fake rate",
+          "rise_undefined_fake_current": {
+            "count": 8,
+            "denominator": 1024
+          },
+          "rise_undefined_fake_candidate": {
+            "count": 8,
+            "denominator": 1024
+          },
+          "Boolean_extra_rate_allowance": 0.001,
+          "Boolean_rise_checks": {
+            "fake_flags:rise_undefined:current": true,
+            "fake_flags:rise_undefined:starting_M0": true,
+            "fake_flags:rise_prepeak_censored:current": true,
+            "fake_flags:rise_prepeak_censored:starting_M0": true,
+            "fake_flags:rise_other_undefined:current": true,
+            "fake_flags:rise_other_undefined:starting_M0": true
+          }
+        }
+      },
+      "point_mean_H_average": {
+        "data": 0.00011201239963984106,
+        "wave": 0.00012061333979235805
+      }
+    },
+    {
+      "direction": "REAL_seed0/mean/2",
+      "factor": 0.25,
+      "parameter_scale": 0.015381563698927037,
+      "active_RMS_V": 7.64705730550316e-06,
+      "radius_LSB": 0.5,
+      "source": "receipts\\response038_20261017\\resume_20261018_01\\wake_20261018_0110_01\\repair_01\\preserved_failed_attempt\\run_01\\REAL_seed0\\metrics.jsonl:2",
+      "attempt_index": 2,
+      "TR_checks": {
+        "RMS": true,
+        "event99": true,
+        "eventmax": true,
+        "coordinate": true,
+        "relative99": true,
+        "relativeMax": true,
+        "tail": true
+      },
+      "no_domain_rejection": true,
+      "primary_stage": "hard_CHECK_after_full_TR_pass",
+      "CHECK_banks": 16,
+      "full_CHECK_TR": {
+        "passed": true,
+        "checks": {
+          "RMS": true,
+          "event99": true,
+          "eventmax": true,
+          "coordinate": true,
+          "relative99": true,
+          "relativeMax": true,
+          "tail": true
+        },
+        "radius_LSB": 0.5
+      },
+      "accepted": false,
+      "registered_unresolved": false,
+      "energy_class": "unresolved_under_registered_3MCSE_rule",
+      "hard_energy": {
+        "fast": {
+          "data": {
+            "mean": -6.430455983976119e-05,
+            "MCSE": 8.031960060999804e-05,
+            "banks": 16,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 0.00017665424199023294,
+            "lower3MCSE": -0.0003052633616697553,
+            "allowance": 0.0,
+            "passed": false
+          },
+          "wave": {
+            "mean": -4.540334304397025e-05,
+            "MCSE": 5.659027923828054e-05,
+            "banks": 16,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 0.0001243674946708714,
+            "lower3MCSE": -0.0002151741807588119,
+            "allowance": 0.0,
+            "passed": false
+          }
+        },
+        "slow": {
+          "data": {
+            "mean": -7.260281608277748e-06,
+            "MCSE": 5.923920410822976e-05,
+            "banks": 16,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 0.00017045733071641153,
+            "lower3MCSE": -0.00018497789393296703,
+            "allowance": 0.0,
+            "passed": false
+          },
+          "wave": {
+            "mean": 2.2946344375616165e-05,
+            "MCSE": 2.3293216171748168e-05,
+            "banks": 16,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 9.282599289086067e-05,
+            "lower3MCSE": -4.693330413962834e-05,
+            "allowance": 0.0,
+            "passed": false
+          }
+        },
+        "common_level": {
+          "data": {
+            "mean": 1.4244925102540641e-05,
+            "MCSE": 7.068597123598337e-05,
+            "banks": 16,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 0.00022630283881049074,
+            "lower3MCSE": -0.00019781298860540946,
+            "allowance": 0.0,
+            "passed": false
+          },
+          "wave": {
+            "mean": 1.689538638281079e-05,
+            "MCSE": 2.735601420824136e-05,
+            "banks": 16,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 9.896342900753488e-05,
+            "lower3MCSE": -6.51726562419133e-05,
+            "allowance": 0.0,
+            "passed": false
+          }
+        }
+      },
+      "native": {
+        "fast": {
+          "failed_checks": [],
+          "fake_rows": 2048,
+          "target_rows": 4096,
+          "wave_current": 0.15801356541805858,
+          "wave_candidate": 0.15797336714861857,
+          "wave_delta": -4.019826944001714e-05,
+          "wave_relative_delta_percent": -0.02543975850026803,
+          "native_wave_current_allowance_percent": 0.2,
+          "PSD_raw_current": 0.0031451141470705325,
+          "PSD_raw_candidate": 0.0031491705366179542,
+          "PSD_raw_delta": 4.056389547421775e-06,
+          "rise_undefined_metric_current": 0.005615234375,
+          "rise_undefined_metric_candidate": 0.005615234375,
+          "rise_undefined_metric_meaning": "absolute fake-target rate difference, not the raw fake rate",
+          "rise_undefined_fake_current": {
+            "count": 21,
+            "denominator": 2048
+          },
+          "rise_undefined_fake_candidate": {
+            "count": 21,
+            "denominator": 2048
+          },
+          "Boolean_extra_rate_allowance": 0.001,
+          "Boolean_rise_checks": {
+            "fake_flags:rise_undefined:current": true,
+            "fake_flags:rise_undefined:starting_M0": true,
+            "fake_flags:rise_prepeak_censored:current": true,
+            "fake_flags:rise_prepeak_censored:starting_M0": true,
+            "fake_flags:rise_other_undefined:current": true,
+            "fake_flags:rise_other_undefined:starting_M0": true
+          }
+        },
+        "slow": {
+          "failed_checks": [],
+          "fake_rows": 2048,
+          "target_rows": 4096,
+          "wave_current": 0.15859676327492114,
+          "wave_candidate": 0.15862908972462117,
+          "wave_delta": 3.2326449700026405e-05,
+          "wave_relative_delta_percent": 0.02038279283417014,
+          "native_wave_current_allowance_percent": 0.2,
+          "PSD_raw_current": 0.003920542179524202,
+          "PSD_raw_candidate": 0.003917794925385574,
+          "PSD_raw_delta": -2.7472541386276694e-06,
+          "rise_undefined_metric_current": 0.006103515625,
+          "rise_undefined_metric_candidate": 0.006103515625,
+          "rise_undefined_metric_meaning": "absolute fake-target rate difference, not the raw fake rate",
+          "rise_undefined_fake_current": {
+            "count": 22,
+            "denominator": 2048
+          },
+          "rise_undefined_fake_candidate": {
+            "count": 22,
+            "denominator": 2048
+          },
+          "Boolean_extra_rate_allowance": 0.001,
+          "Boolean_rise_checks": {
+            "fake_flags:rise_undefined:current": true,
+            "fake_flags:rise_undefined:starting_M0": true,
+            "fake_flags:rise_prepeak_censored:current": true,
+            "fake_flags:rise_prepeak_censored:starting_M0": true,
+            "fake_flags:rise_other_undefined:current": true,
+            "fake_flags:rise_other_undefined:starting_M0": true
+          }
+        },
+        "common_level": {
+          "failed_checks": [
+            "rise_undefined_rate_current",
+            "rise_undefined_rate_starting_M0",
+            "rise_prepeak_censored_rate_current",
+            "rise_prepeak_censored_rate_starting_M0"
+          ],
+          "fake_rows": 2048,
+          "target_rows": 4096,
+          "wave_current": 0.15699468777285927,
+          "wave_candidate": 0.1569659750840252,
+          "wave_delta": -2.871268883405942e-05,
+          "wave_relative_delta_percent": -0.018288955659188345,
+          "native_wave_current_allowance_percent": 0.2,
+          "PSD_raw_current": 0.0028294241059188584,
+          "PSD_raw_candidate": 0.0028274061909180945,
+          "PSD_raw_delta": -2.01791500076395e-06,
+          "rise_undefined_metric_current": 0.006103515625,
+          "rise_undefined_metric_candidate": 0.006591796875,
+          "rise_undefined_metric_meaning": "absolute fake-target rate difference, not the raw fake rate",
+          "rise_undefined_fake_current": {
+            "count": 22,
+            "denominator": 2048
+          },
+          "rise_undefined_fake_candidate": {
+            "count": 23,
+            "denominator": 2048
+          },
+          "Boolean_extra_rate_allowance": 0.001,
+          "Boolean_rise_checks": {
+            "fake_flags:rise_undefined:current": true,
+            "fake_flags:rise_undefined:starting_M0": true,
+            "fake_flags:rise_prepeak_censored:current": true,
+            "fake_flags:rise_prepeak_censored:starting_M0": true,
+            "fake_flags:rise_other_undefined:current": true,
+            "fake_flags:rise_other_undefined:starting_M0": true
+          }
+        }
+      },
+      "point_mean_H_average": {
+        "data": -1.9106638781832767e-05,
+        "wave": -1.8538707618477649e-06
+      }
+    },
+    {
+      "direction": "REAL_seed0/mean/2",
+      "factor": 0.125,
+      "parameter_scale": 0.0076907818494635185,
+      "active_RMS_V": 3.823595899019408e-06,
+      "radius_LSB": 0.5,
+      "source": "receipts\\response038_20261017\\resume_20261018_01\\wake_20261018_0110_01\\repair_01\\preserved_failed_attempt\\run_01\\REAL_seed0\\metrics.jsonl:2",
+      "attempt_index": 3,
+      "TR_checks": {
+        "RMS": true,
+        "event99": true,
+        "eventmax": true,
+        "coordinate": true,
+        "relative99": true,
+        "relativeMax": true,
+        "tail": true
+      },
+      "no_domain_rejection": true,
+      "primary_stage": "hard_CHECK_after_full_TR_pass",
+      "CHECK_banks": 16,
+      "full_CHECK_TR": {
+        "passed": true,
+        "checks": {
+          "RMS": true,
+          "event99": true,
+          "eventmax": true,
+          "coordinate": true,
+          "relative99": true,
+          "relativeMax": true,
+          "tail": true
+        },
+        "radius_LSB": 0.5
+      },
+      "accepted": false,
+      "registered_unresolved": false,
+      "energy_class": "unresolved_under_registered_3MCSE_rule",
+      "hard_energy": {
+        "fast": {
+          "data": {
+            "mean": 6.037828004107522e-06,
+            "MCSE": 4.679054274838753e-06,
+            "banks": 16,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 2.007499082862378e-05,
+            "lower3MCSE": -7.999334820408736e-06,
+            "allowance": 0.0,
+            "passed": false
+          },
+          "wave": {
+            "mean": 8.861438259175243e-06,
+            "MCSE": 4.553312114956798e-06,
+            "banks": 16,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 2.2521374604045635e-05,
+            "lower3MCSE": -4.798498085695151e-06,
+            "allowance": 0.0,
+            "passed": false
+          }
+        },
+        "slow": {
+          "data": {
+            "mean": 3.317743696637336e-06,
+            "MCSE": 4.867966307128005e-05,
+            "banks": 16,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 0.0001493567329104775,
+            "lower3MCSE": -0.00014272124551720282,
+            "allowance": 0.0,
+            "passed": false
+          },
+          "wave": {
+            "mean": 1.5571790211985938e-05,
+            "MCSE": 2.0808165712691214e-05,
+            "banks": 16,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 7.799628735005958e-05,
+            "lower3MCSE": -4.68527069260877e-05,
+            "allowance": 0.0,
+            "passed": false
+          }
+        },
+        "common_level": {
+          "data": {
+            "mean": -4.182698576552955e-05,
+            "MCSE": 8.784970529581629e-05,
+            "banks": 16,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 0.0002217221301219193,
+            "lower3MCSE": -0.0003053761016529784,
+            "allowance": 0.0,
+            "passed": false
+          },
+          "wave": {
+            "mean": -3.454532609246637e-05,
+            "MCSE": 3.673139959710873e-05,
+            "banks": 16,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 7.564887269885981e-05,
+            "lower3MCSE": -0.00014473952488379256,
+            "allowance": 0.0,
+            "passed": false
+          }
+        }
+      },
+      "native": {
+        "fast": {
+          "failed_checks": [],
+          "fake_rows": 2048,
+          "target_rows": 4096,
+          "wave_current": 0.15801356541805858,
+          "wave_candidate": 0.158002286383681,
+          "wave_delta": -1.1279034377587038e-05,
+          "wave_relative_delta_percent": -0.007138016503675459,
+          "native_wave_current_allowance_percent": 0.2,
+          "PSD_raw_current": 0.0031451141470705325,
+          "PSD_raw_candidate": 0.0031457134282851487,
+          "PSD_raw_delta": 5.992812146162624e-07,
+          "rise_undefined_metric_current": 0.005615234375,
+          "rise_undefined_metric_candidate": 0.005615234375,
+          "rise_undefined_metric_meaning": "absolute fake-target rate difference, not the raw fake rate",
+          "rise_undefined_fake_current": {
+            "count": 21,
+            "denominator": 2048
+          },
+          "rise_undefined_fake_candidate": {
+            "count": 21,
+            "denominator": 2048
+          },
+          "Boolean_extra_rate_allowance": 0.001,
+          "Boolean_rise_checks": {
+            "fake_flags:rise_undefined:current": true,
+            "fake_flags:rise_undefined:starting_M0": true,
+            "fake_flags:rise_prepeak_censored:current": true,
+            "fake_flags:rise_prepeak_censored:starting_M0": true,
+            "fake_flags:rise_other_undefined:current": true,
+            "fake_flags:rise_other_undefined:starting_M0": true
+          }
+        },
+        "slow": {
+          "failed_checks": [],
+          "fake_rows": 2048,
+          "target_rows": 4096,
+          "wave_current": 0.15859676327492114,
+          "wave_candidate": 0.15858869277099577,
+          "wave_delta": -8.070503925372563e-06,
+          "wave_relative_delta_percent": -0.005088693967469353,
+          "native_wave_current_allowance_percent": 0.2,
+          "PSD_raw_current": 0.003920542179524202,
+          "PSD_raw_candidate": 0.003920992419427764,
+          "PSD_raw_delta": 4.5023990356222315e-07,
+          "rise_undefined_metric_current": 0.006103515625,
+          "rise_undefined_metric_candidate": 0.006103515625,
+          "rise_undefined_metric_meaning": "absolute fake-target rate difference, not the raw fake rate",
+          "rise_undefined_fake_current": {
+            "count": 22,
+            "denominator": 2048
+          },
+          "rise_undefined_fake_candidate": {
+            "count": 22,
+            "denominator": 2048
+          },
+          "Boolean_extra_rate_allowance": 0.001,
+          "Boolean_rise_checks": {
+            "fake_flags:rise_undefined:current": true,
+            "fake_flags:rise_undefined:starting_M0": true,
+            "fake_flags:rise_prepeak_censored:current": true,
+            "fake_flags:rise_prepeak_censored:starting_M0": true,
+            "fake_flags:rise_other_undefined:current": true,
+            "fake_flags:rise_other_undefined:starting_M0": true
+          }
+        },
+        "common_level": {
+          "failed_checks": [
+            "rise_undefined_rate_current",
+            "rise_undefined_rate_starting_M0",
+            "rise_prepeak_censored_rate_current",
+            "rise_prepeak_censored_rate_starting_M0"
+          ],
+          "fake_rows": 2048,
+          "target_rows": 4096,
+          "wave_current": 0.15699468777285927,
+          "wave_candidate": 0.1569630007543537,
+          "wave_delta": -3.168701850556066e-05,
+          "wave_relative_delta_percent": -0.020183497260369474,
+          "native_wave_current_allowance_percent": 0.2,
+          "PSD_raw_current": 0.0028294241059188584,
+          "PSD_raw_candidate": 0.0028277887094819458,
+          "PSD_raw_delta": -1.6353964369126422e-06,
+          "rise_undefined_metric_current": 0.006103515625,
+          "rise_undefined_metric_candidate": 0.006591796875,
+          "rise_undefined_metric_meaning": "absolute fake-target rate difference, not the raw fake rate",
+          "rise_undefined_fake_current": {
+            "count": 22,
+            "denominator": 2048
+          },
+          "rise_undefined_fake_candidate": {
+            "count": 23,
+            "denominator": 2048
+          },
+          "Boolean_extra_rate_allowance": 0.001,
+          "Boolean_rise_checks": {
+            "fake_flags:rise_undefined:current": true,
+            "fake_flags:rise_undefined:starting_M0": true,
+            "fake_flags:rise_prepeak_censored:current": true,
+            "fake_flags:rise_prepeak_censored:starting_M0": true,
+            "fake_flags:rise_other_undefined:current": true,
+            "fake_flags:rise_other_undefined:starting_M0": true
+          }
+        }
+      },
+      "point_mean_H_average": {
+        "data": -1.0823804688261563e-05,
+        "wave": -3.3706992071017307e-06
+      }
+    },
+    {
+      "direction": "REAL_seed0/mean/3",
+      "factor": 1.0,
+      "parameter_scale": 0.029683971814457737,
+      "active_RMS_V": 1.5293745200092674e-05,
+      "radius_LSB": 0.25,
+      "source": "receipts\\response038_20261017\\resume_20261018_01\\wake_20261018_0110_01\\repair_01\\preserved_failed_attempt\\run_01\\REAL_seed0\\metrics.jsonl:3",
+      "attempt_index": 0,
+      "TR_checks": {
+        "RMS": false,
+        "event99": true,
+        "eventmax": true,
+        "coordinate": true,
+        "relative99": true,
+        "relativeMax": true,
+        "tail": true
+      },
+      "no_domain_rejection": true,
+      "primary_stage": "TR_only_not_hard_evaluated",
+      "RMS_radius_overshoot_percent": 0.22297104524731104,
+      "failed_TR_checks": [
+        "RMS"
+      ],
+      "hard_energy": null,
+      "native": null
+    },
+    {
+      "direction": "REAL_seed0/mean/3",
+      "factor": 0.5,
+      "parameter_scale": 0.014841985907228869,
+      "active_RMS_V": 7.647133245977003e-06,
+      "radius_LSB": 0.25,
+      "source": "receipts\\response038_20261017\\resume_20261018_01\\wake_20261018_0110_01\\repair_01\\preserved_failed_attempt\\run_01\\REAL_seed0\\metrics.jsonl:3",
+      "attempt_index": 1,
+      "TR_checks": {
+        "RMS": true,
+        "event99": true,
+        "eventmax": true,
+        "coordinate": true,
+        "relative99": true,
+        "relativeMax": true,
+        "tail": true
+      },
+      "no_domain_rejection": true,
+      "primary_stage": "hard_CHECK_after_full_TR_pass",
+      "CHECK_banks": 8,
+      "full_CHECK_TR": {
+        "passed": true,
+        "checks": {
+          "RMS": true,
+          "event99": true,
+          "eventmax": true,
+          "coordinate": true,
+          "relative99": true,
+          "relativeMax": true,
+          "tail": true
+        },
+        "radius_LSB": 0.25
+      },
+      "accepted": false,
+      "registered_unresolved": false,
+      "energy_class": "resolved_adverse_under_registered_3MCSE_rule",
+      "hard_energy": {
+        "fast": {
+          "data": {
+            "mean": 2.2291701345587313e-05,
+            "MCSE": 9.337497487142128e-06,
+            "banks": 8,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 5.0304193807013696e-05,
+            "lower3MCSE": -5.72079111583907e-06,
+            "allowance": 0.0,
+            "passed": false
+          },
+          "wave": {
+            "mean": 3.171123032071066e-05,
+            "MCSE": 9.851772396026747e-06,
+            "banks": 8,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 6.12665475087909e-05,
+            "lower3MCSE": 2.1559131326304176e-06,
+            "allowance": 0.0,
+            "passed": false
+          }
+        },
+        "slow": {
+          "data": {
+            "mean": 3.201677277615009e-05,
+            "MCSE": 1.0624542883045989e-05,
+            "banks": 8,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 6.389040142528806e-05,
+            "lower3MCSE": 1.4314412701212531e-07,
+            "allowance": 0.0,
+            "passed": false
+          },
+          "wave": {
+            "mean": 3.8726804100002506e-05,
+            "MCSE": 1.0406615611149183e-05,
+            "banks": 8,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 6.994665093345006e-05,
+            "lower3MCSE": 7.5069572665549566e-06,
+            "allowance": 0.0,
+            "passed": false
+          }
+        },
+        "common_level": {
+          "data": {
+            "mean": 3.676397124822116e-05,
+            "MCSE": 8.6452345252729e-06,
+            "banks": 8,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 6.269967482403986e-05,
+            "lower3MCSE": 1.082826767240246e-05,
+            "allowance": 0.0,
+            "passed": false
+          },
+          "wave": {
+            "mean": 4.264551755456649e-05,
+            "MCSE": 8.685365919447521e-06,
+            "banks": 8,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 6.870161531290906e-05,
+            "lower3MCSE": 1.6589419796223926e-05,
+            "allowance": 0.0,
+            "passed": false
+          }
+        }
+      },
+      "native": {
+        "fast": {
+          "failed_checks": [],
+          "fake_rows": 1024,
+          "target_rows": 2048,
+          "wave_current": 0.17533268930653473,
+          "wave_candidate": 0.17533668906485309,
+          "wave_delta": 3.999758318357083e-06,
+          "wave_relative_delta_percent": 0.0022812393594010823,
+          "native_wave_current_allowance_percent": 0.2,
+          "PSD_raw_current": 0.0032622997379808537,
+          "PSD_raw_candidate": 0.003262373841718647,
+          "PSD_raw_delta": 7.410373779317622e-08,
+          "rise_undefined_metric_current": 0.00634765625,
+          "rise_undefined_metric_candidate": 0.00634765625,
+          "rise_undefined_metric_meaning": "absolute fake-target rate difference, not the raw fake rate",
+          "rise_undefined_fake_current": {
+            "count": 11,
+            "denominator": 1024
+          },
+          "rise_undefined_fake_candidate": {
+            "count": 11,
+            "denominator": 1024
+          },
+          "Boolean_extra_rate_allowance": 0.001,
+          "Boolean_rise_checks": {
+            "fake_flags:rise_undefined:current": true,
+            "fake_flags:rise_undefined:starting_M0": true,
+            "fake_flags:rise_prepeak_censored:current": true,
+            "fake_flags:rise_prepeak_censored:starting_M0": true,
+            "fake_flags:rise_other_undefined:current": true,
+            "fake_flags:rise_other_undefined:starting_M0": true
+          }
+        },
+        "slow": {
+          "failed_checks": [],
+          "fake_rows": 1024,
+          "target_rows": 2048,
+          "wave_current": 0.17573125996949285,
+          "wave_candidate": 0.17578432997396057,
+          "wave_delta": 5.3070004467720144e-05,
+          "wave_relative_delta_percent": 0.030199524249091003,
+          "native_wave_current_allowance_percent": 0.2,
+          "PSD_raw_current": 0.00332384490171608,
+          "PSD_raw_candidate": 0.003325207955719116,
+          "PSD_raw_delta": 1.3630540030358691e-06,
+          "rise_undefined_metric_current": 0.00634765625,
+          "rise_undefined_metric_candidate": 0.00634765625,
+          "rise_undefined_metric_meaning": "absolute fake-target rate difference, not the raw fake rate",
+          "rise_undefined_fake_current": {
+            "count": 11,
+            "denominator": 1024
+          },
+          "rise_undefined_fake_candidate": {
+            "count": 11,
+            "denominator": 1024
+          },
+          "Boolean_extra_rate_allowance": 0.001,
+          "Boolean_rise_checks": {
+            "fake_flags:rise_undefined:current": true,
+            "fake_flags:rise_undefined:starting_M0": true,
+            "fake_flags:rise_prepeak_censored:current": true,
+            "fake_flags:rise_prepeak_censored:starting_M0": true,
+            "fake_flags:rise_other_undefined:current": true,
+            "fake_flags:rise_other_undefined:starting_M0": true
+          }
+        },
+        "common_level": {
+          "failed_checks": [],
+          "fake_rows": 1024,
+          "target_rows": 2048,
+          "wave_current": 0.17524340876811678,
+          "wave_candidate": 0.17529525715232064,
+          "wave_delta": 5.18483842038564e-05,
+          "wave_relative_delta_percent": 0.029586496044745694,
+          "native_wave_current_allowance_percent": 0.2,
+          "PSD_raw_current": 0.0031207094550516836,
+          "PSD_raw_candidate": 0.0031224173655410034,
+          "PSD_raw_delta": 1.7079104893198867e-06,
+          "rise_undefined_metric_current": 0.00634765625,
+          "rise_undefined_metric_candidate": 0.00634765625,
+          "rise_undefined_metric_meaning": "absolute fake-target rate difference, not the raw fake rate",
+          "rise_undefined_fake_current": {
+            "count": 11,
+            "denominator": 1024
+          },
+          "rise_undefined_fake_candidate": {
+            "count": 11,
+            "denominator": 1024
+          },
+          "Boolean_extra_rate_allowance": 0.001,
+          "Boolean_rise_checks": {
+            "fake_flags:rise_undefined:current": true,
+            "fake_flags:rise_undefined:starting_M0": true,
+            "fake_flags:rise_prepeak_censored:current": true,
+            "fake_flags:rise_prepeak_censored:starting_M0": true,
+            "fake_flags:rise_other_undefined:current": true,
+            "fake_flags:rise_other_undefined:starting_M0": true
+          }
+        }
+      },
+      "point_mean_H_average": {
+        "data": 3.0357481789986186e-05,
+        "wave": 3.769451732509322e-05
+      }
+    },
+    {
+      "direction": "REAL_seed0/mean/3",
+      "factor": 0.25,
+      "parameter_scale": 0.007420992953614434,
+      "active_RMS_V": 3.823631786873232e-06,
+      "radius_LSB": 0.25,
+      "source": "receipts\\response038_20261017\\resume_20261018_01\\wake_20261018_0110_01\\repair_01\\preserved_failed_attempt\\run_01\\REAL_seed0\\metrics.jsonl:3",
+      "attempt_index": 2,
+      "TR_checks": {
+        "RMS": true,
+        "event99": true,
+        "eventmax": true,
+        "coordinate": true,
+        "relative99": true,
+        "relativeMax": true,
+        "tail": true
+      },
+      "no_domain_rejection": true,
+      "primary_stage": "hard_CHECK_after_full_TR_pass",
+      "CHECK_banks": 8,
+      "full_CHECK_TR": {
+        "passed": true,
+        "checks": {
+          "RMS": true,
+          "event99": true,
+          "eventmax": true,
+          "coordinate": true,
+          "relative99": true,
+          "relativeMax": true,
+          "tail": true
+        },
+        "radius_LSB": 0.25
+      },
+      "accepted": false,
+      "registered_unresolved": false,
+      "energy_class": "resolved_adverse_under_registered_3MCSE_rule",
+      "hard_energy": {
+        "fast": {
+          "data": {
+            "mean": 1.0408606612921732e-05,
+            "MCSE": 4.921832290209333e-06,
+            "banks": 8,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 2.5174103483549732e-05,
+            "lower3MCSE": -4.356890257706269e-06,
+            "allowance": 0.0,
+            "passed": false
+          },
+          "wave": {
+            "mean": 1.5791431801503216e-05,
+            "MCSE": 5.056139662390632e-06,
+            "banks": 8,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 3.095985078867511e-05,
+            "lower3MCSE": 6.230128143313194e-07,
+            "allowance": 0.0,
+            "passed": false
+          }
+        },
+        "slow": {
+          "data": {
+            "mean": 1.6122708405342124e-05,
+            "MCSE": 5.0620130417618225e-06,
+            "banks": 8,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 3.130874753062759e-05,
+            "lower3MCSE": 9.366692800566574e-07,
+            "allowance": 0.0,
+            "passed": false
+          },
+          "wave": {
+            "mean": 1.917393311834381e-05,
+            "MCSE": 5.059923020870778e-06,
+            "banks": 8,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 3.435370218095615e-05,
+            "lower3MCSE": 3.994164055731476e-06,
+            "allowance": 0.0,
+            "passed": false
+          }
+        },
+        "common_level": {
+          "data": {
+            "mean": 1.6210141315540876e-05,
+            "MCSE": 3.829993139140752e-06,
+            "banks": 8,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 2.7700120732963133e-05,
+            "lower3MCSE": 4.72016189811862e-06,
+            "allowance": 0.0,
+            "passed": false
+          },
+          "wave": {
+            "mean": 1.942728868582202e-05,
+            "MCSE": 3.652213511599673e-06,
+            "banks": 8,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 3.038392922062104e-05,
+            "lower3MCSE": 8.470648151023003e-06,
+            "allowance": 0.0,
+            "passed": false
+          }
+        }
+      },
+      "native": {
+        "fast": {
+          "failed_checks": [],
+          "fake_rows": 1024,
+          "target_rows": 2048,
+          "wave_current": 0.17533268930653473,
+          "wave_candidate": 0.17533860618257555,
+          "wave_delta": 5.91687604081792e-06,
+          "wave_relative_delta_percent": 0.003374656525386105,
+          "native_wave_current_allowance_percent": 0.2,
+          "PSD_raw_current": 0.0032622997379808537,
+          "PSD_raw_candidate": 0.0032634681119254718,
+          "PSD_raw_delta": 1.1683739446180681e-06,
+          "rise_undefined_metric_current": 0.00634765625,
+          "rise_undefined_metric_candidate": 0.00634765625,
+          "rise_undefined_metric_meaning": "absolute fake-target rate difference, not the raw fake rate",
+          "rise_undefined_fake_current": {
+            "count": 11,
+            "denominator": 1024
+          },
+          "rise_undefined_fake_candidate": {
+            "count": 11,
+            "denominator": 1024
+          },
+          "Boolean_extra_rate_allowance": 0.001,
+          "Boolean_rise_checks": {
+            "fake_flags:rise_undefined:current": true,
+            "fake_flags:rise_undefined:starting_M0": true,
+            "fake_flags:rise_prepeak_censored:current": true,
+            "fake_flags:rise_prepeak_censored:starting_M0": true,
+            "fake_flags:rise_other_undefined:current": true,
+            "fake_flags:rise_other_undefined:starting_M0": true
+          }
+        },
+        "slow": {
+          "failed_checks": [],
+          "fake_rows": 1024,
+          "target_rows": 2048,
+          "wave_current": 0.17573125996949285,
+          "wave_candidate": 0.1757518451235544,
+          "wave_delta": 2.0585154061558697e-05,
+          "wave_relative_delta_percent": 0.011713996738617992,
+          "native_wave_current_allowance_percent": 0.2,
+          "PSD_raw_current": 0.00332384490171608,
+          "PSD_raw_candidate": 0.003324665255607621,
+          "PSD_raw_delta": 8.203538915409724e-07,
+          "rise_undefined_metric_current": 0.00634765625,
+          "rise_undefined_metric_candidate": 0.00634765625,
+          "rise_undefined_metric_meaning": "absolute fake-target rate difference, not the raw fake rate",
+          "rise_undefined_fake_current": {
+            "count": 11,
+            "denominator": 1024
+          },
+          "rise_undefined_fake_candidate": {
+            "count": 11,
+            "denominator": 1024
+          },
+          "Boolean_extra_rate_allowance": 0.001,
+          "Boolean_rise_checks": {
+            "fake_flags:rise_undefined:current": true,
+            "fake_flags:rise_undefined:starting_M0": true,
+            "fake_flags:rise_prepeak_censored:current": true,
+            "fake_flags:rise_prepeak_censored:starting_M0": true,
+            "fake_flags:rise_other_undefined:current": true,
+            "fake_flags:rise_other_undefined:starting_M0": true
+          }
+        },
+        "common_level": {
+          "failed_checks": [],
+          "fake_rows": 1024,
+          "target_rows": 2048,
+          "wave_current": 0.17524340876811678,
+          "wave_candidate": 0.17525729014797164,
+          "wave_delta": 1.3881379854863152e-05,
+          "wave_relative_delta_percent": 0.00792119940626759,
+          "native_wave_current_allowance_percent": 0.2,
+          "PSD_raw_current": 0.0031207094550516836,
+          "PSD_raw_candidate": 0.0031219356343749546,
+          "PSD_raw_delta": 1.226179323271081e-06,
+          "rise_undefined_metric_current": 0.00634765625,
+          "rise_undefined_metric_candidate": 0.00634765625,
+          "rise_undefined_metric_meaning": "absolute fake-target rate difference, not the raw fake rate",
+          "rise_undefined_fake_current": {
+            "count": 11,
+            "denominator": 1024
+          },
+          "rise_undefined_fake_candidate": {
+            "count": 11,
+            "denominator": 1024
+          },
+          "Boolean_extra_rate_allowance": 0.001,
+          "Boolean_rise_checks": {
+            "fake_flags:rise_undefined:current": true,
+            "fake_flags:rise_undefined:starting_M0": true,
+            "fake_flags:rise_prepeak_censored:current": true,
+            "fake_flags:rise_prepeak_censored:starting_M0": true,
+            "fake_flags:rise_other_undefined:current": true,
+            "fake_flags:rise_other_undefined:starting_M0": true
+          }
+        }
+      },
+      "point_mean_H_average": {
+        "data": 1.4247152111268244e-05,
+        "wave": 1.8130884535223015e-05
+      }
+    },
+    {
+      "direction": "REAL_seed0/mean/3",
+      "factor": 0.125,
+      "parameter_scale": 0.003710496476807217,
+      "active_RMS_V": 1.911832184708847e-06,
+      "radius_LSB": 0.25,
+      "source": "receipts\\response038_20261017\\resume_20261018_01\\wake_20261018_0110_01\\repair_01\\preserved_failed_attempt\\run_01\\REAL_seed0\\metrics.jsonl:3",
+      "attempt_index": 3,
+      "TR_checks": {
+        "RMS": true,
+        "event99": true,
+        "eventmax": true,
+        "coordinate": true,
+        "relative99": true,
+        "relativeMax": true,
+        "tail": true
+      },
+      "no_domain_rejection": true,
+      "primary_stage": "hard_CHECK_after_full_TR_pass",
+      "CHECK_banks": 8,
+      "full_CHECK_TR": {
+        "passed": true,
+        "checks": {
+          "RMS": true,
+          "event99": true,
+          "eventmax": true,
+          "coordinate": true,
+          "relative99": true,
+          "relativeMax": true,
+          "tail": true
+        },
+        "radius_LSB": 0.25
+      },
+      "accepted": false,
+      "registered_unresolved": false,
+      "energy_class": "resolved_adverse_under_registered_3MCSE_rule",
+      "hard_energy": {
+        "fast": {
+          "data": {
+            "mean": 4.529871587607287e-06,
+            "MCSE": 3.148215319093237e-06,
+            "banks": 8,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 1.3974517544886998e-05,
+            "lower3MCSE": -4.9147743696724235e-06,
+            "allowance": 0.0,
+            "passed": false
+          },
+          "wave": {
+            "mean": 7.355890622335985e-06,
+            "MCSE": 3.036429043620604e-06,
+            "banks": 8,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 1.6465177753197797e-05,
+            "lower3MCSE": -1.7533965085258267e-06,
+            "allowance": 0.0,
+            "passed": false
+          }
+        },
+        "slow": {
+          "data": {
+            "mean": 7.968551538406216e-06,
+            "MCSE": 2.09892582400045e-06,
+            "banks": 8,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 1.4265329010407566e-05,
+            "lower3MCSE": 1.671774066404866e-06,
+            "allowance": 0.0,
+            "passed": false
+          },
+          "wave": {
+            "mean": 9.698900677405746e-06,
+            "MCSE": 2.1010288532379513e-06,
+            "banks": 8,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 1.60019872371196e-05,
+            "lower3MCSE": 3.395814117691892e-06,
+            "allowance": 0.0,
+            "passed": false
+          }
+        },
+        "common_level": {
+          "data": {
+            "mean": 9.487069993972721e-06,
+            "MCSE": 2.354646745198276e-06,
+            "banks": 8,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 1.655101022956755e-05,
+            "lower3MCSE": 2.423129758377893e-06,
+            "allowance": 0.0,
+            "passed": false
+          },
+          "wave": {
+            "mean": 1.0618700032702377e-05,
+            "MCSE": 1.8043878312175994e-06,
+            "banks": 8,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 1.6031863526355174e-05,
+            "lower3MCSE": 5.205536539049579e-06,
+            "allowance": 0.0,
+            "passed": false
+          }
+        }
+      },
+      "native": {
+        "fast": {
+          "failed_checks": [],
+          "fake_rows": 1024,
+          "target_rows": 2048,
+          "wave_current": 0.17533268930653473,
+          "wave_candidate": 0.17533666450023,
+          "wave_delta": 3.9751936952714395e-06,
+          "wave_relative_delta_percent": 0.0022672290666354835,
+          "native_wave_current_allowance_percent": 0.2,
+          "PSD_raw_current": 0.0032622997379808537,
+          "PSD_raw_candidate": 0.003262747068318696,
+          "PSD_raw_delta": 4.473303378423575e-07,
+          "rise_undefined_metric_current": 0.00634765625,
+          "rise_undefined_metric_candidate": 0.00634765625,
+          "rise_undefined_metric_meaning": "absolute fake-target rate difference, not the raw fake rate",
+          "rise_undefined_fake_current": {
+            "count": 11,
+            "denominator": 1024
+          },
+          "rise_undefined_fake_candidate": {
+            "count": 11,
+            "denominator": 1024
+          },
+          "Boolean_extra_rate_allowance": 0.001,
+          "Boolean_rise_checks": {
+            "fake_flags:rise_undefined:current": true,
+            "fake_flags:rise_undefined:starting_M0": true,
+            "fake_flags:rise_prepeak_censored:current": true,
+            "fake_flags:rise_prepeak_censored:starting_M0": true,
+            "fake_flags:rise_other_undefined:current": true,
+            "fake_flags:rise_other_undefined:starting_M0": true
+          }
+        },
+        "slow": {
+          "failed_checks": [],
+          "fake_rows": 1024,
+          "target_rows": 2048,
+          "wave_current": 0.17573125996949285,
+          "wave_candidate": 0.17575080076420185,
+          "wave_delta": 1.9540794709005382e-05,
+          "wave_relative_delta_percent": 0.011119703297180985,
+          "native_wave_current_allowance_percent": 0.2,
+          "PSD_raw_current": 0.00332384490171608,
+          "PSD_raw_candidate": 0.0033230733579147037,
+          "PSD_raw_delta": -7.7154380137643e-07,
+          "rise_undefined_metric_current": 0.00634765625,
+          "rise_undefined_metric_candidate": 0.00634765625,
+          "rise_undefined_metric_meaning": "absolute fake-target rate difference, not the raw fake rate",
+          "rise_undefined_fake_current": {
+            "count": 11,
+            "denominator": 1024
+          },
+          "rise_undefined_fake_candidate": {
+            "count": 11,
+            "denominator": 1024
+          },
+          "Boolean_extra_rate_allowance": 0.001,
+          "Boolean_rise_checks": {
+            "fake_flags:rise_undefined:current": true,
+            "fake_flags:rise_undefined:starting_M0": true,
+            "fake_flags:rise_prepeak_censored:current": true,
+            "fake_flags:rise_prepeak_censored:starting_M0": true,
+            "fake_flags:rise_other_undefined:current": true,
+            "fake_flags:rise_other_undefined:starting_M0": true
+          }
+        },
+        "common_level": {
+          "failed_checks": [],
+          "fake_rows": 1024,
+          "target_rows": 2048,
+          "wave_current": 0.17524340876811678,
+          "wave_candidate": 0.17525231217233952,
+          "wave_delta": 8.903404222743161e-06,
+          "wave_relative_delta_percent": 0.005080592922341635,
+          "native_wave_current_allowance_percent": 0.2,
+          "PSD_raw_current": 0.0031207094550516836,
+          "PSD_raw_candidate": 0.003120943641749053,
+          "PSD_raw_delta": 2.3418669736936792e-07,
+          "rise_undefined_metric_current": 0.00634765625,
+          "rise_undefined_metric_candidate": 0.00634765625,
+          "rise_undefined_metric_meaning": "absolute fake-target rate difference, not the raw fake rate",
+          "rise_undefined_fake_current": {
+            "count": 11,
+            "denominator": 1024
+          },
+          "rise_undefined_fake_candidate": {
+            "count": 11,
+            "denominator": 1024
+          },
+          "Boolean_extra_rate_allowance": 0.001,
+          "Boolean_rise_checks": {
+            "fake_flags:rise_undefined:current": true,
+            "fake_flags:rise_undefined:starting_M0": true,
+            "fake_flags:rise_prepeak_censored:current": true,
+            "fake_flags:rise_prepeak_censored:starting_M0": true,
+            "fake_flags:rise_other_undefined:current": true,
+            "fake_flags:rise_other_undefined:starting_M0": true
+          }
+        }
+      },
+      "point_mean_H_average": {
+        "data": 7.328497706662075e-06,
+        "wave": 9.224497110814703e-06
+      }
+    },
+    {
+      "direction": "REAL_seed0/mean/4",
+      "factor": 1.0,
+      "parameter_scale": 0.03115930081994704,
+      "active_RMS_V": 1.5295804213911884e-05,
+      "radius_LSB": 0.25,
+      "source": "receipts\\response038_20261017\\resume_20261018_01\\wake_20261018_0110_01\\repair_01\\preserved_failed_attempt\\run_01\\REAL_seed0\\metrics.jsonl:4",
+      "attempt_index": 0,
+      "TR_checks": {
+        "RMS": false,
+        "event99": true,
+        "eventmax": true,
+        "coordinate": true,
+        "relative99": true,
+        "relativeMax": true,
+        "tail": true
+      },
+      "no_domain_rejection": true,
+      "primary_stage": "TR_only_not_hard_evaluated",
+      "RMS_radius_overshoot_percent": 0.2364641746073648,
+      "failed_TR_checks": [
+        "RMS"
+      ],
+      "hard_energy": null,
+      "native": null
+    },
+    {
+      "direction": "REAL_seed0/mean/4",
+      "factor": 0.5,
+      "parameter_scale": 0.01557965040997352,
+      "active_RMS_V": 7.648192702416919e-06,
+      "radius_LSB": 0.25,
+      "source": "receipts\\response038_20261017\\resume_20261018_01\\wake_20261018_0110_01\\repair_01\\preserved_failed_attempt\\run_01\\REAL_seed0\\metrics.jsonl:4",
+      "attempt_index": 1,
+      "TR_checks": {
+        "RMS": true,
+        "event99": true,
+        "eventmax": true,
+        "coordinate": true,
+        "relative99": true,
+        "relativeMax": true,
+        "tail": true
+      },
+      "no_domain_rejection": true,
+      "primary_stage": "hard_CHECK_after_full_TR_pass",
+      "CHECK_banks": 16,
+      "full_CHECK_TR": {
+        "passed": true,
+        "checks": {
+          "RMS": true,
+          "event99": true,
+          "eventmax": true,
+          "coordinate": true,
+          "relative99": true,
+          "relativeMax": true,
+          "tail": true
+        },
+        "radius_LSB": 0.25
+      },
+      "accepted": false,
+      "registered_unresolved": true,
+      "energy_class": "unresolved_under_registered_3MCSE_rule",
+      "hard_energy": {
+        "fast": {
+          "data": {
+            "mean": 0.0001299550186232366,
+            "MCSE": 5.011856275843849e-05,
+            "banks": 16,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 0.00028031070689855204,
+            "lower3MCSE": -2.0400669652078887e-05,
+            "allowance": 0.0,
+            "passed": false
+          },
+          "wave": {
+            "mean": 8.417608638895159e-05,
+            "MCSE": 3.035553263869941e-05,
+            "banks": 16,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 0.0001752426843050498,
+            "lower3MCSE": -6.890511527146633e-06,
+            "allowance": 0.0,
+            "passed": false
+          }
+        },
+        "slow": {
+          "data": {
+            "mean": 3.0106591136547494e-05,
+            "MCSE": 2.2818214555333536e-05,
+            "banks": 16,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 9.85612348025481e-05,
+            "lower3MCSE": -3.834805252945311e-05,
+            "allowance": 0.0,
+            "passed": false
+          },
+          "wave": {
+            "mean": 2.1913084556114204e-05,
+            "MCSE": 1.2826211778991147e-05,
+            "banks": 16,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 6.0391719893087645e-05,
+            "lower3MCSE": -1.6565550780859236e-05,
+            "allowance": 0.0,
+            "passed": false
+          }
+        },
+        "common_level": {
+          "data": {
+            "mean": -2.346995749834377e-05,
+            "MCSE": 7.728665995807489e-05,
+            "banks": 16,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 0.0002083900223758809,
+            "lower3MCSE": -0.00025532993737256845,
+            "allowance": 0.0,
+            "passed": false
+          },
+          "wave": {
+            "mean": -9.026665228591699e-06,
+            "MCSE": 4.993384602027352e-05,
+            "banks": 16,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 0.00014077487283222886,
+            "lower3MCSE": -0.00015882820328941226,
+            "allowance": 0.0,
+            "passed": false
+          }
+        }
+      },
+      "native": {
+        "fast": {
+          "failed_checks": [],
+          "fake_rows": 2048,
+          "target_rows": 4096,
+          "wave_current": 0.1618061282261517,
+          "wave_candidate": 0.1619326908731407,
+          "wave_delta": 0.0001265626469889869,
+          "wave_relative_delta_percent": 0.07821869812748623,
+          "native_wave_current_allowance_percent": 0.2,
+          "PSD_raw_current": 0.0037708991550593736,
+          "PSD_raw_candidate": 0.003773577648420964,
+          "PSD_raw_delta": 2.6784933615901785e-06,
+          "rise_undefined_metric_current": 0.011474609375,
+          "rise_undefined_metric_candidate": 0.011474609375,
+          "rise_undefined_metric_meaning": "absolute fake-target rate difference, not the raw fake rate",
+          "rise_undefined_fake_current": {
+            "count": 29,
+            "denominator": 2048
+          },
+          "rise_undefined_fake_candidate": {
+            "count": 29,
+            "denominator": 2048
+          },
+          "Boolean_extra_rate_allowance": 0.001,
+          "Boolean_rise_checks": {
+            "fake_flags:rise_undefined:current": true,
+            "fake_flags:rise_undefined:starting_M0": true,
+            "fake_flags:rise_prepeak_censored:current": true,
+            "fake_flags:rise_prepeak_censored:starting_M0": true,
+            "fake_flags:rise_other_undefined:current": true,
+            "fake_flags:rise_other_undefined:starting_M0": true
+          }
+        },
+        "slow": {
+          "failed_checks": [],
+          "fake_rows": 2048,
+          "target_rows": 4096,
+          "wave_current": 0.16254592036753754,
+          "wave_candidate": 0.16261942143828553,
+          "wave_delta": 7.350107074799439e-05,
+          "wave_relative_delta_percent": 0.045218649955531875,
+          "native_wave_current_allowance_percent": 0.2,
+          "PSD_raw_current": 0.004345273233208765,
+          "PSD_raw_candidate": 0.00434330485816865,
+          "PSD_raw_delta": -1.9683750401150446e-06,
+          "rise_undefined_metric_current": 0.011962890625,
+          "rise_undefined_metric_candidate": 0.011962890625,
+          "rise_undefined_metric_meaning": "absolute fake-target rate difference, not the raw fake rate",
+          "rise_undefined_fake_current": {
+            "count": 30,
+            "denominator": 2048
+          },
+          "rise_undefined_fake_candidate": {
+            "count": 30,
+            "denominator": 2048
+          },
+          "Boolean_extra_rate_allowance": 0.001,
+          "Boolean_rise_checks": {
+            "fake_flags:rise_undefined:current": true,
+            "fake_flags:rise_undefined:starting_M0": true,
+            "fake_flags:rise_prepeak_censored:current": true,
+            "fake_flags:rise_prepeak_censored:starting_M0": true,
+            "fake_flags:rise_other_undefined:current": true,
+            "fake_flags:rise_other_undefined:starting_M0": true
+          }
+        },
+        "common_level": {
+          "failed_checks": [],
+          "fake_rows": 2048,
+          "target_rows": 4096,
+          "wave_current": 0.16138554936901137,
+          "wave_candidate": 0.16143633223414106,
+          "wave_delta": 5.0782865129689325e-05,
+          "wave_relative_delta_percent": 0.03146679819118951,
+          "native_wave_current_allowance_percent": 0.2,
+          "PSD_raw_current": 0.003827583400211388,
+          "PSD_raw_candidate": 0.0038117244910559835,
+          "PSD_raw_delta": -1.585890915540471e-05,
+          "rise_undefined_metric_current": 0.011474609375,
+          "rise_undefined_metric_candidate": 0.011474609375,
+          "rise_undefined_metric_meaning": "absolute fake-target rate difference, not the raw fake rate",
+          "rise_undefined_fake_current": {
+            "count": 29,
+            "denominator": 2048
+          },
+          "rise_undefined_fake_candidate": {
+            "count": 29,
+            "denominator": 2048
+          },
+          "Boolean_extra_rate_allowance": 0.001,
+          "Boolean_rise_checks": {
+            "fake_flags:rise_undefined:current": true,
+            "fake_flags:rise_undefined:starting_M0": true,
+            "fake_flags:rise_prepeak_censored:current": true,
+            "fake_flags:rise_prepeak_censored:starting_M0": true,
+            "fake_flags:rise_other_undefined:current": true,
+            "fake_flags:rise_other_undefined:starting_M0": true
+          }
+        }
+      },
+      "point_mean_H_average": {
+        "data": 4.553055075381344e-05,
+        "wave": 3.235416857215803e-05
+      }
+    },
+    {
+      "direction": "REAL_seed0/mean/4",
+      "factor": 0.25,
+      "parameter_scale": 0.00778982520498676,
+      "active_RMS_V": 3.824169002886511e-06,
+      "radius_LSB": 0.25,
+      "source": "receipts\\response038_20261017\\resume_20261018_01\\wake_20261018_0110_01\\repair_01\\preserved_failed_attempt\\run_01\\REAL_seed0\\metrics.jsonl:4",
+      "attempt_index": 2,
+      "TR_checks": {
+        "RMS": true,
+        "event99": true,
+        "eventmax": true,
+        "coordinate": true,
+        "relative99": true,
+        "relativeMax": true,
+        "tail": true
+      },
+      "no_domain_rejection": true,
+      "primary_stage": "hard_CHECK_after_full_TR_pass",
+      "CHECK_banks": 16,
+      "full_CHECK_TR": {
+        "passed": true,
+        "checks": {
+          "RMS": true,
+          "event99": true,
+          "eventmax": true,
+          "coordinate": true,
+          "relative99": true,
+          "relativeMax": true,
+          "tail": true
+        },
+        "radius_LSB": 0.25
+      },
+      "accepted": false,
+      "registered_unresolved": true,
+      "energy_class": "unresolved_under_registered_3MCSE_rule",
+      "hard_energy": {
+        "fast": {
+          "data": {
+            "mean": 4.1829211333856836e-05,
+            "MCSE": 2.584890835897039e-05,
+            "banks": 16,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 0.000119375936410768,
+            "lower3MCSE": -3.5717513743054334e-05,
+            "allowance": 0.0,
+            "passed": false
+          },
+          "wave": {
+            "mean": 2.7071857485486085e-05,
+            "MCSE": 1.2735201461069373e-05,
+            "banks": 16,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 6.52774618686942e-05,
+            "lower3MCSE": -1.1133746897722032e-05,
+            "allowance": 0.0,
+            "passed": false
+          }
+        },
+        "slow": {
+          "data": {
+            "mean": 1.3981178162930522e-05,
+            "MCSE": 2.1878770544051528e-05,
+            "banks": 16,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 7.961748979508511e-05,
+            "lower3MCSE": -5.165513346922407e-05,
+            "allowance": 0.0,
+            "passed": false
+          },
+          "wave": {
+            "mean": 4.271602602058449e-06,
+            "MCSE": 1.1956194477329081e-05,
+            "banks": 16,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 4.014018603404569e-05,
+            "lower3MCSE": -3.159698082992879e-05,
+            "allowance": 0.0,
+            "passed": false
+          }
+        },
+        "common_level": {
+          "data": {
+            "mean": 3.938169417969117e-05,
+            "MCSE": 2.7318689868081147e-05,
+            "banks": 16,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 0.00012133776378393461,
+            "lower3MCSE": -4.2574375424552275e-05,
+            "allowance": 0.0,
+            "passed": false
+          },
+          "wave": {
+            "mean": 3.8562519990903866e-05,
+            "MCSE": 1.9291037960988294e-05,
+            "banks": 16,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 9.643563387386875e-05,
+            "lower3MCSE": -1.931059389206102e-05,
+            "allowance": 0.0,
+            "passed": false
+          }
+        }
+      },
+      "native": {
+        "fast": {
+          "failed_checks": [],
+          "fake_rows": 2048,
+          "target_rows": 4096,
+          "wave_current": 0.1618061282261517,
+          "wave_candidate": 0.16184312912929172,
+          "wave_delta": 3.700090314001647e-05,
+          "wave_relative_delta_percent": 0.022867430019894792,
+          "native_wave_current_allowance_percent": 0.2,
+          "PSD_raw_current": 0.0037708991550593736,
+          "PSD_raw_candidate": 0.003768905986354265,
+          "PSD_raw_delta": -1.9931687051085237e-06,
+          "rise_undefined_metric_current": 0.011474609375,
+          "rise_undefined_metric_candidate": 0.011474609375,
+          "rise_undefined_metric_meaning": "absolute fake-target rate difference, not the raw fake rate",
+          "rise_undefined_fake_current": {
+            "count": 29,
+            "denominator": 2048
+          },
+          "rise_undefined_fake_candidate": {
+            "count": 29,
+            "denominator": 2048
+          },
+          "Boolean_extra_rate_allowance": 0.001,
+          "Boolean_rise_checks": {
+            "fake_flags:rise_undefined:current": true,
+            "fake_flags:rise_undefined:starting_M0": true,
+            "fake_flags:rise_prepeak_censored:current": true,
+            "fake_flags:rise_prepeak_censored:starting_M0": true,
+            "fake_flags:rise_other_undefined:current": true,
+            "fake_flags:rise_other_undefined:starting_M0": true
+          }
+        },
+        "slow": {
+          "failed_checks": [],
+          "fake_rows": 2048,
+          "target_rows": 4096,
+          "wave_current": 0.16254592036753754,
+          "wave_candidate": 0.16260000422309595,
+          "wave_delta": 5.408385555841222e-05,
+          "wave_relative_delta_percent": 0.03327297014660323,
+          "native_wave_current_allowance_percent": 0.2,
+          "PSD_raw_current": 0.004345273233208765,
+          "PSD_raw_candidate": 0.004342147241985065,
+          "PSD_raw_delta": -3.1259912236999976e-06,
+          "rise_undefined_metric_current": 0.011962890625,
+          "rise_undefined_metric_candidate": 0.011962890625,
+          "rise_undefined_metric_meaning": "absolute fake-target rate difference, not the raw fake rate",
+          "rise_undefined_fake_current": {
+            "count": 30,
+            "denominator": 2048
+          },
+          "rise_undefined_fake_candidate": {
+            "count": 30,
+            "denominator": 2048
+          },
+          "Boolean_extra_rate_allowance": 0.001,
+          "Boolean_rise_checks": {
+            "fake_flags:rise_undefined:current": true,
+            "fake_flags:rise_undefined:starting_M0": true,
+            "fake_flags:rise_prepeak_censored:current": true,
+            "fake_flags:rise_prepeak_censored:starting_M0": true,
+            "fake_flags:rise_other_undefined:current": true,
+            "fake_flags:rise_other_undefined:starting_M0": true
+          }
+        },
+        "common_level": {
+          "failed_checks": [],
+          "fake_rows": 2048,
+          "target_rows": 4096,
+          "wave_current": 0.16138554936901137,
+          "wave_candidate": 0.16141739594511106,
+          "wave_delta": 3.1846576099697765e-05,
+          "wave_relative_delta_percent": 0.01973322656471548,
+          "native_wave_current_allowance_percent": 0.2,
+          "PSD_raw_current": 0.003827583400211388,
+          "PSD_raw_candidate": 0.003823249523669947,
+          "PSD_raw_delta": -4.333876541441021e-06,
+          "rise_undefined_metric_current": 0.011474609375,
+          "rise_undefined_metric_candidate": 0.011474609375,
+          "rise_undefined_metric_meaning": "absolute fake-target rate difference, not the raw fake rate",
+          "rise_undefined_fake_current": {
+            "count": 29,
+            "denominator": 2048
+          },
+          "rise_undefined_fake_candidate": {
+            "count": 29,
+            "denominator": 2048
+          },
+          "Boolean_extra_rate_allowance": 0.001,
+          "Boolean_rise_checks": {
+            "fake_flags:rise_undefined:current": true,
+            "fake_flags:rise_undefined:starting_M0": true,
+            "fake_flags:rise_prepeak_censored:current": true,
+            "fake_flags:rise_prepeak_censored:starting_M0": true,
+            "fake_flags:rise_other_undefined:current": true,
+            "fake_flags:rise_other_undefined:starting_M0": true
+          }
+        }
+      },
+      "point_mean_H_average": {
+        "data": 3.173069455882617e-05,
+        "wave": 2.33019933594828e-05
+      }
+    },
+    {
+      "direction": "REAL_seed0/mean/4",
+      "factor": 0.125,
+      "parameter_scale": 0.00389491260249338,
+      "active_RMS_V": 1.9121026647135217e-06,
+      "radius_LSB": 0.25,
+      "source": "receipts\\response038_20261017\\resume_20261018_01\\wake_20261018_0110_01\\repair_01\\preserved_failed_attempt\\run_01\\REAL_seed0\\metrics.jsonl:4",
+      "attempt_index": 3,
+      "TR_checks": {
+        "RMS": true,
+        "event99": true,
+        "eventmax": true,
+        "coordinate": true,
+        "relative99": true,
+        "relativeMax": true,
+        "tail": true
+      },
+      "no_domain_rejection": true,
+      "primary_stage": "hard_CHECK_after_full_TR_pass",
+      "CHECK_banks": 16,
+      "full_CHECK_TR": {
+        "passed": true,
+        "checks": {
+          "RMS": true,
+          "event99": true,
+          "eventmax": true,
+          "coordinate": true,
+          "relative99": true,
+          "relativeMax": true,
+          "tail": true
+        },
+        "radius_LSB": 0.25
+      },
+      "accepted": false,
+      "registered_unresolved": false,
+      "energy_class": "resolved_adverse_under_registered_3MCSE_rule",
+      "hard_energy": {
+        "fast": {
+          "data": {
+            "mean": 3.747370321049645e-05,
+            "MCSE": 2.5515764086698327e-05,
+            "banks": 16,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 0.00011402099547059143,
+            "lower3MCSE": -3.9073589049598524e-05,
+            "allowance": 0.0,
+            "passed": false
+          },
+          "wave": {
+            "mean": 2.1643202528229873e-05,
+            "MCSE": 1.2256617158794051e-05,
+            "banks": 16,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 5.8413054004612026e-05,
+            "lower3MCSE": -1.5126648948152279e-05,
+            "allowance": 0.0,
+            "passed": false
+          }
+        },
+        "slow": {
+          "data": {
+            "mean": 1.2286896573326456e-05,
+            "MCSE": 2.485053663113689e-06,
+            "banks": 16,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 1.9742057562667525e-05,
+            "lower3MCSE": 4.831735583985389e-06,
+            "allowance": 0.0,
+            "passed": false
+          },
+          "wave": {
+            "mean": 1.1248506494724144e-05,
+            "MCSE": 2.629137191342292e-06,
+            "banks": 16,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 1.9135918068751018e-05,
+            "lower3MCSE": 3.361094920697269e-06,
+            "allowance": 0.0,
+            "passed": false
+          }
+        },
+        "common_level": {
+          "data": {
+            "mean": 6.392046103124386e-06,
+            "MCSE": 4.375200012767952e-06,
+            "banks": 16,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 1.951764614142824e-05,
+            "lower3MCSE": -6.733553935179469e-06,
+            "allowance": 0.0,
+            "passed": false
+          },
+          "wave": {
+            "mean": 1.0676905075441287e-05,
+            "MCSE": 2.6657326981165907e-06,
+            "banks": 16,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 1.867410316979106e-05,
+            "lower3MCSE": 2.6797069810915157e-06,
+            "allowance": 0.0,
+            "passed": false
+          }
+        }
+      },
+      "native": {
+        "fast": {
+          "failed_checks": [],
+          "fake_rows": 2048,
+          "target_rows": 4096,
+          "wave_current": 0.1618061282261517,
+          "wave_candidate": 0.16185690113013057,
+          "wave_delta": 5.077290397886847e-05,
+          "wave_relative_delta_percent": 0.03137885105804192,
+          "native_wave_current_allowance_percent": 0.2,
+          "PSD_raw_current": 0.0037708991550593736,
+          "PSD_raw_candidate": 0.0037679026916600062,
+          "PSD_raw_delta": -2.996463399367391e-06,
+          "rise_undefined_metric_current": 0.011474609375,
+          "rise_undefined_metric_candidate": 0.011474609375,
+          "rise_undefined_metric_meaning": "absolute fake-target rate difference, not the raw fake rate",
+          "rise_undefined_fake_current": {
+            "count": 29,
+            "denominator": 2048
+          },
+          "rise_undefined_fake_candidate": {
+            "count": 29,
+            "denominator": 2048
+          },
+          "Boolean_extra_rate_allowance": 0.001,
+          "Boolean_rise_checks": {
+            "fake_flags:rise_undefined:current": true,
+            "fake_flags:rise_undefined:starting_M0": true,
+            "fake_flags:rise_prepeak_censored:current": true,
+            "fake_flags:rise_prepeak_censored:starting_M0": true,
+            "fake_flags:rise_other_undefined:current": true,
+            "fake_flags:rise_other_undefined:starting_M0": true
+          }
+        },
+        "slow": {
+          "failed_checks": [],
+          "fake_rows": 2048,
+          "target_rows": 4096,
+          "wave_current": 0.16254592036753754,
+          "wave_candidate": 0.16255478296929188,
+          "wave_delta": 8.862601754339172e-06,
+          "wave_relative_delta_percent": 0.005452368004253612,
+          "native_wave_current_allowance_percent": 0.2,
+          "PSD_raw_current": 0.004345273233208765,
+          "PSD_raw_candidate": 0.004345048820654982,
+          "PSD_raw_delta": -2.2441255378286007e-07,
+          "rise_undefined_metric_current": 0.011962890625,
+          "rise_undefined_metric_candidate": 0.011962890625,
+          "rise_undefined_metric_meaning": "absolute fake-target rate difference, not the raw fake rate",
+          "rise_undefined_fake_current": {
+            "count": 30,
+            "denominator": 2048
+          },
+          "rise_undefined_fake_candidate": {
+            "count": 30,
+            "denominator": 2048
+          },
+          "Boolean_extra_rate_allowance": 0.001,
+          "Boolean_rise_checks": {
+            "fake_flags:rise_undefined:current": true,
+            "fake_flags:rise_undefined:starting_M0": true,
+            "fake_flags:rise_prepeak_censored:current": true,
+            "fake_flags:rise_prepeak_censored:starting_M0": true,
+            "fake_flags:rise_other_undefined:current": true,
+            "fake_flags:rise_other_undefined:starting_M0": true
+          }
+        },
+        "common_level": {
+          "failed_checks": [],
+          "fake_rows": 2048,
+          "target_rows": 4096,
+          "wave_current": 0.16138554936901137,
+          "wave_candidate": 0.16139648383343172,
+          "wave_delta": 1.0934464420353507e-05,
+          "wave_relative_delta_percent": 0.006775367722268386,
+          "native_wave_current_allowance_percent": 0.2,
+          "PSD_raw_current": 0.003827583400211388,
+          "PSD_raw_candidate": 0.0038250834590309772,
+          "PSD_raw_delta": -2.4999411804109417e-06,
+          "rise_undefined_metric_current": 0.011474609375,
+          "rise_undefined_metric_candidate": 0.011474609375,
+          "rise_undefined_metric_meaning": "absolute fake-target rate difference, not the raw fake rate",
+          "rise_undefined_fake_current": {
+            "count": 29,
+            "denominator": 2048
+          },
+          "rise_undefined_fake_candidate": {
+            "count": 29,
+            "denominator": 2048
+          },
+          "Boolean_extra_rate_allowance": 0.001,
+          "Boolean_rise_checks": {
+            "fake_flags:rise_undefined:current": true,
+            "fake_flags:rise_undefined:starting_M0": true,
+            "fake_flags:rise_prepeak_censored:current": true,
+            "fake_flags:rise_prepeak_censored:starting_M0": true,
+            "fake_flags:rise_other_undefined:current": true,
+            "fake_flags:rise_other_undefined:starting_M0": true
+          }
+        }
+      },
+      "point_mean_H_average": {
+        "data": 1.871754862898243e-05,
+        "wave": 1.4522871366131769e-05
+      }
+    },
+    {
+      "direction": "REAL_seed0/mean/5",
+      "factor": 1.0,
+      "parameter_scale": 0.030216340343941658,
+      "active_RMS_V": 1.5296207378819423e-05,
+      "radius_LSB": 0.25,
+      "source": "receipts\\response038_20261017\\resume_20261018_01\\wake_20261018_0110_01\\repair_01\\preserved_failed_attempt\\run_01\\REAL_seed0\\metrics.jsonl:5",
+      "attempt_index": 0,
+      "TR_checks": {
+        "RMS": false,
+        "event99": true,
+        "eventmax": true,
+        "coordinate": true,
+        "relative99": true,
+        "relativeMax": true,
+        "tail": true
+      },
+      "no_domain_rejection": true,
+      "primary_stage": "TR_only_not_hard_evaluated",
+      "RMS_radius_overshoot_percent": 0.23910619487943485,
+      "failed_TR_checks": [
+        "RMS"
+      ],
+      "hard_energy": null,
+      "native": null
+    },
+    {
+      "direction": "REAL_seed0/mean/5",
+      "factor": 0.5,
+      "parameter_scale": 0.015108170171970829,
+      "active_RMS_V": 7.648388350020407e-06,
+      "radius_LSB": 0.25,
+      "source": "receipts\\response038_20261017\\resume_20261018_01\\wake_20261018_0110_01\\repair_01\\preserved_failed_attempt\\run_01\\REAL_seed0\\metrics.jsonl:5",
+      "attempt_index": 1,
+      "TR_checks": {
+        "RMS": true,
+        "event99": true,
+        "eventmax": true,
+        "coordinate": true,
+        "relative99": true,
+        "relativeMax": true,
+        "tail": true
+      },
+      "no_domain_rejection": true,
+      "primary_stage": "hard_CHECK_after_full_TR_pass",
+      "CHECK_banks": 16,
+      "full_CHECK_TR": {
+        "passed": true,
+        "checks": {
+          "RMS": true,
+          "event99": true,
+          "eventmax": true,
+          "coordinate": true,
+          "relative99": true,
+          "relativeMax": true,
+          "tail": true
+        },
+        "radius_LSB": 0.25
+      },
+      "accepted": false,
+      "registered_unresolved": true,
+      "energy_class": "unresolved_under_registered_3MCSE_rule",
+      "hard_energy": {
+        "fast": {
+          "data": {
+            "mean": 9.44398162371976e-05,
+            "MCSE": 6.261851216418587e-05,
+            "banks": 16,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 0.00028229535272975524,
+            "lower3MCSE": -9.341572025536003e-05,
+            "allowance": 0.0,
+            "passed": false
+          },
+          "wave": {
+            "mean": 5.429722700190428e-05,
+            "MCSE": 3.255226181190644e-05,
+            "banks": 16,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 0.0001519540124376236,
+            "lower3MCSE": -4.3359558433815035e-05,
+            "allowance": 0.0,
+            "passed": false
+          }
+        },
+        "slow": {
+          "data": {
+            "mean": -2.360575444532555e-05,
+            "MCSE": 0.00010096639705645908,
+            "banks": 16,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 0.0002792934367240517,
+            "lower3MCSE": -0.0003265049456147028,
+            "allowance": 0.0,
+            "passed": false
+          },
+          "wave": {
+            "mean": 1.4287526717792192e-06,
+            "MCSE": 5.886868100853468e-05,
+            "banks": 16,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 0.00017803479569738326,
+            "lower3MCSE": -0.00017517729035382483,
+            "allowance": 0.0,
+            "passed": false
+          }
+        },
+        "common_level": {
+          "data": {
+            "mean": 2.7110584425956742e-05,
+            "MCSE": 5.049816578499035e-05,
+            "banks": 16,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 0.0001786050817809278,
+            "lower3MCSE": -0.0001243839129290143,
+            "allowance": 0.0,
+            "passed": false
+          },
+          "wave": {
+            "mean": 1.6611880857602497e-05,
+            "MCSE": 4.002900339924871e-05,
+            "banks": 16,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 0.00013669889105534863,
+            "lower3MCSE": -0.00010347512934014364,
+            "allowance": 0.0,
+            "passed": false
+          }
+        }
+      },
+      "native": {
+        "fast": {
+          "failed_checks": [],
+          "fake_rows": 2048,
+          "target_rows": 4096,
+          "wave_current": 0.15487205538305973,
+          "wave_candidate": 0.15485742334549465,
+          "wave_delta": -1.4632037565076583e-05,
+          "wave_relative_delta_percent": -0.009447822932862728,
+          "native_wave_current_allowance_percent": 0.2,
+          "PSD_raw_current": 0.0034719615006086903,
+          "PSD_raw_candidate": 0.003481523992103962,
+          "PSD_raw_delta": 9.56249149527185e-06,
+          "rise_undefined_metric_current": 0.0126953125,
+          "rise_undefined_metric_candidate": 0.0126953125,
+          "rise_undefined_metric_meaning": "absolute fake-target rate difference, not the raw fake rate",
+          "rise_undefined_fake_current": {
+            "count": 32,
+            "denominator": 2048
+          },
+          "rise_undefined_fake_candidate": {
+            "count": 32,
+            "denominator": 2048
+          },
+          "Boolean_extra_rate_allowance": 0.001,
+          "Boolean_rise_checks": {
+            "fake_flags:rise_undefined:current": true,
+            "fake_flags:rise_undefined:starting_M0": true,
+            "fake_flags:rise_prepeak_censored:current": true,
+            "fake_flags:rise_prepeak_censored:starting_M0": true,
+            "fake_flags:rise_other_undefined:current": true,
+            "fake_flags:rise_other_undefined:starting_M0": true
+          }
+        },
+        "slow": {
+          "failed_checks": [],
+          "fake_rows": 2048,
+          "target_rows": 4096,
+          "wave_current": 0.15518987592243128,
+          "wave_candidate": 0.1551509259162261,
+          "wave_delta": -3.895000620518507e-05,
+          "wave_relative_delta_percent": -0.025098290705930778,
+          "native_wave_current_allowance_percent": 0.2,
+          "PSD_raw_current": 0.004375401256309669,
+          "PSD_raw_candidate": 0.004374886806413812,
+          "PSD_raw_delta": -5.1444989585675e-07,
+          "rise_undefined_metric_current": 0.01318359375,
+          "rise_undefined_metric_candidate": 0.01318359375,
+          "rise_undefined_metric_meaning": "absolute fake-target rate difference, not the raw fake rate",
+          "rise_undefined_fake_current": {
+            "count": 33,
+            "denominator": 2048
+          },
+          "rise_undefined_fake_candidate": {
+            "count": 33,
+            "denominator": 2048
+          },
+          "Boolean_extra_rate_allowance": 0.001,
+          "Boolean_rise_checks": {
+            "fake_flags:rise_undefined:current": true,
+            "fake_flags:rise_undefined:starting_M0": true,
+            "fake_flags:rise_prepeak_censored:current": true,
+            "fake_flags:rise_prepeak_censored:starting_M0": true,
+            "fake_flags:rise_other_undefined:current": true,
+            "fake_flags:rise_other_undefined:starting_M0": true
+          }
+        },
+        "common_level": {
+          "failed_checks": [],
+          "fake_rows": 2048,
+          "target_rows": 4096,
+          "wave_current": 0.154057560375768,
+          "wave_candidate": 0.154094634202477,
+          "wave_delta": 3.707382670897763e-05,
+          "wave_relative_delta_percent": 0.024064918734627086,
+          "native_wave_current_allowance_percent": 0.2,
+          "PSD_raw_current": 0.0034570542703012018,
+          "PSD_raw_candidate": 0.003460960237314314,
+          "PSD_raw_delta": 3.905967013112174e-06,
+          "rise_undefined_metric_current": 0.0126953125,
+          "rise_undefined_metric_candidate": 0.0126953125,
+          "rise_undefined_metric_meaning": "absolute fake-target rate difference, not the raw fake rate",
+          "rise_undefined_fake_current": {
+            "count": 32,
+            "denominator": 2048
+          },
+          "rise_undefined_fake_candidate": {
+            "count": 32,
+            "denominator": 2048
+          },
+          "Boolean_extra_rate_allowance": 0.001,
+          "Boolean_rise_checks": {
+            "fake_flags:rise_undefined:current": true,
+            "fake_flags:rise_undefined:starting_M0": true,
+            "fake_flags:rise_prepeak_censored:current": true,
+            "fake_flags:rise_prepeak_censored:starting_M0": true,
+            "fake_flags:rise_other_undefined:current": true,
+            "fake_flags:rise_other_undefined:starting_M0": true
+          }
+        }
+      },
+      "point_mean_H_average": {
+        "data": 3.264821540594293e-05,
+        "wave": 2.4112620177095333e-05
+      }
+    },
+    {
+      "direction": "REAL_seed0/mean/5",
+      "factor": 0.25,
+      "parameter_scale": 0.007554085085985414,
+      "active_RMS_V": 3.824265342739844e-06,
+      "radius_LSB": 0.25,
+      "source": "receipts\\response038_20261017\\resume_20261018_01\\wake_20261018_0110_01\\repair_01\\preserved_failed_attempt\\run_01\\REAL_seed0\\metrics.jsonl:5",
+      "attempt_index": 2,
+      "TR_checks": {
+        "RMS": true,
+        "event99": true,
+        "eventmax": true,
+        "coordinate": true,
+        "relative99": true,
+        "relativeMax": true,
+        "tail": true
+      },
+      "no_domain_rejection": true,
+      "primary_stage": "hard_CHECK_after_full_TR_pass",
+      "CHECK_banks": 16,
+      "full_CHECK_TR": {
+        "passed": true,
+        "checks": {
+          "RMS": true,
+          "event99": true,
+          "eventmax": true,
+          "coordinate": true,
+          "relative99": true,
+          "relativeMax": true,
+          "tail": true
+        },
+        "radius_LSB": 0.25
+      },
+      "accepted": false,
+      "registered_unresolved": true,
+      "energy_class": "unresolved_under_registered_3MCSE_rule",
+      "hard_energy": {
+        "fast": {
+          "data": {
+            "mean": 1.3806502417754857e-05,
+            "MCSE": 8.978712107396865e-06,
+            "banks": 16,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 4.0742638739945454e-05,
+            "lower3MCSE": -1.3129633904435737e-05,
+            "allowance": 0.0,
+            "passed": false
+          },
+          "wave": {
+            "mean": 1.6146694241979962e-05,
+            "MCSE": 1.9666412413613037e-05,
+            "banks": 16,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 7.514593148281907e-05,
+            "lower3MCSE": -4.285254299885915e-05,
+            "allowance": 0.0,
+            "passed": false
+          }
+        },
+        "slow": {
+          "data": {
+            "mean": -3.0362299892406405e-05,
+            "MCSE": 0.00010144499091232717,
+            "banks": 16,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 0.0002739726728445751,
+            "lower3MCSE": -0.00033469727262938793,
+            "allowance": 0.0,
+            "passed": false
+          },
+          "wave": {
+            "mean": -7.654052036981012e-06,
+            "MCSE": 5.789206186746622e-05,
+            "banks": 16,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 0.00016602213356541767,
+            "lower3MCSE": -0.0001813302376393797,
+            "allowance": 0.0,
+            "passed": false
+          }
+        },
+        "common_level": {
+          "data": {
+            "mean": 1.4607802498311541e-05,
+            "MCSE": 4.9059201416829754e-05,
+            "banks": 16,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 0.0001617854067488008,
+            "lower3MCSE": -0.00013256980175217772,
+            "allowance": 0.0,
+            "passed": false
+          },
+          "wave": {
+            "mean": 2.405950996464158e-05,
+            "MCSE": 3.171761222236596e-05,
+            "banks": 16,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 0.00011921234663173945,
+            "lower3MCSE": -7.109332670245629e-05,
+            "allowance": 0.0,
+            "passed": false
+          }
+        }
+      },
+      "native": {
+        "fast": {
+          "failed_checks": [],
+          "fake_rows": 2048,
+          "target_rows": 4096,
+          "wave_current": 0.15487205538305973,
+          "wave_candidate": 0.15488348838169763,
+          "wave_delta": 1.143299863790026e-05,
+          "wave_relative_delta_percent": 0.007382221802133342,
+          "native_wave_current_allowance_percent": 0.2,
+          "PSD_raw_current": 0.0034719615006086903,
+          "PSD_raw_candidate": 0.003478076499528004,
+          "PSD_raw_delta": 6.114998919313792e-06,
+          "rise_undefined_metric_current": 0.0126953125,
+          "rise_undefined_metric_candidate": 0.0126953125,
+          "rise_undefined_metric_meaning": "absolute fake-target rate difference, not the raw fake rate",
+          "rise_undefined_fake_current": {
+            "count": 32,
+            "denominator": 2048
+          },
+          "rise_undefined_fake_candidate": {
+            "count": 32,
+            "denominator": 2048
+          },
+          "Boolean_extra_rate_allowance": 0.001,
+          "Boolean_rise_checks": {
+            "fake_flags:rise_undefined:current": true,
+            "fake_flags:rise_undefined:starting_M0": true,
+            "fake_flags:rise_prepeak_censored:current": true,
+            "fake_flags:rise_prepeak_censored:starting_M0": true,
+            "fake_flags:rise_other_undefined:current": true,
+            "fake_flags:rise_other_undefined:starting_M0": true
+          }
+        },
+        "slow": {
+          "failed_checks": [],
+          "fake_rows": 2048,
+          "target_rows": 4096,
+          "wave_current": 0.15518987592243128,
+          "wave_candidate": 0.15512522223310232,
+          "wave_delta": -6.465368932895288e-05,
+          "wave_relative_delta_percent": -0.04166102263092781,
+          "native_wave_current_allowance_percent": 0.2,
+          "PSD_raw_current": 0.004375401256309669,
+          "PSD_raw_candidate": 0.004374747208504923,
+          "PSD_raw_delta": -6.540478047455112e-07,
+          "rise_undefined_metric_current": 0.01318359375,
+          "rise_undefined_metric_candidate": 0.01318359375,
+          "rise_undefined_metric_meaning": "absolute fake-target rate difference, not the raw fake rate",
+          "rise_undefined_fake_current": {
+            "count": 33,
+            "denominator": 2048
+          },
+          "rise_undefined_fake_candidate": {
+            "count": 33,
+            "denominator": 2048
+          },
+          "Boolean_extra_rate_allowance": 0.001,
+          "Boolean_rise_checks": {
+            "fake_flags:rise_undefined:current": true,
+            "fake_flags:rise_undefined:starting_M0": true,
+            "fake_flags:rise_prepeak_censored:current": true,
+            "fake_flags:rise_prepeak_censored:starting_M0": true,
+            "fake_flags:rise_other_undefined:current": true,
+            "fake_flags:rise_other_undefined:starting_M0": true
+          }
+        },
+        "common_level": {
+          "failed_checks": [],
+          "fake_rows": 2048,
+          "target_rows": 4096,
+          "wave_current": 0.154057560375768,
+          "wave_candidate": 0.1540873263877924,
+          "wave_delta": 2.9766012024395883e-05,
+          "wave_relative_delta_percent": 0.019321357518444666,
+          "native_wave_current_allowance_percent": 0.2,
+          "PSD_raw_current": 0.0034570542703012018,
+          "PSD_raw_candidate": 0.003458798714576038,
+          "PSD_raw_delta": 1.7444442748362418e-06,
+          "rise_undefined_metric_current": 0.0126953125,
+          "rise_undefined_metric_candidate": 0.0126953125,
+          "rise_undefined_metric_meaning": "absolute fake-target rate difference, not the raw fake rate",
+          "rise_undefined_fake_current": {
+            "count": 32,
+            "denominator": 2048
+          },
+          "rise_undefined_fake_candidate": {
+            "count": 32,
+            "denominator": 2048
+          },
+          "Boolean_extra_rate_allowance": 0.001,
+          "Boolean_rise_checks": {
+            "fake_flags:rise_undefined:current": true,
+            "fake_flags:rise_undefined:starting_M0": true,
+            "fake_flags:rise_prepeak_censored:current": true,
+            "fake_flags:rise_prepeak_censored:starting_M0": true,
+            "fake_flags:rise_other_undefined:current": true,
+            "fake_flags:rise_other_undefined:starting_M0": true
+          }
+        }
+      },
+      "point_mean_H_average": {
+        "data": -6.493316587800023e-07,
+        "wave": 1.0850717389880178e-05
+      }
+    },
+    {
+      "direction": "REAL_seed0/mean/5",
+      "factor": 0.125,
+      "parameter_scale": 0.003777042542992707,
+      "active_RMS_V": 1.912150463623185e-06,
+      "radius_LSB": 0.25,
+      "source": "receipts\\response038_20261017\\resume_20261018_01\\wake_20261018_0110_01\\repair_01\\preserved_failed_attempt\\run_01\\REAL_seed0\\metrics.jsonl:5",
+      "attempt_index": 3,
+      "TR_checks": {
+        "RMS": true,
+        "event99": true,
+        "eventmax": true,
+        "coordinate": true,
+        "relative99": true,
+        "relativeMax": true,
+        "tail": true
+      },
+      "no_domain_rejection": true,
+      "primary_stage": "hard_CHECK_after_full_TR_pass",
+      "CHECK_banks": 16,
+      "full_CHECK_TR": {
+        "passed": true,
+        "checks": {
+          "RMS": true,
+          "event99": true,
+          "eventmax": true,
+          "coordinate": true,
+          "relative99": true,
+          "relativeMax": true,
+          "tail": true
+        },
+        "radius_LSB": 0.25
+      },
+      "accepted": false,
+      "registered_unresolved": true,
+      "energy_class": "unresolved_under_registered_3MCSE_rule",
+      "hard_energy": {
+        "fast": {
+          "data": {
+            "mean": 9.979084308499656e-06,
+            "MCSE": 7.141084908035335e-06,
+            "banks": 16,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 3.140233903260566e-05,
+            "lower3MCSE": -1.144417041560635e-05,
+            "allowance": 0.0,
+            "passed": false
+          },
+          "wave": {
+            "mean": 2.262990797884351e-05,
+            "MCSE": 1.8177471286617522e-05,
+            "banks": 16,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 7.716232183869608e-05,
+            "lower3MCSE": -3.190250588100906e-05,
+            "allowance": 0.0,
+            "passed": false
+          }
+        },
+        "slow": {
+          "data": {
+            "mean": -9.576625682526435e-05,
+            "MCSE": 8.607263552703845e-05,
+            "banks": 16,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 0.000162451649755851,
+            "lower3MCSE": -0.0003539841634063797,
+            "allowance": 0.0,
+            "passed": false
+          },
+          "wave": {
+            "mean": -4.1550735637188975e-05,
+            "MCSE": 4.108887900284516e-05,
+            "banks": 16,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 8.171590137134649e-05,
+            "lower3MCSE": -0.00016481737264572444,
+            "allowance": 0.0,
+            "passed": false
+          }
+        },
+        "common_level": {
+          "data": {
+            "mean": 4.460109509517524e-05,
+            "MCSE": 3.873518565522985e-05,
+            "banks": 16,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 0.0001608066520608648,
+            "lower3MCSE": -7.160446187051432e-05,
+            "allowance": 0.0,
+            "passed": false
+          },
+          "wave": {
+            "mean": 3.4078971829694946e-05,
+            "MCSE": 2.7667000920045494e-05,
+            "banks": 16,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 0.00011707997458983143,
+            "lower3MCSE": -4.8922030930441534e-05,
+            "allowance": 0.0,
+            "passed": false
+          }
+        }
+      },
+      "native": {
+        "fast": {
+          "failed_checks": [],
+          "fake_rows": 2048,
+          "target_rows": 4096,
+          "wave_current": 0.15487205538305973,
+          "wave_candidate": 0.15487161800407367,
+          "wave_delta": -4.3737898605678005e-07,
+          "wave_relative_delta_percent": -0.0002824131086624822,
+          "native_wave_current_allowance_percent": 0.2,
+          "PSD_raw_current": 0.0034719615006086903,
+          "PSD_raw_candidate": 0.003471818307407084,
+          "PSD_raw_delta": -1.431932016063807e-07,
+          "rise_undefined_metric_current": 0.0126953125,
+          "rise_undefined_metric_candidate": 0.0126953125,
+          "rise_undefined_metric_meaning": "absolute fake-target rate difference, not the raw fake rate",
+          "rise_undefined_fake_current": {
+            "count": 32,
+            "denominator": 2048
+          },
+          "rise_undefined_fake_candidate": {
+            "count": 32,
+            "denominator": 2048
+          },
+          "Boolean_extra_rate_allowance": 0.001,
+          "Boolean_rise_checks": {
+            "fake_flags:rise_undefined:current": true,
+            "fake_flags:rise_undefined:starting_M0": true,
+            "fake_flags:rise_prepeak_censored:current": true,
+            "fake_flags:rise_prepeak_censored:starting_M0": true,
+            "fake_flags:rise_other_undefined:current": true,
+            "fake_flags:rise_other_undefined:starting_M0": true
+          }
+        },
+        "slow": {
+          "failed_checks": [],
+          "fake_rows": 2048,
+          "target_rows": 4096,
+          "wave_current": 0.15518987592243128,
+          "wave_candidate": 0.15505831042451645,
+          "wave_delta": -0.00013156549791482064,
+          "wave_relative_delta_percent": -0.08477711392757423,
+          "native_wave_current_allowance_percent": 0.2,
+          "PSD_raw_current": 0.004375401256309669,
+          "PSD_raw_candidate": 0.004370215611580299,
+          "PSD_raw_delta": -5.185644729370151e-06,
+          "rise_undefined_metric_current": 0.01318359375,
+          "rise_undefined_metric_candidate": 0.01318359375,
+          "rise_undefined_metric_meaning": "absolute fake-target rate difference, not the raw fake rate",
+          "rise_undefined_fake_current": {
+            "count": 33,
+            "denominator": 2048
+          },
+          "rise_undefined_fake_candidate": {
+            "count": 33,
+            "denominator": 2048
+          },
+          "Boolean_extra_rate_allowance": 0.001,
+          "Boolean_rise_checks": {
+            "fake_flags:rise_undefined:current": true,
+            "fake_flags:rise_undefined:starting_M0": true,
+            "fake_flags:rise_prepeak_censored:current": true,
+            "fake_flags:rise_prepeak_censored:starting_M0": true,
+            "fake_flags:rise_other_undefined:current": true,
+            "fake_flags:rise_other_undefined:starting_M0": true
+          }
+        },
+        "common_level": {
+          "failed_checks": [],
+          "fake_rows": 2048,
+          "target_rows": 4096,
+          "wave_current": 0.154057560375768,
+          "wave_candidate": 0.15408973690071556,
+          "wave_delta": 3.217652494755252e-05,
+          "wave_relative_delta_percent": 0.020886040820761707,
+          "native_wave_current_allowance_percent": 0.2,
+          "PSD_raw_current": 0.0034570542703012018,
+          "PSD_raw_candidate": 0.003459264691878131,
+          "PSD_raw_delta": 2.2104215769290676e-06,
+          "rise_undefined_metric_current": 0.0126953125,
+          "rise_undefined_metric_candidate": 0.0126953125,
+          "rise_undefined_metric_meaning": "absolute fake-target rate difference, not the raw fake rate",
+          "rise_undefined_fake_current": {
+            "count": 32,
+            "denominator": 2048
+          },
+          "rise_undefined_fake_candidate": {
+            "count": 32,
+            "denominator": 2048
+          },
+          "Boolean_extra_rate_allowance": 0.001,
+          "Boolean_rise_checks": {
+            "fake_flags:rise_undefined:current": true,
+            "fake_flags:rise_undefined:starting_M0": true,
+            "fake_flags:rise_prepeak_censored:current": true,
+            "fake_flags:rise_prepeak_censored:starting_M0": true,
+            "fake_flags:rise_other_undefined:current": true,
+            "fake_flags:rise_other_undefined:starting_M0": true
+          }
+        }
+      },
+      "point_mean_H_average": {
+        "data": -1.372869247386315e-05,
+        "wave": 5.05271472378316e-06
+      }
+    },
+    {
+      "direction": "REAL_seed1/mean/1",
+      "factor": 1.0,
+      "parameter_scale": 0.09917899939233454,
+      "active_RMS_V": 6.119112902179019e-05,
+      "radius_LSB": 1.0,
+      "source": "receipts\\response038_20261017\\resume_20261018_01\\wake_20261018_0110_01\\repair_01\\deployment_01\\STARTUP_SNAPSHOT.json#/first_complete_metrics/run_01~1REAL_seed1~1metrics.jsonl",
+      "attempt_index": 0,
+      "TR_checks": {
+        "RMS": false,
+        "event99": true,
+        "eventmax": true,
+        "coordinate": true,
+        "relative99": true,
+        "relativeMax": true,
+        "tail": true
+      },
+      "no_domain_rejection": true,
+      "primary_stage": "TR_only_not_hard_evaluated",
+      "RMS_radius_overshoot_percent": 0.2494266763988673,
+      "failed_TR_checks": [
+        "RMS"
+      ],
+      "hard_energy": null,
+      "native": null
+    },
+    {
+      "direction": "REAL_seed1/mean/1",
+      "factor": 0.5,
+      "parameter_scale": 0.04958949969616727,
+      "active_RMS_V": 3.059976029565289e-05,
+      "radius_LSB": 1.0,
+      "source": "receipts\\response038_20261017\\resume_20261018_01\\wake_20261018_0110_01\\repair_01\\deployment_01\\STARTUP_SNAPSHOT.json#/first_complete_metrics/run_01~1REAL_seed1~1metrics.jsonl",
+      "attempt_index": 1,
+      "TR_checks": {
+        "RMS": true,
+        "event99": true,
+        "eventmax": true,
+        "coordinate": true,
+        "relative99": true,
+        "relativeMax": true,
+        "tail": true
+      },
+      "no_domain_rejection": true,
+      "primary_stage": "hard_CHECK_after_full_TR_pass",
+      "CHECK_banks": 8,
+      "full_CHECK_TR": {
+        "passed": true,
+        "checks": {
+          "RMS": true,
+          "event99": true,
+          "eventmax": true,
+          "coordinate": true,
+          "relative99": true,
+          "relativeMax": true,
+          "tail": true
+        },
+        "radius_LSB": 1.0
+      },
+      "accepted": false,
+      "registered_unresolved": false,
+      "energy_class": "resolved_adverse_under_registered_3MCSE_rule",
+      "hard_energy": {
+        "fast": {
+          "data": {
+            "mean": 0.0005810936927354293,
+            "MCSE": 0.0004384707784076193,
+            "banks": 8,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 0.0018965060279582872,
+            "lower3MCSE": -0.0007343186424874286,
+            "allowance": 0.0,
+            "passed": false
+          },
+          "wave": {
+            "mean": 0.0003634402638553469,
+            "MCSE": 0.0002385514072358495,
+            "banks": 8,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 0.0010790944855628955,
+            "lower3MCSE": -0.0003522139578522016,
+            "allowance": 0.0,
+            "passed": false
+          }
+        },
+        "slow": {
+          "data": {
+            "mean": 0.0002415660636971356,
+            "MCSE": 5.450565321485376e-05,
+            "banks": 8,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 0.0004050830233416969,
+            "lower3MCSE": 7.80491040525743e-05,
+            "allowance": 0.0,
+            "passed": false
+          },
+          "wave": {
+            "mean": 0.00019571038929889172,
+            "MCSE": 4.528895402141933e-05,
+            "banks": 8,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 0.0003315772513631497,
+            "lower3MCSE": 5.9843527234633735e-05,
+            "allowance": 0.0,
+            "passed": false
+          }
+        },
+        "common_level": {
+          "data": {
+            "mean": 4.686892295676856e-06,
+            "MCSE": 0.0001523835041068686,
+            "banks": 8,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 0.00046183740461628263,
+            "lower3MCSE": -0.0004524636200249289,
+            "allowance": 0.0,
+            "passed": false
+          },
+          "wave": {
+            "mean": 9.015337991776298e-05,
+            "MCSE": 0.00010375318108297355,
+            "banks": 8,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 0.00040141292316668364,
+            "lower3MCSE": -0.00022110616333115767,
+            "allowance": 0.0,
+            "passed": false
+          }
+        }
+      },
+      "native": {
+        "fast": {
+          "failed_checks": [
+            "wave_current"
+          ],
+          "fake_rows": 1024,
+          "target_rows": 2048,
+          "wave_current": 0.1656249663697613,
+          "wave_candidate": 0.16605918452036794,
+          "wave_delta": 0.00043421815060665225,
+          "wave_relative_delta_percent": 0.26216950265653244,
+          "native_wave_current_allowance_percent": 0.2,
+          "PSD_raw_current": 0.003926310353016478,
+          "PSD_raw_candidate": 0.003917883842589286,
+          "PSD_raw_delta": -8.426510427191579e-06,
+          "rise_undefined_metric_current": 0.00341796875,
+          "rise_undefined_metric_candidate": 0.00341796875,
+          "rise_undefined_metric_meaning": "absolute fake-target rate difference, not the raw fake rate",
+          "rise_undefined_fake_current": {
+            "count": 7,
+            "denominator": 1024
+          },
+          "rise_undefined_fake_candidate": {
+            "count": 7,
+            "denominator": 1024
+          },
+          "Boolean_extra_rate_allowance": 0.001,
+          "Boolean_rise_checks": {
+            "fake_flags:rise_undefined:current": true,
+            "fake_flags:rise_undefined:starting_M0": true,
+            "fake_flags:rise_prepeak_censored:current": true,
+            "fake_flags:rise_prepeak_censored:starting_M0": true,
+            "fake_flags:rise_other_undefined:current": true,
+            "fake_flags:rise_other_undefined:starting_M0": true
+          }
+        },
+        "slow": {
+          "failed_checks": [
+            "wave_current"
+          ],
+          "fake_rows": 1024,
+          "target_rows": 2048,
+          "wave_current": 0.16606224005214332,
+          "wave_candidate": 0.1666226939034741,
+          "wave_delta": 0.0005604538513307722,
+          "wave_relative_delta_percent": 0.3374962611336511,
+          "native_wave_current_allowance_percent": 0.2,
+          "PSD_raw_current": 0.004718171578926964,
+          "PSD_raw_candidate": 0.004726525088861786,
+          "PSD_raw_delta": 8.353509934821805e-06,
+          "rise_undefined_metric_current": 0.00341796875,
+          "rise_undefined_metric_candidate": 0.00341796875,
+          "rise_undefined_metric_meaning": "absolute fake-target rate difference, not the raw fake rate",
+          "rise_undefined_fake_current": {
+            "count": 7,
+            "denominator": 1024
+          },
+          "rise_undefined_fake_candidate": {
+            "count": 7,
+            "denominator": 1024
+          },
+          "Boolean_extra_rate_allowance": 0.001,
+          "Boolean_rise_checks": {
+            "fake_flags:rise_undefined:current": true,
+            "fake_flags:rise_undefined:starting_M0": true,
+            "fake_flags:rise_prepeak_censored:current": true,
+            "fake_flags:rise_prepeak_censored:starting_M0": true,
+            "fake_flags:rise_other_undefined:current": true,
+            "fake_flags:rise_other_undefined:starting_M0": true
+          }
+        },
+        "common_level": {
+          "failed_checks": [
+            "wave_current"
+          ],
+          "fake_rows": 1024,
+          "target_rows": 2048,
+          "wave_current": 0.1651499604937947,
+          "wave_candidate": 0.16560804833215184,
+          "wave_delta": 0.00045808783835712963,
+          "wave_relative_delta_percent": 0.2773768985396407,
+          "native_wave_current_allowance_percent": 0.2,
+          "PSD_raw_current": 0.0039743304723932425,
+          "PSD_raw_candidate": 0.003960363138288526,
+          "PSD_raw_delta": -1.3967334104716261e-05,
+          "rise_undefined_metric_current": 0.00341796875,
+          "rise_undefined_metric_candidate": 0.00341796875,
+          "rise_undefined_metric_meaning": "absolute fake-target rate difference, not the raw fake rate",
+          "rise_undefined_fake_current": {
+            "count": 7,
+            "denominator": 1024
+          },
+          "rise_undefined_fake_candidate": {
+            "count": 7,
+            "denominator": 1024
+          },
+          "Boolean_extra_rate_allowance": 0.001,
+          "Boolean_rise_checks": {
+            "fake_flags:rise_undefined:current": true,
+            "fake_flags:rise_undefined:starting_M0": true,
+            "fake_flags:rise_prepeak_censored:current": true,
+            "fake_flags:rise_prepeak_censored:starting_M0": true,
+            "fake_flags:rise_other_undefined:current": true,
+            "fake_flags:rise_other_undefined:starting_M0": true
+          }
+        }
+      },
+      "point_mean_H_average": {
+        "data": 0.00027578221624274726,
+        "wave": 0.0002164346776906672
+      }
+    },
+    {
+      "direction": "REAL_seed1/mean/1",
+      "factor": 0.25,
+      "parameter_scale": 0.024794749848083636,
+      "active_RMS_V": 1.5300929197030533e-05,
+      "radius_LSB": 1.0,
+      "source": "receipts\\response038_20261017\\resume_20261018_01\\wake_20261018_0110_01\\repair_01\\deployment_01\\STARTUP_SNAPSHOT.json#/first_complete_metrics/run_01~1REAL_seed1~1metrics.jsonl",
+      "attempt_index": 2,
+      "TR_checks": {
+        "RMS": true,
+        "event99": true,
+        "eventmax": true,
+        "coordinate": true,
+        "relative99": true,
+        "relativeMax": true,
+        "tail": true
+      },
+      "no_domain_rejection": true,
+      "primary_stage": "hard_CHECK_after_full_TR_pass",
+      "CHECK_banks": 16,
+      "full_CHECK_TR": {
+        "passed": true,
+        "checks": {
+          "RMS": true,
+          "event99": true,
+          "eventmax": true,
+          "coordinate": true,
+          "relative99": true,
+          "relativeMax": true,
+          "tail": true
+        },
+        "radius_LSB": 1.0
+      },
+      "accepted": false,
+      "registered_unresolved": true,
+      "energy_class": "unresolved_under_registered_3MCSE_rule",
+      "hard_energy": {
+        "fast": {
+          "data": {
+            "mean": 0.00023382374049951866,
+            "MCSE": 0.00017298022360515502,
+            "banks": 16,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 0.0007527644113149838,
+            "lower3MCSE": -0.00028511693031594643,
+            "allowance": 0.0,
+            "passed": false
+          },
+          "wave": {
+            "mean": 0.000146668626554965,
+            "MCSE": 9.599910255017424e-05,
+            "banks": 16,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 0.00043466593420548775,
+            "lower3MCSE": -0.00014132868109555775,
+            "allowance": 0.0,
+            "passed": false
+          }
+        },
+        "slow": {
+          "data": {
+            "mean": -0.00016991917781669598,
+            "MCSE": 0.00014160506321495784,
+            "banks": 16,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 0.00025489601182817755,
+            "lower3MCSE": -0.0005947343674615695,
+            "allowance": 0.0,
+            "passed": false
+          },
+          "wave": {
+            "mean": -3.45122946973633e-05,
+            "MCSE": 9.169140747356703e-05,
+            "banks": 16,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 0.0002405619277233378,
+            "lower3MCSE": -0.0003095865171180644,
+            "allowance": 0.0,
+            "passed": false
+          }
+        },
+        "common_level": {
+          "data": {
+            "mean": 9.15051161363878e-05,
+            "MCSE": 8.073447605233947e-05,
+            "banks": 16,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 0.0003337085442934062,
+            "lower3MCSE": -0.00015069831202063058,
+            "allowance": 0.0,
+            "passed": false
+          },
+          "wave": {
+            "mean": 0.00010700829887662746,
+            "MCSE": 5.426239991958713e-05,
+            "banks": 16,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 0.0002697954986353888,
+            "lower3MCSE": -5.577890088213393e-05,
+            "allowance": 0.0,
+            "passed": false
+          }
+        }
+      },
+      "native": {
+        "fast": {
+          "failed_checks": [],
+          "fake_rows": 2048,
+          "target_rows": 4096,
+          "wave_current": 0.16044454672074843,
+          "wave_candidate": 0.16057313313204877,
+          "wave_delta": 0.00012858641130034099,
+          "wave_relative_delta_percent": 0.08014383407130933,
+          "native_wave_current_allowance_percent": 0.2,
+          "PSD_raw_current": 0.0036656587901385384,
+          "PSD_raw_candidate": 0.0036773585727467913,
+          "PSD_raw_delta": 1.169978260825294e-05,
+          "rise_undefined_metric_current": 0.0048828125,
+          "rise_undefined_metric_candidate": 0.0048828125,
+          "rise_undefined_metric_meaning": "absolute fake-target rate difference, not the raw fake rate",
+          "rise_undefined_fake_current": {
+            "count": 19,
+            "denominator": 2048
+          },
+          "rise_undefined_fake_candidate": {
+            "count": 19,
+            "denominator": 2048
+          },
+          "Boolean_extra_rate_allowance": 0.001,
+          "Boolean_rise_checks": {
+            "fake_flags:rise_undefined:current": true,
+            "fake_flags:rise_undefined:starting_M0": true,
+            "fake_flags:rise_prepeak_censored:current": true,
+            "fake_flags:rise_prepeak_censored:starting_M0": true,
+            "fake_flags:rise_other_undefined:current": true,
+            "fake_flags:rise_other_undefined:starting_M0": true
+          }
+        },
+        "slow": {
+          "failed_checks": [],
+          "fake_rows": 2048,
+          "target_rows": 4096,
+          "wave_current": 0.16094267506951493,
+          "wave_candidate": 0.1608963235479046,
+          "wave_delta": -4.6351521610338287e-05,
+          "wave_relative_delta_percent": -0.028800019379768588,
+          "native_wave_current_allowance_percent": 0.2,
+          "PSD_raw_current": 0.004576027183199643,
+          "PSD_raw_candidate": 0.004566353687944873,
+          "PSD_raw_delta": -9.67349525476946e-06,
+          "rise_undefined_metric_current": 0.00537109375,
+          "rise_undefined_metric_candidate": 0.00537109375,
+          "rise_undefined_metric_meaning": "absolute fake-target rate difference, not the raw fake rate",
+          "rise_undefined_fake_current": {
+            "count": 20,
+            "denominator": 2048
+          },
+          "rise_undefined_fake_candidate": {
+            "count": 20,
+            "denominator": 2048
+          },
+          "Boolean_extra_rate_allowance": 0.001,
+          "Boolean_rise_checks": {
+            "fake_flags:rise_undefined:current": true,
+            "fake_flags:rise_undefined:starting_M0": true,
+            "fake_flags:rise_prepeak_censored:current": true,
+            "fake_flags:rise_prepeak_censored:starting_M0": true,
+            "fake_flags:rise_other_undefined:current": true,
+            "fake_flags:rise_other_undefined:starting_M0": true
+          }
+        },
+        "common_level": {
+          "failed_checks": [],
+          "fake_rows": 2048,
+          "target_rows": 4096,
+          "wave_current": 0.1597506580188179,
+          "wave_candidate": 0.1599687748833164,
+          "wave_delta": 0.000218116864498491,
+          "wave_relative_delta_percent": 0.1365358160044623,
+          "native_wave_current_allowance_percent": 0.2,
+          "PSD_raw_current": 0.00376082412143909,
+          "PSD_raw_candidate": 0.003774373793746124,
+          "PSD_raw_delta": 1.3549672307034116e-05,
+          "rise_undefined_metric_current": 0.00537109375,
+          "rise_undefined_metric_candidate": 0.00537109375,
+          "rise_undefined_metric_meaning": "absolute fake-target rate difference, not the raw fake rate",
+          "rise_undefined_fake_current": {
+            "count": 20,
+            "denominator": 2048
+          },
+          "rise_undefined_fake_candidate": {
+            "count": 20,
+            "denominator": 2048
+          },
+          "Boolean_extra_rate_allowance": 0.001,
+          "Boolean_rise_checks": {
+            "fake_flags:rise_undefined:current": true,
+            "fake_flags:rise_undefined:starting_M0": true,
+            "fake_flags:rise_prepeak_censored:current": true,
+            "fake_flags:rise_prepeak_censored:starting_M0": true,
+            "fake_flags:rise_other_undefined:current": true,
+            "fake_flags:rise_other_undefined:starting_M0": true
+          }
+        }
+      },
+      "point_mean_H_average": {
+        "data": 5.1803226273070165e-05,
+        "wave": 7.305487691140972e-05
+      }
+    },
+    {
+      "direction": "REAL_seed1/mean/1",
+      "factor": 0.125,
+      "parameter_scale": 0.012397374924041818,
+      "active_RMS_V": 7.65072687369546e-06,
+      "radius_LSB": 1.0,
+      "source": "receipts\\response038_20261017\\resume_20261018_01\\wake_20261018_0110_01\\repair_01\\deployment_01\\STARTUP_SNAPSHOT.json#/first_complete_metrics/run_01~1REAL_seed1~1metrics.jsonl",
+      "attempt_index": 3,
+      "TR_checks": {
+        "RMS": true,
+        "event99": true,
+        "eventmax": true,
+        "coordinate": true,
+        "relative99": true,
+        "relativeMax": true,
+        "tail": true
+      },
+      "no_domain_rejection": true,
+      "primary_stage": "hard_CHECK_after_full_TR_pass",
+      "CHECK_banks": 16,
+      "full_CHECK_TR": {
+        "passed": true,
+        "checks": {
+          "RMS": true,
+          "event99": true,
+          "eventmax": true,
+          "coordinate": true,
+          "relative99": true,
+          "relativeMax": true,
+          "tail": true
+        },
+        "radius_LSB": 1.0
+      },
+      "accepted": false,
+      "registered_unresolved": true,
+      "energy_class": "unresolved_under_registered_3MCSE_rule",
+      "hard_energy": {
+        "fast": {
+          "data": {
+            "mean": 6.921491194650069e-06,
+            "MCSE": 5.34422545507394e-05,
+            "banks": 16,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 0.00016724825484686827,
+            "lower3MCSE": -0.00015340527245756813,
+            "allowance": 0.0,
+            "passed": false
+          },
+          "wave": {
+            "mean": 5.227851553965155e-06,
+            "MCSE": 3.099487253413752e-05,
+            "banks": 16,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 9.821246915637772e-05,
+            "lower3MCSE": -8.77567660484474e-05,
+            "allowance": 0.0,
+            "passed": false
+          }
+        },
+        "slow": {
+          "data": {
+            "mean": -0.00013583107962561718,
+            "MCSE": 0.0001063369875484969,
+            "banks": 16,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 0.00018317988301987348,
+            "lower3MCSE": -0.00045484204227110784,
+            "allowance": 0.0,
+            "passed": false
+          },
+          "wave": {
+            "mean": -2.591810712034232e-05,
+            "MCSE": 6.43978156520338e-05,
+            "banks": 16,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 0.00016727533983575908,
+            "lower3MCSE": -0.0002191115540764437,
+            "allowance": 0.0,
+            "passed": false
+          }
+        },
+        "common_level": {
+          "data": {
+            "mean": 0.00010655852799341297,
+            "MCSE": 5.0834189088146116e-05,
+            "banks": 16,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 0.0002590610952578513,
+            "lower3MCSE": -4.594403927102539e-05,
+            "allowance": 0.0,
+            "passed": false
+          },
+          "wave": {
+            "mean": 6.898331653264872e-05,
+            "MCSE": 2.4707589306984988e-05,
+            "banks": 16,
+            "MCSE_scope": "independent simulation banks; not experimental uncertainty",
+            "upper3MCSE": 0.0001431060844536037,
+            "lower3MCSE": -5.139451388306242e-06,
+            "allowance": 0.0,
+            "passed": false
+          }
+        }
+      },
+      "native": {
+        "fast": {
+          "failed_checks": [],
+          "fake_rows": 2048,
+          "target_rows": 4096,
+          "wave_current": 0.16044454672074843,
+          "wave_candidate": 0.160471314212704,
+          "wave_delta": 2.6767491955570488e-05,
+          "wave_relative_delta_percent": 0.016683329226613697,
+          "native_wave_current_allowance_percent": 0.2,
+          "PSD_raw_current": 0.0036656587901385384,
+          "PSD_raw_candidate": 0.003671131521708192,
+          "PSD_raw_delta": 5.4727315696536695e-06,
+          "rise_undefined_metric_current": 0.0048828125,
+          "rise_undefined_metric_candidate": 0.0048828125,
+          "rise_undefined_metric_meaning": "absolute fake-target rate difference, not the raw fake rate",
+          "rise_undefined_fake_current": {
+            "count": 19,
+            "denominator": 2048
+          },
+          "rise_undefined_fake_candidate": {
+            "count": 19,
+            "denominator": 2048
+          },
+          "Boolean_extra_rate_allowance": 0.001,
+          "Boolean_rise_checks": {
+            "fake_flags:rise_undefined:current": true,
+            "fake_flags:rise_undefined:starting_M0": true,
+            "fake_flags:rise_prepeak_censored:current": true,
+            "fake_flags:rise_prepeak_censored:starting_M0": true,
+            "fake_flags:rise_other_undefined:current": true,
+            "fake_flags:rise_other_undefined:starting_M0": true
+          }
+        },
+        "slow": {
+          "failed_checks": [],
+          "fake_rows": 2048,
+          "target_rows": 4096,
+          "wave_current": 0.16094267506951493,
+          "wave_candidate": 0.16082789107609252,
+          "wave_delta": -0.00011478399342240708,
+          "wave_relative_delta_percent": -0.07131979965713206,
+          "native_wave_current_allowance_percent": 0.2,
+          "PSD_raw_current": 0.004576027183199643,
+          "PSD_raw_candidate": 0.004557097402418685,
+          "PSD_raw_delta": -1.892978078095811e-05,
+          "rise_undefined_metric_current": 0.00537109375,
+          "rise_undefined_metric_candidate": 0.00537109375,
+          "rise_undefined_metric_meaning": "absolute fake-target rate difference, not the raw fake rate",
+          "rise_undefined_fake_current": {
+            "count": 20,
+            "denominator": 2048
+          },
+          "rise_undefined_fake_candidate": {
+            "count": 20,
+            "denominator": 2048
+          },
+          "Boolean_extra_rate_allowance": 0.001,
+          "Boolean_rise_checks": {
+            "fake_flags:rise_undefined:current": true,
+            "fake_flags:rise_undefined:starting_M0": true,
+            "fake_flags:rise_prepeak_censored:current": true,
+            "fake_flags:rise_prepeak_censored:starting_M0": true,
+            "fake_flags:rise_other_undefined:current": true,
+            "fake_flags:rise_other_undefined:starting_M0": true
+          }
+        },
+        "common_level": {
+          "failed_checks": [],
+          "fake_rows": 2048,
+          "target_rows": 4096,
+          "wave_current": 0.1597506580188179,
+          "wave_candidate": 0.15991711315085785,
+          "wave_delta": 0.00016645513203994433,
+          "wave_relative_delta_percent": 0.1041968365603456,
+          "native_wave_current_allowance_percent": 0.2,
+          "PSD_raw_current": 0.00376082412143909,
+          "PSD_raw_candidate": 0.003767290185021433,
+          "PSD_raw_delta": 6.46606358234306e-06,
+          "rise_undefined_metric_current": 0.00537109375,
+          "rise_undefined_metric_candidate": 0.00537109375,
+          "rise_undefined_metric_meaning": "absolute fake-target rate difference, not the raw fake rate",
+          "rise_undefined_fake_current": {
+            "count": 20,
+            "denominator": 2048
+          },
+          "rise_undefined_fake_candidate": {
+            "count": 20,
+            "denominator": 2048
+          },
+          "Boolean_extra_rate_allowance": 0.001,
+          "Boolean_rise_checks": {
+            "fake_flags:rise_undefined:current": true,
+            "fake_flags:rise_undefined:starting_M0": true,
+            "fake_flags:rise_prepeak_censored:current": true,
+            "fake_flags:rise_prepeak_censored:starting_M0": true,
+            "fake_flags:rise_other_undefined:current": true,
+            "fake_flags:rise_other_undefined:starting_M0": true
+          }
+        }
+      },
+      "point_mean_H_average": {
+        "data": -7.450353479184716e-06,
+        "wave": 1.6097686988757187e-05
+      }
+    }
+  ],
+  "positive_lower3MCSE_cells": [
+    {
+      "direction": "REAL_seed0/mean/3",
+      "factor": 0.5,
+      "hypothesis": "fast",
+      "metric": "wave",
+      "mean": 3.171123032071066e-05,
+      "MCSE": 9.851772396026747e-06,
+      "lower3MCSE": 2.1559131326304176e-06,
+      "upper3MCSE": 6.12665475087909e-05
+    },
+    {
+      "direction": "REAL_seed0/mean/3",
+      "factor": 0.5,
+      "hypothesis": "slow",
+      "metric": "data",
+      "mean": 3.201677277615009e-05,
+      "MCSE": 1.0624542883045989e-05,
+      "lower3MCSE": 1.4314412701212531e-07,
+      "upper3MCSE": 6.389040142528806e-05
+    },
+    {
+      "direction": "REAL_seed0/mean/3",
+      "factor": 0.5,
+      "hypothesis": "slow",
+      "metric": "wave",
+      "mean": 3.8726804100002506e-05,
+      "MCSE": 1.0406615611149183e-05,
+      "lower3MCSE": 7.5069572665549566e-06,
+      "upper3MCSE": 6.994665093345006e-05
+    },
+    {
+      "direction": "REAL_seed0/mean/3",
+      "factor": 0.5,
+      "hypothesis": "common_level",
+      "metric": "data",
+      "mean": 3.676397124822116e-05,
+      "MCSE": 8.6452345252729e-06,
+      "lower3MCSE": 1.082826767240246e-05,
+      "upper3MCSE": 6.269967482403986e-05
+    },
+    {
+      "direction": "REAL_seed0/mean/3",
+      "factor": 0.5,
+      "hypothesis": "common_level",
+      "metric": "wave",
+      "mean": 4.264551755456649e-05,
+      "MCSE": 8.685365919447521e-06,
+      "lower3MCSE": 1.6589419796223926e-05,
+      "upper3MCSE": 6.870161531290906e-05
+    },
+    {
+      "direction": "REAL_seed0/mean/3",
+      "factor": 0.25,
+      "hypothesis": "fast",
+      "metric": "wave",
+      "mean": 1.5791431801503216e-05,
+      "MCSE": 5.056139662390632e-06,
+      "lower3MCSE": 6.230128143313194e-07,
+      "upper3MCSE": 3.095985078867511e-05
+    },
+    {
+      "direction": "REAL_seed0/mean/3",
+      "factor": 0.25,
+      "hypothesis": "slow",
+      "metric": "data",
+      "mean": 1.6122708405342124e-05,
+      "MCSE": 5.0620130417618225e-06,
+      "lower3MCSE": 9.366692800566574e-07,
+      "upper3MCSE": 3.130874753062759e-05
+    },
+    {
+      "direction": "REAL_seed0/mean/3",
+      "factor": 0.25,
+      "hypothesis": "slow",
+      "metric": "wave",
+      "mean": 1.917393311834381e-05,
+      "MCSE": 5.059923020870778e-06,
+      "lower3MCSE": 3.994164055731476e-06,
+      "upper3MCSE": 3.435370218095615e-05
+    },
+    {
+      "direction": "REAL_seed0/mean/3",
+      "factor": 0.25,
+      "hypothesis": "common_level",
+      "metric": "data",
+      "mean": 1.6210141315540876e-05,
+      "MCSE": 3.829993139140752e-06,
+      "lower3MCSE": 4.72016189811862e-06,
+      "upper3MCSE": 2.7700120732963133e-05
+    },
+    {
+      "direction": "REAL_seed0/mean/3",
+      "factor": 0.25,
+      "hypothesis": "common_level",
+      "metric": "wave",
+      "mean": 1.942728868582202e-05,
+      "MCSE": 3.652213511599673e-06,
+      "lower3MCSE": 8.470648151023003e-06,
+      "upper3MCSE": 3.038392922062104e-05
+    },
+    {
+      "direction": "REAL_seed0/mean/3",
+      "factor": 0.125,
+      "hypothesis": "slow",
+      "metric": "data",
+      "mean": 7.968551538406216e-06,
+      "MCSE": 2.09892582400045e-06,
+      "lower3MCSE": 1.671774066404866e-06,
+      "upper3MCSE": 1.4265329010407566e-05
+    },
+    {
+      "direction": "REAL_seed0/mean/3",
+      "factor": 0.125,
+      "hypothesis": "slow",
+      "metric": "wave",
+      "mean": 9.698900677405746e-06,
+      "MCSE": 2.1010288532379513e-06,
+      "lower3MCSE": 3.395814117691892e-06,
+      "upper3MCSE": 1.60019872371196e-05
+    },
+    {
+      "direction": "REAL_seed0/mean/3",
+      "factor": 0.125,
+      "hypothesis": "common_level",
+      "metric": "data",
+      "mean": 9.487069993972721e-06,
+      "MCSE": 2.354646745198276e-06,
+      "lower3MCSE": 2.423129758377893e-06,
+      "upper3MCSE": 1.655101022956755e-05
+    },
+    {
+      "direction": "REAL_seed0/mean/3",
+      "factor": 0.125,
+      "hypothesis": "common_level",
+      "metric": "wave",
+      "mean": 1.0618700032702377e-05,
+      "MCSE": 1.8043878312175994e-06,
+      "lower3MCSE": 5.205536539049579e-06,
+      "upper3MCSE": 1.6031863526355174e-05
+    },
+    {
+      "direction": "REAL_seed0/mean/4",
+      "factor": 0.125,
+      "hypothesis": "slow",
+      "metric": "data",
+      "mean": 1.2286896573326456e-05,
+      "MCSE": 2.485053663113689e-06,
+      "lower3MCSE": 4.831735583985389e-06,
+      "upper3MCSE": 1.9742057562667525e-05
+    },
+    {
+      "direction": "REAL_seed0/mean/4",
+      "factor": 0.125,
+      "hypothesis": "slow",
+      "metric": "wave",
+      "mean": 1.1248506494724144e-05,
+      "MCSE": 2.629137191342292e-06,
+      "lower3MCSE": 3.361094920697269e-06,
+      "upper3MCSE": 1.9135918068751018e-05
+    },
+    {
+      "direction": "REAL_seed0/mean/4",
+      "factor": 0.125,
+      "hypothesis": "common_level",
+      "metric": "wave",
+      "mean": 1.0676905075441287e-05,
+      "MCSE": 2.6657326981165907e-06,
+      "lower3MCSE": 2.6797069810915157e-06,
+      "upper3MCSE": 1.867410316979106e-05
+    },
+    {
+      "direction": "REAL_seed1/mean/1",
+      "factor": 0.5,
+      "hypothesis": "slow",
+      "metric": "data",
+      "mean": 0.0002415660636971356,
+      "MCSE": 5.450565321485376e-05,
+      "lower3MCSE": 7.80491040525743e-05,
+      "upper3MCSE": 0.0004050830233416969
+    },
+    {
+      "direction": "REAL_seed1/mean/1",
+      "factor": 0.5,
+      "hypothesis": "slow",
+      "metric": "wave",
+      "mean": 0.00019571038929889172,
+      "MCSE": 4.528895402141933e-05,
+      "lower3MCSE": 5.9843527234633735e-05,
+      "upper3MCSE": 0.0003315772513631497
+    }
+  ],
+  "key_local_examples": [
+    {
+      "id": "REAL_seed0/mean/3",
+      "finding": "All three legal amplitudes pass native guards but fail energy with adverse3MCSE cells. Smaller magnitude shrinks harm without reversing signed data/wave means.",
+      "factor_half_common_data": {
+        "mean": 3.676397124822116e-05,
+        "lower3MCSE": 1.082826767240246e-05
+      },
+      "factor_eighth_common_data": {
+        "mean": 9.487069993972721e-06,
+        "lower3MCSE": 2.423129758377893e-06
+      }
+    },
+    {
+      "id": "REAL_seed0/mean/4",
+      "finding": "At factors.5/.25 all native checks pass and energy is unresolved; at.125 lower3MCSE becomes positive for slow data/wave and common wave. Smaller amplitude is not monotone improvement in signal-to-MCSE."
+    },
+    {
+      "id": "REAL_seed0/mean/2/factor.25",
+      "finding": "Mean across H of saved data/wave deltas is negative, while per-H conjunction still fails. It also adds one rise undefined/censored event in common_level.",
+      "mean_H_data_delta": -1.9106638781832767e-05,
+      "mean_H_wave_delta": -1.8538707618477649e-06
+    },
+    {
+      "id": "REAL_seed1/mean/1",
+      "finding": "Factor.5 fails native current-wave for all3H: +.262%,+.337%,+.277%; slow data/wave lower3MCSE positive. Factors.25/.125 pass native guards but remain unresolved; the8-to16 CHECK extension prevents attributing all change to amplitude alone."
+    },
+    {
+      "id": "REAL_seed0/mean/1/factor.125/slow",
+      "finding": "One extra rise-undefined/prepeak-censored fake event:18/1024→19/1024. Extra rate.0009765625 is within Boolean allowance.001, while original positive-T rate-distance checks fail. These are different guards, not contradictory receipts."
+    }
+  ],
+  "adapter_expression": {
+    "source": "src/n01/model038.py:_mean_response",
+    "family": "conditional monotone piecewise-linear time queries followed by linear interpolation of frozenA0 and a charge-coupled positive normalization",
+    "shared_condition": [
+      "fixed SOURCE log canonicalQ/qref",
+      "frozen normalized-waveformPC1"
+    ],
+    "network": "2→16→8,184 trainable mean parameters;8 free interval log-increments per conditional output, not a free waveform per event",
+    "interval_knots": [
+      100,
+      106,
+      112,
+      119,
+      126,
+      142,
+      158,
+      190,
+      254,
+      318,
+      383
+    ],
+    "anchors": [
+      100,
+      126,
+      383
+    ],
+    "free_front_intervals": 3,
+    "free_tail_intervals": 5,
+    "charge_definition": "canonical_charge008=sum(signal[110:366]) on the fixed1ns grid; NOT the full384 sum and NOT noisy peak-recensored observedQ",
+    "normalization": "Qwarp/Q_A0>=.25, positive gain=Q_A0/Qwarp<=4; mean canonicalQ fixed toA0; prefix0:100 copied unchanged",
+    "expressible": [
+      "conditioned front/tail compression and stretching within fixed anchors",
+      "peak/area changes coupled through normalization",
+      "same warp rule can act on different frozenA0 shapes"
+    ],
+    "unavailable_in_this_mean_phase": [
+      "independent canonical mean-charge or global voltage-gain learning",
+      "arbitrary additive smooth residual or new ringing feature",
+      "free translation of the126 mapping anchor",
+      "new local noise, electronics or stochastic covariance; originalM0 basis remains fixed with charge off"
+    ],
+    "observation_boundary": "ADC, noise and argmax-dependent256crop can change observedQ/PSD although fixed canonical110:366 meanQ is conserved",
+    "evidence_limit": "These are algebraic family limits. Six sampled directions do not establish that this family cannot fit legal REAL TRAIN; the user work order requires an expressivity fit before adding a restricted residual."
+  },
+  "hard_STE_and_objective_boundaries": [
+    {
+      "location": "scripts/run_response038.py:energy_parts038/score_bank/fit_direction/acceptance",
+      "fact": "FIT averages H energy(wave six-view mean+2integral) and small regularization. CHECK requires each H data and wave3MCSE improvement and native W1/positiveT/anomaly/negative-area guards.",
+      "implication": "Average-objective improvement does not imply every-H improvement or native-W1 agreement; this gap exists even with an exact differentiable observation and is not solely an STE issue."
+    },
+    {
+      "location": "FIT versus TRAIN_CHECK independent bank namespaces",
+      "fact": "FIT pre-proposal means are on refreshed banks; CHECK uses independent CRN banks across old/candidate. All REAL0 candidates revert to the sameM0.",
+      "implication": "Different FIT loss levels across five rows are sampling variation at the unchanged accepted model, not a learning curve. No saved post-proposal FIT score or matching-bank directional derivative establishes descent."
+    },
+    {
+      "location": "src/n01/model.py:digitize",
+      "fact": "STE and hard have identical rounded/clamped forward values. STE backward is identity inside ADC range and clamp-zero outside; the true hard quantizer is locally piecewise constant.",
+      "implication": "Finite amplitude hard risk can disagree with the surrogate directional derivative; saved logs lack a same-bank derivative comparison, so causality is unproven."
+    },
+    {
+      "location": "src/n01/observation008.py:peak_indices_torch/crop_indices_torch/_observation",
+      "fact": "First-argmax integer search and crop indices have no gradient; selected values have gather gradients.",
+      "implication": "A proposal can switch noisy peak index/crop/windowQ/PSD or flag counts discontinuously; backpropagation follows the current crop and does not predict the index switch."
+    },
+    {
+      "location": "src/n01/losses008.py:_wave_views and scripts/run_response031.py:standardized_banks",
+      "fact": "Peak-normalized wave views use hard amax/clamp; integral features are asinh of fixed observed-window integrals.",
+      "implication": "Winner changes and ADC/crop jumps can change local geometry. No claim that saved failures isolate this mechanism."
+    },
+    {
+      "location": "scripts/run_response038.py:base_scale and TR_pass",
+      "fact": "Base scale estimates radius from the unscaled pure-signal probe; the adapter is nonlinear. Saved factor1 RMS exceeds radius by.193–.249%, while factors.5/.25/.125 pass.",
+      "implication": "The top amplitude can be clipped by nonlinear response scaling, but removing this isolated gate effect cannot explain18 rejected smaller amplitudes."
+    }
+  ],
+  "decision_advice": {
+    "current_action": "Keep the current registered run/settings unchanged and interpret unified frozen-endpoint results when available; this review does not authorize a new scientific job.",
+    "avoid_unsupported_explanations": [
+      "Do not label zero acceptance simply as gates too strict.",
+      "Do not claim the observed candidate directions prove all directions in the model family are adverse.",
+      "Do not claim STE is the diagnosed root cause from these logs alone.",
+      "Do not infer the later REAL1 trajectory or complete teacher qualification from its first saved direction."
+    ],
+    "future_only_priority": "First distinguish mean-H FIT optimization from every-H CHECK conjunction using the saved evidence. If a new diagnostic is separately registered, then test same-bank hard/STE directional agreement; require a legal REAL TRAIN expressivity result before adding the work-order restricted smooth residual.",
+    "future_comparison_stop_rules": [
+      "Adverse hard directions under the existing policy: address direction/observation agreement before relaxing guards.",
+      "Native-pass but MC-unresolved cells: report uncertainty; do not call positive point estimates hidden success.",
+      "A demonstrated legal-TRAIN family residual, rather than rejected directions alone, is the prerequisite for expanding the mean family."
+    ],
+    "original_work_order_lines": [
+      20,
+      44,
+      50,
+      80,
+      81,
+      82,
+      100,
+      110,
+      116,
+      130,
+      132,
+      134
+    ]
+  },
+  "source_locations": [
+    {
+      "path": "scripts/run_response038.py",
+      "symbol": "weighted_distance",
+      "line": 61,
+      "end_line": 67
+    },
+    {
+      "path": "scripts/run_response038.py",
+      "symbol": "energy_parts038",
+      "line": 78,
+      "end_line": 85
+    },
+    {
+      "path": "scripts/run_response038.py",
+      "symbol": "score_bank",
+      "line": 179,
+      "end_line": 211
+    },
+    {
+      "path": "scripts/run_response038.py",
+      "symbol": "fit_direction",
+      "line": 272,
+      "end_line": 316
+    },
+    {
+      "path": "scripts/run_response038.py",
+      "symbol": "acceptance",
+      "line": 538,
+      "end_line": 585
+    },
+    {
+      "path": "scripts/run_response038.py",
+      "symbol": "TR_pass",
+      "line": 588,
+      "end_line": 598
+    },
+    {
+      "path": "scripts/run_response038.py",
+      "symbol": "run_track",
+      "line": 776,
+      "end_line": 955
+    },
+    {
+      "path": "src/n01/model038.py",
+      "symbol": "N01Response038",
+      "line": 32,
+      "end_line": 263
+    },
+    {
+      "path": "src/n01/model.py",
+      "symbol": "digitize",
+      "line": 43,
+      "end_line": 53
+    },
+    {
+      "path": "src/n01/model008.py",
+      "symbol": "canonical_charge008",
+      "line": 24,
+      "end_line": 32
+    },
+    {
+      "path": "src/n01/observation008.py",
+      "symbol": "peak_indices_torch",
+      "line": 45,
+      "end_line": 48
+    },
+    {
+      "path": "src/n01/observation008.py",
+      "symbol": "crop256_torch",
+      "line": 62,
+      "end_line": 72
+    },
+    {
+      "path": "src/n01/observation008.py",
+      "symbol": "_observation",
+      "line": 75,
+      "end_line": 139
+    },
+    {
+      "path": "scripts/run_response036.py",
+      "symbol": "hard_metrics",
+      "line": 95,
+      "end_line": 122
+    },
+    {
+      "path": "scripts/run_response031.py",
+      "symbol": "standardized_banks",
+      "line": 71,
+      "end_line": 78
+    }
+  ],
+  "limitations": {
+    "complete_scientific_result": false,
+    "REAL1_later_records_read": 0,
+    "teacher_training_reinterpreted": false,
+    "conditional_physics_identifiability": "Unpaired acquisition/population ambiguity remains; canonicalQ preservation is a candidate restriction, not a verified physical truth.",
+    "exact_positive_T_values": "No correctly pinned local tolerance payload was read. The same-basename local JSON hashes177479d5..., versus the executed config pinf33217e0...; it is excluded. Analysis uses persisted check booleans and saved candidate/current values.",
+    "uncertainty_scope": "Saved repeated3MCSE is an internal selection rule, not a simultaneous confidence guarantee."
+  },
+  "operations": {
+    "SSH": 0,
+    "checkpoint_decodes": 0,
+    "NPZ_decodes": 0,
+    "raw_arrays_read": 0,
+    "NN": 0,
+    "AD": 0,
+    "training": 0,
+    "distance_recomputations": 0,
+    "new_experiments": 0
+  }
+}
