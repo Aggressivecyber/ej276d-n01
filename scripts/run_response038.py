@@ -59,7 +59,11 @@ def stream_seed(seed, purpose, *indices):
 
 
 def weighted_distance(x, y, wx, wy):
-    distance = torch.linalg.vector_norm(x[:, None]-y[None, :], dim=2)/math.sqrt(x.shape[1])
+    if x.shape[0] > 128 or y.shape[0] > 128:
+        distance = torch.cat([torch.linalg.vector_norm(x[start:start+64, None]-y[None, :], dim=2)
+                              for start in range(0, x.shape[0], 64)], dim=0)/math.sqrt(x.shape[1])
+    else:
+        distance = torch.linalg.vector_norm(x[:, None]-y[None, :], dim=2)/math.sqrt(x.shape[1])
     return (distance*wx[:, None]*wy[None, :]).sum()
 
 
@@ -1499,17 +1503,19 @@ def run038(p, out, device, progress, config_sha):
     started = time.monotonic()
     out.mkdir(parents=True)
     recovery = p.get('recovery')
+    resume02 = recovery is not None and recovery['continuation_id'] == 'resume02_20261018'
     continuation = {}
     if recovery is not None:
         previous = json.loads(verified_path028(recovery['previous_config']).read_text(encoding='utf8'))
         for key, value in previous.items():
-            if key not in ('root_design', 'source_pins', 'resources') and p[key] != value:
+            if key not in ('root_design', 'previous_root_design', 'source_pins', 'resources',
+                           'recovery', 'recovery_operation_budget') and p[key] != value:
                 raise ValueError('038 continuation changed frozen setting: '+key)
         if any(p['resources'][key] != value for key, value in previous['resources'].items()
                if key not in ('GPU_headroom_basis', 'track_training_soft_seconds_total', 'reserve_for_unified_FINAL')):
             raise ValueError('038 continuation changed frozen resource limits')
-        if p['resources']['track_training_soft_seconds_total'] != 1800:
-            raise ValueError('038 continuation trains only the two remaining900s REAL tracks')
+        if p['resources']['track_training_soft_seconds_total'] != (900 if resume02 else 1800):
+            raise ValueError('038 continuation training scope differs from remaining900s REAL tracks')
         if (p['previous_root_design'] != previous['root_design'] or
                 set(p['source_pins']) != set(previous['source_pins']) or any(
                     digest != p['source_pins'][name] for name, digest in previous['source_pins'].items()
@@ -1522,11 +1528,15 @@ def run038(p, out, device, progress, config_sha):
         continuation = dict(continuation_id=recovery['continuation_id'], teacher1_interrupted=True,
             all_four_tracks_complete=False, full_teacher_qualification_established=False,
             unified_scientific_acceptance_established=False,
-            execution_counts_scope='attempt2 plus continuation verified lower bound; unknown old tail excluded',
+            execution_counts_scope='attempt2 and explicit continuations verified lower bound; unpersisted restart tail excluded',
             old_unknown_tail=recovery['old_unknown_tail'], previous_runtime_seconds='unknown',
             prior_unpersisted_REAL_FINAL_DEV_execution='unknown', FINAL_first_historical_computation_claim=False,
             FINAL_stream_scope='original registered namespaces after current endpoint freeze; prior unpersisted calls unknown',
             new_runtime_clock_only=True, no_teacher_training_or_MONITOR_replay=True)
+        if resume02:
+            continuation.update(REAL_seed0_five_rejections_restored=True, REAL_seed0_training_replayed=False,
+                REAL_seed0_post_rejection_RNG='not persisted; only initial checkpoint RNG is restored',
+                remaining_response_training_track='REAL_seed1')
     write_json(out/'START.json', dict(config=p, config_sha256=config_sha, pid=os.getpid(),
         UTC=datetime.now(timezone.utc).isoformat(), device=str(device), scientific_dispatch_authority='ROOT frozen config',
         scientific_status='response_match_not_established', **continuation))
@@ -1583,8 +1593,12 @@ def run038(p, out, device, progress, config_sha):
     tracks = {}
     populations = (('teacher', teacher_ctx, teacher['models']), ('REAL', REAL_ctx, setup['models']))
     if recovery is not None:
-        for index, filename in ((0, 'final.pt'), (1, 'best_accepted.pt')):
-            name, model = f'teacher_seed{index}', teacher['models'][index]
+        restorations = (('teacher_seed0', 0, 'RESTORED_ENDPOINT.pt', teacher['models'][0]),
+                        ('teacher_seed1', 1, 'RESTORED_ENDPOINT.pt', teacher['models'][1]),
+                        ('REAL_seed0', 0, 'initial.pt', setup['models'][0])) if resume02 else (
+                        ('teacher_seed0', 0, 'final.pt', teacher['models'][0]),
+                        ('teacher_seed1', 1, 'best_accepted.pt', teacher['models'][1]))
+        for name, index, filename, model in restorations:
             track_out = out/name
             shutil.copytree(prior_out/name, track_out)
             progress['checkpoint_loads'] += 1
@@ -1594,7 +1608,7 @@ def run038(p, out, device, progress, config_sha):
                     checkpoint['immutable_A'] != previous['inputs']['deterministic'] or
                     checkpoint['immutable_M0'] != previous['inputs'][f'M0_head_seed{index}'] or
                     checkpoint['immutable005'] != previous['inputs']['noise005']):
-                raise ValueError('038 preserved teacher checkpoint binding differs: '+name)
+                raise ValueError('038 preserved endpoint checkpoint binding differs: '+name)
             copy_new_state(model, checkpoint['new_modules'])
             groups = model.parameter_groups()
             optimizer = torch.optim.AdamW([dict(params=groups['mean'], lr=p['training']['mean_lr']),
@@ -1606,7 +1620,44 @@ def run038(p, out, device, progress, config_sha):
             torch.set_rng_state(checkpoint['CPU_RNG'])
             if checkpoint['CUDA_RNG'] is not None:
                 torch.cuda.set_rng_state_all(checkpoint['CUDA_RNG'])
-            if index == 0:
+            if name == 'REAL_seed0':
+                records = [json.loads(line) for line in (track_out/'metrics.jsonl').read_text(encoding='utf8').splitlines()]
+                last = records[-1]
+                monitors = [json.loads(line) for line in (track_out/'MONITOR.jsonl').read_text(encoding='utf8').splitlines()]
+                if (len(records) != 5 or [record['direction'] for record in records] != list(range(1, 6)) or
+                        any(record['phase'] != 'mean' or record['accepted'] or record['accepted_updates'] != 0
+                            for record in records) or len(monitors) != 1 or monitors[0]['index'] != 0 or
+                        monitors[0]['accepted_updates'] != 0):
+                    raise ValueError('038 REAL_seed0 is not the registered five rejected mean directions')
+                mutable.update(phase='mean', direction=5, accepted_updates=0, consecutive_rejected=5,
+                    consecutive_accepted=0, radius_LSB=last['radius_LSB_next'], last_monitor=last['last_monitor'],
+                    monitor_index=last['last_monitor']['index']+1, charge_enabled=False)
+                coverage = dict(scope='five complete rejected direction records; exact per-parent visits not saved',
+                    source_unique_lower_bound=max(record['FIT']['coverage']['source_unique'] for record in records),
+                    source_draws_lower_bound=sum(record['FIT']['coverage']['source_draws'] for record in records),
+                    target_draws_lower_bound=256*sum(len(record['FIT']['per_microbank']['data']) for record in records),
+                    completed_FIT_AD_queries=sum(len(record['FIT']['per_microbank']['data']) for record in records),
+                    source_population=6593, target_population=21047, exact_per_parent_visits='unknown',
+                    target_unique='unknown',
+                    records=[dict(direction=record['direction'], coverage=record['FIT']['coverage']) for record in records])
+                write_json(track_out/'FIT_COVERAGE_LOWER_BOUND.json', coverage)
+                write_json(track_out/'MEAN_ENDPOINT_MONITOR_ALIAS.json', dict(source_file='MONITOR.jsonl',
+                    source_index=0, bank_key=monitors[0]['bank_key'], new_NN_queries=0, new_AD_queries=0,
+                    same_fixed_bank_and_initial_model=True, all_five_proposals_rejected=True,
+                    original_report_reused=True, endpoint_report_evaluated_again=False,
+                    reason='Original initial model/Adam restored after five rejected directions; fixed MONITOR unchanged.'))
+                result = dict(track=name, learner_seed=p['seeds'][0], matching_M0_reference_index=0,
+                    phases=dict(mean=dict(accepted=0, stop_reason='five_consecutive_no_accept', last_direction=5)),
+                    charge_enabled=False, resource_stop=False, track_complete=True,
+                    mean_to_random_supported=False, accepted_updates=0, elapsed_training_seconds=None,
+                    training_wall_limit_seconds=900, source_FIT_population=6593, target_FIT_population=21047,
+                    source_FIT_unique=None, target_FIT_unique=None, target_FIT_record_groups=None,
+                    source_FIT_unique_lower_bound=coverage['source_unique_lower_bound'], coverage_scope=coverage['scope'],
+                    original_complete_direction_records=5, continuation_training_directions=0,
+                    native_report_failure_recovered='large MONITOR distance OOM; unchanged initial report is an explicit endpoint alias',
+                    post_rejection_RNG='not saved; initial checkpoint RNG only, subsequent evaluation uses explicit keyed streams')
+                write_json(track_out/'TRACK_RESULT.json', result)
+            elif resume02 or index == 0:
                 result = json.loads((track_out/'TRACK_RESULT.json').read_text(encoding='utf8'))
             else:
                 records = [json.loads(line) for line in (track_out/'metrics.jsonl').read_text(encoding='utf8').splitlines()]
@@ -1637,17 +1688,21 @@ def run038(p, out, device, progress, config_sha):
                     original_complete_direction_records=13, continuation_training_directions=0)
                 write_json(track_out/'TRACK_RESULT.json', result)
             model.set_phase('frozen').eval()
-            save_state(track_out/'RESTORED_ENDPOINT.pt', model, optimizer, mutable, progress, p)
-            if index == 1:
-                shutil.copy2(track_out/'RESTORED_ENDPOINT.pt', track_out/'final.pt')
-                shutil.copy2(track_out/'RESTORED_ENDPOINT.pt', track_out/'mean_endpoint.pt')
+            restored_path = track_out/('RESTORED_ENDPOINT_resume02.pt' if resume02 else 'RESTORED_ENDPOINT.pt')
+            save_state(restored_path, model, optimizer, mutable, progress, p)
+            if name == 'REAL_seed0' or (not resume02 and index == 1):
+                shutil.copy2(restored_path, track_out/'final.pt')
+                shutil.copy2(restored_path, track_out/'mean_endpoint.pt')
             result.update(state=new_module_state(model), mean_state=new_module_state(model))
             tracks[name] = result
             write_json(track_out/'ENDPOINT_RESTORATION.json', dict(source_checkpoint=filename,
                 source_sha256=recovery['preserved_files'][f'{name}/{filename}']['sha256'],
                 full_new_modules_Adam_mutable_CPU_CUDA_RNG_restored=True, teacher_training_queries=0,
+                mutable_rebuilt_from_five_rejection_records=(name == 'REAL_seed0'),
+                restored_RNG_scope='saved initial checkpoint, not post-five-rejection RNG' if name == 'REAL_seed0' else 'saved endpoint checkpoint',
                 MONITOR_replayed=False, monitor_boundary=mutable['last_monitor'],
-                monitor_index_reconciled_from_completed_log=(index == 1), saved_phase=checkpoint['mutable']['phase'],
+                monitor_index_reconciled_from_completed_log=(name == 'REAL_seed0' or (not resume02 and index == 1)),
+                saved_phase=checkpoint['mutable']['phase'],
                 saved_mode_and_requires_grad='not serialized; reconstructed from deterministic phase then frozen',
                 lost_loss_diagnostic_cache='not serialized; report-only, not an input to subsequent computation',
                 original_resume_allowed=False, explicit_one_time_authority=p['root_design'],
@@ -1660,6 +1715,8 @@ def run038(p, out, device, progress, config_sha):
     for population, context, models in populations:
         for index, seed in enumerate(p['seeds']):
             name = f'{population}_seed{index}'
+            if resume02 and name == 'REAL_seed0':
+                continue
             context = dict(context, M0=setup['references'][index])
             tracks[name] = run_track(models[index], context, seed, name, index, p, out/name, progress, started)
             write_json(out/'STATUS.json', dict(last_track=name,
@@ -1761,9 +1818,10 @@ def main():
         raise ValueError('038 requires the one ROOT-reviewed fixed two-seed candidate')
     if p['operation_budget'] != budget_closure038():
         raise ValueError('038 registered operation closure differs')
-    if p.get('recovery') is not None and (p['recovery']['mode'] != 'freeze_teacher_endpoints_then_REAL' or
-            p['recovery']['continuation_id'] != 'resume01_20261018'):
-        raise ValueError('038 permits only the registered one-time server restart continuation')
+    if p.get('recovery') is not None and (p['recovery']['mode'], p['recovery']['continuation_id']) not in (
+            ('freeze_teacher_endpoints_then_REAL', 'resume01_20261018'),
+            ('freeze_REAL_seed0_then_REAL_seed1', 'resume02_20261018')):
+        raise ValueError('038 permits only the registered explicit continuation scope')
     if args.out.exists():
         raise FileExistsError(args.out)
     os.environ.setdefault('CUBLAS_WORKSPACE_CONFIG', ':4096:8')
@@ -1797,7 +1855,7 @@ def main():
                 failure.update(continuation_id=p['recovery']['continuation_id'], teacher1_interrupted=True,
                     all_four_tracks_complete=False, all_four_endpoints_frozen=(args.out/'ENDPOINTS_FROZEN.json').exists(),
                     full_teacher_qualification_established=False, unified_scientific_acceptance_established=False,
-                    execution_counts_scope='attempt2 plus continuation verified lower bound; unknown old tail excluded',
+                    execution_counts_scope='attempt2 and explicit continuations verified lower bound; unpersisted restart tail excluded',
                     prior_unpersisted_REAL_FINAL_DEV_execution='unknown', FINAL_first_historical_computation_claim=False,
                     old_unknown_tail=p['recovery']['old_unknown_tail'])
             write_json(args.out/'FAILED.json', failure)

@@ -1,0 +1,226 @@
+{
+  "schema": "n01/response038-report-distance-memory-fix-continuation-implementation/v1",
+  "UTC": "2026-10-17T17:23:09.114433+00:00",
+  "status": "implemented_static_and_one_CPU_semantic_check_passed_no_native_execution",
+  "files": {
+    "runner": {
+      "path": "scripts/run_response038.py",
+      "sha256": "ceffb5bc89430f1bd4c9ab731d09c426a99b8ad4cb88fb4f3ab210300f27e461"
+    },
+    "config": {
+      "path": "configs/response038_resume02_20261018.json",
+      "sha256": "8ce712ccd6194d588dc05f84747c0b9d719ff5dc57c6d0e3e2858540e6d46375"
+    },
+    "root_design": {
+      "path": "receipts/response038_20261017/resume_20261018_01/wake_20261018_0110_01/repair_01/RESUMPTION_DESIGN.json",
+      "bytes": 16337,
+      "sha256": "318be00daaf30bb7791fe3fd576cab4457e02ff581acc252205e6b07d8e56a00"
+    },
+    "runner_before": {
+      "path": "receipts/response038_20261017/resume_20261018_01/wake_20261018_0110_01/before_memory_fix/run_response038.py",
+      "sha256": "694751ef8e939a30250b3ae6e5ee4423432d82c11ac5427a4a6ab22b8f658701"
+    },
+    "previous_config_unchanged": {
+      "path": "configs/response038_resume01_20261018.json",
+      "sha256": "daf85f28289cd46e256fc537f6f487095acb2a5ac7e3e671803a434207d17dee"
+    },
+    "semantic_check": {
+      "path": "receipts/response038_20261017/resume_20261018_01/wake_20261018_0110_01/WEIGHTED_DISTANCE_CPU_CHECK.json",
+      "sha256": "0ab3860b623a6d5396dbdb3bb1fe056215dd9eac19022d525e7cf3b717f28908"
+    }
+  },
+  "distance_fix": {
+    "condition": "either lane has more than128rows",
+    "x_block_rows": 64,
+    "same_all_pairs_same_vector_norm_same_global_sqrt_dimension_and_outer_weight_sum": true,
+    "both_lanes_le128_assignment_and_sum_AST_unchanged": true,
+    "large_branch_scope": "actual MONITOR report banks; FIT/CHECK actual lanes<=128 keep original branch",
+    "no_sampling_dropping_rounding_new_loss_or_cache_fallback": true,
+    "old_1024_target_self_broadcast_bytes": 3221225472,
+    "new_3D_broadcast_max_bytes": 201326592,
+    "GPU_allocator_cap_GiB": 6,
+    "GPU_native_success_not_yet_verified": true
+  },
+  "endpoint_recovery": {
+    "teacher0_and_teacher1": "reuse prior resume01 RESTORED_ENDPOINT checkpoint; inherit existing track results/coverage; no training or MONITOR",
+    "REAL0": "restore strict pinned initial new_modules and empty Adam; rebuild endpoint-only mutable from five complete rejected records; save final and mean endpoint without new training",
+    "REAL0_mutable": {
+      "phase": "mean",
+      "direction": 5,
+      "consecutive_rejected": 5,
+      "consecutive_accepted": 0,
+      "radius_LSB": 0.25,
+      "accepted_updates": 0,
+      "charge_enabled": false,
+      "monitor_index": 1,
+      "last_monitor": {
+        "index": 0,
+        "accepted_updates": 0
+      }
+    },
+    "REAL0_stop": "five_consecutive_no_accept; mean_to_random_supported=false; no random stage",
+    "REAL0_RNG": "only initial saved RNG restored; post-five RNG not persisted, never claimed exact; later evaluation streams are explicit keyed",
+    "REAL0_MONITOR": "original index0 is a provenance-labelled endpoint alias of the same model and fixed bank; zero new NN/AD/ADC",
+    "REAL0_coverage": "five metrics provide source-unique and draw lower bounds; exact per-parent visits unknown; no fabricated FIT_COVERAGE.npz",
+    "remaining_training": "only original REAL_seed1 with900s ceiling; skip REAL0 in the original population loop",
+    "completion": "all_four_endpoints_frozen=true when REAL1 closes; all_four_tracks_complete=false, teacher1_interrupted=true; unified scientific acceptance remains unestablished",
+    "previous_unknown_restart_tail": "preserved as unknown, old full-attempt cost ceiling retained; no historical first-FINAL claim"
+  },
+  "static_validation": {
+    "AST_and_compile_passed": true,
+    "changed_top_level_definitions": [
+      "weighted_distance",
+      "run038",
+      "main"
+    ],
+    "unmodified_top_level_definitions": 56,
+    "run_track_source_text_unchanged": true,
+    "all_other_scientific_models_losses_acceptance_streams_FINAL_C2ST_source_unchanged": true,
+    "source_pins_verified": 45,
+    "three_endpoint_bindings_compared_from_metadata_only": true,
+    "preserved_files_hash_verification": "ROOT existing75-file metadata receipt; no CP/raw bytes read by this implementation",
+    "reused_INITIAL_JSON": 15,
+    "reused_INITIAL_identity_teacher_initial_files": 33,
+    "original_cfg_and_old_design_unchanged": true,
+    "only_resource_metadata_changes": {
+      "track_training_soft_seconds_total": {
+        "before": 1800,
+        "after": 900
+      },
+      "reserve_for_unified_FINAL": {
+        "before": "Only the two unchanged REAL900s track ceilings remain, total1800s; setup and unified FINAL/C2ST use the rest of the original7200s attempt cap. Actual completion is not guaranteed; save named partial state before internal6900s.",
+        "after": "Only REAL1 unchanged900s ceiling remains; setup and all original unifiedFINAL/C2ST within hard7200/internal6900s. No guarantees of completing the full evaluation."
+      },
+      "GPU_headroom_basis": {
+        "before": "Retain previous6GiB allocator cap. Newboot readback2026-10-17T16:19:20.765030Z reports11544MiB free with no GPU compute process; no resource increase or batch/learning change.",
+        "after": "Retain6GiB allocator cap. Recheck current GPU free>=6144MiB before dispatch; do not touch unrelated GPU processes."
+      }
+    },
+    "remaining_operation_budget_sums_reconciled": true
+  },
+  "one_authorized_synthetic_check": {
+    "device": "CPU",
+    "dtype": "float64",
+    "x_shape": [
+      129,
+      384
+    ],
+    "y_shape": [
+      137,
+      384
+    ],
+    "nonuniform_positive_weights": true,
+    "old_calls": 1,
+    "new_calls": 1,
+    "absolute_difference": 0.0,
+    "scalar_bitwise_equal": true,
+    "no_further_numeric_tests": true,
+    "evidence_boundary": "local torch2.10.0CPU semantics; server torch2.12.0CUDA native execution not performed"
+  },
+  "accounting": {
+    "prior_runtime_checkpoint_loads_lower_bound": 14,
+    "new_original_CP_loads": 6,
+    "new_endpoint_CP_loads": 3,
+    "expected_cumulative_runtime_checkpoint_loads_after_setup": 23,
+    "this_invocation_new_runtime_CP_loads": 9,
+    "prior_scientific_Adam_lower_bound": 48,
+    "prior_FIT_AD_lower_bound": 816,
+    "prior_complete_direction_records": 47,
+    "prior_retained_teacher_updates": 17,
+    "prior_retained_REAL_updates": 0,
+    "metadata_inspections_earlier_plus_this": 5
+  },
+  "new_operation_budget": {
+    "tracks_trained": 1,
+    "teacher_tracks_trained": 0,
+    "directions_max": 100,
+    "FIT_AD_queries_max": 1632,
+    "optimizer_direction_constructions_max": 100,
+    "retained_updates_max": 100,
+    "trial_amplitudes_max": 400,
+    "charge_activation_trials_max": 1,
+    "original_CP_loads": 6,
+    "new_module_CP_loads": 3,
+    "old_A_calls_max": 58,
+    "old_A_rows_max": 7297,
+    "original014_calls": 0,
+    "original014_rows": 0,
+    "response_rows_by_path": {
+      "FIT": 208896,
+      "CHECK": 1228800,
+      "geometry": 256000,
+      "phase_endpoint": 4096,
+      "charge_activation": 6656,
+      "MONITOR": 105472,
+      "FINAL": 547920,
+      "teacher_truth_factors": 192,
+      "teacher_conditional_factors": 128,
+      "source_pair_factors": 2420,
+      "FINAL_risk": 12288
+    },
+    "response_rows_max": 2372868,
+    "noise005_rows_by_path": {
+      "FIT": 208896,
+      "CHECK": 204800,
+      "phase_endpoint": 2048,
+      "charge_activation": 2048,
+      "MONITOR": 1024,
+      "FINAL": 54792,
+      "FINAL_risk": 2048
+    },
+    "noise005_rows_max": 475656,
+    "extension_rows_max": 1426968,
+    "generated_observation_rows_by_path": {
+      "FIT": 626688,
+      "CHECK": 3686400,
+      "phase_endpoint": 12288,
+      "charge_activation": 18432,
+      "MONITOR": 316416,
+      "FINAL": 1808136,
+      "conditional_MC": 16384,
+      "FINAL_risk": 36864
+    },
+    "generated_observation_rows_max": 6521608,
+    "classifier_AD_queries_max": 6600,
+    "classifier_optimizer_steps_max": 6600,
+    "classifiers_max": 33,
+    "existing_full_call_ceilings_retained_as_conservative_only": {
+      "response_calls_max": 112792,
+      "noise005_calls_max": 39901,
+      "generated_observation_calls_max": 331639
+    },
+    "new_operation_totals_pending_independent_code_reconciliation": false,
+    "teacher_conditional_note": "2 final endpoints times64heldout =128; original extra128initial analytic factor rows are skipped and reused from saved report."
+  },
+  "combined_bounds": {
+    "immutable_CP_loads_all_attempts_max": 24,
+    "new_module_CP_deserializations_inspection_plus_run_max": 10,
+    "all_CP_deserializations_max": 34,
+    "old_A_rows_all_attempts_max": 27972,
+    "old_A_calls_all_attempts_max": 222,
+    "response_rows_all_attempts_max": 10256090,
+    "FIT_AD_max": 8256,
+    "scientific_Adam_constructions_max": 505,
+    "retained_current_saved_teacher_plus_new_REAL_max": 117,
+    "ever_accepted_updates_cost_ceiling": 500,
+    "noise005_rows_attempted_all_attempts_max": 3933525,
+    "extension_rows_all_attempts_max": 11800191,
+    "generated_ADC_rows_all_attempts_max": 32361560,
+    "native_wall_ceiling_all_attempts_seconds": 14631,
+    "bound_basis": "Firstfailedattempt exactprefix; unknown oldboot attempt2 covered by full original400Adam/6528AD/7815958head bound; observed resume01 exact5Adam/96AD/67264head + thisremaining1REAL bound. No unknown oldwork counted as completed. Checkpoint inspections2+3 and runtime2+3 separately included.",
+    "wall_bound_note": "Firstfailure<=6s + oldattempt2<=7200s + completedresume01=224.149636s roundedup225 + repair02<=7200s. Offline time excluded."
+  },
+  "execution_by_this_implementation": {
+    "synthetic_old_distance_calls": 1,
+    "synthetic_new_distance_calls": 1,
+    "scientific_NN": 0,
+    "AD": 0,
+    "optimizer": 0,
+    "checkpoint_deserializations": 0,
+    "checkpoint_raw_byte_reads": 0,
+    "real_array_reads": 0,
+    "remote_jobs_started": 0
+  },
+  "pending": "Independent source review and ROOT single native deployment/startup verification",
+  "scientific_status": "response_match_not_established"
+}

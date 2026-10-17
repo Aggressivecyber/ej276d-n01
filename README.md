@@ -1,14 +1,12 @@
-# N01 当前状态：038续行已进入REAL训练，首候选拒绝并回退
+# N01 当前状态：038显存最小修复通过独审，准备只继续REAL1
 
-2026-10-18 00:39（Asia/Singapore）一次正确启动快照：新服务器boot下原生PID11586存活、项目锁占用、无FAILED/exit。两教师模型/Adam/控制状态/RNG已按原SHA恢复；种子0的900秒资源终点与种子1的中断终点保留，不补跑教师。15份A/M0/Q1起点评价和双种子全6593父M0逐位一致证据直接复用。
+REAL0完成5个方向/96个FIT微批、20个幅度trial，全部拒绝，保留模型仍为M0；随后阶段末report-only MONITOR申请3GiB临时距离张量而退出1。75份失败文件共12,688,039字节已保存E并逐SHA核对；不重跑已完成的五方向。
 
-REAL种子0已完成首方向32微批梯度累积，FIT data0.05806981、wave0.02896119、total0.05807935，carrier仅报告。4个幅度候选均未获接纳，按原完整回退流程继续，半径1降至0.5LSB；当前新REAL接纳数0。快照显存4806MiB、RSS约2.76GiB，CPU4/GPU分配6GiB/RSS12GiB上限保持，未操作其他作业。已安排今日01:10单次苏醒，此后停止持续监控。
+修复仅将大库全pair距离按64行分块，保留距离定义和全部权重。唯一CPU合成比较差0、逐位相等；小FIT/CHECK路径及原run_track/优化器/信赖域/接纳门未改。独审PASS，远端88项输入SHA和资源预检通过；下一次仅运行REAL1原900秒，随后原统一FINAL/C2ST。6GiB显存帽、CPU4、RSS12GiB、硬7200秒、单项目锁保留。
 
-本次仅执行剩余两个REAL种子（各900秒），再统一冻结终点并完成原FINAL/C2ST；57个科学计算/训练函数未改，独审通过。保存下界为科学Adam构造44次，其中新REAL1次、教师43次；已接纳教师17次，项目累计计算更新下界199713。重启前未落盘工作未知，以原整轮预算保守覆盖，不能当精确计数。教师种子1按中断处理，四轨完整资格与统一科学接受均未成立，状态仍为 `response_match_not_established`。
+当前科学Adam构造下界48（教师43+REAL0的5），保留教师17、REAL0接纳0；项目累计下界199717。REAL0封存初始model/Adam与五拒绝终点，固定MONITOR显式复用初始记录；post5 RNG与精确覆盖未知。教师1中断资格和旧服务器未持久化工作未知保留，科学状态仍为 `response_match_not_established`。
 
-已有教师固定MONITOR波形energy两种子分别下降约29%/26%，积分项略升；这是内部教师库结果，REAL拟合效果仍待统一新库确认。成功启动、保护旧解、实际拟合收益与条件响应接受分别报告。
-
-[启动回执](receipts/response038_20261017/resume_20261018_01/deployment_01/STARTUP_ASSESSMENT.json) · [续行配置](configs/response038_resume01_20261018.json) · [恢复设计](receipts/response038_20261017/resume_20261018_01/RESUMPTION_DESIGN.json) · [独立审核](receipts/response038_20261017/resume_20261018_01/independent_review/SOURCE_REVIEW.json) · [单次苏醒](receipts/response038_20261017/resume_20261018_01/deployment_01/FOLLOWUP_RECEIPT.json) · [已保存进展](receipts/response038_20261017/resume_20261018_01/EXISTING_PROGRESS_SUMMARY.json) · [权威状态](PROGRAM.json)
+[修复设计](receipts/response038_20261017/resume_20261018_01/wake_20261018_0110_01/repair_01/RESUMPTION_DESIGN.json) · [独立源码审核](receipts/response038_20261017/resume_20261018_01/wake_20261018_0110_01/repair_01/independent_review/SOURCE_REVIEW.json) · [失败保存回执](receipts/response038_20261017/resume_20261018_01/wake_20261018_0110_01/repair_01/FAILED_ATTEMPT_PRESERVATION_RECEIPT.json) · [权威状态](PROGRAM.json)
 
 以下为保留的历史阶段记录；其中“当前”、计划与运行快照均指当时状态。最新状态以上文和PROGRAM/MASTER_EXECUTION_PLAN/jobs三台账为准。
 

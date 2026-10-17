@@ -1,0 +1,188 @@
+{
+  "schema": "n01/response038-monitor-memory-repair-independent-source-review/v1",
+  "UTC": "2026-10-17T17:25:26.878760+00:00",
+  "reviewer": "independent Sol Max response038_resume_review",
+  "outcome": "PASS_FOR_SINGLE_BOUNDED_RESUME02_DISPATCH",
+  "blockers": [],
+  "authority": "Same038 direct human instruction 服务器重启了 继续推进, bounded by final ROOT repair02 design; source conformance only.",
+  "final_bindings": {
+    "runner": {
+      "path": "scripts/run_response038.py",
+      "sha256": "ceffb5bc89430f1bd4c9ab731d09c426a99b8ad4cb88fb4f3ab210300f27e461"
+    },
+    "config": {
+      "path": "configs/response038_resume02_20261018.json",
+      "sha256": "8ce712ccd6194d588dc05f84747c0b9d719ff5dc57c6d0e3e2858540e6d46375"
+    },
+    "design": {
+      "path": "receipts/response038_20261017/resume_20261018_01/wake_20261018_0110_01/repair_01/RESUMPTION_DESIGN.json",
+      "bytes": 16337,
+      "sha256": "318be00daaf30bb7791fe3fd576cab4457e02ff581acc252205e6b07d8e56a00"
+    },
+    "failed_runner_sha256": "694751ef8e939a30250b3ae6e5ee4423432d82c11ac5427a4a6ab22b8f658701",
+    "failed_config_sha256": "daf85f28289cd46e256fc537f6f487095acb2a5ac7e3e671803a434207d17dee",
+    "implementation_receipt": {
+      "path": "receipts/response038_20261017/resume_20261018_01/wake_20261018_0110_01/CONTINUATION_IMPLEMENTATION.json",
+      "sha256": "ea4c0b0e595beb69f0e7870092c090efcb0d0692fb83822b3c5c6003edb35f45"
+    },
+    "checkpoint_metadata_receipt_sha256": "08fb38dcf0b4838b85e5dcef5a530b0a28e86c628c8033bdf1b16a54cf979509",
+    "existing_CPU_check_receipt_sha256": "0ab3860b623a6d5396dbdb3bb1fe056215dd9eac19022d525e7cf3b717f28908"
+  },
+  "source_findings": {
+    "AST_parse_passed": true,
+    "old_and_new_top_level_definitions": 59,
+    "changed_definitions": [
+      "weighted_distance",
+      "run038",
+      "main"
+    ],
+    "exact_unchanged_definitions": 56,
+    "run_track_model_training_optimizer_TR_acceptance_FINAL_C2ST_unchanged": true,
+    "source_pins_checked": 45,
+    "source_pin_mismatches": [],
+    "frozen_scientific_configuration_changes": [],
+    "resource_changes_only": [
+      "track_training_soft_seconds_total:1800 to900",
+      "reserve_for_unified_FINAL text",
+      "GPU_headroom_basis text"
+    ],
+    "allocator_cap_GiB_unchanged": 6,
+    "preserved_run_bindings_matching_manifest": 70,
+    "complete_preserved_manifest_files_reported": 75,
+    "all_70_inputs_hashed_before_runtime_copy_or_CP_load": true,
+    "runtime_hash_check_not_reexecuted_by_reviewer": true,
+    "reused_report_files_bound": 33,
+    "reused_INITIAL_JSON_reports": 15,
+    "prior_config_SHA_and_previous_design_reference_verified": true,
+    "final_design_SHA_bytes_and_budget_bindings_verified": true,
+    "all_carry_fields_equal_saved_FAILED_execution_counts": true
+  },
+  "distance_repair": {
+    "large_condition": "either lane rows >128",
+    "x_block_rows": 64,
+    "algorithm": "Compute identical vector_norm for every pair in x blocks; concatenate only 2D distances, then preserve global sqrt(d) normalization and full outer-weight sum.",
+    "small_branch_AST_equal_to_original": true,
+    "final_weighted_sum_AST_equal_to_original": true,
+    "FIT_CHECK_lane_rows": [
+      64,
+      128
+    ],
+    "FIT_CHECK_stay_on_original_branch": true,
+    "MONITOR_has_no_grad_in_unchanged_source": true,
+    "old_1024_target_self_3D_bytes": 3221225472,
+    "new_64x1024_3D_max_bytes": 201326592,
+    "existing_CPU_check_only": {
+      "shape": [
+        129,
+        137,
+        384
+      ],
+      "nonuniform_positive_weights": true,
+      "old_calls": 1,
+      "new_calls": 1,
+      "scalar_bitwise_equal": true,
+      "absolute_difference": 0.0,
+      "evidence_boundary": "Existing CPU float64 scalar check; GPU native equivalence not claimed. Reviewer did not repeat it."
+    }
+  },
+  "restoration": {
+    "checkpoint_bindings": {
+      "teacher_seed0/RESTORED_ENDPOINT.pt": {
+        "bytes": 82559,
+        "sha256": "02d13c857131601eafc8b941a5c968c2a409d38b940d7d60b7e11a7b3ae1142b"
+      },
+      "teacher_seed1/RESTORED_ENDPOINT.pt": {
+        "bytes": 82559,
+        "sha256": "7bd660441a310a104660114daf9ec0cc6859ffe4afdeb627e61a92fd85285638"
+      },
+      "REAL_seed0/initial.pt": {
+        "bytes": 77237,
+        "sha256": "13aa7a5d19ec9ce73ef5813d082129bc96418a91ed1be4b7eed48b7daa21757d"
+      }
+    },
+    "runtime_strict_checks": "All three CP byte pins checked before copy; each loaded CP must match schema, entire previous daf85 config, resume_allowed=false, immutable A/M0/005 provenance.",
+    "complete_model_Adam_mutable_CPU_CUDA_RNG_restore_before_freeze": true,
+    "teacher0": "Preserve resource endpoint12 accepted and coverage; zero training/bank/MONITOR replay.",
+    "teacher1": "Preserve interrupted mean13/5 accepted endpoint and incomplete qualification; zero new bank or update.",
+    "REAL0": "Exactly five recorded mean directions rejected, zero accepted. Restore initial model and empty Adam; reconstruct direction5/consecutive_rejected5/radius0.25 and recorded initial-monitor provenance. Freeze and write explicit five_consecutive_no_accept endpoint.",
+    "REAL0_MONITOR_alias": "Reuse existing fixed initial MONITOR index0 as endpoint alias because model/bank are unchanged; explicit alias receipt states no new NN/AD and no second observation.",
+    "REAL0_RNG": "Initial saved RNG restored only. Post-five-rejection RNG was not saved and is never claimed reconstructed. REAL0 training does not resume.",
+    "REAL0_coverage": "Only complete five-direction records support draw counts/source-unique lower bound; exact per-parent visits and target-unique coverage remain unknown.",
+    "only_remaining_training": "REAL_seed1, original seed2026101739/reference1, unchanged run_track900s.",
+    "teacher_and_REAL0_replay_queries": 0,
+    "original_FINAL_and_C2ST_retained": true,
+    "all_four_tracks_complete_always_false_in_recovery": true,
+    "teacher1_interrupted_retained": true,
+    "full_teacher_qualification_and_unified_scientific_acceptance_false": true,
+    "prior_unpersisted_oldboot_work_unknown_and_not_used_for_selection": true,
+    "automatic_restart": false
+  },
+  "cost_reconciliation": {
+    "carry_saved_lower_bounds": {
+      "scientific_Adam_constructions": 48,
+      "FIT_AD": 816,
+      "retained_teacher": 17,
+      "retained_REAL": 0,
+      "completed_direction_records": 47,
+      "runtime_CP_loads": 14,
+      "response_head_rows": 649106
+    },
+    "new_scope": {
+      "tracks": 1,
+      "directions": 100,
+      "FIT_AD": 1632,
+      "scientific_Adam_constructions": 100,
+      "trial_amplitudes": 400,
+      "original_CP_loads": 6,
+      "new_module_CP_loads": 3,
+      "response_head_rows": 2372868,
+      "noise005_rows": 475656,
+      "extension_rows": 1426968,
+      "generated_ADC_rows": 6521608,
+      "classifier_AD_and_optimizer_separate": 6600
+    },
+    "new_runtime_counter_CP_upper": 23,
+    "row_sums_independently_reconciled": true,
+    "FIT_formula": "2 phases * (32 +49*16) =1632 AD; times128 =208896 head FIT rows.",
+    "combined_head_formula": "7815958 old full bound +67264 observed resume01 +2372868 remaining =10256090",
+    "combined_Adam_formula": "400 old full bound +5 observed resume01 +100 remaining =505",
+    "combined_FIT_formula": "6528 old full bound +96 observed resume01 +1632 remaining =8256",
+    "combined_ADC_formula": "25677136 old full bound +162816 observed resume01 +6521608 remaining =32361560",
+    "combined_bounds": {
+      "immutable_CP_loads_all_attempts_max": 24,
+      "new_module_CP_deserializations_inspection_plus_run_max": 10,
+      "all_CP_deserializations_max": 34,
+      "old_A_rows_all_attempts_max": 27972,
+      "old_A_calls_all_attempts_max": 222,
+      "response_rows_all_attempts_max": 10256090,
+      "FIT_AD_max": 8256,
+      "scientific_Adam_constructions_max": 505,
+      "retained_current_saved_teacher_plus_new_REAL_max": 117,
+      "ever_accepted_updates_cost_ceiling": 500,
+      "noise005_rows_attempted_all_attempts_max": 3933525,
+      "extension_rows_all_attempts_max": 11800191,
+      "generated_ADC_rows_all_attempts_max": 32361560,
+      "native_wall_ceiling_all_attempts_seconds": 14631,
+      "bound_basis": "Firstfailedattempt exactprefix; unknown oldboot attempt2 covered by full original400Adam/6528AD/7815958head bound; observed resume01 exact5Adam/96AD/67264head + thisremaining1REAL bound. No unknown oldwork counted as completed. Checkpoint inspections2+3 and runtime2+3 separately included.",
+      "wall_bound_note": "Firstfailure<=6s + oldattempt2<=7200s + completedresume01=224.149636s roundedup225 + repair02<=7200s. Offline time excluded."
+    },
+    "new_budget_matches_design": true,
+    "old_unknown_tail_policy": "Use complete oldboot original attempt bound; nearest direction14 reconstruction is never an unconditional hard cost ceiling."
+  },
+  "execution_this_review": {
+    "CP_deserializations": 0,
+    "raw_array_archives_decoded": 0,
+    "NN": 0,
+    "AD": 0,
+    "optimizer": 0,
+    "new_numerical_or_artificial_tensor_tests": 0,
+    "remote_commands_or_jobs": 0,
+    "only_file_written": "repair_01/independent_review/SOURCE_REVIEW.json",
+    "previous_review_overwritten": false
+  },
+  "limitations": [
+    "Source/text review only; native resource acceptance and GPU execution require the actual launch/run receipts.",
+    "Teacher1 remains interrupted and full scientific acceptance remains unestablished."
+  ],
+  "scientific_status": "response_match_not_established"
+}
