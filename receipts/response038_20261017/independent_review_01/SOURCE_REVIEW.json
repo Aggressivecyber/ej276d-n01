@@ -1,0 +1,149 @@
+{
+  "schema": "n01/response038-independent-final-source-review/v1",
+  "UTC": "2026-10-17T05:27:16.763583+00:00",
+  "status": "PASS",
+  "remaining_blockers": [],
+  "decision": "No source or registered-budget blocker remains for the single frozen bounded038 run. This is execution readiness, not response-learning or scientific acceptance.",
+  "identity": {
+    "runner": {
+      "path": "scripts/run_response038.py",
+      "sha256": "330621ee74bea368023000d3a078696c2c67e43fd312bb0da1cf4f946ab0d75b",
+      "bytes": 110457
+    },
+    "model": {
+      "path": "src/n01/model038.py",
+      "sha256": "15d972b5951987dd6a7a0a5c488ecfcadf05f69f03aba8f198c2903fc802321f",
+      "bytes": 23202
+    },
+    "config": {
+      "path": "configs/response038_20261017.json",
+      "sha256": "51f4825b60c95daf038e38849d8e9beaa8e0382a939510b7ffcaa9fb30d65395",
+      "bytes": 34998
+    },
+    "ROOT_DESIGN": {
+      "path": "receipts/response038_20261017/ROOT_DESIGN.json",
+      "sha256": "1e2a11caabc63cefa5498410cd98057a38b4206e3e8a9771a7a75680e22b676e",
+      "bytes": 20605
+    }
+  },
+  "integrity": {
+    "source_pins_checked": 45,
+    "all_pin_bytes_SHA_and_AST_match": true,
+    "AST_reachable_local_modules": 43,
+    "all_reachable_modules_pinned": true,
+    "literal_configuration_accesses_present": true,
+    "six028_CP_bindings_match_existing_JSON_metadata": true,
+    "CP_binary_reads_or_rehashes": 0
+  },
+  "mechanism_review": {
+    "model": "Original014/010 tanh/.05 fixedA0 amplitude and zero-Q shape arithmetic are preserved. Fixed A0 encoding/logQ/013PC1 do not receive adapter gradients.184-parameter monotone time adapter preserves100/126/383, prefix100 and canonicalQ; invalidQratio<.25 rejects explicitly. Mean/random phases separate; local0; independent016 scalar charge givesBB^T+cv2*Aphi*Aphi^T preADC.",
+    "weighted_FIT": "8SOURCE and16REAL strata, quota8 each, fresh independent within-stratum replacement and fixedNh/(N*8). All four cross and both independent-bank self distances use weight outer products; output regular and saturation use the same per-parent weights. Complete REAL record groups are assigned by cumulative-row midpoint; no within-stratum-only loss or learned population weights.",
+    "gradient": "16 microbanks,32 only first direction of each phase, at unchangedtheta. Actual compact gradients are accumulated/averaged before one clip/Adam direction; first32 gradients report grouped variance with finite-repeat limits. FIT remains enabled for AD; CHECK/probes/pooled native/MONITOR/FINAL have no_grad.",
+    "transaction": "One actual Adam step creates delta and tentative new moments. Every retry restores old model/new buffers/Adam LR-step-moments/phase/modes/requires_grad/global Torch RNG/loss diagnostics/mutable state. Acceptance alone commits tentative moments. Spent costs, bank identities and executed FIT coverage do not roll back.",
+    "acceptance": "Fresh count-IID CHECK,8 banks and at most one extension to16 per direction, same CRN old/M0/candidates. Energy has bank-paired mean/MCSE; all nativeW1/morphology/negative area/flag metrics pool all emitted8/16 banks first. Raw4-bank pure probe sets initial scale only; final TR uses every emitted CHECK output and is recomputed after extension. Four amplitudes, five consecutive rejects, phase endpoint and negligible-start charge activation are bounded.",
+    "wall_and_roles": "Four fixed tracks have equal900s soft training ceilings. TrackBudget interruption restores the last accepted transaction and continues remaining fixed tracks. Global6900s internal stop saves failure/partial artifacts;7200s external hard wall remains. ENDPOINTS_FROZEN precedes FINAL/DEV and new final libraries. MONITOR does not select weights; no best-seed selection or auto-resume.",
+    "teacher": "One in-family Q-preserving038 teacher, actual M0 head parameters multiplied1.15 then originaltanh, not an assertion that B scales exactly1.15. Independent positive a/b law and exact preADC moments correctly adapt029 v=[sqrt(log1p(cv2)),0..] with local/cross0. Both learnerseeds target the same teacher. Initial analytic gates and final64-heldout global+6strata .03/.15/.20 gates remain separate; initial success is not learned recovery; MC does not decide the gates.",
+    "FINAL": "Eleven common-bank controls/endpoints, two complete TRAIN banks plus previously exposed DEV,16 new risk banks,121 fixed013 TRAIN same-Q/shape pairs, fixed026 composition rescoring and record-disjoint REAL-REAL. Original15 positiveT and7 uncalibrated domains remain explicit; absolute final/T is retained and native exit does not imply fit.",
+    "saved_outputs": "uint16 encodes pre-baseline raw ADC crop and common prefix, with exact observed baseline float64, crop/parent/draw lineage and flags. Reconstruction usescode/16383-.5-savedmean; actual double and classifierfloat32 equality/error are recorded. No baseline-subtracted waveform is requantized.",
+    "C2ST": "Executed only after PRIMARY_FINAL;256 inputs with16*16 flatten, independent classifier and enable_grad,200 steps/cell,33 cells maximum. SOURCE parent/REAL-record splits and existing400 cluster-bootstrap helper remain. Interrupted classifier work preserves primary results and partial cost, without changing response settings."
+  },
+  "fixed_issues": [
+    "ROOT found initialQ1 references still in meanphase. Final load_setup explicitly sets every reference to frozen/eval before chargeon; model038 bytes unchanged.",
+    "CHECK score_library explicitly no_grad; raw4-probe-only TR was expanded to full8/16 cached CHECK outputs.",
+    "FIT source/target visit counts increment after each successful microbank backward, so time-truncated allocated but unexecuted banks do not overstate gradient coverage.",
+    "FINAL rawADC16383 encoding and exactbaseline replace any centered-window requantization;REAL known flags are retained separately from unknown preADC status."
+  ],
+  "review_correction": "An earlier interim message claimed missing score_library no_grad would necessarily make pooled_native numpy conversion fail. That claim was withdrawn: pooled_native no_grad already detaches its cat outputs. The valid issue was retention of unused CHECK AD graphs; final score_library no_grad removes it. No such failure was executed or claimed observed.",
+  "engineering_evidence_reused": {
+    "receipts": {
+      "SEMANTIC_TEST": {
+        "path": "receipts/response038_20261017/preparation_01/SEMANTIC_TEST.json",
+        "sha256": "fd306d813907730a1b68556c7dcf4bad23de2f92b31351a50a2e35c17effd960",
+        "bytes": 3534
+      },
+      "CONTROLLER_SEMANTIC_TEST": {
+        "path": "receipts/response038_20261017/preparation_01/CONTROLLER_SEMANTIC_TEST.json",
+        "sha256": "c3c337ee92bbd2c29f7b5677cea2e58a2e7bf4040a492501c1b786c17ba5fb3f",
+        "bytes": 5876
+      },
+      "STATIC_OPERATION_CLOSURE": {
+        "path": "receipts/response038_20261017/preparation_01/STATIC_OPERATION_CLOSURE.json",
+        "sha256": "ace8c8a2724e15dd23b082e764c159eab5110169a949497c7d5166b88606b8ae",
+        "bytes": 8814
+      },
+      "CONTROLLER_IMPLEMENTATION": {
+        "path": "receipts/response038_20261017/preparation_01/CONTROLLER_IMPLEMENTATION.json",
+        "sha256": "5dc14807c8b962b573f74bfd294b5a6282592281d995d5ddbb08064758505989",
+        "bytes": 5033
+      }
+    },
+    "six_stable_controller_function_AST_matches": {
+      "weighted_distance": true,
+      "weighted_energy": true,
+      "transaction_snapshot": true,
+      "restore_transaction": true,
+      "adam_direction": true,
+      "apply_trial": true
+    },
+    "model_artificial_A0_calls": 4,
+    "model_artificial_A0_rows": 32,
+    "model_artificial_AD": 2,
+    "controller_artificial_AD": 5,
+    "controller_artificial_Adam_steps": 4,
+    "real_CP_arrays_observation": 0,
+    "scope": "Saved engineering only. Float32 quadrature-oracle failure is retained; supplementary f64 cache-only correction does not claim all prior AD checks reran. CUDA RNG branch was not exercised."
+  },
+  "budget_independent_reconciliation": {
+    "response_rows_max": 7815958,
+    "noise005_rows_max": 3436237,
+    "extension_rows_max": 10308711,
+    "generated_observation_rows_max": 25677136,
+    "old_A_rows": 7297,
+    "old_A_calls": 58,
+    "response_calls_max": 112792,
+    "noise005_calls_max": 39901,
+    "FIT_AD_max": 6528,
+    "actual_Adam_direction_steps_max": 400,
+    "accepted_optimizer_updates_max": 400,
+    "scaled_parameter_trials_max": 1600,
+    "original_CP_loads": 6,
+    "classifier_AD_optimizer_steps_max": 6600,
+    "classifier_bootstrap_resamples_max": 13200,
+    "meaning": "Bounds are upper limits, not mandatory work. Actual Adam directions, accepted changes, teacher/REAL and classifier costs remain distinct; rejected/interrupted work counts."
+  },
+  "resource_enforcement": "Internal code checks6900s stop/output2GiB and configures GPU allocator8GiB from the frozen config;900s track checks are soft boundaries between bounded operations. RSS12GiB,4CPU threads,7200s hard wall and project flock remain the external supervisor/launch contract. This source review did not execute that launch.",
+  "limits": [
+    "One acquisition and previously exposed DEV remain; fresh FINAL randomness is finite MC confirmation, not independent hardware validation.",
+    "Repeated TRAIN_CHECK3MCSE is an internal selection rule, not long-term/simultaneous confidence. Proper marginal energy does not guarantee conditional recovery or unbiased hardADC/argmax STE.",
+    "Small1LSB trust regions, finite attempts and equal wall caps can stop with no admitted progress. Such a result is a scientific negative/unfinished goal, not a reason to extend budgets or select a new candidate."
+  ],
+  "review_execution": {
+    "scientific_NN_calls": 0,
+    "scientific_AD_queries": 0,
+    "optimizer_steps": 0,
+    "checkpoint_reads_or_deserializations": 0,
+    "original_array_reads": 0,
+    "new_observation_calls": 0,
+    "new_artificial_tests": 0,
+    "source_config_report_ledger_mutations": 0,
+    "own_review_receipt_only_written": true
+  },
+  "original_configuration_freeze_only_change_from_delivered_draft": "status: implementation_complete_pending_final_review -> frozen; restoring this one field reproduces delivered draft SHA4fd5ed077de212fb5bbaef8877b32ea79e3a2c50f743772af90f6442a195fefe.",
+  "resource_only_amendment": {
+    "prior_review_path": "receipts/response038_20261017/independent_review_01/before_GPU_resource_amendment/SOURCE_REVIEW.json",
+    "prior_review_sha256": "1f525128060956b3745bd114343dc731b474e2f8ac7e0a39263e372419bb0ccd",
+    "old_config_sha256": "6257bee17c02442613213c0c3ea82860fedbff0723894c89de61f55130a07a09",
+    "old_ROOT_DESIGN_sha256": "6c2874f164ef4fd6b41869a4629d5e71094708e746dd97f49678da2fa48239fe",
+    "verified_diff": "Both resources.GPU_GiB10->8 and added GPU_headroom_basis; config additionally updates ROOT_DESIGN SHA/bytes only. Source,45pins,training,operation budgets,roles,acceptance and all other fields exactly unchanged.",
+    "resource_snapshot": {
+      "path": "receipts/response038_20261017/deployment_01/RESOURCE_READBACK.json",
+      "sha256": "01af779c722f98d0fa64a9bb75f4070667d5b7f70acfdb486ad51f1c00c5b762",
+      "UTC": "2026-10-17T05:24:58.844475+00:00",
+      "GPU_total_MiB": 12227,
+      "GPU_free_MiB": 9464,
+      "other_project_GPU_MiB": 2132,
+      "GPU_utilization_percent": 85
+    },
+    "interpretation": "8GiB allocator cap leaves about1272MiB of the reported free memory; foreign-job activity may change. Actual startup memory fit and execution remain unverified. Other project was not altered. Resource amendment alone does not show training or scientific acceptance."
+  }
+}

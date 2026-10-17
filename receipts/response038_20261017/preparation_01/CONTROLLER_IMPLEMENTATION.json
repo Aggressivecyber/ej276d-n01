@@ -1,0 +1,141 @@
+{
+  "schema": "n01/response038-controller-implementation/v1",
+  "status": "IMPLEMENTATION_DELIVERED_AWAITING_ROOT_FREEZE",
+  "files": {
+    "scripts/run_response038.py": {
+      "bytes": 110457,
+      "sha256": "330621ee74bea368023000d3a078696c2c67e43fd312bb0da1cf4f946ab0d75b"
+    },
+    "configs/response038_20261017.json": {
+      "bytes": 34753,
+      "sha256": "4fd5ed077de212fb5bbaef8877b32ea79e3a2c50f743772af90f6442a195fefe"
+    }
+  },
+  "source_file_count": 45,
+  "AST_passed": true,
+  "undefined_global_names": [],
+  "own_function_signatures_static_checked": true,
+  "actual_scientific_execution": {
+    "NN_forwards": 0,
+    "CP_deserializations": 0,
+    "original_array_decodes": 0,
+    "AD_queries": 0,
+    "optimizer_steps": 0,
+    "remote_scientific_launches": 0
+  },
+  "registered_engineering_receipts": {
+    "SEMANTIC_TEST.json": {
+      "sha256": "fd306d813907730a1b68556c7dcf4bad23de2f92b31351a50a2e35c17effd960",
+      "bytes": 3534
+    },
+    "CONTROLLER_SEMANTIC_TEST.json": {
+      "sha256": "c3c337ee92bbd2c29f7b5677cea2e58a2e7bf4040a492501c1b786c17ba5fb3f",
+      "bytes": 5876
+    }
+  },
+  "operation_budget": {
+    "schema": "n01/response038-operation-closure/v1",
+    "bounds_not_extra_queries": true,
+    "tracks": 4,
+    "directions": 400,
+    "FIT_AD_queries": 6528,
+    "optimizer_steps": 400,
+    "accepted_optimizer_updates": 400,
+    "parameter_amplitude_trials": 1600,
+    "charge_activation_trials": 4,
+    "raw_geometry_probes": 400,
+    "original_CP_loads": 6,
+    "old_A_calls": 58,
+    "old_A_rows": 7297,
+    "original014_rows": 13186,
+    "original014_calls": 104,
+    "response_calls_max": 112792,
+    "noise005_calls_max": 39901,
+    "allocated_microbanks_max": 13076,
+    "generated_observation_calls_max": 331639,
+    "response_rows_by_path": {
+      "FIT": 835584,
+      "CHECK": 4915200,
+      "geometry": 1024000,
+      "phase_endpoint": 16384,
+      "charge_activation": 26624,
+      "MONITOR": 316416,
+      "identity038": 13186,
+      "initial_controls": 105488,
+      "FINAL": 547920,
+      "teacher_truth_factors": 192,
+      "teacher_conditional_factors": 256,
+      "source_pair_factors": 2420,
+      "FINAL_risk": 12288
+    },
+    "response_rows_max": 7815958,
+    "noise005_rows_by_path": {
+      "FIT": 1671168,
+      "CHECK": 1638400,
+      "phase_endpoint": 16384,
+      "charge_activation": 16384,
+      "MONITOR": 4096,
+      "identity": 6593,
+      "initial_controls": 26372,
+      "FINAL": 54792,
+      "FINAL_risk": 2048
+    },
+    "noise005_rows_max": 3436237,
+    "extension_hypothesis_rows_max": 10308711,
+    "cached_algebra_rows_by_path": {
+      "FIT_teacher_targets": 835584,
+      "CHECK_teacher_targets": 819200,
+      "phase_endpoint_teacher_targets": 8192,
+      "activation_teacher_targets": 8192,
+      "MONITOR_teacher_targets": 1024,
+      "conditional_MC": 16384,
+      "source_pairs": 2420
+    },
+    "generated_observation_rows_by_path": {
+      "FIT": 5013504,
+      "CHECK": 17203200,
+      "phase_endpoint": 73728,
+      "charge_activation": 98304,
+      "MONITOR": 952320,
+      "identity": 79116,
+      "initial_controls": 395580,
+      "FINAL": 1808136,
+      "conditional_MC": 16384,
+      "FINAL_risk": 36864
+    },
+    "generated_observation_rows_max": 25677136,
+    "classifier_AD_queries": 6600,
+    "classifier_optimizer_steps": 6600,
+    "classifier_training_rows": 844800,
+    "classifier_test_rows_max": 1564827,
+    "classifier_forward_rows_max": 2409627,
+    "classifier_bootstrap_resamples": 13200,
+    "classifier_forward_calls_max": 18843,
+    "classifiers_completed_max": 33,
+    "FINAL_private_crop_uint16_uncompressed_bytes": 925765632,
+    "FINAL_private_prefix_uint16_uncompressed_bytes": 10958400,
+    "log_estimate_MiB_max": 300,
+    "total_output_cap_MiB": 2048,
+    "track_training_seconds_max_each": 900,
+    "hard_wall_seconds": 7200,
+    "internal_stop_seconds": 6900,
+    "row_definition": "response_rows are actual038 head+map calls excluding immutable cached A; original014 separately",
+    "microbank_definition": "64A+64B generated,128T+128U targets; CHECK128/256 total",
+    "native_checks": "pool emitted8/16 banks; no new NN/ADC for pooled metrics or full-CHECK geometry",
+    "NN_counter_semantics": "attempted call/row entry counted before execution, including explicit outside-domain proposals; noise005_rows completed and noise005_rows_attempted both retained",
+    "rejected_work_remains_in_cost": true,
+    "teacher_and_classifier_updates_not_REAL_response_acceptance": true
+  },
+  "static_closure_receipt": {
+    "path": "receipts/response038_20261017/preparation_01/STATIC_OPERATION_CLOSURE.json",
+    "sha256": "ace8c8a2724e15dd23b082e764c159eab5110169a949497c7d5166b88606b8ae"
+  },
+  "historical_source_modified": false,
+  "source_config_write_ownership_handed_to_ROOT": true,
+  "pending": [
+    "ROOT status-only config freeze",
+    "independent final SHA-bound SOURCE_REVIEW",
+    "ROOT deployment/startup and scheduled wakeup"
+  ],
+  "storage": "all new payload on E;no C data/cache created"
+}

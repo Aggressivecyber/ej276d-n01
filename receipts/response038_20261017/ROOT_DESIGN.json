@@ -1,0 +1,289 @@
+{
+  "schema": "n01/response038-unified-root-design/v1",
+  "UTC": "2026-10-17T04:49:30.564913+00:00",
+  "run_id": "response038_20261017",
+  "status": "implementation_authorized_scientific_dispatch_pending_final_source_budget_review",
+  "authority": {
+    "direct_user_request": "Current unified repair review plus supplied implementation work order; standing architecture/training authorization preserved.",
+    "work_order": "receipts/response038_20261017/user_materials_01/IMPLEMENTATION_PLAN.md",
+    "attachment_sha256": "b4ae9227f06e1aaf25b4da782784947141cdc68cc9061851944b8ee223429276",
+    "predecessor_commit": "20a8c45ddb13ff6b6c4279a02a8a1eaeb7018ddf"
+  },
+  "objective": {
+    "data": "Mean over all3H of six standardized wave-view energy+2*signed-asinh joint integral energy, as036 without carrier gradient.",
+    "carrier": "Report only.",
+    "regular_weight": 0.01,
+    "regular": "Design-weighted per-row originalM0 shape RMS+curvature, mean_adapter deltaRMS/A0eventRMS squared, charge cv2; original frozenTRAIN units.",
+    "saturation": "Design-weighted per-row physical preADC excess squared, same ADC bounds.",
+    "optimizer": "AdamW,wd0,one direction construction per macro; meanLR1e-3,shapeLR3e-4,chargeLR.01,globalclip5 remains a numerical guard only.",
+    "negative_energy": "Do not clamp finite-sample signed energy to0."
+  },
+  "model": {
+    "original_A0": "Frozen original008 deterministic response, placed on final device BEFORE014/038 construction. Existing028 CPU loader and six CP byte pins reused.",
+    "M0": "Strict015 original head bytes and complete014/010 tanh, .05 fixed A0 amplitude, zero-Q expansion/projection arithmetic; no transfer into029.",
+    "condition": [
+      "fixed source log canonical Q/qref",
+      "existing013 TRAIN384 Q-normalized PC1; frozen mean/axis/eigenvalue; no newPCA"
+    ],
+    "mean_adapter": [
+      2,
+      16,
+      8
+    ],
+    "mean_parameters": 184,
+    "mean_initialization": "Final linear weight/bias exactly zero; existing015 exact-zero-addition preserves value and connected identity derivative.",
+    "time_knots": [
+      100,
+      106,
+      112,
+      119,
+      126,
+      142,
+      158,
+      190,
+      254,
+      318,
+      383
+    ],
+    "time_map": "4 front and6 tail positive exp(log_increment)*original-length intervals normalized separately; one fixed zero logoffset per side removes two redundant directions. Anchors100/126/383; no extension outside original carrier.",
+    "canonical_Q": "Fixed to event A0 Q; raw warp Q/A0 Q must be>=.25, normalization gain<=4, finite monotone queries; invalid proposals are explicitly rejected, never clipped/dropped.",
+    "mean_gain": "Not trainable in this candidate.",
+    "random": "Original nonzero M0 shape head1288 params; all conditions/voltage amplitude remain frozenA0. Independent016 two-parameter a/Q+b lognormal charge optional; local=0.",
+    "moments": "Exact preADC compact factors: E=mean_phi, C=B B^T+cv2*mean_phi mean_phi^T. The charge scalar is independent of Gaussian8 so cross term=0; supplied029 shared-latent formula retains its cross term in the original user material. Do not label either postADC covariance."
+  },
+  "tracks": {
+    "learner_seeds": [
+      2026101738,
+      2026101739
+    ],
+    "matching_M0_reference_indices": [
+      0,
+      1
+    ],
+    "track_order": [
+      "teacher_seed0",
+      "teacher_seed1",
+      "REAL_seed0",
+      "REAL_seed1"
+    ],
+    "same_settings_all_tracks": true,
+    "teacher_outcome_not_used_to_tune_REAL": true,
+    "no_best_seed_selection": true,
+    "phases": [
+      "mean",
+      "random"
+    ],
+    "directions_per_phase_max": 50,
+    "consecutive_no_accept_stop": 5,
+    "mean_to_random": "Require>=1 accepted mean direction and fresh endpoint CHECK support for cumulative data improvement/no wave tradeoff vs immutable startingM0. If not supported after8->16 refinement, stop this track before random; preserve last accepted research state and M0 default. Other frozen tracks still run, no new hypothesis.",
+    "alternating_finetune": false,
+    "training_wall_seconds_per_track_max": 900,
+    "track_wall_rule": "Same900s soft ceiling per fixed track including MONITOR/training. Check before each direction/microbank/trial. At boundary discard incomplete direction, restore its last accepted transaction, save endpoint and continue next frozen track. Spent calls remain counted. Time truncation is not scientific pass and creates no replacement direction."
+  },
+  "teacher": {
+    "source": "Reuse029 make_sources:128 TRAIN/64 heldout, two fixed analytic templates and three Q strata; no paired learner retraining.",
+    "reference": "One fixed038 teacher built from original M0 seed0, A0 and exactly the same model038 family for both learner seeds.",
+    "mean_last_weight": 0.0,
+    "mean_last_bias": [
+      0.04,
+      -0.03,
+      0.02,
+      0.03,
+      -0.02,
+      0.02,
+      -0.01,
+      0.01
+    ],
+    "basis_head_parameter_multiplier": 1.15,
+    "basis_multiplier_scope": "Multiply actual head parameters then evaluate original tanh; do NOT claim the resultingB is exactly1.15*oldB. No additional post-tanh gain parameter.",
+    "charge_coefficients": "Use the same a,b initialized by existing016 analytic calibration on teacher TRAIN A0 with target pure incremental full384 RMS0.25ADC LSB; teacher a,b each multiplied by2.",
+    "charge_enabled": true,
+    "local": 0,
+    "observation": "Same frozen005 and three original hard observation hypotheses; targets sample independent source parents/latents/electronics. Truth factors may cache exact mean/B/cv2 once.",
+    "conditional_gate": "Reuse029 teacher_projections/projected_moments/recovery_metrics on all64 heldout, global+all6strata; mean NRMSE<=.03, Qvariance relativeRMS<=.15, standardized covariance relativeFrobenius<=.20. Report marginal optimization before interpreting conditional recovery.",
+    "MC": "Reuse029 fixed16heldout-parent positions,256 draws; exact moments decide conditional recovery, finiteMC reports numerical agreement only."
+  },
+  "FIT": {
+    "source_bank_rows": 64,
+    "target_bank_rows": 128,
+    "microbanks_usual": 16,
+    "microbanks_first_direction_of_each_phase": 32,
+    "same_theta_accumulation": true,
+    "source_draws_usual": 2048,
+    "source_draws_first_phase_direction": 4096,
+    "source_strata": "8: stable canonical-Q rank quartiles, stable existing013 PC1 rank halves within each quartile.",
+    "REAL_strata": "16: preserve complete original REAL record groups in original sorted group order; assign group to4 coarse positions using its cumulative-row midpoint; within each coarse group stable observed-Q rank quartiles. Never split an original record merely to make coarse quarters.",
+    "quota_per_stratum": 8,
+    "sampling": "Fresh independent within-stratum IID replacement in each complete microbank. Independent A/B and T/U lanes and streams; no antithetic self banks.",
+    "weight": "For each row in stratumh, Nh/(N*8). Use all cross-stratum outer-weight pairs in every cross/self distance; no random self-normalization.",
+    "energy": "0.5*(D(Xa,Yt)+D(Xa,Yu)+D(Xb,Yt)+D(Xb,Yu))-D(Xa,Xb)-D(Yt,Yu), D weighted Euclidean/sqrt(d).",
+    "coverage": "All legal6593SOURCE/21047REAL have positive design probability. Report draws, actualunique, drawESS, parent-aggregatedESS and all422 record coverage. Early-stop incomplete coverage is reported, not filled with extra updates. Teacher population remains the original128 finite parents; repeats do not create1024unique parents.",
+    "variance_check": "On the32 first-direction microgradients at unchangedtheta, save actual compact active gradients and empirical covariance trace for micro means grouped1/2/4/8/16 (32/16/8/4/2 groups). Report estimates and small-repeat limits; no variance-reduction success is assumed."
+  },
+  "transaction": {
+    "direction": "Snapshot all mutable new modules/buffers, optimizer moments/step/group LR, phase/modes/requires_grad and mutable RNG state. A0/005 are immutable references, never re-copied by rollback.",
+    "proposal": "One Adam.step createsDeltaTheta and tentative newAdamstate; restoreold, then try thetaold+scale*DeltaTheta. Only acceptance commits newAdamstate. Rejected optimizer moments/step never persist.",
+    "trial_factors": [
+      1.0,
+      0.5,
+      0.25,
+      0.125
+    ],
+    "geometry_scale": "One raw full-Adam pure-signal probe on the first4CHECK banks=512SOURCE rows; initial scale=min(1,radiusLSB/raw activeRMS), followed by the4 fixed backtracks. Count this probe separately.",
+    "failure_domain": "Catch only explicit candidate-outside-domain rejection and record reason; other execution/data faults fail visibly.",
+    "spent_accounting": "Never roll back spent NN/AD/optimizer calls, attempt history, coverage or allocated bank identities. FIT/CHECK banks are allocated once per direction and reused only inside its bounded retries.",
+    "checkpoints": "Initial, mean endpoint, best accepted and final new-module/Adam/RNG states; immutable A0/005/M0 pins refer to originals. Best accepted means the state admitted by the frozen acceptance policy, not a MONITOR-selected endpoint. No resume/autorestart."
+  },
+  "trust_region": {
+    "scope": "Pure signal active100:384 for decisions; full384 RMS also reported to compare037. Software numerical step control, not a physical response-variance limit.",
+    "initial_radius_LSB": 1.0,
+    "radius_bounds_LSB": [
+      0.25,
+      2.0
+    ],
+    "radius_update": "After2 consecutive accepted directions multiply1.25 up to2; after all trials rejected halve to at least.25. No accepted step for5 directions stops the phase.",
+    "event_RMS_p99_radius_multiple": 2.0,
+    "event_RMS_max_radius_multiple": 4.0,
+    "coordinate_absmax_radius_multiple": 16.0,
+    "relative_event_RMS_p99_max": 0.02,
+    "relative_event_RMS_max": 0.05,
+    "relative_denominator": "max(fixed A0 event activeRMS,frozen REAL TRAIN median prefix-noiseRMS); teacher uses the same fixed noise reference.",
+    "tail_area_guard": "For each row |delta pure-signal area156:384|<=.01*max(Q_A0, ADC_LSB*sqrt(228)).",
+    "random_covariance_guard": "Exact compact low-rank Frobenius difference: relativep99<=.05 and max<=.10 against max(oldCovFrobenius, frozen noise variance scale). Report mean/cov effects separately; evaluate actual accepted-mean and stochastic changes, no postADC claim."
+  },
+  "TRAIN_CHECK": {
+    "initial_banks": 8,
+    "maximum_banks": 16,
+    "extensions_per_direction_max": 1,
+    "source_rows_per_bank": 128,
+    "target_rows_per_bank": 256,
+    "sampling": "Fresh count-IID with replacement for each direction, independent ofFIT. Common rows/latent/noise only between old/M0/candidates. Check remains internal training selection.",
+    "energy_acceptance": "For EVERY H: paired data delta mean+3MCSE<0 and wave delta mean+3MCSE<=0. Mixed/unresolved after the sole8->16 extension rejects.",
+    "native_wave_guards": "candidate-current<=.002*current nativewave AND candidate-startingM0<=.005*startingM0 nativewave, samebank/CRN.",
+    "other_positive_T_guards": "All other defined original positiveT metrics: candidate-current<=.01*T AND candidate-startingM0<=.05*T. Null/undefinedT remain named unresolved domains, notPASS.",
+    "anomaly_guards": "For observed and temporal boolean flags: extra candidate rate vs current and M0<=max(1/fake_rows,.001). Include rail/search/crop/Q/PSD/time flags with actual denominators; REAL preADC status remainsunknown.",
+    "negative_area_guard": "Compare W1 of negative-lobe area to same processed target, never clip negative voltages. candidate-current distance increase<=.1*ADC_LSB*sqrt(256); candidate-M0 increase<=ADC_LSB*sqrt(256).",
+    "statistical_scope": "Repeated paired3MCSE is a conservative internal acceptance policy, not a simultaneous or long-term confidence guarantee.",
+    "phase_endpoint_check": "Fresh8->16 count-IID banks compare last accepted mean to startingM0 before random stage, no gradient and no new retry scale.",
+    "native_pooling": "For each model and hypothesis pool all8/16 banks emitted hard observations before native W1, morphology, negative-lobe W1 and flag rates. Do not average small-bank W1s. Paired energy remains the mean/MCSE over independent banks. Reuse outputs; no extra forward/ADC."
+  },
+  "charge_activation": {
+    "initial_mean_phase": "Off; exactM0 start.",
+    "initialization": "Existing016 calibration_statistics016 on fixedA0 of the track TRAIN population, target full384 incremental RMS=.25ADC LSB; analytic formula,no MC fit. Nonzero a,b from beginning, not zero-variance stationary initialization.",
+    "random_entry": "One explicit off->on proposal, mean frozen, same TR and nativeguards. Require paired data and wave delta upper3MCSE<=.001*max(abs(old risk),1e-4), and nativewave<=1.001*old. This is a finite negligible-start noninferiority allowance, not a beneficial optimizer update. One8->16 refinement, no activation hyperparameter grid.",
+    "if_activation_rejected": "Keepchargeoff and its parameters frozen; calibrate existing nonzero shape head only. Report charge not opened and conditionalQvariance failure where applicable.",
+    "controls": "Retain originalQ1 as common-bank comparator and finalchargeoff for every finalcandidate."
+  },
+  "MONITOR": {
+    "source_parents": 512,
+    "draws_per_parent": 2,
+    "target_rows": 2048,
+    "teacher": "Use full128TRAIN parentsx4draw and512independent teacher draws.",
+    "banks": 1,
+    "seed_namespace": "MONITOR, independent ofFIT/CHECK/FINAL",
+    "measure": "Initial and every accepted macro plus stage endpoints; rejected records carry last measured accepted score with its provenance. Fixed hardW1/energy/morphology/flags curve.",
+    "selection": false
+  },
+  "FINAL": {
+    "when": "After all four track endpoints and config are immutable, write one ENDPOINTS_FROZEN before allocating FINAL RNG.",
+    "TRAIN_banks": 2,
+    "SOURCE_parents": 6593,
+    "draws_per_parent": 4,
+    "REAL_rows": 21047,
+    "DEV_banks": 1,
+    "DEV_SOURCE_parents": 512,
+    "DEV_draws_per_parent": 4,
+    "DEV_REAL_rows": 599,
+    "DEV_status": "Previously exposed; read only after endpoint freeze, never tuning or fresh acquisition claim.",
+    "comparators_max": [
+      "A",
+      "M0_seed0",
+      "M0_seed1",
+      "Q1_seed0",
+      "Q1_seed1",
+      "mean_endpoint_seed0",
+      "mean_endpoint_seed1",
+      "final_chargeoff_seed0",
+      "final_chargeoff_seed1",
+      "final_full_seed0",
+      "final_full_seed1"
+    ],
+    "reuse": "Exact identical controls/branches may share already computed output with explicit alias receipt; do not claim a fresh evaluation.",
+    "native": "All3H complete waveform/QPSD/noise, mean curves and peak/front/tail/rise/FWHM, conditional coverage, negative lobes, rail/crop/censor flags with full denominators; originalpositiveT noninferiority+absolute final/T and7nullT listed.",
+    "closed_effect_claim": "Optimization stability and developmental fit progress require bothseeds and bothfreshTRAIN banks: nativewave improves>=2% vs matching M0 AND A, no originalpositiveT noninferiority failure, newbank pairedwave/data improvement supported, mean morphology and criticalflags improve without tradeoff. AbsoluteT failures prevent overall response acceptance;2% alone is not scientific success.",
+    "stochastic_extra_benefit": "Compare full/chargeoff final with mean-only endpoint at identical banks, not onlywithM0. Report mean path and stochastic contribution separately.",
+    "C2ST": "One independent256-input Conv1d8/16+MLP32 classifier per comparator/H onFINAL TRAIN bank0, fixed200Adam steps/minibatch128, lr1e-3; use original parent/REAL-group60/40 split, old weightedAUC/group-bootstrap400 helper, no classifier selection or response tuning.33classifiers max,6600classifierupdates. Original480 input flatten is adapted only to256dimension, no raw480 padding.",
+    "REAL_REAL": "One new original-record-disjoint fixed group split native comparison, plus prior RR references; not a recalibrated physical threshold.",
+    "source_pairs": "Use all121 existing013 TRAIN same-Q/different-shape pairs in saved order/IDs, not output-selected pairs. Verify prepared384 contrast and fixedPC1 content differences, then CRN compare means/compactmoments; no newPCA or particle-label pairing.",
+    "composition": "Reuse026 fixed nominal and low_h/high_h rawweights1±.2*(2h-1), normalized over originalparents, no learned mixture. Rescore final scalar moments/flags under all3weights; no extraNN. This tests output sensitivity, not stability of separately re-fitted parameters, which remainsunestablished.",
+    "private_outputs": "Save original rawADC crop uint16 codes plus commonprefix100 codes, exact observed baseline_mean float64, indices and flags as needed, with original digitize reconstruction code/16383-.5 then subtract savedmean. Check actual replay error/bitwise from existing emitted outputs; do not silently re-quantize baseline-subtracted window_V or assume dyadic levels. Fixed32-parent illustrations. No private data/weights toGitHub; total2GiB.",
+    "risk_confirmation_banks": 16,
+    "risk_confirmation": "Fresh count-IID microbanks after all endpoints freeze compare final/M0 and full/mean endpoint with paired3MCSE, in addition to2full-population banks. Never reopen settings."
+  },
+  "budget_design": {
+    "tracks": 4,
+    "directions_max": 400,
+    "phase_first_directions_max": 8,
+    "FIT_micro_AD_max": 6528,
+    "FIT_source_rows_max": 835584,
+    "actual_Adam_direction_steps_max": 400,
+    "accepted_optimizer_updates_max": 400,
+    "scaled_parameter_trials_max": 1600,
+    "charge_activation_trials_max": 4,
+    "original_CP_loads": 6,
+    "C2ST_updates_max": 6600,
+    "proposal_and_accepted_counts_separate": true,
+    "exact_remaining_operation_closure": "Controller must derive bounded A/head/map/noise/ADC/cache/FINAL rows including teacher target generation, endpoint checks, activation, raw probe and all11comparators/33comparator-hypothesis cells before final dispatch. This draft does not authorize any unbounded extra query."
+  },
+  "resources": {
+    "CPU_threads": 4,
+    "RSS_GiB": 12,
+    "GPU_GiB": 8,
+    "wall_seconds": 7200,
+    "internal_stop_save_seconds": 6900,
+    "output_MiB": 2048,
+    "one_scientific_job": true,
+    "external_project_flock": true,
+    "automatic_restart": false,
+    "local_storage": "E only for newpayload; D free~7MiB, do not duplicate large artifacts there.",
+    "startup_policy": "Verify correct startup once; ifstillrunning schedule one future wake and rest, no continuous polling.",
+    "track_training_soft_seconds_each": 900,
+    "track_training_soft_seconds_total": 3600,
+    "reserve_for_unified_FINAL": "Symmetric per-track training ceilings preserve about one hour of the7200s total for setup and unified FINAL/C2ST; no guarantee of completion if measured work is slower. Save partial completion honestly before internal6900s ceiling.",
+    "GPU_headroom_basis": "Pre-execution2026-10-17T05:24:58Z resource snapshot:12227MiB total,9464MiB free; another project uses2132MiB. Limit this job allocator to8GiB and preserve other jobs. Batch/model/acceptance unchanged; actual startup fit within cap remains to be verified."
+  },
+  "implementation_and_review": {
+    "new_scientific_sources": [
+      "src/n01/model038.py",
+      "scripts/run_response038.py"
+    ],
+    "configuration": "configs/response038_20261017.json",
+    "reuse": [
+      "inference028",
+      "model014/015/016",
+      "original hard observation",
+      "018 morphology",
+      "031 energy features",
+      "036 native metrics",
+      "029 synthetic source/moment evaluation",
+      "013 fixed input information",
+      "026 composition formulas"
+    ],
+    "source_review": "One final independent implementation/budget review; engineering semantic tests are part of this task, not new research experiments.",
+    "publication": "UpdateREADME currentstatus and publish source/config/userworkorder/reviews/summaries with actualcommit+remote readback; no privateCP/rawarrays.",
+    "engineering_counts_so_far": {
+      "artificial_A0_calls": 4,
+      "artificial_A0_rows": 32,
+      "artificial_AD_queries": 2,
+      "real_CP_or_arrays_or_observation": 0,
+      "controller_artificial_AD_queries": 5,
+      "controller_artificial_Adam_steps": 4,
+      "controller_artificial_parameter_trials": 2,
+      "controller_real_CP_or_arrays_or_observation": 0,
+      "total_artificial_AD_queries": 7,
+      "total_artificial_Adam_steps": 4
+    },
+    "scientific_dispatch_started": false
+  },
+  "scientific_status": "response_match_not_established"
+}

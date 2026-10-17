@@ -1,0 +1,636 @@
+{
+  "schema": "n01/response038-calibration-config/v1",
+  "run_id": "response038_20261017",
+  "status": "frozen",
+  "root_design": {
+    "path": "receipts/response038_20261017/ROOT_DESIGN.json",
+    "sha256": "1e2a11caabc63cefa5498410cd98057a38b4206e3e8a9771a7a75680e22b676e",
+    "bytes": 20605
+  },
+  "seeds": [
+    2026101738,
+    2026101739
+  ],
+  "model_reference_indices": [
+    0,
+    1
+  ],
+  "model": {
+    "original_A0": "Frozen original008 deterministic response, placed on final device BEFORE014/038 construction. Existing028 CPU loader and six CP byte pins reused.",
+    "M0": "Strict015 original head bytes and complete014/010 tanh, .05 fixed A0 amplitude, zero-Q expansion/projection arithmetic; no transfer into029.",
+    "condition": [
+      "fixed source log canonical Q/qref",
+      "existing013 TRAIN384 Q-normalized PC1; frozen mean/axis/eigenvalue; no newPCA"
+    ],
+    "mean_adapter": [
+      2,
+      16,
+      8
+    ],
+    "mean_parameters": 184,
+    "mean_initialization": "Final linear weight/bias exactly zero; existing015 exact-zero-addition preserves value and connected identity derivative.",
+    "time_knots": [
+      100,
+      106,
+      112,
+      119,
+      126,
+      142,
+      158,
+      190,
+      254,
+      318,
+      383
+    ],
+    "time_map": "4 front and6 tail positive exp(log_increment)*original-length intervals normalized separately; one fixed zero logoffset per side removes two redundant directions. Anchors100/126/383; no extension outside original carrier.",
+    "canonical_Q": "Fixed to event A0 Q; raw warp Q/A0 Q must be>=.25, normalization gain<=4, finite monotone queries; invalid proposals are explicitly rejected, never clipped/dropped.",
+    "mean_gain": "Not trainable in this candidate.",
+    "random": "Original nonzero M0 shape head1288 params; all conditions/voltage amplitude remain frozenA0. Independent016 two-parameter a/Q+b lognormal charge optional; local=0.",
+    "moments": "Exact preADC compact factors: E=mean_phi, C=B B^T+cv2*mean_phi mean_phi^T. The charge scalar is independent of Gaussian8 so cross term=0; supplied029 shared-latent formula retains its cross term in the original user material. Do not label either postADC covariance."
+  },
+  "tracks": {
+    "learner_seeds": [
+      2026101738,
+      2026101739
+    ],
+    "matching_M0_reference_indices": [
+      0,
+      1
+    ],
+    "track_order": [
+      "teacher_seed0",
+      "teacher_seed1",
+      "REAL_seed0",
+      "REAL_seed1"
+    ],
+    "same_settings_all_tracks": true,
+    "teacher_outcome_not_used_to_tune_REAL": true,
+    "no_best_seed_selection": true,
+    "phases": [
+      "mean",
+      "random"
+    ],
+    "directions_per_phase_max": 50,
+    "consecutive_no_accept_stop": 5,
+    "mean_to_random": "Require>=1 accepted mean direction and fresh endpoint CHECK support for cumulative data improvement/no wave tradeoff vs immutable startingM0. If not supported after8->16 refinement, stop this track before random; preserve last accepted research state and M0 default. Other frozen tracks still run, no new hypothesis.",
+    "alternating_finetune": false,
+    "training_wall_seconds_per_track_max": 900,
+    "track_wall_rule": "Same900s soft ceiling per fixed track including MONITOR/training. Check before each direction/microbank/trial. At boundary discard incomplete direction, restore its last accepted transaction, save endpoint and continue next frozen track. Spent calls remain counted. Time truncation is not scientific pass and creates no replacement direction."
+  },
+  "training": {
+    "directions_per_phase": 50,
+    "FIT_microbanks_per_direction": 16,
+    "FIT_first_direction_microbanks": 32,
+    "generated_bank_rows": 64,
+    "real_bank_rows": 128,
+    "source_quota_per_stratum": 8,
+    "real_quota_per_stratum": 8,
+    "regular_weight": 0.01,
+    "carrier_weight": 0.0,
+    "mean_lr": 0.001,
+    "shape_lr": 0.0003,
+    "charge_lr": 0.01,
+    "weight_decay": 0.0,
+    "clip_norm": 5.0,
+    "backtrack_factors": [
+      1.0,
+      0.5,
+      0.25,
+      0.125
+    ],
+    "consecutive_rejected_directions_stop": 5
+  },
+  "teacher": {
+    "source": {
+      "TRAIN_per_template": 64,
+      "heldout_per_template": 32,
+      "Q_range_Vns": [
+        0.5,
+        8.0
+      ],
+      "Q_stratum_edges_Vns": [
+        0.5,
+        1.5,
+        4.0,
+        8.0
+      ],
+      "templates": [
+        {
+          "rise_width": 3.0,
+          "tail": 30.0
+        },
+        {
+          "rise_width": 5.0,
+          "tail": 60.0
+        }
+      ],
+      "peak": 126,
+      "prefix_zero": 100,
+      "carrier_samples": 384
+    },
+    "reference": "One fixed038 teacher built from original M0 seed0, A0 and exactly the same model038 family for both learner seeds.",
+    "mean_last_weight": 0.0,
+    "mean_last_bias": [
+      0.04,
+      -0.03,
+      0.02,
+      0.03,
+      -0.02,
+      0.02,
+      -0.01,
+      0.01
+    ],
+    "basis_head_parameter_multiplier": 1.15,
+    "basis_multiplier_scope": "Multiply actual head parameters then evaluate original tanh; do NOT claim the resultingB is exactly1.15*oldB. No additional post-tanh gain parameter.",
+    "charge_coefficients": "Use the same a,b initialized by existing016 analytic calibration on teacher TRAIN A0 with target pure incremental full384 RMS0.25ADC LSB; teacher a,b each multiplied by2.",
+    "charge_enabled": true,
+    "local": 0,
+    "observation": "Same frozen005 and three original hard observation hypotheses; targets sample independent source parents/latents/electronics. Truth factors may cache exact mean/B/cv2 once.",
+    "conditional_gate": "Reuse029 teacher_projections/projected_moments/recovery_metrics on all64 heldout, global+all6strata; mean NRMSE<=.03, Qvariance relativeRMS<=.15, standardized covariance relativeFrobenius<=.20. Report marginal optimization before interpreting conditional recovery.",
+    "MC": "Reuse029 fixed16heldout-parent positions,256 draws; exact moments decide conditional recovery, finiteMC reports numerical agreement only.",
+    "seed": 2026101729,
+    "evaluation": {
+      "analytic_parents": 64,
+      "MC_parent_rows": [
+        0,
+        4,
+        8,
+        12,
+        16,
+        20,
+        24,
+        28,
+        32,
+        36,
+        40,
+        44,
+        48,
+        52,
+        56,
+        60
+      ],
+      "MC_draws_per_parent": 256,
+      "projections": 9,
+      "mean_NRMSE_max": 0.03,
+      "charge_variance_relative_RMS_max": 0.15,
+      "standardized_covariance_relative_Frobenius_max": 0.2,
+      "require_all_template_Q_strata": true,
+      "MC_is_gate": false
+    }
+  },
+  "FIT": {
+    "source_bank_rows": 64,
+    "target_bank_rows": 128,
+    "microbanks_usual": 16,
+    "microbanks_first_direction_of_each_phase": 32,
+    "same_theta_accumulation": true,
+    "source_draws_usual": 2048,
+    "source_draws_first_phase_direction": 4096,
+    "source_strata": "8: stable canonical-Q rank quartiles, stable existing013 PC1 rank halves within each quartile.",
+    "REAL_strata": "16: preserve complete original REAL record groups in original sorted group order; assign group to4 coarse positions using its cumulative-row midpoint; within each coarse group stable observed-Q rank quartiles. Never split an original record merely to make coarse quarters.",
+    "quota_per_stratum": 8,
+    "sampling": "Fresh independent within-stratum IID replacement in each complete microbank. Independent A/B and T/U lanes and streams; no antithetic self banks.",
+    "weight": "For each row in stratumh, Nh/(N*8). Use all cross-stratum outer-weight pairs in every cross/self distance; no random self-normalization.",
+    "energy": "0.5*(D(Xa,Yt)+D(Xa,Yu)+D(Xb,Yt)+D(Xb,Yu))-D(Xa,Xb)-D(Yt,Yu), D weighted Euclidean/sqrt(d).",
+    "coverage": "All legal6593SOURCE/21047REAL have positive design probability. Report draws, actualunique, drawESS, parent-aggregatedESS and all422 record coverage. Early-stop incomplete coverage is reported, not filled with extra updates. Teacher population remains the original128 finite parents; repeats do not create1024unique parents.",
+    "variance_check": "On the32 first-direction microgradients at unchangedtheta, save actual compact active gradients and empirical covariance trace for micro means grouped1/2/4/8/16 (32/16/8/4/2 groups). Report estimates and small-repeat limits; no variance-reduction success is assumed."
+  },
+  "transaction": {
+    "direction": "Snapshot all mutable new modules/buffers, optimizer moments/step/group LR, phase/modes/requires_grad and mutable RNG state. A0/005 are immutable references, never re-copied by rollback.",
+    "proposal": "One Adam.step createsDeltaTheta and tentative newAdamstate; restoreold, then try thetaold+scale*DeltaTheta. Only acceptance commits newAdamstate. Rejected optimizer moments/step never persist.",
+    "trial_factors": [
+      1.0,
+      0.5,
+      0.25,
+      0.125
+    ],
+    "geometry_scale": "One raw full-Adam pure-signal probe on the first4CHECK banks=512SOURCE rows; initial scale=min(1,radiusLSB/raw activeRMS), followed by the4 fixed backtracks. Count this probe separately.",
+    "failure_domain": "Catch only explicit candidate-outside-domain rejection and record reason; other execution/data faults fail visibly.",
+    "spent_accounting": "Never roll back spent NN/AD/optimizer calls, attempt history, coverage or allocated bank identities. FIT/CHECK banks are allocated once per direction and reused only inside its bounded retries.",
+    "checkpoints": "Initial, mean endpoint, best accepted and final new-module/Adam/RNG states; immutable A0/005/M0 pins refer to originals. Best accepted means the state admitted by the frozen acceptance policy, not a MONITOR-selected endpoint. No resume/autorestart."
+  },
+  "trust_region": {
+    "scope": "Pure signal active100:384 for decisions; full384 RMS also reported to compare037. Software numerical step control, not a physical response-variance limit.",
+    "initial_radius_LSB": 1.0,
+    "radius_bounds_LSB": [
+      0.25,
+      2.0
+    ],
+    "radius_update": "After2 consecutive accepted directions multiply1.25 up to2; after all trials rejected halve to at least.25. No accepted step for5 directions stops the phase.",
+    "event_RMS_p99_radius_multiple": 2.0,
+    "event_RMS_max_radius_multiple": 4.0,
+    "coordinate_absmax_radius_multiple": 16.0,
+    "relative_event_RMS_p99_max": 0.02,
+    "relative_event_RMS_max": 0.05,
+    "relative_denominator": "max(fixed A0 event activeRMS,frozen REAL TRAIN median prefix-noiseRMS); teacher uses the same fixed noise reference.",
+    "tail_area_guard": "For each row |delta pure-signal area156:384|<=.01*max(Q_A0, ADC_LSB*sqrt(228)).",
+    "random_covariance_guard": "Exact compact low-rank Frobenius difference: relativep99<=.05 and max<=.10 against max(oldCovFrobenius, frozen noise variance scale). Report mean/cov effects separately; evaluate actual accepted-mean and stochastic changes, no postADC claim."
+  },
+  "TRAIN_CHECK": {
+    "initial_banks": 8,
+    "maximum_banks": 16,
+    "extensions_per_direction_max": 1,
+    "source_rows_per_bank": 128,
+    "target_rows_per_bank": 256,
+    "sampling": "Fresh count-IID with replacement for each direction, independent ofFIT. Common rows/latent/noise only between old/M0/candidates. Check remains internal training selection.",
+    "energy_acceptance": "For EVERY H: paired data delta mean+3MCSE<0 and wave delta mean+3MCSE<=0. Mixed/unresolved after the sole8->16 extension rejects.",
+    "native_wave_guards": "candidate-current<=.002*current nativewave AND candidate-startingM0<=.005*startingM0 nativewave, samebank/CRN.",
+    "other_positive_T_guards": "All other defined original positiveT metrics: candidate-current<=.01*T AND candidate-startingM0<=.05*T. Null/undefinedT remain named unresolved domains, notPASS.",
+    "anomaly_guards": "For observed and temporal boolean flags: extra candidate rate vs current and M0<=max(1/fake_rows,.001). Include rail/search/crop/Q/PSD/time flags with actual denominators; REAL preADC status remainsunknown.",
+    "negative_area_guard": "Compare W1 of negative-lobe area to same processed target, never clip negative voltages. candidate-current distance increase<=.1*ADC_LSB*sqrt(256); candidate-M0 increase<=ADC_LSB*sqrt(256).",
+    "statistical_scope": "Repeated paired3MCSE is a conservative internal acceptance policy, not a simultaneous or long-term confidence guarantee.",
+    "phase_endpoint_check": "Fresh8->16 count-IID banks compare last accepted mean to startingM0 before random stage, no gradient and no new retry scale."
+  },
+  "charge_activation": {
+    "initial_mean_phase": "Off; exactM0 start.",
+    "initialization": "Existing016 calibration_statistics016 on fixedA0 of the track TRAIN population, target full384 incremental RMS=.25ADC LSB; analytic formula,no MC fit. Nonzero a,b from beginning, not zero-variance stationary initialization.",
+    "random_entry": "One explicit off->on proposal, mean frozen, same TR and nativeguards. Require paired data and wave delta upper3MCSE<=.001*max(abs(old risk),1e-4), and nativewave<=1.001*old. This is a finite negligible-start noninferiority allowance, not a beneficial optimizer update. One8->16 refinement, no activation hyperparameter grid.",
+    "if_activation_rejected": "Keepchargeoff and its parameters frozen; calibrate existing nonzero shape head only. Report charge not opened and conditionalQvariance failure where applicable.",
+    "controls": "Retain originalQ1 as common-bank comparator and finalchargeoff for every finalcandidate."
+  },
+  "MONITOR": {
+    "source_parents": 512,
+    "draws_per_parent": 2,
+    "target_rows": 2048,
+    "teacher": "Use full128TRAIN parentsx4draw and512independent teacher draws.",
+    "banks": 1,
+    "seed_namespace": "MONITOR, independent ofFIT/CHECK/FINAL",
+    "measure": "Initial and every accepted macro plus stage endpoints; rejected records carry last measured accepted score with its provenance. Fixed hardW1/energy/morphology/flags curve.",
+    "selection": false
+  },
+  "FINAL": {
+    "when": "After all four track endpoints and config are immutable, write one ENDPOINTS_FROZEN before allocating FINAL RNG.",
+    "TRAIN_banks": 2,
+    "SOURCE_parents": 6593,
+    "draws_per_parent": 4,
+    "REAL_rows": 21047,
+    "DEV_banks": 1,
+    "DEV_SOURCE_parents": 512,
+    "DEV_draws_per_parent": 4,
+    "DEV_REAL_rows": 599,
+    "DEV_status": "Previously exposed; read only after endpoint freeze, never tuning or fresh acquisition claim.",
+    "comparators_max": [
+      "A",
+      "M0_seed0",
+      "M0_seed1",
+      "Q1_seed0",
+      "Q1_seed1",
+      "mean_endpoint_seed0",
+      "mean_endpoint_seed1",
+      "final_chargeoff_seed0",
+      "final_chargeoff_seed1",
+      "final_full_seed0",
+      "final_full_seed1"
+    ],
+    "reuse": "Exact identical controls/branches may share already computed output with explicit alias receipt; do not claim a fresh evaluation.",
+    "native": "All3H complete waveform/QPSD/noise, mean curves and peak/front/tail/rise/FWHM, conditional coverage, negative lobes, rail/crop/censor flags with full denominators; originalpositiveT noninferiority+absolute final/T and7nullT listed.",
+    "closed_effect_claim": "Optimization stability and developmental fit progress require bothseeds and bothfreshTRAIN banks: nativewave improves>=2% vs matching M0 AND A, no originalpositiveT noninferiority failure, newbank pairedwave/data improvement supported, mean morphology and criticalflags improve without tradeoff. AbsoluteT failures prevent overall response acceptance;2% alone is not scientific success.",
+    "stochastic_extra_benefit": "Compare full/chargeoff final with mean-only endpoint at identical banks, not onlywithM0. Report mean path and stochastic contribution separately.",
+    "C2ST": "One independent256-input Conv1d8/16+MLP32 classifier per comparator/H onFINAL TRAIN bank0, fixed200Adam steps/minibatch128, lr1e-3; use original parent/REAL-group60/40 split, old weightedAUC/group-bootstrap400 helper, no classifier selection or response tuning.33classifiers max,6600classifierupdates. Original480 input flatten is adapted only to256dimension, no raw480 padding.",
+    "REAL_REAL": "One new original-record-disjoint fixed group split native comparison, plus prior RR references; not a recalibrated physical threshold.",
+    "source_pairs": "Use all121 existing013 TRAIN same-Q/different-shape pairs in saved order/IDs, not output-selected pairs. Verify prepared384 contrast and fixedPC1 content differences, then CRN compare means/compactmoments; no newPCA or particle-label pairing.",
+    "composition": "Reuse026 fixed nominal and low_h/high_h rawweights1±.2*(2h-1), normalized over originalparents, no learned mixture. Rescore final scalar moments/flags under all3weights; no extraNN. This tests output sensitivity, not stability of separately re-fitted parameters, which remainsunestablished.",
+    "private_outputs": "Save compact lossless generatedADC uint16 codes/indices where needed and fixed32-parent examples; no private data/weights toGitHub. Preserve summaries sufficient for saved-output review; boundtotal2GiB.",
+    "risk_confirmation_banks": 16,
+    "risk_confirmation": "Fresh count-IID microbanks after all endpoints freeze compare final/M0 and full/mean endpoint with paired3MCSE, in addition to2full-population banks. Never reopen settings."
+  },
+  "evaluation": {
+    "initial_comparators": [
+      "A",
+      "M0_seed0",
+      "M0_seed1",
+      "Q1_seed0",
+      "Q1_seed1",
+      "G0_seed0",
+      "G0_seed1"
+    ],
+    "final_comparators": [
+      "A",
+      "M0_seed0",
+      "M0_seed1",
+      "Q1_seed0",
+      "Q1_seed1",
+      "final_seed0",
+      "final_seed1"
+    ],
+    "draws_per_parent": 4,
+    "MONITOR_report_only": true,
+    "FINAL_fresh_after_endpoints_frozen": true,
+    "DEV_previously_exposed": true,
+    "DEV_used_for_tuning": false,
+    "projection_training_seed": 2026101426,
+    "projection_evaluation_seed": 2026101430,
+    "projection_fingerprint": "27ed58d90114de6bfa5bf30ff5ad251516cdc9bcadfb5eb10e2a6ec45ed11482",
+    "integral_seed": 2026101732300,
+    "W1_column_chunk": 16,
+    "NN_chunk_rows": 128,
+    "MONITOR_banks": 1,
+    "MONITOR_interval": "every_accept_and_stage_end",
+    "relative_wave_improvement_min": 0.02
+  },
+  "resources": {
+    "CPU_threads": 4,
+    "RSS_GiB": 12,
+    "GPU_GiB": 8,
+    "wall_seconds": 7200,
+    "internal_stop_save_seconds": 6900,
+    "output_MiB": 2048,
+    "one_scientific_job": true,
+    "external_project_flock": true,
+    "automatic_restart": false,
+    "local_storage": "E only for newpayload; D free~7MiB, do not duplicate large artifacts there.",
+    "startup_policy": "Verify correct startup once; ifstillrunning schedule one future wake and rest, no continuous polling.",
+    "track_training_soft_seconds_each": 900,
+    "track_training_soft_seconds_total": 3600,
+    "reserve_for_unified_FINAL": "Symmetric per-track training ceilings preserve about one hour of the7200s total for setup and unified FINAL/C2ST; no guarantee of completion if measured work is slower. Save partial completion honestly before internal6900s ceiling.",
+    "GPU_headroom_basis": "Pre-execution2026-10-17T05:24:58Z resource snapshot:12227MiB total,9464MiB free; another project uses2132MiB. Limit this job allocator to8GiB and preserve other jobs. Batch/model/acceptance unchanged; actual startup fit within cap remains to be verified."
+  },
+  "budget_max": {
+    "tracks": 4,
+    "directions_max": 400,
+    "phase_first_directions_max": 8,
+    "FIT_micro_AD_max": 6528,
+    "FIT_source_rows_max": 835584,
+    "actual_Adam_direction_steps_max": 400,
+    "accepted_optimizer_updates_max": 400,
+    "scaled_parameter_trials_max": 1600,
+    "charge_activation_trials_max": 4,
+    "original_CP_loads": 6,
+    "C2ST_updates_max": 6600,
+    "proposal_and_accepted_counts_separate": true,
+    "exact_remaining_operation_closure": "Controller must derive bounded A/head/map/noise/ADC/cache/FINAL rows including teacher target generation, endpoint checks, activation, raw probe and all11comparators/33comparator-hypothesis cells before final dispatch. This draft does not authorize any unbounded extra query."
+  },
+  "inputs": {
+    "deterministic": {
+      "path": "/home/rylan/projects/ej276d-n01/window008_resume01_20261013/provenance/window008_fix01_reference/deterministic_final.pt",
+      "local_path": "E:\\GAN\\research\\N01\\provenance\\window008_fix01_reference\\deterministic_final.pt",
+      "bytes": 21256763,
+      "sha256": "2096523d53b62dbbc6b41d2788a8fba203af89c3cf753133bbbe81ab5c036849"
+    },
+    "noise005": {
+      "path": "/home/rylan/projects/ej276d-n01/window008_resume01_20261013/provenance/integration006_reference/noise005.pt",
+      "local_path": "E:\\GAN\\research\\N01\\provenance\\integration006_reference\\noise005.pt",
+      "bytes": 1199865,
+      "sha256": "1e45d3369b85d2f5f635ad44dbeb5a730f6d86864cc3dc9163384fccd48bd417"
+    },
+    "M0_head_seed0": {
+      "path": "/home/rylan/projects/ej276d-n01/wp3_015_20261015/runs/primary/artifacts/seed0_M0/final.pt",
+      "local_path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed0_M0\\final.pt",
+      "bytes": 485683,
+      "sha256": "27ad34f2f7fa0c2c78f881b649ecd5ad664c91ff4bbe2bb08c109f3536f0915c"
+    },
+    "M0_head_seed1": {
+      "path": "/home/rylan/projects/ej276d-n01/wp3_015_20261015/runs/primary/artifacts/seed1_M0/final.pt",
+      "local_path": "E:\\GAN\\research\\N01\\runs\\wp3_015_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed1_M0\\final.pt",
+      "bytes": 485683,
+      "sha256": "8a14a66b54bf5065da062a8a4070c162a401adc2c13d5ddbc679fd36023144de"
+    },
+    "Q1_final_seed0": {
+      "path": "/home/rylan/projects/ej276d-n01/wp3_016_runtime_fix02_20261015/runs/primary/artifacts/seed0_Q1/final.pt",
+      "local_path": "E:\\GAN\\research\\N01\\runs\\wp3_016_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed0_Q1\\final.pt",
+      "bytes": 496499,
+      "sha256": "557ec1bd3eae374d295ac2c4b4c0ab1f665040bff55d9eb3e30ca05f4d910f73"
+    },
+    "Q1_final_seed1": {
+      "path": "/home/rylan/projects/ej276d-n01/wp3_016_runtime_fix02_20261015/runs/primary/artifacts/seed1_Q1/final.pt",
+      "local_path": "E:\\GAN\\research\\N01\\runs\\wp3_016_20261015\\selected_collected_01\\runs\\primary\\artifacts\\seed1_Q1\\final.pt",
+      "bytes": 496499,
+      "sha256": "03603cb5a9bf18f25822b2fd39c2d01b5a292b6fa009916a551dc11e681f9e32"
+    },
+    "statistics": {
+      "path": "/home/rylan/projects/ej276d-n01/window008_resume01_20261013/data/window008/FIT_STATISTICS008.json",
+      "local_path": "E:\\GAN\\research\\N01\\data\\window008\\FIT_STATISTICS008.json",
+      "bytes": 104199,
+      "sha256": "aadd729364d0b6afac699a9d1774ac8d29fd2bcd10a9fd9f551141ecc2fbc2a0"
+    },
+    "data_statistics": {
+      "path": "/home/rylan/projects/ej276d-n01/window008_resume01_20261013/data/window008/FIT_DATA_STATISTICS.json",
+      "local_path": "E:\\GAN\\research\\N01\\data\\window008\\FIT_DATA_STATISTICS.json",
+      "bytes": 36311,
+      "sha256": "e614c7b0a9861b468eb2c9e1bff5a80dadef901310539407141d1ff5c9241f3f"
+    },
+    "base_config": {
+      "path": "/home/rylan/projects/ej276d-n01/window008_resume01_20261013/window008_config.json",
+      "local_path": "E:\\GAN\\research\\N01\\window008_config.json",
+      "bytes": 6448,
+      "sha256": "f5500c65f2d17a2fe6964bfc5908dedb68c27b9391cb30bf30c0ba161509d145"
+    },
+    "dataset": {
+      "path": "/home/rylan/projects/ej276d-n01/window008_resume01_20261013/data/window008/DATASET008.npz",
+      "local_path": "E:\\GAN\\research\\N01\\data\\window008\\DATASET008.npz",
+      "bytes": 66440265,
+      "sha256": "8d43418595f4fa992a9b83735c4bf50863a659584d58888f8f965ec1339a1993"
+    },
+    "original_container": {
+      "path": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R33_REMOTE_20261009_175239_UTC/inputs/TRAIN_PRIVATE.npz",
+      "local_path": "E:/GAN/research/sim2real_two_papers_20261008_0305/work/R23_ONLINE_STANDARDIZED_CRITIC_001/TRAIN_PRIVATE.npz",
+      "sha256": "9e2f2c3c18470f4b2f3374a39590a9c27b18222bd1b22b5d7467e561409ad854",
+      "bytes": 26858280
+    },
+    "identities": {
+      "path": "/home/rylan/projects/ej276d-n01/window008_resume01_20261013/data/PARENT_IDENTITIES.npz",
+      "sha256": "5145ea04d038510c9ca740d997e0cf9d060ed69210a4515e20110d884db7e845",
+      "bytes": 32484
+    },
+    "tolerances": {
+      "path": "/home/rylan/projects/ej276d-n01/wp1_013_repeat_fix01_20261015/runs/primary/artifacts/CALIBRATED_TOLERANCES.json",
+      "sha256": "f33217e07b1872dfd51f56e86ed30cda665a705568f2f9ada937865d8a33607b",
+      "bytes": 8271
+    }
+  },
+  "reference028": {
+    "path": "/home/rylan/projects/ej276d-n01/wp6_028_20261017/wp6_028_config.json",
+    "bytes": 15892,
+    "sha256": "48fbc9639a9435dd3d02bfde4d3568f4feabcf9b6f18f2f4d0fc48b6acde4b0a"
+  },
+  "observation_contract": {
+    "path": "/home/rylan/projects/ej276d-n01/wp6_028_20261017/OBSERVATION_CONTRACT.json",
+    "local_path": "E:\\GAN\\research\\N01\\OBSERVATION_CONTRACT.json",
+    "bytes": 2304,
+    "sha256": "c894abe80d7d9a31e4ffe670484123dd1eea5ee75dad7742e52d304e23054c6c"
+  },
+  "PCA013": {
+    "path": "/home/rylan/projects/ej276d-n01/wp1_013_repeat_fix01_20261015/runs/primary/information/PCA_BANK.npz",
+    "bytes": 922387,
+    "sha256": "8b1dedc0497c88b7dd29749c5b18046c13ed6be91574314c51a59cf74ceb840f",
+    "mean_key": "TRAIN_carrier384_canonical_Q_mean",
+    "components_key": "TRAIN_carrier384_canonical_Q_components",
+    "PC1_eigenvalue": 9.148906745813767e-05,
+    "PC1_scale": 0.009564991764666485
+  },
+  "input_information": {
+    "path": "/home/rylan/projects/ej276d-n01/wp1_013_repeat_fix01_20261015/runs/primary/information/INPUT_INFORMATION_AUDIT.json",
+    "local_path": "E:/GAN/research/N01/INPUT_INFORMATION_AUDIT.json",
+    "bytes": 621048,
+    "sha256": "6a72cbc0a3f2f23e9898e00f55c99698d73b36ffaaeb697a9f6b0affd52d8dab"
+  },
+  "source_pins": {
+    "scripts/mechanism012_losses.py": "3fc84ccaf255b660d8eda4f96d43e2c236045a756e777c9b2d490f7137dc04ed",
+    "scripts/mechanism012_ops.py": "98a18eef018beebff82565da9ed5b31208cf2bff6db6bff0c492eff9bf2a7816",
+    "scripts/run_response029.py": "a39f5ddd3fcbd0d8cf58db487d7fb51d1b17646f69603047a1e739fece74e7d5",
+    "scripts/run_response031.py": "bfe819d4ae09b4ed58cd6211e32948af14970e610a29ce3ec2960f1536c4115d",
+    "scripts/run_response032.py": "541f09ab8b9610ceda7371ea81911dd098e8319f0b330523f04caa3d25a245b8",
+    "scripts/run_response033.py": "710be3a025dd7f7611bcecc8480d4e3813531e9a3b57fbeb47419bc2a32b1d11",
+    "scripts/run_response036.py": "8d5e3a1348d8f1c8ef5e55e8baceb74bcd534262e5500ee80e58ced3283b6178",
+    "scripts/run_response038.py": "330621ee74bea368023000d3a078696c2c67e43fd312bb0da1cf4f946ab0d75b",
+    "scripts/run_wp1_013.py": "e7cbcf782e19e139c02260bbe1d67e0a50108785ed5b093975800a28b103657d",
+    "scripts/run_wp5_026.py": "8f6890a9db4027f289370dcabeca4a716b5e630e7739ba02b13ba11084005d2b",
+    "scripts/stability011_metrics.py": "fd87e544673f63887e57c8efafeb0327bbe4db430b04c9697c71cd2e244c3f78",
+    "scripts/supervise.py": "0223a8912196876f712072f064c9118a999f7e563244947cba7ad729d247a69b",
+    "scripts/supervise_mechanism012.py": "43b6fffd076a1e6d57db67e85e433e71d3f2cda91f3a3d5fe31f0fcb430486a4",
+    "scripts/wp1_boundary_saved.py": "ea1317c2a6e8616f5b30e2aa6ea1900fde17a711b57e2f02ae84fa5cc5782065",
+    "scripts/wp1_evaluation.py": "3f5e4f9e8ca147cfbad8b75085c59d9c2081deda9b7532f1732f1d5e932cc895",
+    "scripts/wp1_input_information.py": "bb8278d2651ddcaf10830a4589d66242d69a7e22d10321171ad7f4b71dec8b17",
+    "scripts/wp1_ops.py": "f8ddbbdb2f2f6df033e964f27bf03dcbda07055cc7378775591ef69b9caf85b5",
+    "scripts/wp1_parameter_probe.py": "bf7901db6e1b99084894fdc8f4c5d1685de2ca00cacb7a0a6a9801c39b8823fa",
+    "src/n01/__init__.py": "d17d880249fa0f50920dd14c505b15b4de74419849f86296913c31576c31e891",
+    "src/n01/ablation009.py": "8100bbedb765f08f689a4bce5cb9ea1af133e6f2b895b544656f6e9fbd058d3b",
+    "src/n01/data.py": "2ec3363bc830043af053342b4638f5e6ab55d27303da037f383f4fe630d77bd2",
+    "src/n01/data008.py": "2a66a8800642cf6788ce268d326af9d128cb165daf60d555f802b2c881ac97af",
+    "src/n01/diagnose_mean_random009.py": "31a07360e9ab53e987fe6d2bec3b466398a2c7125e64c1c94b712708ae62dfc4",
+    "src/n01/electronics_v3.py": "816b12bf4814f23ff4455498ec385df335cdb38827548c969e38ef08b9763926",
+    "src/n01/evaluate.py": "baaaf0c50c98a15b3c04cddf07ea4c1b5b4503156c50fd78d774cf3fb5baf8bb",
+    "src/n01/evaluate_window008.py": "75f8988415a181a31a7c2b5890418b1f7685e0d8fb141cdea84f4174af783cc0",
+    "src/n01/extension006.py": "caa2eff66555773d04a72482c8375b5896a241e0a858070a80f689aa3def5040",
+    "src/n01/inference028.py": "17e32e76ab86185c02e68e6a54dc9f9e7568cb1a9c2b2174581ade16514bc2f7",
+    "src/n01/losses.py": "4371a6d5924f0f664935b5d6eb6715c530f80af39ae276c7dc34ba02c5f4b1a7",
+    "src/n01/losses008.py": "68a9330b7e0620f12adbb3dc22a00c632a1b7577d44b92617da7d14979d9ea61",
+    "src/n01/losses008_v2.py": "6932772c4b00fa62383b5ca356f26d0cf81271be531888b474ae6146fa25f3d8",
+    "src/n01/losses014.py": "86fded3226ae86a5aaae6d9066220923fb6b0aebfeaa09cb638642498e4f4114",
+    "src/n01/model.py": "0a0488218d99f351a98e30f2b1525b837b4ad3195c19f2a76ff61ee01298587b",
+    "src/n01/model008.py": "56a6b41f9d2906c82757f4ca9f91a751ff8531428a7f38714e0a291359cd1b4f",
+    "src/n01/model008_fix01.py": "3bc826a1867f2658ae507ab2be683a6b901b7f481b1efaf005f3cf4953429abc",
+    "src/n01/model010.py": "3fbbee140477caf755feadf88175291c451c95a56899770a65eebf7be6204318",
+    "src/n01/model014.py": "b45080dd5d99aa51c6846affde021ad1e363aba086c665beb40f8f83a0e0082c",
+    "src/n01/model015.py": "149f7faefc9ca982700eea8c7ce7850e9c679d74985cb4fce90708743299dadc",
+    "src/n01/model016.py": "04c63f91ea5405937a940a9aee6eaed876db79149c857bfbe6ed8cfe6dcb138b",
+    "src/n01/model029.py": "40c16bca31ff277912959a040a40770608c49f374eff76cffd45de0d716ea599",
+    "src/n01/model038.py": "15d972b5951987dd6a7a0a5c488ecfcadf05f69f03aba8f198c2903fc802321f",
+    "src/n01/observation008.py": "9f7b6c0a266c420af8c6c155103774bae1ed949cfe05ee6a1f19b75f9254c4ec",
+    "src/n01/response008.py": "cf8b14b377530a234b066c2fd958827172abb624e7a959ac9bb26a416ff3b2e7",
+    "src/n01/train.py": "9cb6b0a9cfad3fd9163eee919de7b2d64ca422513093e204f62a934e25684169",
+    "src/n01/train_shape010.py": "5c94a6d947c1cfcb926ea2b39e77fbdeb6600f231f503fdf4c43c7ff7033e6d9"
+  },
+  "operation_budget": {
+    "schema": "n01/response038-operation-closure/v1",
+    "bounds_not_extra_queries": true,
+    "tracks": 4,
+    "directions": 400,
+    "FIT_AD_queries": 6528,
+    "optimizer_steps": 400,
+    "accepted_optimizer_updates": 400,
+    "parameter_amplitude_trials": 1600,
+    "charge_activation_trials": 4,
+    "raw_geometry_probes": 400,
+    "original_CP_loads": 6,
+    "old_A_calls": 58,
+    "old_A_rows": 7297,
+    "original014_rows": 13186,
+    "original014_calls": 104,
+    "response_calls_max": 112792,
+    "noise005_calls_max": 39901,
+    "allocated_microbanks_max": 13076,
+    "generated_observation_calls_max": 331639,
+    "response_rows_by_path": {
+      "FIT": 835584,
+      "CHECK": 4915200,
+      "geometry": 1024000,
+      "phase_endpoint": 16384,
+      "charge_activation": 26624,
+      "MONITOR": 316416,
+      "identity038": 13186,
+      "initial_controls": 105488,
+      "FINAL": 547920,
+      "teacher_truth_factors": 192,
+      "teacher_conditional_factors": 256,
+      "source_pair_factors": 2420,
+      "FINAL_risk": 12288
+    },
+    "response_rows_max": 7815958,
+    "noise005_rows_by_path": {
+      "FIT": 1671168,
+      "CHECK": 1638400,
+      "phase_endpoint": 16384,
+      "charge_activation": 16384,
+      "MONITOR": 4096,
+      "identity": 6593,
+      "initial_controls": 26372,
+      "FINAL": 54792,
+      "FINAL_risk": 2048
+    },
+    "noise005_rows_max": 3436237,
+    "extension_hypothesis_rows_max": 10308711,
+    "cached_algebra_rows_by_path": {
+      "FIT_teacher_targets": 835584,
+      "CHECK_teacher_targets": 819200,
+      "phase_endpoint_teacher_targets": 8192,
+      "activation_teacher_targets": 8192,
+      "MONITOR_teacher_targets": 1024,
+      "conditional_MC": 16384,
+      "source_pairs": 2420
+    },
+    "generated_observation_rows_by_path": {
+      "FIT": 5013504,
+      "CHECK": 17203200,
+      "phase_endpoint": 73728,
+      "charge_activation": 98304,
+      "MONITOR": 952320,
+      "identity": 79116,
+      "initial_controls": 395580,
+      "FINAL": 1808136,
+      "conditional_MC": 16384,
+      "FINAL_risk": 36864
+    },
+    "generated_observation_rows_max": 25677136,
+    "classifier_AD_queries": 6600,
+    "classifier_optimizer_steps": 6600,
+    "classifier_training_rows": 844800,
+    "classifier_test_rows_max": 1564827,
+    "classifier_forward_rows_max": 2409627,
+    "classifier_bootstrap_resamples": 13200,
+    "classifier_forward_calls_max": 18843,
+    "classifiers_completed_max": 33,
+    "FINAL_private_crop_uint16_uncompressed_bytes": 925765632,
+    "FINAL_private_prefix_uint16_uncompressed_bytes": 10958400,
+    "log_estimate_MiB_max": 300,
+    "total_output_cap_MiB": 2048,
+    "track_training_seconds_max_each": 900,
+    "hard_wall_seconds": 7200,
+    "internal_stop_seconds": 6900,
+    "row_definition": "response_rows are actual038 head+map calls excluding immutable cached A; original014 separately",
+    "microbank_definition": "64A+64B generated,128T+128U targets; CHECK128/256 total",
+    "native_checks": "pool emitted8/16 banks; no new NN/ADC for pooled metrics or full-CHECK geometry",
+    "NN_counter_semantics": "attempted call/row entry counted before execution, including explicit outside-domain proposals; noise005_rows completed and noise005_rows_attempted both retained",
+    "rejected_work_remains_in_cost": true,
+    "teacher_and_classifier_updates_not_REAL_response_acceptance": true
+  },
+  "prior_RR_reference": {
+    "wave": 0.029421917,
+    "QPSD": 0.024070024,
+    "noise": 0.02436251,
+    "rows_per_side": 10475,
+    "groups_per_side": 210,
+    "tolerance_source": false
+  },
+  "implementation_notes": {
+    "adapter_constructor_seeds": [
+      2026101738,
+      2026101739
+    ],
+    "reference_constructor_seeds": [
+      2026101540,
+      2026101640
+    ],
+    "teacher_constructor_seed": 2026101729,
+    "radius_reset_each_phase_LSB": 1.0,
+    "TR_native_all_CHECK_rows": true,
+    "teacher_target_strata": "128 finite TRAIN parents as ordered singleton groups; nominal sourceQ;16 strata;count weights",
+    "C2ST_after_PRIMARY_FINAL": true,
+    "C2ST_stored_float32_identity_required": true,
+    "same_private_ADC_forward_reconstruction_exactness_saved": true,
+    "initial_teacher_analytic_extra_head_rows": 128,
+    "source_closure_files": 45,
+    "NN_counter_semantics": "attempted call/row entry counted before execution, including explicit outside-domain proposals; noise005_rows completed and noise005_rows_attempted both retained",
+    "coverage": "FIT visits increment only after successful microbank backward; allocated unused banks remain separate spent cost"
+  }
+}

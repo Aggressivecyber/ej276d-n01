@@ -1,0 +1,102 @@
+{
+  "schema": "n01/response038-artificial-semantics/v1",
+  "status": "passed-with-documented-oracle-correction",
+  "artificial_only": true,
+  "scientific_acceptance": false,
+  "model_source_sha256": "15d972b5951987dd6a7a0a5c488ecfcadf05f69f03aba8f198c2903fc802321f",
+  "attempts": [
+    {
+      "attempt": 1,
+      "status": "failed-at-final-quadrature-oracle",
+      "native_exit_code": 1,
+      "actual_counts": {
+        "A0_forward_calls": 3,
+        "A0_forward_rows": 24,
+        "combined_AD_queries": 2,
+        "response_head_forward_calls": 8
+      },
+      "observed_passed_before_failure": [
+        "identity_M0_pure_byte_equality",
+        "cache_uncached_byte_equality",
+        "identity_queries_exact",
+        "zero_adapter_delta",
+        "nonzero_identity_last_layer_gradient",
+        "A0_gradients_none",
+        "fixed_B_after_mean_change",
+        "strictly_monotone_queries",
+        "exact100_126_383anchors",
+        "prefix100zero",
+        "canonical_meanQ_absmax_below1e-12",
+        "subset_cache_replay",
+        "random_phase_mean_gradients_none",
+        "shape_and_charge_gradients_present",
+        "same_latent_replay",
+        "all_off_A0_byte_equality",
+        "projected_mean_quadrature"
+      ],
+      "failure": "Final projected variance assertion used default float32 +/-1 tensor. Tensor scalar promotion rounded the shape term before adding to float64 scores; not a demonstrated model numerical failure.",
+      "failure_abs_error": "not printed in failed process; not reconstructed",
+      "source_oracle_fix": "Explicit dtype=torch.float64 for the +/-1 artificial tensor only; no model assembly fix"
+    },
+    {
+      "attempt": 2,
+      "status": "supplementary-cache-only-passed",
+      "actual_counts": {
+        "A0_forward_calls": 1,
+        "A0_forward_rows": 8,
+        "combined_AD_queries": 0,
+        "response_head_forward_calls": 1
+      },
+      "scope": "Fresh manufactured fixture with one encoding; cached nonzero-adapter/independent-charge output for scalar moment quadrature and new per-row regular fields. Does not claim previous AD/equality tests were rerun.",
+      "projected_mean_abs_error": 1.1102230246251565e-16,
+      "projected_variance_abs_error": 2.6020852139652106e-18,
+      "old_oracle_shape_dtype": "torch.float32",
+      "corrected_oracle_shape_dtype": "torch.float64",
+      "old_oracle_shape_roundoff_absmax": 2.3272232752002964e-10,
+      "per_row_regular_mean_minus_scalar_abs": {
+        "mean": 0.0,
+        "shape": 6.776263578034403e-21,
+        "charge": 0.0
+      },
+      "all_frozen_and_cache_cleared": true
+    }
+  ],
+  "cumulative_actual": {
+    "A0_forward_calls": 4,
+    "A0_forward_rows": 32,
+    "combined_AD_queries": 2,
+    "response_head_forward_calls": 9,
+    "real_CP_loads": 0,
+    "real_scientific_array_decodes": 0,
+    "observations": 0,
+    "optimizer_steps": 0
+  },
+  "manufactured_parents_per_attempt": 8,
+  "supplement_fixture_initialization_seed": 3800,
+  "stats": {
+    "q_ref": 3.5107033657960205,
+    "a_ref": 0.07,
+    "log_q_min": 0.10017829262119593,
+    "log_q_max": 2.2532174716252835
+  },
+  "fixed_knots": [
+    100.0,
+    106.0,
+    112.0,
+    119.0,
+    126.0,
+    142.0,
+    158.0,
+    190.0,
+    254.0,
+    318.0,
+    383.0
+  ],
+  "parameter_counts": {
+    "mean": 184,
+    "shape": 1288,
+    "charge": 2,
+    "local": 0
+  },
+  "moment_scope": "Independent scalar charge and original M0 Gaussian8, preADC only. Shared-latent029 cross terms are absent by construction; no postADC/REAL conditional claim."
+}

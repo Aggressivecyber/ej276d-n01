@@ -1,0 +1,52 @@
+{
+  "original_data_used": false,
+  "N01_checkpoints_loaded": false,
+  "detector_training_performed": false,
+  "adam": {
+    "case": "Artificial fresh AdamW first update, not N01 replay",
+    "runs": [
+      {
+        "clipped": false,
+        "gradient_norm": 100.4988059630561,
+        "parameter_step_norm": 0.00017320507491987725,
+        "parameter_step": [
+          -9.999999998999999e-05,
+          -9.99999999e-05,
+          9.9999990000001e-05
+        ]
+      },
+      {
+        "clipped": true,
+        "gradient_norm": 4.999999950248166,
+        "parameter_step_norm": 0.00017320496343466513,
+        "parameter_step": [
+          -9.999999979900238e-05,
+          -9.99999979900239e-05,
+          9.99997990027901e-05
+        ]
+      }
+    ],
+    "clipped_to_unclipped_step_ratio": 0.999999356339806,
+    "interpretation": "Gradient norm reduction need not reduce Adam step by the same factor."
+  },
+  "moments": {
+    "case": "Artificial correlated lognormal/linear-Gaussian preADC signal",
+    "sample_count": 300000,
+    "coordinates": 24,
+    "covariance_relative_MC_error": 0.005224815421809794,
+    "mean_max_abs_standard_errors": 2.040782617995717,
+    "relative_covariance_error_when_cross_terms_omitted": 0.19797373070777366,
+    "canonical_charge_variance_analytic": 0.03500273143158763,
+    "scope": "No inference about the fitted N01 coefficients or hard observation covariance."
+  },
+  "published_numbers": {
+    "scope": "Arithmetic of rounded published numbers, not an independent metric replay",
+    "source_commit": "20a8c45ddb13ff6b6c4279a02a8a1eaeb7018ddf",
+    "initial_G0_wave_relative_worsening_percent": 46.906181137422884,
+    "final036_wave_ratio_to_A": 5.503994435741261,
+    "first_step_signal_RMS_mV": 4.434596838185924,
+    "first_step_max_signal_change_mV": 92.87340535921382,
+    "clipped_step_fraction": 0.999,
+    "first_step_peak_change_fraction": 0.25
+  }
+}

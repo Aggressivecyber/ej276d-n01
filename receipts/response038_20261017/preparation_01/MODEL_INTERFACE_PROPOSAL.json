@@ -1,0 +1,151 @@
+{
+  "schema": "n01/response038-model-interface/v1",
+  "status": "implemented-subject-to-independent-review-and-ROOT-freeze",
+  "authority": "receipts/response038_20261017/user_materials_01/IMPLEMENTATION_PLAN.md",
+  "allowed_new_model": "src/n01/model038.py",
+  "actual_execution": {
+    "checkpoint_deserializations": 0,
+    "raw_array_decodes": 0,
+    "A0_forward_calls": 4,
+    "A0_forward_rows": 32,
+    "combined_AD_queries": 2,
+    "scientific_updates": 0,
+    "observations": 0
+  },
+  "baseline_function_evidence": {
+    "inference028": "src/n01/inference028.py:199-216 binds per-seed original M0 new_head to FrozenM0ChargeResponse016; charge-off preserves original M0 output",
+    "M0": "src/n01/model014.py:60 delegates unchanged voltage assembly to model010.py:177; model010.py:190-195 retains tanh(control-average), expansion/gate, canonical zero-Q projection, .05*max_abs(original A0)",
+    "A0_encoding": "model010.py:153 computes one frozen original signal_forward and reuses its detached decoded [B,32,384]",
+    "local": "Original deterministic008 plus M0 has no local signal fluctuation. Keep zero local; 005 electronics stays outside model038.",
+    "charge": "model016.py:107-138 adds (alpha-1)*A0 to M0, never multiplies the random voltage shape",
+    "avoid029": "model029.py:78-85 uses the current trainable A peak/decoded for B and local; do not transplant the M0 head into that assembly"
+  },
+  "proposed_interface": {
+    "class": "N01Response038(FrozenDeterministicVoltageShape014)",
+    "constructor": "(baseline, initial_head, *, seed, condition_state, charge_initialization)",
+    "construction_order": "Move exact original A0 to target device, eval/freeze it, then construct038 and strict-load original M0 head. Never move a layout-locked014/016 wrapper after construction.",
+    "encode_source": "source -> {source, original, decoded, condition}; original A0 output and decoded detached; cache source indices are retrieval only",
+    "forward": "(source, z_shape[B,8], z_charge[B]=None, *, cache=None, shape_enabled=True, mean_enabled=True, charge_enabled=False)",
+    "cache": "Reuse super014.random_forward, with only its _baseline_once input supplied by trusted frozen cache during this call, cleared in finally. No persistent mutable running buffers, implicit draws, dropout or batch statistics.",
+    "set_phase": "mean: adapter only and charge forward prohibited; random: original M0 basis plus charge iff train_charge=True; frozen: no trainable parameters",
+    "parameter_groups": [
+      "mean",
+      "shape",
+      "charge",
+      "local(empty)"
+    ],
+    "output_additions": [
+      "A0_signal_pre_V",
+      "mean_signal_pre_V",
+      "delta_mean_pre_V",
+      "M0_reference_signal_pre_V",
+      "condition",
+      "time_queries",
+      "time_interval_increments",
+      "warp_Q_ratio",
+      "normalization_gain",
+      "regular_mean",
+      "regular_shape",
+      "regular_charge",
+      "analytic_charge_logvariance",
+      "regular_mean_per_row",
+      "regular_shape_per_row",
+      "regular_charge_per_row",
+      "regular_per_row",
+      "charge_cv2",
+      "charge_Q_variance",
+      "moment_mean_pre_V",
+      "moment_basis_V",
+      "moment_charge_cv2"
+    ],
+    "select_encoding": "(encoding, indices): gather source/original/decoded/condition rows; indices are retrieval only",
+    "parameter_counts": {
+      "mean": 184,
+      "shape": 1288,
+      "charge": 2,
+      "local": 0
+    }
+  },
+  "fixed_condition": {
+    "features": [
+      "log(Q_SOURCE/q_ref)",
+      "fixed TRAIN normalized384-Q PC1 score / fixed PC1 standard deviation"
+    ],
+    "PCA_keys": [
+      "TRAIN_carrier384_canonical_Q_mean",
+      "TRAIN_carrier384_canonical_Q_components[:,0]"
+    ],
+    "existing_report": "INPUT_INFORMATION_AUDIT.json",
+    "existing_PC1_eigenvalue": 9.148906745813767e-05,
+    "existing_PC1_variance_fraction": 0.9999999999998861,
+    "PC2_variance_fraction": 7.240445416264372e-15,
+    "decision": "Use only PC1, not standardized roundoff PC2. All PCA values fixed buffers; no PCA refit, IDs, REAL pseudo-conditions or trainable A0 encoding. ROOT/controller must pin the existing PCA artifact before decode."
+  },
+  "mean_adapter_proposal": {
+    "knots": [
+      100,
+      106,
+      112,
+      119,
+      126,
+      142,
+      158,
+      190,
+      254,
+      318,
+      383
+    ],
+    "anchors": [
+      100,
+      126,
+      383
+    ],
+    "condition_head": "2->16->8 with SiLU, final weight/bias zero. Front4 and tail6 interval increments; final logoffset on each side fixed0, leaving8 free controls.",
+    "interval_rule": "exp(delta)*original interval length, front/tail separately normalized as raw*(span/sum(raw)); exact fixed endpoint anchors. No ad hoc logit bound.",
+    "identity": "delta0 gives original integer query grid; exact-zero addition015 preserves M0 values and the correct unit derivative",
+    "support": "Linear interpolation within original100:383 only, fixed anchor126, prefix100 exactly zero. No new continuation or measured-context claim.",
+    "charge_conservation": "Aphi=warped/(Qwarp/Q_A0), requiring finite Qwarp/Q_A0 >= .25 before reciprocal; normalization gain <=4. Typed MeanProposalOutsideDomain038 carries reason/rows/ratio for explicit transaction rejection, with no row drop or silent clipping.",
+    "tradeoff": "Relative-Q guard may reject a proposal; it does not clip or discard rows. Controller records and rolls back that proposal. Time-only interpolation plus scalar Q conservation may still lack REAL shape expressivity; no claim until tests."
+  },
+  "stochastic_assembly": {
+    "charge_off": "signal=M0_original+(Aphi-A0), original M0 B and fixed-A0 amplitude reference preserved",
+    "charge_on": "signal=M0_original+(Aphi-A0)+(alpha-1)*Aphi",
+    "charge_law": "Reuse016 positive a,b and alpha=exp(sqrt(log1p(a/Q_A0+b))*z_charge-.5*log1p(a/Q_A0+b))",
+    "latent_dimensions": "Existing8 M0 shape coordinates plus already-existing028 independent scalar charge coordinate; no new coordinates and local remains inherited0",
+    "moments": "For independent charge and shape, preADC E[s|x]=Aphi and Cov=BB^T+expm1(s2)Aphi*Aphi^T. Chargeoff gives BB^T. Local K=0. The029 Bv cross term applies only if charge later explicitly shares shape Gaussian coordinates, not to this independent assembly.",
+    "boundary": "No moment claim after hard ADC, baseline measurement, firstargmax or crop; no REAL conditional truth inference."
+  },
+  "source": {
+    "path": "src/n01/model038.py",
+    "bytes": 23202,
+    "sha256": "15d972b5951987dd6a7a0a5c488ecfcadf05f69f03aba8f198c2903fc802321f",
+    "encoding": "UTF8 LF",
+    "AST": "passed"
+  },
+  "regularization": {
+    "shape_scalar": "Exactly the inherited M0 sampled RMS-plus-curvature scalar",
+    "mean": "Per-parent delta RMS squared / fixed A0 RMS squared",
+    "charge": "Independent charge CV squared; zero while disabled",
+    "local": "zero",
+    "per_row_fields": "Same formulas returned per row for population-correct stratum weighting; old scalar fields remain unchanged",
+    "global_L2": "none"
+  },
+  "engineering": {
+    "receipt": "receipts/response038_20261017/preparation_01/SEMANTIC_TEST.json",
+    "sha256": "fd306d813907730a1b68556c7dcf4bad23de2f92b31351a50a2e35c17effd960",
+    "status": "passed-with-documented-oracle-correction",
+    "first_attempt": "Three A0 calls24rows and2AD; prior assertions passed; final quadrature oracle failed due float32 +/-1 promotion. Failure preserved.",
+    "supplement": "One A0 call8rows, cache-only float64 oracle; no AD or rerun claim for previous checks.",
+    "cumulative_A0_forward_calls": 4,
+    "cumulative_A0_rows": 32,
+    "cumulative_AD": 2,
+    "projected_mean_abs_error": 1.1102230246251565e-16,
+    "projected_variance_abs_error": 2.6020852139652106e-18
+  },
+  "boundaries": [
+    "Only manufactured engineering inputs were executed; real CP/data/observation0.",
+    "Existing PCA artifact binding and any real start/G0 gate remain controller/ROOT work.",
+    "No physical response-match acceptance or teacher convergence claim.",
+    "Independent-charge038 moment formula intentionally differs from shared-latent029 covariance; cross terms are zero because the latent scalar is independent."
+  ]
+}

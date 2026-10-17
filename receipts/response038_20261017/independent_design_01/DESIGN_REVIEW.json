@@ -1,0 +1,247 @@
+{
+  "schema": "n01/response038-independent-design-review/v1",
+  "UTC": "2026-10-17T04:35:46.130692+00:00",
+  "status": "ACCEPT_ONE_UNIFIED_DESIGN_SUBJECT_TO_FINAL_CODE_AND_FIXED_BUDGET_REVIEW",
+  "base_commit": "20a8c45ddb13ff6b6c4279a02a8a1eaeb7018ddf",
+  "decision": "Proceed with one M0-preserving mean-then-covariance candidate and transactional bounded acceptance. No claim that energy, large batches or 1LSB alone repairs response learning.",
+  "review_scope": "Only source, saved JSON and supplied work order read. Supplied artificial verifier was inspected, not executed. No038 candidate source existed at the source inventory read; this is design advice, not execution approval.",
+  "bindings": {
+    "receipts/response038_20261017/user_materials_01/IMPLEMENTATION_PLAN.md": {
+      "sha256": "ce11d9dc33874e466118f4ccf1ec5bd4c4bee04884fe7d53f6812c860d9c1b61",
+      "bytes": 13255
+    },
+    "receipts/response038_20261017/user_materials_01/verify_mechanisms.py": {
+      "sha256": "acd6904b6fd3449084be9db6bb7660e8410ba2b181367b11b3dfd40180e2cfa5",
+      "bytes": 5367
+    },
+    "src/n01/model010.py": {
+      "sha256": "3fbbee140477caf755feadf88175291c451c95a56899770a65eebf7be6204318",
+      "bytes": 13883
+    },
+    "src/n01/model014.py": {
+      "sha256": "b45080dd5d99aa51c6846affde021ad1e363aba086c665beb40f8f83a0e0082c",
+      "bytes": 9676
+    },
+    "src/n01/model016.py": {
+      "sha256": "04c63f91ea5405937a940a9aee6eaed876db79149c857bfbe6ed8cfe6dcb138b",
+      "bytes": 9226
+    },
+    "src/n01/model029.py": {
+      "sha256": "40c16bca31ff277912959a040a40770608c49f374eff76cffd45de0d716ea599",
+      "bytes": 7205
+    },
+    "scripts/run_response031.py": {
+      "sha256": "bfe819d4ae09b4ed58cd6211e32948af14970e610a29ce3ec2960f1536c4115d",
+      "bytes": 16907
+    },
+    "scripts/run_response033.py": {
+      "sha256": "710be3a025dd7f7611bcecc8480d4e3813531e9a3b57fbeb47419bc2a32b1d11",
+      "bytes": 21386
+    },
+    "scripts/run_response036.py": {
+      "sha256": "8d5e3a1348d8f1c8ef5e55e8baceb74bcd534262e5500ee80e58ced3283b6178",
+      "bytes": 33032
+    },
+    "src/n01/inference028.py": {
+      "sha256": "17e32e76ab86185c02e68e6a54dc9f9e7568cb1a9c2b2174581ade16514bc2f7",
+      "bytes": 14491
+    },
+    "INPUT_INFORMATION_AUDIT.json": {
+      "sha256": "6a72cbc0a3f2f23e9898e00f55c99698d73b36ffaaeb697a9f6b0affd52d8dab",
+      "bytes": 621048
+    },
+    "runs/wp1_013_20261015/runtime_fix01_collected_03/runs/primary/artifacts/CALIBRATED_TOLERANCES.json": {
+      "sha256": "f33217e07b1872dfd51f56e86ed30cda665a705568f2f9ada937865d8a33607b",
+      "bytes": 8271
+    }
+  },
+  "required_implementation_points": [
+    {
+      "point": "Preserve actual M0 function",
+      "evidence": "model010.py:190-202 and model014.py:86-91 use tanh, .05*fixed A0 max amplitude, canonical-zero-Q projection. model029.py:78-87 instead has unbounded head controls and trainable mean features/amplitude.",
+      "requirement": "Wrap original015 M0 semantics and bytes; do not copy its raw head into029. Zero mean adapter plus charge-off must reproduce M0 pure signal and common-noise hard output within predeclared numerical tolerance. Require unchanged denominator/prefix100/crop contract. A numerical identity check is not response acceptance."
+    },
+    {
+      "point": "Separate trainable mean and covariance",
+      "requirement": "Fixed SOURCE content features and fixed A0/M0 amplitude reference feed stochastic heads. Mean phase trains only a small conditional monotone warp/gain adapter with the full existing M0 random function frozen. Random phase freezes accepted mean, opens the nonzero M0 shape head and a low-dimensional positive charge law; keep local and005 frozen in038. Use explicit off switches. Do not call an unpaired marginal mean-parameter fit a recovered REAL conditional mean."
+    },
+    {
+      "point": "No small-normalizer explosion",
+      "requirement": "Canonical-Q restoration uses a positive relative raw-shape charge bound against that event fixed baseline Q, not only1e-6. For example require raw warped Q within[.5,2]*Q0 before normalization; actual bounds must be frozen. Keep prefix100 zero; report any gain/time boundary contacts without deleting events."
+    },
+    {
+      "point": "Correct marginal energy under stratification",
+      "requirement": "Current031/033 helper is unweighted. Either retain original-count IID sampling and reuse it unchanged, or implement the weighted pair-distance below. Equal quota strata plus unweighted mean changes the population. Averaging only within-stratum energies also changes the target by omitting cross-stratum distances."
+    },
+    {
+      "point": "Transactional rollback",
+      "requirement": "Snapshot model parameters/buffers, all active Adam moments/step/group LR, any scheduler/scaler, adapter constraints and accepted-state counters. Cache FIT gradient/direction and CHECK random banks for retries. Reject restores these exactly; no moments advance from an unaccepted direction. Never roll back spent operation counters, attempt history or failure evidence. Define stochastic stream advancement explicitly so rejected work is neither hidden nor endlessly replayed."
+    },
+    {
+      "point": "Finite acceptance is internal training",
+      "requirement": "TRAIN_CHECK may select states, therefore is training data. Refresh at each new direction; reuse CRN only within its bounded retries. Do not interpret repeated mean+3MCSE acceptance as a simultaneous/long-term confidence guarantee. FINAL streams remain unopened until both seed endpoints and all settings are frozen."
+    }
+  ],
+  "weighted_four_bank_energy": {
+    "domain_weights": "For each fixed stratum h, p_h=N_h/N under original counts. Draw n_h>0 entries independently within h in each bank, with replacement; give each entry w_i=p_h/n_h. Source and REAL use their own strata/proportions; no same-Q cross-domain pairing.",
+    "distance": "D(P,Q)=sum_i sum_j wP_i*wQ_j*||P_i-Q_j||_2/sqrt(feature_dimension).",
+    "energy": "0.5*(D(Xa,Yt)+D(Xa,Yu)+D(Xb,Yt)+D(Xb,Yu))-D(Xa,Xb)-D(Yt,Yu).",
+    "conditions": [
+      "A/B and T/U parent sampling and latents are independent across banks; CRN is between old and proposed models, not across the two partial source banks.",
+      "Weights are fixed design weights summing exactly to1 in each bank. Do not self-normalize random importance weights or drop duplicate identities/diagonals across independent banks.",
+      "All represented strata and all cross-stratum pairs remain. If full finite parent population is enumerated in both source banks with independent latents, exact population integration is also valid.",
+      "Antithetic samples cannot be substituted as independent self banks. Pair antithetics inside independently generated bank units only if the resulting estimator and MCSE are derived explicitly; simplest038 omits antithetics.",
+      "Apply identical weights to every wave view, integral joint and optional report-only carrier. Keep original REAL-TRAIN standardizers fixed."
+    ],
+    "microbatch_accumulation": "At one theta sum independent complete four-bank energy gradients with1/K normalization; step Adam once. Microbatch accumulation can be unbiased yet has different variance from the all-pairs pooled large-bank estimator; report that distinction. Verify variance reduction on the planned banks rather than assume it.",
+    "gradient_parent_scope": "Recommend16 microbanks of64A+64B=2048 parent draws/direction. Report unique source IDs and weight ESS=(sum w)^2/sum(w^2), aggregated with1/K; latent repeats do not count as extra parents. IID draws can repeat a parent and remain sampling-independent, but2048 draws are not2048 unique physical events.",
+    "finite_bank_capacity": "Fixed quota requires each nonempty stratum to appear in every complete four-bank estimate. REAL has422 logical records, so422 record strata cannot fit a128-row bank. Use a predeclared coarser record-position/amplitude stratification with stratum count<=bank rows, and audit all422 group coverage across training; or sample REAL groups with probability N_group/N then uniformly inside group, which exactly preserves count-IID sampling and the original unweighted REAL distance. Do not silently omit groups or pool within-only stratum losses."
+  },
+  "objective_and_acceptance": {
+    "gradient": "Retain036 six standardized-view energy average +2*signed-asinh integral energy, plus fixed existing regular/saturation term. Carrier remains report-only; hard W1 has no gradient.",
+    "risk_checks": "Use exact original hard ADC/baseline/dynamic256 crop for old/proposed/M0 on paired CHECK random banks. Require data-energy decrease resolved by the preregistered paired rule, plus no wave-energy tradeoff and native waveform/Q-tail-PSD/noise/flag guards. Do not accept total improvement driven solely by integral while waveform worsens.",
+    "concrete_operational_rule_proposal": "For every H require paired total data delta upper(mean+3MCSE)<0 and wave delta upper<=0; otherwise reject or use the single precision extension. Native guard margins are fixed before running. This is a conservative finite training policy, not a calibrated familywise confidence statement.",
+    "reference": "Noninferiority is against immutable stage/M0 baseline as well as immediate old state; only checking each small last-accepted delta permits cumulative deterioration. Preserve absolute final/T separately; a baseline with existing absolute failures need not pass absolute acceptance merely to start.",
+    "final_success": "Both seeds, all three electronics hypotheses: hard native waveform improves at least original2% relative to the same-bank M0 control, original positive-T noninferiority remains satisfied, all absolute final/T statuses and uncalibrated domains remain explicit. Additionally require resolved new-FINAL-bank wave/data improvement and no critical anomaly tradeoff. These are development success requirements; failed absoluteT prevents claiming full response acceptance.",
+    "no_selection": "Freeze both endpoints and final bank streams before opening FINAL. No best-seed selection, no post-FINAL LR/feature/tolerance changes, no deployment on native exit0."
+  },
+  "output_trust_region_proposal": {
+    "initial_radius": "1 ADC LSB RMS of proposed-old pure signal on active carrier samples100:384; also report full384 RMS to compare037. This is numerical step control, not a physical variance bound.",
+    "event_and_tail_controls": "Freeze separate per-event normalized RMS, high-quantile, maximum-voltage and tail-area guards. A concrete initial numerical policy to review is event RMS p99<=2LSB/max<=4LSB, coordinate max<=16LSB, relative RMS p99<=2%/max<=5% against max(fixed event active RMS,frozen noise RMS), and |delta tail area[156:384]|<=1%*max(Q0, fixed noise-integral scale). These are proposed software guards, not calibrated T; ROOT must retain or replace them explicitly before execution.",
+    "separate_mean_covariance": "Mean-stage deltaA and random-stage same-latent delta signal are recorded separately. Monitor analytic preADC Cov, including A*(Bv)^T cross terms, charge variance, trace/projected covariance and relative changes by fixed Q/shape strata. Hard/cropped covariance cannot use the preADC identity.",
+    "bounds_and_cost": "A raw-Adam geometry probe used to initialize a scaled1LSB trial must count as an extra forward/map, not hidden free work. Geometry and hard metrics on CHECK reuse the same outputs/noise. Check event and tail maxima over the specified finite bank population, not a global physical claim.",
+    "retry": "At most first trial plus3 shrink trials. Same direction, same old state, same CHECK banks; no extra gradient for shrinking. Permit only one8-to16-bank precision extension for an unresolved comparison. Rejected/all-unresolved macroblocks end without promoting their weights."
+  },
+  "single_run_budget_recommendation": {
+    "REAL_two_seeds": "Two fixed training seeds; each at most50 mean directions then50 random directions.200 direction proposals total, not200 accepted updates.",
+    "teacher_same_design": "One fixed in-family teacher, same two learner seeds and controller, at most the same200 directions. No new architecture or training strategy grid. Maximum combined REAL+teacher400 directions.",
+    "upper_limits": "With16 FIT microbanks/direction: at most6400 backward calls and400 actual Adam direction constructions, at most1600 scaled candidate checks; accepted updates<=400. At most one finite CHECK precision extension/direction. Distinguish actual optimizer executions, scaled parameter trials, rejected directions and accepted changes in accounting.",
+    "early_stop": "Five consecutive directions with no admissible update stop that phase/track. A mean phase that fails cannot silently open random/alternating training to compensate. A resolved hard-risk/critical-flag violation rolls back immediately; recurrent guard violation is a failed candidate, not a request for a new grid.",
+    "resources": "Keep prior GPU10GiB/RSS12GiB/CPU4 ceilings; suggest wall7200s and output2GiB maximum for the unified job, subject to final implementation counts. Feature/noise caches and retry paths require explicit row/NN/ADC/CP upper bounds before freeze; this review has not approved an executable operation budget.",
+    "stop_at_budget": "On attempts/wall/resource cap, save best accepted/last accepted and terminal status; no automatic extension or resumed candidate."
+  },
+  "minimum_closed_validation": {
+    "unified_controls": "Evaluate A, both original015 M0 seeds, matching016 Q1 seeds, mean-only accepted038 and full038 on identical original-count source/REAL rows, noise hypotheses, source/latent streams, standardizers and hard chain. Charge-off must recover the matching mean-only/M0 branch. Do not compare old report scores with different sample banks.",
+    "teacher": "Reuse029 source/heldout/6stratum question and separated mean/Qvariance/projected-covariance evaluation. Construct teacher inside038 expressive family with nonzero mean and random differences. If canonical Q is held fixed, old029 gain1.12 is outside that mean family; either allow bounded gain beforehand or choose a Q-preserving in-family teacher. Require marginal risk descent first, then report original.03/.15/.20 conditional gates without threshold tuning. Marginal fit with wrong conditional moments remains failure.",
+    "source_content": "Freeze existing013 TRAIN same-Q/different-shape pairs by stored IDs, not cache-row index alone. Use identical random draws and compare both mean and random moments/residual distributions. No new PCA, no output-selected strongest pairs, no ID features; unchanged Q alone is not a shape-dependence test. Because013 pair selection used full480 shapes, verify the fixed contrasts survive the already prepared384 input and condition features during the one038 execution; do not assume full480 contrast automatically survives cropping.",
+    "existing013_pair_evidence": {
+      "available_saved_pairs": 128,
+      "saved_TRAIN_pairs": 121,
+      "relative_Q_max": 0.01,
+      "minimum_peaknorm_shape_RMS": 0.001,
+      "first_fixed_TRAIN_pair": {
+        "left_source_id": "sim:source:ca6b7a7a559d9bf5b247cb6cdf7cdc8cfa6549fd545cd68cbcd41bdcc27276ae",
+        "right_source_id": "sim:source:00412c68f2b8278bd734b3cf0b7a2d484aea56745cd20af7423c0fee72d1de0f",
+        "relative_canonical_Q_difference": 0.0009594938323671517,
+        "peak_normalized_shape_RMS_difference": 0.015831750864558906
+      }
+    },
+    "final_scope": "FINAL random banks confirm finite MC behavior only; same acquisition/previously exposed DEV is not a fresh hardware test. Keep original-count versus fixed population-sensitivity assumptions separate, plus existing C2ST/REAL-REAL/anomaly summaries in the unified final comparison; do not fit free mixture weights to REAL."
+  },
+  "original_tolerance_domains": {
+    "source_sha256": "f33217e07b1872dfd51f56e86ed30cda665a705568f2f9ada937865d8a33607b",
+    "hardware_calibrated": false,
+    "positive_T_names": {
+      "fast": [
+        "wave",
+        "QPSD",
+        "noise",
+        "Q_Vns",
+        "front_Vns",
+        "tail_Vns",
+        "PSD_raw",
+        "PSD_guarded",
+        "peak_voltage_V",
+        "rise10_90_ns",
+        "FWHM_ns",
+        "baseline_mean_V",
+        "baseline_RMS_V",
+        "rise_undefined_rate",
+        "rise_prepeak_censored_rate"
+      ],
+      "slow": [
+        "wave",
+        "QPSD",
+        "noise",
+        "Q_Vns",
+        "front_Vns",
+        "tail_Vns",
+        "PSD_raw",
+        "PSD_guarded",
+        "peak_voltage_V",
+        "rise10_90_ns",
+        "FWHM_ns",
+        "baseline_mean_V",
+        "baseline_RMS_V",
+        "rise_undefined_rate",
+        "rise_prepeak_censored_rate"
+      ],
+      "common_level": [
+        "wave",
+        "QPSD",
+        "noise",
+        "Q_Vns",
+        "front_Vns",
+        "tail_Vns",
+        "PSD_raw",
+        "PSD_guarded",
+        "peak_voltage_V",
+        "rise10_90_ns",
+        "FWHM_ns",
+        "baseline_mean_V",
+        "baseline_RMS_V",
+        "rise_undefined_rate",
+        "rise_prepeak_censored_rate"
+      ]
+    },
+    "uncalibrated_T_names": {
+      "fast": [
+        "Q_nonpositive_rate",
+        "PSD_undefined_rate",
+        "PSD_guarded_rate",
+        "FWHM_undefined_rate",
+        "temporal_nonpositive_peak_rate",
+        "FWHM_prepeak_censored_rate",
+        "FWHM_postpeak_censored_rate"
+      ],
+      "slow": [
+        "Q_nonpositive_rate",
+        "PSD_undefined_rate",
+        "PSD_guarded_rate",
+        "FWHM_undefined_rate",
+        "temporal_nonpositive_peak_rate",
+        "FWHM_prepeak_censored_rate",
+        "FWHM_postpeak_censored_rate"
+      ],
+      "common_level": [
+        "Q_nonpositive_rate",
+        "PSD_undefined_rate",
+        "PSD_guarded_rate",
+        "FWHM_undefined_rate",
+        "temporal_nonpositive_peak_rate",
+        "FWHM_prepeak_censored_rate",
+        "FWHM_postpeak_censored_rate"
+      ]
+    },
+    "additional_uncalibrated": "Outside-peak-search, crop-boundary, ADC rail, negative-area and any newly added adapter/tail diagnostics require named definitions and denominators; they have no original physicalT. Predeclare operational safety margins and report calibration status, never count missing T as pass."
+  },
+  "final_source_review_must_check": [
+    "M0 exact-function G0 and small-nonzero-charge stage transition guard.",
+    "All weighted pair products and independent four-bank sampling; no accidental conditional stratum loss.",
+    "No gradient path from trainable mean decoder/amplitude into random controls; intended mean-phase gradients remain connected.",
+    "Full rollback of candidate model/Adam/mutable training state and monotone spent-budget accounting.",
+    "Bounded retries/precision and FINAL isolation, two seeds retained.",
+    "Explicit NN/head/map/noise/ADC/CP/cache/read/update budgets for all teacher, baseline, retry and endpoint branches."
+  ],
+  "review_execution": {
+    "NN_calls": 0,
+    "AD_queries": 0,
+    "optimizer_updates": 0,
+    "checkpoint_reads_or_deserializations": 0,
+    "original_array_reads": 0,
+    "new_observation_calls": 0,
+    "artificial_verifier_executed": false,
+    "old_sources_or_ledgers_modified": false,
+    "own_design_receipt_only_written": true
+  }
+}

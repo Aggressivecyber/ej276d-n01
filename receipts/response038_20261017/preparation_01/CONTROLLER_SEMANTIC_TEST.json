@@ -1,0 +1,194 @@
+{
+  "schema": "n01/response038-controller-artificial-semantics/v1",
+  "status": "passed",
+  "artificial_only": true,
+  "model_source_sha256": "15d972b5951987dd6a7a0a5c488ecfcadf05f69f03aba8f198c2903fc802321f",
+  "controller_source_snapshot_sha256": "3232d736268596323dc93ca9a5eee3ab113fc0dc7c2d620bddaebe5737d9722e",
+  "controller_current_sha256_after_test": "3232d736268596323dc93ca9a5eee3ab113fc0dc7c2d620bddaebe5737d9722e",
+  "stable_functions": {
+    "weighted_distance": {
+      "source_sha256": "e8cfe3a0f014d215c2846b513dd8dd01cd030227dec000218296267214dc0a03",
+      "AST_sha256": "05905eaa5531e299f989d46de4ac2fe04450e8660417f25cb8ed4f231e75223b"
+    },
+    "weighted_energy": {
+      "source_sha256": "74511e6e2c33c2294024d1df16d6380020f4324a95bbc996c166d74f62632bd7",
+      "AST_sha256": "02b3bf62e559b40b4d7795214ba91148f00db9d1583b09cc2b5726f0b93f89f6"
+    },
+    "transaction_snapshot": {
+      "source_sha256": "58e11886ecab15504315544b67490e389786b9f98c73877d3ea0dc4388ab3619",
+      "AST_sha256": "2c203b52e2b81b37731a1d41cb66cff3713aebdb7d5293d5aa110036d97c570f"
+    },
+    "restore_transaction": {
+      "source_sha256": "a0f9b717c5be370aac9baefd94cffb45d5c3564b744488b631b0cdccb759bbd4",
+      "AST_sha256": "72db42df6977998cf1e06e21fd49f46c2eddb37b6cfcd796ed0ef35568c377d1"
+    },
+    "adam_direction": {
+      "source_sha256": "a62be278f65860a7fffcb0274cbf3f7e1bac8babb1ec0fc9819590af75d716a0",
+      "AST_sha256": "4775c4172d1445aadc2e27e5e8effcd9d1ac09e95300f8b164a1244b55dab44f"
+    },
+    "apply_trial": {
+      "source_sha256": "bea34dded267163bd660aa059d49593a060919ece6070ec0cb6005aeea83abe9",
+      "AST_sha256": "39767e3124e29883630e4185bc134bc902486c1d0f5e60a3067430dbf5913674"
+    }
+  },
+  "stable_function_AST_unchanged_during_test": true,
+  "counts": {
+    "engineering_AD_queries": 5,
+    "engineering_Adam_steps": 4,
+    "engineering_parameter_trials": 2,
+    "model_forward_calls": 0,
+    "checkpoint_loads": 0,
+    "real_array_decodes": 0,
+    "observation_calls": 0
+  },
+  "weighted_energy": {
+    "bank_shapes": [
+      [
+        3,
+        3
+      ],
+      [
+        4,
+        3
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        5,
+        3
+      ]
+    ],
+    "weights": [
+      [
+        0.2,
+        0.2,
+        0.6
+      ],
+      [
+        0.4,
+        0.2,
+        0.2,
+        0.2
+      ],
+      [
+        0.3,
+        0.7
+      ],
+      [
+        0.1,
+        0.1,
+        0.1,
+        0.35,
+        0.35
+      ]
+    ],
+    "weighted": 0.0014986023332086429,
+    "explicit": 0.0014986023332075327,
+    "absolute_error": 1.1102230246251565e-15,
+    "uniform": 0.36823199453040156,
+    "original_helper": 0.36823199453040156,
+    "uniform_absolute_error": 0.0,
+    "all_four_bank_gradients_finite": true,
+    "gradient_norms": [
+      0.11230267993706067,
+      0.2223852424567479,
+      0.12744361125240714,
+      0.2142427566561106
+    ],
+    "reference": "Independent Python nested sums over every cross/self pair; no call to weighted_distance for the explicit reference"
+  },
+  "rollback_cases": [
+    {
+      "phase": "mean",
+      "train_charge": false,
+      "train_mode": true,
+      "active_parameter_tensors": 4,
+      "active_parameter_count": 184,
+      "optimizer_nonempty_state_tensors": 4,
+      "snapshot_steps": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "tentative_steps": [
+        2.0,
+        2.0,
+        2.0,
+        2.0
+      ],
+      "restored_steps": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "trial_scale": 0.25,
+      "all_new_tensors_restored_exactly": true,
+      "optimizer_moments_step_LR_restored_exactly": true,
+      "phase_modes_requires_grad_restored": true,
+      "loss_diagnostics_restored": true,
+      "CPU_RNG_restored": true,
+      "mutable_numpy_generator_restored": true,
+      "mutable_nested_state_restored": true,
+      "gradients_cleared": true,
+      "frozen_A_pointers_versions_values_unchanged": true,
+      "spent_counters_unchanged_by_restore": true,
+      "spent_after_rejection": {
+        "optimizer_steps": 2,
+        "parameter_amplitude_trials": 1
+      },
+      "active_cache_remains_None": true
+    },
+    {
+      "phase": "random",
+      "train_charge": true,
+      "train_mode": false,
+      "active_parameter_tensors": 4,
+      "active_parameter_count": 1290,
+      "optimizer_nonempty_state_tensors": 4,
+      "snapshot_steps": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "tentative_steps": [
+        2.0,
+        2.0,
+        2.0,
+        2.0
+      ],
+      "restored_steps": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "trial_scale": 0.5,
+      "all_new_tensors_restored_exactly": true,
+      "optimizer_moments_step_LR_restored_exactly": true,
+      "phase_modes_requires_grad_restored": true,
+      "loss_diagnostics_restored": true,
+      "CPU_RNG_restored": true,
+      "mutable_numpy_generator_restored": true,
+      "mutable_nested_state_restored": true,
+      "gradients_cleared": true,
+      "frozen_A_pointers_versions_values_unchanged": true,
+      "spent_counters_unchanged_by_restore": true,
+      "spent_after_rejection": {
+        "optimizer_steps": 4,
+        "parameter_amplitude_trials": 2
+      },
+      "active_cache_remains_None": true
+    }
+  ],
+  "CUDA_RNG_test": "not exercised; CPU-only test, CUDA not initialized",
+  "unused_global_numpy_RNG": "not part of controller transaction; bank streams use explicit stateless seeds. A mutable local NumPy Generator was tested and restored.",
+  "optional_user_verify_mechanisms_script_executed": false,
+  "scientific_G_updates": 0,
+  "scientific_acceptance": false,
+  "execution_scope": "Controller functions compiled directly from captured current source, no function substitution. Model008/038 instantiated with manufactured tensors/statistics only; no forward or observation."
+}
