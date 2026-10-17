@@ -14,6 +14,7 @@ import json
 import math
 import os
 from pathlib import Path
+import shutil
 import sys
 import time
 
@@ -1497,10 +1498,41 @@ def run038(p, out, device, progress, config_sha):
     from n01.evaluate_window008 import _load_dev
     started = time.monotonic()
     out.mkdir(parents=True)
+    recovery = p.get('recovery')
+    continuation = {}
+    if recovery is not None:
+        previous = json.loads(verified_path028(recovery['previous_config']).read_text(encoding='utf8'))
+        for key, value in previous.items():
+            if key not in ('root_design', 'source_pins', 'resources') and p[key] != value:
+                raise ValueError('038 continuation changed frozen setting: '+key)
+        if any(p['resources'][key] != value for key, value in previous['resources'].items()
+               if key not in ('GPU_headroom_basis', 'track_training_soft_seconds_total', 'reserve_for_unified_FINAL')):
+            raise ValueError('038 continuation changed frozen resource limits')
+        if p['resources']['track_training_soft_seconds_total'] != 1800:
+            raise ValueError('038 continuation trains only the two remaining900s REAL tracks')
+        if (p['previous_root_design'] != previous['root_design'] or
+                set(p['source_pins']) != set(previous['source_pins']) or any(
+                    digest != p['source_pins'][name] for name, digest in previous['source_pins'].items()
+                    if name != 'scripts/run_response038.py')):
+            raise ValueError('038 continuation changed frozen scientific source or previous design')
+        prior_out = Path(recovery['previous_output_root'])
+        for relative, record in recovery['preserved_files'].items():
+            verified_path028(dict(record, path=str(prior_out/relative)))
+        progress.update(recovery['prior_execution_counts_lower_bound'])
+        continuation = dict(continuation_id=recovery['continuation_id'], teacher1_interrupted=True,
+            all_four_tracks_complete=False, full_teacher_qualification_established=False,
+            unified_scientific_acceptance_established=False,
+            execution_counts_scope='attempt2 plus continuation verified lower bound; unknown old tail excluded',
+            old_unknown_tail=recovery['old_unknown_tail'], previous_runtime_seconds='unknown',
+            prior_unpersisted_REAL_FINAL_DEV_execution='unknown', FINAL_first_historical_computation_claim=False,
+            FINAL_stream_scope='original registered namespaces after current endpoint freeze; prior unpersisted calls unknown',
+            new_runtime_clock_only=True, no_teacher_training_or_MONITOR_replay=True)
     write_json(out/'START.json', dict(config=p, config_sha256=config_sha, pid=os.getpid(),
         UTC=datetime.now(timezone.utc).isoformat(), device=str(device), scientific_dispatch_authority='ROOT frozen config',
-        scientific_status='response_match_not_established'))
+        scientific_status='response_match_not_established', **continuation))
     write_json(out/'OPERATION_BUDGET.json', budget_closure038())
+    if recovery is not None:
+        write_json(out/'RECOVERY_OPERATION_BUDGET.json', p['recovery_operation_budget'])
     for name, digest in p['source_pins'].items():
         if sha256(ROOT/name) != digest:
             raise ValueError('038 pinned source differs: '+name)
@@ -1515,18 +1547,29 @@ def run038(p, out, device, progress, config_sha):
         PCA013=p['PCA013'], no_PCA_refit=True, source_stratum_sizes=list(map(len, setup['source_strata'])),
         REAL_stratum_sizes=list(map(len, setup['real_strata'])), source_neural_identity_inputs=False))
     aggregate_REAL(setup['data'], out, 'TRAIN')
-    identity_gate(setup, p, out, progress)
+    if recovery is None:
+        identity_gate(setup, p, out, progress)
     initial_states = [dict(label='A', model=setup['references'][0])]
     for prefix, charge in (('M0', False), ('Q1', True)):
         initial_states += [dict(label=f'{prefix}_seed{index}', model=model, shape_enabled=True,
             mean_enabled=False, charge_enabled=charge) for index, model in enumerate(setup['references'])]
-    initial = evaluate_population(initial_states, setup['encoding'], setup['data']['real'], setup['data']['real_baseline100'],
-        setup['extension'], p, setup['loss'], setup['context'], stream_seed(p['seeds'][0], 'INITIAL'),
-        'INITIAL_TRAIN', out, progress, started)
-    write_json(out/'G0_INITIAL_ALIASES.json', dict(aliases={f'G0_seed{index}': f'M0_seed{index}' for index in (0, 1)},
-        exact_function_identity_proven_by='G0_ORIGINAL014_IDENTITY.json', new_evaluation_queries=0))
+    if recovery is None:
+        evaluate_population(initial_states, setup['encoding'], setup['data']['real'], setup['data']['real_baseline100'],
+            setup['extension'], p, setup['loss'], setup['context'], stream_seed(p['seeds'][0], 'INITIAL'),
+            'INITIAL_TRAIN', out, progress, started)
+        write_json(out/'G0_INITIAL_ALIASES.json', dict(aliases={f'G0_seed{index}': f'M0_seed{index}' for index in (0, 1)},
+            exact_function_identity_proven_by='G0_ORIGINAL014_IDENTITY.json', new_evaluation_queries=0))
+    else:
+        for relative in recovery['reused_reports']:
+            shutil.copy2(prior_out/relative, out/relative)
+        write_json(out/'REUSED_INITIAL_PROVENANCE.json', dict(previous_output_root=str(prior_out),
+            files={name: recovery['preserved_files'][name] for name in recovery['reused_reports']},
+            new_identity_INITIAL_teacher_initial_queries=0, source_bytes_unchanged=True))
     teacher = make_teacher_context(setup, p, device, progress)
-    initial_teacher = teacher_initial_recovery(teacher['models'], teacher, p, out, progress)
+    if recovery is None:
+        initial_teacher = teacher_initial_recovery(teacher['models'], teacher, p, out, progress)
+    else:
+        initial_teacher = json.loads((out/'TEACHER_INITIAL_ANALYTIC.json').read_text(encoding='utf8'))['seeds']
     tolerances = json.loads(setup['paths']['tolerances'].read_text(encoding='utf8'))['T_by_hypothesis']
     base_ctx = dict(loss=setup['loss'], carrier_scale=setup['carrier_scale'], extension=setup['extension'],
         context=setup['context'], noise_RMS_floor_V=setup['noise_RMS_floor_V'], tolerances=tolerances,
@@ -1538,20 +1581,105 @@ def run038(p, out, device, progress, config_sha):
         target_strata=teacher['target_strata'], teacher_factors=teacher['factors'], target_population=128,
         target_groups=np.arange(128))
     tracks = {}
-    for population, context, models in (('teacher', teacher_ctx, teacher['models']), ('REAL', REAL_ctx, setup['models'])):
+    populations = (('teacher', teacher_ctx, teacher['models']), ('REAL', REAL_ctx, setup['models']))
+    if recovery is not None:
+        for index, filename in ((0, 'final.pt'), (1, 'best_accepted.pt')):
+            name, model = f'teacher_seed{index}', teacher['models'][index]
+            track_out = out/name
+            shutil.copytree(prior_out/name, track_out)
+            progress['checkpoint_loads'] += 1
+            checkpoint = torch.load(prior_out/name/filename, map_location='cpu', weights_only=False)
+            if (checkpoint['schema'] != 'n01/response038-new-module-checkpoint/v1' or
+                    checkpoint['config'] != previous or checkpoint['resume_allowed'] is not False or
+                    checkpoint['immutable_A'] != previous['inputs']['deterministic'] or
+                    checkpoint['immutable_M0'] != previous['inputs'][f'M0_head_seed{index}'] or
+                    checkpoint['immutable005'] != previous['inputs']['noise005']):
+                raise ValueError('038 preserved teacher checkpoint binding differs: '+name)
+            copy_new_state(model, checkpoint['new_modules'])
+            groups = model.parameter_groups()
+            optimizer = torch.optim.AdamW([dict(params=groups['mean'], lr=p['training']['mean_lr']),
+                dict(params=groups['shape'], lr=p['training']['shape_lr']),
+                dict(params=groups['charge'], lr=p['training']['charge_lr'])], weight_decay=0.)
+            optimizer.load_state_dict(checkpoint['optimizer'])
+            mutable = copy.deepcopy(checkpoint['mutable'])
+            model.set_phase(mutable['phase'], train_charge=mutable['charge_enabled']).train()
+            torch.set_rng_state(checkpoint['CPU_RNG'])
+            if checkpoint['CUDA_RNG'] is not None:
+                torch.cuda.set_rng_state_all(checkpoint['CUDA_RNG'])
+            if index == 0:
+                result = json.loads((track_out/'TRACK_RESULT.json').read_text(encoding='utf8'))
+            else:
+                records = [json.loads(line) for line in (track_out/'metrics.jsonl').read_text(encoding='utf8').splitlines()]
+                last = records[-1]
+                if (len(records) != 13 or last['phase'] != 'mean' or last['direction'] != 13 or
+                        not last['accepted'] or last['accepted_updates'] != 5 or mutable['accepted_updates'] != 5):
+                    raise ValueError('038 interrupted teacher endpoint is not the registered mean13/5accept')
+                mutable['last_monitor'] = last['last_monitor']
+                mutable['monitor_index'] = last['last_monitor']['index']+1
+                coverage = dict(scope='complete thirteen direction records only; unknown in-flight tail excluded',
+                    source_unique_lower_bound=max(record['FIT']['coverage']['source_unique'] for record in records),
+                    source_draws_lower_bound=sum(record['FIT']['coverage']['source_draws'] for record in records),
+                    target_draws_lower_bound=256*sum(len(record['FIT']['per_microbank']['data']) for record in records),
+                    completed_FIT_AD_queries=sum(len(record['FIT']['per_microbank']['data']) for record in records),
+                    source_population=128, target_population=128, exact_per_parent_visits='unknown',
+                    target_unique='unknown', unknown_tail_visits='unknown',
+                    records=[dict(direction=record['direction'], coverage=record['FIT']['coverage']) for record in records])
+                write_json(track_out/'FIT_COVERAGE_LOWER_BOUND.json', coverage)
+                result = dict(track=name, learner_seed=p['seeds'][index], matching_M0_reference_index=index,
+                    phases=dict(mean=dict(accepted=5, stop_reason='SERVER_INTERRUPTED', last_direction=13)),
+                    charge_enabled=False, resource_stop=False, server_interrupted=True, track_complete=False,
+                    mean_to_random_supported=None, mean_to_random_status='not assessed after server interruption',
+                    accepted_updates=5, elapsed_training_seconds=None,
+                    training_wall_limit_seconds=900, source_FIT_population=128, target_FIT_population=128,
+                    source_FIT_unique=None, target_FIT_unique=None, target_FIT_record_groups=None,
+                    source_FIT_unique_lower_bound=coverage['source_unique_lower_bound'],
+                    coverage_scope=coverage['scope'], exact_FIT_visits_and_old_runtime='unknown',
+                    original_complete_direction_records=13, continuation_training_directions=0)
+                write_json(track_out/'TRACK_RESULT.json', result)
+            model.set_phase('frozen').eval()
+            save_state(track_out/'RESTORED_ENDPOINT.pt', model, optimizer, mutable, progress, p)
+            if index == 1:
+                shutil.copy2(track_out/'RESTORED_ENDPOINT.pt', track_out/'final.pt')
+                shutil.copy2(track_out/'RESTORED_ENDPOINT.pt', track_out/'mean_endpoint.pt')
+            result.update(state=new_module_state(model), mean_state=new_module_state(model))
+            tracks[name] = result
+            write_json(track_out/'ENDPOINT_RESTORATION.json', dict(source_checkpoint=filename,
+                source_sha256=recovery['preserved_files'][f'{name}/{filename}']['sha256'],
+                full_new_modules_Adam_mutable_CPU_CUDA_RNG_restored=True, teacher_training_queries=0,
+                MONITOR_replayed=False, monitor_boundary=mutable['last_monitor'],
+                monitor_index_reconciled_from_completed_log=(index == 1), saved_phase=checkpoint['mutable']['phase'],
+                saved_mode_and_requires_grad='not serialized; reconstructed from deterministic phase then frozen',
+                lost_loss_diagnostic_cache='not serialized; report-only, not an input to subsequent computation',
+                original_resume_allowed=False, explicit_one_time_authority=p['root_design'],
+                old_checkpoint_bytes_unchanged=True, **continuation))
+        populations = (('REAL', REAL_ctx, setup['models']),)
+        write_json(out/'CONTINUATION_ENDPOINTS_PREPARED.json', dict(
+            teacher_endpoints_restored=True, teacher_new_training_queries=0, REAL_tracks_started_in_this_invocation=False,
+            previous_config_sha256=recovery['previous_config']['sha256'], execution_counts=dict(progress),
+            **continuation))
+    for population, context, models in populations:
         for index, seed in enumerate(p['seeds']):
             name = f'{population}_seed{index}'
             context = dict(context, M0=setup['references'][index])
             tracks[name] = run_track(models[index], context, seed, name, index, p, out/name, progress, started)
             write_json(out/'STATUS.json', dict(last_track=name,
                 tracks={key: {field: value[field] for field in ('accepted_updates', 'resource_stop', 'charge_enabled')}
-                        for key, value in tracks.items()}, execution_counts=dict(progress), elapsed=time.monotonic()-started))
+                        for key, value in tracks.items()}, execution_counts=dict(progress), elapsed=time.monotonic()-started,
+                **continuation))
     endpoints = {name: dict(state_sha256=state_digest(value['state']), charge_enabled=value['charge_enabled'],
         accepted_updates=value['accepted_updates']) for name, value in tracks.items()}
     write_json(out/'ENDPOINTS_FROZEN.json', dict(endpoints=endpoints, config_sha256=config_sha,
-        all_four_tracks_complete=True, FINAL_streams_opened=False, DEV_numeric_reads=0, no_settings_reopened=True))
+        all_four_endpoints_frozen=True, FINAL_streams_opened=False, DEV_numeric_reads=0, no_settings_reopened=True,
+        **(continuation if recovery is not None else dict(all_four_tracks_complete=True))))
+    if recovery is not None:
+        continuation['all_four_endpoints_frozen'] = True
     teacher_reports = {str(index): teacher_recovery(teacher['models'][index], teacher, index,
         tracks[f'teacher_seed{index}']['charge_enabled'], p, out, progress) for index in (0, 1)}
+    if recovery is not None:
+        for index in (0, 1):
+            teacher_reports[str(index)].update(available_endpoint_only=True, track_interrupted=(index == 1),
+                all_teacher_tracks_complete=False, full_teacher_qualification_established=False)
+            write_json(out/f'TEACHER_seed{index}_RECOVERY.json', teacher_reports[str(index)])
     mean_models = []
     for index, seed in enumerate(p['seeds']):
         model = N01Response038(setup['baseline'], setup['heads'][index], seed=seed,
@@ -1604,7 +1732,7 @@ def run038(p, out, device, progress, config_sha):
         teacher_initial=initial_teacher, tracks={name: {key: value for key, value in result.items()
             if key not in ('state', 'mean_state')} for name, result in tracks.items()}, source_pairs=source_pairs,
         execution_counts=dict(progress), DEV_previously_exposed=True, DEV_used_for_tuning=False,
-        independent_acquisition_acceptance=False, scientific_status='response_match_not_established')
+        independent_acquisition_acceptance=False, scientific_status='response_match_not_established', **continuation)
     write_json(out/'PRIMARY_FINAL.json', primary)
     classifiers = final_classifiers(final['FINAL_TRAIN_0'], setup, p, out, device, progress, started)
     if state_digest(setup['baseline'].state_dict()) != setup['frozen_A_digest'] or state_digest(setup['extension'].state_dict()) != setup['frozen005_digest']:
@@ -1614,7 +1742,7 @@ def run038(p, out, device, progress, config_sha):
         elapsed_seconds=time.monotonic()-started, operation_budget=budget_closure038(), no_response_settings_reopened=True)
     write_json(out/'RESULT.json', terminal)
     write_json(out/'COMPLETE.json', dict(native_status='COMPLETE', RESULT_sha256=sha256(out/'RESULT.json'),
-        execution_counts=dict(progress), scientific_status='response_match_not_established'))
+        execution_counts=dict(progress), scientific_status='response_match_not_established', **continuation))
 
 
 def main():
@@ -1633,6 +1761,9 @@ def main():
         raise ValueError('038 requires the one ROOT-reviewed fixed two-seed candidate')
     if p['operation_budget'] != budget_closure038():
         raise ValueError('038 registered operation closure differs')
+    if p.get('recovery') is not None and (p['recovery']['mode'] != 'freeze_teacher_endpoints_then_REAL' or
+            p['recovery']['continuation_id'] != 'resume01_20261018'):
+        raise ValueError('038 permits only the registered one-time server restart continuation')
     if args.out.exists():
         raise FileExistsError(args.out)
     os.environ.setdefault('CUBLAS_WORKSPACE_CONFIG', ':4096:8')
@@ -1662,6 +1793,13 @@ def main():
             failure = dict(error_type=type(error).__name__, error=str(error), execution_counts=dict(progress),
                 automatic_restart=False, scientific_status='response_match_not_established',
                 completed_primary_FINAL=(args.out/'PRIMARY_FINAL.json').exists())
+            if p.get('recovery') is not None:
+                failure.update(continuation_id=p['recovery']['continuation_id'], teacher1_interrupted=True,
+                    all_four_tracks_complete=False, all_four_endpoints_frozen=(args.out/'ENDPOINTS_FROZEN.json').exists(),
+                    full_teacher_qualification_established=False, unified_scientific_acceptance_established=False,
+                    execution_counts_scope='attempt2 plus continuation verified lower bound; unknown old tail excluded',
+                    prior_unpersisted_REAL_FINAL_DEV_execution='unknown', FINAL_first_historical_computation_claim=False,
+                    old_unknown_tail=p['recovery']['old_unknown_tail'])
             write_json(args.out/'FAILED.json', failure)
             if failure['completed_primary_FINAL']:
                 result = json.loads((args.out/'PRIMARY_FINAL.json').read_text(encoding='utf8'))
