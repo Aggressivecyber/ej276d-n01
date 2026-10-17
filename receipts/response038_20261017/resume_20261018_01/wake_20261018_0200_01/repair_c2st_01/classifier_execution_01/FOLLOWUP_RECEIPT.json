@@ -1,0 +1,50 @@
+{
+  "schema": "n01/response038-C2ST-single-followup/v1",
+  "UTC": "2026-10-17T18:39:12.676005+00:00",
+  "automation_id": "n01",
+  "kind": "heartbeat",
+  "status": "ACTIVE",
+  "target_thread_id": "01a12bad-8839-7522-89a5-f028b107d7ff",
+  "scheduled_local": "2026-10-18T02:45:00+08:00",
+  "scheduled_UTC": "2026-10-17T18:45:00+00:00",
+  "scheduled_occurrences": 1,
+  "existing_automation_updated": true,
+  "stored_app_fields_verified": true,
+  "app_updated_at": 1792262259210,
+  "local_prompt_matches_app_after_trailing_newline_normalization": true,
+  "prompt": {
+    "path": "receipts/response038_20261017/resume_20261018_01/wake_20261018_0200_01/repair_c2st_01/classifier_execution_01/FOLLOWUP_PROMPT.txt",
+    "sha256": "b69712ea1ae1bfa12aac7baeee56b16b4fe853a31dd93f9dcbfbcbd30a6cf76a"
+  },
+  "startup": {
+    "path": "receipts/response038_20261017/resume_20261018_01/wake_20261018_0200_01/repair_c2st_01/classifier_execution_01/STARTUP_ASSESSMENT.json",
+    "sha256": "57913b533e21d16ff1a1f4d32fc0b8b972fbca4e34e230cab4fff4bc009a7cd4"
+  },
+  "rationale": "First original classifier cell saved within the single4.5s startup snapshot; one wake about10min after launch allows33 cells plus margin, still before the30min hard window.",
+  "next_action": "Rest now. At wake do one bounded saved-status/terminal query, collect and audit if exited; no response/FINAL/probe replay and no continuous polling.",
+  "no_remote_query_after_startup": true,
+  "classifier_saved_lower_bound": {
+    "saved_NPZ_archives_decoded": 0,
+    "code_grid_values": 0,
+    "prefix_rows": 0,
+    "saved_example_waveform_rows": 0,
+    "common_prefix_NPZ_decodes": 1,
+    "saved_ADC_NPZ_decodes": 1,
+    "TRAIN_dataset_NPZ_decodes": 1,
+    "classifier_forward_calls": 349,
+    "classifier_forward_rows": 44581,
+    "classifier_AD_queries": 200,
+    "classifier_optimizer_steps": 200,
+    "classifier_bootstrap_resamples": 400,
+    "classifiers_completed": 1
+  },
+  "response_costs_unchanged": {
+    "Adam": 53,
+    "FIT_AD": 912,
+    "retained_teacher": 17,
+    "retained_REAL": 0,
+    "legacy_cumulative": 199722
+  },
+  "original_failed_exit_preserved": true,
+  "scientific_status": "response_match_not_established"
+}

@@ -1,7 +1,7 @@
 {
   "experiment_id": "N01",
-  "updated_UTC": "2026-10-17T18:20:58.368526+00:00",
-  "active_scientific_jobs": 0,
+  "updated_UTC": "2026-10-17T18:39:12.676005+00:00",
+  "active_scientific_jobs": 1,
   "jobs": [
     {
       "job_id": "N01_RUN_001_20261012",
@@ -10942,6 +10942,115 @@
       "REAL_Adam_direction_constructions_verified": 10,
       "REAL_retained_updates_verified": 0,
       "REAL_response_optimizer_updates_verified_semantics": "Historical field records Adam direction-construction cost:5REAL0+5REAL1=10, including rejected directions; retained REAL updates are separately0."
+    },
+    {
+      "stage": "C2ST_running_at_single_verified_startup_snapshot",
+      "active": true,
+      "run_id": "response038_20261017",
+      "job_id": "response038_C2ST_completion_20261018",
+      "supplement_id": "c2st_storage_repair01_20261018",
+      "kind": "C2ST_evaluation_completion_of_saved038FINAL",
+      "config": "configs/response038_c2st_completion_20261018.json",
+      "config_sha256": "f4a741361d54f852c62e30688cb80548e593c2f38ae86bc11902d245f750b3fa",
+      "root_design": "receipts/response038_20261017/resume_20261018_01/wake_20261018_0200_01/repair_c2st_01/ROOT_DESIGN.json",
+      "root_design_sha256": "56efae5cac3ddccb4a3ada24c5e41f462f901a16606a5bbc0e65a4bbb508d4d8",
+      "script": "scripts/complete_response038_c2st.py",
+      "script_sha256": "e3a26d84f4d5a4c4bf7f1dbde7105ebf802832b2b999e83df090085a03f8750e",
+      "control_sha256": "bb73a2fbdd113c370f1db9223d3a34b3d623dfc0d11cf1160146a7cce9a89c4e",
+      "scientific_freeze": "53c76bcdef5ae09458e1404ce637b4963c72ace4",
+      "control_freeze": "c3076d11fdf8b683075397e49876d4c5643865c6",
+      "remote_host": "rylan@100.82.231.102",
+      "remote_root": "/home/rylan/projects/ej276d-n01/response038_resume02_20261018",
+      "remote_output": "/home/rylan/projects/ej276d-n01/response038_resume02_20261018/c2st_storage_repair01/classifiers_01",
+      "remote_control": "/home/rylan/projects/ej276d-n01/response038_resume02_20261018/c2st_storage_repair01/classifier_control_01",
+      "identity": {
+        "boot_id": "b6923bf3-a173-4b1a-a175-f746178ee99c",
+        "cwd": "/home/rylan/projects/ej276d-n01/response038_resume02_20261018",
+        "dispatcher": {
+          "pid": 31720,
+          "start_ticks": "824060"
+        },
+        "output_guard": {
+          "pid": 31721,
+          "start_ticks": "824060"
+        },
+        "supervisor": {
+          "pid": 31722,
+          "start_ticks": "824062"
+        },
+        "timeout": {
+          "pid": 31723,
+          "start_ticks": "824064"
+        },
+        "native": {
+          "pid": 31724,
+          "start_ticks": "824064"
+        }
+      },
+      "dispatch_UTC": "2026-10-17T18:34:40.173346+00:00",
+      "last_verified_UTC": "2026-10-17T18:34:44.675290+00:00",
+      "native_alive_at_last_snapshot": true,
+      "later_progress_unqueried": true,
+      "startup_assessment": "receipts/response038_20261017/resume_20261018_01/wake_20261018_0200_01/repair_c2st_01/classifier_execution_01/STARTUP_ASSESSMENT.json",
+      "startup_assessment_sha256": "57913b533e21d16ff1a1f4d32fc0b8b972fbca4e34e230cab4fff4bc009a7cd4",
+      "probe_started": true,
+      "probe_completed": true,
+      "probe_strict_PASS": true,
+      "engineering_check_sha256": "d5281199de047f81e18466ba202b3c8786e6fd61b5bd7089dd74128a22d0368e",
+      "classifier_started": true,
+      "classifier_saved_costs_lower_bound": {
+        "saved_NPZ_archives_decoded": 0,
+        "code_grid_values": 0,
+        "prefix_rows": 0,
+        "saved_example_waveform_rows": 0,
+        "common_prefix_NPZ_decodes": 1,
+        "saved_ADC_NPZ_decodes": 1,
+        "TRAIN_dataset_NPZ_decodes": 1,
+        "classifier_forward_calls": 349,
+        "classifier_forward_rows": 44581,
+        "classifier_AD_queries": 200,
+        "classifier_optimizer_steps": 200,
+        "classifier_bootstrap_resamples": 400,
+        "classifiers_completed": 1
+      },
+      "response_Adam_added": 0,
+      "response_FIT_AD_added": 0,
+      "response_retained_added": 0,
+      "legacy_cumulative_unchanged": 199722,
+      "original_response_exit_code_preserved": 1,
+      "original_response_job_index": 53,
+      "resources": {
+        "CPU_threads": 4,
+        "CPU_affinity": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "RSS_GiB": 12,
+        "GPU_allocator_GiB": 6,
+        "hard_wall_seconds": 1800,
+        "internal_stop_seconds": 1650,
+        "output_MiB": 512,
+        "TERM_grace_seconds_max": 20,
+        "external_project_flock": true,
+        "automatic_restart": false
+      },
+      "classifier_budget_max": {
+        "cells": 33,
+        "Adam": 6600,
+        "AD": 6600
+      },
+      "scientific_status": "response_match_not_established",
+      "all_four_tracks_complete": false,
+      "teacher1_interrupted": true,
+      "full_teacher_qualification_established": false,
+      "unified_scientific_acceptance_established": false,
+      "next_action": "Rest until2026-10-18T02:45:00+08:00, then one bounded C2ST saved-status or terminal read; collect and unify report if exited. No response/FINAL/probe replay.",
+      "followup_receipt": "receipts/response038_20261017/resume_20261018_01/wake_20261018_0200_01/repair_c2st_01/classifier_execution_01/FOLLOWUP_RECEIPT.json",
+      "followup_receipt_sha256": "c8769868810d8ecd4d55ee9d133ae0e82677d116089174fdf948e2f4134fa4db",
+      "followup_scheduled_local": "2026-10-18T02:45:00+08:00",
+      "followup_status": "single_future_wake_saved_resting"
     }
   ],
   "user_requested_pause": false,
@@ -10963,7 +11072,7 @@
     "verified_UTC": "2026-10-16T23:27:14.629872+00:00"
   },
   "scientific_status": "response_match_not_established",
-  "active_scientific_jobs_status_basis": "Single02:00snapshot: no project process, free flock, native exit1;405outputs collected and SHA verified.",
+  "active_scientific_jobs_status_basis": "One verified C2ST startup snapshot 2026-10-17T18:34:44.675290+00:00; later state/progress unqueried. Original response run remains exit1 inactive.",
   "wp2_readback_prepare_failure": {
     "path": "receipts\\wp2_014_20261015\\readback_registration_01\\ROOT_PREPARE_FAILURE_RECEIPT.json",
     "sha256": "6f89dedd516cd5612295060b074fa84625364774a6a8c5c74b5172608f2b83f5",
@@ -10981,11 +11090,11 @@
   },
   "followup_automation_id": "n01",
   "followup_automation_status": "ACTIVE",
-  "followup_next_run_local": null,
-  "followup_receipt": "receipts/response038_20261017/resume_20261018_01/wake_20261018_0110_01/repair_01/deployment_01/FOLLOWUP_RECEIPT.json",
-  "followup_receipt_sha256": "780fd7004171b571b51814f7469ac0ee69d10303f38500695a8c160f348ca203",
+  "followup_next_run_local": "2026-10-18T02:45:00+08:00",
+  "followup_receipt": "receipts/response038_20261017/resume_20261018_01/wake_20261018_0200_01/repair_c2st_01/classifier_execution_01/FOLLOWUP_RECEIPT.json",
+  "followup_receipt_sha256": "c8769868810d8ecd4d55ee9d133ae0e82677d116089174fdf948e2f4134fa4db",
   "followup_last_delivered_UTC": "2026-10-16T09:20:29.108Z",
-  "current_followup_status": "0200_once_consumed_terminal_collected_no_new_wake_until_launch",
+  "current_followup_status": "single0245_wake_saved_resting_no_continuous_monitoring",
   "agent_model_policy": {
     "path": "receipts/wp3_015_20261015/postrun_root_02/AGENT_MODEL_POLICY_SOLMAX.json",
     "bytes": 813,
@@ -11012,9 +11121,9 @@
     "bytes": 83119,
     "sha256": "b24f3bb1e5644fc8db29b2db1b3b82b05a8793248b7c99af81b23fb4dc3d1e24"
   },
-  "status": "response038_PRIMARY_FINAL_done_C2ST_engineering_repair",
-  "current_action": "Complete static source review, then one bounded original-CUDA saved-ADC probe; only strict PASS permits unchanged33-cell C2ST completion. No new wake until an authorized launch is verified.",
-  "next_action": "Complete static source review, then one bounded original-CUDA saved-ADC probe; only strict PASS permits unchanged33-cell C2ST completion. No new wake until an authorized launch is verified.",
+  "status": "response038_C2ST_supplement_running",
+  "current_action": "C2ST startup verified; sole02:45SGT wake configured and verified. Rest without further remote polling.",
+  "next_action": "Rest until2026-10-18T02:45:00+08:00, then one bounded C2ST saved-status or terminal read; collect and unify report if exited. No response/FINAL/probe replay.",
   "latest_user_review_direction": {
     "path": "receipts/review_017_20261016/ACCEPTED_NEXT_ACTIONS.json",
     "bytes": 3271,
@@ -11022,8 +11131,8 @@
   },
   "pending_run_id": "response038_20261017",
   "latest_run_id": "response037_20261017",
-  "active_run_id": null,
-  "current_stage": "response038_C2ST_storage_reconstruction_probe_preparation",
+  "active_run_id": "response038_20261017",
+  "current_stage": "C2ST_running_at_single_verified_startup_snapshot",
   "wp4_018_result": {
     "path": "receipts/wp4_018_20261016/FINAL_RESULT_RECEIPT.json",
     "bytes": 6437,
@@ -11172,7 +11281,7 @@
       "sha256": "08ef80ae1e9262bbcb2c5a95862df4b721f6ca3e1c8bd8ff5cfd3bcae8f2f62e"
     }
   },
-  "last_verified_UTC": "2026-10-17T18:02:37.614262+00:00",
+  "last_verified_UTC": "2026-10-17T18:34:44.675290+00:00",
   "wp4_019_G_updates": 2000,
   "wp4_019_AD_queries": 2000,
   "cumulative_training_updates": 199722,
@@ -12232,7 +12341,7 @@
     },
     "followup_status": "DELIVERED_terminal"
   },
-  "latest_source_commit": "c4770d2c699d8609293c656f3c03ce740a44ebff",
+  "latest_source_commit": "c3076d11fdf8b683075397e49876d4c5643865c6",
   "wp3_024_G_updates": 0,
   "wp3_024_AD_queries": 0,
   "wp3_024_population_mean_cells_last_verified": 78,
@@ -12558,7 +12667,7 @@
       "sha256": "f13d09a8120de685c980e0d52f782c212cb3d4ea41d7da7f77cbfbd21621128e"
     }
   },
-  "followup_scheduled_local": "2026-10-18T02:00:00+08:00",
+  "followup_scheduled_local": "2026-10-18T02:45:00+08:00",
   "followup_last_consumed_local": "2026-10-18T02:00:00+08:00",
   "wp3_025_G_updates": 0,
   "wp3_025_AD_queries": 0,
@@ -14819,32 +14928,133 @@
   "response038_optimizer_direction_steps": 53,
   "response038_accepted_optimizer_updates": 17,
   "response038_c2st_completion": {
-    "stage": "engineering_source_preparation_static_review_pending",
-    "active": false,
-    "root_design": "receipts\\response038_20261017\\resume_20261018_01\\wake_20261018_0200_01\\repair_c2st_01\\ROOT_DESIGN.json",
+    "stage": "C2ST_running_at_single_verified_startup_snapshot",
+    "active": true,
+    "run_id": "response038_20261017",
+    "job_id": "response038_C2ST_completion_20261018",
+    "supplement_id": "c2st_storage_repair01_20261018",
+    "kind": "C2ST_evaluation_completion_of_saved038FINAL",
+    "config": "configs/response038_c2st_completion_20261018.json",
+    "config_sha256": "f4a741361d54f852c62e30688cb80548e593c2f38ae86bc11902d245f750b3fa",
+    "root_design": "receipts/response038_20261017/resume_20261018_01/wake_20261018_0200_01/repair_c2st_01/ROOT_DESIGN.json",
     "root_design_sha256": "56efae5cac3ddccb4a3ada24c5e41f462f901a16606a5bbc0e65a4bbb508d4d8",
     "script": "scripts/complete_response038_c2st.py",
-    "config": "configs/response038_c2st_completion_20261018.json",
-    "probe_started": false,
-    "classifier_started": false,
-    "response_training_allowed": false,
-    "FINAL_recomputation_allowed": false,
-    "probe_budget": {
-      "CP": 0,
-      "NN": 0,
-      "AD": 0,
-      "NPZ": 67,
-      "seconds": 180,
-      "GPU_GiB": 1,
-      "RSS_GiB": 3
+    "script_sha256": "e3a26d84f4d5a4c4bf7f1dbde7105ebf802832b2b999e83df090085a03f8750e",
+    "control_sha256": "bb73a2fbdd113c370f1db9223d3a34b3d623dfc0d11cf1160146a7cce9a89c4e",
+    "scientific_freeze": "53c76bcdef5ae09458e1404ce637b4963c72ace4",
+    "control_freeze": "c3076d11fdf8b683075397e49876d4c5643865c6",
+    "remote_host": "rylan@100.82.231.102",
+    "remote_root": "/home/rylan/projects/ej276d-n01/response038_resume02_20261018",
+    "remote_output": "/home/rylan/projects/ej276d-n01/response038_resume02_20261018/c2st_storage_repair01/classifiers_01",
+    "remote_control": "/home/rylan/projects/ej276d-n01/response038_resume02_20261018/c2st_storage_repair01/classifier_control_01",
+    "identity": {
+      "boot_id": "b6923bf3-a173-4b1a-a175-f746178ee99c",
+      "cwd": "/home/rylan/projects/ej276d-n01/response038_resume02_20261018",
+      "dispatcher": {
+        "pid": 31720,
+        "start_ticks": "824060"
+      },
+      "output_guard": {
+        "pid": 31721,
+        "start_ticks": "824060"
+      },
+      "supervisor": {
+        "pid": 31722,
+        "start_ticks": "824062"
+      },
+      "timeout": {
+        "pid": 31723,
+        "start_ticks": "824064"
+      },
+      "native": {
+        "pid": 31724,
+        "start_ticks": "824064"
+      }
     },
-    "classifier_reserved_budget": {
+    "dispatch_UTC": "2026-10-17T18:34:40.173346+00:00",
+    "last_verified_UTC": "2026-10-17T18:34:44.675290+00:00",
+    "native_alive_at_last_snapshot": true,
+    "later_progress_unqueried": true,
+    "startup_assessment": "receipts/response038_20261017/resume_20261018_01/wake_20261018_0200_01/repair_c2st_01/classifier_execution_01/STARTUP_ASSESSMENT.json",
+    "startup_assessment_sha256": "57913b533e21d16ff1a1f4d32fc0b8b972fbca4e34e230cab4fff4bc009a7cd4",
+    "probe_started": true,
+    "probe_completed": true,
+    "probe_strict_PASS": true,
+    "engineering_check_sha256": "d5281199de047f81e18466ba202b3c8786e6fd61b5bd7089dd74128a22d0368e",
+    "classifier_started": true,
+    "classifier_saved_costs_lower_bound": {
+      "saved_NPZ_archives_decoded": 0,
+      "code_grid_values": 0,
+      "prefix_rows": 0,
+      "saved_example_waveform_rows": 0,
+      "common_prefix_NPZ_decodes": 1,
+      "saved_ADC_NPZ_decodes": 1,
+      "TRAIN_dataset_NPZ_decodes": 1,
+      "classifier_forward_calls": 349,
+      "classifier_forward_rows": 44581,
+      "classifier_AD_queries": 200,
+      "classifier_optimizer_steps": 200,
+      "classifier_bootstrap_resamples": 400,
+      "classifiers_completed": 1
+    },
+    "response_Adam_added": 0,
+    "response_FIT_AD_added": 0,
+    "response_retained_added": 0,
+    "legacy_cumulative_unchanged": 199722,
+    "original_response_exit_code_preserved": 1,
+    "original_response_job_index": 53,
+    "resources": {
+      "CPU_threads": 4,
+      "CPU_affinity": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "RSS_GiB": 12,
+      "GPU_allocator_GiB": 6,
+      "hard_wall_seconds": 1800,
+      "internal_stop_seconds": 1650,
+      "output_MiB": 512,
+      "TERM_grace_seconds_max": 20,
+      "external_project_flock": true,
+      "automatic_restart": false
+    },
+    "classifier_budget_max": {
       "cells": 33,
-      "AD": 6600,
-      "Adam": 6600
+      "Adam": 6600,
+      "AD": 6600
     },
     "scientific_status": "response_match_not_established",
     "all_four_tracks_complete": false,
-    "teacher1_interrupted": true
-  }
+    "teacher1_interrupted": true,
+    "full_teacher_qualification_established": false,
+    "unified_scientific_acceptance_established": false,
+    "next_action": "Rest until2026-10-18T02:45:00+08:00, then one bounded C2ST saved-status or terminal read; collect and unify report if exited. No response/FINAL/probe replay.",
+    "followup_receipt": "receipts/response038_20261017/resume_20261018_01/wake_20261018_0200_01/repair_c2st_01/classifier_execution_01/FOLLOWUP_RECEIPT.json",
+    "followup_receipt_sha256": "c8769868810d8ecd4d55ee9d133ae0e82677d116089174fdf948e2f4134fa4db",
+    "followup_scheduled_local": "2026-10-18T02:45:00+08:00",
+    "followup_status": "single_future_wake_saved_resting"
+  },
+  "active_job_id": "response038_C2ST_completion_20261018",
+  "current_arm": "response038_C2ST_completion",
+  "response038_classifier_optimizer_steps": 200,
+  "response038_classifier_AD_queries": 200,
+  "response038_classifiers_completed": 1,
+  "response038_classifier_execution_counts_verified_lower_bound": {
+    "saved_NPZ_archives_decoded": 0,
+    "code_grid_values": 0,
+    "prefix_rows": 0,
+    "saved_example_waveform_rows": 0,
+    "common_prefix_NPZ_decodes": 1,
+    "saved_ADC_NPZ_decodes": 1,
+    "TRAIN_dataset_NPZ_decodes": 1,
+    "classifier_forward_calls": 349,
+    "classifier_forward_rows": 44581,
+    "classifier_AD_queries": 200,
+    "classifier_optimizer_steps": 200,
+    "classifier_bootstrap_resamples": 400,
+    "classifiers_completed": 1
+  },
+  "response038_classifier_counts_last_verified_UTC": "2026-10-17T18:34:44.675290+00:00"
 }

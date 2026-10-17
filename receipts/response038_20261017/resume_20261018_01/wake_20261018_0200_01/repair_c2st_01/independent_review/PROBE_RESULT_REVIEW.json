@@ -1,0 +1,103 @@
+{
+  "schema": "n01/response038-independent-native-probe-result-review/v1",
+  "UTC": "2026-10-17T18:33:42.006983+00:00",
+  "reviewer": "Sol Max independent reviewer /root/response038_resume_review",
+  "outcome": "PASS_STRICT_ENGINEERING_PROBE_WITH_SAVED_EVIDENCE_PROOF_BOUNDARY",
+  "blockers": [],
+  "bound_artifacts": {
+    "engineering_check": {
+      "path": "receipts/response038_20261017/resume_20261018_01/wake_20261018_0200_01/repair_c2st_01/probe_execution_01/collected_probe_01/c2st_storage_repair01/probe_01/ENGINEERING_RECONSTRUCTION_CHECK.json",
+      "bytes": 14618,
+      "sha256": "d5281199de047f81e18466ba202b3c8786e6fd61b5bd7089dd74128a22d0368e"
+    },
+    "collection_verification": {
+      "path": "receipts/response038_20261017/resume_20261018_01/wake_20261018_0200_01/repair_c2st_01/probe_execution_01/COLLECTION_VERIFICATION.json",
+      "bytes": 3697,
+      "sha256": "eabf06de74b49fbc595d8cc3fb5cc769180c62330c684264a153f2e6d3822ece"
+    },
+    "output_manifest": {
+      "path": "receipts/response038_20261017/resume_20261018_01/wake_20261018_0200_01/repair_c2st_01/probe_execution_01/collected_probe_01/c2st_storage_repair01/PROBE_OUTPUT_MANIFEST.json",
+      "bytes": 3201,
+      "sha256": "bb78973badab236949a8d1e4c628f449d6948b5e367f7913b58a2e12a315ae69"
+    },
+    "cell_checks": {
+      "path": "receipts/response038_20261017/resume_20261018_01/wake_20261018_0200_01/repair_c2st_01/probe_execution_01/collected_probe_01/c2st_storage_repair01/probe_01/CELL_CHECKS.json",
+      "bytes": 7060,
+      "sha256": "6d0216fd8fb007bf7aefc72b2ee89e2932b023ccad24f7bc3a7e12424f8b114a"
+    },
+    "supervisor_exit": {
+      "path": "receipts/response038_20261017/resume_20261018_01/wake_20261018_0200_01/repair_c2st_01/probe_execution_01/collected_probe_01/c2st_storage_repair01/probe_control_01/exit_receipt.json",
+      "bytes": 223,
+      "sha256": "969610f16ada45ca428884248a0e5543610d31f25ac820675a7c865e4270273d"
+    },
+    "output_guard_exit": {
+      "path": "receipts/response038_20261017/resume_20261018_01/wake_20261018_0200_01/repair_c2st_01/probe_execution_01/collected_probe_01/c2st_storage_repair01/probe_control_01/OUTPUT_LIMIT_EXIT.json",
+      "bytes": 276,
+      "sha256": "b49080092c88a629a1f1961eaa1f812d72da4c9b6b982b6e8268bfc566f56983"
+    },
+    "source_review_unchanged": {
+      "path": "receipts/response038_20261017/resume_20261018_01/wake_20261018_0200_01/repair_c2st_01/independent_review/SOURCE_REVIEW.json",
+      "bytes": 10851,
+      "sha256": "dd673f8d659f80a9d5bf73e4818e18d8b8a9abfb0ca0a7c24a6f41833246e3e1"
+    },
+    "deployment_review_unchanged": {
+      "path": "receipts/response038_20261017/resume_20261018_01/wake_20261018_0200_01/repair_c2st_01/independent_review/DEPLOYMENT_REVIEW.json",
+      "bytes": 6288,
+      "sha256": "f5818a4f7c5fc4d0487dcc69319534db0cd56d8ede2dc814167c0948f1fcd077"
+    }
+  },
+  "static_checks": {
+    "collection": "All17 declared files/247058bytes independently matched manifest byte lengths andSHA. Private NPZ only hashed opaquely; never decoded, inspected as arrays or published. No CP payload.",
+    "frozen_bindings": "Native script e3a26d84f4d5a4c4bf7f1dbde7105ebf802832b2b999e83df090085a03f8750e/config f4a741361d54f852c62e30688cb80548e593c2f38ae86bc11902d245f750b3fa/design56efae5cac3ddccb4a3ada24c5e41f462f901a16606a5bbc0e65a4bbb508d4d8 match prior source review. All45 original source pins match current local text.33unique label/H cell identities and order equal the frozen config; CELL_CHECKS exactly equals final receipt cells.",
+    "finite_code_grid": "Receipt records all16384codes and1280CPU/originalCUDA float64 bit mismatches, max1.1102230246251565e-16V. This reproduces a readout arithmetic discrepancy; it is not evidence of changed response parameters or response retraining.",
+    "prefix": "All26372 saved baseline means match float64 bits under original128row chunks, final chunk4rows.",
+    "examples": "All33cells*32saved rows=1056examples match original wave float64 bits, classifier float32 bits and baseline100 exactly; every saved waveform maxabs difference is0.",
+    "operations": "One native probe,67saved NPZ decodes=1prefix+33ADC+33examples;16384grid values,26372prefix rows,1056saved waveform rows. NN/AD/CP/optimizer/classifier forward/bootstrap/completed all0. Probe saved_NPZ_archives_decoded is the relevant namespace; zero common_prefix_NPZ_decodes/saved_ADC_NPZ_decodes are classifier-phase counters and must not be read as zero total saved-NPZ reads.",
+    "native_exit": "Dispatcher and original supervisor exited0; noRSS oroutput guard reason. Saved process boot/PID/startticks/cwd/argv and globalflock/taskset match the frozen deployment. No restart or classifier autochain occurred inside the probe."
+  },
+  "native_resource_evidence": {
+    "output_guard_elapsed_seconds": 5.003314052999485,
+    "supervisor_peak_rss_bytes": 970133504,
+    "output_guard_peak_bytes": 225108,
+    "collected_declared_file_bytes": 247058,
+    "registered_wall_TERM_seconds": 180,
+    "registered_cleanup_grace_seconds": 20,
+    "registered_RSS_GiB": 3,
+    "registered_torch_allocator_GiB": 1,
+    "registered_output_MiB": 16,
+    "GPU_measured_peak_claim": false,
+    "interpretation": "Actual observed wall/RSS/output are below the registered probe thresholds. Collection includes terminal/dispatch evidence outside the guarded phase directories, hence its byte total differs from guard peak. GPU1GiB is the configured allocator cap, not a newly measured peak."
+  },
+  "proof_boundary": {
+    "same_device_dtype_operation_provenance": "Original torch eagerfloat64 division by16383, separate add(-.5), finiteLUT lookup, and separate subtraction of saved original baseline mean are bound by the reviewed source.",
+    "direct_native_equalities": "All saved prefix means and all1056saved examples only; same-environment finite-grid reconstruction and code provenance support applying the defined readout reconstruction to the remaining saved codes.",
+    "full_population_original_waveform_bytes_saved": false,
+    "direct_exhaustive_original_wave_replay_claim": false,
+    "no_unconditional_full_population_original_float_bytes_claim": "Original float waveforms for all26372rows*33cells were not persisted. No rowwise comparison with absent original bytes has occurred; do not rename this probe as exhaustive original full-wave bitwise replay.",
+    "historical_flags": "Original false reconstruction flags/nativeexit1/unfinished finalguard are preserved; a successful supplement does not rewrite those historical facts."
+  },
+  "continuation_scope": "This strictly satisfies the engineering PASS condition in the already authorized fixed SOURCE_REVIEW. It supports only the original33*200 C2ST supplement under frozen order/seeds/budget/environment and existing controls. ROOT has already issued the classifier continuation; this result review neither launches work nor introduces a new approval requirement.",
+  "scientific_state": {
+    "response_match_not_established": true,
+    "all_four_tracks_complete": false,
+    "teacher1_interrupted": true,
+    "full_teacher_qualification_established": false,
+    "unified_scientific_acceptance_established": false,
+    "C2ST_complete_from_this_probe": false
+  },
+  "reviewer_operations": {
+    "SSH": 0,
+    "remote_execution": 0,
+    "NPZ_decode": 0,
+    "CP_decode": 0,
+    "raw_array_load": 0,
+    "NN": 0,
+    "AD": 0,
+    "optimizer": 0,
+    "numeric_retest": 0,
+    "classifier_launch": 0
+  },
+  "changed_files": [
+    "This PROBE_RESULT_REVIEW.json only"
+  ]
+}
