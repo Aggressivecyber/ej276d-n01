@@ -2,7 +2,7 @@
   "schema": "n01/response038-unified-root-design/v1",
   "UTC": "2026-10-17T04:49:30.564913+00:00",
   "run_id": "response038_20261017",
-  "status": "implementation_authorized_scientific_dispatch_pending_final_source_budget_review",
+  "status": "startup_fix01_registered_pending_independent_review_and_native_restart",
   "authority": {
     "direct_user_request": "Current unified repair review plus supplied implementation work order; standing architecture/training authorization preserved.",
     "work_order": "receipts/response038_20261017/user_materials_01/IMPLEMENTATION_PLAN.md",
@@ -233,12 +233,12 @@
     "original_CP_loads": 6,
     "C2ST_updates_max": 6600,
     "proposal_and_accepted_counts_separate": true,
-    "exact_remaining_operation_closure": "Controller must derive bounded A/head/map/noise/ADC/cache/FINAL rows including teacher target generation, endpoint checks, activation, raw probe and all11comparators/33comparator-hypothesis cells before final dispatch. This draft does not authorize any unbounded extra query."
+    "exact_remaining_operation_closure": "Final operation closure is frozen in configs/response038_20261017.json operation_budget and reviewed; startup_repair separately includes attempt1 spent prefix plus bounded attempt2. No unbounded extra queries."
   },
   "resources": {
     "CPU_threads": 4,
     "RSS_GiB": 12,
-    "GPU_GiB": 8,
+    "GPU_GiB": 6,
     "wall_seconds": 7200,
     "internal_stop_save_seconds": 6900,
     "output_MiB": 2048,
@@ -250,7 +250,7 @@
     "track_training_soft_seconds_each": 900,
     "track_training_soft_seconds_total": 3600,
     "reserve_for_unified_FINAL": "Symmetric per-track training ceilings preserve about one hour of the7200s total for setup and unified FINAL/C2ST; no guarantee of completion if measured work is slower. Save partial completion honestly before internal6900s ceiling.",
-    "GPU_headroom_basis": "Pre-execution2026-10-17T05:24:58Z resource snapshot:12227MiB total,9464MiB free; another project uses2132MiB. Limit this job allocator to8GiB and preserve other jobs. Batch/model/acceptance unchanged; actual startup fit within cap remains to be verified."
+    "GPU_headroom_basis": "Pre-restart2026-10-17T05:39:29.782457+00:00 readback: GPU12227MiB total,8085MiB free; other-project process143354 uses3512MiB. Reduce allocator8->6GiB, preserving at least1941MiB observed headroom. Batch/model/acceptance/budget unchanged; actual fit must be verified at native startup."
   },
   "implementation_and_review": {
     "new_scientific_sources": [
@@ -285,5 +285,89 @@
     },
     "scientific_dispatch_started": false
   },
-  "scientific_status": "response_match_not_established"
+  "scientific_status": "response_match_not_established",
+  "startup_repair": {
+    "attempt": 2,
+    "logical_run_id_unchanged": true,
+    "failure_receipt": "receipts/response038_20261017/preparation_fix01/ATTEMPT1_FAILURE.json",
+    "failure_receipt_sha256": "d6fed00d4a680fcf1adfdf093b93ef6c356a2c595990cf6869bf88b5a7da0f8f",
+    "previous_source_commit": "4dca3c7f8ec9904d22a47cd1c1cbd76009dd700a",
+    "previous_config_sha256": "51f4825b60c95daf038e38849d8e9beaa8e0382a939510b7ffcaa9fb30d65395",
+    "previous_root_design_sha256": "1e2a11caabc63cefa5498410cd98057a38b4206e3e8a9771a7a75680e22b676e",
+    "previous_runner_sha256": "330621ee74bea368023000d3a078696c2c67e43fd312bb0da1cf4f946ab0d75b",
+    "patched_runner_sha256": "6219b9875c908b4fced8a8f171c52aceda6876fc491f3398f98f48a99418da66",
+    "patch_receipt": "receipts/response038_20261017/preparation_fix01/RUNNER_STARTUP_FIX.json",
+    "patch_receipt_sha256": "529654e5e4a49a3dce215cb4e24d348829498e189ac34ef32a1804e31ca1254b",
+    "repair": "Preserve028 CPU wrapper; deepcopy its005, move005 to final device, then construct unchangedFrozenObservedNoise008 there. No frozen-guard bypass. All learning/model/observation settings and immutable weights unchanged.",
+    "attempt1_actual_spent_counts": {
+      "DEV_archives_decoded": 0,
+      "DEV_metadata_archives_decoded": 0,
+      "FIT_AD_queries": 0,
+      "PCA_archives_decoded": 1,
+      "TRAIN_archives_decoded": 1,
+      "accepted_optimizer_updates": 0,
+      "allocated_banks": 0,
+      "charge_activation_trials": 0,
+      "checkpoint_loads": 6,
+      "classifier_AD_queries": 0,
+      "classifier_bootstrap_resamples": 0,
+      "classifier_forward_calls": 0,
+      "classifier_forward_rows": 0,
+      "classifier_optimizer_steps": 0,
+      "classifiers_completed": 0,
+      "conditional_MC_rows": 0,
+      "directions": 0,
+      "generated_observation_rows": 0,
+      "noise005_calls": 1,
+      "noise005_rows": 0,
+      "noise005_rows_attempted": 128,
+      "extension_rows": 0,
+      "old_A_calls": 52,
+      "old_A_rows": 6593,
+      "optimizer_steps": 0,
+      "original014_calls": 0,
+      "original014_rows": 0,
+      "parameter_amplitude_trials": 0,
+      "raw_geometry_probes": 0,
+      "response_calls": 0,
+      "response_rows": 0,
+      "saved_generated_code_archives_decoded": 0,
+      "source_pair_cached_signal_rows": 0,
+      "teacher_cached_signal_rows": 0
+    },
+    "attempt2_operation_budget_unchanged": true,
+    "combined_bounded_cost": {
+      "original_CP_loads_max": 12,
+      "TRAIN_archives_decoded_max": 2,
+      "PCA_archives_decoded_max": 2,
+      "old_A_calls_max": 110,
+      "old_A_rows_max": 13890,
+      "noise005_calls_attempted_max": 39902,
+      "noise005_rows_attempted_max": 3436365,
+      "noise005_rows_completed_max": 3436237,
+      "CPU_noise_wrapper_constructions_max": 2,
+      "GPU_noise_wrapper_constructions_max": 1,
+      "fixed_three_hypothesis_kernel_constructions_max": 9,
+      "FIT_AD_queries_max": 6528,
+      "optimizer_direction_steps_max": 400,
+      "accepted_optimizer_updates_max": 400,
+      "classifier_AD_queries_max": 6600,
+      "classifier_optimizer_steps_max": 6600,
+      "combined_wall_seconds_max": 7206
+    },
+    "combined_cost_note": "Attempt1 completed6CP/1TRAIN/1PCA/52A calls6593rows, attempted005128rows with0 completed005,0response/ADC/AD/Adam. Attempt2 retains original complete operation budget; fixed CPU/GPU kernel construction is algebra, not calibration/NN/AD. No replacement training hypothesis.",
+    "remote_root": "/home/rylan/projects/ej276d-n01/response038_startup_fix01_20261017",
+    "previous_remote_root_preserved": true,
+    "automatic_restart": false,
+    "registered_UTC": "2026-10-17T05:37:46.486736+00:00",
+    "resource_amendment": {
+      "UTC": "2026-10-17T05:40:01.238196+00:00",
+      "previous_GPU_GiB": 8,
+      "GPU_GiB": 6,
+      "evidence": "receipts/response038_20261017/deployment_fix01/RESOURCE_READBACK.json",
+      "evidence_sha256": "667b262cd0601d16d6cc9bee1371d526cc3af72c39c069c1585601a22ac080db",
+      "scientific_operations_before_amendment": 0,
+      "reason": "Pre-restart2026-10-17T05:39:29.782457+00:00 readback: GPU12227MiB total,8085MiB free; other-project process143354 uses3512MiB. Reduce allocator8->6GiB, preserving at least1941MiB observed headroom. Batch/model/acceptance/budget unchanged; actual fit must be verified at native startup."
+    }
+  }
 }

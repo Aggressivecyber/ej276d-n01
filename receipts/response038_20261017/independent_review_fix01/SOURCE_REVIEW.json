@@ -1,0 +1,172 @@
+{
+  "schema": "n01/response038-independent-startup-fix01-source-review/v1",
+  "UTC": "2026-10-17T05:40:39.925388+00:00",
+  "reviewer": "response029_loss_data_diagnosis / Sol Max",
+  "status": "PASS",
+  "remaining_blockers": [],
+  "decision": "The minimal device-placement construction fix is consistent with original008/028 and the bounded same038 attempt2. The earlier complete source review remains applicable outside this precise patch. Static readiness does not establish successful restart, memory fit, frozen noise bit identity across devices, or response-learning acceptance.",
+  "identity": {
+    "runner": {
+      "path": "scripts/run_response038.py",
+      "bytes": 110529,
+      "sha256": "6219b9875c908b4fced8a8f171c52aceda6876fc491f3398f98f48a99418da66"
+    },
+    "model": {
+      "path": "src/n01/model038.py",
+      "bytes": 23202,
+      "sha256": "15d972b5951987dd6a7a0a5c488ecfcadf05f69f03aba8f198c2903fc802321f"
+    },
+    "config": {
+      "path": "configs/response038_20261017.json",
+      "bytes": 39377,
+      "sha256": "9eb28ee64c7f3cd327d31d681414e6e33bed311474d2a3ab7e0b5ca7c1988d54"
+    },
+    "ROOT_DESIGN": {
+      "path": "receipts/response038_20261017/ROOT_DESIGN.json",
+      "bytes": 24908,
+      "sha256": "af8f511524a2c017afe2f1a7e908556ca30f492e5baccb80a1b2d642d3f44cc3"
+    },
+    "original_source_review": {
+      "path": "receipts/response038_20261017/independent_review_01/SOURCE_REVIEW.json",
+      "bytes": 11654,
+      "sha256": "afa64aaa9298a6a37b19c0258321755b77089a460537c1480712d6f441841152"
+    },
+    "fix_receipt": {
+      "path": "receipts/response038_20261017/preparation_fix01/RUNNER_STARTUP_FIX.json",
+      "bytes": 3773,
+      "sha256": "529654e5e4a49a3dce215cb4e24d348829498e189ac34ef32a1804e31ca1254b"
+    },
+    "attempt1_failure": {
+      "path": "receipts/response038_20261017/preparation_fix01/ATTEMPT1_FAILURE.json",
+      "bytes": 2501,
+      "sha256": "d6fed00d4a680fcf1adfdf093b93ef6c356a2c595990cf6869bf88b5a7da0f8f"
+    },
+    "attempt1_terminal": {
+      "path": "receipts/response038_20261017/deployment_01/STARTUP_OR_TERMINAL_VERIFICATION.json",
+      "bytes": 51604,
+      "sha256": "eeedd926ad535fecfa7131301a8ca4aeedd0d9451e54c7878f190bc1638d1af8"
+    }
+  },
+  "scope": "Source/AST/JSON and previously saved terminal counts only; no full controller re-review, no scientific or manufactured-tensor execution. Original independent_review_01 is preserved byte-for-byte.",
+  "patch_review": {
+    "exact_patch_only": true,
+    "runner_AST_parse": "PASS",
+    "source_pins_match": 45,
+    "only_changed_source_pin": "scripts/run_response038.py",
+    "construction_order": "Deep-copy reference.extension.model005; move the unfrozen005 copy to final device; construct the unchanged FrozenObservedNoise008, which internally copies/fixes005, recomputes unchanged three-hypothesis moments/kernels, captures every tensor version on that device, then asserts frozen. eval/requires_grad_(False) follow; the completed protected CPU028 wrapper is neither moved nor mutated.",
+    "original_references": [
+      "src/n01/response008.py:104-110",
+      "src/n01/inference028.py:194-197",
+      "src/n01/observation008.py:232-300",
+      "scripts/run_response038.py:430"
+    ],
+    "guard_integrity": "No _frozen_versions reassignment/reset, guard removal or exception swallowing. Existing dtype64, positivity, frozen-version and no-gradient checks remain unchanged; sample_prefix/extend_prefix still assert_frozen.",
+    "functional_settings": "Same strict005 weights, fixedfast/slow/common_level hypotheses, ridge1e-6 and observation arithmetic. No latent/RNG draw, checkpoint reload, NN forward or AD is added by wrapper reconstruction. A/model038, all learning/phase/acceptance/3H settings and per-attempt operation budget are byte-equivalent in the frozen config.",
+    "numerical_boundary": "New target-device kernels use the original make_extension order. Algebraic law is unchanged; CPU-vs-GPU float64 moment/kernel bit identity is not claimed. Temporary deepcopy and one extra GPU wrapper algebra construction are disclosed."
+  },
+  "config_design_changes": {
+    "config_only": [
+      "root_design SHA/bytes",
+      "runner source_pin",
+      "startup_repair metadata and combined spent-prefix budget"
+    ],
+    "ROOT_DESIGN_only": [
+      "startup_repair metadata",
+      "administrative status",
+      "replace stale draft operation-closure prose with frozen-closure/startup-cost pointer"
+    ],
+    "unchanged": "All scientific settings and original per-attempt/combined operation budgets are unchanged. Resource-only amendment separately lowers GPU8->6GiB; RSS12GiB/4CPU/7200s hard wall/6900s internal stop remain fixed.",
+    "failure_preservation": "Original runner/config/design preserved under preparation_fix01/attempt1_snapshot; attempt1 remote root kept; attempt2 sibling remote root; automatic_restart=false."
+  },
+  "attempt1_observed": {
+    "exit_code": 1,
+    "started_UTC": "2026-10-17T05:31:19.721531+00:00",
+    "ended_UTC": "2026-10-17T05:31:24.724260+00:00",
+    "elapsed_seconds": 5.002729,
+    "error": "Frozen 008 noise state mutated: model005.voltage_scale",
+    "counts_match_saved_terminal_and_config": true,
+    "checkpoint_loads": 6,
+    "TRAIN_archives_decoded": 1,
+    "PCA_archives_decoded": 1,
+    "old_A_calls": 52,
+    "old_A_rows": 6593,
+    "noise005_calls_attempted": 1,
+    "noise005_rows_attempted": 128,
+    "noise005_rows_completed": 0,
+    "zero_completed": [
+      "response calls/rows",
+      "generated ADC rows",
+      "extension rows",
+      "FIT AD",
+      "Adam directions/accepted updates",
+      "classifier AD/steps",
+      "DEV decode"
+    ],
+    "no_owned_processes_and_free_project_lock_at_terminal": true
+  },
+  "combined_cost_independent_reconciliation": {
+    "original_CP_loads_max": 12,
+    "TRAIN_archives_decoded_max": 2,
+    "PCA_archives_decoded_max": 2,
+    "old_A_calls_max": 110,
+    "old_A_rows_max": 13890,
+    "noise005_calls_attempted_max": 39902,
+    "noise005_rows_attempted_max": 3436365,
+    "noise005_rows_completed_max": 3436237,
+    "CPU_noise_wrapper_constructions_max": 2,
+    "GPU_noise_wrapper_constructions_max": 1,
+    "fixed_three_hypothesis_kernel_constructions_max": 9,
+    "FIT_AD_queries_max": 6528,
+    "optimizer_direction_steps_max": 400,
+    "accepted_optimizer_updates_max": 400,
+    "classifier_AD_queries_max": 6600,
+    "classifier_optimizer_steps_max": 6600,
+    "combined_wall_seconds_max": 7206,
+    "combined_actual_first_plus_attempt2_hardwall_seconds": 7205.002729,
+    "unchanged_response_rows_max": 7815958,
+    "unchanged_generated_observation_rows_max": 25677136,
+    "unchanged_extension_rows_max": 10308711,
+    "interpretation": "Attempt1 consumes its52 A calls6593rows,6CP,TRAIN/PCA and failed005 request; it consumes no400-direction or6528-FIT-AD allowance. Two CPU wrapper constructions plus one target-GPU wrapper yield9 total fixed hypothesis-kernel constructions. These are fixed algebra, not calibration or NN/AD. Completed and attempted005 rows remain separate. Actual costs from both attempts must be retained; accepted updates stay separate from Adam directions."
+  },
+  "review_execution": {
+    "CP_reads_or_deserializations": 0,
+    "raw_or_original_array_reads": 0,
+    "NN_calls": 0,
+    "AD_queries": 0,
+    "optimizer_steps": 0,
+    "new_observations": 0,
+    "artificial_tensor_tests": 0,
+    "remote_jobs": 0,
+    "source_config_ledger_mutations": 0,
+    "own_new_review_receipt_only_written": true
+  },
+  "resource_only_rebinding": {
+    "prior_fix_review": {
+      "path": "receipts/response038_20261017/deployment_fix01/before_GPU_resource_amendment/receipts/response038_20261017/independent_review_fix01/SOURCE_REVIEW.json",
+      "sha256": "284e74840d2a9f8b7b55f0d7c12e087e53c7090bd411381b00b3e185ee15c35d",
+      "bytes": 7446
+    },
+    "verified_diff": "GPU_GiB8->6, revised observed headroom text and identical startup_repair.resource_amendment in both config/design; config additionally changes designSHA/bytes. Reversing exactly those changes reproduces prior frozen JSON objects. Runner/45sourcepins/learning/acceptance/operation budget and spent-prefix totals remain identical.",
+    "previous_config_sha256": "9de88bc2955efa87404b6effc7d82d3764c7beb9a824fc09d754e2acd96b19c9",
+    "previous_ROOT_DESIGN_sha256": "606bc2d6fbce0d47d12b4b159cc07bc3a1e0f1c2bc0fb8f2454aa4b2567ce90b",
+    "amendment": {
+      "UTC": "2026-10-17T05:40:01.238196+00:00",
+      "previous_GPU_GiB": 8,
+      "GPU_GiB": 6,
+      "evidence": "receipts/response038_20261017/deployment_fix01/RESOURCE_READBACK.json",
+      "evidence_sha256": "667b262cd0601d16d6cc9bee1371d526cc3af72c39c069c1585601a22ac080db",
+      "scientific_operations_before_amendment": 0,
+      "reason": "Pre-restart2026-10-17T05:39:29.782457+00:00 readback: GPU12227MiB total,8085MiB free; other-project process143354 uses3512MiB. Reduce allocator8->6GiB, preserving at least1941MiB observed headroom. Batch/model/acceptance/budget unchanged; actual fit must be verified at native startup."
+    },
+    "observed_GPU": {
+      "total_MiB": 12227,
+      "free_MiB": 8085,
+      "other_project_pid": 143354,
+      "other_project_MiB": 3512,
+      "utilization_percent": 83,
+      "allocator_cap_GiB": 6,
+      "observed_free_minus_cap_MiB": 1941
+    },
+    "boundary": "Predeployment resource readback and this rebind execute no new science. Attempt1 spent prefix remains counted.1941MiB is arithmetic headroom for the recorded snapshot, not guaranteed future availability or total-process memory outside the allocator. Other project is untouched; native restart memory fit remains unverified."
+  }
+}

@@ -32,7 +32,7 @@ from n01.model016 import calibration_statistics016, inverse_softplus016, Q_REFER
 from n01.model015 import _ExactZeroMeanAddition015
 from n01.model014 import FrozenDeterministicVoltageShape014
 from n01.model038 import N01Response038, MeanProposalOutsideDomain038
-from n01.observation008 import observe_existing_carrier, observe_generated_carrier
+from n01.observation008 import FrozenObservedNoise008, observe_existing_carrier, observe_generated_carrier
 from n01.response008 import HYPOTHESES, loss_tensor_statistics, state_digest
 from run_response031 import standardized_banks
 from run_response036 import electronic_noise, hard_metrics, NativeMetricLoss036
@@ -427,7 +427,7 @@ def load_setup(p, device, progress):
              for index in (0, 1)]
     Q1 = [dict(theta_a_initial=float(reference.models[index].theta_a),
                theta_b_initial=float(reference.models[index].theta_b)) for index in (0, 1)]
-    extension = reference.extension.to(device).eval().requires_grad_(False)
+    extension = FrozenObservedNoise008(copy.deepcopy(reference.extension.model005).to(device)).eval().requires_grad_(False)
     references = [N01Response038(baseline, heads[index], seed=reference.config['model_initialization_seeds'][index],
                             condition_state=condition, charge_initialization=Q1[index]) for index in (0, 1)]
     for model in references:

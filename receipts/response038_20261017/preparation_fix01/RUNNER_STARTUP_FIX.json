@@ -1,0 +1,73 @@
+{
+  "schema": "n01/response038-startup-runner-fix/v1",
+  "UTC": "2026-10-17T05:36:05.234175+00:00",
+  "status": "MINIMAL_PATCH_DELIVERED_AWAITING_ROOT_REBIND_AND_REVIEW",
+  "ROOT_authorization": "Minimal runner-only repair after attempt1 failed before training; preserve attempt1 source/config bytes first; no new scientific or artificial execution.",
+  "attempt1_source_commit": "4dca3c7f8ec9904d22a47cd1c1cbd76009dd700a",
+  "original_runner": {
+    "path": "receipts/response038_20261017/preparation_fix01/attempt1_snapshot/scripts/run_response038.py",
+    "bytes": 110457,
+    "sha256": "330621ee74bea368023000d3a078696c2c67e43fd312bb0da1cf4f946ab0d75b"
+  },
+  "original_config": {
+    "path": "receipts/response038_20261017/preparation_fix01/attempt1_snapshot/configs/response038_20261017.json",
+    "bytes": 34998,
+    "sha256": "51f4825b60c95daf038e38849d8e9beaa8e0382a939510b7ffcaa9fb30d65395"
+  },
+  "patched_runner": {
+    "path": "scripts/run_response038.py",
+    "bytes": 110529,
+    "sha256": "6219b9875c908b4fced8a8f171c52aceda6876fc491f3398f98f48a99418da66"
+  },
+  "unchanged_live_config": {
+    "path": "configs/response038_20261017.json",
+    "bytes": 34998,
+    "sha256": "51f4825b60c95daf038e38849d8e9beaa8e0382a939510b7ffcaa9fb30d65395"
+  },
+  "exact_patch": {
+    "import_addition": "FrozenObservedNoise008",
+    "constructor_before": "extension = reference.extension.to(device).eval().requires_grad_(False)",
+    "constructor_after": "extension = FrozenObservedNoise008(copy.deepcopy(reference.extension.model005).to(device)).eval().requires_grad_(False)"
+  },
+  "cause": "028 creates FrozenObservedNoise008 on CPU and records tensor _version values. Moving the completed frozen wrapper to CUDA can replace buffers and invalidates those saved versions, causing the first sample_prefix assert_frozen check to fail at model005.voltage_scale.",
+  "repair": "Keep the original028 CPU wrapper untouched. Deep-copy its already-loaded005 model, move that005 copy to final device, then call the unchanged FrozenObservedNoise008 constructor so all derived buffers and version guards are captured on final device.",
+  "original_constructor_order_references": [
+    "src/n01/response008.py:104-110",
+    "src/n01/inference028.py:194-197",
+    "src/n01/observation008.py:232-284"
+  ],
+  "guards_unchanged": true,
+  "historical_sources_modified": false,
+  "old_CP_or_weights_modified": false,
+  "config_or_ROOT_DESIGN_or_ledgers_modified": false,
+  "static_checks": {
+    "AST_parse": "PASS",
+    "exact_two_statement_substitutions_only": true,
+    "config_byte_identical_to_attempt1_snapshot": true,
+    "runner_LF": true
+  },
+  "resource_functional_tradeoff": {
+    "extra_CP_deserializations": 0,
+    "extra_NN_forwards": 0,
+    "extra_AD_queries": 0,
+    "noise_wrapper_constructions_added": 1,
+    "three_hypothesis_fixed_kernel_constructions_added": 3,
+    "temporary_005_copy": true,
+    "arithmetic": "Original005 weights and original008 hypotheses/formulas unchanged. Fixed derived kernels are recomputed on the target device, as in the original make_extension GPU construction path; CPU-vs-GPU float64 derived-buffer bit identity is not claimed."
+  },
+  "this_patch_execution": {
+    "CP_loads": 0,
+    "raw_array_decodes": 0,
+    "NN_forwards": 0,
+    "AD_queries": 0,
+    "optimizer_steps": 0,
+    "artificial_tensor_tests": 0,
+    "remote_launches": 0
+  },
+  "source_write_ownership_handed_back_to_ROOT": true,
+  "pending_ROOT_actions": [
+    "Update config source pin/design/accounting for the bounded same038 attempt2 and added three-hypothesis fixed-kernel construction",
+    "Obtain SHA-bound independent review",
+    "Deploy to a new sibling remote root and perform the one authorized native restart; preserve original attempt1 remote root"
+  ]
+}
