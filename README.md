@@ -1,12 +1,14 @@
-# N01 当前状态：038显存最小修复通过独审，准备只继续REAL1
+# N01 当前状态：038仅剩REAL1已正确启动，02:00单次苏醒
 
-REAL0完成5个方向/96个FIT微批、20个幅度trial，全部拒绝，保留模型仍为M0；随后阶段末report-only MONITOR申请3GiB临时距离张量而退出1。75份失败文件共12,688,039字节已保存E并逐SHA核对；不重跑已完成的五方向。
+2026-10-18 01:28:43（Asia/Singapore）唯一启动快照：native20248/startticks420513、项目锁占用、CPU affinity0–3、RSS约2.82GiB/GPU4288MiB，无FAILED/exit。两教师与REAL0已严格恢复封存；REAL0五方向不重放，初始固定MONITOR明确作为无变化终点alias。REAL1.mean首方向32FIT微批完成，4096抽样/3049unique父事件，四幅度均拒绝、0接纳、radius1→0.5；原接纳门与完整Adam回退保持不变。
 
-修复仅将大库全pair距离按64行分块，保留距离定义和全部权重。唯一CPU合成比较差0、逐位相等；小FIT/CHECK路径及原run_track/优化器/信赖域/接纳门未改。独审PASS，远端88项输入SHA和资源预检通过；下一次仅运行REAL1原900秒，随后原统一FINAL/C2ST。6GiB显存帽、CPU4、RSS12GiB、硬7200秒、单项目锁保留。
+当前科学Adam构造确认下界49（教师43+REAL0的5+REAL1的1），FIT848，保留教师17、REAL接纳0；项目累计下界199718。CP23是旧14加本次9，离线5次metadata解码另记；快照以后的进度未知未计入。
 
-当前科学Adam构造下界48（教师43+REAL0的5），保留教师17、REAL0接纳0；项目累计下界199717。REAL0封存初始model/Adam与五拒绝终点，固定MONITOR显式复用初始记录；post5 RNG与精确覆盖未知。教师1中断资格和旧服务器未持久化工作未知保留，科学状态仍为 `response_match_not_established`。
+前一resume01在REAL0五候选全部拒绝后，于阶段末report-only MONITOR申请3GiB临时距离张量而退出1。75文件12,688,039字节已收E并逐SHA核对。修复将大库全pair距离按64行分块，最大广播192MiB，全部权重和距离定义保留；唯一CPU合成检查差0逐位同，小FIT/CHECK路径与原run_track不变。初始大库MONITOR已GPU完成；阶段末与最终评价尚未核实。源代码/配置/设计独审PASS，51部署成员逐字匹配Git和远端，显存帽仍6GiB。
 
-[修复设计](receipts/response038_20261017/resume_20261018_01/wake_20261018_0110_01/repair_01/RESUMPTION_DESIGN.json) · [独立源码审核](receipts/response038_20261017/resume_20261018_01/wake_20261018_0110_01/repair_01/independent_review/SOURCE_REVIEW.json) · [失败保存回执](receipts/response038_20261017/resume_20261018_01/wake_20261018_0110_01/repair_01/FAILED_ATTEMPT_PRESERVATION_RECEIPT.json) · [权威状态](PROGRAM.json)
+仅训练剩余REAL1原900秒，之后原统一FINAL/教师条件恢复/121同Q异形干预/026组成敏感性/RR及最后C2ST。教师1仍中断，四track完整资格始终不成立；科学状态仍为 `response_match_not_established`。已核验2026-10-18 02:00（Asia/Singapore）一次苏醒，期间休息、不持续查询。
+
+[实际启动核验](receipts/response038_20261017/resume_20261018_01/wake_20261018_0110_01/repair_01/deployment_01/STARTUP_ASSESSMENT.json) · [单次苏醒回执](receipts/response038_20261017/resume_20261018_01/wake_20261018_0110_01/repair_01/deployment_01/FOLLOWUP_RECEIPT.json) · [修复独审](receipts/response038_20261017/resume_20261018_01/wake_20261018_0110_01/repair_01/independent_review/SOURCE_REVIEW.json) · [失败保存](receipts/response038_20261017/resume_20261018_01/wake_20261018_0110_01/repair_01/FAILED_ATTEMPT_PRESERVATION_RECEIPT.json) · [权威台账](PROGRAM.json)
 
 以下为保留的历史阶段记录；其中“当前”、计划与运行快照均指当时状态。最新状态以上文和PROGRAM/MASTER_EXECUTION_PLAN/jobs三台账为准。
 
