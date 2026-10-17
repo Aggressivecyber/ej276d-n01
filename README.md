@@ -1,12 +1,14 @@
-# N01 当前状态：038首次启动零更新退出，同任务修正设备构造顺序
+# N01 当前状态：038已正确启动，M0起点逐位复现通过
 
-2026-10-17：038完整控制器已通过独立源码与预算审核。它从原015 M0完整响应函数和权重起步，先训练184参数的恒等均值时间适配器，再冻结均值校准原M0随机头；条件特征和随机电压尺度固定来自A₀。当前科学状态仍为 `response_match_not_established`，首次原生启动在005冻结包装的CPU→GPU迁移检查处退出，尚未执行响应、ADC或训练。现已按原008顺序在GPU构造包装，已通过独立复核，等待同任务重启。真实起点复现与拟合效果仍待执行。
+2026-10-17 13:43（Asia/Singapore）唯一启动快照：038 fix01在全6593条SOURCE、两个种子上，纯信号与fast/slow/common_level硬输出均与原014/010 M0逐位一致，最大差异为0。当前统一A/M0/Q1起点对照正在计算；尚未从完整记录确认首个FIT/Adam更新，科学状态仍为 `response_match_not_established`。
 
-同一设计保留两个种子及同族已知教师，采用原计数人口加权的大批梯度、输出信赖域、刷新TRAIN硬检查库和完整Adam回退；最多400次候选方向，接受数单列。四轨道各有900秒训练上限，总上限两小时；GPU分配上限6GiB、RSS12GiB、CPU4。全部终点冻结后统一比较A/M0/Q1、均值终点、电荷关闭与完整响应，保存新随机库、教师恢复、组成/输入对照和C2ST证据。
+038从M0完整响应函数与权重起步，先训练184参数恒等均值时间适配器，再冻结均值校准原M0随机头；条件特征和随机电压尺度固定来自A₀。两个种子及同族已知教师使用同一冻结设置，原计数人口加权大批梯度、输出信赖域、刷新TRAIN硬检查及完整Adam回退同时启用，最多400个候选方向。四轨道各900秒训练上限、总两小时；GPU分配6GiB、RSS12GiB、CPU4。全部终点冻结后统一确认波形、QPSD、噪声、形态、异常与条件证据，C2ST最后。
 
-037已闭合：实际首步同批下降，但8个既有TRAIN风险批组未分辨总目标稳定改善。036的2000步试跑仍失败，原结果保持。当前累计计算更新199669，038首次启动完成0AD/0Adam后退出、活动科学作业0；工程自检的7AD/4Adam另列。训练退出、优化稳定、拟合进展和科学接受分别判定。
+首次启动因已冻结005包装整体CPU→GPU迁移触发保护，0响应/ADC/AD/Adam后退出，原版本和失败现场保留。fix01只按原008/028顺序先迁005再构造包装，已独立复核。当前唯一科学作业原生PID152534；快照RSS约3.30GiB、该进程GPU3628MiB，均在上限内。已安排今日14:10单次苏醒并停止持续监控。累计科学计算更新下界199669，038已确认方向/接纳更新下界0；工程7AD/4Adam与分类器更新另计。
 
-[038配置](configs/response038_20261017.json) · [038统一设计](receipts/response038_20261017/ROOT_DESIGN.json) · [038源码审核](receipts/response038_20261017/independent_review_01/SOURCE_REVIEW.json) · [用户工单](receipts/response038_20261017/user_materials_01/IMPLEMENTATION_PLAN.md) · [037报告](reports/response037_20261017/REPORT.md) · [036报告](reports/response036_20261017/REPORT.md) · [权威状态](PROGRAM.json)
+037已闭合：实际首步同批下降，但8个既有TRAIN风险批组未分辨稳定总风险收益。036的2000步失败结果保持。成功启动、优化稳定、实际拟合改进与科学接受分别判定。
+
+[038配置](configs/response038_20261017.json) · [038统一设计](receipts/response038_20261017/ROOT_DESIGN.json) · [038起点与启动回执](receipts/response038_20261017/deployment_fix01/STARTUP_ASSESSMENT.json) · [038独立审核](receipts/response038_20261017/independent_review_fix01/SOURCE_REVIEW.json) · [后续苏醒](receipts/response038_20261017/deployment_fix01/FOLLOWUP_RECEIPT.json) · [用户工单](receipts/response038_20261017/user_materials_01/IMPLEMENTATION_PLAN.md) · [037报告](reports/response037_20261017/REPORT.md) · [036报告](reports/response036_20261017/REPORT.md) · [权威状态](PROGRAM.json)
 
 以下为保留的历史阶段记录；其中“当前”、计划与运行快照均指当时状态。最新状态以上文和PROGRAM/MASTER_EXECUTION_PLAN/jobs三台账为准。
 

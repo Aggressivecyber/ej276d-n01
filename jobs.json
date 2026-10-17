@@ -1,7 +1,7 @@
 {
   "experiment_id": "N01",
-  "updated_UTC": "2026-10-17T05:41:05.088238+00:00",
-  "active_scientific_jobs": 0,
+  "updated_UTC": "2026-10-17T05:45:00.721840+00:00",
+  "active_scientific_jobs": 1,
   "jobs": [
     {
       "job_id": "N01_RUN_001_20261012",
@@ -10096,8 +10096,8 @@
     },
     {
       "run_id": "response038_20261017",
-      "status": "startup_fix01_registered_ready_for_native_restart",
-      "active": false,
+      "status": "running_initial_unified_controls_correct_start_verified",
+      "active": true,
       "scientific_job_started": true,
       "kind": "one_M0_preserving_mean_then_random_unified_repair",
       "config_path": "configs/response038_20261017.json",
@@ -10280,11 +10280,11 @@
       "scientific_status": "response_match_not_established",
       "prepared_UTC": "2026-10-17T05:28:06.792231+00:00",
       "automatic_restart": false,
-      "source_commit": "4dca3c7f8ec9904d22a47cd1c1cbd76009dd700a",
+      "source_commit": "ed60c0fc9345a4bc43a883cd44cc7fdf2d0d2ce6",
       "cost_accounting": "Add completed scientific Adam direction constructions to legacy cumulative computational-update count, including subsequently rejected directions; report accepted retained updates separately. Scaled parameter trials are not new Adam/AD; four artificial engineering Adam calls excluded.",
       "pre_execution_resources": "8GiB allocator cap preserves current other-project GPU headroom; no other process modified",
       "startup_policy": "One correct-start snapshot, then one future wake and rest; no continuous polling.",
-      "dispatch_started": false,
+      "dispatch_started": true,
       "native_training_started_verified": false,
       "attempts": [
         {
@@ -10439,7 +10439,27 @@
           "reason": "Pre-restart2026-10-17T05:39:29.782457+00:00 readback: GPU12227MiB total,8085MiB free; other-project process143354 uses3512MiB. Reduce allocator8->6GiB, preserving at least1941MiB observed headroom. Batch/model/acceptance/budget unchanged; actual fit must be verified at native startup."
         }
       },
-      "previous_independent_source_review": "receipts/response038_20261017/independent_review_01/SOURCE_REVIEW.json"
+      "previous_independent_source_review": "receipts/response038_20261017/independent_review_01/SOURCE_REVIEW.json",
+      "dispatch_UTC": "2026-10-17T05:42:05.105005+00:00",
+      "dispatcher_pid": 152525,
+      "dispatcher_start_ticks": "4533806",
+      "dispatch_receipt": "receipts/response038_20261017/deployment_fix01/DISPATCH_RECEIPT.json",
+      "deployment_verification": "receipts/response038_20261017/deployment_fix01/DEPLOYMENT_VERIFICATION.json",
+      "native_execution_start_verified": true,
+      "last_verified_UTC": "2026-10-17T05:43:08.792290+00:00",
+      "native_pid": 152534,
+      "native_start_ticks": "4533808",
+      "supervisor_pid": 152526,
+      "timeout_pid": 152533,
+      "boot_id": "146cb4b8-530c-4496-976f-21740f6f3629",
+      "startup_assessment": "receipts/response038_20261017/deployment_fix01/STARTUP_ASSESSMENT.json",
+      "startup_assessment_sha256": "c90a0ad9fd40c31be483d7d9323fa41b8bb2eed509b671fa28a3a549454a5b2e",
+      "G0_original_M0_bitwise_identity_passed": true,
+      "all6593_two_seed_identity": true,
+      "optimizer_update_count_status": "verified_lower_bound0; FIT/Adam not observed yet in single startup snapshot",
+      "followup": "receipts/response038_20261017/deployment_fix01/FOLLOWUP_RECEIPT.json",
+      "followup_sha256": "79035f0e2bbe82f62df98f654e0661b9f646d0031317c38f09ede8b206ac7f96",
+      "followup_scheduled_local": "2026-10-17T14:10:00+08:00"
     }
   ],
   "user_requested_pause": false,
@@ -10461,7 +10481,7 @@
     "verified_UTC": "2026-10-16T23:27:14.629872+00:00"
   },
   "scientific_status": "response_match_not_established",
-  "active_scientific_jobs_status_basis": "Attempt1 terminal snapshot: exit1, no project processes, project lock free; no attempt2 dispatched.",
+  "active_scientific_jobs_status_basis": "Single2026-10-17T05:43:08.792290+00:00 snapshot confirms native152534/startticks4533808, correct cwd/command, project lock held, no exit or failure; initial controls running. Later state not continuously polled.",
   "wp2_readback_prepare_failure": {
     "path": "receipts\\wp2_014_20261015\\readback_registration_01\\ROOT_PREPARE_FAILURE_RECEIPT.json",
     "sha256": "6f89dedd516cd5612295060b074fa84625364774a6a8c5c74b5172608f2b83f5",
@@ -10479,11 +10499,11 @@
   },
   "followup_automation_id": "n01",
   "followup_automation_status": "ACTIVE",
-  "followup_next_run_local": null,
-  "followup_receipt": "receipts/response037_20261017/FINAL_RESULT_RECEIPT.json",
-  "followup_receipt_sha256": "8b20eab4480b32677df6aef7b11db67b499838a9f35957d02a8511e3b845332c",
+  "followup_next_run_local": "2026-10-17T14:10:00+08:00",
+  "followup_receipt": "receipts/response038_20261017/deployment_fix01/FOLLOWUP_RECEIPT.json",
+  "followup_receipt_sha256": "79035f0e2bbe82f62df98f654e0661b9f646d0031317c38f09ede8b206ac7f96",
   "followup_last_delivered_UTC": "2026-10-16T09:20:29.108Z",
-  "current_followup_status": "consumed_one_shot_no_future_scheduled",
+  "current_followup_status": "one_future_wake_registered_then_rest",
   "agent_model_policy": {
     "path": "receipts/wp3_015_20261015/postrun_root_02/AGENT_MODEL_POLICY_SOLMAX.json",
     "bytes": 813,
@@ -10510,18 +10530,18 @@
     "bytes": 83119,
     "sha256": "b24f3bb1e5644fc8db29b2db1b3b82b05a8793248b7c99af81b23fb4dc3d1e24"
   },
-  "status": "response038_startup_fix01_registered",
+  "status": "response038_running_initial_controls",
   "current_action": "Implement oneM0-preserving mean-then-random calibration with hard-risk acceptance, output trust region and full mutable-state rollback under the supplied unified repair work order.",
-  "next_action": "Publish reviewed fix01 source/config, deploy fresh sibling root, start bounded same038 attempt2, verify correct start once then wake and rest.",
+  "next_action": "Rest after the single correct-start snapshot; at14:10 Asia/Singapore read saved progress/terminal results, verify actual FIT/Adam counts, and close unified result or schedule one further bounded wake if still running.",
   "latest_user_review_direction": {
     "path": "receipts/review_017_20261016/ACCEPTED_NEXT_ACTIONS.json",
     "bytes": 3271,
     "sha256": "8c1fe73b73b7376a3299e6c43f8493a41f2cd45a5e1a2d33a82c961ab22642c2"
   },
-  "pending_run_id": "response038_20261017",
+  "pending_run_id": null,
   "latest_run_id": "response037_20261017",
-  "active_run_id": null,
-  "current_stage": "response038_native_restart_pending",
+  "active_run_id": "response038_20261017",
+  "current_stage": "response038_unified_baseline_evaluation_before_training",
   "wp4_018_result": {
     "path": "receipts/wp4_018_20261016/FINAL_RESULT_RECEIPT.json",
     "bytes": 6437,
@@ -10670,7 +10690,7 @@
       "sha256": "08ef80ae1e9262bbcb2c5a95862df4b721f6ca3e1c8bd8ff5cfd3bcae8f2f62e"
     }
   },
-  "last_verified_UTC": "2026-10-17T05:33:31.891912+00:00",
+  "last_verified_UTC": "2026-10-17T05:43:08.792290+00:00",
   "wp4_019_G_updates": 2000,
   "wp4_019_AD_queries": 2000,
   "cumulative_training_updates": 199669,
@@ -11730,7 +11750,7 @@
     },
     "followup_status": "DELIVERED_terminal"
   },
-  "latest_source_commit": "4dca3c7f8ec9904d22a47cd1c1cbd76009dd700a",
+  "latest_source_commit": "ed60c0fc9345a4bc43a883cd44cc7fdf2d0d2ce6",
   "wp3_024_G_updates": 0,
   "wp3_024_AD_queries": 0,
   "wp3_024_population_mean_cells_last_verified": 78,
@@ -12263,7 +12283,7 @@
     "bytes": 33510,
     "sha256": "f13d09a8120de685c980e0d52f782c212cb3d4ea41d7da7f77cbfbd21621128e"
   },
-  "master_plan_sha256": "add0cc07834eaf795027e038303a17319e637c46fec90ac70497961211ebc171",
+  "master_plan_sha256": "3fd465be39bb8753923f1d9eaf630ac5e888c50f785347c255277f1aa473469e",
   "wp6_027_execution": {
     "run_id": "wp6_027_20261016",
     "status": "static_documentation_delivered_independent_review_no_blockers",
@@ -13462,8 +13482,8 @@
   },
   "response038": {
     "run_id": "response038_20261017",
-    "status": "startup_fix01_registered_ready_for_native_restart",
-    "active": false,
+    "status": "running_initial_unified_controls_correct_start_verified",
+    "active": true,
     "scientific_job_started": true,
     "kind": "one_M0_preserving_mean_then_random_unified_repair",
     "config_path": "configs/response038_20261017.json",
@@ -13646,11 +13666,11 @@
     "scientific_status": "response_match_not_established",
     "prepared_UTC": "2026-10-17T05:28:06.792231+00:00",
     "automatic_restart": false,
-    "source_commit": "4dca3c7f8ec9904d22a47cd1c1cbd76009dd700a",
+    "source_commit": "ed60c0fc9345a4bc43a883cd44cc7fdf2d0d2ce6",
     "cost_accounting": "Add completed scientific Adam direction constructions to legacy cumulative computational-update count, including subsequently rejected directions; report accepted retained updates separately. Scaled parameter trials are not new Adam/AD; four artificial engineering Adam calls excluded.",
     "pre_execution_resources": "8GiB allocator cap preserves current other-project GPU headroom; no other process modified",
     "startup_policy": "One correct-start snapshot, then one future wake and rest; no continuous polling.",
-    "dispatch_started": false,
+    "dispatch_started": true,
     "native_training_started_verified": false,
     "attempts": [
       {
@@ -13805,7 +13825,27 @@
         "reason": "Pre-restart2026-10-17T05:39:29.782457+00:00 readback: GPU12227MiB total,8085MiB free; other-project process143354 uses3512MiB. Reduce allocator8->6GiB, preserving at least1941MiB observed headroom. Batch/model/acceptance/budget unchanged; actual fit must be verified at native startup."
       }
     },
-    "previous_independent_source_review": "receipts/response038_20261017/independent_review_01/SOURCE_REVIEW.json"
+    "previous_independent_source_review": "receipts/response038_20261017/independent_review_01/SOURCE_REVIEW.json",
+    "dispatch_UTC": "2026-10-17T05:42:05.105005+00:00",
+    "dispatcher_pid": 152525,
+    "dispatcher_start_ticks": "4533806",
+    "dispatch_receipt": "receipts/response038_20261017/deployment_fix01/DISPATCH_RECEIPT.json",
+    "deployment_verification": "receipts/response038_20261017/deployment_fix01/DEPLOYMENT_VERIFICATION.json",
+    "native_execution_start_verified": true,
+    "last_verified_UTC": "2026-10-17T05:43:08.792290+00:00",
+    "native_pid": 152534,
+    "native_start_ticks": "4533808",
+    "supervisor_pid": 152526,
+    "timeout_pid": 152533,
+    "boot_id": "146cb4b8-530c-4496-976f-21740f6f3629",
+    "startup_assessment": "receipts/response038_20261017/deployment_fix01/STARTUP_ASSESSMENT.json",
+    "startup_assessment_sha256": "c90a0ad9fd40c31be483d7d9323fa41b8bb2eed509b671fa28a3a549454a5b2e",
+    "G0_original_M0_bitwise_identity_passed": true,
+    "all6593_two_seed_identity": true,
+    "optimizer_update_count_status": "verified_lower_bound0; FIT/Adam not observed yet in single startup snapshot",
+    "followup": "receipts/response038_20261017/deployment_fix01/FOLLOWUP_RECEIPT.json",
+    "followup_sha256": "79035f0e2bbe82f62df98f654e0661b9f646d0031317c38f09ede8b206ac7f96",
+    "followup_scheduled_local": "2026-10-17T14:10:00+08:00"
   },
   "response038_config_sha256": "9eb28ee64c7f3cd327d31d681414e6e33bed311474d2a3ab7e0b5ca7c1988d54",
   "response038_source_review_sha256": "bc4dbf42ae54be6ba7ec516d5dca99fe769aceca0932b04491922c27b187a070",

@@ -1,0 +1,20 @@
+{
+  "schema": "n01/response038-followup/v1",
+  "UTC": "2026-10-17T05:45:00.721840+00:00",
+  "automation_id": "n01",
+  "kind": "heartbeat",
+  "name": "N01 探测器响应学习修复",
+  "status": "ACTIVE",
+  "scheduled_local": "2026-10-17T14:10:00+08:00",
+  "scheduled_UTC": "2026-10-17T06:10:00+00:00",
+  "timezone": "Asia/Singapore",
+  "single_future_wake": true,
+  "official_update_tool_used": true,
+  "local_TOML_readback_matches": true,
+  "prompt_sha256": "c3f21ed758aa46268a52b2623932fde8181225d0b05147bb44506c78f5120f2f",
+  "target_thread_id": "01a12bad-8839-7522-89a5-f028b107d7ff",
+  "prompt": "继续 E:/GAN/research/N01 的038统一响应学习修复，严格按用户整体修复工单推进。先读 E:/GAN/AGENTS.md、N01/AGENTS.md、PROGRAM.json、MASTER_EXECUTION_PLAN.json、jobs.json、receipts/response038_20261017/user_materials_01/IMPLEMENTATION_PLAN.md、ROOT_DESIGN.json、independent_review_fix01/SOURCE_REVIEW.json、configs/response038_20261017.json 及 deployment_fix01/STARTUP_ASSESSMENT.json、FOLLOWUP_RECEIPT.json。全部新代码/数据/日志/缓存仅E/D；一个科学作业；规划由根层，施工与独审沿用Sol Max。保持此前直接人类授权，修复与统一结论在同一038内完成，不新增孤立首步审计项目。\n当前唯一远程作业 rylan@100.82.231.102，根 /home/rylan/projects/ej276d-n01/response038_startup_fix01_20261017，control_01监督、run_01输出。源提交ed60c0fc9345a4bc43a883cd44cc7fdf2d0d2ce6，runnerSHA6219b9875c908b4fced8a8f171c52aceda6876fc491f3398f98f48a99418da66，cfgSHA9eb28ee64c7f3cd327d31d681414e6e33bed311474d2a3ab7e0b5ca7c1988d54，designSHAaf8f511524a2c017afe2f1a7e908556ca30f492e5baccb80a1b2d642d3f44cc3，47源码/配置文件与提交和远端相符。boot146cb4b8-530c-4496-976f-21740f6f3629；dispatcher152525/startticks4533806，supervisor152526，timeout152533，native152534/startticks4533808，cwd为该根。用PID+startticks+cwd/命令核对归属，不动其他项目thermometry GPU进程143354。\n首次attempt1根 /response038_20261017 在005包装CPU->GPU迁移冻结检查处5秒exit1，0response/ADC/AD/Adam；日志、原版本完整保留。fix01仅改为先005.to(cuda)再原FrozenObservedNoise008构造，无guard绕过、旧权重/005/3H/学习规则不变。两次尝试合并成本已登记：最多CP12、A110calls/13890rows、005 attempted39902calls/3436365rows而completed3436237；其余原400方向/6528FIT AD未因失败消耗。GPU共享资源令本任务allocator降为6GiB，CPU4/RSS12GiB/7200秒hard/6900秒内部保存/2048MiB输出、单项目flock、无自动重启；四轨道各900秒训练软限，终点冻结后统一FINAL，C2ST最后。\n2026-10-17T05:43:08.792290Z一次正确启动快照：唯一归属进程存活、项目锁占用、无FAILED/exit，RSS约3.30GiB/GPU约3628MiB。G0_ORIGINAL014_IDENTITY在全6593父、两个种子、pure和fast/slow/common_level硬输出均bitwise=true，所有absmax=0。仅统一起点对照A_fast已保存，FIT/Adam尚未从完整记录验证，勿把已启动说成拟合成功。已记账038科学Adam下界0，项目累计199669；后续仅加新确认的实际scientific Adam方向构造（含之后拒绝方向的计算成本），accepted retained updates单列；4个工程Adam和C2ST更新不计入response更新。已拒绝缩步trial不是新Adam，计数不可rollback或重复记账。\n用一次有界状态查询读取保存控制/STATUS/metrics/终点和实际计数。如果仍正确运行，只按剩余时限安排单个合理未来苏醒并休息，不连续轮询。若已退出，收集完整日志、原始哈希、各轨道初始/均值/最终/最佳接纳新模块权重与保存评价（私有文件E盘，不上传Git），独立复核实际计数、回退和最终判定；不得仅因尚无结果重启或重复NN。失败仅做必要最小工程修复并事前计入剩余有界成本，同038保存每次失败，科学学习设置不根据已暴露留出调整。\n主要设计：原M0完整函数起步，184参恒等单调时间均值adapter；固定A0编码和电压尺度，mean后random分块。FIT原计数分层权重、16独立微批同theta累积、首方向32微批；有效2048源抽样，不虚称2048unique。独立新TRAIN_CHECK每方向8->16一次、共同随机数、纯输出信赖域与全Adam/modes/RNG回退、5连续拒绝停止，energy训练且carrier仅报告、原hardW1评价。相同冻结设置的teacher0/1后REAL0/1，不用教师结果调REAL。仅符合均值端点条件才随机阶段，charge一次开启检查，保留关闭对照。完整验收定义以当前冻结配置为准，不能移门。\n所有四终点冻结后已有计划包含A/M0/Q1、均值终点、最终full/chargeoff同库统一评价、两套fresh全TRAIN和已暴露DEV、16fresh风险确认、固定MONITOR轨迹、013全部121同Q异形对照、026组成敏感性、教师解析矩/MC恢复、RR与C2ST。先复用已保存输出完成一份中文统一报告及清晰轨迹/均值脉冲图，回答平均/随机增益、波形与QPSD/noise/flags tradeoff、两个种子与新库重复、条件恢复/输入依赖。区分退出成功、稳定保住起点、实际拟合改进、绝对T与条件科学接受；2%不足以宣告接受，7个nullT域单列，所有负结果与未完成项保留。026只重加权敏感性不能宣称重训参数稳定，真实跨源/独立采集仍无证据。若失败，依用户工单判断当前均值族可表达性是否该成为下一最小有界工作，不回到LR扫描/无界2000步/新模型家族。按既有授权选择性同步代码、配置、汇总报告/图/回执到既有GitHub，不上传私有raw/大数组/权重。只在有意义的完成、失败、科学变化或需要用户行动时通知；状态无变化保持安静。",
+  "notify_only_meaningful_change": true,
+  "continuous_monitoring": false,
+  "native_training_update_unverified_at_startup": true
+}
