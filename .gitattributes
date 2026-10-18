@@ -103,3 +103,17 @@ runs/wp6_028_20261017/selected_collected_01/**/*.json -text whitespace=cr-at-eol
 configs/response029_20261017.json -text whitespace=cr-at-eol
 configs/response030_20261017.json -text whitespace=cr-at-eol
 configs/response031_20261017.json -text whitespace=cr-at-eol
+
+# Preserve frozen response configuration hashes across checkouts.
+configs/** -text whitespace=cr-at-eol
+
+# Keep current ledger bytes and historical evidence formatting unchanged.
+PROGRAM.json -text whitespace=cr-at-eol
+MASTER_EXECUTION_PLAN.json -text whitespace=cr-at-eol
+jobs.json -text whitespace=cr-at-eol
+receipts/response067_20261018/wake_20261018_1921_01/VERIFY_ARTIFACTS.py whitespace=cr-at-eol,-blank-at-eol
+receipts/response068_20261018/wake_20261018_1949_01/VERIFY_ARTIFACTS.py whitespace=cr-at-eol,-blank-at-eol
+receipts/response069_20261018/wake_20261018_2019_01/VERIFY_ARTIFACTS.py whitespace=cr-at-eol,-blank-at-eol
+receipts/response070_20261018/wake_20261018_2043_01/VERIFY_ARTIFACTS.py whitespace=cr-at-eol,-blank-at-eol
+receipts/response068_20261018/deployment_01/CUDA_BATCH_DIAGNOSTIC_STDERR.txt whitespace=cr-at-eol,-blank-at-eol
+receipts/response068_20261018/deployment_01/INSTALL_STDERR.txt whitespace=cr-at-eol,-blank-at-eof

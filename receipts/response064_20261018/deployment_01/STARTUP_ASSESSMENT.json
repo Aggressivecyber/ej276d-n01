@@ -1,0 +1,798 @@
+{
+  "status": "CORRECTLY_STARTED_FIXED063_PAIRED_READOUT_AUDIT",
+  "verified_UTC": "2026-10-18T09:51:40.559414+00:00",
+  "local_verification_UTC": "2026-10-18T09:53:37.651171+00:00",
+  "job_id": "response064_ordered_readout_audit_20261018",
+  "boot_id": "b6923bf3-a173-4b1a-a175-f746178ee99c",
+  "native_identity": {
+    "pid": 224982,
+    "start_ticks": "6313442",
+    "state": "R",
+    "argv": [
+      "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+      "-B",
+      "/home/rylan/projects/ej276d-n01/response064_ordered_readout_audit_20261018/scripts/run_response064.py",
+      "--config",
+      "/home/rylan/projects/ej276d-n01/response064_ordered_readout_audit_20261018/configs/response064_20261018.json",
+      "--config-sha256",
+      "f54146a0ebe56dbc89dfb5d36571deff57af1de392addb1a5bf47bf126b2e807",
+      "--out",
+      "/home/rylan/projects/ej276d-n01/response064_ordered_readout_audit_20261018/run_01",
+      "--device",
+      "cuda:0"
+    ],
+    "cwd": "/home/rylan/projects/ej276d-n01/response064_ordered_readout_audit_20261018"
+  },
+  "supervisor_identity": {
+    "pid": 224974,
+    "start_ticks": "6313440",
+    "state": "S",
+    "argv": [
+      "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+      "-B",
+      "/home/rylan/projects/ej276d-n01/response064_ordered_readout_audit_20261018/scripts/supervise.py",
+      "--output",
+      "/home/rylan/projects/ej276d-n01/response064_ordered_readout_audit_20261018/control_01",
+      "--rss-limit-gib",
+      "12",
+      "--",
+      "timeout",
+      "--signal=TERM",
+      "--kill-after=20s",
+      "900s",
+      "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+      "-B",
+      "/home/rylan/projects/ej276d-n01/response064_ordered_readout_audit_20261018/scripts/run_response064.py",
+      "--config",
+      "/home/rylan/projects/ej276d-n01/response064_ordered_readout_audit_20261018/configs/response064_20261018.json",
+      "--config-sha256",
+      "f54146a0ebe56dbc89dfb5d36571deff57af1de392addb1a5bf47bf126b2e807",
+      "--out",
+      "/home/rylan/projects/ej276d-n01/response064_ordered_readout_audit_20261018/run_01",
+      "--device",
+      "cuda:0"
+    ],
+    "cwd": "/home/rylan/projects/ej276d-n01/response064_ordered_readout_audit_20261018"
+  },
+  "dispatcher_identity": {
+    "pid": 224973,
+    "start_ticks": "6313439",
+    "state": "S",
+    "argv": [
+      "flock",
+      "-n",
+      "/home/rylan/projects/ej276d-n01/.n01_scientific_dispatch.lock",
+      "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+      "-B",
+      "/home/rylan/projects/ej276d-n01/response064_ordered_readout_audit_20261018/scripts/supervise.py",
+      "--output",
+      "/home/rylan/projects/ej276d-n01/response064_ordered_readout_audit_20261018/control_01",
+      "--rss-limit-gib",
+      "12",
+      "--",
+      "timeout",
+      "--signal=TERM",
+      "--kill-after=20s",
+      "900s",
+      "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+      "-B",
+      "/home/rylan/projects/ej276d-n01/response064_ordered_readout_audit_20261018/scripts/run_response064.py",
+      "--config",
+      "/home/rylan/projects/ej276d-n01/response064_ordered_readout_audit_20261018/configs/response064_20261018.json",
+      "--config-sha256",
+      "f54146a0ebe56dbc89dfb5d36571deff57af1de392addb1a5bf47bf126b2e807",
+      "--out",
+      "/home/rylan/projects/ej276d-n01/response064_ordered_readout_audit_20261018/run_01",
+      "--device",
+      "cuda:0"
+    ],
+    "cwd": "/home/rylan/projects/ej276d-n01/response064_ordered_readout_audit_20261018"
+  },
+  "timeout_identity": {
+    "pid": 224980,
+    "start_ticks": "6313442",
+    "state": "S",
+    "argv": [
+      "timeout",
+      "--signal=TERM",
+      "--kill-after=20s",
+      "900s",
+      "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+      "-B",
+      "/home/rylan/projects/ej276d-n01/response064_ordered_readout_audit_20261018/scripts/run_response064.py",
+      "--config",
+      "/home/rylan/projects/ej276d-n01/response064_ordered_readout_audit_20261018/configs/response064_20261018.json",
+      "--config-sha256",
+      "f54146a0ebe56dbc89dfb5d36571deff57af1de392addb1a5bf47bf126b2e807",
+      "--out",
+      "/home/rylan/projects/ej276d-n01/response064_ordered_readout_audit_20261018/run_01",
+      "--device",
+      "cuda:0"
+    ],
+    "cwd": "/home/rylan/projects/ej276d-n01/response064_ordered_readout_audit_20261018"
+  },
+  "config_sha256": "f54146a0ebe56dbc89dfb5d36571deff57af1de392addb1a5bf47bf126b2e807",
+  "source_pins_verified": 361,
+  "manifest_files_verified": 379,
+  "original_two_fast_native_reports_exact063": true,
+  "original_first_head_geometry_intrinsic_mean_examples_and_native_observation_arrays_exact": true,
+  "native_stage_crossing_reassociation_max_error_ns": 1.4210854715202004e-14,
+  "native_stage_crossing_NaN_exact": true,
+  "geometry_and_positivity_rows_verified": 13186,
+  "native_rows_verified": 13186,
+  "stage_summaries_verified": 10,
+  "stage_population_rows_verified": 65930,
+  "diagnostic_example_rows_verified": 72,
+  "formula_max_error_V": 1.6653345369377348e-16,
+  "scale_max_error": 4.440892098500626e-16,
+  "normalization_max_error": 1.7763568394002505e-15,
+  "raw_limit_internal_max_error": 0.0,
+  "ADC_integer_codes_exact": true,
+  "example_stage_and_feature_max_error": 1.1102230246251565e-16,
+  "example_crossing_max_error_ns": 0.0,
+  "group_moment_max_error": 6.938893903907228e-16,
+  "linear_scalar_max_error": 4.440892098500626e-15,
+  "W1_integer_CDF_and_scipy_checks": 90,
+  "W1_max_error": 2.028599510595086e-12,
+  "W1_audit": [
+    {
+      "case": "BASE054",
+      "stage": "mean_at_BASE054_anchor",
+      "field": "Q_Vns",
+      "error": 3.390343561449072e-14
+    },
+    {
+      "case": "BASE054",
+      "stage": "mean_at_BASE054_anchor",
+      "field": "front_Vns",
+      "error": 8.479328350574633e-15
+    },
+    {
+      "case": "BASE054",
+      "stage": "mean_at_BASE054_anchor",
+      "field": "tail_Vns",
+      "error": 1.3655743202889425e-14
+    },
+    {
+      "case": "BASE054",
+      "stage": "mean_at_BASE054_anchor",
+      "field": "peak_voltage_V",
+      "error": 1.7562340470789195e-14
+    },
+    {
+      "case": "BASE054",
+      "stage": "mean_at_BASE054_anchor",
+      "field": "rise10_90_ns",
+      "error": 3.175237850427948e-14
+    },
+    {
+      "case": "BASE054",
+      "stage": "mean_at_BASE054_anchor",
+      "field": "FWHM_ns",
+      "error": 7.474021401776554e-13
+    },
+    {
+      "case": "BASE054",
+      "stage": "mean_at_BASE054_anchor",
+      "field": "negative_lobe_area_Vns",
+      "error": 4.3413189709795574e-14
+    },
+    {
+      "case": "BASE054",
+      "stage": "mean_at_BASE054_anchor",
+      "field": "PSD_raw",
+      "error": 3.0617869350990645e-16
+    },
+    {
+      "case": "BASE054",
+      "stage": "mean_at_BASE054_anchor",
+      "field": "PSD_guarded",
+      "error": 3.0617869350990645e-16
+    },
+    {
+      "case": "BASE054",
+      "stage": "plus_M0_random",
+      "field": "Q_Vns",
+      "error": 3.3612002070526614e-14
+    },
+    {
+      "case": "BASE054",
+      "stage": "plus_M0_random",
+      "field": "front_Vns",
+      "error": 8.604228440844963e-15
+    },
+    {
+      "case": "BASE054",
+      "stage": "plus_M0_random",
+      "field": "tail_Vns",
+      "error": 1.558822515512759e-14
+    },
+    {
+      "case": "BASE054",
+      "stage": "plus_M0_random",
+      "field": "peak_voltage_V",
+      "error": 1.787459069646502e-14
+    },
+    {
+      "case": "BASE054",
+      "stage": "plus_M0_random",
+      "field": "rise10_90_ns",
+      "error": 9.903189379656396e-14
+    },
+    {
+      "case": "BASE054",
+      "stage": "plus_M0_random",
+      "field": "FWHM_ns",
+      "error": 7.362999099314038e-13
+    },
+    {
+      "case": "BASE054",
+      "stage": "plus_M0_random",
+      "field": "negative_lobe_area_Vns",
+      "error": 9.417813751078086e-15
+    },
+    {
+      "case": "BASE054",
+      "stage": "plus_M0_random",
+      "field": "PSD_raw",
+      "error": 6.179952383167375e-16
+    },
+    {
+      "case": "BASE054",
+      "stage": "plus_M0_random",
+      "field": "PSD_guarded",
+      "error": 6.179952383167375e-16
+    },
+    {
+      "case": "BASE054",
+      "stage": "plus_electronic_noise",
+      "field": "Q_Vns",
+      "error": 3.370220769127741e-14
+    },
+    {
+      "case": "BASE054",
+      "stage": "plus_electronic_noise",
+      "field": "front_Vns",
+      "error": 8.81239525796218e-15
+    },
+    {
+      "case": "BASE054",
+      "stage": "plus_electronic_noise",
+      "field": "tail_Vns",
+      "error": 1.5692308563686197e-14
+    },
+    {
+      "case": "BASE054",
+      "stage": "plus_electronic_noise",
+      "field": "peak_voltage_V",
+      "error": 1.7964796317215814e-14
+    },
+    {
+      "case": "BASE054",
+      "stage": "plus_electronic_noise",
+      "field": "rise10_90_ns",
+      "error": 8.104628079763643e-14
+    },
+    {
+      "case": "BASE054",
+      "stage": "plus_electronic_noise",
+      "field": "FWHM_ns",
+      "error": 7.642775301519578e-13
+    },
+    {
+      "case": "BASE054",
+      "stage": "plus_electronic_noise",
+      "field": "negative_lobe_area_Vns",
+      "error": 1.6177163775221715e-14
+    },
+    {
+      "case": "BASE054",
+      "stage": "plus_electronic_noise",
+      "field": "PSD_raw",
+      "error": 5.698566618583811e-16
+    },
+    {
+      "case": "BASE054",
+      "stage": "plus_electronic_noise",
+      "field": "PSD_guarded",
+      "error": 5.698566618583811e-16
+    },
+    {
+      "case": "BASE054",
+      "stage": "ADC_at_BASE054_anchor",
+      "field": "Q_Vns",
+      "error": 3.3681391009565687e-14
+    },
+    {
+      "case": "BASE054",
+      "stage": "ADC_at_BASE054_anchor",
+      "field": "front_Vns",
+      "error": 8.81239525796218e-15
+    },
+    {
+      "case": "BASE054",
+      "stage": "ADC_at_BASE054_anchor",
+      "field": "tail_Vns",
+      "error": 1.5661083541118614e-14
+    },
+    {
+      "case": "BASE054",
+      "stage": "ADC_at_BASE054_anchor",
+      "field": "peak_voltage_V",
+      "error": 1.797173521111972e-14
+    },
+    {
+      "case": "BASE054",
+      "stage": "ADC_at_BASE054_anchor",
+      "field": "rise10_90_ns",
+      "error": 8.08242361927114e-14
+    },
+    {
+      "case": "BASE054",
+      "stage": "ADC_at_BASE054_anchor",
+      "field": "FWHM_ns",
+      "error": 7.629452625224076e-13
+    },
+    {
+      "case": "BASE054",
+      "stage": "ADC_at_BASE054_anchor",
+      "field": "negative_lobe_area_Vns",
+      "error": 1.6300329142016068e-14
+    },
+    {
+      "case": "BASE054",
+      "stage": "ADC_at_BASE054_anchor",
+      "field": "PSD_raw",
+      "error": 5.689893001203927e-16
+    },
+    {
+      "case": "BASE054",
+      "stage": "ADC_at_BASE054_anchor",
+      "field": "PSD_guarded",
+      "error": 5.689893001203927e-16
+    },
+    {
+      "case": "BASE054",
+      "stage": "native_ADC_reselected",
+      "field": "Q_Vns",
+      "error": 3.3681391009565687e-14
+    },
+    {
+      "case": "BASE054",
+      "stage": "native_ADC_reselected",
+      "field": "front_Vns",
+      "error": 8.81239525796218e-15
+    },
+    {
+      "case": "BASE054",
+      "stage": "native_ADC_reselected",
+      "field": "tail_Vns",
+      "error": 1.5661083541118614e-14
+    },
+    {
+      "case": "BASE054",
+      "stage": "native_ADC_reselected",
+      "field": "peak_voltage_V",
+      "error": 1.797173521111972e-14
+    },
+    {
+      "case": "BASE054",
+      "stage": "native_ADC_reselected",
+      "field": "rise10_90_ns",
+      "error": 8.08242361927114e-14
+    },
+    {
+      "case": "BASE054",
+      "stage": "native_ADC_reselected",
+      "field": "FWHM_ns",
+      "error": 7.629452625224076e-13
+    },
+    {
+      "case": "BASE054",
+      "stage": "native_ADC_reselected",
+      "field": "negative_lobe_area_Vns",
+      "error": 1.6300329142016068e-14
+    },
+    {
+      "case": "BASE054",
+      "stage": "native_ADC_reselected",
+      "field": "PSD_raw",
+      "error": 5.689893001203927e-16
+    },
+    {
+      "case": "BASE054",
+      "stage": "native_ADC_reselected",
+      "field": "PSD_guarded",
+      "error": 5.689893001203927e-16
+    },
+    {
+      "case": "RESIDUAL",
+      "stage": "mean_at_BASE054_anchor",
+      "field": "Q_Vns",
+      "error": 3.3889557826682903e-14
+    },
+    {
+      "case": "RESIDUAL",
+      "stage": "mean_at_BASE054_anchor",
+      "field": "front_Vns",
+      "error": 8.756884106730922e-15
+    },
+    {
+      "case": "RESIDUAL",
+      "stage": "mean_at_BASE054_anchor",
+      "field": "tail_Vns",
+      "error": 9.232198339148567e-15
+    },
+    {
+      "case": "RESIDUAL",
+      "stage": "mean_at_BASE054_anchor",
+      "field": "peak_voltage_V",
+      "error": 2.903927098785175e-15
+    },
+    {
+      "case": "RESIDUAL",
+      "stage": "mean_at_BASE054_anchor",
+      "field": "rise10_90_ns",
+      "error": 1.6786572132332367e-13
+    },
+    {
+      "case": "RESIDUAL",
+      "stage": "mean_at_BASE054_anchor",
+      "field": "FWHM_ns",
+      "error": 6.750155989720952e-14
+    },
+    {
+      "case": "RESIDUAL",
+      "stage": "mean_at_BASE054_anchor",
+      "field": "negative_lobe_area_Vns",
+      "error": 4.3413189709795574e-14
+    },
+    {
+      "case": "RESIDUAL",
+      "stage": "mean_at_BASE054_anchor",
+      "field": "PSD_raw",
+      "error": 5.017687654262915e-16
+    },
+    {
+      "case": "RESIDUAL",
+      "stage": "mean_at_BASE054_anchor",
+      "field": "PSD_guarded",
+      "error": 5.017687654262915e-16
+    },
+    {
+      "case": "RESIDUAL",
+      "stage": "plus_M0_random",
+      "field": "Q_Vns",
+      "error": 3.35981242827188e-14
+    },
+    {
+      "case": "RESIDUAL",
+      "stage": "plus_M0_random",
+      "field": "front_Vns",
+      "error": 9.325873406851315e-15
+    },
+    {
+      "case": "RESIDUAL",
+      "stage": "plus_M0_random",
+      "field": "tail_Vns",
+      "error": 1.2222861611732583e-14
+    },
+    {
+      "case": "RESIDUAL",
+      "stage": "plus_M0_random",
+      "field": "peak_voltage_V",
+      "error": 2.9386215683047112e-15
+    },
+    {
+      "case": "RESIDUAL",
+      "stage": "plus_M0_random",
+      "field": "rise10_90_ns",
+      "error": 4.847233725513433e-13
+    },
+    {
+      "case": "RESIDUAL",
+      "stage": "plus_M0_random",
+      "field": "FWHM_ns",
+      "error": 4.374278717023117e-14
+    },
+    {
+      "case": "RESIDUAL",
+      "stage": "plus_M0_random",
+      "field": "negative_lobe_area_Vns",
+      "error": 5.278763537397424e-15
+    },
+    {
+      "case": "RESIDUAL",
+      "stage": "plus_M0_random",
+      "field": "PSD_raw",
+      "error": 3.0921445959286586e-16
+    },
+    {
+      "case": "RESIDUAL",
+      "stage": "plus_M0_random",
+      "field": "PSD_guarded",
+      "error": 3.0921445959286586e-16
+    },
+    {
+      "case": "RESIDUAL",
+      "stage": "plus_electronic_noise",
+      "field": "Q_Vns",
+      "error": 3.3709146585181315e-14
+    },
+    {
+      "case": "RESIDUAL",
+      "stage": "plus_electronic_noise",
+      "field": "front_Vns",
+      "error": 9.769962616701378e-15
+    },
+    {
+      "case": "RESIDUAL",
+      "stage": "plus_electronic_noise",
+      "field": "tail_Vns",
+      "error": 1.3898604489526178e-14
+    },
+    {
+      "case": "RESIDUAL",
+      "stage": "plus_electronic_noise",
+      "field": "peak_voltage_V",
+      "error": 2.985459102156085e-15
+    },
+    {
+      "case": "RESIDUAL",
+      "stage": "plus_electronic_noise",
+      "field": "rise10_90_ns",
+      "error": 3.3240077357277187e-13
+    },
+    {
+      "case": "RESIDUAL",
+      "stage": "plus_electronic_noise",
+      "field": "FWHM_ns",
+      "error": 3.9968028886505635e-14
+    },
+    {
+      "case": "RESIDUAL",
+      "stage": "plus_electronic_noise",
+      "field": "negative_lobe_area_Vns",
+      "error": 1.6013232406741906e-14
+    },
+    {
+      "case": "RESIDUAL",
+      "stage": "plus_electronic_noise",
+      "field": "PSD_raw",
+      "error": 5.299580219109146e-16
+    },
+    {
+      "case": "RESIDUAL",
+      "stage": "plus_electronic_noise",
+      "field": "PSD_guarded",
+      "error": 5.299580219109146e-16
+    },
+    {
+      "case": "RESIDUAL",
+      "stage": "ADC_at_BASE054_anchor",
+      "field": "Q_Vns",
+      "error": 3.35981242827188e-14
+    },
+    {
+      "case": "RESIDUAL",
+      "stage": "ADC_at_BASE054_anchor",
+      "field": "front_Vns",
+      "error": 9.783840404509192e-15
+    },
+    {
+      "case": "RESIDUAL",
+      "stage": "ADC_at_BASE054_anchor",
+      "field": "tail_Vns",
+      "error": 1.3874318360862503e-14
+    },
+    {
+      "case": "RESIDUAL",
+      "stage": "ADC_at_BASE054_anchor",
+      "field": "peak_voltage_V",
+      "error": 2.9837243786801082e-15
+    },
+    {
+      "case": "RESIDUAL",
+      "stage": "ADC_at_BASE054_anchor",
+      "field": "rise10_90_ns",
+      "error": 3.3173463975799677e-13
+    },
+    {
+      "case": "RESIDUAL",
+      "stage": "ADC_at_BASE054_anchor",
+      "field": "FWHM_ns",
+      "error": 3.907985046680551e-14
+    },
+    {
+      "case": "RESIDUAL",
+      "stage": "ADC_at_BASE054_anchor",
+      "field": "negative_lobe_area_Vns",
+      "error": 1.619104156302953e-14
+    },
+    {
+      "case": "RESIDUAL",
+      "stage": "ADC_at_BASE054_anchor",
+      "field": "PSD_raw",
+      "error": 5.28656979303932e-16
+    },
+    {
+      "case": "RESIDUAL",
+      "stage": "ADC_at_BASE054_anchor",
+      "field": "PSD_guarded",
+      "error": 5.28656979303932e-16
+    },
+    {
+      "case": "RESIDUAL",
+      "stage": "native_ADC_reselected",
+      "field": "Q_Vns",
+      "error": 3.384792446325946e-14
+    },
+    {
+      "case": "RESIDUAL",
+      "stage": "native_ADC_reselected",
+      "field": "front_Vns",
+      "error": 1.239286451237831e-14
+    },
+    {
+      "case": "RESIDUAL",
+      "stage": "native_ADC_reselected",
+      "field": "tail_Vns",
+      "error": 1.214306433183765e-16
+    },
+    {
+      "case": "RESIDUAL",
+      "stage": "native_ADC_reselected",
+      "field": "peak_voltage_V",
+      "error": 4.145989107584569e-15
+    },
+    {
+      "case": "RESIDUAL",
+      "stage": "native_ADC_reselected",
+      "field": "rise10_90_ns",
+      "error": 1.8562928971732617e-13
+    },
+    {
+      "case": "RESIDUAL",
+      "stage": "native_ADC_reselected",
+      "field": "FWHM_ns",
+      "error": 2.028599510595086e-12
+    },
+    {
+      "case": "RESIDUAL",
+      "stage": "native_ADC_reselected",
+      "field": "negative_lobe_area_Vns",
+      "error": 1.633242152632164e-14
+    },
+    {
+      "case": "RESIDUAL",
+      "stage": "native_ADC_reselected",
+      "field": "PSD_raw",
+      "error": 7.476658181460039e-16
+    },
+    {
+      "case": "RESIDUAL",
+      "stage": "native_ADC_reselected",
+      "field": "PSD_guarded",
+      "error": 7.476658181460039e-16
+    }
+  ],
+  "ordered_pair_contrasts_verified": true,
+  "stages": [
+    {
+      "case": "BASE054",
+      "stage": "mean_at_BASE054_anchor",
+      "rows": 6593,
+      "all_row_features_flags_and_groups_verified": true
+    },
+    {
+      "case": "BASE054",
+      "stage": "plus_M0_random",
+      "rows": 6593,
+      "all_row_features_flags_and_groups_verified": true
+    },
+    {
+      "case": "BASE054",
+      "stage": "plus_electronic_noise",
+      "rows": 6593,
+      "all_row_features_flags_and_groups_verified": true
+    },
+    {
+      "case": "BASE054",
+      "stage": "ADC_at_BASE054_anchor",
+      "rows": 6593,
+      "all_row_features_flags_and_groups_verified": true
+    },
+    {
+      "case": "BASE054",
+      "stage": "native_ADC_reselected",
+      "rows": 6593,
+      "all_row_features_flags_and_groups_verified": true
+    },
+    {
+      "case": "RESIDUAL",
+      "stage": "mean_at_BASE054_anchor",
+      "rows": 6593,
+      "all_row_features_flags_and_groups_verified": true
+    },
+    {
+      "case": "RESIDUAL",
+      "stage": "plus_M0_random",
+      "rows": 6593,
+      "all_row_features_flags_and_groups_verified": true
+    },
+    {
+      "case": "RESIDUAL",
+      "stage": "plus_electronic_noise",
+      "rows": 6593,
+      "all_row_features_flags_and_groups_verified": true
+    },
+    {
+      "case": "RESIDUAL",
+      "stage": "ADC_at_BASE054_anchor",
+      "rows": 6593,
+      "all_row_features_flags_and_groups_verified": true
+    },
+    {
+      "case": "RESIDUAL",
+      "stage": "native_ADC_reselected",
+      "rows": 6593,
+      "all_row_features_flags_and_groups_verified": true
+    }
+  ],
+  "uncertainty_scope": "First seed fast pair only. Full-row scalars/flags, aggregate-moment closure and saved full-wave examples verified; unsaved full-population waves and counterfactual QPSD not independently re-evaluated offline.",
+  "latest_progress": {
+    "phase": "paired_readout_diagnostic_complete",
+    "seed_index": 0,
+    "hypothesis": "slow",
+    "elapsed_seconds": 104.1541344599973,
+    "execution_counts": {
+      "checkpoint_loads": 6,
+      "TRAIN_archives_decoded": 1,
+      "PCA_archives_decoded": 1,
+      "DEV_archives_decoded": 0,
+      "AD_queries": 0,
+      "optimizer_steps": 0,
+      "old_A_calls": 52,
+      "old_A_rows": 6593,
+      "response_calls": 52,
+      "response_rows": 6593,
+      "noise005_calls": 52,
+      "noise005_rows": 6593,
+      "extension_rows": 19779,
+      "full_population_banks": 1,
+      "mean_operator_calls": 2,
+      "mean_operator_rows": 13186,
+      "generated_observation_rows": 26372,
+      "full_native_hypothesis_evaluations": 4,
+      "geometry_records": 2,
+      "geometry_rows": 13186,
+      "intrinsic_mean_records": 2,
+      "intrinsic_mean_rows": 13186,
+      "fixed_case_replays": 0,
+      "new_candidate_settings": 0,
+      "REAL_feature_rows": 21047,
+      "finite_difference_probes": 0,
+      "linear_program_solves": 0,
+      "reference_array_records_verified": 15,
+      "counterfactual_stage_summaries": 20,
+      "counterfactual_stage_rows": 131860,
+      "wave_view_stage_summaries": 20,
+      "wave_view_stage_rows": 131860,
+      "qpsd_stage_evaluations": 20,
+      "qpsd_stage_rows": 131860,
+      "carrier_stage_summaries": 16,
+      "carrier_stage_rows": 105488,
+      "diagnostic_pair_evaluations": 2,
+      "positivity_audit_records": 2,
+      "positivity_audit_rows": 13186,
+      "diagnostic_example_records": 4,
+      "diagnostic_example_rows": 140
+    }
+  },
+  "RSS_bytes": 2888871936,
+  "current_run_bytes": 25200006,
+  "continuous_polling_stopped": true,
+  "later_progress_unqueried": true,
+  "scientific_goal_achieved": false,
+  "raw_receipt_sha256": "ddb5879dd51c79ee0ba50dbede0c81713adcf4aa27851e679b03cc538abce6b3"
+}

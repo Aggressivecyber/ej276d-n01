@@ -1,0 +1,240 @@
+{
+  "status": "CORRECTLY_STARTED_FULL_REPLAY_AND_INTRINSIC_CROSSINGS_VERIFIED",
+  "verified_UTC": "2026-10-18T02:22:26.719564+00:00",
+  "job_id": "response051_intrinsic_width_diagnostic_20261018",
+  "boot_id": "b6923bf3-a173-4b1a-a175-f746178ee99c",
+  "native_identity": {
+    "pid": 127787,
+    "start_ticks": "3624297",
+    "state": "R",
+    "argv": [
+      "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+      "-B",
+      "/home/rylan/projects/ej276d-n01/response051_intrinsic_width_diagnostic_20261018/scripts/run_response051.py",
+      "--config",
+      "/home/rylan/projects/ej276d-n01/response051_intrinsic_width_diagnostic_20261018/configs/response051_20261018.json",
+      "--config-sha256",
+      "ccaff996e4042585c9ba13b31b0dda304a8c3779a2cd71849ff6131c28a03abe",
+      "--out",
+      "/home/rylan/projects/ej276d-n01/response051_intrinsic_width_diagnostic_20261018/run_01",
+      "--device",
+      "cuda:0"
+    ],
+    "cwd": "/home/rylan/projects/ej276d-n01/response051_intrinsic_width_diagnostic_20261018"
+  },
+  "supervisor_identity": {
+    "pid": 127779,
+    "start_ticks": "3624295",
+    "state": "S",
+    "argv": [
+      "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+      "-B",
+      "/home/rylan/projects/ej276d-n01/response051_intrinsic_width_diagnostic_20261018/scripts/supervise.py",
+      "--output",
+      "/home/rylan/projects/ej276d-n01/response051_intrinsic_width_diagnostic_20261018/control_01",
+      "--rss-limit-gib",
+      "12",
+      "--",
+      "timeout",
+      "--signal=TERM",
+      "--kill-after=20s",
+      "900s",
+      "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+      "-B",
+      "/home/rylan/projects/ej276d-n01/response051_intrinsic_width_diagnostic_20261018/scripts/run_response051.py",
+      "--config",
+      "/home/rylan/projects/ej276d-n01/response051_intrinsic_width_diagnostic_20261018/configs/response051_20261018.json",
+      "--config-sha256",
+      "ccaff996e4042585c9ba13b31b0dda304a8c3779a2cd71849ff6131c28a03abe",
+      "--out",
+      "/home/rylan/projects/ej276d-n01/response051_intrinsic_width_diagnostic_20261018/run_01",
+      "--device",
+      "cuda:0"
+    ],
+    "cwd": "/home/rylan/projects/ej276d-n01/response051_intrinsic_width_diagnostic_20261018"
+  },
+  "dispatcher_identity": {
+    "pid": 127778,
+    "start_ticks": "3624295",
+    "state": "S",
+    "argv": [
+      "flock",
+      "-n",
+      "/home/rylan/projects/ej276d-n01/.n01_scientific_dispatch.lock",
+      "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+      "-B",
+      "/home/rylan/projects/ej276d-n01/response051_intrinsic_width_diagnostic_20261018/scripts/supervise.py",
+      "--output",
+      "/home/rylan/projects/ej276d-n01/response051_intrinsic_width_diagnostic_20261018/control_01",
+      "--rss-limit-gib",
+      "12",
+      "--",
+      "timeout",
+      "--signal=TERM",
+      "--kill-after=20s",
+      "900s",
+      "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+      "-B",
+      "/home/rylan/projects/ej276d-n01/response051_intrinsic_width_diagnostic_20261018/scripts/run_response051.py",
+      "--config",
+      "/home/rylan/projects/ej276d-n01/response051_intrinsic_width_diagnostic_20261018/configs/response051_20261018.json",
+      "--config-sha256",
+      "ccaff996e4042585c9ba13b31b0dda304a8c3779a2cd71849ff6131c28a03abe",
+      "--out",
+      "/home/rylan/projects/ej276d-n01/response051_intrinsic_width_diagnostic_20261018/run_01",
+      "--device",
+      "cuda:0"
+    ],
+    "cwd": "/home/rylan/projects/ej276d-n01/response051_intrinsic_width_diagnostic_20261018"
+  },
+  "timeout_identity": {
+    "pid": 127786,
+    "start_ticks": "3624297",
+    "state": "S",
+    "argv": [
+      "timeout",
+      "--signal=TERM",
+      "--kill-after=20s",
+      "900s",
+      "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+      "-B",
+      "/home/rylan/projects/ej276d-n01/response051_intrinsic_width_diagnostic_20261018/scripts/run_response051.py",
+      "--config",
+      "/home/rylan/projects/ej276d-n01/response051_intrinsic_width_diagnostic_20261018/configs/response051_20261018.json",
+      "--config-sha256",
+      "ccaff996e4042585c9ba13b31b0dda304a8c3779a2cd71849ff6131c28a03abe",
+      "--out",
+      "/home/rylan/projects/ej276d-n01/response051_intrinsic_width_diagnostic_20261018/run_01",
+      "--device",
+      "cuda:0"
+    ],
+    "cwd": "/home/rylan/projects/ej276d-n01/response051_intrinsic_width_diagnostic_20261018"
+  },
+  "config_sha256": "ccaff996e4042585c9ba13b31b0dda304a8c3779a2cd71849ff6131c28a03abe",
+  "full_native_reports_exact": 12,
+  "seed0_all_four_settings_replay_exact": true,
+  "first_nonzero_population": {
+    "fast": {
+      "SOURCE": 6593,
+      "REAL": 21047,
+      "all_rows_retained": true
+    },
+    "slow": {
+      "SOURCE": 6593,
+      "REAL": 21047,
+      "all_rows_retained": true
+    },
+    "common_level": {
+      "SOURCE": 6593,
+      "REAL": 21047,
+      "all_rows_retained": true
+    }
+  },
+  "source_REAL_population_literal_audited": 21047,
+  "execution_counts": {
+    "checkpoint_loads": 6,
+    "TRAIN_archives_decoded": 1,
+    "PCA_archives_decoded": 1,
+    "DEV_archives_decoded": 0,
+    "AD_queries": 0,
+    "optimizer_steps": 0,
+    "old_A_calls": 52,
+    "old_A_rows": 6593,
+    "response_calls": 52,
+    "response_rows": 6593,
+    "noise005_calls": 52,
+    "noise005_rows": 6593,
+    "extension_rows": 19779,
+    "full_population_banks": 1,
+    "mean_operator_calls": 4,
+    "mean_operator_rows": 26372,
+    "generated_observation_rows": 79116,
+    "full_native_hypothesis_evaluations": 12,
+    "counterfactual_stage_summaries": 45,
+    "counterfactual_stage_rows": 296685,
+    "completed_full_population_cases": 4,
+    "carrier_stage_summaries": 36,
+    "carrier_stage_rows": 237348,
+    "input_descriptor_rows": 6593,
+    "REAL_feature_rows": 21047,
+    "intrinsic_mean_measurements": 4,
+    "intrinsic_mean_rows": 26372
+  },
+  "first_nonzero_case": "FIXED049",
+  "first_nonzero_geometry": {
+    "max_canonical_Q_residual_Vns": 7.105427357601002e-15,
+    "prefix_bitwise_unchanged": true,
+    "transport_support_exact": true,
+    "transport_integral_max_residual_Vns": 3.0531133177191805e-15,
+    "segment_area_closure_max_error_Vns": 9.71445146547012e-17,
+    "minimum_mapped_interval_ns": 0.5221067057964746,
+    "maximum_absolute_transport_V": 0.19119504434980156
+  },
+  "intrinsic_mean_verification": [
+    {
+      "case": "M0",
+      "rows": 6593,
+      "own_peak_domain_verified": true,
+      "all_features_and_flags_verified": true,
+      "absolute_crossing_width_identity": true,
+      "piecewise_edge_map_recomputed": false,
+      "FWHM_defined": 6593
+    },
+    {
+      "case": "BASE042",
+      "rows": 6593,
+      "own_peak_domain_verified": true,
+      "all_features_and_flags_verified": true,
+      "absolute_crossing_width_identity": true,
+      "piecewise_edge_map_recomputed": true,
+      "FWHM_defined": 6593
+    },
+    {
+      "case": "FIXED049",
+      "rows": 6593,
+      "own_peak_domain_verified": true,
+      "all_features_and_flags_verified": true,
+      "absolute_crossing_width_identity": true,
+      "piecewise_edge_map_recomputed": true,
+      "FWHM_defined": 6593
+    }
+  ],
+  "new_diagnostics_verification": {
+    "fast": {
+      "all_parent_rows": true,
+      "fixed_BASE042_groups_exact": true,
+      "native_output_bins_recomputed": true,
+      "all280_fixed_bin_feature_summaries_verified": true,
+      "migration_counts_exact": true,
+      "native_absolute_width_and_flags_exact": true,
+      "input_descriptor_rows": 6593,
+      "REAL_feature_rows": 21047
+    },
+    "slow": {
+      "all_parent_rows": true,
+      "fixed_BASE042_groups_exact": true,
+      "native_output_bins_recomputed": true,
+      "all280_fixed_bin_feature_summaries_verified": true,
+      "migration_counts_exact": true,
+      "native_absolute_width_and_flags_exact": true,
+      "input_descriptor_rows": 6593,
+      "REAL_feature_rows": 21047
+    },
+    "common_level": {
+      "all_parent_rows": true,
+      "fixed_BASE042_groups_exact": true,
+      "native_output_bins_recomputed": true,
+      "all280_fixed_bin_feature_summaries_verified": true,
+      "migration_counts_exact": true,
+      "native_absolute_width_and_flags_exact": true,
+      "input_descriptor_rows": 6593,
+      "REAL_feature_rows": 21047
+    }
+  },
+  "RSS_bytes": 2919247872,
+  "source_pins_verified": 144,
+  "continuous_polling_stopped": true,
+  "later_progress_unqueried": true,
+  "scientific_goal_achieved": false,
+  "raw_receipt_sha256": "2cb0c67ea924ce8d82b73b48727ca07dd4c197e6b042ba98413109c19c7218cc"
+}

@@ -1,0 +1,218 @@
+{
+  "schema": "n01/response042-startup-assessment/v1",
+  "status": "CORRECTLY_STARTED_NONZERO_LOCAL_CORRECTION_VERIFIED",
+  "verified_UTC": "2026-10-17T23:27:22.230382+00:00",
+  "job_id": "response042_local_restitution_20261018",
+  "boot_id": "b6923bf3-a173-4b1a-a175-f746178ee99c",
+  "native_identity": {
+    "pid": 87133,
+    "start_ticks": "2577209",
+    "state": "R",
+    "argv": [
+      "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+      "-B",
+      "/home/rylan/projects/ej276d-n01/response042_local_restitution_20261018/scripts/run_response042.py",
+      "--config",
+      "/home/rylan/projects/ej276d-n01/response042_local_restitution_20261018/configs/response042_20261018.json",
+      "--config-sha256",
+      "a92b3f1a1544cd24fc5ba16cdb0f3cc8cd3bb47d11f0a6563168f37b95631521",
+      "--out",
+      "/home/rylan/projects/ej276d-n01/response042_local_restitution_20261018/run_01",
+      "--device",
+      "cuda:0"
+    ],
+    "cwd": "/home/rylan/projects/ej276d-n01/response042_local_restitution_20261018"
+  },
+  "supervisor_identity": {
+    "pid": 87125,
+    "start_ticks": "2577207",
+    "state": "S",
+    "argv": [
+      "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+      "-B",
+      "/home/rylan/projects/ej276d-n01/response042_local_restitution_20261018/scripts/supervise.py",
+      "--output",
+      "/home/rylan/projects/ej276d-n01/response042_local_restitution_20261018/control_01",
+      "--rss-limit-gib",
+      "12",
+      "--",
+      "timeout",
+      "--signal=TERM",
+      "--kill-after=20s",
+      "900s",
+      "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+      "-B",
+      "/home/rylan/projects/ej276d-n01/response042_local_restitution_20261018/scripts/run_response042.py",
+      "--config",
+      "/home/rylan/projects/ej276d-n01/response042_local_restitution_20261018/configs/response042_20261018.json",
+      "--config-sha256",
+      "a92b3f1a1544cd24fc5ba16cdb0f3cc8cd3bb47d11f0a6563168f37b95631521",
+      "--out",
+      "/home/rylan/projects/ej276d-n01/response042_local_restitution_20261018/run_01",
+      "--device",
+      "cuda:0"
+    ],
+    "cwd": "/home/rylan/projects/ej276d-n01/response042_local_restitution_20261018"
+  },
+  "dispatcher_identity": {
+    "pid": 87124,
+    "start_ticks": "2577207",
+    "state": "S",
+    "argv": [
+      "flock",
+      "-n",
+      "/home/rylan/projects/ej276d-n01/.n01_scientific_dispatch.lock",
+      "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+      "-B",
+      "/home/rylan/projects/ej276d-n01/response042_local_restitution_20261018/scripts/supervise.py",
+      "--output",
+      "/home/rylan/projects/ej276d-n01/response042_local_restitution_20261018/control_01",
+      "--rss-limit-gib",
+      "12",
+      "--",
+      "timeout",
+      "--signal=TERM",
+      "--kill-after=20s",
+      "900s",
+      "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+      "-B",
+      "/home/rylan/projects/ej276d-n01/response042_local_restitution_20261018/scripts/run_response042.py",
+      "--config",
+      "/home/rylan/projects/ej276d-n01/response042_local_restitution_20261018/configs/response042_20261018.json",
+      "--config-sha256",
+      "a92b3f1a1544cd24fc5ba16cdb0f3cc8cd3bb47d11f0a6563168f37b95631521",
+      "--out",
+      "/home/rylan/projects/ej276d-n01/response042_local_restitution_20261018/run_01",
+      "--device",
+      "cuda:0"
+    ],
+    "cwd": "/home/rylan/projects/ej276d-n01/response042_local_restitution_20261018"
+  },
+  "timeout_identity": {
+    "pid": 87132,
+    "start_ticks": "2577209",
+    "state": "S",
+    "argv": [
+      "timeout",
+      "--signal=TERM",
+      "--kill-after=20s",
+      "900s",
+      "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+      "-B",
+      "/home/rylan/projects/ej276d-n01/response042_local_restitution_20261018/scripts/run_response042.py",
+      "--config",
+      "/home/rylan/projects/ej276d-n01/response042_local_restitution_20261018/configs/response042_20261018.json",
+      "--config-sha256",
+      "a92b3f1a1544cd24fc5ba16cdb0f3cc8cd3bb47d11f0a6563168f37b95631521",
+      "--out",
+      "/home/rylan/projects/ej276d-n01/response042_local_restitution_20261018/run_01",
+      "--device",
+      "cuda:0"
+    ],
+    "cwd": "/home/rylan/projects/ej276d-n01/response042_local_restitution_20261018"
+  },
+  "config_sha256": "a92b3f1a1544cd24fc5ba16cdb0f3cc8cd3bb47d11f0a6563168f37b95631521",
+  "execution_counts": {
+    "checkpoint_loads": 6,
+    "TRAIN_archives_decoded": 1,
+    "PCA_archives_decoded": 1,
+    "DEV_archives_decoded": 0,
+    "AD_queries": 0,
+    "optimizer_steps": 0,
+    "old_A_calls": 52,
+    "old_A_rows": 6593,
+    "response_calls": 52,
+    "response_rows": 6593,
+    "noise005_calls": 52,
+    "noise005_rows": 6593,
+    "extension_rows": 19779,
+    "full_population_banks": 1,
+    "mean_operator_calls": 3,
+    "mean_operator_rows": 19779,
+    "generated_observation_rows": 59337,
+    "full_native_hypothesis_evaluations": 9,
+    "parameter_proposals": 2,
+    "retained_parameter_updates": 0
+  },
+  "M0_replay": {
+    "max_scalar_absolute_difference": 0.0,
+    "flags_exactly_reproduced": true,
+    "reference_file": "receipts/response040_20261018/preparation_01/seed0_REFERENCE039.json",
+    "geometry": {
+      "max_time_displacement_ns": 0.0,
+      "max_canonical_Q_residual_Vns": 0.0,
+      "local_canonical_Q_max_residual_Vns": 0.0,
+      "prefix_bitwise_unchanged": true,
+      "local_tail_bitwise_unchanged": true,
+      "local_prefix_exact_zero": true,
+      "local_tail_exact_zero": true,
+      "restitution_fraction": 0.0,
+      "early_lost_area_Vns": {
+        "rows": 6593,
+        "defined_rows": 6593,
+        "undefined_rows": 0,
+        "mean": 0.0,
+        "std_population": 0.0,
+        "quantiles": {
+          "p01": -0.0,
+          "p10": 0.0,
+          "p50": 0.0,
+          "p90": -0.0,
+          "p99": 0.0
+        },
+        "undefined_is_not_zero": true
+      },
+      "maximum_absolute_local_voltage_V": 0.0
+    }
+  },
+  "front_replay": {
+    "max_scalar_absolute_difference": 0.0,
+    "flags_exact": true
+  },
+  "full_population_verified": {
+    "SOURCE_parents": 6593,
+    "REAL_rows": 21047,
+    "H": 3
+  },
+  "first_local_geometry": {
+    "max_time_displacement_ns": 0.41528493206197936,
+    "max_canonical_Q_residual_Vns": 5.329070518200751e-15,
+    "local_canonical_Q_max_residual_Vns": 5.421010862427522e-19,
+    "prefix_bitwise_unchanged": true,
+    "local_tail_bitwise_unchanged": true,
+    "local_prefix_exact_zero": true,
+    "local_tail_exact_zero": true,
+    "restitution_fraction": 0.5,
+    "early_lost_area_Vns": {
+      "rows": 6593,
+      "defined_rows": 6593,
+      "undefined_rows": 0,
+      "mean": 0.0010038602755845143,
+      "std_population": 0.001931380795802714,
+      "quantiles": {
+        "p01": -0.00027731255366312234,
+        "p10": -1.783641555909619e-05,
+        "p50": 0.00014107332024876432,
+        "p90": 0.0045371842315278434,
+        "p99": 0.007081033830447554
+      },
+      "undefined_is_not_zero": true
+    },
+    "maximum_absolute_local_voltage_V": 0.000485983148328375
+  },
+  "first_local_decision": {
+    "score": 0.9634885156028239,
+    "feasible": false,
+    "violations": [
+      "fast/negative_lobe_area",
+      "slow/negative_lobe_area",
+      "common_level/negative_lobe_area"
+    ]
+  },
+  "RSS_bytes": 2737774592,
+  "native_error_seen": false,
+  "scientific_goal_achieved": false,
+  "continuous_polling_stopped": true,
+  "later_progress_unqueried": true,
+  "raw_receipt_sha256": "1323f9fa67512ffbc8c4fa9d43ee6e539233760b968d08e633b14b4b31ba7334"
+}

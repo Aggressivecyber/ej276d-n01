@@ -1,0 +1,175 @@
+{
+  "UTC": "2026-10-18T02:02:10.398216+00:00",
+  "root_only": true,
+  "prior049_closed_and_metadata_corrected_in_derivative": true,
+  "old_raw_evidence_preserved": true,
+  "actual_REAL_population_literal_21047_audited": true,
+  "targeted_version_names_not_numeric_replacement": true,
+  "source_review": {
+    "base": "049 corrected metadata derivative",
+    "version_edits": "targeted names and response/version string labels only",
+    "all_numeric_constants_in_run_and_main_preserved": true,
+    "all_TRAIN_REAL_rows_literal": 21047,
+    "run_and_main_AST_exact_after_targeted_renames": true,
+    "operator_change_only": "center=bounded argmax of frozen BASE042 mean, extents to old fixed endpoints",
+    "new_geometry": "derived centers, mean peak movement and actual norm min/max",
+    "new_center_grid": false,
+    "root_only": true
+  },
+  "signed_domain_test_review": {
+    "reason": "Whole sign reversal changes bounded argmax-derived center; unlike fixed-center049 odd homogeneity is not a property. Physical declared mean domain has positive local integral and peak.",
+    "preserved_tests": [
+      "positive scaling",
+      "permutation",
+      "batching",
+      "signed small-lobe conservation and support",
+      "all Gaussian and flat semantics"
+    ],
+    "scientific_thresholds_changed": false,
+    "CP_DATA_loads": 0,
+    "prior_test_preserved": true
+  },
+  "exact_candidates": [
+    {
+      "candidate_id": 0,
+      "bias": [
+        0.0,
+        0.0,
+        0.125,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "restitution_fraction": 2.0,
+      "width_strength": 0.0
+    },
+    {
+      "candidate_id": 1,
+      "bias": [
+        0.0,
+        0.0,
+        0.125,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "restitution_fraction": 2.0,
+      "width_strength": 0.125
+    },
+    {
+      "candidate_id": 2,
+      "bias": [
+        0.0,
+        0.0,
+        0.125,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "restitution_fraction": 2.0,
+      "width_strength": 0.25
+    },
+    {
+      "candidate_id": 3,
+      "bias": [
+        0.0,
+        0.0,
+        0.125,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "restitution_fraction": 2.0,
+      "width_strength": 0.5
+    }
+  ],
+  "new_center_grid": false,
+  "center_only_frozen_input_mean": true,
+  "no_REAL_or_noise_center": true,
+  "native_readout_objective_and_selection_preserved": true,
+  "local_manufactured_test": {
+    "status": "PASS",
+    "device": "cpu",
+    "manufactured_rows": 65,
+    "width_test_rows": 32,
+    "flat_rows": 1,
+    "signed_shape_rows": 32,
+    "checkpoint_loads": 0,
+    "dataset_loads": 0,
+    "AD_queries": 0,
+    "full_integral_residual_Vns": 1.1358101958958144e-15,
+    "canonical_Q_residual_Vns": 1.135918616113063e-15,
+    "support_exact": true,
+    "minimum_mapped_interval_ns": 0.5462171239219487,
+    "amplitude_normalization_min": 0.8623951190183021,
+    "amplitude_normalization_max": 1.280999535445905,
+    "low_Q_width_before_ns": 18.84905660377359,
+    "low_Q_width_after_ns": 14.878607503607476,
+    "high_Q_width_before_ns": 18.847250509164972,
+    "high_Q_width_after_ns": 22.651315213585434,
+    "Gaussian_peaks120_through132_and_monotone_flanks_preserved": true,
+    "flat_voltage_exactly_unchanged": true,
+    "flat_old047_peak_to_peak_V": 0.24566248673643454,
+    "fixed_support_and_derived_centers_verified": true,
+    "low_Q_fixed126_width_ns": 17.195003594536306,
+    "zero_strength_exact_native_observation": true,
+    "batching_max_absolute_error_V": 0.0,
+    "batching_tolerance_V": 1e-12,
+    "positive_homogeneity_and_row_permutation_verified": true,
+    "signed_lobe_integral_and_support_verified": true,
+    "whole_sign_reversal_not_claimed": true,
+    "manufactured_no_ADC_clipping": true,
+    "scientific_acceptance": false
+  },
+  "resources": {
+    "CPU_threads": 4,
+    "RSS_GiB": 12,
+    "GPU_GiB": 6,
+    "hard_wall_seconds": 900,
+    "internal_seconds": 780,
+    "output_MiB": 64,
+    "one_scientific_job": true,
+    "automatic_restart": false
+  },
+  "operation_bounds": {
+    "original_CP_loads": 6,
+    "TRAIN_archives": 1,
+    "PCA_archives": 1,
+    "DEV_archives": 0,
+    "AD_queries": 0,
+    "optimizer_steps": 0,
+    "source_A0_calls": 52,
+    "source_A0_rows": 6593,
+    "M0_and_005_cache_banks": 10,
+    "M0_response_calls": 520,
+    "M0_response_rows": 65930,
+    "noise005_calls": 520,
+    "noise005_rows": 65930,
+    "extension_hypothesis_rows": 197790,
+    "unique_frozen_settings": 4,
+    "eligible_nonzero_settings": 3,
+    "parameter_proposals_including_zero_controls": 8,
+    "mean_operator_calls": 26,
+    "mean_operator_rows": 171418,
+    "full_native_hypothesis_evaluations": 78,
+    "generated_observation_rows": 514254,
+    "retained_parameter_updates": 2
+  },
+  "no_selection_counts": {
+    "full_population_banks": 2,
+    "mean_operator_calls": 10,
+    "mean_operator_rows": 65930,
+    "full_native_hypothesis_evaluations": 30,
+    "generated_observation_rows": 197790
+  },
+  "config_sha256": "f684b05a98b7ce7363f810d6b20be0fac6c30e3a263410d143fb54d097c40a8d",
+  "source_pin_count": 134
+}

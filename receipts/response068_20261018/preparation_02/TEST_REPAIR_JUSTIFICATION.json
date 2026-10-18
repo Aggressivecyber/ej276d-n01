@@ -1,0 +1,20 @@
+{
+  "UTC": "2026-10-18T11:42:28.912019+00:00",
+  "status": "CUDA_TEST_UNIT_MIX_CORRECTED_PENDING_RETEST",
+  "scientific_started": false,
+  "TRAIN_decodes": 0,
+  "old_test_sha256": "64e54568c32f3ef2313a2a7b777437e6a882fcb6a3552731536ed045c819794a",
+  "new_test_sha256": "197f487335ce3ed486a1f0c2610ad9afe717c8eef392a25227ab39738707d4d2",
+  "unchanged_runner_sha256": "db2398b4b83d1187a38c27891bf8d69d74f1ab0fdb2e71730c59db16af29ab17",
+  "evidence": "deployment_01/CUDA_BATCH_DIAGNOSTIC_STDOUT.txt",
+  "observed_batch_mean_error_V": 5.995204332975845e-15,
+  "observed_batch_random_error_V": 6.402430668961401e-15,
+  "observed_batch_query_error_samples": 1.0260237104375847e-11,
+  "diagnosis": "Original chunk check mixed voltage and time-query units under the voltage1e-12 bound. Independent-query and identity checks in the same frozen test already used1e-10 samples. Apply those two pre-existing unit-specific engineering limits separately.",
+  "voltage_limit_V": 1e-12,
+  "query_limit_samples": 1e-10,
+  "scientific_thresholds_changed": false,
+  "scientific_runner_changed": false,
+  "scientific_budget_changed": false,
+  "original_failed_source_archive_preserved": true
+}

@@ -1,0 +1,189 @@
+"""One fixed, peak-preserving positive-area mixture proposed from060 profiles."""
+import argparse
+from collections import Counter
+from datetime import datetime,timezone
+import hashlib,json,os,sys,time
+from pathlib import Path
+import numpy as np
+import torch
+import run_response039 as r
+from run_response042 import local_restitution042
+from run_response052 import conditional_sides052,evaluate052
+from run_response053 import intrinsic_mean053,CROSSINGS053
+from run_response060 import save_profiles060
+from run_response044 import readouts044
+from wp1_evaluation import summary,output_q_bins
+
+ROOT=Path(__file__).resolve().parents[1]
+
+
+def shape_mixture061(mean,input_q,fraction,template):
+    """Keep negative samples; convexly mix positive area with an aligned proposal."""
+    if not 0.<=fraction<=.125:raise ValueError('061 mixture fraction outside fixed research cap')
+    if not bool((input_q>0.).all()):raise ValueError('061 nonpositive input-Q domain')
+    peak=mean[:,112:144].argmax(1)+112
+    knots=torch.as_tensor(template['Q_centers_Vns'],device=mean.device,dtype=torch.float64).log()
+    profiles=torch.as_tensor(template['positive_unit_Q_profiles'],device=mean.device,dtype=torch.float64)
+    logq=input_q.log();lookup=logq.clamp(knots[0],knots[-1])
+    segment=(torch.searchsorted(knots,lookup,right=True)-1).clamp(0,6)
+    weight=(lookup-knots[segment])/(knots[segment+1]-knots[segment])
+    shape=(1.-weight[:,None])*profiles[segment]+weight[:,None]*profiles[segment+1]
+    locations=torch.arange(110,176,device=mean.device)[None,:]-peak[:,None]+16
+    local=mean[:,110:176];positive=local.clamp_min(0.)
+    target_shape=shape.gather(1,locations.clamp_min(0))*(locations>=0)*(local>0.)
+    area=positive.sum(1);normalization=area/target_shape.sum(1)
+    target=normalization[:,None]*target_shape
+    delta=torch.zeros_like(mean)
+    if fraction!=0.:delta[:,110:176]=fraction*(target-positive)
+    adapted=mean+delta
+    rows=dict(input_Q_Vns=input_q,lookup_logQ=lookup,template_interval=segment,template_right_weight=weight,
+        lookup_clamped_low=logq<knots[0],lookup_clamped_high=logq>knots[-1],positive_area_Vns=area,template_normalization=normalization,
+        old_mean_peak_index=peak,new_mean_peak_index=adapted[:,112:144].argmax(1)+112,
+        old_peak_voltage_V=mean.gather(1,peak[:,None]).squeeze(1),new_peak_voltage_V=adapted.gather(1,peak[:,None]).squeeze(1),
+        retained_event_fraction=torch.full_like(area,1.-fraction),full_integral_residual_Vns=delta.sum(1),canonical_Q_residual_Vns=r.canonical_charge008(delta),
+        negative_area_change_Vns=(-adapted).clamp_min(0.).sum(1)-(-mean).clamp_min(0.).sum(1),
+        transferred_absolute_area_Vns=delta.abs().sum(1),maximum_absolute_delta_V=delta.abs().max(1).values,
+        boundary_delta_110_V=delta[:,110],boundary_delta_175_V=delta[:,175])
+    return delta,rows
+
+
+@torch.no_grad()
+def evaluate061(setup,index,bank,T,projection,real_joint,p,out,progress,fraction,label,template,base_by_h):
+    model=setup['models'][index];device=setup['source'].device
+    model.mean_adapter[-1].bias.copy_(torch.as_tensor(p['base_bias'],device=device,dtype=model.mean_adapter[-1].bias.dtype))
+    progress['mean_operator_calls']+=1;progress['mean_operator_rows']+=len(setup['source'])
+    adapter=model._mean_response(setup['encoding'],enabled=True)
+    delta,_,_=local_restitution042(adapter['delta_mean_pre_V'],p['base_restitution_fraction'])
+    A0=setup['encoding']['original']['signal_pre'];q=r.canonical_charge008(A0)
+    transport,_,_,_,_,_=conditional_sides052(A0+delta,q,1.,p['input_Q_reference_Vns'],p['side_coefficients_ns'])
+    fixed_delta=delta+transport;fixed_mean=A0+fixed_delta
+    correction,rows=shape_mixture061(fixed_mean,q,fraction,template)
+    delta=fixed_delta+correction;mean=A0+delta;signal=r._ExactZeroMeanAddition015.apply(bank['M0'],delta)
+    geometry=dict(fraction=fraction,support=[110,176],support_exact=bool((correction[:,:110]==0.).all() and (correction[:,176:]==0.).all()),
+        frozen_prefix_bitwise_unchanged=torch.equal(signal[:,:100],bank['M0'][:,:100]),mean_tail_from176_bitwise_unchanged=torch.equal(mean[:,176:],fixed_mean[:,176:]),
+        nonpositive_mean_samples_unchanged=torch.equal(mean[fixed_mean<=0.],fixed_mean[fixed_mean<=0.]),
+        mean_peak_changed_rows=int(((mean[:,112:144].argmax(1)+112)!=rows['old_mean_peak_index']).sum()),
+        maximum_canonical_Q_residual_Vns=float((r.canonical_charge008(mean)-q).abs().max()),
+        maximum_full_integral_residual_Vns=float(correction.sum(1).abs().max()),mean_negative_area_max_change_Vns=float(rows['negative_area_change_Vns'].abs().max()),
+        maximum_absolute_correction_V=float(correction.abs().max()),boundary_delta_max_absolute_V=float(torch.maximum(correction[:,110].abs(),correction[:,175].abs()).max()),
+        row_summaries={k:summary(v.cpu().numpy()) for k,v in rows.items()})
+    if not all(geometry[k] for k in ('support_exact','frozen_prefix_bitwise_unchanged','mean_tail_from176_bitwise_unchanged','nonpositive_mean_samples_unchanged')):raise RuntimeError('061 exact support/prefix/tail/negative invariant failed')
+    if geometry['mean_peak_changed_rows'] or geometry['mean_negative_area_max_change_Vns']!=0.:raise RuntimeError('061 original peak or negative area changed')
+    if geometry['maximum_canonical_Q_residual_Vns']>1e-10 or geometry['maximum_full_integral_residual_Vns']>1e-12:raise RuntimeError('061 charge/area invariant failed')
+    if not bool(torch.isfinite(mean).all()):raise RuntimeError('061 nonfinite mean')
+    np.savez_compressed(out/(label+'_GEOMETRY_ROWS.npz'),parent_row=np.arange(len(q)),**{k:v.cpu().numpy() for k,v in rows.items()})
+    np.savez_compressed(out/(label+'_EXAMPLES.npz'),parent_row=np.arange(32),input_Q_Vns=q[:32].cpu().numpy(),fixed_mean_pre_V=fixed_mean[:32].cpu().numpy(),adapted_mean_pre_V=mean[:32].cpu().numpy(),correction_pre_V=correction[:32].cpu().numpy())
+    progress['geometry_records']+=1;progress['geometry_rows']+=len(q)
+    intrinsic=intrinsic_mean053(mean)
+    np.savez_compressed(out/(label+'_INTRINSIC_MEAN_ROWS.npz'),parent_row=np.arange(len(q)),input_Q_Vns=q.cpu().numpy(),input_Q_bin=p['_input_bins'],
+        intrinsic_peak_index=intrinsic['peak_index'],**intrinsic['features'],**intrinsic['crossings'],**{k+'_flag':v for k,v in intrinsic['flags'].items()})
+    progress['intrinsic_mean_records']+=1;progress['intrinsic_mean_rows']+=len(q)
+    intrinsic_wave=mean.gather(1,torch.as_tensor(intrinsic['peak_index'],device=device)[:,None]-16+torch.arange(256,device=device)[None,:]).cpu().numpy()
+    reports={}
+    for h in r.HYPOTHESES:
+        obs=r.observe_generated_carrier(signal+bank['noise'][h],ste=False,q_floor=float(setup['loss'].q_floor),return_carrier=True)
+        progress['generated_observation_rows']+=len(signal)
+        wave,baseline,peaks=[obs[k].cpu().numpy() for k in ('window_V','baseline100','peak_index')]
+        report=r.hard_metrics(wave,baseline,setup['data']['real'],setup['data']['real_baseline100'],setup['loss'],setup['context'])
+        z=r.joint_embedding(wave,baseline,peaks,dict(T[h],q_floor=float(setup['loss'].q_floor)))
+        report['values']['joint_morphology']=float(r.column_W1(torch.as_tensor(z,device=device)@projection,real_joint[h],16))
+        report['values']['negative_lobe_area_Vns']=r.raw_distance(np.maximum(-wave,0).sum(1),np.maximum(-setup['data']['real'],0).sum(1))['value']
+        report['observation_flags']={k:dict(count=int(v.sum()),denominator=len(signal)) for k,v in obs['flags'].items()}
+        progress['full_native_hypothesis_evaluations']+=1;reports[h]=report
+        r.write_json(out/(label+'_'+h+'_METRICS.json'),report)
+        features,flags=readouts044(wave);morph=r.morphology018(wave);bins=output_q_bins(features['Q_Vns'],setup['loss'])
+        if fraction==0.:base_by_h[h]=dict(peak_index=peaks.copy(),Q_bin=bins.copy())
+        base=base_by_h[h]
+        native=dict(parent_row=np.arange(len(q)),input_Q_Vns=q.cpu().numpy(),input_Q_bin=p['_input_bins'],native_peak_index=peaks,
+            BASE054_peak_index=base['peak_index'],BASE054_output_Q_bin=base['Q_bin'],native_output_Q_bin=bins,
+            **features,**{k+'_flag':v for k,v in flags.items()},**{k+'_absolute_ns':morph[k]+peaks-16 for k in CROSSINGS053})
+        np.savez_compressed(out/(label+'_'+h+'_NATIVE_ROWS.npz'),**native)
+        np.savez_compressed(out/(label+'_'+h+'_NATIVE_EXAMPLES.npz'),parent_row=np.arange(32),wave=wave[:32],baseline100=baseline[:32],peak_index=peaks[:32])
+        progress['feature_records']+=1;progress['feature_rows']+=len(q)
+        if h=='fast':
+            np.savez_compressed(out/(label+'_fast_CARRIER_EXAMPLES.npz'),parent_row=np.arange(32),mean_pre_V=mean[:32].cpu().numpy(),signal_pre_V=signal[:32].cpu().numpy(),pre_ADC_V=(signal+bank['noise'][h])[:32].cpu().numpy(),ADC_pre_V=obs['carrier_adc'][:32].cpu().numpy(),native_crop_indices=obs['crop_indices'][:32].cpu().numpy())
+            save_profiles060(wave,np.array([p['_input_bins'],bins]),np.arange(len(q)),float(setup['loss'].q_floor),out,label+'_fast',
+                ['A0_input_Q_quantile','own_native_output_Q'],progress)
+            save_profiles060(intrinsic_wave,np.array([p['_input_bins'],base['Q_bin']]),np.arange(len(q)),float(setup['loss'].q_floor),out,label+'_intrinsic',
+                ['A0_input_Q_quantile','fixed_BASE054_fast_native_output_Q'],progress)
+        r.check_resources(p,out,p['_started'])
+        r.write_json(out/'PROGRESS.json',dict(phase='fixed_positive_area_mixture',seed_index=index,case=label,hypothesis=h,elapsed_seconds=time.monotonic()-p['_started'],execution_counts=dict(progress)))
+    return reports,geometry
+
+
+@torch.no_grad()
+def run061(p,out,device,progress):
+    started=time.monotonic();p['_started']=started;out.mkdir(parents=True,exist_ok=False)
+    r.write_json(out/'STARTED.json',dict(UTC=datetime.now(timezone.utc).isoformat(),run_id=p['run_id'],config_sha256=p['_config_sha256'],pid=os.getpid(),resources=p['resources']))
+    setup=r.load_setup(json.loads((ROOT/p['setup038']['path']).read_text()),device,progress)
+    for model in setup['models']:model.set_phase('frozen').eval()
+    T=json.loads(setup['paths']['tolerances'].read_text())['T_by_hypothesis'];q=r.canonical_charge008(setup['encoding']['original']['signal_pre']).cpu().numpy()
+    if hashlib.sha256(q.tobytes()).hexdigest()!=p['input_Q_array_sha256']:raise RuntimeError('061 input Q bytes differ')
+    reference=np.load(ROOT/p['input_reference_file']);p['_input_bins']=reference['input_Q_bin']
+    if not np.array_equal(q,reference['A0_canonical_Q_Vns']):raise RuntimeError('061 original input population differs')
+    template=json.loads((ROOT/p['template_file']).read_text());replay=json.loads((ROOT/p['replay_file']).read_text())['reports']
+    real_wave,real_baseline=setup['data']['real'],setup['data']['real_baseline100'];features,flags=readouts044(real_wave);morph=r.morphology018(real_wave)
+    np.savez_compressed(out/'REAL_ROWS.npz',row=np.arange(len(real_wave)),output_Q_bin=output_q_bins(features['Q_Vns'],setup['loss']),**features,**{k+'_flag':v for k,v in flags.items()},**{k+'_from_selected_peak_ns':morph[k]-16 for k in CROSSINGS053})
+    save_profiles060(real_wave,np.array([output_q_bins(features['Q_Vns'],setup['loss'])]),np.arange(len(real_wave)),float(setup['loss'].q_floor),out,'REAL',['own_native_output_Q'],progress)
+    progress['REAL_feature_rows']+=len(real_wave)
+    projection=r.projection039(p['joint_projection_fit_seed'],device)
+    real_joint={h:torch.as_tensor(r.joint_embedding(real_wave,real_baseline,np.full(len(real_wave),16),dict(T[h],q_floor=float(setup['loss'].q_floor))),device=device)@projection for h in r.HYPOTHESES}
+    r.write_json(out/'DEFINITIONS.json',dict(T_by_hypothesis=T,q_floor=float(setup['loss'].q_floor),mixture_fraction=p['mixture_fraction'],
+        support=[110,176],template_file=p['template_file'],template_is_preADC_truth=False,SOURCE_REAL_event_pairing=False,all_rows_retained=True,
+        full_profile_hypothesis='fast',all_native_hypotheses=r.HYPOTHESES,original_contract=p['contract']))
+    results=[]
+    for index in range(2):
+        bank=r.make_population_bank(setup,index,'FIT',0,p,progress);base_by_h={}
+        m0,_=evaluate052(setup,index,np.zeros(8),bank,T,projection,real_joint,p,out,progress)
+        r.write_json(out/f'seed{index}_M0.json',m0)
+        if json.loads((out/f'seed{index}_M0.json').read_text())!=replay[str(index)]['M0']:raise RuntimeError('061 M0 replay changed')
+        for label,fraction in [('BASE054',0.),('MIX0125',p['mixture_fraction'])]:
+            if index==0 and fraction>0.:progress['new_candidate_settings']+=1
+            report,geometry=evaluate061(setup,index,bank,T,projection,real_joint,p,out,progress,fraction,f'seed{index}_{label}',template,base_by_h)
+            decision=r.objective039(report,m0,T,p['contract'])
+            usefulness={h:dict(wave_relative_gain=(m0[h]['values']['wave']-report[h]['values']['wave'])/m0[h]['values']['wave'],
+                joint_relative_gain=(m0[h]['values']['joint_morphology']-report[h]['values']['joint_morphology'])/m0[h]['values']['joint_morphology'],
+                morphology_mean_T_gain=float(np.mean([(m0[h]['values'][k]-report[h]['values'][k])/T[h][k] for k in r.MORPH]))) for h in r.HYPOTHESES}
+            for h,u in usefulness.items():u['passes_point_targets']=u['wave_relative_gain']>=p['contract']['useful_wave_relative_gain'] and u['joint_relative_gain']>=p['contract']['useful_joint_relative_gain'] and u['morphology_mean_T_gain']>=p['contract']['useful_morphology_mean_T_gain']
+            record=dict(seed_index=index,fraction=fraction,metrics=report,geometry=geometry,decision=decision,point_usefulness=usefulness)
+            path=out/f'seed{index}_{label}.json';r.write_json(path,record)
+            if fraction==0.:
+                if json.loads(path.read_text())['metrics']!=replay[str(index)]['BASE054']['metrics']:raise RuntimeError('061 BASE054 full report differs')
+                progress['fixed_case_replays']+=1
+            else:results.append(record);progress['candidate_head_evaluations']+=1
+        r.write_json(out/'PROGRESS.json',dict(phase='first_head_mixture_complete' if index==0 else 'both_heads_complete',seed_index=index,elapsed_seconds=time.monotonic()-started,execution_counts=dict(progress)))
+        del bank,base_by_h
+    if dict(progress)!=p['operation_bounds']:raise RuntimeError('061 exact operation counts differ')
+    r.check_resources(p,out,started)
+    for index,model in enumerate(setup['models']):
+        model.assert_frozen_unchanged(deep=True)
+        if r.state_digest(model.basis_head.state_dict())!=r.state_digest(setup['heads'][index]):raise RuntimeError('061 M0 head changed')
+    if r.state_digest(setup['baseline'].state_dict())!=setup['frozen_A_digest']:raise RuntimeError('061 A0 changed')
+    if r.state_digest(setup['extension'].state_dict())!=setup['frozen005_digest']:raise RuntimeError('061 005 changed')
+    passed=all(x['decision']['feasible'] and all(u['passes_point_targets'] for u in x['point_usefulness'].values()) for x in results)
+    result=dict(schema='n01/response061-fixed-mixture-result/v1',run_id=p['run_id'],results=results,
+        stage_outcome='FIT_USEFUL_MEAN_PENDING_CONFIRMATION' if passed else 'CLOSED_NEGATIVE_FIXED_SHAPE_MIXTURE',original_point_targets_passed=passed,
+        execution_counts=dict(progress),elapsed_seconds=time.monotonic()-started,frozen_A0_M0_005_verified=True,all_TRAIN_SOURCE_parents=6593,all_TRAIN_REAL_rows=21047,
+        all_parent_count_weights_preserved=True,confirmation_banks_opened=0,DEV_opened=False,mean_stage_accepted=False,full_random_response_acceptance=False,
+        scientific_status='response_match_not_established',uncertainty_scope='Fixed TRAIN conditional-profile-derived empirical proposal; FIT banks only; measured ADC profile is not known preADC truth.')
+    r.write_json(out/'RESULT.json',result);r.write_json(out/'COMPLETE.json',dict(UTC=datetime.now(timezone.utc).isoformat(),native_exit_expected=0,result_sha256=r.sha256(out/'RESULT.json'),elapsed_seconds=time.monotonic()-started))
+
+
+def main():
+    parser=argparse.ArgumentParser();parser.add_argument('--config',type=Path,required=True);parser.add_argument('--config-sha256',required=True)
+    parser.add_argument('--out',type=Path,required=True);parser.add_argument('--device',default='cuda:0');args=parser.parse_args()
+    if r.sha256(args.config)!=args.config_sha256:raise ValueError('061 config hash mismatch')
+    p=json.loads(args.config.read_text())
+    for name,digest in p['source_pins'].items():
+        if r.sha256(ROOT/name)!=digest:raise ValueError('061 source pin mismatch: '+name)
+    p['_config_sha256']=args.config_sha256;os.environ.setdefault('CUBLAS_WORKSPACE_CONFIG',':4096:8')
+    torch.set_num_threads(p['resources']['CPU_threads']);torch.use_deterministic_algorithms(True);device=torch.device(args.device)
+    if device.type=='cuda':torch.cuda.set_per_process_memory_fraction(p['resources']['GPU_GiB']*1024**3/torch.cuda.get_device_properties(device).total_memory,device)
+    progress=Counter(dict.fromkeys(p['operation_bounds'],0))
+    try:run061(p,args.out,device,progress)
+    finally:
+        error=sys.exc_info()[1]
+        if error is not None and args.out.exists():r.write_json(args.out/'FAILED.json',dict(error_type=type(error).__name__,error=str(error),execution_counts=dict(progress),automatic_restart=False,scientific_status='response_match_not_established'))
+
+
+if __name__=='__main__':main()

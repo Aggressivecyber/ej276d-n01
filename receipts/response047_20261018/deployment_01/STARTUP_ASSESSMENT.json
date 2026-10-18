@@ -1,0 +1,527 @@
+{
+  "status": "CORRECTLY_STARTED_EXACT_REPLAY_AND_CONSERVATIVE_WIDTH_VERIFIED",
+  "verified_UTC": "2026-10-18T01:09:08.935804+00:00",
+  "job_id": "response047_smooth_endpoint_width_20261018",
+  "boot_id": "b6923bf3-a173-4b1a-a175-f746178ee99c",
+  "native_identity": {
+    "pid": 110119,
+    "start_ticks": "3187783",
+    "state": "R",
+    "argv": [
+      "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+      "-B",
+      "/home/rylan/projects/ej276d-n01/response047_smooth_endpoint_width_20261018/scripts/run_response047.py",
+      "--config",
+      "/home/rylan/projects/ej276d-n01/response047_smooth_endpoint_width_20261018/configs/response047_20261018.json",
+      "--config-sha256",
+      "07f7d215d4b095261920d398c2983269e9e46504d4735cba98365f16317dabd6",
+      "--out",
+      "/home/rylan/projects/ej276d-n01/response047_smooth_endpoint_width_20261018/run_01",
+      "--device",
+      "cuda:0"
+    ],
+    "cwd": "/home/rylan/projects/ej276d-n01/response047_smooth_endpoint_width_20261018"
+  },
+  "supervisor_identity": {
+    "pid": 110111,
+    "start_ticks": "3187782",
+    "state": "S",
+    "argv": [
+      "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+      "-B",
+      "/home/rylan/projects/ej276d-n01/response047_smooth_endpoint_width_20261018/scripts/supervise.py",
+      "--output",
+      "/home/rylan/projects/ej276d-n01/response047_smooth_endpoint_width_20261018/control_01",
+      "--rss-limit-gib",
+      "12",
+      "--",
+      "timeout",
+      "--signal=TERM",
+      "--kill-after=20s",
+      "900s",
+      "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+      "-B",
+      "/home/rylan/projects/ej276d-n01/response047_smooth_endpoint_width_20261018/scripts/run_response047.py",
+      "--config",
+      "/home/rylan/projects/ej276d-n01/response047_smooth_endpoint_width_20261018/configs/response047_20261018.json",
+      "--config-sha256",
+      "07f7d215d4b095261920d398c2983269e9e46504d4735cba98365f16317dabd6",
+      "--out",
+      "/home/rylan/projects/ej276d-n01/response047_smooth_endpoint_width_20261018/run_01",
+      "--device",
+      "cuda:0"
+    ],
+    "cwd": "/home/rylan/projects/ej276d-n01/response047_smooth_endpoint_width_20261018"
+  },
+  "dispatcher_identity": {
+    "pid": 110110,
+    "start_ticks": "3187781",
+    "state": "S",
+    "argv": [
+      "flock",
+      "-n",
+      "/home/rylan/projects/ej276d-n01/.n01_scientific_dispatch.lock",
+      "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+      "-B",
+      "/home/rylan/projects/ej276d-n01/response047_smooth_endpoint_width_20261018/scripts/supervise.py",
+      "--output",
+      "/home/rylan/projects/ej276d-n01/response047_smooth_endpoint_width_20261018/control_01",
+      "--rss-limit-gib",
+      "12",
+      "--",
+      "timeout",
+      "--signal=TERM",
+      "--kill-after=20s",
+      "900s",
+      "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+      "-B",
+      "/home/rylan/projects/ej276d-n01/response047_smooth_endpoint_width_20261018/scripts/run_response047.py",
+      "--config",
+      "/home/rylan/projects/ej276d-n01/response047_smooth_endpoint_width_20261018/configs/response047_20261018.json",
+      "--config-sha256",
+      "07f7d215d4b095261920d398c2983269e9e46504d4735cba98365f16317dabd6",
+      "--out",
+      "/home/rylan/projects/ej276d-n01/response047_smooth_endpoint_width_20261018/run_01",
+      "--device",
+      "cuda:0"
+    ],
+    "cwd": "/home/rylan/projects/ej276d-n01/response047_smooth_endpoint_width_20261018"
+  },
+  "timeout_identity": {
+    "pid": 110118,
+    "start_ticks": "3187783",
+    "state": "S",
+    "argv": [
+      "timeout",
+      "--signal=TERM",
+      "--kill-after=20s",
+      "900s",
+      "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+      "-B",
+      "/home/rylan/projects/ej276d-n01/response047_smooth_endpoint_width_20261018/scripts/run_response047.py",
+      "--config",
+      "/home/rylan/projects/ej276d-n01/response047_smooth_endpoint_width_20261018/configs/response047_20261018.json",
+      "--config-sha256",
+      "07f7d215d4b095261920d398c2983269e9e46504d4735cba98365f16317dabd6",
+      "--out",
+      "/home/rylan/projects/ej276d-n01/response047_smooth_endpoint_width_20261018/run_01",
+      "--device",
+      "cuda:0"
+    ],
+    "cwd": "/home/rylan/projects/ej276d-n01/response047_smooth_endpoint_width_20261018"
+  },
+  "config_sha256": "07f7d215d4b095261920d398c2983269e9e46504d4735cba98365f16317dabd6",
+  "M0_full_JSON_replay_passed_by_execution_path": true,
+  "BASE042_full_JSON_replay_exact": true,
+  "execution_counts": {
+    "checkpoint_loads": 6,
+    "TRAIN_archives_decoded": 1,
+    "PCA_archives_decoded": 1,
+    "DEV_archives_decoded": 0,
+    "AD_queries": 0,
+    "optimizer_steps": 0,
+    "old_A_calls": 52,
+    "old_A_rows": 6593,
+    "response_calls": 52,
+    "response_rows": 6593,
+    "noise005_calls": 52,
+    "noise005_rows": 6593,
+    "extension_rows": 19779,
+    "full_population_banks": 1,
+    "mean_operator_calls": 3,
+    "mean_operator_rows": 19779,
+    "generated_observation_rows": 59337,
+    "full_native_hypothesis_evaluations": 9,
+    "parameter_proposals": 2,
+    "retained_parameter_updates": 0
+  },
+  "first_nonzero_geometry": {
+    "max_canonical_Q_residual_Vns": 5.329070518200751e-15,
+    "prefix_bitwise_unchanged": true,
+    "transport_support_exact": true,
+    "transport_full_integral_max_residual_Vns": 2.8657631823136853e-15,
+    "transport_canonical_Q_max_residual_Vns": 2.8935187579293142e-15,
+    "maximum_absolute_transport_V": 0.07359687054560105,
+    "maximum_transport_displacement_ns": 1.1126227012719596,
+    "minimum_mapped_interval_ns": 0.8805266764491222,
+    "transport_coefficient": {
+      "rows": 6593,
+      "defined_rows": 6593,
+      "undefined_rows": 0,
+      "mean": -0.0002527286408527048,
+      "std_population": 0.06866398907002645,
+      "quantiles": {
+        "p01": -0.11425278219843847,
+        "p10": -0.09362155736272887,
+        "p50": 0.0,
+        "p90": 0.09267552086369688,
+        "p99": 0.10616499519537757
+      },
+      "undefined_is_not_zero": true
+    },
+    "width_strength": 0.125,
+    "input_Q_reference_Vns": 3.680695072375209,
+    "restitution_fraction": 2.0,
+    "maximum_absolute_restitution_V": 0.0019439325933135
+  },
+  "first_nonzero_population": {
+    "fast": {
+      "fake_rows": 6593,
+      "real_rows": 21047,
+      "all_rows_retained": true,
+      "conditional_coverage_complete": true,
+      "values": {
+        "wave": 0.14344379215708453,
+        "QPSD": 0.0581572142169878,
+        "noise": 0.1226177360020099,
+        "Q_Vns": 0.04546238415588532,
+        "front_Vns": 0.09526336780828087,
+        "tail_Vns": 0.019581347785391993,
+        "PSD_raw": 0.0028116662013358356,
+        "PSD_guarded": 0.0028116662013358356,
+        "peak_voltage_V": 0.026973617795089923,
+        "rise10_90_ns": 1.3759471188848382,
+        "FWHM_ns": 2.931595265850341,
+        "baseline_mean_V": 1.6672585944793068e-05,
+        "baseline_RMS_V": 1.812568914528338e-05,
+        "Q_nonpositive_rate": 0.0,
+        "PSD_undefined_rate": 0.0,
+        "PSD_guarded_rate": 0.0,
+        "rise_undefined_rate": 0.006151126694402279,
+        "FWHM_undefined_rate": 0.00023756354824915665,
+        "temporal_nonpositive_peak_rate": 0.0,
+        "rise_prepeak_censored_rate": 0.006151126694402279,
+        "FWHM_prepeak_censored_rate": 0.00023756354824915665,
+        "FWHM_postpeak_censored_rate": 0.0,
+        "joint_morphology": 3.3885574213850385,
+        "negative_lobe_area_Vns": 0.005997350971451347
+      },
+      "fake_flags": {
+        "Q_nonpositive": {
+          "count": 0,
+          "denominator": 6593
+        },
+        "PSD_undefined": {
+          "count": 0,
+          "denominator": 6593
+        },
+        "PSD_guarded": {
+          "count": 0,
+          "denominator": 6593
+        },
+        "rise_undefined": {
+          "count": 70,
+          "denominator": 6593
+        },
+        "FWHM_undefined": {
+          "count": 0,
+          "denominator": 6593
+        },
+        "temporal_nonpositive_peak": {
+          "count": 0,
+          "denominator": 6593
+        },
+        "rise_prepeak_censored": {
+          "count": 70,
+          "denominator": 6593
+        },
+        "rise_other_undefined": {
+          "count": 0,
+          "denominator": 6593
+        },
+        "FWHM_prepeak_censored": {
+          "count": 0,
+          "denominator": 6593
+        },
+        "FWHM_postpeak_censored": {
+          "count": 0,
+          "denominator": 6593
+        },
+        "FWHM_other_undefined": {
+          "count": 0,
+          "denominator": 6593
+        },
+        "selected_peak_below_global_crop_max": {
+          "count": 0,
+          "denominator": 6593
+        }
+      },
+      "observation_flags": {
+        "peak_at_search_boundary": {
+          "count": 0,
+          "denominator": 6593
+        },
+        "global_peak_outside_search": {
+          "count": 0,
+          "denominator": 6593
+        },
+        "Q_nonpositive": {
+          "count": 0,
+          "denominator": 6593
+        },
+        "PSD_undefined": {
+          "count": 0,
+          "denominator": 6593
+        },
+        "PSD_guarded": {
+          "count": 0,
+          "denominator": 6593
+        },
+        "ADC_rail_hit": {
+          "count": 0,
+          "denominator": 6593
+        },
+        "pre_ADC_out_of_range": {
+          "count": 0,
+          "denominator": 6593
+        }
+      }
+    },
+    "slow": {
+      "fake_rows": 6593,
+      "real_rows": 21047,
+      "all_rows_retained": true,
+      "conditional_coverage_complete": true,
+      "values": {
+        "wave": 0.1446427709044781,
+        "QPSD": 0.06205683263868536,
+        "noise": 0.1226177360020099,
+        "Q_Vns": 0.044866523106105866,
+        "front_Vns": 0.0951391092752089,
+        "tail_Vns": 0.019403355483000765,
+        "PSD_raw": 0.0035137142599171497,
+        "PSD_guarded": 0.0035137142599171497,
+        "peak_voltage_V": 0.026980512412827597,
+        "rise10_90_ns": 1.3743456077161837,
+        "FWHM_ns": 2.93069046446991,
+        "baseline_mean_V": 1.6672585944793068e-05,
+        "baseline_RMS_V": 1.812568914528338e-05,
+        "Q_nonpositive_rate": 0.0,
+        "PSD_undefined_rate": 0.0,
+        "PSD_guarded_rate": 0.0,
+        "rise_undefined_rate": 0.005999450674381045,
+        "FWHM_undefined_rate": 0.00023756354824915665,
+        "temporal_nonpositive_peak_rate": 0.0,
+        "rise_prepeak_censored_rate": 0.005999450674381045,
+        "FWHM_prepeak_censored_rate": 0.00023756354824915665,
+        "FWHM_postpeak_censored_rate": 0.0,
+        "joint_morphology": 3.3895325550918813,
+        "negative_lobe_area_Vns": 0.005880431454709404
+      },
+      "fake_flags": {
+        "Q_nonpositive": {
+          "count": 0,
+          "denominator": 6593
+        },
+        "PSD_undefined": {
+          "count": 0,
+          "denominator": 6593
+        },
+        "PSD_guarded": {
+          "count": 0,
+          "denominator": 6593
+        },
+        "rise_undefined": {
+          "count": 69,
+          "denominator": 6593
+        },
+        "FWHM_undefined": {
+          "count": 0,
+          "denominator": 6593
+        },
+        "temporal_nonpositive_peak": {
+          "count": 0,
+          "denominator": 6593
+        },
+        "rise_prepeak_censored": {
+          "count": 69,
+          "denominator": 6593
+        },
+        "rise_other_undefined": {
+          "count": 0,
+          "denominator": 6593
+        },
+        "FWHM_prepeak_censored": {
+          "count": 0,
+          "denominator": 6593
+        },
+        "FWHM_postpeak_censored": {
+          "count": 0,
+          "denominator": 6593
+        },
+        "FWHM_other_undefined": {
+          "count": 0,
+          "denominator": 6593
+        },
+        "selected_peak_below_global_crop_max": {
+          "count": 0,
+          "denominator": 6593
+        }
+      },
+      "observation_flags": {
+        "peak_at_search_boundary": {
+          "count": 0,
+          "denominator": 6593
+        },
+        "global_peak_outside_search": {
+          "count": 0,
+          "denominator": 6593
+        },
+        "Q_nonpositive": {
+          "count": 0,
+          "denominator": 6593
+        },
+        "PSD_undefined": {
+          "count": 0,
+          "denominator": 6593
+        },
+        "PSD_guarded": {
+          "count": 0,
+          "denominator": 6593
+        },
+        "ADC_rail_hit": {
+          "count": 0,
+          "denominator": 6593
+        },
+        "pre_ADC_out_of_range": {
+          "count": 0,
+          "denominator": 6593
+        }
+      }
+    },
+    "common_level": {
+      "fake_rows": 6593,
+      "real_rows": 21047,
+      "all_rows_retained": true,
+      "conditional_coverage_complete": true,
+      "values": {
+        "wave": 0.1431626641629853,
+        "QPSD": 0.05762783565733398,
+        "noise": 0.1226177360020099,
+        "Q_Vns": 0.044955111368141946,
+        "front_Vns": 0.09538792988475728,
+        "tail_Vns": 0.018973562852683448,
+        "PSD_raw": 0.0025626539834209122,
+        "PSD_guarded": 0.0025626539834209122,
+        "peak_voltage_V": 0.026978549688281134,
+        "rise10_90_ns": 1.3748321762228983,
+        "FWHM_ns": 2.931216296923081,
+        "baseline_mean_V": 1.6672585944793068e-05,
+        "baseline_RMS_V": 1.812568914528338e-05,
+        "Q_nonpositive_rate": 0.0,
+        "PSD_undefined_rate": 0.0,
+        "PSD_guarded_rate": 0.0,
+        "rise_undefined_rate": 0.00584777465435981,
+        "FWHM_undefined_rate": 0.00023756354824915665,
+        "temporal_nonpositive_peak_rate": 0.0,
+        "rise_prepeak_censored_rate": 0.00584777465435981,
+        "FWHM_prepeak_censored_rate": 0.00023756354824915665,
+        "FWHM_postpeak_censored_rate": 0.0,
+        "joint_morphology": 3.385869696408162,
+        "negative_lobe_area_Vns": 0.003616601992414082
+      },
+      "fake_flags": {
+        "Q_nonpositive": {
+          "count": 0,
+          "denominator": 6593
+        },
+        "PSD_undefined": {
+          "count": 0,
+          "denominator": 6593
+        },
+        "PSD_guarded": {
+          "count": 0,
+          "denominator": 6593
+        },
+        "rise_undefined": {
+          "count": 68,
+          "denominator": 6593
+        },
+        "FWHM_undefined": {
+          "count": 0,
+          "denominator": 6593
+        },
+        "temporal_nonpositive_peak": {
+          "count": 0,
+          "denominator": 6593
+        },
+        "rise_prepeak_censored": {
+          "count": 68,
+          "denominator": 6593
+        },
+        "rise_other_undefined": {
+          "count": 0,
+          "denominator": 6593
+        },
+        "FWHM_prepeak_censored": {
+          "count": 0,
+          "denominator": 6593
+        },
+        "FWHM_postpeak_censored": {
+          "count": 0,
+          "denominator": 6593
+        },
+        "FWHM_other_undefined": {
+          "count": 0,
+          "denominator": 6593
+        },
+        "selected_peak_below_global_crop_max": {
+          "count": 0,
+          "denominator": 6593
+        }
+      },
+      "observation_flags": {
+        "peak_at_search_boundary": {
+          "count": 0,
+          "denominator": 6593
+        },
+        "global_peak_outside_search": {
+          "count": 0,
+          "denominator": 6593
+        },
+        "Q_nonpositive": {
+          "count": 0,
+          "denominator": 6593
+        },
+        "PSD_undefined": {
+          "count": 0,
+          "denominator": 6593
+        },
+        "PSD_guarded": {
+          "count": 0,
+          "denominator": 6593
+        },
+        "ADC_rail_hit": {
+          "count": 0,
+          "denominator": 6593
+        },
+        "pre_ADC_out_of_range": {
+          "count": 0,
+          "denominator": 6593
+        }
+      }
+    }
+  },
+  "first_FIT_decision": {
+    "score": 0.8825019000067692,
+    "feasible": false,
+    "violations": [
+      "fast/QPSD",
+      "fast/tail_Vns",
+      "fast/FWHM_ns",
+      "fast/fake_flags/rise_undefined",
+      "fast/fake_flags/rise_prepeak_censored",
+      "slow/QPSD",
+      "slow/tail_Vns",
+      "slow/FWHM_ns",
+      "common_level/QPSD",
+      "common_level/tail_Vns",
+      "common_level/FWHM_ns"
+    ]
+  },
+  "RSS_bytes": 2678349824,
+  "continuous_polling_stopped": true,
+  "later_progress_unqueried": true,
+  "scientific_goal_achieved": false,
+  "raw_receipt_sha256": "957a5db44f45143162412b1808e1f00368796b65ed2dba668ff3995b597eba2f"
+}

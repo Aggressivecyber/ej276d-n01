@@ -1,0 +1,123 @@
+{
+  "UTC": "2026-10-17T23:44:54.371047+00:00",
+  "root_only": true,
+  "prior042_closed_negative": true,
+  "scientific_status": "response_match_not_established",
+  "scientific_basis": "042 protected feasibility retained, but peak/width useful gains insufficient; larger front failed tail/FWHM.",
+  "local_peak_conservative_diffusion_new_degree": true,
+  "base042_fixed": true,
+  "finite_settings": [
+    {
+      "candidate_id": 0,
+      "bias": [
+        0.0,
+        0.0,
+        0.125,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "restitution_fraction": 2.0,
+      "diffusion_strength": 0.0,
+      "selection_eligible": false
+    },
+    {
+      "candidate_id": 1,
+      "bias": [
+        0.0,
+        0.0,
+        0.125,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "restitution_fraction": 2.0,
+      "diffusion_strength": 0.125,
+      "selection_eligible": true
+    },
+    {
+      "candidate_id": 2,
+      "bias": [
+        0.0,
+        0.0,
+        0.125,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "restitution_fraction": 2.0,
+      "diffusion_strength": 0.25,
+      "selection_eligible": true
+    },
+    {
+      "candidate_id": 3,
+      "bias": [
+        0.0,
+        0.0,
+        0.125,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "restitution_fraction": 2.0,
+      "diffusion_strength": 0.5,
+      "selection_eligible": true
+    }
+  ],
+  "zero_control_not_reconfirmed": true,
+  "original_metrics_scales_thresholds_and_population_unchanged": true,
+  "stochastic_M0_and005_frozen": true,
+  "effective_response_not_unique_physical_circuit_claim": true,
+  "full_and_canonical_window_conservation_checked": true,
+  "local_manufactured_test": "PASS",
+  "final_runner_import": "PASS",
+  "self_review": [
+    "Removed inherited domain-rejection catch for the already verified fixed042 mean; unexpected errors fail loudly.",
+    "Corrected local smoke command which initially showed test --help; reran actual run_response043.py --help successfully.",
+    "Zero-strength control is explicitly excluded from endpoint selection; endpoint stores diffusion strength."
+  ],
+  "resources": {
+    "CPU_threads": 4,
+    "RSS_GiB": 12,
+    "GPU_GiB": 6,
+    "hard_wall_seconds": 900,
+    "internal_seconds": 780,
+    "output_MiB": 64,
+    "one_scientific_job": true,
+    "automatic_restart": false
+  },
+  "operation_bounds": {
+    "original_CP_loads": 6,
+    "TRAIN_archives": 1,
+    "PCA_archives": 1,
+    "DEV_archives": 0,
+    "AD_queries": 0,
+    "optimizer_steps": 0,
+    "source_A0_calls": 52,
+    "source_A0_rows": 6593,
+    "M0_and_005_cache_banks": 10,
+    "M0_response_calls": 520,
+    "M0_response_rows": 65930,
+    "noise005_calls": 520,
+    "noise005_rows": 65930,
+    "extension_hypothesis_rows": 197790,
+    "unique_frozen_settings": 4,
+    "eligible_nonzero_settings": 3,
+    "parameter_proposals_including_zero_controls": 8,
+    "mean_operator_calls": 26,
+    "mean_operator_rows": 171418,
+    "full_native_hypothesis_evaluations": 78,
+    "generated_observation_rows": 514254,
+    "retained_parameter_updates": 2
+  },
+  "config_sha256": "0c8f75e46d620ab5816c1a4fd240710c16ae0fe7372870f12b2c119230b43643",
+  "source_pin_count": 72
+}
