@@ -1,0 +1,392 @@
+{
+  "status": "PASS_PARTIAL_SAVED_EVIDENCE_AUDIT_BUDGET_STOP_SCIENTIFIC_GATES_FAILED",
+  "UTC": "2026-10-19T21:44:10.375529+00:00",
+  "config_sha256": "03a7656eb7b2f0362ce3eb9b14715862b1562a768a5f981e45f041d0b176ad08",
+  "source_files_verified_remote": 714,
+  "source_files_independently_verified_local": 675,
+  "remote_only_source_paths": [
+    "diagnostic_inputs/seed0_joint_STATE.npz",
+    "diagnostic_inputs/seed1_joint_STATE.npz",
+    "diagnostic_inputs/TEACHER_ROLES.npz",
+    "diagnostic_inputs/seed0_DECISION.json",
+    "diagnostic_inputs/seed1_DECISION.json",
+    "diagnostic_inputs/REAL_CALIBRATION_ROLES.npz",
+    "diagnostic_inputs/TEACHER_PRECISION_RESULT.json",
+    "diagnostic_inputs/REAL_seed0_joint_TRACE.json",
+    "diagnostic_inputs/REAL_seed1_joint_TRACE.json",
+    "diagnostic_inputs/readout_attribution_20261019/RESULT.json",
+    "diagnostic_inputs/readout_attribution_20261019/seed0_READOUT_ATTRIBUTION.npz",
+    "diagnostic_inputs/readout_attribution_20261019/seed0_READOUT_ATTRIBUTION.json",
+    "diagnostic_inputs/readout_attribution_20261019/seed1_READOUT_ATTRIBUTION.npz",
+    "diagnostic_inputs/readout_attribution_20261019/seed1_READOUT_ATTRIBUTION.json",
+    "diagnostic_inputs/readout_attribution_20261019/TERMINAL_REVIEW.json",
+    "diagnostic_inputs/signal_metric_attribution_20261019/RESULT.json",
+    "diagnostic_inputs/signal_metric_attribution_20261019/TERMINAL_REVIEW.json",
+    "diagnostic_inputs/secant_trust_failed_20261019/TERMINAL_REVIEW.json",
+    "diagnostic_inputs/secant_trust_failed_20261019/SOLVER_SCALE_REVIEW.json",
+    "diagnostic_inputs/multibank_M0_basis_20261020/SECANT_FIX01_TERMINAL_REVIEW.json",
+    "diagnostic_inputs/multibank_M0_basis_20261020/STACKING_CHECK_REVIEW.json",
+    "diagnostic_inputs/MULTIBANK_M0_METHOD_REVIEW_20261020.json",
+    "completion_inputs/prior_failure.json",
+    "completion_inputs/prior_terminal_review.json",
+    "completion_inputs/prior_seed0_review.json",
+    "completion_inputs/seed1_state.npz",
+    "completion_inputs/seed1_trace.json",
+    "completion_inputs/seed1_partial_arrays.npz",
+    "completion_inputs/seed1_partial_report.json",
+    "completion_inputs/seed0_evaluation.json",
+    "completion_inputs/seed0_decision.json",
+    "completion_inputs/seed0_kernel.json",
+    "c1_teacher_inputs/TEACHER_ROLES.npz",
+    "c1_teacher_inputs/seed0_joint_STATE.npz",
+    "c1_teacher_inputs/seed1_joint_STATE.npz",
+    "c1_teacher_inputs/seed0_library0_PRECISION.npz",
+    "c1_teacher_inputs/seed0_library1_PRECISION.npz",
+    "c1_teacher_inputs/seed1_library0_PRECISION.npz",
+    "c1_teacher_inputs/seed1_library1_PRECISION.npz"
+  ],
+  "source_pins_verified_against_manifest": 61,
+  "output_files_verified": 69,
+  "output_bytes": 108005143,
+  "native_exit": {
+    "exit_code": 1,
+    "reason": null,
+    "peak_rss_bytes": 4490682368,
+    "started_utc": "2026-10-19T20:53:25.511253+00:00",
+    "ended_utc": "2026-10-19T21:33:28.177110+00:00",
+    "supervisor_pid": 101875,
+    "child_pid": 101882
+  },
+  "tracks": {
+    "seed0_joint": {
+      "directions": 12,
+      "accepted_updates": 11,
+      "source_parents_visited": 6465,
+      "target_parents_visited": 6465,
+      "complete_parameter_chain_and_saved_matrix_solve": true
+    },
+    "seed0_physical": {
+      "directions": 12,
+      "accepted_updates": 12,
+      "source_parents_visited": 6465,
+      "target_parents_visited": 6465,
+      "complete_parameter_chain_and_saved_matrix_solve": true
+    },
+    "seed1_joint": {
+      "directions": 12,
+      "accepted_updates": 9,
+      "source_parents_visited": 6465,
+      "target_parents_visited": 6465,
+      "complete_parameter_chain_and_saved_matrix_solve": true
+    },
+    "seed1_physical": {
+      "directions": 7,
+      "accepted_updates": 7,
+      "source_parents_visited": 6465,
+      "target_parents_visited": 6465,
+      "complete_parameter_chain_and_saved_matrix_solve": true
+    }
+  },
+  "completed_directions": 43,
+  "saved_FD_columns": 2179,
+  "saved_complete_FD_columns": 2170,
+  "last_partial_direction": {
+    "track": "seed1_physical",
+    "absolute_iteration_zero_based": 7,
+    "saved_columns": 9,
+    "additional_complete_columns_after_save_min": 0,
+    "additional_complete_columns_after_save_max": 8,
+    "solve_performed": false,
+    "candidate_trials": 0,
+    "updates": 0
+  },
+  "execution_counts_lower_bound": {
+    "checkpoint_loads": 6,
+    "TRAIN_archives_decoded": 1,
+    "PCA_archives_decoded": 1,
+    "old_A_calls": 52,
+    "old_A_rows": 6593,
+    "M0_head_calls": 104,
+    "M0_head_rows": 13186,
+    "allocated_banks": 2296,
+    "shape_standard_normal_values": 40970768,
+    "noise005_calls": 2294,
+    "noise005_rows": 4597058,
+    "extension_rows": 13791174,
+    "joint_response_calls": 60482,
+    "joint_response_rows": 120517950,
+    "generated_observation_calls": 179106,
+    "generated_observation_rows": 356540346,
+    "feature_maps_constructed": 18,
+    "full_fit_parent_banks": 176,
+    "stream_equivalence_checks": 2,
+    "finite_difference_columns": 2179,
+    "fullpool_FIT_chunk_columns": 28327,
+    "joint_direction_solves": 43,
+    "joint_candidate_trials": 59,
+    "teacher_accepted_joint_updates": 39,
+    "conditional_signal_rows": 81920,
+    "native_metric_rows": 491520
+  },
+  "execution_counts_upper_bound": {
+    "checkpoint_loads": 6,
+    "TRAIN_archives_decoded": 1,
+    "PCA_archives_decoded": 1,
+    "old_A_calls": 52,
+    "old_A_rows": 6593,
+    "M0_head_calls": 104,
+    "M0_head_rows": 13186,
+    "allocated_banks": 2296,
+    "shape_standard_normal_values": 40970768,
+    "noise005_calls": 2294,
+    "noise005_rows": 4597058,
+    "extension_rows": 13791174,
+    "joint_response_calls": 60690,
+    "joint_response_rows": 120931710,
+    "generated_observation_calls": 179730,
+    "generated_observation_rows": 357781626,
+    "feature_maps_constructed": 18,
+    "full_fit_parent_banks": 176,
+    "stream_equivalence_checks": 2,
+    "finite_difference_columns": 2187,
+    "fullpool_FIT_chunk_columns": 28431,
+    "joint_direction_solves": 43,
+    "joint_candidate_trials": 59,
+    "teacher_accepted_joint_updates": 39,
+    "conditional_signal_rows": 81920,
+    "native_metric_rows": 491520
+  },
+  "exact_unpersisted_FD_count_unknown": true,
+  "hard_observation_gates": [
+    {
+      "seed": 0,
+      "name": "library0/fast/joint_risk",
+      "pass_gate": true,
+      "baseline": 0.007943870653310835,
+      "candidate": 0.0003562198180813397,
+      "oracle": 9.750235448991212e-05
+    },
+    {
+      "seed": 0,
+      "name": "library0/fast/native_wave",
+      "pass_gate": true,
+      "baseline": 0.22981573898378904,
+      "candidate": 0.05552765360427962,
+      "oracle": 0.026347150501341947
+    },
+    {
+      "seed": 0,
+      "name": "library0/fast/native_QPSD",
+      "pass_gate": true,
+      "baseline": 0.2246040914671592,
+      "candidate": 0.04214142140885004,
+      "oracle": 0.01966468389769689
+    },
+    {
+      "seed": 0,
+      "name": "library0/slow/joint_risk",
+      "pass_gate": true,
+      "baseline": 0.007826082513563022,
+      "candidate": 0.00035364724329594915,
+      "oracle": 0.0001040174247279591
+    },
+    {
+      "seed": 0,
+      "name": "library0/slow/native_wave",
+      "pass_gate": true,
+      "baseline": 0.23122351475444447,
+      "candidate": 0.0555739583057794,
+      "oracle": 0.026020316799043174
+    },
+    {
+      "seed": 0,
+      "name": "library0/slow/native_QPSD",
+      "pass_gate": true,
+      "baseline": 0.22274850326831103,
+      "candidate": 0.043602726800839334,
+      "oracle": 0.021520157143242492
+    },
+    {
+      "seed": 0,
+      "name": "library0/common_level/joint_risk",
+      "pass_gate": true,
+      "baseline": 0.007976888486316312,
+      "candidate": 0.00035273908784964094,
+      "oracle": 9.688856908882475e-05
+    },
+    {
+      "seed": 0,
+      "name": "library0/common_level/native_wave",
+      "pass_gate": true,
+      "baseline": 0.23153498054696348,
+      "candidate": 0.05583145486416598,
+      "oracle": 0.025533455236024155
+    },
+    {
+      "seed": 0,
+      "name": "library0/common_level/native_QPSD",
+      "pass_gate": true,
+      "baseline": 0.2276513881271154,
+      "candidate": 0.043922122568728246,
+      "oracle": 0.019387569897628836
+    },
+    {
+      "seed": 0,
+      "name": "library1/fast/joint_risk",
+      "pass_gate": true,
+      "baseline": 0.008052181051848222,
+      "candidate": 0.0003380091372384917,
+      "oracle": 0.00010443020065300121
+    },
+    {
+      "seed": 0,
+      "name": "library1/fast/native_wave",
+      "pass_gate": true,
+      "baseline": 0.23145844946275393,
+      "candidate": 0.056918213026552006,
+      "oracle": 0.02579974825518349
+    },
+    {
+      "seed": 0,
+      "name": "library1/fast/native_QPSD",
+      "pass_gate": true,
+      "baseline": 0.22327282992144906,
+      "candidate": 0.04852013266630621,
+      "oracle": 0.021014468707136653
+    },
+    {
+      "seed": 0,
+      "name": "library1/slow/joint_risk",
+      "pass_gate": true,
+      "baseline": 0.007946942625127516,
+      "candidate": 0.0003394596486698891,
+      "oracle": 9.945423069088507e-05
+    },
+    {
+      "seed": 0,
+      "name": "library1/slow/native_wave",
+      "pass_gate": true,
+      "baseline": 0.23259853032059002,
+      "candidate": 0.056463227457822486,
+      "oracle": 0.024972261373408102
+    },
+    {
+      "seed": 0,
+      "name": "library1/slow/native_QPSD",
+      "pass_gate": true,
+      "baseline": 0.21809267363018364,
+      "candidate": 0.048348103783428645,
+      "oracle": 0.021412671160648926
+    },
+    {
+      "seed": 0,
+      "name": "library1/common_level/joint_risk",
+      "pass_gate": true,
+      "baseline": 0.008048443693342502,
+      "candidate": 0.00033346717109349657,
+      "oracle": 9.893461302714016e-05
+    },
+    {
+      "seed": 0,
+      "name": "library1/common_level/native_wave",
+      "pass_gate": true,
+      "baseline": 0.23302560526649982,
+      "candidate": 0.05637482743679636,
+      "oracle": 0.0247391025403335
+    },
+    {
+      "seed": 0,
+      "name": "library1/common_level/native_QPSD",
+      "pass_gate": true,
+      "baseline": 0.22485603135394372,
+      "candidate": 0.04656906518164065,
+      "oracle": 0.02179301930624899
+    }
+  ],
+  "conditional_precision_gates": [
+    {
+      "name": "seed0/library0/conditional_mean_relative_RMS",
+      "value": 0.04422696680188176,
+      "upper": 0.05,
+      "pass_gate": true
+    },
+    {
+      "name": "seed0/library0/conditional_covariance_relative_Frobenius",
+      "value": 0.25858316140087456,
+      "upper": 0.5,
+      "pass_gate": true
+    },
+    {
+      "name": "seed0/library0/Q_variance_ratio",
+      "value": 0.4895171513522461,
+      "lower": 0.5,
+      "upper": 2.0,
+      "pass_gate": false
+    },
+    {
+      "name": "seed0/library1/conditional_mean_relative_RMS",
+      "value": 0.043978807556701145,
+      "upper": 0.05,
+      "pass_gate": true
+    },
+    {
+      "name": "seed0/library1/conditional_covariance_relative_Frobenius",
+      "value": 0.2541689372120309,
+      "upper": 0.5,
+      "pass_gate": true
+    },
+    {
+      "name": "seed0/library1/Q_variance_ratio",
+      "value": 0.4888458735141743,
+      "lower": 0.5,
+      "upper": 2.0,
+      "pass_gate": false
+    },
+    {
+      "name": "seed0/teacher/independent_bank_MC_difference",
+      "value": 0.048265156880813946,
+      "upper": 0.1,
+      "pass_gate": true
+    },
+    {
+      "name": "seed0/M0/independent_bank_MC_difference",
+      "value": 0.03457850736333191,
+      "upper": 0.1,
+      "pass_gate": true
+    },
+    {
+      "name": "seed0/candidate/independent_bank_MC_difference",
+      "value": 0.04735190202493448,
+      "upper": 0.1,
+      "pass_gate": true
+    }
+  ],
+  "seed0_hard_gate_pass_count": 18,
+  "seed0_precision_gate_pass_count": 7,
+  "seed0_precision_gate_fail_count": 2,
+  "seed1_evaluation_not_executed": true,
+  "population_stress_not_executed": true,
+  "maximum_absolute_reconstruction_difference": {
+    "FD": 4.440892098500626e-16,
+    "joint_delta": 2.2593038551121936e-14,
+    "risk": 3.1086244689504383e-15,
+    "geometry": 1.1657341758564144e-15,
+    "moment": 1.2212453270876722e-15
+  },
+  "numerical_audit_tolerances": {
+    "solve_atol": 2e-11,
+    "solve_rtol": 2e-09,
+    "risk_atol": 1e-14,
+    "risk_rtol": 1e-12,
+    "moments_atol": 2e-14,
+    "moments_rtol": 2e-12
+  },
+  "numerical_tolerances_do_not_change_scientific_gates": true,
+  "audit_boundary": "Independent NumPy reconstruction of saved FD high/low differences, 43 matrix solves, 59 proposals, CHECK risks, all relative-RMS trust quantiles, 39 updates, full-parent coverage, parameter chains, and seed0 saved 2048-draw moments. Flag changes and final hard gates use saved summaries. Generator waveforms, hard readout and final native metrics were not regenerated. Last 0..8 FD columns were not persisted; counters are explicit bounds.",
+  "scientific_acceptance": false,
+  "C1_REAL_use_supported": false,
+  "remaining_original_directions": 11,
+  "new_model_calls": 0,
+  "new_parameter_updates": 0,
+  "elapsed_seconds": 1.802231399982702
+}
