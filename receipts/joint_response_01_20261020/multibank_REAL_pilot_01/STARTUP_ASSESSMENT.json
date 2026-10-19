@@ -1,0 +1,74 @@
+{
+  "status": "PASS_CORRECT_MULTIBANK_REAL_STARTUP",
+  "UTC": "2026-10-19T16:48:06.792590+00:00",
+  "job_id": "JOINT_RESPONSE_01_MULTIBANK_REAL_PILOT_20261020",
+  "source_files_verified": 659,
+  "source_pins": 17,
+  "config_sha256": "c1beef05173cb47a16723b535b0214dd44914957f91e8f4d089ecd9656b17f6f",
+  "scientific_process": {
+    "pid": 18472,
+    "argv": [
+      "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+      "-B",
+      "/home/rylan/projects/ej276d-n01/joint_response01_multibank_real_20261020/scripts/run_joint_response01_multibank_real.py",
+      "--config",
+      "/home/rylan/projects/ej276d-n01/joint_response01_multibank_real_20261020/configs/joint_response_01_multibank_REAL_pilot_20261020.json",
+      "--config-sha256",
+      "c1beef05173cb47a16723b535b0214dd44914957f91e8f4d089ecd9656b17f6f",
+      "--out",
+      "/home/rylan/projects/ej276d-n01/joint_response01_multibank_real_20261020/run_01",
+      "--device",
+      "cuda:0"
+    ],
+    "start_ticks": "223248"
+  },
+  "boot_id": "83c9f761-c124-42e1-89b8-5f45f0b3acc4",
+  "actual_progress": {
+    "stage": "REAL_multibank_joint_Jacobian",
+    "UTC": "2026-10-19T16:48:03.611363+00:00",
+    "execution_counts": {
+      "checkpoint_loads": 6,
+      "TRAIN_archives_decoded": 1,
+      "PCA_archives_decoded": 1,
+      "old_A_calls": 52,
+      "old_A_rows": 6593,
+      "M0_head_calls": 104,
+      "M0_head_rows": 13186,
+      "REAL_observable_replay_calls": 1,
+      "REAL_observable_replay_rows": 21047,
+      "feature_maps_constructed": 5,
+      "new_native_projection_contexts": 5,
+      "REAL_fit_feature_rows": 12288,
+      "allocated_banks": 4,
+      "shape_standard_normal_values": 131072,
+      "noise005_calls": 4,
+      "noise005_rows": 16384,
+      "extension_rows": 49152,
+      "joint_response_calls": 62,
+      "joint_response_rows": 253952,
+      "generated_observation_calls": 186,
+      "generated_observation_rows": 761856,
+      "native_component_rows": 1523712,
+      "REAL_CHECK_feature_rows": 4096,
+      "finite_difference_columns": 9,
+      "FIT_bank_finite_difference_columns": 27
+    },
+    "track": "seed0_joint",
+    "iteration": 1,
+    "column": 9
+  },
+  "resource_snapshot": {
+    "supervisor_pid": 18461,
+    "child_pid": 18471,
+    "rss_bytes": 2690478080,
+    "peak_rss_bytes": 2700926976,
+    "child_tree": [
+      18471,
+      18472
+    ],
+    "utc": "2026-10-19T16:48:06.700411+00:00"
+  },
+  "scientific_acceptance": false,
+  "actual_future_progress_not_credited": true,
+  "remote_queries_after_this_correct_startup": 0
+}

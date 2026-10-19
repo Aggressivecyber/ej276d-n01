@@ -1,3 +1,15 @@
+# N01 当前阶段：三拟合批循环REAL校准已正确启动
+
+2026-10-20。上一项M0方法诊断已完成独立审核，两头FRESH联合风险下降6.93%/1.19%，原局部门通过、零提交更新。见[诊断终止回执](receipts/joint_response_01_20261020/multibank_m0_01/terminal_01/TERMINAL_REVIEW.json)。
+
+随后已登记并启动[循环REAL校准与物理对照](docs/JOINT_RESPONSE_01_MULTIBANK_REAL_PILOT_20261020.md)。659源码、17输入锁定及原生导入通过；00:48:06（UTC+8）的首次快照确认科学PID18472存活，seed0_joint第1方向已完成9参数差分列/27批列、零更新，RSS峰值约2.52GiB。见[正确启动回执](receipts/joint_response_01_20261020/multibank_REAL_pilot_01/STARTUP_ASSESSMENT.json)。未来进度以新回执为准，原科学门保持不变。
+
+原固定间隔定时已删除。按189.36秒试跑和2400列任务量估计约70—85分钟，单次接续设在**2026-10-20 02:18（UTC+8）**；GPU共享负载使估计有不确定性，醒来若仍需等待会按实测进度重新估算。[估时依据](receipts/joint_response_01_20261020/multibank_REAL_pilot_01/WAIT_ESTIMATE.json)、[单次定时回执](receipts/joint_response_01_20261020/multibank_REAL_pilot_01/AUTOMATION_CREATE_RECEIPT.json)。先直接完成所有可执行工作，仅长等待安排苏醒。阶段4最终门、阶段5与全部合法TRAIN重拟合仍待完成。
+
+以下保留历史快照；当前状态以本节、三台账和对应回执为准。
+
+---
+
 # N01 当前阶段：M0起点三拟合批诊断已正确启动
 
 2026-10-20恢复。655份部署文件、原生导入和派发前逐文件核验通过。00:20:20（UTC+08:00）的首次快照确认科学进程存活，两头各128行新随机数的M0零增量信号逐字节一致，共256行、2次生成调用，零提交更新。详见[正确启动回执](receipts/joint_response_01_20261020/multibank_m0_01/STARTUP_ASSESSMENT.json)。
