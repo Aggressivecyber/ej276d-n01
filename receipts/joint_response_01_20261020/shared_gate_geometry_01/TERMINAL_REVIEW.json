@@ -1,0 +1,106 @@
+{
+  "status": "PASS_FROZEN_GEOMETRY_AUDIT_NATIVE_CONFIRMATION_GATE_FAILED",
+  "UTC": "2026-10-19T19:51:11.272805+00:00",
+  "config_sha256": "02fd58c31c5c5b35f48ea2927ff106ffe7020b800dd41d76f76592e414ee26b6",
+  "source_pins_verified": 9,
+  "outputs": {
+    "COMPLETE.json": {
+      "bytes": 118,
+      "sha256": "2586c372e4614f5c8e25579e1689d45dbe2022c8133a67cbbf0328680587238c"
+    },
+    "PROGRESS.json": {
+      "bytes": 305,
+      "sha256": "bac203d701322f82991625ef4b8e16b32ee1797ed6be93cfae3f04c6dc8ad923"
+    },
+    "RESULT.json": {
+      "bytes": 5718,
+      "sha256": "4c5b93f07f2b2c9f229cc3bc43ca9791668bc0786bbb7189fd63862ff1775da9"
+    },
+    "seed0_GEOMETRY.json": {
+      "bytes": 2058,
+      "sha256": "4408be0a6c6313d1ea5347e36213d8f2765442c67c5855a49c85608ee51fadb7"
+    },
+    "seed0_GEOMETRY.npz": {
+      "bytes": 3406018,
+      "sha256": "0e050bf9fb021d051a5cf9795f484928afb32a6aa4ff10d060bac6f7b3c80d05"
+    },
+    "seed1_GEOMETRY.json": {
+      "bytes": 2061,
+      "sha256": "7e59fb589cfb389bae6abba26cd2e4f3d6d18564338a43ff11399cc7ddf7771f"
+    },
+    "seed1_GEOMETRY.npz": {
+      "bytes": 3406018,
+      "sha256": "9ff08a11270b137dec4690f970b7fd27e2b4054df565165bbdbae92b06164880"
+    }
+  },
+  "native_exit": {
+    "exit_code": 0,
+    "reason": null,
+    "started_UTC": "2026-10-19T19:47:58.970697+00:00",
+    "ended_UTC": "2026-10-19T19:48:04.809755+00:00",
+    "peak_RSS_bytes": 96288768,
+    "elapsed_wall_seconds": 5.839048699999694,
+    "pid": 29376
+  },
+  "cases": {
+    "seed0": {
+      "common_gate_progress": 0.017019160453738854,
+      "required_progress": 0.1,
+      "pass_for_native_confirmation": false,
+      "guaranteed_predicted_native_improvement_fraction": 0.0008509580226869428,
+      "guaranteed_predicted_joint_improvement_fraction": 0.003403832090747771,
+      "guaranteed_predicted_peak_improvement_fraction": 0.0017019160453738856,
+      "active_joint_constraints": 5,
+      "active_peak_constraints": 0,
+      "active_native_counts_by_wave_QPSD_noise": [
+        5,
+        2,
+        9
+      ],
+      "native_progress_dual_share_by_wave_QPSD": [
+        0.5673969834159132,
+        0.038940551331260426
+      ],
+      "joint_progress_dual_share": 0.3936624651598112,
+      "peak_progress_dual_share": 0.0,
+      "trust_ball_active": true,
+      "KKT_stationarity_max_violation": 7.158007098682917e-08,
+      "maximum_complementarity_residual": 7.692477964091889e-16
+    },
+    "seed1": {
+      "common_gate_progress": 0.02824904251318801,
+      "required_progress": 0.1,
+      "pass_for_native_confirmation": false,
+      "guaranteed_predicted_native_improvement_fraction": 0.0014124521256594007,
+      "guaranteed_predicted_joint_improvement_fraction": 0.005649808502637603,
+      "guaranteed_predicted_peak_improvement_fraction": 0.0028249042513188013,
+      "active_joint_constraints": 3,
+      "active_peak_constraints": 0,
+      "active_native_counts_by_wave_QPSD_noise": [
+        7,
+        7,
+        9
+      ],
+      "native_progress_dual_share_by_wave_QPSD": [
+        0.5275699239714849,
+        0.08839094377703062
+      ],
+      "joint_progress_dual_share": 0.3840391272618527,
+      "peak_progress_dual_share": 0.0,
+      "trust_ball_active": true,
+      "KKT_stationarity_max_violation": 1.2551967453261134e-06,
+      "maximum_complementarity_residual": 9.790930087168765e-13
+    }
+  },
+  "execution_counts": {
+    "direction_solve_attempts": 2,
+    "direction_solves": 2,
+    "constraint_gradient_probe_evaluations": 220,
+    "model_calls": 0,
+    "parameter_updates": 0
+  },
+  "native_confirmation_supported": false,
+  "scientific_acceptance": false,
+  "interpretation": "Within these two frozen local surrogate models and the unchanged accepted radius, common progress toward all original goals is below the prospectively required one tenth. Native wave and QPSD constraints bind with the trust ball. This is not a global expressivity impossibility or evidence to relax final gates.",
+  "next_action": "Do not evaluate the failed-gate proposals or start another training run. Isolate the observed FIT bank versus native-projection effects using only fixed original candidates before considering a larger-data or changed-objective method."
+}
