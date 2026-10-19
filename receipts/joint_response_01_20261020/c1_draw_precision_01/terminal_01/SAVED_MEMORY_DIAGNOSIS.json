@@ -1,0 +1,28 @@
+{
+  "status": "PASS_SYNTHETIC_STORAGE_IDENTITY_CHECK",
+  "UTC": "2026-10-19T23:13:36.781089+00:00",
+  "source_files": {
+    "scripts/diagnose_joint01_c1_draw_precision.py": "3d650155df71bf49921622e6854b2989392709b4c7dbc2312918bd54fcd8041c",
+    "src/n01/observation008.py": "9f7b6c0a266c420af8c6c155103774bae1ed949cfe05ee6a1f19b75f9254c4ec"
+  },
+  "authoritative_noise_shape": [
+    384
+  ],
+  "authoritative_noise_dtype": "float64",
+  "hypotheses": 3,
+  "one_full_32_draw_bank_tensor_bytes": 1914881280,
+  "two_banks_tensor_bytes": 3829762560,
+  "unnecessary_two_bank_32_draw_copies_bytes": 3829762560,
+  "old_high_draw_live_original_and_copy_tensor_bytes": 7659525120,
+  "proposed_high_draw_live_tensor_bytes": 3829762560,
+  "all_five_synthetic_arrays_exact": true,
+  "old_five_storage_copies_distinct": true,
+  "new_alias_no_copy": true,
+  "raw_waveforms_generated": 0,
+  "parameter_updates": 0,
+  "actual_peak_RSS_bytes": 15096520704,
+  "inference": "All-row advanced indexing duplicates both complete 32-draw banks. This is a proven avoidable allocation. The exact retained allocator/other-process-memory contribution to the second-head RSS peak was not measured.",
+  "proposed_completion": "Reuse complete 32-draw banks directly; only reconstruct four-draw subsets for exact replay. Complete only missing seed1 direction and validation with unchanged seeds, precision, gates and 12 GiB guard.",
+  "native_memory_fix_verified": false,
+  "scientific_acceptance": false
+}

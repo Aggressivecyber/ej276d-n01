@@ -10,8 +10,8 @@
   },
   "objective": "Deliver a usable and verifiable conditional effective stochastic response kernel with explicit data and physical scope; assess engineering, in-domain effectiveness and cross-condition reuse separately.",
   "mainline": "protected deterministic A plus input-dependent stochastic response, fixed256 hard output/384 carrier/100 baseline/1ns software sampling; originalfull19k retained as negative control",
-  "status": "JOINT_RESPONSE_01_C1_draw_precision_running",
-  "active_work_package": "3_C1_draw_precision_joint_direction",
+  "status": "JOINT_RESPONSE_01_C1_precision_pilot_running_single_wake",
+  "active_work_package": "3_C1_precision_pilot",
   "active_scientific_jobs": 1,
   "work_packages": [
     {
@@ -5538,16 +5538,16 @@
     "root_planning_SolMax_implementation_and_review": true,
     "scientific_success_not_guaranteed_by_state_fields": true
   },
-  "current_action": "Matched control and frozen estimator audited; paired 4/32-draw direction diagnostic running.",
-  "updated_UTC": "2026-10-19T23:04:12.642110+00:00",
+  "current_action": "As of 07:30, first 32-draw joint iteration completed with one accepted update; remaining fixed iterations and dual-family reports pending.",
+  "updated_UTC": "2026-10-19T23:33:05.423475+00:00",
   "followup": {
-    "automation_id": "n01",
     "status": "ACTIVE",
+    "kind": "heartbeat",
+    "automation_id": "n01",
     "count": 1,
-    "interval_minutes": null,
-    "next_wake_local": "2026-10-20T07:08:00+08:00",
-    "next_wake_UTC": "2026-10-19T23:08:00+00:00",
-    "receipt": "receipts/joint_response_01_20261020/c1_draw_precision_01/AUTOMATION_CREATE_RECEIPT.json"
+    "next_wake_local": "2026-10-20T07:48:00+08:00",
+    "estimate_receipt": "receipts/joint_response_01_20261020/c1_precision_pilot_01/WAIT_ESTIMATE.json",
+    "verification_receipt": "receipts/joint_response_01_20261020/c1_precision_pilot_01/AUTOMATION_CREATE_RECEIPT.json"
   },
   "runtime_repair": {
     "failed_attempt": 1,
@@ -5836,10 +5836,10 @@
     "independent_saved_array_scope": "36pairs/176NPZ/1898784hard_rows; not complete loss replay"
   },
   "current_work_package": "3_C1_frozen_estimator_resolution",
-  "current_stage": "3_C1_draw_precision_joint_direction",
+  "current_stage": "3_C1_precision_pilot",
   "active_research": "JOINT_RESPONSE_01",
-  "next_action": "At the measured single wake, collect the true terminal state and audit all saved directions and candidates; continue evidence-based work.",
-  "last_verified_UTC": "2026-10-19T23:00:53.210421+00:00",
+  "next_action": "At 07:48 consume one wake, verify terminal identity and audit actual high-precision trajectory and original gates; continue ready work.",
+  "last_verified_UTC": "2026-10-19T23:09:03.055267+00:00",
   "wp2_collection": {
     "path": "receipts\\wp2_014_20261015\\collection_01\\COLLECTION_RECEIPT.json",
     "sha256": "6e333a4e5a6bde1744a406a41a00ffadcec97637b9c4adc6640661181cf54fc7",
@@ -6045,8 +6045,8 @@
   "current_run_training_updates": 5,
   "latest_training_run_id": "response040_coupled_mean_20261018",
   "followup_automation_id": "n01",
-  "followup_automation_status": "ACTIVE",
-  "followup_next_run_local": "2026-10-20T07:08:00+08:00",
+  "followup_automation_status": "DELETED_CONSUMED",
+  "followup_next_run_local": "2026-10-20T07:48:00+08:00",
   "followup_receipt": "receipts/joint_response_01_20261020/c1_draw_precision_01/AUTOMATION_CREATE_RECEIPT.json",
   "followup_receipt_sha256": "41076bf528fc4fb500e1dd7c595ad5d0831be0cd3b29266ef49c25659641d716",
   "wp2_saved_array_closeout": {
@@ -6470,7 +6470,7 @@
     }
   },
   "followup_last_delivered_UTC": "2026-10-19T22:43:10.010Z",
-  "current_followup_status": "SINGLE_WAKE_SCHEDULED",
+  "current_followup_status": "NONE_no_current_wait",
   "wp3_terminal_readback": {
     "path": "receipts/wp3_015_20261015/postrun_root_01/NATIVE_COMPLETION_READBACK.json",
     "sha256": "a9bbc3a9f1694d649b352ad2fd96dc4fa05470bab2856107fe5e35fe6036136f",
@@ -9274,7 +9274,7 @@
     }
   },
   "wp3_completed": true,
-  "active_run_id": "JOINT_RESPONSE_01_C1_DRAW_PRECISION_20261020",
+  "active_run_id": null,
   "wp4_017_local_delivery": {
     "document": {
       "path": "receipts/wp4_017_20261015/LOCAL_DELIVERY.md",
@@ -10952,7 +10952,7 @@
       "sha256": "f13d09a8120de685c980e0d52f782c212cb3d4ea41d7da7f77cbfbd21621128e"
     }
   },
-  "followup_scheduled_local": "2026-10-20T07:08:00+08:00",
+  "followup_scheduled_local": "2026-10-20T07:48:00+08:00",
   "followup_last_consumed_local": "2026-10-20T06:43:37.802479+08:00",
   "wp3_025_G_updates": 0,
   "wp3_025_AD_queries": 0,
@@ -13386,7 +13386,7 @@
     },
     "closure_registered_UTC": "2026-10-17T19:08:19.506304+00:00"
   },
-  "active_job_id": "JOINT_RESPONSE_01_C1_DRAW_PRECISION_20261020",
+  "active_job_id": "JOINT_RESPONSE_01_C1_PRECISION_PILOT_20261020",
   "current_arm": null,
   "response038_classifier_optimizer_steps": 6600,
   "response038_classifier_AD_queries": 6600,
@@ -15010,7 +15010,7 @@
     "terminal_review": "receipts/response046_20261018/wake_20261018_0853_01/TERMINAL_REVIEW.json",
     "terminal_review_sha256": "b42a4ca70a3840cb7e0de42596ea4d728fa7577c59d7454c01ca3478662bfc64"
   },
-  "next_wake_local": "2026-10-20T07:08:00+08:00",
+  "next_wake_local": "2026-10-20T07:48:00+08:00",
   "response047": {
     "job_id": "response047_smooth_endpoint_width_20261018",
     "run_id": "response047_smooth_endpoint_width_20261018",
@@ -22201,7 +22201,127 @@
     "c1_draw_precision_single_wake_local": "2026-10-20T07:08:00+08:00",
     "c1_draw_precision_estimated_finish_local": "2026-10-20T07:06:05.077220+08:00",
     "c1_draw_precision_audit_prepared": true,
-    "c1_draw_precision_audit_executed": false
+    "c1_draw_precision_audit_executed": true,
+    "c1_draw_precision_native_exit_code": -15,
+    "c1_draw_precision_native_reason": "owned_child_RSS_limit_exceeded",
+    "c1_draw_precision_terminal_review": "receipts/joint_response_01_20261020/c1_draw_precision_01/terminal_01/TERMINAL_REVIEW.json",
+    "c1_draw_precision_independent_partial_audit_pass": true,
+    "c1_draw_precision_complete": false,
+    "c1_draw_precision_saved_execution_lower": {
+      "checkpoint_loads": 6,
+      "TRAIN_archives_decoded": 1,
+      "PCA_archives_decoded": 1,
+      "old_A_calls": 52,
+      "old_A_rows": 6593,
+      "M0_head_calls": 104,
+      "M0_head_rows": 13186,
+      "allocated_banks": 818,
+      "shape_standard_normal_values": 13343760,
+      "noise005_calls": 818,
+      "noise005_rows": 1667970,
+      "extension_rows": 5003910,
+      "joint_response_calls": 35294,
+      "joint_response_rows": 31769010,
+      "generated_observation_calls": 105882,
+      "generated_observation_rows": 95307030,
+      "finite_difference_columns": 162,
+      "fullpool_FIT_chunk_columns": 16524,
+      "joint_direction_solves": 3,
+      "joint_candidate_trials": 12,
+      "feature_maps_constructed": 18,
+      "full_fit_parent_banks": 8
+    },
+    "c1_draw_precision_unobserved_execution_bounds": {
+      "high_draw_columns_completed_after_last_saved_lower_bound": 0,
+      "high_draw_columns_completed_after_last_saved_upper_bound": 9,
+      "FD_total_lower": 162,
+      "FD_total_upper": 171,
+      "known_joint_solves": 3,
+      "known_candidates": 12,
+      "generator_calls_lower": 35294,
+      "generator_calls_upper": 37334,
+      "generator_rows_lower": 31769010,
+      "generator_rows_upper": 35906610,
+      "observation_calls_lower": 105882,
+      "observation_calls_upper": 112002,
+      "observation_rows_lower": 95307030,
+      "observation_rows_upper": 107719830,
+      "exact_terminal_counters_unavailable": true,
+      "asynchronous_signal_snapshot_boundary_included": true
+    },
+    "c1_draw_completion_config": "configs/joint_response_01_c1_draw_completion_20261020.json",
+    "c1_draw_completion_config_sha256": "6882c98d49e86dbb9453f205d545d823734fc6dde11ab50929c126c33127a805",
+    "c1_draw_completion_started": true,
+    "c1_draw_completion_scientific_acceptance": false,
+    "c1_draw_completion_review": "receipts/joint_response_01_20261020/c1_draw_completion_01/terminal_01/TERMINAL_REVIEW.json",
+    "c1_draw_completion_status": "completed_independently_audited",
+    "c1_draw_precision_both_heads_high_draw_repeatable": true,
+    "c1_draw_precision_combined_unique_FD_columns": 216,
+    "c1_draw_precision_combined_unique_directions": 4,
+    "c1_draw_precision_combined_unique_candidates": 24,
+    "c1_draw_precision_actual_cost_bounds": {
+      "finite_difference_columns": {
+        "lower": 220,
+        "upper": 229
+      },
+      "joint_response_calls": {
+        "lower": 49167,
+        "upper": 51207
+      },
+      "joint_response_rows": {
+        "lower": 58100955,
+        "upper": 62238555
+      },
+      "generated_observation_calls": {
+        "lower": 147501,
+        "upper": 153621
+      },
+      "generated_observation_rows": {
+        "lower": 174302865,
+        "upper": 186715665
+      },
+      "joint_direction_solves": {
+        "lower": 5,
+        "upper": 5
+      },
+      "joint_candidate_trials": {
+        "lower": 24,
+        "upper": 24
+      }
+    },
+    "c1_precision_pilot_config": "configs/joint_response_01_c1_precision_pilot_20261020.json",
+    "c1_precision_pilot_config_sha256": "920df72317ba2cc31f39397a700011cc13a0680183ee82240adefa5a665a6df8",
+    "c1_precision_pilot_started": true,
+    "c1_precision_pilot_status": "running_first_joint_update_verified",
+    "c1_precision_pilot_execution_counts_last_verified": {
+      "checkpoint_loads": 6,
+      "TRAIN_archives_decoded": 1,
+      "PCA_archives_decoded": 1,
+      "old_A_calls": 52,
+      "old_A_rows": 6593,
+      "M0_head_calls": 104,
+      "M0_head_rows": 13186,
+      "allocated_banks": 409,
+      "shape_standard_normal_values": 6671880,
+      "noise005_calls": 409,
+      "noise005_rows": 833985,
+      "extension_rows": 2501955,
+      "joint_response_calls": 11527,
+      "joint_response_rows": 23383905,
+      "generated_observation_calls": 34581,
+      "generated_observation_rows": 70151715,
+      "feature_maps_constructed": 9,
+      "full_fit_parent_banks": 4,
+      "finite_difference_columns": 54,
+      "fullpool_FIT_chunk_columns": 5508,
+      "joint_direction_solves": 1,
+      "joint_candidate_trials": 1,
+      "teacher_accepted_joint_updates": 1
+    },
+    "c1_precision_pilot_status_asof_UTC": "2026-10-19T23:30:09.396173+00:00",
+    "c1_precision_pilot_estimated_finish_local": "2026-10-20T07:45:11.626947+08:00",
+    "c1_precision_pilot_scientific_acceptance": false,
+    "c1_precision_pilot_automatic_REAL_promotion": false
   },
   "current_goal_document": "JOINT_RESPONSE_01_PLAN.md",
   "pending_next_run_id": null,
@@ -22210,13 +22330,13 @@
   "resume_requires_user_server_started_notice": false,
   "automatic_restart": false,
   "pending_job_id": null,
-  "followup_status": "SINGLE_WAKE_SCHEDULED",
+  "followup_status": "ACTIVE_SINGLE_WAKE",
   "pause_receipt": "receipts/joint_response_01_20261019/user_pause_20261019/PAUSE_RECEIPT.json",
   "resumed_by_user_notice": true,
   "resume_verified_UTC": "2026-10-19T16:17:28.081783+00:00",
   "server_boot_id_at_resume": "83c9f761-c124-42e1-89b8-5f45f0b3acc4",
   "resume_authorization": "receipts/joint_response_01_20261020/resume_01/RESUME_AUTHORIZATION.json",
-  "execution_state_asof_UTC": "2026-10-19T22:44:04.818760+00:00",
-  "training_pid": 126205,
-  "supervisor_pid": 126197
+  "execution_state_asof_UTC": "2026-10-19T23:30:09.396173+00:00",
+  "training_pid": 131951,
+  "supervisor_pid": 131943
 }
