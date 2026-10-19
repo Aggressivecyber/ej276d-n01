@@ -1,0 +1,88 @@
+{
+  "schema": "n01/joint-response01-frozen-precision-confirmation/v1",
+  "job_id": "JOINT_RESPONSE_01_PRECISION_CONFIRMATION_20261019",
+  "registered_UTC": "2026-10-19T04:11:47.085657+00:00",
+  "frozen_setup_config": "configs/response038_20261017.json",
+  "roles_file": "diagnostic_inputs/TEACHER_ROLES.npz",
+  "endpoint_files": [
+    "diagnostic_inputs/seed0_joint_STATE.npz",
+    "diagnostic_inputs/seed1_joint_STATE.npz"
+  ],
+  "bank_seeds": [
+    [
+      2026101931,
+      2026101932
+    ],
+    [
+      2026101933,
+      2026101934
+    ]
+  ],
+  "resources": {
+    "CPU_threads": 4,
+    "GPU_GiB": 2.75,
+    "RSS_GiB": 12,
+    "internal_seconds": 120,
+    "hard_wall_seconds": 180,
+    "output_MiB": 16,
+    "automatic_restart": false,
+    "GPU_free_required_MiB": 3840
+  },
+  "operation_budget": {
+    "checkpoint_loads": 6,
+    "TRAIN_archives_decoded": 1,
+    "PCA_archives_decoded": 1,
+    "old_A_calls": 52,
+    "old_A_rows": 6593,
+    "M0_head_calls": 104,
+    "M0_head_rows": 13186,
+    "allocated_banks": 4,
+    "shape_standard_normal_values": 8388608,
+    "joint_response_calls": 1536,
+    "joint_response_rows": 3145728,
+    "noise005_calls": 0,
+    "noise005_rows": 0,
+    "generated_observation_calls": 0,
+    "generated_observation_rows": 0,
+    "finite_difference_columns": 0,
+    "joint_direction_solves": 0,
+    "teacher_accepted_joint_updates": 0,
+    "REAL_response_updates": 0,
+    "DEV_waveforms_decoded": 0,
+    "AD_queries": 0
+  },
+  "source_pins": {
+    "scripts/diagnose_joint01_kernel.py": "eca89f105e447b205939f658bd2443a39a97e012257e02bd0adac10db20b5bef",
+    "scripts/run_joint_response01.py": "36b8dd747118bd439cec63f505144b68156d9359b3f0982741b6c47f2344f17d",
+    "scripts/run_joint_response01_teacher.py": "38a214350b0aa7d5ef45915d980a51a2cfa4624717d9f950a5bfbef7ff1a7833",
+    "src/n01/joint01_model.py": "b9e11ea99abb738af7a396728ba17e40d3c548c2d8638eea1e37a881534497e6",
+    "src/n01/joint01_features.py": "64b1ff274693290a40f0e9ae4d43a93765cd58bae95b290c0794b5639b8e2ec6",
+    "configs/response038_20261017.json": "9eb28ee64c7f3cd327d31d681414e6e33bed311474d2a3ab7e0b5ca7c1988d54",
+    "docs/JOINT_RESPONSE_01_KERNEL_DIAGNOSTIC_20261019.md": "88ff4e09c491c40d2143fba43dde67e3a1827fbf660801c7e02757c0cfb92707",
+    "diagnostic_inputs/seed0_joint_STATE.npz": "23517ae6ee490573cea3827af2b99bedf54e225d9db64e9d51c0181f34d74fff",
+    "diagnostic_inputs/seed1_joint_STATE.npz": "b2e5f5b4c18763ada26944deebd85a1261f72aa35d9e7be34613c0a6c00b3dfe",
+    "diagnostic_inputs/TEACHER_ROLES.npz": "9dd95d65e85e6c632dd6f2104f979064d0b3a90af99ec26256df082e7699a593",
+    "scripts/confirm_joint01_kernel_precision.py": "cdb75a06de1a946a26ba395eb14ed3939860ac32ac8f53719265e5606552d419",
+    "docs/JOINT_RESPONSE_01_PRECISION_CONFIRMATION_20261019.md": "049e724a34b419d4eea762425c3c5113b378d3c970306b4aa1d1c89fbf5e0c8a",
+    "diagnostic_inputs/seed0_DECISION.json": "d1e1fcc465dccc77fdcec01827f9d61be2d31609d6a9e72425f27ed0baa2248c",
+    "diagnostic_inputs/seed1_DECISION.json": "99139cd88ab6c638f365b1cb019a7c0c960434b2574f5eebc767c1bf2a21f81c"
+  },
+  "original_teacher_gate_changed": false,
+  "acceptance": "All original36 hard observation gates plus all18 fresh conditional and MC precision gates; original teacher run remains failed",
+  "stop_rule": "Any bound, source mismatch, numerical exception or native process failure stops without automatic restart",
+  "draws_per_parent": 2048,
+  "original_decision_files": [
+    "diagnostic_inputs/seed0_DECISION.json",
+    "diagnostic_inputs/seed1_DECISION.json"
+  ],
+  "success": {
+    "remaining_excess_risk_fraction": 0.65,
+    "mean_error_fraction": 0.65,
+    "mean_absolute_relative_RMS": 0.05,
+    "covariance_error_fraction": 0.75,
+    "covariance_absolute_relative_error": 0.5,
+    "variance_ratio_low": 0.5,
+    "variance_ratio_high": 2.0,
+    "MC_covariance_difference_max": 0.1
+  }
+}

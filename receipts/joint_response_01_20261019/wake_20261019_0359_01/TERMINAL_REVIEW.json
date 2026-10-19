@@ -1,0 +1,83 @@
+{
+  "status": "COMPLETE_TEACHER_RECOVERY_GATE_FAILED",
+  "scientific_acceptance": false,
+  "REAL_calibration_authorized_to_start": false,
+  "native_exit_code": 0,
+  "result_sha256": "bf3046a21fac0e6cfeb877e3f3a98546c1423f3b79fabd08153e2a2b7f1f53cb",
+  "config_sha256": "27be175e1d994ce26bc769bd8fd49c53f73d34d5d3853d0f817ceefe6ed16f18",
+  "source_files_verified": 560,
+  "remote_outputs_verified": 25,
+  "output_bytes": 6972606,
+  "full_coverage": {
+    "seed0_joint_STATE": {
+      "source_visit_sum": 12288,
+      "target_visit_sum": 12288,
+      "train_covered": 6465,
+      "heldout_unvisited": 128
+    },
+    "seed0_physical_STATE": {
+      "source_visit_sum": 12288,
+      "target_visit_sum": 12288,
+      "train_covered": 6465,
+      "heldout_unvisited": 128
+    },
+    "seed1_joint_STATE": {
+      "source_visit_sum": 12288,
+      "target_visit_sum": 12288,
+      "train_covered": 6465,
+      "heldout_unvisited": 128
+    },
+    "seed1_physical_STATE": {
+      "source_visit_sum": 12288,
+      "target_visit_sum": 12288,
+      "train_covered": 6465,
+      "heldout_unvisited": 128
+    }
+  },
+  "failed_gates": {
+    "0": [],
+    "1": [
+      {
+        "name": "library0/conditional_covariance",
+        "pass_gate": false,
+        "baseline": 0.9554265167048823,
+        "candidate": 0.5200820081083499
+      },
+      {
+        "name": "library1/conditional_covariance",
+        "pass_gate": false,
+        "baseline": 0.9589912526040277,
+        "candidate": 0.6242773922471738
+      }
+    ]
+  },
+  "actual_counts": {
+    "checkpoint_loads": 6,
+    "TRAIN_archives_decoded": 1,
+    "PCA_archives_decoded": 1,
+    "old_A_calls": 52,
+    "old_A_rows": 6593,
+    "M0_head_calls": 104,
+    "M0_head_rows": 13186,
+    "allocated_banks": 228,
+    "shape_standard_normal_values": 7836688,
+    "noise005_calls": 228,
+    "noise005_rows": 979586,
+    "extension_rows": 2938758,
+    "joint_response_calls": 5796,
+    "joint_response_rows": 23958146,
+    "generated_observation_calls": 17304,
+    "generated_observation_rows": 71186310,
+    "feature_maps_constructed": 18,
+    "finite_difference_columns": 2724,
+    "joint_direction_solves": 54,
+    "joint_candidate_trials": 78,
+    "teacher_accepted_joint_updates": 46,
+    "conditional_signal_rows": 180224,
+    "native_metric_rows": 983040
+  },
+  "elapsed_seconds": 143.64907069699984,
+  "peak_RSS_bytes": 2920194048,
+  "peak_GPU_allocated_bytes": 2354345984,
+  "peak_GPU_reserved_bytes": 2946498560
+}

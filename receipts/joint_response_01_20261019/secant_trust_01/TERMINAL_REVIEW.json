@@ -1,0 +1,144 @@
+{
+  "status": "FAILED_SOLVER_SAVED_CONTROL_NUMERIC_AUDIT_PASSED",
+  "UTC": "2026-10-19T10:47:21.304365+00:00",
+  "source_files_verified": 645,
+  "outputs": {
+    "run_01/FAILED.json": {
+      "bytes": 1202,
+      "sha256": "474834a36752fed8127aee076912adf3023fbd3d38264876e908358c35cc33fe"
+    },
+    "run_01/seed0_SECANT_TRUST.npz": {
+      "bytes": 2668348,
+      "sha256": "e08adcc279046ddc3b7c879d0ecdad046e7ea88352f41ad461473e72305bda40"
+    },
+    "run_01/seed0_SECANT_TRUST.json": {
+      "bytes": 16454,
+      "sha256": "5cf9e01b3c1cbe8f29798785d6904e2ea3ebe298c062666d18932937cc4cdc25"
+    },
+    "run_01/PROGRESS.json": {
+      "bytes": 1117,
+      "sha256": "392faa36c20d23cc3384cedb6b35dd11d80b508b9eee6ec83b4b31b564fde8ee"
+    },
+    "control_01/exit_receipt.json": {
+      "bytes": 226,
+      "sha256": "d18ece5fade6bee1b8d451c499158b1d703b8ac483d1efcf774e0aa0f9456b66"
+    },
+    "control_01/launch.json": {
+      "bytes": 773,
+      "sha256": "58c18ce4bb9098e245ea6cb15ec58cf9cd36aa413ecc7108a74504d610e57652"
+    },
+    "control_01/resource_status.json": {
+      "bytes": 204,
+      "sha256": "410de36f78ea668cb6001a0f2fd106cba0d5786b90d5f3e19b97397101874797"
+    },
+    "control_01/console.log": {
+      "bytes": 951,
+      "sha256": "7354858ed3c29d1bb6bf3c0daaa31ec74f6c84a425fa5d39d870985a22c44e1d"
+    },
+    "control_01/run.lock": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "native_exit": {
+    "exit_code": 1,
+    "reason": null,
+    "peak_rss_bytes": 2765455360,
+    "started_utc": "2026-10-19T10:45:43.384109+00:00",
+    "ended_utc": "2026-10-19T10:45:51.388245+00:00",
+    "supervisor_pid": 211675,
+    "child_pid": 211680
+  },
+  "failure": {
+    "error_type": "RuntimeError",
+    "error": "Native-constrained joint solver failed: Positive directional derivative for linesearch",
+    "execution_counts": {
+      "checkpoint_loads": 6,
+      "TRAIN_archives_decoded": 1,
+      "PCA_archives_decoded": 1,
+      "old_A_calls": 52,
+      "old_A_rows": 6593,
+      "M0_head_calls": 104,
+      "M0_head_rows": 13186,
+      "REAL_observable_replay_calls": 1,
+      "REAL_observable_replay_rows": 21047,
+      "feature_maps_constructed": 3,
+      "new_native_projection_contexts": 2,
+      "REAL_fit_feature_rows": 4096,
+      "allocated_banks": 3,
+      "shape_standard_normal_values": 98304,
+      "noise005_calls": 3,
+      "noise005_rows": 12288,
+      "extension_rows": 36864,
+      "joint_response_calls": 12,
+      "joint_response_rows": 49152,
+      "generated_observation_calls": 36,
+      "generated_observation_rows": 147456,
+      "native_component_rows": 294912,
+      "REAL_CHECK_feature_rows": 8192,
+      "hard_endpoint_replays_verified": 1,
+      "joint_direction_solves": 3,
+      "joint_candidate_trials": 3,
+      "secant_matrix_corrections": 3
+    },
+    "elapsed_seconds": 6.407456703993375,
+    "committed_parameter_updates": 0,
+    "scientific_acceptance": false,
+    "automatic_restart": false
+  },
+  "local_output_hash_status": "PASS",
+  "outputs_rehashed": 9,
+  "output_bytes": 2689275,
+  "successful_direction_solves": 3,
+  "failed_direction_solve_attempts": 1,
+  "total_direction_solve_attempts": 4,
+  "attempted_solve_count_in_original_runtime_counter": false,
+  "saved_completed_arms": [
+    "seed0/raw_radius_control"
+  ],
+  "missing_in_progress_arm_arrays": "Two evaluated secant_corrected trials were lost because arrays were only written after arm completion.",
+  "scientific_acceptance": false,
+  "automatic_restart": false,
+  "finite_arrays_verified": 33,
+  "fitting_role_rows_verified": 15360,
+  "raw_control_predictions_recomputed": 2,
+  "raw_control_risk_views_recomputed": 12,
+  "raw_control_native_and_acceptance_recomputed": true,
+  "raw_control_FIT_wave_vs_current": [
+    [
+      1.0192645539041634,
+      0.9855252232897767,
+      1.0
+    ],
+    [
+      1.0213743591343178,
+      0.9887910981371294,
+      1.0
+    ],
+    [
+      1.022081041714455,
+      0.985580842423367,
+      1.0
+    ]
+  ],
+  "raw_control_CHECK_wave_vs_current": [
+    [
+      1.0204725942048558,
+      0.9980790598610506,
+      1.0
+    ],
+    [
+      1.022741067846354,
+      0.997678756491574,
+      1.0
+    ],
+    [
+      1.025650143130074,
+      0.9966289824622139,
+      1.0
+    ]
+  ],
+  "corrected_trials_numeric_audit_possible": false,
+  "output_trust_waveforms_not_saved": true,
+  "solver_scale_review": "SOLVER_SCALE_REVIEW.json"
+}

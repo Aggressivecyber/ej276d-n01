@@ -1,0 +1,775 @@
+{
+  "status": "PASS_EXECUTION_AND_SAVED_MATRIX_AUDIT",
+  "native_exit": {
+    "exit_code": 0,
+    "reason": null,
+    "peak_rss_bytes": 2762690560,
+    "started_utc": "2026-10-19T06:12:11.443537+00:00",
+    "ended_utc": "2026-10-19T06:19:02.690959+00:00",
+    "supervisor_pid": 162532,
+    "child_pid": 162542
+  },
+  "result_sha256": "29e40568b2b23f7b6c29d116d42943de13111a75be404a7d93882929ae71353c",
+  "source_files_verified": 622,
+  "output_hashes_verified": 12,
+  "elapsed_seconds": 409.6414473490004,
+  "execution_counts": {
+    "checkpoint_loads": 6,
+    "TRAIN_archives_decoded": 1,
+    "PCA_archives_decoded": 1,
+    "old_A_calls": 52,
+    "old_A_rows": 6593,
+    "M0_head_calls": 104,
+    "M0_head_rows": 13186,
+    "REAL_observable_replay_calls": 1,
+    "REAL_observable_replay_rows": 21047,
+    "feature_maps_constructed": 3,
+    "REAL_fit_feature_rows": 8192,
+    "allocated_banks": 6,
+    "shape_standard_normal_values": 196608,
+    "noise005_calls": 6,
+    "noise005_rows": 24576,
+    "extension_rows": 73728,
+    "joint_response_calls": 747,
+    "joint_response_rows": 3059712,
+    "generated_observation_calls": 2241,
+    "generated_observation_rows": 9179136,
+    "native_component_rows": 18358272,
+    "REAL_CHECK_feature_rows": 16384,
+    "finite_difference_columns": 324,
+    "joint_direction_solves": 6,
+    "joint_candidate_trials": 42
+  },
+  "audit_counts": {
+    "numeric_array_comparisons": 485,
+    "FD_columns": 324,
+    "solves": 6,
+    "trials": 42,
+    "actual_gate_recomputations": 84,
+    "fresh_calls": 3
+  },
+  "seeds": {
+    "0": {
+      "sampled_fit_role_rows": {
+        "FIT_source_parents": 1024,
+        "FIT_real_rows": 4096,
+        "CHECK_source_parents": 1024,
+        "CHECK_real_rows": 4096,
+        "FRESH_source_parents": 1024,
+        "FRESH_real_rows": 4096
+      },
+      "fixed_theta_exact": true,
+      "baseline_to_M0": {
+        "FIT": [
+          [
+            1.0095111138743946,
+            0.9847802722025775,
+            1.0
+          ],
+          [
+            1.0139814239107694,
+            0.9782172663940675,
+            1.0
+          ],
+          [
+            1.0156722745905635,
+            0.9784013860356028,
+            1.0
+          ]
+        ],
+        "CHECK": [
+          [
+            1.0070461120488508,
+            0.9838655923883632,
+            1.0
+          ],
+          [
+            1.0144681125020414,
+            0.9802634035996891,
+            1.0
+          ],
+          [
+            1.0162712085817642,
+            0.9923417149043287,
+            1.0
+          ]
+        ],
+        "FRESH": [
+          [
+            1.001514592169345,
+            0.9849869195659974,
+            1.0
+          ],
+          [
+            1.0078803422150755,
+            0.9950737035487728,
+            1.0
+          ],
+          [
+            1.0105540772393284,
+            1.0050561872764414,
+            1.0
+          ]
+        ]
+      },
+      "scale_comparisons": [
+        {
+          "steps": [
+            0.04,
+            0.004
+          ],
+          "joint_relative_Frobenius_difference": 1.513879509980197,
+          "joint_cosine": 0.7071162991358048,
+          "native_row_norms_left": [
+            0.1500955681485034,
+            0.336960318578855,
+            0.013893871228662369,
+            0.15982108563228026,
+            0.35177696983331613,
+            0.013893871228662369,
+            0.17244009821051906,
+            0.34900338547785337,
+            0.013893871228662369
+          ],
+          "native_row_norms_right": [
+            0.7606279364340898,
+            0.4849416915851316,
+            0.014166551564165353,
+            0.8322435675103362,
+            0.5010443310908206,
+            0.014166551564165353,
+            0.9235434830139012,
+            0.5280943312109625,
+            0.014166551564165353
+          ],
+          "native_row_cosine": [
+            0.36210708351221915,
+            0.8649095418980763,
+            1.0,
+            0.3547662729551347,
+            0.8006161243835513,
+            1.0,
+            0.3700007483362341,
+            0.7870450877044007,
+            1.0
+          ]
+        },
+        {
+          "steps": [
+            0.004,
+            0.0004
+          ],
+          "joint_relative_Frobenius_difference": 1.9405040654044818,
+          "joint_cosine": 0.45089256540178096,
+          "native_row_norms_left": [
+            0.7606279364340898,
+            0.4849416915851316,
+            0.014166551564165353,
+            0.8322435675103362,
+            0.5010443310908206,
+            0.014166551564165353,
+            0.9235434830139012,
+            0.5280943312109625,
+            0.014166551564165353
+          ],
+          "native_row_norms_right": [
+            1.1255525986903017,
+            1.0063621705662973,
+            0.019392019936781413,
+            0.9661066701639822,
+            0.5344268969043051,
+            0.019392019936781413,
+            1.1082862080468914,
+            1.050442386707103,
+            0.019392019936781413
+          ],
+          "native_row_cosine": [
+            0.7516906998351427,
+            0.6438176203820039,
+            1.0,
+            0.8389024996629243,
+            0.46717462271297605,
+            1.0,
+            0.844347851752538,
+            0.6240993666593819,
+            1.0
+          ]
+        }
+      ],
+      "cases": [
+        {
+          "step": 0.04,
+          "selected_fraction": null,
+          "fresh": null,
+          "peak_changed_fraction": 0.12630057629243827,
+          "window_changed_fraction": 0.9941798080632716,
+          "trials": [
+            {
+              "fraction": 1,
+              "accepted": false,
+              "FIT_native_prediction_error_max": 0.4002262341791862,
+              "FIT_joint_residual_error_reported": 0.23046298170305035
+            },
+            {
+              "fraction": 0.5,
+              "accepted": false,
+              "FIT_native_prediction_error_max": 0.14209566800787238,
+              "FIT_joint_residual_error_reported": 0.14340812771954278
+            },
+            {
+              "fraction": 0.25,
+              "accepted": false,
+              "FIT_native_prediction_error_max": 0.08800904986037095,
+              "FIT_joint_residual_error_reported": 0.13320430533690522
+            },
+            {
+              "fraction": 0.125,
+              "accepted": false,
+              "FIT_native_prediction_error_max": 0.06463104523803004,
+              "FIT_joint_residual_error_reported": 0.07888344938237464
+            },
+            {
+              "fraction": 0.0625,
+              "accepted": false,
+              "FIT_native_prediction_error_max": 0.03679181132479046,
+              "FIT_joint_residual_error_reported": 0.03936238390373984
+            },
+            {
+              "fraction": 0.03125,
+              "accepted": false,
+              "FIT_native_prediction_error_max": 0.018746947381705948,
+              "FIT_joint_residual_error_reported": 0.021953513174069402
+            },
+            {
+              "fraction": 0.015625,
+              "accepted": false,
+              "FIT_native_prediction_error_max": 0.009044668755696091,
+              "FIT_joint_residual_error_reported": 0.011206290458658324
+            },
+            {
+              "fraction": 0.0078125,
+              "accepted": false,
+              "FIT_native_prediction_error_max": 0.004690886363536318,
+              "FIT_joint_residual_error_reported": 0.007281998047169653
+            }
+          ]
+        },
+        {
+          "step": 0.004,
+          "selected_fraction": null,
+          "fresh": null,
+          "peak_changed_fraction": 0.015193986304012346,
+          "window_changed_fraction": 0.9418493200231481,
+          "trials": [
+            {
+              "fraction": 1,
+              "accepted": false,
+              "FIT_native_prediction_error_max": 0.3955612226326095,
+              "FIT_joint_residual_error_reported": 0.3466586608735949
+            },
+            {
+              "fraction": 0.5,
+              "accepted": false,
+              "FIT_native_prediction_error_max": 0.14095747302653985,
+              "FIT_joint_residual_error_reported": 0.16753005930256015
+            },
+            {
+              "fraction": 0.25,
+              "accepted": false,
+              "FIT_native_prediction_error_max": 0.0985001015745916,
+              "FIT_joint_residual_error_reported": 0.10424755018481623
+            },
+            {
+              "fraction": 0.125,
+              "accepted": false,
+              "FIT_native_prediction_error_max": 0.053849304229373986,
+              "FIT_joint_residual_error_reported": 0.06264974365409888
+            },
+            {
+              "fraction": 0.0625,
+              "accepted": false,
+              "FIT_native_prediction_error_max": 0.01903127461375343,
+              "FIT_joint_residual_error_reported": 0.023341900418427913
+            },
+            {
+              "fraction": 0.03125,
+              "accepted": false,
+              "FIT_native_prediction_error_max": 0.006574096873252897,
+              "FIT_joint_residual_error_reported": 0.015981615513579153
+            },
+            {
+              "fraction": 0.015625,
+              "accepted": false,
+              "FIT_native_prediction_error_max": 0.003119928849142092,
+              "FIT_joint_residual_error_reported": 0.00887416316943725
+            },
+            {
+              "fraction": 0.0078125,
+              "accepted": false,
+              "FIT_native_prediction_error_max": 0.0011964952541933813,
+              "FIT_joint_residual_error_reported": 0.006729828116682349
+            }
+          ]
+        },
+        {
+          "step": 0.0004,
+          "selected_fraction": null,
+          "fresh": null,
+          "peak_changed_fraction": 0.0025996455439814816,
+          "window_changed_fraction": 0.7794234664351852,
+          "trials": [
+            {
+              "fraction": 1,
+              "accepted": false,
+              "FIT_native_prediction_error_max": 0.2872061552698534,
+              "FIT_joint_residual_error_reported": 0.3911633031262955
+            },
+            {
+              "fraction": 0.5,
+              "accepted": false,
+              "FIT_native_prediction_error_max": 0.14629269640836517,
+              "FIT_joint_residual_error_reported": 0.1863981040773924
+            },
+            {
+              "fraction": 0.25,
+              "accepted": false,
+              "FIT_native_prediction_error_max": 0.06825357016466597,
+              "FIT_joint_residual_error_reported": 0.09318531208875504
+            },
+            {
+              "fraction": 0.125,
+              "accepted": false,
+              "FIT_native_prediction_error_max": 0.0355569996140423,
+              "FIT_joint_residual_error_reported": 0.04534047150616649
+            },
+            {
+              "fraction": 0.0625,
+              "accepted": false,
+              "FIT_native_prediction_error_max": 0.018956602818797682,
+              "FIT_joint_residual_error_reported": 0.025693603909666216
+            },
+            {
+              "fraction": 0.03125,
+              "accepted": false,
+              "FIT_native_prediction_error_max": 0.009452715226709556,
+              "FIT_joint_residual_error_reported": 0.013317171274767734
+            },
+            {
+              "fraction": 0.015625,
+              "accepted": false,
+              "FIT_native_prediction_error_max": 0.003957086807001038,
+              "FIT_joint_residual_error_reported": 0.007735166210344781
+            },
+            {
+              "fraction": 0.0078125,
+              "accepted": false,
+              "FIT_native_prediction_error_max": 0.0015427043950494938,
+              "FIT_joint_residual_error_reported": 0.00455890557145213
+            }
+          ]
+        }
+      ]
+    },
+    "1": {
+      "sampled_fit_role_rows": {
+        "FIT_source_parents": 1024,
+        "FIT_real_rows": 4096,
+        "CHECK_source_parents": 1024,
+        "CHECK_real_rows": 4096,
+        "FRESH_source_parents": 1024,
+        "FRESH_real_rows": 4096
+      },
+      "fixed_theta_exact": true,
+      "baseline_to_M0": {
+        "FIT": [
+          [
+            1.002555239218407,
+            0.9320042589524524,
+            1.0
+          ],
+          [
+            1.0073793797241408,
+            0.9402665201231454,
+            1.0
+          ],
+          [
+            1.006189019740742,
+            0.9328162214870088,
+            1.0
+          ]
+        ],
+        "CHECK": [
+          [
+            0.998212567619085,
+            0.9816824913496458,
+            1.0
+          ],
+          [
+            1.0058024594435024,
+            0.9706856596629813,
+            1.0
+          ],
+          [
+            1.0075351740164358,
+            0.9803090928926593,
+            1.0
+          ]
+        ],
+        "FRESH": [
+          [
+            1.0088182077047967,
+            0.9513795878952062,
+            1.0
+          ],
+          [
+            1.011327716931286,
+            0.9664665595161608,
+            1.0
+          ],
+          [
+            1.0132541019986225,
+            0.9555451281028879,
+            1.0
+          ]
+        ]
+      },
+      "scale_comparisons": [
+        {
+          "steps": [
+            0.04,
+            0.004
+          ],
+          "joint_relative_Frobenius_difference": 1.5017197039140087,
+          "joint_cosine": 0.8290428880854976,
+          "native_row_norms_left": [
+            0.2314626529672281,
+            0.2553450789437127,
+            0.007420075153017486,
+            0.26132598943640434,
+            0.23465858257038433,
+            0.007420075153017486,
+            0.2830719808685807,
+            0.2242302808199996,
+            0.007420075153017486
+          ],
+          "native_row_norms_right": [
+            0.8821687921407401,
+            0.4047492578728103,
+            0.00851870330035448,
+            0.922905097962412,
+            0.2993937183636302,
+            0.00851870330035448,
+            1.0238254022877884,
+            0.3209860900122419,
+            0.00851870330035448
+          ],
+          "native_row_cosine": [
+            0.4702122224692103,
+            0.8117854074431737,
+            1.0,
+            0.4715475497475775,
+            0.8517167532362476,
+            1.0,
+            0.51486720598242,
+            0.43307613373269666,
+            1.0
+          ]
+        },
+        {
+          "steps": [
+            0.004,
+            0.0004
+          ],
+          "joint_relative_Frobenius_difference": 1.439566168897169,
+          "joint_cosine": 0.565888455886067,
+          "native_row_norms_left": [
+            0.8821687921407401,
+            0.4047492578728103,
+            0.00851870330035448,
+            0.922905097962412,
+            0.2993937183636302,
+            0.00851870330035448,
+            1.0238254022877884,
+            0.3209860900122419,
+            0.00851870330035448
+          ],
+          "native_row_norms_right": [
+            1.1210646588825877,
+            0.8104476204185437,
+            0.024038681500915256,
+            1.2209833058144972,
+            0.5082852835396723,
+            0.024038681500915256,
+            1.304015658294608,
+            0.9365076435324303,
+            0.024038681500915256
+          ],
+          "native_row_cosine": [
+            0.910010257268979,
+            0.09863887343381608,
+            -1.0,
+            0.7189333315776233,
+            0.317897269366121,
+            -1.0,
+            0.8512534472899709,
+            0.2501825889296747,
+            -1.0
+          ]
+        }
+      ],
+      "cases": [
+        {
+          "step": 0.04,
+          "selected_fraction": 0.0078125,
+          "fresh": {
+            "pass_all": false,
+            "joint_whitened_remaining_fraction": 0.9893570730261423,
+            "native_ratios": [
+              [
+                1.0007917865430906,
+                0.998556943083807,
+                1.0
+              ],
+              [
+                0.9994055618127158,
+                0.9989975006851322,
+                1.0
+              ],
+              [
+                0.9994612358467406,
+                1.0023085978302504,
+                1.0
+              ]
+            ],
+            "M0_anchor_ratios": [
+              [
+                1.0096169763860823,
+                0.9500066930009692,
+                1.0
+              ],
+              [
+                1.010726545116483,
+                0.9654976774524031,
+                1.0
+              ],
+              [
+                1.0127081970103227,
+                0.9577510975123326,
+                1.0
+              ]
+            ]
+          },
+          "peak_changed_fraction": 0.1379590446566358,
+          "window_changed_fraction": 0.9943259910300926,
+          "trials": [
+            {
+              "fraction": 1,
+              "accepted": false,
+              "FIT_native_prediction_error_max": 0.6556322923409098,
+              "FIT_joint_residual_error_reported": 0.26476149221833806
+            },
+            {
+              "fraction": 0.5,
+              "accepted": false,
+              "FIT_native_prediction_error_max": 0.15639285149416082,
+              "FIT_joint_residual_error_reported": 0.15777611579138498
+            },
+            {
+              "fraction": 0.25,
+              "accepted": false,
+              "FIT_native_prediction_error_max": 0.07066158347338838,
+              "FIT_joint_residual_error_reported": 0.13608531890733208
+            },
+            {
+              "fraction": 0.125,
+              "accepted": false,
+              "FIT_native_prediction_error_max": 0.04296348637896367,
+              "FIT_joint_residual_error_reported": 0.09421433094011182
+            },
+            {
+              "fraction": 0.0625,
+              "accepted": false,
+              "FIT_native_prediction_error_max": 0.02015200208361597,
+              "FIT_joint_residual_error_reported": 0.04665823040974333
+            },
+            {
+              "fraction": 0.03125,
+              "accepted": false,
+              "FIT_native_prediction_error_max": 0.006593240620117527,
+              "FIT_joint_residual_error_reported": 0.01885927474243627
+            },
+            {
+              "fraction": 0.015625,
+              "accepted": false,
+              "FIT_native_prediction_error_max": 0.005289565371319708,
+              "FIT_joint_residual_error_reported": 0.01006909015720667
+            },
+            {
+              "fraction": 0.0078125,
+              "accepted": true,
+              "FIT_native_prediction_error_max": 0.004592757785524311,
+              "FIT_joint_residual_error_reported": 0.006100873464148242
+            }
+          ]
+        },
+        {
+          "step": 0.004,
+          "selected_fraction": 0.03125,
+          "fresh": {
+            "pass_all": true,
+            "joint_whitened_remaining_fraction": 0.9688040686374347,
+            "native_ratios": [
+              [
+                0.9968418936537031,
+                0.9961578354678479,
+                1.0
+              ],
+              [
+                0.9935937068660747,
+                0.9977186520239616,
+                1.0
+              ],
+              [
+                0.9950795191589097,
+                0.9968679902254594,
+                1.0
+              ]
+            ],
+            "M0_anchor_ratios": [
+              [
+                1.0056322525207844,
+                0.9477242309859817,
+                1.0
+              ],
+              [
+                1.0048488551221606,
+                0.9642617129866998,
+                1.0
+              ],
+              [
+                1.008268404602582,
+                0.9525523514216551,
+                1.0
+              ]
+            ]
+          },
+          "peak_changed_fraction": 0.01885910976080247,
+          "window_changed_fraction": 0.9416142216435185,
+          "trials": [
+            {
+              "fraction": 1,
+              "accepted": false,
+              "FIT_native_prediction_error_max": 0.6724862860097557,
+              "FIT_joint_residual_error_reported": 0.39707413753923587
+            },
+            {
+              "fraction": 0.5,
+              "accepted": false,
+              "FIT_native_prediction_error_max": 0.286097426187046,
+              "FIT_joint_residual_error_reported": 0.19922560053337626
+            },
+            {
+              "fraction": 0.25,
+              "accepted": false,
+              "FIT_native_prediction_error_max": 0.14676146227240838,
+              "FIT_joint_residual_error_reported": 0.10984920669488231
+            },
+            {
+              "fraction": 0.125,
+              "accepted": false,
+              "FIT_native_prediction_error_max": 0.06344722640587587,
+              "FIT_joint_residual_error_reported": 0.05611701435093278
+            },
+            {
+              "fraction": 0.0625,
+              "accepted": false,
+              "FIT_native_prediction_error_max": 0.02327035268424556,
+              "FIT_joint_residual_error_reported": 0.021942526074536697
+            },
+            {
+              "fraction": 0.03125,
+              "accepted": true,
+              "FIT_native_prediction_error_max": 0.0075336892725766,
+              "FIT_joint_residual_error_reported": 0.010982563954552499
+            }
+          ]
+        },
+        {
+          "step": 0.0004,
+          "selected_fraction": 0.125,
+          "fresh": {
+            "pass_all": false,
+            "joint_whitened_remaining_fraction": 0.9669243327013519,
+            "native_ratios": [
+              [
+                0.9968758143428208,
+                0.9851681485175398,
+                1.0000255697508365
+              ],
+              [
+                0.9991232099436451,
+                0.9859261446432346,
+                1.0000255697508365
+              ],
+              [
+                1.0000106890344347,
+                0.9906994910768829,
+                1.0000255697508365
+              ]
+            ],
+            "M0_anchor_ratios": [
+              [
+                1.0056664723295843,
+                0.9372688671441003,
+                1.0000255697508365
+              ],
+              [
+                1.0104409948453645,
+                0.9528646489503796,
+                1.0000255697508365
+              ],
+              [
+                1.0132649327066099,
+                0.9466580721125261,
+                1.0000255697508365
+              ]
+            ]
+          },
+          "peak_changed_fraction": 0.0033004195601851853,
+          "window_changed_fraction": 0.7785689742476852,
+          "trials": [
+            {
+              "fraction": 1,
+              "accepted": false,
+              "FIT_native_prediction_error_max": 0.32574855763840166,
+              "FIT_joint_residual_error_reported": 0.3630328236527372
+            },
+            {
+              "fraction": 0.5,
+              "accepted": false,
+              "FIT_native_prediction_error_max": 0.16754777479316352,
+              "FIT_joint_residual_error_reported": 0.17688005940914941
+            },
+            {
+              "fraction": 0.25,
+              "accepted": false,
+              "FIT_native_prediction_error_max": 0.07403106351356328,
+              "FIT_joint_residual_error_reported": 0.08783147010154888
+            },
+            {
+              "fraction": 0.125,
+              "accepted": true,
+              "FIT_native_prediction_error_max": 0.029173276757600446,
+              "FIT_joint_residual_error_reported": 0.043220749430688946
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "committed_parameter_updates": 0,
+  "scientific_acceptance": false,
+  "limitation": "Actual trial joint residual vectors were not saved. Their reported vector error is checked only against norm bounds; native direction errors and matrix predictions are independently recomputed.",
+  "interpretation": "Derivative matrices do not converge across the tested scales; no automatic best scale or new training is selected. Seed0 baseline already breaches the 1.01 M0 wave guard on some new FIT/CHECK hypotheses. Seed1 step .004 passes one local fresh guard, but all fresh wave ratios to M0 exceed 1. No original final acceptance is established.",
+  "next_action": "Register zero-update readout-operator attribution on the same frozen inputs: exact hard replay, frozen peak indices, and continuous-voltage frozen-peak native diagnostics. Keep original evaluation untouched."
+}

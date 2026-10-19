@@ -1,0 +1,118 @@
+{
+  "schema": "n01/joint-response01-real-calibration/v1",
+  "job_id": "JOINT_RESPONSE_01_REAL_CALIBRATION_FIX01_20261019",
+  "registered_UTC": "2026-10-19T04:20:53.058665+00:00",
+  "stage": 4,
+  "frozen_setup_config": "configs/response038_20261017.json",
+  "roles_file": "diagnostic_inputs/REAL_CALIBRATION_ROLES.npz",
+  "teacher_precision_result": "diagnostic_inputs/TEACHER_PRECISION_RESULT.json",
+  "iterations": 12,
+  "batch": {
+    "source_parents": 1024,
+    "draws_per_parent": 4,
+    "target_rows": 4096
+  },
+  "final": {
+    "parents": 128,
+    "draws_per_parent": 64,
+    "libraries": 2
+  },
+  "feature_seeds": {
+    "FIT": 2026101942,
+    "CHECK": 2026101943,
+    "FINAL": 2026101944
+  },
+  "training_seed": 2350000,
+  "evaluation_seed": 2450000,
+  "solver": {
+    "finite_difference_step": 0.04,
+    "ridge_fraction": 0.02,
+    "radius": 0.4,
+    "backtracking_fractions": [
+      1.0,
+      0.5,
+      0.25
+    ],
+    "output_TR_mean_RMS_fraction": 0.08,
+    "output_TR_p99_RMS_fraction": 0.25,
+    "flag_increase_fraction": 0.005,
+    "minimum_CHECK_gain": 0.01,
+    "macro_degradation_factor": 1.15
+  },
+  "success": {
+    "joint_remaining_fraction": 0.8,
+    "peak_remaining_fraction": 0.9,
+    "native_remaining_fraction": 0.95,
+    "noise_max_factor": 1.1,
+    "macro_max_factor": 1.1,
+    "flag_increase_fraction": 0.005
+  },
+  "resources": {
+    "CPU_threads": 4,
+    "GPU_GiB": 2.75,
+    "RSS_GiB": 12,
+    "internal_seconds": 1500,
+    "hard_wall_seconds": 1800,
+    "output_MiB": 32,
+    "automatic_restart": false,
+    "GPU_free_required_MiB": 3840
+  },
+  "operation_budget": {
+    "checkpoint_loads": 6,
+    "TRAIN_archives_decoded": 1,
+    "PCA_archives_decoded": 1,
+    "old_A_calls": 52,
+    "old_A_rows": 6593,
+    "M0_head_calls": 104,
+    "M0_head_rows": 13186,
+    "REAL_observable_replay_calls": 1,
+    "REAL_observable_replay_rows": 21047,
+    "feature_maps_constructed": 3,
+    "REAL_fit_feature_rows": 196608,
+    "REAL_CHECK_feature_rows": 196608,
+    "REAL_evaluation_feature_rows": 4198,
+    "allocated_banks": 100,
+    "shape_standard_normal_values": 3407872,
+    "noise005_calls": 100,
+    "noise005_rows": 425984,
+    "extension_rows": 1277952,
+    "joint_response_calls": 5056,
+    "joint_response_rows": 20774912,
+    "generated_observation_calls": 15168,
+    "generated_observation_rows": 62324736,
+    "finite_difference_columns": 2400,
+    "joint_direction_solves": 48,
+    "joint_candidate_trials": 144,
+    "REAL_response_updates": 48,
+    "native_metric_rows": 493968,
+    "DEV_waveforms_decoded": 0,
+    "AD_queries": 0
+  },
+  "role_counts": {
+    "source_train_rows": 6465,
+    "source_heldout_rows": 128,
+    "real_train_rows": 18948,
+    "real_heldout_rows": 2099,
+    "real_train_groups": 380,
+    "real_heldout_groups": 42
+  },
+  "science_acceptance_requires_stage5": true,
+  "method_contract": "docs/JOINT_RESPONSE_01_REAL_CALIBRATION_20261019.md",
+  "source_pins": {
+    "scripts/run_joint_response01_real.py": "a6906ab9ba5ffc94a9a8425120c53cc42e25080743a1cc2edc91454041a6d2c6",
+    "scripts/run_joint_response01.py": "36b8dd747118bd439cec63f505144b68156d9359b3f0982741b6c47f2344f17d",
+    "scripts/run_joint_response01_teacher.py": "38a214350b0aa7d5ef45915d980a51a2cfa4624717d9f950a5bfbef7ff1a7833",
+    "src/n01/joint01_model.py": "b9e11ea99abb738af7a396728ba17e40d3c548c2d8638eea1e37a881534497e6",
+    "src/n01/joint01_features.py": "64b1ff274693290a40f0e9ae4d43a93765cd58bae95b290c0794b5639b8e2ec6",
+    "configs/response038_20261017.json": "9eb28ee64c7f3cd327d31d681414e6e33bed311474d2a3ab7e0b5ca7c1988d54",
+    "docs/JOINT_RESPONSE_01_REAL_CALIBRATION_20261019.md": "4bee1134a181caf16aafd79b95a54f7bdbf93b9f0be935bde7a79485fad7accf",
+    "diagnostic_inputs/TEACHER_PRECISION_RESULT.json": "ec9c9c7a5a5faabdb67f13877ce083bcdbca2f3d3cc87362f1bdda58facb8057",
+    "diagnostic_inputs/REAL_CALIBRATION_ROLES.npz": "73ccc2cf37613a6f92de14e62dc9f7df51bd09c5d255a1646c61eb5a1fdf1e3b"
+  },
+  "boundary_fix": {
+    "original_attempt": "receipts/joint_response_01_20261019/REAL_calibration_deployment_01/TERMINAL_REVIEW.json",
+    "first_attempt_REAL_response_updates": 0,
+    "change": "Preserve frozen NumPy CPU existing-ADC readout, compare window/baseline to frozen loader, then transfer observed values and flags to GPU; no new REAL digitization, no guard bypass",
+    "model_solver_population_roles_gates_and_budgets_unchanged": true
+  }
+}

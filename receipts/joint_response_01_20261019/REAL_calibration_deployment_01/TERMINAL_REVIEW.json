@@ -1,0 +1,19 @@
+{
+  "status": "SETUP_FAILED_BEFORE_REAL_FIT",
+  "native_exit_code": 1,
+  "source_files_verified": 576,
+  "actual_counts": {
+    "checkpoint_loads": 6,
+    "TRAIN_archives_decoded": 1,
+    "PCA_archives_decoded": 1,
+    "old_A_calls": 52,
+    "old_A_rows": 6593,
+    "M0_head_calls": 104,
+    "M0_head_rows": 13186
+  },
+  "failure": "already_digitized requires canonical float64 ADC values; canonicalize stored float32 REAL first",
+  "REAL_response_updates": 0,
+  "new_generated_or_noise_rows": 0,
+  "remedy": "Use existing verified NumPy CPU REAL readout path then transfer observed fields to GPU; do not bypass canonical guards or digitize REAL anew",
+  "scientific_acceptance": false
+}

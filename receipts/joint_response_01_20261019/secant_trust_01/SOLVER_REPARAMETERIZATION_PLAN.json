@@ -1,0 +1,17 @@
+{
+  "purpose": "Numerical equivalence check of delta = radius * u; no new generator evaluations or candidate acceptance",
+  "source": "src/n01/joint01_native_step.py remains byte-identical",
+  "matrix_cases": "Two saved endpoints, original and first rank-one-corrected matrices",
+  "radii": [0.0125, 0.003125],
+  "maximum_solver_calls": 16,
+  "CPU_threads": 4,
+  "internal_seconds": 120,
+  "unchanged_solver_iterations": 200,
+  "unchanged_solver_ftol": 1e-9,
+  "equivalence": "J_scaled=radius*J, N_scaled=radius*N, theta_scaled=theta/radius, bounds_scaled=bounds/radius, solver_radius=1; ridge scales by radius squared",
+  "required": "Raw objective and all macro/native/radius constraints agree at the same physical displacement, all scaled successful solutions retain original feasibility",
+  "failed_matrix_boundary": "The exact matrix from the failed fourth solve was not persisted; this check cannot claim an exact replay of that failure",
+  "new_generator_calls": 0,
+  "parameter_updates": 0,
+  "scientific_acceptance": false
+}

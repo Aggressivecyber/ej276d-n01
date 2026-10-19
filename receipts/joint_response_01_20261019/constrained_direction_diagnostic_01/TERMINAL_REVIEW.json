@@ -1,0 +1,65 @@
+{
+  "status": "COMPLETE_CONSTRAINED_DIRECTION_DIAGNOSTIC_NEGATIVE",
+  "native_exit_code": 0,
+  "source_files_verified": 583,
+  "outputs_verified": 12,
+  "output_bytes": 6646870,
+  "result_sha256": "c8db33f2f592ab0f6a1b515d8b936bf8829abe468bcd5e2ede5d1703bd853d70",
+  "config_sha256": "693f4eeeba8e08bfe662bf262bb83ef354dc9861bbb96774eec50c6df0eeab8c",
+  "elapsed_seconds": 13.490371840001899,
+  "actual_counts": {
+    "checkpoint_loads": 6,
+    "TRAIN_archives_decoded": 1,
+    "PCA_archives_decoded": 1,
+    "old_A_calls": 52,
+    "old_A_rows": 6593,
+    "M0_head_calls": 104,
+    "M0_head_rows": 13186,
+    "REAL_observable_replay_calls": 1,
+    "REAL_observable_replay_rows": 21047,
+    "feature_maps_constructed": 2,
+    "REAL_fit_feature_rows": 8192,
+    "allocated_banks": 6,
+    "shape_standard_normal_values": 196608,
+    "noise005_calls": 6,
+    "noise005_rows": 24576,
+    "extension_rows": 73728,
+    "joint_response_calls": 246,
+    "joint_response_rows": 1007616,
+    "generated_observation_calls": 738,
+    "generated_observation_rows": 3022848,
+    "finite_difference_columns": 108,
+    "joint_direction_solves": 4,
+    "REAL_CHECK_feature_rows": 16384,
+    "joint_candidate_trials": 24,
+    "native_metric_rows": 344064
+  },
+  "saved_matrix_recalculation_max_difference": 8.881784197001252e-16,
+  "checks": {
+    "0": {
+      "J_shape": [
+        816,
+        54
+      ],
+      "original_risk_parity": 0.0,
+      "minimum_macro_slack": -1.6272747038748037e-13,
+      "all_fit_and_CHECK_indices_in_fitting_role": true,
+      "step_norm": 0.4000000000032229
+    },
+    "1": {
+      "J_shape": [
+        816,
+        54
+      ],
+      "original_risk_parity": 0.0,
+      "minimum_macro_slack": -8.12128142513302e-14,
+      "all_fit_and_CHECK_indices_in_fitting_role": true,
+      "step_norm": 0.4000000000053725
+    }
+  },
+  "original_acceptance_gates_unchanged": true,
+  "committed_updates": 0,
+  "constrained_fresh_CHECK_pass_all": false,
+  "scientific_acceptance": false,
+  "interpretation": "Original rejected directions reproduce exactly. QCQP local macro constraints are numerically feasible, yet actual hard-observation CHECK wave and sometimes charge macro fail; nativewave/QPSD also degrade. Diagnose fixed-FIT local-model agreement versus feature-projection transfer before changing optimization or objective."
+}

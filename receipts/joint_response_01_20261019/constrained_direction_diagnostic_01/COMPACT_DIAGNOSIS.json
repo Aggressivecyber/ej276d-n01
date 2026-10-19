@@ -1,0 +1,764 @@
+{
+  "0": {
+    "geometry": {
+      "solver": "SLSQP_full_joint_quadratic",
+      "iterations": 13,
+      "objective_evaluations": 18,
+      "analytic_objective_and_constraint_J": true,
+      "ridge": 3.463137390499477,
+      "step_norm": 0.4000000000032229,
+      "normalized_minimum_slack": -1.6114221068619372e-11,
+      "original_macro_risks": {
+        "fast/wave": 0.0183724608443895,
+        "fast/charge_morphology": 0.4713281512453814,
+        "fast/peak_codes": 1.318853694487018,
+        "fast/baseline": 0.009012063280462862,
+        "slow/wave": 0.01886310915484855,
+        "slow/charge_morphology": 0.4898010624586392,
+        "slow/peak_codes": 1.324020001422099,
+        "slow/baseline": 0.009012063280462853,
+        "common_level/wave": 0.019083017925022823,
+        "common_level/charge_morphology": 0.4308579949485302,
+        "common_level/peak_codes": 1.3193783742077894,
+        "common_level/baseline": 0.009012063280462853
+      },
+      "macro_limits": {
+        "fast/wave": 0.021616611221047924,
+        "fast/charge_morphology": 0.5425156551821886,
+        "fast/peak_codes": 1.5171700299100706,
+        "fast/baseline": 0.010852154022532291,
+        "slow/wave": 0.02218085677807583,
+        "slow/charge_morphology": 0.563759503077435,
+        "slow/peak_codes": 1.5231112828854139,
+        "slow/baseline": 0.010852154022532281,
+        "common_level/wave": 0.022433751863776243,
+        "common_level/charge_morphology": 0.4959749754408097,
+        "common_level/peak_codes": 1.5177734115889576,
+        "common_level/baseline": 0.010852154022532281
+      },
+      "predicted_macro_risks": {
+        "fast/wave": 0.021616611221203376,
+        "fast/charge_morphology": 0.3641922935309536,
+        "fast/peak_codes": 0.605037023978994,
+        "fast/baseline": 0.009012063280462872,
+        "slow/wave": 0.021245115988120337,
+        "slow/charge_morphology": 0.3742074112576728,
+        "slow/peak_codes": 0.5603999393749459,
+        "slow/baseline": 0.009012063280462883,
+        "common_level/wave": 0.02243375186393897,
+        "common_level/charge_morphology": 0.3116370399457663,
+        "common_level/peak_codes": 0.6098324501675053,
+        "common_level/baseline": 0.009012063280462893
+      },
+      "predicted_joint_remaining_fraction": 0.45207153061462213,
+      "constraints_do_not_replace_original_hard_CHECK": true
+    },
+    "parity": 0.0,
+    "checks": {
+      "original_CHECK": [
+        {
+          "direction": "original",
+          "fraction": 1.0,
+          "would_accept": false,
+          "joint_ratio": 0.5622654955692684,
+          "macro_fails": [
+            "fast/wave",
+            "slow/wave",
+            "common_level/wave"
+          ],
+          "wave_macro_ratio": {
+            "fast": 1.6586336072527392,
+            "slow": 1.7278352365984055,
+            "common_level": 1.7604148821900558
+          },
+          "trust": true,
+          "native_ratios": null
+        },
+        {
+          "direction": "original",
+          "fraction": 0.5,
+          "would_accept": false,
+          "joint_ratio": 0.6662367735915015,
+          "macro_fails": [
+            "fast/wave",
+            "slow/wave",
+            "common_level/wave"
+          ],
+          "wave_macro_ratio": {
+            "fast": 1.5583795150470805,
+            "slow": 1.6304065396989393,
+            "common_level": 1.6564879101777124
+          },
+          "trust": true,
+          "native_ratios": null
+        },
+        {
+          "direction": "original",
+          "fraction": 0.25,
+          "would_accept": false,
+          "joint_ratio": 0.7838080228498663,
+          "macro_fails": [
+            "fast/wave",
+            "slow/wave",
+            "common_level/wave"
+          ],
+          "wave_macro_ratio": {
+            "fast": 1.3766479734561874,
+            "slow": 1.4275253444044664,
+            "common_level": 1.4642686774771492
+          },
+          "trust": true,
+          "native_ratios": null
+        },
+        {
+          "direction": "constrained",
+          "fraction": 1.0,
+          "would_accept": false,
+          "joint_ratio": 0.4496977395501067,
+          "macro_fails": [
+            "fast/wave",
+            "fast/charge_morphology",
+            "slow/wave",
+            "slow/charge_morphology",
+            "common_level/wave",
+            "common_level/charge_morphology"
+          ],
+          "wave_macro_ratio": {
+            "fast": 1.6043729139342269,
+            "slow": 1.662382825795439,
+            "common_level": 1.6642541477365025
+          },
+          "trust": true,
+          "native_ratios": null
+        },
+        {
+          "direction": "constrained",
+          "fraction": 0.5,
+          "would_accept": false,
+          "joint_ratio": 0.5985846969267703,
+          "macro_fails": [
+            "fast/wave",
+            "slow/wave",
+            "common_level/wave",
+            "common_level/charge_morphology"
+          ],
+          "wave_macro_ratio": {
+            "fast": 1.4844411666673236,
+            "slow": 1.5300052063649447,
+            "common_level": 1.5537696257300055
+          },
+          "trust": true,
+          "native_ratios": null
+        },
+        {
+          "direction": "constrained",
+          "fraction": 0.25,
+          "would_accept": false,
+          "joint_ratio": 0.6850649055165382,
+          "macro_fails": [
+            "fast/wave",
+            "slow/wave",
+            "common_level/wave"
+          ],
+          "wave_macro_ratio": {
+            "fast": 1.5070008211578234,
+            "slow": 1.5349340283925308,
+            "common_level": 1.5541312778995426
+          },
+          "trust": true,
+          "native_ratios": null
+        }
+      ],
+      "fresh_CHECK": [
+        {
+          "direction": "original",
+          "fraction": 1.0,
+          "would_accept": false,
+          "joint_ratio": 0.5749086055163286,
+          "macro_fails": [
+            "fast/wave",
+            "slow/wave",
+            "common_level/wave"
+          ],
+          "wave_macro_ratio": {
+            "fast": 1.3231725020265641,
+            "slow": 1.3904840215854912,
+            "common_level": 1.4303702585061684
+          },
+          "trust": true,
+          "native_ratios": {
+            "fast": {
+              "wave": 1.1936741814976273,
+              "QPSD": 1.515790040954786,
+              "noise": 1.0
+            },
+            "slow": {
+              "wave": 1.216890892312565,
+              "QPSD": 1.4862629194000925,
+              "noise": 1.0
+            },
+            "common_level": {
+              "wave": 1.2238298565397212,
+              "QPSD": 1.53820366143889,
+              "noise": 1.0
+            }
+          }
+        },
+        {
+          "direction": "original",
+          "fraction": 0.5,
+          "would_accept": false,
+          "joint_ratio": 0.6810151194449184,
+          "macro_fails": [
+            "fast/wave",
+            "slow/wave",
+            "common_level/wave"
+          ],
+          "wave_macro_ratio": {
+            "fast": 1.3210407332008018,
+            "slow": 1.3566637883514427,
+            "common_level": 1.409688308750547
+          },
+          "trust": true,
+          "native_ratios": {
+            "fast": {
+              "wave": 1.096693273199106,
+              "QPSD": 1.208572586803316,
+              "noise": 1.0
+            },
+            "slow": {
+              "wave": 1.1187099587603084,
+              "QPSD": 1.2076311015032581,
+              "noise": 1.0
+            },
+            "common_level": {
+              "wave": 1.1278203992739788,
+              "QPSD": 1.2151252164024184,
+              "noise": 1.0
+            }
+          }
+        },
+        {
+          "direction": "original",
+          "fraction": 0.25,
+          "would_accept": false,
+          "joint_ratio": 0.7965734667199745,
+          "macro_fails": [
+            "fast/wave",
+            "slow/wave",
+            "common_level/wave"
+          ],
+          "wave_macro_ratio": {
+            "fast": 1.2217449722191702,
+            "slow": 1.2576893605940185,
+            "common_level": 1.2924224593562108
+          },
+          "trust": true,
+          "native_ratios": {
+            "fast": {
+              "wave": 1.0571142512531582,
+              "QPSD": 1.0652620439255742,
+              "noise": 1.0
+            },
+            "slow": {
+              "wave": 1.0763112299952415,
+              "QPSD": 1.061531550760123,
+              "noise": 1.0
+            },
+            "common_level": {
+              "wave": 1.082723276727912,
+              "QPSD": 1.072680282796983,
+              "noise": 1.0
+            }
+          }
+        },
+        {
+          "direction": "constrained",
+          "fraction": 1.0,
+          "would_accept": false,
+          "joint_ratio": 0.44606983054380805,
+          "macro_fails": [
+            "fast/wave",
+            "fast/charge_morphology",
+            "slow/wave",
+            "slow/charge_morphology",
+            "common_level/wave",
+            "common_level/charge_morphology"
+          ],
+          "wave_macro_ratio": {
+            "fast": 1.4799952528191853,
+            "slow": 1.4968786710070456,
+            "common_level": 1.5242287989942578
+          },
+          "trust": true,
+          "native_ratios": {
+            "fast": {
+              "wave": 1.4189445296080774,
+              "QPSD": 1.4497441849186765,
+              "noise": 1.0
+            },
+            "slow": {
+              "wave": 1.4322011085159119,
+              "QPSD": 1.4605855784399826,
+              "noise": 1.0
+            },
+            "common_level": {
+              "wave": 1.4334164757629584,
+              "QPSD": 1.4835508745026749,
+              "noise": 1.0
+            }
+          }
+        },
+        {
+          "direction": "constrained",
+          "fraction": 0.5,
+          "would_accept": false,
+          "joint_ratio": 0.5898387612216097,
+          "macro_fails": [
+            "fast/wave",
+            "slow/wave",
+            "common_level/wave"
+          ],
+          "wave_macro_ratio": {
+            "fast": 1.3906562190290752,
+            "slow": 1.4268351082316708,
+            "common_level": 1.4577361422888095
+          },
+          "trust": true,
+          "native_ratios": {
+            "fast": {
+              "wave": 1.1443497863566576,
+              "QPSD": 1.18176067976433,
+              "noise": 1.0
+            },
+            "slow": {
+              "wave": 1.1637332634102953,
+              "QPSD": 1.180275515505872,
+              "noise": 1.0
+            },
+            "common_level": {
+              "wave": 1.1664724676650937,
+              "QPSD": 1.2024806133627295,
+              "noise": 1.0
+            }
+          }
+        },
+        {
+          "direction": "constrained",
+          "fraction": 0.25,
+          "would_accept": false,
+          "joint_ratio": 0.6971967525818648,
+          "macro_fails": [
+            "fast/wave",
+            "slow/wave",
+            "common_level/wave"
+          ],
+          "wave_macro_ratio": {
+            "fast": 1.3560240723598738,
+            "slow": 1.39333380143838,
+            "common_level": 1.4253528666049062
+          },
+          "trust": true,
+          "native_ratios": {
+            "fast": {
+              "wave": 1.091275740741078,
+              "QPSD": 1.0292390688633122,
+              "noise": 1.0
+            },
+            "slow": {
+              "wave": 1.1095758334968036,
+              "QPSD": 1.044472544063191,
+              "noise": 1.0
+            },
+            "common_level": {
+              "wave": 1.11457073758967,
+              "QPSD": 1.0155935477141491,
+              "noise": 1.0
+            }
+          }
+        }
+      ]
+    }
+  },
+  "1": {
+    "geometry": {
+      "solver": "SLSQP_full_joint_quadratic",
+      "iterations": 12,
+      "objective_evaluations": 17,
+      "analytic_objective_and_constraint_J": true,
+      "ridge": 2.9403149640949766,
+      "step_norm": 0.40000000000537256,
+      "normalized_minimum_slack": -2.6862512214620438e-11,
+      "original_macro_risks": {
+        "fast/wave": 0.019140746866356948,
+        "fast/charge_morphology": 0.4143358246810199,
+        "fast/peak_codes": 1.392314235665232,
+        "fast/baseline": 0.00771354912972192,
+        "slow/wave": 0.019002828962630416,
+        "slow/charge_morphology": 0.4187992742683395,
+        "slow/peak_codes": 1.4086351593404456,
+        "slow/baseline": 0.007713549129721923,
+        "common_level/wave": 0.019409753897952593,
+        "common_level/charge_morphology": 0.380718933096532,
+        "common_level/peak_codes": 1.3955779701154616,
+        "common_level/baseline": 0.00771354912972192
+      },
+      "macro_limits": {
+        "fast/wave": 0.02250014014631049,
+        "fast/charge_morphology": 0.47697447963317285,
+        "fast/peak_codes": 1.6016496522650168,
+        "fast/baseline": 0.009358862749180206,
+        "slow/wave": 0.022341534557024978,
+        "slow/charge_morphology": 0.4821074466585904,
+        "slow/peak_codes": 1.6204187144915123,
+        "slow/baseline": 0.009358862749180212,
+        "common_level/wave": 0.02280949823264548,
+        "common_level/charge_morphology": 0.43831505431101175,
+        "common_level/peak_codes": 1.6054029468827806,
+        "common_level/baseline": 0.009358862749180206
+      },
+      "predicted_macro_risks": {
+        "fast/wave": 0.021563579688972264,
+        "fast/charge_morphology": 0.3626496998208901,
+        "fast/peak_codes": 0.7221222384318265,
+        "fast/baseline": 0.007713549129721939,
+        "slow/wave": 0.022341534557106198,
+        "slow/charge_morphology": 0.3624323744151474,
+        "slow/peak_codes": 0.7268605377997963,
+        "slow/baseline": 0.007713549129721902,
+        "common_level/wave": 0.02174999298520296,
+        "common_level/charge_morphology": 0.3171151609471968,
+        "common_level/peak_codes": 0.6925046550213894,
+        "common_level/baseline": 0.007713549129721918
+      },
+      "predicted_joint_remaining_fraction": 0.43373093186628775,
+      "constraints_do_not_replace_original_hard_CHECK": true
+    },
+    "parity": 0.0,
+    "checks": {
+      "original_CHECK": [
+        {
+          "direction": "original",
+          "fraction": 1.0,
+          "would_accept": false,
+          "joint_ratio": 0.5818285896879116,
+          "macro_fails": [
+            "fast/wave",
+            "slow/wave",
+            "common_level/wave"
+          ],
+          "wave_macro_ratio": {
+            "fast": 1.602404026425291,
+            "slow": 1.6885711068242333,
+            "common_level": 1.759809354863986
+          },
+          "trust": true,
+          "native_ratios": null
+        },
+        {
+          "direction": "original",
+          "fraction": 0.5,
+          "would_accept": false,
+          "joint_ratio": 0.6916350195434615,
+          "macro_fails": [
+            "fast/wave",
+            "slow/wave",
+            "common_level/wave"
+          ],
+          "wave_macro_ratio": {
+            "fast": 1.5234780526057328,
+            "slow": 1.5774094467069624,
+            "common_level": 1.6234660586029268
+          },
+          "trust": true,
+          "native_ratios": null
+        },
+        {
+          "direction": "original",
+          "fraction": 0.25,
+          "would_accept": false,
+          "joint_ratio": 0.8203548902087573,
+          "macro_fails": [
+            "fast/wave",
+            "slow/wave",
+            "common_level/wave"
+          ],
+          "wave_macro_ratio": {
+            "fast": 1.3708081481138996,
+            "slow": 1.4156762171799468,
+            "common_level": 1.472561905579104
+          },
+          "trust": true,
+          "native_ratios": null
+        },
+        {
+          "direction": "constrained",
+          "fraction": 1.0,
+          "would_accept": false,
+          "joint_ratio": 0.4262859020277514,
+          "macro_fails": [
+            "fast/wave",
+            "fast/charge_morphology",
+            "slow/wave",
+            "slow/charge_morphology",
+            "common_level/wave",
+            "common_level/charge_morphology"
+          ],
+          "wave_macro_ratio": {
+            "fast": 1.4416123217494958,
+            "slow": 1.4966329490130905,
+            "common_level": 1.5274404106612203
+          },
+          "trust": true,
+          "native_ratios": null
+        },
+        {
+          "direction": "constrained",
+          "fraction": 0.5,
+          "would_accept": false,
+          "joint_ratio": 0.5697356639171938,
+          "macro_fails": [
+            "fast/wave",
+            "slow/wave",
+            "common_level/wave"
+          ],
+          "wave_macro_ratio": {
+            "fast": 1.375115520924463,
+            "slow": 1.4314833463749548,
+            "common_level": 1.4563439269602891
+          },
+          "trust": true,
+          "native_ratios": null
+        },
+        {
+          "direction": "constrained",
+          "fraction": 0.25,
+          "would_accept": false,
+          "joint_ratio": 0.6597671913993041,
+          "macro_fails": [
+            "fast/wave",
+            "slow/wave",
+            "common_level/wave"
+          ],
+          "wave_macro_ratio": {
+            "fast": 1.3575713674284018,
+            "slow": 1.4009562470422894,
+            "common_level": 1.4267278090711526
+          },
+          "trust": true,
+          "native_ratios": null
+        }
+      ],
+      "fresh_CHECK": [
+        {
+          "direction": "original",
+          "fraction": 1.0,
+          "would_accept": false,
+          "joint_ratio": 0.5851130674080229,
+          "macro_fails": [
+            "fast/wave",
+            "slow/wave",
+            "common_level/wave"
+          ],
+          "wave_macro_ratio": {
+            "fast": 1.5813421529531988,
+            "slow": 1.6399709452011435,
+            "common_level": 1.6827956830252129
+          },
+          "trust": true,
+          "native_ratios": {
+            "fast": {
+              "wave": 1.200972709480969,
+              "QPSD": 1.4188788219048247,
+              "noise": 1.0
+            },
+            "slow": {
+              "wave": 1.2206072630647058,
+              "QPSD": 1.373467001185983,
+              "noise": 1.0
+            },
+            "common_level": {
+              "wave": 1.2287447006186536,
+              "QPSD": 1.414621177268259,
+              "noise": 1.0
+            }
+          }
+        },
+        {
+          "direction": "original",
+          "fraction": 0.5,
+          "would_accept": false,
+          "joint_ratio": 0.6950819758551063,
+          "macro_fails": [
+            "fast/wave",
+            "slow/wave",
+            "common_level/wave"
+          ],
+          "wave_macro_ratio": {
+            "fast": 1.4848357893369954,
+            "slow": 1.5231759847285384,
+            "common_level": 1.5690596363723315
+          },
+          "trust": true,
+          "native_ratios": {
+            "fast": {
+              "wave": 1.1208688782691636,
+              "QPSD": 1.1541195564350748,
+              "noise": 1.0
+            },
+            "slow": {
+              "wave": 1.1370499898271291,
+              "QPSD": 1.1288197335977632,
+              "noise": 1.0
+            },
+            "common_level": {
+              "wave": 1.1473262208297226,
+              "QPSD": 1.1566479039008803,
+              "noise": 1.0
+            }
+          }
+        },
+        {
+          "direction": "original",
+          "fraction": 0.25,
+          "would_accept": false,
+          "joint_ratio": 0.8090157546616664,
+          "macro_fails": [
+            "fast/wave",
+            "slow/wave",
+            "common_level/wave"
+          ],
+          "wave_macro_ratio": {
+            "fast": 1.3299887153179586,
+            "slow": 1.3740570838912132,
+            "common_level": 1.4086091567547294
+          },
+          "trust": true,
+          "native_ratios": {
+            "fast": {
+              "wave": 1.0838530872013064,
+              "QPSD": 1.0566903437395407,
+              "noise": 1.0
+            },
+            "slow": {
+              "wave": 1.0990008450035678,
+              "QPSD": 1.0474091025022794,
+              "noise": 1.0
+            },
+            "common_level": {
+              "wave": 1.106237659658252,
+              "QPSD": 1.0452035217800015,
+              "noise": 1.0
+            }
+          }
+        },
+        {
+          "direction": "constrained",
+          "fraction": 1.0,
+          "would_accept": false,
+          "joint_ratio": 0.43192651098393514,
+          "macro_fails": [
+            "fast/wave",
+            "fast/charge_morphology",
+            "slow/wave",
+            "slow/charge_morphology",
+            "common_level/wave",
+            "common_level/charge_morphology"
+          ],
+          "wave_macro_ratio": {
+            "fast": 1.453806535515142,
+            "slow": 1.4741263575326486,
+            "common_level": 1.483685375260584
+          },
+          "trust": true,
+          "native_ratios": {
+            "fast": {
+              "wave": 1.349621172597338,
+              "QPSD": 1.4301350517775806,
+              "noise": 1.0
+            },
+            "slow": {
+              "wave": 1.3572068122635947,
+              "QPSD": 1.3971368411051264,
+              "noise": 1.0
+            },
+            "common_level": {
+              "wave": 1.3551001958800635,
+              "QPSD": 1.4325878163989658,
+              "noise": 1.0
+            }
+          }
+        },
+        {
+          "direction": "constrained",
+          "fraction": 0.5,
+          "would_accept": false,
+          "joint_ratio": 0.5567372244906386,
+          "macro_fails": [
+            "fast/wave",
+            "slow/wave",
+            "common_level/wave",
+            "common_level/charge_morphology"
+          ],
+          "wave_macro_ratio": {
+            "fast": 1.3913469476406648,
+            "slow": 1.4515292672148792,
+            "common_level": 1.4680666984097868
+          },
+          "trust": true,
+          "native_ratios": {
+            "fast": {
+              "wave": 1.1194942009670545,
+              "QPSD": 1.149306098272915,
+              "noise": 1.0
+            },
+            "slow": {
+              "wave": 1.1327079795148538,
+              "QPSD": 1.1263440262001645,
+              "noise": 1.0
+            },
+            "common_level": {
+              "wave": 1.1334408332173476,
+              "QPSD": 1.135289107971725,
+              "noise": 1.0
+            }
+          }
+        },
+        {
+          "direction": "constrained",
+          "fraction": 0.25,
+          "would_accept": false,
+          "joint_ratio": 0.6633346734145935,
+          "macro_fails": [
+            "fast/wave",
+            "slow/wave",
+            "common_level/wave"
+          ],
+          "wave_macro_ratio": {
+            "fast": 1.2734068443730295,
+            "slow": 1.3061114664870983,
+            "common_level": 1.3211245754690142
+          },
+          "trust": true,
+          "native_ratios": {
+            "fast": {
+              "wave": 1.063183510142202,
+              "QPSD": 1.039120664021359,
+              "noise": 1.0
+            },
+            "slow": {
+              "wave": 1.075646639083761,
+              "QPSD": 1.0221214541858359,
+              "noise": 1.0
+            },
+            "common_level": {
+              "wave": 1.077737282786849,
+              "QPSD": 1.0579231981431498,
+              "noise": 1.0
+            }
+          }
+        }
+      ]
+    }
+  }
+}

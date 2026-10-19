@@ -1,0 +1,91 @@
+{
+  "status": "COMPLETE_REAL_CALIBRATION_GATE_FAILED",
+  "native_exit_code": 0,
+  "scientific_acceptance": false,
+  "result_sha256": "e5a1b61ad8687a5ce70efd0397511cf42b5203b6fd308115099d0459ce881f7c",
+  "config_sha256": "3ad0a10d2e6597bbb107e627e653528da9c011daac3e58229fd032fc7f2e5f9d",
+  "source_files_verified": 577,
+  "output_files_verified": 21,
+  "actual_counts": {
+    "checkpoint_loads": 6,
+    "TRAIN_archives_decoded": 1,
+    "PCA_archives_decoded": 1,
+    "old_A_calls": 52,
+    "old_A_rows": 6593,
+    "M0_head_calls": 104,
+    "M0_head_rows": 13186,
+    "REAL_observable_replay_calls": 1,
+    "REAL_observable_replay_rows": 21047,
+    "feature_maps_constructed": 3,
+    "REAL_fit_feature_rows": 196608,
+    "allocated_banks": 100,
+    "shape_standard_normal_values": 3407872,
+    "noise005_calls": 100,
+    "noise005_rows": 425984,
+    "extension_rows": 1277952,
+    "joint_response_calls": 5008,
+    "joint_response_rows": 20578304,
+    "generated_observation_calls": 15024,
+    "generated_observation_rows": 61734912,
+    "finite_difference_columns": 2400,
+    "joint_direction_solves": 48,
+    "REAL_CHECK_feature_rows": 196608,
+    "joint_candidate_trials": 96,
+    "REAL_response_updates": 24,
+    "REAL_evaluation_feature_rows": 4198,
+    "native_metric_rows": 493968
+  },
+  "elapsed_seconds": 110.36890358300298,
+  "peak_RSS_bytes": 2846318592,
+  "peak_GPU_allocated_bytes": 1361389056,
+  "peak_GPU_reserved_bytes": 2308964352,
+  "coverage": {
+    "seed0_joint": {
+      "source_train_covered": 6465,
+      "real_train_covered": 18948,
+      "source_holdout_unvisited": 128,
+      "real_holdout_unvisited": 2099,
+      "source_visits": 12288,
+      "real_visits": 49152
+    },
+    "seed0_physical": {
+      "source_train_covered": 6465,
+      "real_train_covered": 18948,
+      "source_holdout_unvisited": 128,
+      "real_holdout_unvisited": 2099,
+      "source_visits": 12288,
+      "real_visits": 49152
+    },
+    "seed1_joint": {
+      "source_train_covered": 6465,
+      "real_train_covered": 18948,
+      "source_holdout_unvisited": 128,
+      "real_holdout_unvisited": 2099,
+      "source_visits": 12288,
+      "real_visits": 49152
+    },
+    "seed1_physical": {
+      "source_train_covered": 6465,
+      "real_train_covered": 18948,
+      "source_holdout_unvisited": 128,
+      "real_holdout_unvisited": 2099,
+      "source_visits": 12288,
+      "real_visits": 49152
+    }
+  },
+  "gate_counts": {
+    "0": {
+      "total": 96,
+      "failed": 24
+    },
+    "1": {
+      "total": 96,
+      "failed": 24
+    }
+  },
+  "joint_endpoints_exactly_M0": true,
+  "neural_accepted_updates": 0,
+  "physical_accepted_updates": 24,
+  "neural_rejections_all_72_only_wave_macro": true,
+  "diagnosis": "Full-Jacobian unconstrained directions improve joint CHECK but violate original wave macro at all3backtracks. Physical comparator improves its initial distribution yet remains worse than M0 on original nativewave/QPSD. Preserve all acceptance gates; investigate a jointly constrained direction without committing updates."
+}

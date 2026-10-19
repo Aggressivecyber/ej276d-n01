@@ -1,0 +1,15 @@
+# JOINT_RESPONSE_01 fixed-direction local-model diagnostic
+
+Registered prospectively after the original REAL run and the constrained-direction diagnostic. Both neural seeds accepted zero REAL updates. The constrained quadratic model satisfies its FIT macro inequalities, but its actual CHECK wave risk and native wave/QPSD worsen. Those results and all acceptance limits remain unchanged.
+
+This diagnostic separates two explanations: inaccurate local linearization of the full hard observation, and differences between the FIT and CHECK random feature projections. It commits no parameter update and performs no new Jacobian or optimization solve.
+
+Use the two saved original and constrained first-step directions, their saved FIT Jacobians, exactly the same SOURCE parents, REAL rows and common random numbers. Reproduce the saved FIT residual with maximum absolute difference at most 1e-12. Evaluate each fixed ray at fractions 1/256, 1/64, 1/16, 1/4 and 1; these are a geometric diagnostic curve, not a search for a training endpoint. The baseline is shared. Apply the same parameter bounds as the original run and use the actual bounded displacement in the linear prediction.
+
+For every point and all three noise hypotheses, save actual FIT and CHECK feature risks on the same FIT data, the predicted FIT risks from r + J delta, residual prediction error and directional agreement, native wave/QPSD/noise, peak-change counts, preADC and aligned-window RMS changes. FIT and CHECK maps retain their registered seeds and common REAL fitting-role normalization; no new CHECK draw is used. This directly controls data sampling while varying feature representation.
+
+All 4096 generated rows and 4096 REAL rows per seed remain in every comparison. The original SOURCE/REAL research heldout rows are not used. A0/M0/005/PCA and native scales retain their acknowledged full-TRAIN exposure. No population fitting, waveform pruning, window changes, DEV reads or classifier work is allowed.
+
+Bounds: two random banks, 8192 noise005 rows, 24576 extension rows, 65536 shape-normal values; 22 joint response calls / 90112 rows; 66 hard observations / 270336 rows; 66 native metric calls / 540672 comparison rows. Setup uses six checkpoints, one TRAIN archive, one PCA archive, 52 A0 calls / 6593 rows, 104 M0-head calls / 13186 rows, one existing REAL-observable replay / 21047 rows and two feature maps. REAL feature-row accounting records 8192 distinct sampled target rows, each evaluated by both maps. Zero solves, candidate-acceptance trials and committed updates. Four CPU threads, 2.75 GiB GPU allocator, 12 GiB RSS, 180 s internal and 240 s external limit, 32 MiB output; no automatic restart.
+
+Completion requires native exit zero, unchanged input/source hashes, residual reproduction, complete finite outputs, exact operation counts and documented interpretation of both seeds. This is a mechanism diagnostic, not a scientific acceptance gate. A later optimization change must follow the actual evidence and be registered separately; choosing the best ray fraction or removing the macro protection is not an automatic next step.

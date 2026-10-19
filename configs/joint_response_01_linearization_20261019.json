@@ -1,0 +1,99 @@
+{
+  "frozen_setup_config": "configs/response038_20261017.json",
+  "roles_file": "diagnostic_inputs/REAL_CALIBRATION_ROLES.npz",
+  "batch": {
+    "source_parents": 1024,
+    "draws_per_parent": 4,
+    "target_rows": 4096
+  },
+  "feature_seeds": {
+    "FIT": 2026101942,
+    "CHECK": 2026101943,
+    "FINAL": 2026101944
+  },
+  "training_seed": 2350000,
+  "resources": {
+    "CPU_threads": 4,
+    "GPU_GiB": 2.75,
+    "RSS_GiB": 12,
+    "internal_seconds": 180,
+    "hard_wall_seconds": 240,
+    "output_MiB": 32,
+    "automatic_restart": false,
+    "GPU_free_required_MiB": 3840
+  },
+  "role_counts": {
+    "source_train_rows": 6465,
+    "source_heldout_rows": 128,
+    "real_train_rows": 18948,
+    "real_heldout_rows": 2099,
+    "real_train_groups": 380,
+    "real_heldout_groups": 42
+  },
+  "source_pins": {
+    "scripts/run_joint_response01_real.py": "a6906ab9ba5ffc94a9a8425120c53cc42e25080743a1cc2edc91454041a6d2c6",
+    "scripts/run_joint_response01.py": "36b8dd747118bd439cec63f505144b68156d9359b3f0982741b6c47f2344f17d",
+    "scripts/run_joint_response01_teacher.py": "38a214350b0aa7d5ef45915d980a51a2cfa4624717d9f950a5bfbef7ff1a7833",
+    "src/n01/joint01_model.py": "b9e11ea99abb738af7a396728ba17e40d3c548c2d8638eea1e37a881534497e6",
+    "src/n01/joint01_features.py": "64b1ff274693290a40f0e9ae4d43a93765cd58bae95b290c0794b5639b8e2ec6",
+    "configs/response038_20261017.json": "9eb28ee64c7f3cd327d31d681414e6e33bed311474d2a3ab7e0b5ca7c1988d54",
+    "docs/JOINT_RESPONSE_01_REAL_CALIBRATION_20261019.md": "4bee1134a181caf16aafd79b95a54f7bdbf93b9f0be935bde7a79485fad7accf",
+    "diagnostic_inputs/TEACHER_PRECISION_RESULT.json": "ec9c9c7a5a5faabdb67f13877ce083bcdbca2f3d3cc87362f1bdda58facb8057",
+    "diagnostic_inputs/REAL_CALIBRATION_ROLES.npz": "73ccc2cf37613a6f92de14e62dc9f7df51bd09c5d255a1646c61eb5a1fdf1e3b",
+    "scripts/diagnose_joint01_constrained_direction.py": "a04e1df5c6a7a0d69bc43a6207587173194d7a921a01707203d3df493f9ac02d",
+    "src/n01/joint01_constrained_step.py": "11657cee0a7506ea2d87bd3f54f3caf323b4fe8beb2fd170312293b539c2dee0",
+    "docs/JOINT_RESPONSE_01_CONSTRAINED_DIRECTION_20261019.md": "9a17ac26fddb9ff630fe39ecfc246c9d3ae3ee2f58b90253b3fa6abf0d500411",
+    "diagnostic_inputs/REAL_seed0_joint_TRACE.json": "ebc184d6933305d4d33e8f4d3b1567124147fe81d28f8c1957f86691cc4f483b",
+    "diagnostic_inputs/REAL_seed1_joint_TRACE.json": "5884300bce19491a530cb6ca0625f87e8e2b2a3675b88af4953bc1ba6b8e4dd1",
+    "scripts/diagnose_joint01_linearization.py": "fc438049e23ea203c3fcb1656677dd8e075c66439c9d144f06f82db1b60f613c",
+    "docs/JOINT_RESPONSE_01_LINEARIZATION_20261019.md": "15e4ea4aa07e012e7f10bb248a9a0a4b3cc8d696a70283aa10d5065713c7f0ab",
+    "diagnostic_inputs/seed0_DIRECTION.npz": "5f1176608c8401c1a9ad1ce45dc25f72f76c56c0c32bfa22e8fcf77f0c70e781",
+    "diagnostic_inputs/seed1_DIRECTION.npz": "c55bf143f993c045b81b31bbc5eaddcb0beb5ccaff2428f7babaf5547edb3537"
+  },
+  "schema": "n01/joint-response01-linearization-diagnostic/v1",
+  "job_id": "JOINT_RESPONSE_01_LINEARIZATION_20261019",
+  "registered_UTC": "2026-10-19T04:41:00.350800+00:00",
+  "stage": 4,
+  "fractions": [
+    0.00390625,
+    0.015625,
+    0.0625,
+    0.25,
+    1
+  ],
+  "direction_files": [
+    "diagnostic_inputs/seed0_DIRECTION.npz",
+    "diagnostic_inputs/seed1_DIRECTION.npz"
+  ],
+  "method_contract": "docs/JOINT_RESPONSE_01_LINEARIZATION_20261019.md",
+  "committed_parameter_updates": 0,
+  "operation_budget": {
+    "checkpoint_loads": 6,
+    "TRAIN_archives_decoded": 1,
+    "PCA_archives_decoded": 1,
+    "old_A_calls": 52,
+    "old_A_rows": 6593,
+    "M0_head_calls": 104,
+    "M0_head_rows": 13186,
+    "REAL_observable_replay_calls": 1,
+    "REAL_observable_replay_rows": 21047,
+    "feature_maps_constructed": 2,
+    "REAL_fit_feature_rows": 8192,
+    "allocated_banks": 2,
+    "shape_standard_normal_values": 65536,
+    "noise005_calls": 2,
+    "noise005_rows": 8192,
+    "extension_rows": 24576,
+    "joint_response_calls": 22,
+    "joint_response_rows": 90112,
+    "generated_observation_calls": 66,
+    "generated_observation_rows": 270336,
+    "finite_difference_columns": 0,
+    "joint_direction_solves": 0,
+    "joint_candidate_trials": 0,
+    "native_metric_rows": 540672,
+    "REAL_response_updates": 0,
+    "DEV_waveforms_decoded": 0,
+    "AD_queries": 0
+  }
+}
