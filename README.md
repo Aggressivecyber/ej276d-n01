@@ -1,10 +1,12 @@
-# N01 当前阶段：三拟合批循环REAL校准已正确启动
+# N01 当前阶段：第一头比较已审核，第二头仍在登记预算内运行
 
-2026-10-20。上一项M0方法诊断已完成独立审核，两头FRESH联合风险下降6.93%/1.19%，原局部门通过、零提交更新。见[诊断终止回执](receipts/joint_response_01_20261020/multibank_m0_01/terminal_01/TERMINAL_REVIEW.json)。
+2026-10-20 02:19:27（UTC+8）快照确认原科学PID18472及启动身份一致：已完成1353/2400个参数差分列，总16次接受更新，正在seed1_joint第3方向。659份源码再次核验；该时刻RSS峰值约2.65GiB，预算未改变。见[运行与部分审核回执](receipts/joint_response_01_20261020/wake_20261020_0218_01/ASSESSMENT.json)。后续运行状态尚未观测。
 
-随后已登记并启动[循环REAL校准与物理对照](docs/JOINT_RESPONSE_01_MULTIBANK_REAL_PILOT_20261020.md)。659源码、17输入锁定及原生导入通过；00:48:06（UTC+8）的首次快照确认科学PID18472存活，seed0_joint第1方向已完成9参数差分列/27批列、零更新，RSS峰值约2.52GiB。见[正确启动回执](receipts/joint_response_01_20261020/multibank_REAL_pilot_01/STARTUP_ASSESSMENT.json)。未来进度以新回执为准，原科学门保持不变。
+第一头神经／物理各12方向、全部拟合角色覆盖、最终双库评价和同父核已完成。58份保存文件哈希通过；1200差分列、23次割线、47候选、188接受判定、参数链及原96门已复算。神经接受5次更新，最终joint剩余0.8852—0.8938、peak 0.9194—0.9312、native wave 0.9890—0.9922、QPSD 0.9926—1.0049，噪声比1；24个改善门仍失败，其他72门通过。物理接受10次更新，但最终native wave/QPSD仍约2.47—2.50／8.99—9.14倍M0。[第一头审核](receipts/joint_response_01_20261020/wake_20261020_0218_01/SEED0_REVIEW.json)、[保存证据诊断](receipts/joint_response_01_20261020/wake_20261020_0218_01/SEED0_DIAGNOSIS.json)。
 
-原固定间隔定时已删除。按189.36秒试跑和2400列任务量估计约70—85分钟，单次接续设在**2026-10-20 02:18（UTC+8）**；GPU共享负载使估计有不确定性，醒来若仍需等待会按实测进度重新估算。[估时依据](receipts/joint_response_01_20261020/multibank_REAL_pilot_01/WAIT_ESTIMATE.json)、[单次定时回执](receipts/joint_response_01_20261020/multibank_REAL_pilot_01/AUTOMATION_CREATE_RECEIPT.json)。先直接完成所有可执行工作，仅长等待安排苏醒。阶段4最终门、阶段5与全部合法TRAIN重拟合仍待完成。
+神经同父实际MC均值改变约1.385%，wave方差为M0的1.0047—1.0056，协方差迹为0.9962—0.9970；没有REAL逐父随机核真值。保存向量与统计量的复算不替代原始候选波形或逐draw重新生成。
+
+原70—85分钟估计未达到。实测第一头80.93分钟，整轮估计162—164分钟，预计超过原内部120分钟／外部125分钟上限；该上限保持。旧单次定时已消费并确认消失，新单次接续在**2026-10-20 02:54（UTC+8）**，位于原硬截止和kill grace之后。[估时依据](receipts/joint_response_01_20261020/wake_20261020_0218_01/WAIT_ESTIMATE.json)、[单次定时回执](receipts/joint_response_01_20261020/wake_20261020_0218_01/AUTOMATION_CREATE_RECEIPT.json)。届时核验终止证据；若比较未完成，先前瞻登记只补足原定剩余工作。完整比较、阶段5及全部合法TRAIN重拟合仍未完成，科学验收为false。
 
 以下保留历史快照；当前状态以本节、三台账和对应回执为准。
 

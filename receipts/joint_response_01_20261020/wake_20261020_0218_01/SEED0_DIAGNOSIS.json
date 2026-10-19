@@ -1,0 +1,109 @@
+{
+  "status": "COMPLETED_SEED0_SAVED_EVIDENCE_DIAGNOSIS",
+  "UTC": "2026-10-19T18:24:58.413699+00:00",
+  "scope": "Only completed seed0; all ratios use saved vectors or saved reports. No new model evaluations, endpoint choice, solve or threshold change.",
+  "tracks": {
+    "seed0_joint": {
+      "native_metric_order": [
+        "wave",
+        "QPSD",
+        "noise"
+      ],
+      "native_comparison_denominator_per_metric": 372,
+      "current_exceedances": [
+        108,
+        16,
+        0
+      ],
+      "initial_anchor_exceedances": [
+        83,
+        47,
+        0
+      ],
+      "maximum_ratio_current": [
+        1.0398787098314732,
+        1.0406305742596904,
+        1.0
+      ],
+      "maximum_ratio_initial_anchor": [
+        1.0526758456890102,
+        1.0668521602885475,
+        1.0
+      ],
+      "predicted_nonincrease_binding_counts": [
+        80,
+        87,
+        279
+      ],
+      "predicted_constraint_denominator_per_metric": 279,
+      "endpoint_group_norms": {
+        "mean": 0.016163142510077857,
+        "stochastic": 0.005395509640825968,
+        "M0_modes": 0.000784977586546012,
+        "noise": 0.0
+      },
+      "FIT_joint_prediction_relative_vector_error_range": [
+        0.004696065855727883,
+        0.08457730964406916
+      ],
+      "FIT_joint_prediction_relative_vector_error_median": 0.014822901658202572,
+      "actual_to_predicted_gain_range": [
+        0.8143942827293352,
+        2.5898785548971777
+      ],
+      "actual_to_predicted_gain_median": 1.042266306884246
+    },
+    "seed0_physical": {
+      "native_metric_order": [
+        "wave",
+        "QPSD",
+        "noise"
+      ],
+      "native_comparison_denominator_per_metric": 192,
+      "current_exceedances": [
+        0,
+        0,
+        0
+      ],
+      "initial_anchor_exceedances": [
+        0,
+        0,
+        0
+      ],
+      "maximum_ratio_current": [
+        0.9998150712623144,
+        0.9997619585807003,
+        1.0
+      ],
+      "maximum_ratio_initial_anchor": [
+        0.9959953971314439,
+        0.9980783428643375,
+        1.0
+      ],
+      "predicted_nonincrease_binding_counts": [
+        0,
+        0,
+        144
+      ],
+      "predicted_constraint_denominator_per_metric": 144,
+      "endpoint_group_norms": {
+        "mean": 0.11532919084070554,
+        "stochastic": 0.19660402297102778,
+        "M0_modes": 0.0,
+        "noise": 3.4220131069073745e-20
+      },
+      "FIT_joint_prediction_relative_vector_error_range": [
+        0.0016824949124075585,
+        0.016170616259684942
+      ],
+      "FIT_joint_prediction_relative_vector_error_median": 0.009502618063507436,
+      "actual_to_predicted_gain_range": [
+        0.708438872403446,
+        1.1883751521364236
+      ],
+      "actual_to_predicted_gain_median": 0.8780826591244622
+    }
+  },
+  "inference": "In this seed the limiting local rejections concentrate on native wave and QPSD prediction/realization mismatch; the physical comparator shows no native guard violation but remains far worse than M0 on final native metrics. This does not by itself isolate curvature, quantization, batch transfer or model expressivity as the cause.",
+  "next_action": "After the running budget ends, preserve terminal evidence, complete any missing matched comparison under a separately registered bounded continuation, then diagnose both seeds without changing existing final gates."
+}
