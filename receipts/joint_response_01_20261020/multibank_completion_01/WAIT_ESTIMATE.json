@@ -1,0 +1,32 @@
+{
+  "UTC": "2026-10-19T19:09:22.618490+00:00",
+  "basis_snapshot_UTC": "2026-10-19T19:07:52.962391+00:00",
+  "started_UTC": "2026-10-19T19:06:36.695989+00:00",
+  "progress_time_UTC": "2026-10-19T19:07:41.203040+00:00",
+  "parameter_FD_columns_completed": 36,
+  "total_parameter_FD_columns": 606,
+  "elapsed_to_reported_column_seconds": 64.507051,
+  "FD_rate_extrapolated_full_seconds": 1085.8686918333335,
+  "pre_dispatch_history_estimate_minutes": [
+    35,
+    45
+  ],
+  "updated_estimate_minutes": [
+    18,
+    25
+  ],
+  "expected_finish_local": [
+    "2026-10-20T03:24:36.695989+08:00",
+    "2026-10-20T03:31:36.695989+08:00"
+  ],
+  "next_wake_local": "2026-10-20T03:35:00+08:00",
+  "next_wake_UTC": "2026-10-19T19:35:00+00:00",
+  "margin_after_upper_finish_seconds": 203.304011,
+  "internal_deadline_local": "2026-10-20T04:06:36.695989+08:00",
+  "external_kill_latest_local": "2026-10-20T04:11:56.695989+08:00",
+  "dispatch_GPU_free_MiB": 11602,
+  "dispatch_GPU_utilization_percent": 0,
+  "method": "Extrapolate 64.5 seconds including setup and first 36 FD columns to 606 columns, then allow remaining baseline/anchor, solves, candidate checks, final evaluation and same-parent kernel overhead. The upper bound includes runtime variation. This replaces the pre-dispatch estimate based on the previously slower first physical track.",
+  "uncertainty": "The startup sample includes warm-up and only neural FD; physical steps and later shared-device load can differ. If incomplete at the single wake, estimate again from actual completed work.",
+  "fixed_interval_polling": false
+}
