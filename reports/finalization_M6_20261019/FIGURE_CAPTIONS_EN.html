@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>FIGURE_CAPTIONS_EN</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="report.css" />
+</head>
+<body>
+<h1 id="figure-captions-and-evidence-scope">Figure captions and evidence
+scope</h1>
+<p>All numerical panels use previously verified saved results. No
+response model was rerun for figure generation. Conditions refer to two
+original model heads and three noise hypotheses, not independent
+acquisitions. Figures are supplied as PNG and SVG.</p>
+<p><strong>Figure 1. Conditional calibration and complete hard
+observation.</strong> <a
+href="figures/FIG01_ARCHITECTURE.png">Image</a>. A prepared 384-sample
+source event drives the frozen reference response, a constrained mean
+correction and a linear residual transport. Electronics, ADC, baseline
+subtraction, first-argmax and dynamic cropping produce the 256-sample
+native observation. Reference-area and deterministic-peak constraints
+act before this nonlinear observation chain. S is a closed research
+candidate with failed native protection.</p>
+<p><strong>Figure 2. Executed calibration variants and their protection
+tradeoff.</strong> <a
+href="figures/FIG02_EXECUTED_VARIANTS.png">Image</a>. Population mean
+voltage and full-range PSD empirical CDF compare REAL with M0, BASE054,
+070 and S for head 0 / fast; each simulated curve uses all 6,593 parents
+and REAL uses 21,047 records. Gain and protection panels retain all six
+head/noise conditions. Improvements are relative to M0. The QPSD limit
+is the original 0.05T increase allowance. These are four existing
+variants under one development protocol. The planned P0/P1/CPU-Net/N01
+comparison has not run.</p>
+<p><strong>Figure 3. Native tail decomposition and mean-peak
+instability.</strong> <a
+href="figures/FIG03_READOUT_MECHANISM.png">Image</a>. Signed
+population-mean terms from the saved 071 and S decompositions
+distinguish fixed-window mean, random and ADC changes from movement of
+the BASE054 window. Each condition contains 6,593 original events. Lower
+panels show top-two deterministic-mean peak-gap CDFs and peak
+reselection after ADC with stochastic residual and electronics disabled.
+S has 5,374 sub-code gaps and 4,460 ADC-only reselections; BASE054 has
+294 and 92. Decomposition terms are path-specific algebraic identities,
+not causal percentages; stagewise event counts may overlap.</p>
+<p><strong>Figure 4. Conditional morphology across common output-Q
+bins.</strong> <a
+href="figures/FIG04_CONDITIONAL_MORPHOLOGY.png">Image</a>. Conditional
+means of peak voltage, rise time, FWHM and guarded PSD use frozen common
+REAL-derived Q bins. Each system enters bins using its own output Q; x
+coordinates are REAL median Q values. Lines show head 0 / fast, while
+the S envelope spans six head/noise conditions and is not a confidence
+interval. Exact bin population, defined and undefined counts for every
+plotted quantity and all 192 system-condition cells are supplied in the
+conditional CSV. This figure does not contain the planned event-content
+intervention experiment.</p>
+<p><strong>Figure 5. Population covariance and separately verified
+software replay.</strong> <a
+href="figures/FIG05_COVARIANCE_AND_REPLAY.png">Image</a>. Heatmaps
+display already saved covariance of the first 64 observation samples
+within output-Q bin 4, separately for REAL, M0 and S, for the displayed
+head 0 / fast condition. A common color scale preserves comparison.
+These matrices mix different input events and are not same-parent
+stochastic-kernel covariance. The variance decomposition identifies the
+missing repeated-parent component. The validation panel reports 396
+legacy, 96 S-golden and 31 replay tensor checks, all byte-exact. The
+planned 128-parent × 64-draw study, new confirmation and S-specific C2ST
+remain unrun.</p>
+<p><strong>Figure 6. Evidence coverage for the current method
+report.</strong> <a href="figures/FIG06_EVIDENCE_MAP.png">Image</a>. The
+table separates executed numerical and development checks from
+experiments that have not run: new MC confirmation, a fair four-system
+comparison, full-pipeline grouped validation, repeated-parent kernel
+evaluation, input intervention, new-endpoint C2ST and alternative
+tail-window tasks. An unavailable experiment carries no numerical score.
+The figure is an evidence map, not a held-out performance result.</p>
+<p>Reconstruction input: <a
+href="data/FIGURE_DATA.json">FIGURE_DATA.json</a>. Script: <a
+href="REBUILD_FIGURES.py">REBUILD_FIGURES.py</a>. Scientific distances:
+<a
+href="data/METRICS_ALL_CONDITIONS.csv">METRICS_ALL_CONDITIONS.csv</a>.
+The complete six-condition output is retained even where a single
+descriptive condition is shown.</p>
+</body>
+</html>

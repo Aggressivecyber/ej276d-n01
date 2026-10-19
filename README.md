@@ -1,3 +1,17 @@
+# N01 当前状态：M6 负结果方法交付完成
+
+2026-10-19。研究接口黄金验证通过，S 的科学验收未通过，`response_match_not_established`。没有合格最终模型，也没有活动科学作业；本阶段自动苏醒已关闭。
+
+从[中文交付入口](reports/finalization_M6_20261019/README_CN.md)开始阅读：[中文方法报告](reports/finalization_M6_20261019/METHOD_REPORT_CN.md)、[API 使用说明](reports/finalization_M6_20261019/API_GUIDE_CN.md)、[英文论文初稿](reports/finalization_M6_20261019/MANUSCRIPT_EN.md)、[六张图](reports/finalization_M6_20261019/FIGURE_CAPTIONS_EN.md)，或下载[可分享复验包](reports/finalization_M6_20261019/packages/N01_M6_SHAREABLE.zip)。
+
+S 在六条件下改善 wave 28.58–30.01%、joint 58.61–59.12%，但 QPSD/front/tail/PSD/负波瓣保护全部失败。523 项接口张量检查逐字节一致，24 份完整指标和 158,232 行原生 ADC/wave 复算精确。工程复验与科学验收分别记录，详见[S 决策](S_DECISION.md)及[权威台账](PROGRAM.json)。
+
+公开材料包含代码、合成示例、人口级统计、图表和方法说明。私有波形、父标签/逐行索引、权重、拟合模板与私有快照保留在授权环境；完整神经推理依赖见 API 说明。S+R 未触发，新确认和 M5 全模型比较未运行。后续方法变更需另定有限研究设计。
+
+以下原样保留历史阶段记录；其中“当前”、启动及等待描述均指当时快照。最新状态以上文及 PROGRAM/MASTER_EXECUTION_PLAN/jobs 三台账为准。
+
+---
+
 # N01 当前状态：038仅剩REAL1已正确启动，02:00单次苏醒
 
 2026-10-18 01:28:43（Asia/Singapore）唯一启动快照：native20248/startticks420513、项目锁占用、CPU affinity0–3、RSS约2.82GiB/GPU4288MiB，无FAILED/exit。两教师与REAL0已严格恢复封存；REAL0五方向不重放，初始固定MONITOR明确作为无变化终点alias。REAL1.mean首方向32FIT微批完成，4096抽样/3049unique父事件，四幅度均拒绝、0接纳、radius1→0.5；原接纳门与完整Adam回退保持不变。

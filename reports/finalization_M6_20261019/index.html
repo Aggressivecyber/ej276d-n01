@@ -1,0 +1,24 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>N01 M6 — 方法、证据与交付</title><link rel="stylesheet" href="report.css"></head><body>
+<h1>N01：读出过程感知的条件随机波形校准</h1>
+<p class="meta">2026-10-19 · M6 方法材料 · 原人口 6,593 SOURCE / 21,047 REAL</p>
+<p class="status"><strong>接口验证通过，科学验收未通过。</strong> S 的 wave 改善 28.58–30.01%，joint 改善 58.61–59.12%；六条件均失败 QPSD/front/tail/PSD/负波瓣保护。没有合格最终端点。</p>
+<p><a href="METHOD_REPORT_CN.html">中文方法报告</a> · <a href="MANUSCRIPT_EN.html">English manuscript</a> · <a href="API_GUIDE_CN.html">接口使用说明</a> · <a href="RELATED_WORK.html">相关工作</a> · <a href="README_CN.md">公开交付清单</a></p>
+<table><thead><tr><th>已验证</th><th>结论</th><th>边界</th></tr></thead><tbody>
+<tr><td>原生结果复算</td><td>24 份完整指标，158,232 行 ADC/wave 精确</td><td>保存结果复算，没有新候选</td></tr>
+<tr><td>研究 API</td><td>523 项张量检查逐字节一致</td><td>旧028 CPU；S 与 CLI CUDA</td></tr>
+<tr><td>失败机制</td><td>5,374 行均值峰差低于 1 ADC 码；ADC 单独造成 4,460 行换峰</td><td>分母均为 6,593；保留原随机/读出定义</td></tr>
+</tbody></table>
+<h2>六张图与对应证据</h2>
+<p><a href="FIGURE_CAPTIONS_EN.html">完整英文图注</a> · <a href="data/README.md">指标与分母说明</a> · <a href="data/PLANNED_EXPERIMENT_STATUS.csv">实验状态表</a></p>
+<div class="cards">
+<div class="card"><p><strong>1 · 方法与硬读出</strong></p><a href="figures/FIG01_ARCHITECTURE.png"><img src="figures/FIG01_ARCHITECTURE.png" alt="输入、均值与随机校准和硬读出架构"></a></div>
+<div class="card"><p><strong>2 · 已有四变体</strong></p><a href="figures/FIG02_EXECUTED_VARIANTS.png"><img src="figures/FIG02_EXECUTED_VARIANTS.png" alt="已有四变体完整条件与保护比较"></a></div>
+<div class="card"><p><strong>3 · 原生 tail 与峰竞争</strong></p><a href="figures/FIG03_READOUT_MECHANISM.png"><img src="figures/FIG03_READOUT_MECHANISM.png" alt="071与S有符号分解和ADC换峰诊断"></a></div>
+<div class="card"><p><strong>4 · 条件形态</strong></p><a href="figures/FIG04_CONDITIONAL_MORPHOLOGY.png"><img src="figures/FIG04_CONDITIONAL_MORPHOLOGY.png" alt="共同Q箱的峰高riseFWHM与PSD条件均值"></a></div>
+<div class="card"><p><strong>5 · 人口协方差与软件重放</strong></p><a href="figures/FIG05_COVARIANCE_AND_REPLAY.png"><img src="figures/FIG05_COVARIANCE_AND_REPLAY.png" alt="人口协方差及接口逐字节检查"></a></div>
+<div class="card"><p><strong>6 · 证据覆盖</strong></p><a href="figures/FIG06_EVIDENCE_MAP.png"><img src="figures/FIG06_EVIDENCE_MAP.png" alt="已完成和未运行实验的证据覆盖表"></a></div>
+</div>
+<h2>复验与下一项决策</h2>
+<p><a href="packages/N01_M6_SHAREABLE.zip">可分享材料包</a> · <a href="PUBLICATION_SCOPE.json">发布范围</a> · <a href="../../receipts/finalization_M6_20261019/terminal_01/TERMINAL_REVIEW.json">接口验收</a></p>
+<p>P0/P1/CPU-Net 公平训练、三折全流程留出、同父随机核、新端点 C2ST、输入干预与备用 tail41/51 尚未运行。S+R 未触发，新确认未打开。下一项科学工作需要决定是否更改已失败的 S 约束/目标路线，并登记新的有限设计。</p>
+</body></html>

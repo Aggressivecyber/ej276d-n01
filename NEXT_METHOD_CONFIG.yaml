@@ -1,0 +1,277 @@
+schema: n01/finalization-prospective-design/v1
+status: DESIGN_ONLY_EXECUTION_BINDINGS_PENDING
+created_local_date: '2026-10-19'
+baseline_git_commit: 65e52127f005b86a64ff14caee581dacbcbd2499
+user_source: provenance/finalization_user_plan_20261019/USER_IMPLEMENTATION_PLAN.txt
+plan: FINALIZATION_PLAN.md
+reference_manifest: REFERENCE_MANIFEST.json
+agent_policy: current_root_only_no_subagents
+scientific_acceptance: false
+production_implementation_exists: false
+new_scientific_execution_authorized_by_this_config: false
+existing_continuous_authorization_preserved: true
+
+references:
+  frozen071_config: configs/response071_20261018.json
+  frozen071_sha256: 05cc643de72328851c9509189133ffe59288a1731a6f4dda8b45f087022bea26
+  original039_contract: configs/response039_20261018.json
+  setup038: configs/response038_20261017.json
+  reference028: wp6_028_config.json
+  baseline054: receipts/response056_20261018/preparation_01/FROZEN_ENDPOINT.json
+  template062: receipts/response062_20261018/preparation_01/TEMPLATE.json
+  cpu_net_commit: c74144a2743eac8f1fc12c91d6fae8a036d018b2
+  cpu_net_license: MIT
+
+data:
+  source_TRAIN_parents: 6593
+  real_TRAIN_records: 21047
+  real_logical_groups: 422
+  original_acquisitions: 1
+  source_external_samples: 480
+  source_prepared_carrier_samples: 384
+  output_samples: 256
+  original_DEV_status: exposed_development
+  remove_or_reweight_population_to_pass: false
+  parent_id_as_model_input: false
+  energy_truth_from_Q: false
+  real_neutron_gamma_labels: false
+
+readout:
+  dt_ns: 1
+  ADC_bits: 14
+  prefix_baseline_samples: 100
+  first_argmax_interval: [112, 144]
+  crop_relative_to_peak: [-16, 240]
+  main_tail_start_in_output: 46
+  hypotheses: [fast, slow, common_level]
+  freeze_noisy_final_peak: false
+  noise005_unchanged: true
+
+S:
+  candidate_structures: 1
+  active_interval: [110, 176]
+  degree: 3
+  basis_columns: 24
+  local_coordinates: [0, 65]
+  interior_knots: '65*k/21 for k=1..20'
+  endpoint_knot_multiplicity: 4
+  mean_reference: BASE054
+  deterministic_peak: BASE054_first_argmax
+  support: '(m > 0) and (absolute_sample >= p-14)'
+  target: 'W_x*m using frozen069 interpolation and one mean-derived total-area scale'
+  old069_random_leakage_correction_reused: false
+  old070_split_scales_reused: false
+  equality:
+    structural_zero_local_samples: [0, 1, 64, 65]
+    nonpositive_or_excluded_support_correction: 0
+    reference_front_integral_delta: 0
+    reference_tail_integral_delta: 0
+    redundant_total_charge_row: false
+  inequality:
+    positive_mean_remains_nonnegative: true
+    mean_first_argmax_unchanged: true
+    pre_peak_margin: 'min(original_gap, 1e-8*A_ref)'
+    post_peak_margin: 0
+    zero_correction_must_be_feasible: true
+    exact_first_argmax_postcheck: true
+  normalization:
+    rule: 'positive TRAIN BASE054 medians of peak amplitude, reference Q, reference tail; per head'
+    A_ref_V: null
+    Q_ref_Vns: null
+    T_ref_Vns: null
+    binding_receipt: null
+    data_for_scale_binding: legal_TRAIN_only
+    D: 'I/(sqrt(66)*A_ref)'
+    second_difference_scale: '1/(sqrt(64)*A_ref)'
+    neighbor_Q_scale: Q_ref
+    neighbor_tail_scale: T_ref
+  neighbor_windows:
+    initial_radius: 2
+    preregistered_radius_order: [2, 4, 8]
+    required_coverage: 0.95
+    selection: 'first radius reaching minimum coverage across 071 heads/H/BASE054+070; else 8 plus uncovered mass'
+    candidate_S_scores_used: false
+    max_rule_applications: 1
+    final_radius: null
+    legal_reference_peak_interval: [112, 144]
+    weights: uniform_normalized_over_legal_neighbors
+    exact_conservation_at_all_neighbors: false
+  lambda_s: 0.01
+  lambda_r: 1.0
+  lambda_status: synthetic_start_values_not_REAL_tuned
+  dtype: float64
+  equality_row_scaling: l2_norm_of_nonzero_rows
+  nullspace_rcond: 1.0e-12
+  no_free_dof_status: NO_FREE_DOF_RETAIN_PARENT
+  numerical_failure_action: fail_job_with_parent_status_no_drop
+  random_transport:
+    raw: '(W_x-I)*r'
+    coefficient_solve: 'z_r=solve(G^T*K*G,G^T*K*raw_local)'
+    result: 'r_prime=r+E*G*z_r'
+    depends_on: [input_x, deterministic_mean, frozen_TRAIN_statistics]
+    depends_on_random_draw: false
+    per_draw_active_set_clipping: false
+    conditional_moment_claim_scope: preADC_only_if_original_residual_is_conditionally_centered
+  solver:
+    package: osqp
+    installed_and_verified: false
+    version: null
+    dependency_lock: null
+    proposed_settings:
+      eps_abs: 1.0e-10
+      eps_rel: 1.0e-10
+      max_iter: 10000
+      adaptive_rho: false
+      polishing: true
+      warm_starting: false
+    accepted_status: solved
+    approximate_or_iteration_limit_accepted: false
+    original_unit_closure_atol: 1.0e-12
+    original_unit_closure_rtol: 0
+    matrix_inverse: false
+    freeze_before_REAL_candidate_evaluation: true
+
+S_plus_R:
+  conditional_stage: true
+  trigger_all:
+    - S_deterministic_geometry_and_area_pass
+    - S_all_heads_H_point_usefulness_pass
+    - native_tail_or_QPSD_failure_remains
+    - 071_and_S_diagnostics_support_random_peak_competition
+  parameters_per_original_head: 3
+  extra_best_seed_selection: false
+  initial_amplitudes: [1.0, 1.0, 1.0]
+  bounds: [0.75, 1.25]
+  guides: [peak_gaussian, peak_antisymmetric, tail_boundary_gaussian]
+  guide_width_samples: 4
+  mode_source: projected_original_M0_covariance_actions
+  unavailable_mode: explicit_zero_column_amplitude_one_retain_parent
+  optimization: prospective_bounded_coordinate_pattern_search
+  initial_step: 0.05
+  backtrack_factors: [1.0, 0.5, 0.25, 0.125]
+  proposals_per_head_max: 2000
+  trial_evaluations_per_proposal_max: 4
+  effective_source_parent_batch_min: 1024
+  proposals_per_check_macroblock: 20
+  no_accepted_improvement_macroblocks_stop: 5
+  independent_TRAIN_CHECK: true
+  rollback_parameter_state: true
+  rollback_spent_computation: false
+  training_bank_manifest: null
+  execution_resource_registration: null
+
+FIT:
+  heads: [0, 1]
+  MC_seeds: [2026101839, 2026101840]
+  banks_per_head: 1
+  systems: [M0, BASE054, '070', S]
+  draws_per_parent: 1
+  joint_projection_seed: 202610183900
+  gates:
+    primary_relative_worsening_max: 0.01
+    protected_delta_T_max: 0.05
+    individual_morphology_delta_T_max: 0.05
+    point_wave_gain_min: 0.02
+    point_joint_gain_min: 0.02
+    point_mean_morphology_T_gain_min: 1.0
+    negative_lobe_and_anomaly_counts_no_increase: true
+    original_conditional_coverage_complete: true
+
+confirmation:
+  allowed_if: unique_endpoint_all_FIT_gates_pass
+  endpoints_per_head: 1
+  banks_per_head: 4
+  source_parents_per_bank: 6593
+  draws_per_parent: 1
+  paired_reference: M0
+  purpose: FINALIZATION_CONFIRM_V1
+  joint_projection_seed: 202610183901
+  random_bank_identity_audit_required: true
+  unopened_bank_manifest: null
+  bound: four_bank_mean_plus_or_minus_three_MCSE
+  bound_scope: fixed_population_MC_screen_only
+  wave_gain_lower_min: 0.02
+  joint_gain_lower_min: 0.02
+  morphology_mean_T_gain_lower_min: 1.0
+  protected_and_individual_morphology_delta_T_upper_max: 0.05
+  all_original_per_bank_checks: true
+  retune_on_confirmation: false
+  save_full_lossless_native_scientific_output: true
+  output_bytes_proposal: 2147483648
+  local_full_collection_ready: false
+
+internal_validation:
+  name: method_frozen_full_pipeline_grouped_internal_validation
+  outer_folds: 3
+  neural_training_seeds: 2
+  inner_training_configurations_max: 2
+  system_fold_results_max: 24
+  systems: [P0, P1, official_CPU_Net, N01_final]
+  P1_loads_A0_or_M0: false
+  deterministic_duplicate_seed_fits: false
+  refit_inside_each_fold: [noise005, A, M0, Q_scales, PCA, profiles, crossings, baseline054_parameters, final_calibrator, thresholds]
+  group_rules: [SOURCE_parent_disjoint, REAL_logical_group_disjoint, all_draws_follow_parent]
+  split_manifest: null
+  fit_budget_registration: null
+  primary_comparators: [P1, official_CPU_Net]
+  primary_effect: native_wave_difference_with_readout_protection
+  multiple_testing_rule_if_claimed: Holm_for_two_comparators_times_three_H_primary_wave_tests
+  hierarchical_sampling_units: [training_seed, SOURCE_parent, REAL_logical_group, MC_bank]
+  final_full_TRAIN_refit_is_new_test: false
+
+diagnostics:
+  repeated_parents: 128
+  draws_per_repeated_parent: 64
+  repeated_parent_selection: preregistered_TRAIN_coverage_rule_with_low_Q_and_difficult_conditions
+  same_Q_different_shape_pairs: 121
+  separate_Q_and_shape_condition_ablations: true
+  C2ST: new_endpoint_independent_classifier_with_group_disjoint_tests
+  C2ST_negative_control: size_and_role_matched_REAL_REAL
+  C2ST_views: [voltage_wave, normalized_shape, joint_scalars]
+  alternate_tail_starts: [41, 51]
+  alternate_tail_used_in_fitting_or_selection: false
+  neutron_efficiency_or_gamma_leakage_claim: false
+
+API:
+  existing_entry: n01.inference028.load_reference028
+  existing_class: ResearchResponse028
+  target_entry: load_response
+  target_entry_implemented: false
+  retain_028_golden_outputs: true
+  original_batch_random_stream_semantics: true
+  per_parent_random_keys_implemented: false
+  external_480_preparation: explicit_frozen_adapter_required
+
+resource_proposals:
+  original071_changed: false
+  one_scientific_job: true
+  CPU_threads: 4
+  GPU_GiB: 6
+  RSS_GiB: 12
+  S:
+    internal_seconds: 3420
+    hard_wall_seconds: 3600
+    termination_grace_seconds: 20
+    output_MiB: 512
+    checkpoint_loads_max: 6
+    TRAIN_archive_decodes_max: 1
+    PCA_archive_decodes_max: 1
+    DEV_archive_decodes: 0
+    model_AD_queries: 0
+    neural_optimizer_updates: 0
+    source_A0_rows_max: 6593
+    M0_rows_max: 13186
+    noise005_rows_max: 13186
+    event_QP_solves_max: 13186
+    complete_native_H_evaluations_max: 24
+    generated_hard_observation_rows_max: 158232
+  confirmation:
+    internal_seconds: 7020
+    hard_wall_seconds: 7200
+    termination_grace_seconds: 20
+    output_GiB: 2
+    complete_native_H_evaluations: 48
+    generated_hard_observation_rows: 316464
+  proposals_are_registered_job_budgets: false
+  storage_policy: E_D_or_authorized_remote_no_C_data
+  long_wait_policy: verify_correct_start_once_then_this_chat_timed_wake

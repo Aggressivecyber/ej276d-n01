@@ -1,0 +1,14 @@
+# Related work and direct-comparison boundary
+
+Primary records checked on 19 October 2026. The table limits each comparison to the cited method and the evidence actually available for N01.
+
+|Work|Original setting and relevant method|Relation to the present study|Direct N01 experiment|
+|---|---|---|---|
+|Bhimani, Gruszko, Clark, Wilkerson and Li, *CycleGAN-Driven Transfer Learning for Electronics Response Emulation in High-Purity Germanium Detectors*, MLST 7 (2026) 015009|Unpaired simulated/measured HPGe ICPC pulses; CycleGAN and Cyclic Positional U-Net. Official code includes latent mean/variance and random reparameterization.|Closest retrieved detector-waveform comparator. Domain, observation, normalization and training-budget adaptation must be documented before quantitative comparison.|NOT_RUN. No superiority claim; current M0/BASE054/070/S table is not a substitute.|
+|Stellato, Banjac, Goulart, Bemporad and Boyd, *OSQP: An Operator Splitting Solver for Quadratic Programs*|A numerical method and software for convex quadratic programs with linear constraints.|S uses OSQP 1.1.3 for its mean subproblem. Solver convergence is an implementation result; detector acceptance is evaluated separately.|13,186 registered S QPs completed; native protection failed.|
+|Lopez-Paz and Oquab, *Revisiting Classifier Two-Sample Tests*|Two-sample discrimination using held-out classifier performance.|Suitable for testing detectable marginal differences after endpoint freeze. Chance-level performance does not by itself establish distributional equivalence.|NOT_RUN for S. Historical 038 tests concern their original models only.|
+|Pacchiardi, Adewoyin, Dueben and Dutta, *Probabilistic Forecasting with Generative Networks via Scoring Rule Minimization*, JMLR 25(45), 2024|Generative probabilistic forecasting trained with predictive scoring rules; experiments include dynamical and weather settings.|Relevant nonadversarial objective family. Its forecasting consistency result does not certify conditional detector-kernel identification in this unpaired study.|No direct reproduction or comparison in M6.|
+
+Sources: [CPU-Net paper, v2](https://arxiv.org/abs/2507.09106v2), [journal DOI](https://doi.org/10.1088/2632-2153/ae3052), [official code at c74144a](https://github.com/aobol/CPU-Net/tree/c74144a2743eac8f1fc12c91d6fae8a036d018b2); [OSQP paper, v4](https://arxiv.org/abs/1711.08013v4), [solver DOI](https://doi.org/10.1007/s12532-020-00179-2); [C2ST paper, v4](https://arxiv.org/abs/1610.06545v4); [scoring-rule paper, v3](https://arxiv.org/abs/2112.08217v3).
+
+The locally preserved official CPU-Net reference is pinned to commit `c74144a2743eac8f1fc12c91d6fae8a036d018b2` with its MIT license. In `network.py`, `fc_mean`/`fc_var` and `randn_like` establish the stochastic reparameterization. No official weights or detector data were fitted in this work. This table is a scoped related-work comparison, not an exhaustive novelty search.

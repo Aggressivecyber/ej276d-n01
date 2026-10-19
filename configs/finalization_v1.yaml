@@ -1,0 +1,98 @@
+schema: n01/finalization-v1-execution-bindings
+stage: S_FIT
+status: FROZEN_PENDING_REGISTRATION_AND_DISPATCH
+config: configs/finalization_S_20261019.json
+config_sha256: be8d749bd113bc0747207ee602ba2062b7f6a88a054539d44ed97f8269a426dd
+design: NEXT_METHOD_CONFIG.yaml
+design_preserved: true
+S:
+  degree: 3
+  basis_columns: 24
+  active_interval:
+  - 110
+  - 176
+  knots: 0 repeated4;65*k/21,k1..20;65 repeated4
+  radius: 4
+  lambda_s: 0.01
+  lambda_r: 1.0
+  nullspace_rcond: 1.0e-12
+  dtype: float64
+  normalization_by_head:
+    '0':
+      values:
+      - 0.15554293597289215
+      - 3.66896364775571
+      - 0.6947215402546918
+      columns:
+      - peak_voltage_V
+      - Q_Vns
+      - tail_Vns
+      units:
+      - V
+      - V ns
+      - V ns
+      population_rows: 6593
+      positive_rows:
+      - 6593
+      - 6593
+      - 6593
+      source: receipts/response060_20261018/wake_20261018_1605_01/collected/run_01/seed0_BASE054_INTRINSIC_MEAN_ROWS.npz
+      source_sha256: 362260ab2d2a597787a395f790299efa410e40b488581dab6295bcf33c32919c
+      peak_sha256: 7b246b97b715bca65be0edcf1387f15b7fb47f955b358277d42e58444123d64f
+    '1':
+      values:
+      - 0.15554293597289215
+      - 3.66896364775571
+      - 0.6947215402546918
+      columns:
+      - peak_voltage_V
+      - Q_Vns
+      - tail_Vns
+      units:
+      - V
+      - V ns
+      - V ns
+      population_rows: 6593
+      positive_rows:
+      - 6593
+      - 6593
+      - 6593
+      source: receipts/response060_20261018/wake_20261018_1605_01/collected/run_01/seed1_BASE054_INTRINSIC_MEAN_ROWS.npz
+      source_sha256: 362260ab2d2a597787a395f790299efa410e40b488581dab6295bcf33c32919c
+      peak_sha256: 7b246b97b715bca65be0edcf1387f15b7fb47f955b358277d42e58444123d64f
+  solver_version: 1.1.3
+  solver_settings:
+    eps_abs: 1.0e-12
+    eps_rel: 1.0e-12
+    max_iter: 10000
+    adaptive_rho: true
+    adaptive_rho_interval: 50
+    polishing: true
+    warm_starting: false
+    verbose: false
+  positive_floor: min(original_positive_voltage,1e-10*A_ref)
+  pre_peak_margin: min(original_gap,1e-8*A_ref)
+  post_peak_margin: min(original_gap,1e-10*A_ref),original ties zero
+  numeric_revision_receipt: receipts/finalization_S_20261019/preparation_01/NUMERICAL_REVISION_01.json
+  original_unit_closure_atol: 1.0e-12
+  original_unit_closure_rtol: 0
+  strict_postassembly_nonnegative_and_first_argmax: true
+resources:
+  CPU_threads: 4
+  RSS_GiB: 12
+  GPU_GiB: 6
+  internal_seconds: 3420
+  hard_wall_seconds: 3600
+  termination_grace_seconds: 20
+  output_MiB: 512
+  one_scientific_job: true
+  automatic_restart: false
+original039_gates:
+  fit_primary_relative_worsening_max: 0.01
+  protected_allowance_T: 0.05
+  morphology_individual_allowance_T: 0.05
+  useful_wave_relative_gain: 0.02
+  useful_joint_relative_gain: 0.02
+  useful_morphology_mean_T_gain: 1.0
+  hardware_calibrated: false
+scientific_acceptance: false

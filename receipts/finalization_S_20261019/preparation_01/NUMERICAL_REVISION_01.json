@@ -1,0 +1,51 @@
+{
+  "status": "SYNTHETIC_NUMERICAL_FAILURE_BEFORE_REAL",
+  "candidate_evaluations": 0,
+  "failures": [
+    {
+      "case": "active_peak_constraint",
+      "solver_status": "solved",
+      "primal_residual": 4.056531483631373e-17,
+      "dual_residual": 9.851484672573757e-17,
+      "polishing_status": 1,
+      "minimum_positive_region_V": -1.3877787807814457e-17,
+      "negative_indices": [
+        115,
+        149
+      ],
+      "assembled_peak": 132,
+      "original_peak": 126,
+      "max_linear_violation": 3.469446951953614e-17
+    },
+    {
+      "case": "active_positive_constraint",
+      "solver_status": "maximum iterations reached",
+      "primal_residual": 1.649079731185829e-05,
+      "dual_residual": 3.828893806595784e-09,
+      "polishing_status": 0,
+      "minimum_positive_region_V": -1.6490797311866784e-05,
+      "negative_indices": [
+        152,
+        159,
+        162
+      ]
+    }
+  ],
+  "snapshot_sha256": {
+    "check_finalization_S.py": "702de0653abdd1283e170fde299b62a97292b91a5ca363071dc0c3972e8f1ff9",
+    "smooth_mean.py": "937eac5844aa202351831fc120157256b9fbc17482e78a21522a1c930280db00"
+  },
+  "revision": {
+    "eps_abs": 1e-12,
+    "eps_rel": 1e-12,
+    "adaptive_rho": true,
+    "adaptive_rho_interval": 50,
+    "positive_floor": "min(original_positive_voltage,1e-10*A_ref)",
+    "post_peak_strict_gap": "min(original_gap,1e-10*A_ref); original ties retain zero margin",
+    "pre_peak_margin_unchanged": "min(original_gap,1e-8*A_ref)",
+    "lambda_s": 0.01,
+    "lambda_r": 1.0,
+    "radius": 4
+  },
+  "reason": "Freeze deterministic engineering settings using synthetic active constraints only; no REAL scores, no clipping, no row filtering, no relaxation of scientific gates."
+}
