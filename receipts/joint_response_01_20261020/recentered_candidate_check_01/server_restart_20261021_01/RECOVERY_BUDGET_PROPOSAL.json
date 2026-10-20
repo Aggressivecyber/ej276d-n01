@@ -1,0 +1,139 @@
+{
+  "status": "PROPOSED_REMAINING_EIGHT_LIBRARIES_REQUIRES_BUDGET_DECISION",
+  "UTC": "2026-10-20T17:32:21.287894+00:00",
+  "original_job_id": "JOINT_RESPONSE_01_RECENTERED_CANDIDATE_CHECK_20261020",
+  "original_config": "configs/joint_response_01_recentered_candidate_check_20261020.json",
+  "saved_libraries": [
+    {
+      "seed": 0,
+      "label": "FIT0"
+    },
+    {
+      "seed": 0,
+      "label": "FIT1"
+    },
+    {
+      "seed": 0,
+      "label": "FIT2"
+    },
+    {
+      "seed": 0,
+      "label": "IID0"
+    },
+    {
+      "seed": 0,
+      "label": "IID1"
+    },
+    {
+      "seed": 0,
+      "label": "IID2"
+    }
+  ],
+  "remaining_libraries": [
+    {
+      "seed": 0,
+      "label": "IID3"
+    },
+    {
+      "seed": 1,
+      "label": "FIT0"
+    },
+    {
+      "seed": 1,
+      "label": "FIT1"
+    },
+    {
+      "seed": 1,
+      "label": "FIT2"
+    },
+    {
+      "seed": 1,
+      "label": "IID0"
+    },
+    {
+      "seed": 1,
+      "label": "IID1"
+    },
+    {
+      "seed": 1,
+      "label": "IID2"
+    },
+    {
+      "seed": 1,
+      "label": "IID3"
+    }
+  ],
+  "saved_prefix_generator_calls": 18,
+  "original_generator_call_limit": 42,
+  "remaining_unique_generator_calls": 24,
+  "last_inflight_library": {
+    "seed": 0,
+    "label": "IID3",
+    "attempted_generator_calls": "unknown",
+    "conservative_range": [
+      0,
+      3
+    ],
+    "basis": "Sequential driver saves each library and progress before advancing; the next library can attempt three generator calls before its report is durable."
+  },
+  "cumulative_generator_call_range_if_completed": [
+    42,
+    45
+  ],
+  "additional_fixed_candidates": 0,
+  "unique_fixed_candidates_total": 2,
+  "repeated_setup": {
+    "checkpoint_loads": 6,
+    "TRAIN_archives_decoded": 1,
+    "PCA_archives_decoded": 1,
+    "old_A_calls": 52,
+    "old_A_rows": 6593,
+    "M0_head_calls": 104,
+    "M0_head_rows": 13186,
+    "REAL_observable_replay_calls": 1,
+    "REAL_observable_replay_rows": 21047,
+    "feature_maps_constructed": 3,
+    "new_native_projection_contexts": 3
+  },
+  "required_new_operation_budget": {
+    "allocated_banks": 8,
+    "shape_standard_normal_values": 2097152,
+    "noise005_calls": 8,
+    "noise005_rows": 262144,
+    "extension_rows": 786432,
+    "REAL_fit_feature_rows": 32768,
+    "joint_response_calls": 24,
+    "joint_response_rows": 786432,
+    "generated_observation_calls": 72,
+    "generated_observation_rows": 2359296,
+    "native_component_rows": 2654208,
+    "saved_previous_center_replays_verified": 8,
+    "saved_initial_anchors_reused": 8,
+    "saved_new_center_replays_verified": 8,
+    "fixed_control_checks": 8,
+    "fixed_candidate_library_checks": 8,
+    "finite_difference_columns": 0,
+    "joint_direction_solves": 0,
+    "REAL_response_updates": 0,
+    "DEV_waveforms_decoded": 0,
+    "AD_queries": 0,
+    "classifier_fits": 0
+  },
+  "resources_per_completion_attempt": {
+    "CPU_threads": 4,
+    "GPU_GiB": 4,
+    "RSS_GiB": 12,
+    "internal_seconds": 600,
+    "hard_wall_seconds": 900,
+    "output_MiB": 16,
+    "GPU_free_required_MiB": 6144
+  },
+  "original_elapsed_and_unused_wall_budget": "unknown after last durable progress; no native exit receipt",
+  "unchanged": "Existing two candidate vectors, all roles/random streams, original loss/readout, gates and resource ceilings.",
+  "no_recomputation_of_six_saved_libraries": true,
+  "new_science_dispatched": false,
+  "NAS_file_IO_checks": false,
+  "NAS_file_hash_verification": false,
+  "decision_needed": "Whether a separate bounded completion may charge repeated setup and at most one unsaved library, rather than treating original total operation budget as unspent.",
+  "scientific_acceptance": false
+}

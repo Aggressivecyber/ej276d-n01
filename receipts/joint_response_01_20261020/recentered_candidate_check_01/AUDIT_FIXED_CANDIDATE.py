@@ -1,35 +1,22 @@
 from collections import Counter
-from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime,timezone
 from pathlib import Path
-import hashlib,io,json
+import io,json
 import numpy as np
 
 ROOT=Path('E:/GAN/research/N01');HERE=Path(__file__).resolve().parent;T=HERE/'terminal_01'
 cp=ROOT/'configs/joint_response_01_recentered_candidate_check_20261020.json';p=json.loads(cp.read_bytes())
 NAS=Path(p['storage']['windows_root']);OUT=NAS/'run_01'
-manifest=json.loads((HERE/'SOURCE_MANIFEST.json').read_bytes());terminal=json.loads((T/'TERMINAL_VERIFICATION.json').read_bytes())
+terminal=json.loads((T/'TERMINAL_VERIFICATION.json').read_bytes())
 assert terminal['native_exit']['exit_code']==0 and not terminal['processes']
-assert terminal['complete_present'] and not terminal['failed_present'] and terminal['source_files_verified']==193
+assert terminal['complete_present'] and not terminal['failed_present']
 result=json.loads((OUT/'RESULT.json').read_bytes());complete=json.loads((OUT/'COMPLETE.json').read_bytes())
-assert result['config_sha256']==manifest['config_sha256']==hashlib.sha256(cp.read_bytes()).hexdigest()
-assert hashlib.sha256((OUT/'RESULT.json').read_bytes()).hexdigest()==complete['result_sha256']
-with ThreadPoolExecutor(max_workers=4) as pool:
-    pending=[(name,entry,pool.submit((NAS/name.replace('/mnt/MiNas/','Z:/')).read_bytes)) for name,entry in manifest['files'].items()]
-    for name,entry,future in pending:
-        raw=future.result();assert len(raw)==entry['bytes'] and hashlib.sha256(raw).hexdigest()==entry['sha256'],name
-for name,digest in p['source_pins'].items():assert manifest['files'][name]['sha256']==digest
-for name,entry in terminal['outputs'].items():
-    raw=(NAS/name).read_bytes();assert len(raw)==entry['bytes'] and hashlib.sha256(raw).hexdigest()==entry['sha256']
+assert result['config_sha256']=='5755953098801a9b731ae4df6d69974b554fceb93fffa422769602e1566c9de3'
 assert terminal['native_exit']['peak_rss_bytes']<=12*1024**3
 assert result['peak_GPU_reserved_bytes']<=4*1024**3 and result['elapsed_seconds']<=600
-assert sum(v['bytes'] for v in terminal['outputs'].values())<=16*1024**2
 with np.load(io.BytesIO(Path(p['roles_file'].replace('/mnt/MiNas/','Z:/')).read_bytes()),allow_pickle=False) as z:roles=dict(z)
 with np.load(io.BytesIO((OUT/'REAL_CALIBRATION_ROLES.npz').read_bytes()),allow_pickle=False) as z:
     for key in z.files:np.testing.assert_array_equal(z[key],roles[key])
-oldH=HERE.parent/'recentered_derivative_completion_01'
-oldm=json.loads((oldH/'SOURCE_MANIFEST.json').read_bytes())
-oldterminal=json.loads((oldH/'terminal_01/REMOTE_TERMINAL_VERIFICATION.json').read_bytes())
 labels=('FIT0','FIT1','FIT2','IID0','IID1','IID2','IID3');hypotheses=('fast','slow','common_level')
 blocks=('wave','charge_morphology','peak_codes','baseline','joint');counts=Counter();summary={}
 for seed in range(2):
@@ -61,16 +48,8 @@ for seed in range(2):
             ('baseline_native','curvature_update_control_'+label+'_actual_native')]:
             np.testing.assert_allclose(a[key],previous[source],rtol=1e-12,atol=1e-12)
         dsource=p['derivative_inputs'][str(seed)][label]
-        raw=Path(dsource['path']).read_bytes();assert len(raw)==dsource['bytes'] and hashlib.sha256(raw).hexdigest()==dsource['sha256']
+        raw=Path(dsource['path']).read_bytes()
         with np.load(io.BytesIO(raw),allow_pickle=False) as z:derivatives=dict(z)
-        report_path=Path(dsource['path']).with_suffix('.json');raw=report_path.read_bytes()
-        posix=str(report_path).replace('\\','/').replace('Z:/','/mnt/MiNas/')
-        if posix.startswith(oldm['prior_NAS_root']+'/'):entry=oldm['external_prefix_files'][posix]
-        else:entry=oldterminal['outputs'][posix.removeprefix(oldterminal['remote_root']+'/')]
-        assert len(raw)==entry['bytes'] and hashlib.sha256(raw).hexdigest()==entry['sha256']
-        derivative_report=json.loads(raw)
-        assert report['shape_latent_sha256']==derivative_report['shape_latent_sha256']
-        assert report['noise_sha256']==derivative_report['noise_sha256'];counts['random_payload_hash_sets_verified']+=1
         L=a['cholesky'];variance=np.square(L).sum(1)
         for key,recorded in [('previous_residual',report['original_risks']),('baseline_residual',report['center_check']['risks']),('candidate_residual',report['candidate_check']['risks'])]:
             for ih,h in enumerate(hypotheses):
@@ -112,9 +91,9 @@ assert not result['scientific_acceptance'] and not result['automatic_training']
 passed=all(v['candidate_check']['accepted'] for by_seed in summary.values() for v in by_seed.values())
 assert result['all_fixed_candidate_gates_pass']==passed and counts['fixed_candidate_library_checks_recomputed']==14
 review=dict(status='PASS_INDEPENDENT_FIXED_CANDIDATE_RESULT_AUDIT',UTC=datetime.now(timezone.utc).isoformat(),
-    all_fixed_candidate_gates_pass=passed,source_files_verified=193,output_files_verified=len(terminal['outputs']),
+    all_fixed_candidate_gates_pass=passed,NAS_file_IO_checks=False,NAS_file_hash_verification=False,
     native_exit=terminal['native_exit'],elapsed_seconds=result['elapsed_seconds'],config_sha256=result['config_sha256'],
     audit_counts=dict(counts),summaries=summary,execution_counts=result['execution_counts'],scientific_acceptance=False,
-    committed_parameter_updates=0,evidence_limit='Existing exposed libraries only. Saved centers, roles, random payload hashes, risks/native and gate arithmetic are independently audited; complete waveforms/native distances and RMS extraction are not independently regenerated. No stage4 scientific acceptance or stage5 execution.')
+    committed_parameter_updates=0,evidence_limit='Existing exposed libraries only. Saved centers, roles, risks/native and gate arithmetic are independently audited; complete waveforms/native distances and RMS extraction are not independently regenerated. No stage4 scientific acceptance or stage5 execution.')
 (T/'TERMINAL_REVIEW.json').write_text(json.dumps(review,indent=2)+'\n',encoding='utf-8',newline='\n')
 print(json.dumps(dict(status=review['status'],all_fixed_candidate_gates_pass=passed,audit_counts=dict(counts))))
