@@ -350,3 +350,8 @@ Windows盘符映射缺失后，服务器上的NAS目录与两份筛查NPZ哈希�
 十四库均已暴露并参与局部恢复约束，结果证明该固定恢复步在这些库上满足原数值门；阶段4最终科学验收仍未建立，阶段5未进入。完整波形/native距离/RMS提取未另行独立重生成。当前0运行作业，无等待计算，无定时；不追加候选或放宽门限。
 
 2026-10-21：按用户要求生成[全能区PSD图](deliverables/joint_response01_full_energy_psd_20261021/LATEST_FULL_ENERGY_PSD_LINEAR.png)，全部6,465个训练源父事件×32抽样/头、三噪声假设及18,948条实测参照，保留原留出集。整体PSD形态差距被用户拒绝，原14库局部守门通过记录不变。无训练[逐段定位](receipts/joint_response_01_20261021/energy_trend_origin_01/ORIGIN_ARRAY_AUDIT.json)确认冻结A0在零潜变量、无电子学、无ADC时已有振荡，当前候选继承该结构；A0内部具体层尚未消融。原U-Net已包含FiLM和logQ/log幅度条件，后续应重学均值能量趋势及条件随机展宽，补能区条件分布目标与历史TRAIN回放，详见[改进设计](receipts/joint_response_01_20261021/energy_trend_origin_01/IMPROVEMENT_DESIGN.json)。新训练未启动，当前无运行或等待定时。
+
+
+2026-10-21：用户要求统合外部 agent 意见并推进。来源诊断沿用 job148。新增仅 FIT 的 16/32/64 多尺度 Q–PSD、Q–tail 全人口分布记忆；两组独立随机库、两遍精确梯度累计。先测原校准器 A 与开放末端均值头 B 的原生梯度和耗时，再冻结配对小试验。原科学验收保持未通过。设计见 receipts/global_memory_repair_20261021/INTEGRATED_DESIGN.json。
+
+第一轮全域记忆对照已完成：A 接受1次、B接受6次；独立32抽样终点 PSD CDF误差分别下降0.67%和9.85%。B的波形统计误差增加2.48%，每库ADC rail增加2例，梳齿未消除，均未晋级。下一项仍使用247参数B，从原端点初始化，显式投影波形风险梯度冲突；12次方向上限，原终点阈值保持不变。

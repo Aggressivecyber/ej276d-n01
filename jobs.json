@@ -1,7 +1,7 @@
 {
   "experiment_id": "N01",
-  "updated_UTC": "2026-10-20T18:08:08.487975+00:00",
-  "active_scientific_jobs": 0,
+  "updated_UTC": "2026-10-20T18:49:37.620495+00:00",
+  "active_scientific_jobs": 1,
   "jobs": [
     {
       "job_id": "N01_RUN_001_20261012",
@@ -24606,16 +24606,199 @@
         "ADC_observation_rows": 25860
       },
       "closure": "receipts/joint_response_01_20261021/energy_trend_origin_01/CLOSURE_RECEIPT.json"
+    },
+    {
+      "job_id": "GLOBAL_MEMORY_PROFILE_20261021",
+      "status": "failed_native_exit1_before_memory_fit",
+      "registered_UTC": "2026-10-20T18:28:53.746096+00:00",
+      "config": "configs\\global_memory_profile_20261021.json",
+      "config_sha256": "8dec08a710afc4b4f52cc53d1daef8f546f02d69c0e1abd0383a0b7a14484349",
+      "kind": "native_profile_two_pass_gradients_and_draw_precision",
+      "operation_budget": {
+        "response_rows": 400000,
+        "temporary_Adam_directions": 2,
+        "committed_optimizer_updates": 0
+      },
+      "resources": {
+        "CPU_threads": 4,
+        "GPU_GiB": 4,
+        "RSS_GiB": 12,
+        "internal_seconds": 900,
+        "hard_wall_seconds": 1020,
+        "GPU_free_required_MiB": 6144
+      },
+      "native_exit_code": 1,
+      "ended_UTC": "2026-10-20T18:29:06.686945+00:00",
+      "actual_execution_counts": {
+        "checkpoint_loads": 6,
+        "TRAIN_archives_decoded": 1,
+        "PCA_archives_decoded": 1,
+        "old_A_calls": 52,
+        "old_A_rows": 6593,
+        "M0_head_calls": 104,
+        "M0_head_rows": 13186
+      },
+      "committed_optimizer_updates": 0,
+      "terminal_receipt": "receipts\\global_memory_repair_20261021\\profile_01\\TERMINAL_RECEIPT.json"
+    },
+    {
+      "job_id": "GLOBAL_MEMORY_PROFILE_FIX01_20261021",
+      "status": "completed_native_exit0",
+      "registered_UTC": "2026-10-20T18:30:15.551270+00:00",
+      "config": "configs\\global_memory_profile_fix01_20261021.json",
+      "config_sha256": "0af1fbc2fc172012c46a9762b227c609212468acde6a866c3280a48b563cdfca",
+      "kind": "native_profile_engineering_fix",
+      "operation_budget": {
+        "response_rows": 400000,
+        "temporary_Adam_directions": 2,
+        "committed_optimizer_updates": 0
+      },
+      "resources": {
+        "CPU_threads": 4,
+        "GPU_GiB": 4,
+        "RSS_GiB": 12,
+        "internal_seconds": 900,
+        "hard_wall_seconds": 1020,
+        "GPU_free_required_MiB": 6144
+      },
+      "repeated_setup_costs_separately_recorded": true,
+      "native_exit_code": 0,
+      "actual_execution_counts": {
+        "checkpoint_loads": 6,
+        "TRAIN_archives_decoded": 1,
+        "PCA_archives_decoded": 1,
+        "old_A_calls": 52,
+        "old_A_rows": 6593,
+        "M0_head_calls": 104,
+        "M0_head_rows": 13186,
+        "REAL_memory_rows": 18948,
+        "allocated_banks": 204,
+        "shape_standard_normal_values": 1034400,
+        "noise005_calls": 204,
+        "noise005_rows": 129300,
+        "extension_rows": 387900,
+        "response_calls": 932,
+        "response_rows": 236836,
+        "hard_observation_rows": 236836,
+        "STE_rows": 51720,
+        "backward_microblocks": 204,
+        "temporary_Adam_directions": 2
+      },
+      "committed_optimizer_updates": 0,
+      "ended_UTC": "2026-10-20T18:30:57.189828+00:00",
+      "closure": "receipts\\global_memory_repair_20261021\\profile_fix01\\CLOSURE_RECEIPT.json"
+    },
+    {
+      "job_id": "GLOBAL_MEMORY_PILOT_20261021",
+      "status": "completed_native_exit0_scientific_not_accepted",
+      "registered_UTC": "2026-10-20T18:35:32.126688+00:00",
+      "config": "configs\\global_memory_pilot_20261021.json",
+      "config_sha256": "e78826540643fb461fe04caa5fbb1aede3b9c48562eadbed98314ff305bca2a6",
+      "kind": "paired_global_memory_objective_and_trainable_mean_head_pilot",
+      "operation_budget": {
+        "response_rows": 14000000,
+        "optimizer_directions": 24,
+        "committed_optimizer_updates": 24,
+        "max_trial_scales_per_direction": 3
+      },
+      "resources": {
+        "CPU_threads": 4,
+        "GPU_GiB": 4,
+        "RSS_GiB": 12,
+        "internal_seconds": 1680,
+        "hard_wall_seconds": 1800,
+        "GPU_free_required_MiB": 6144
+      },
+      "scientific_acceptance": false,
+      "native_exit_code": 0,
+      "actual_execution_counts": {
+        "checkpoint_loads": 6,
+        "TRAIN_archives_decoded": 1,
+        "PCA_archives_decoded": 1,
+        "old_A_calls": 52,
+        "old_A_rows": 6593,
+        "M0_head_calls": 104,
+        "M0_head_rows": 13186,
+        "REAL_memory_rows": 18948,
+        "allocated_banks": 1428,
+        "shape_standard_normal_values": 14067840,
+        "noise005_calls": 1428,
+        "noise005_rows": 1758480,
+        "extension_rows": 5275440,
+        "response_calls": 36522,
+        "response_rows": 9309600,
+        "hard_observation_rows": 9309600,
+        "STE_rows": 1655040,
+        "backward_microblocks": 6496,
+        "optimizer_directions": 16,
+        "committed_optimizer_updates": 7
+      },
+      "committed_optimizer_updates": 7,
+      "ended_UTC": "2026-10-20T18:38:48.544648+00:00",
+      "closure": "receipts\\global_memory_repair_20261021\\pilot_01\\CLOSURE_RECEIPT.json"
+    },
+    {
+      "job_id": "GLOBAL_MEMORY_PROJECTED_PILOT_20261021",
+      "status": "running_native_first_update_verified",
+      "registered_UTC": "2026-10-20T18:46:29.921782+00:00",
+      "config": "configs\\global_memory_projected_20261021.json",
+      "config_sha256": "a26b600e0b97d2a99efd34f690fe366a9e2afb00c8b92a26ce6c1e39f43faa86",
+      "kind": "same_architecture_waveform_projected_direction_pilot",
+      "operation_budget": {
+        "response_rows": 8000000,
+        "optimizer_directions": 12,
+        "committed_optimizer_updates": 12,
+        "max_trial_scales_per_direction": 3
+      },
+      "resources": {
+        "CPU_threads": 4,
+        "GPU_GiB": 4,
+        "RSS_GiB": 12,
+        "internal_seconds": 900,
+        "hard_wall_seconds": 1020,
+        "GPU_free_required_MiB": 6144
+      },
+      "scientific_acceptance": false,
+      "dispatch_UTC": "2026-10-20T18:46:30.904040+00:00",
+      "boot_id": "27872225-1e36-4b9b-be8e-95126377b406",
+      "remote_root": "/home/rylan/projects/ej276d-n01/global_memory_projected_20261021",
+      "dispatcher_pid": 24910,
+      "actual_execution_counts_last_verified": {
+        "checkpoint_loads": 6,
+        "TRAIN_archives_decoded": 1,
+        "PCA_archives_decoded": 1,
+        "old_A_calls": 52,
+        "old_A_rows": 6593,
+        "M0_head_calls": 104,
+        "M0_head_rows": 13186,
+        "REAL_memory_rows": 18948,
+        "allocated_banks": 204,
+        "shape_standard_normal_values": 1655040,
+        "noise005_calls": 204,
+        "noise005_rows": 206880,
+        "extension_rows": 620640,
+        "response_calls": 1624,
+        "response_rows": 413760,
+        "hard_observation_rows": 413760,
+        "STE_rows": 103440,
+        "wave_gradient_microblocks": 406,
+        "backward_microblocks": 406,
+        "optimizer_directions": 1,
+        "committed_optimizer_updates": 1
+      },
+      "counts_asof_UTC": "2026-10-20T18:47:33.825231+00:00",
+      "committed_optimizer_updates_last_verified": 1
     }
   ],
   "user_requested_pause": false,
   "resume_requires_user_server_started_notice": false,
   "followup": {
-    "status": "DELETED_NO_WAITING_COMPUTATION",
-    "automation_id": null,
-    "count": 0,
-    "next_wake_local": null,
-    "receipt": "receipts/joint_response_01_20261020/recentered_derivative_completion_01/RESEARCH_FOLLOWUP_DELETE_RECEIPT.json"
+    "status": "ACTIVE",
+    "automation_id": "n01-psd",
+    "kind": "heartbeat",
+    "count": 1,
+    "next_wake_local": "2026-10-21T02:57:00+08:00",
+    "basis": "receipts\\global_memory_repair_20261021\\projected_01\\WAKE_RECEIPT.json"
   },
   "scientific_status": "response_match_not_established",
   "active_scientific_jobs_status_basis": "Job146 native exit0 and no remaining owned scientific process at terminal collection; original interrupted job145 is not restarted.",
@@ -24634,9 +24817,9 @@
     "weights_promoted": false,
     "scientific_acceptance": false
   },
-  "followup_automation_id": null,
-  "followup_automation_status": "DELETED_CONFIRMED",
-  "followup_next_run_local": null,
+  "followup_automation_id": "n01-psd",
+  "followup_automation_status": "ACTIVE",
+  "followup_next_run_local": "2026-10-21T02:57:00+08:00",
   "followup_receipt": "receipts/joint_response_01_20261020/recentered_derivative_diagnostic_01/WAKE1402_AUTOMATION_CONSUMED.json",
   "followup_receipt_sha256": "69f7935579ff5a4db2ff2ab3338bdc179265759812d29c1a305649c06949c563",
   "followup_last_delivered_UTC": "2026-10-19T22:43:10.010Z",
@@ -24663,18 +24846,18 @@
     "bytes": 83119,
     "sha256": "b24f3bb1e5644fc8db29b2db1b3b82b05a8793248b7c99af81b23fb4dc3d1e24"
   },
-  "status": "JOINT_RESPONSE_01_PSD_rejected_A0_mean_energy_mapping_origin_localized",
-  "current_action": "PSD mismatch traced to frozenA0 mean energy-shape mapping before noise/ADC. Global energy-conditioned mean relearning and historical replay design prepared; no new training started.",
-  "next_action": "Directly dispatch approved job146 without NAS file validation; confirm scientific startup, finish short steps and schedule one measured wake only if long computation remains.",
+  "status": "GLOBAL_MEMORY_REPAIR_wave_projected_pilot_running",
+  "current_action": "Same247-parameter waveform-projected pilot running; first native hard-checked update accepted.",
+  "next_action": "At measured02:57 wake collect endpoint, render full-Q PSD, evaluate all gates and continue bounded evidence-led work.",
   "latest_user_review_direction": {
     "path": "receipts/review_017_20261016/ACCEPTED_NEXT_ACTIONS.json",
     "bytes": 3271,
     "sha256": "8c1fe73b73b7376a3299e6c43f8493a41f2cd45a5e1a2d33a82c961ab22642c2"
   },
   "pending_run_id": null,
-  "latest_run_id": "JOINT_RESPONSE_01_ORIGINAL_PRECISION_REAL_PILOT_20261020",
-  "active_run_id": null,
-  "current_stage": "4_fixed_restoration_exposed_library_diagnostic_complete",
+  "latest_run_id": "GLOBAL_MEMORY_PROJECTED_PILOT_20261021",
+  "active_run_id": "global_memory_projected_20261021",
+  "current_stage": "4_global_memory_mean_repair",
   "wp4_018_result": {
     "path": "receipts/wp4_018_20261016/FINAL_RESULT_RECEIPT.json",
     "bytes": 6437,
@@ -28648,7 +28831,7 @@
     },
     "closure_registered_UTC": "2026-10-17T19:08:19.506304+00:00"
   },
-  "active_job_id": null,
+  "active_job_id": "GLOBAL_MEMORY_PROJECTED_PILOT_20261021",
   "current_arm": null,
   "response038_classifier_optimizer_steps": 6600,
   "response038_classifier_AD_queries": 6600,
@@ -28669,8 +28852,8 @@
     "classifiers_completed": 33
   },
   "response038_classifier_counts_last_verified_UTC": "2026-10-17T18:47:39.322960+00:00",
-  "current_job_native_exit_code": 0,
-  "current_job_ended_UTC": "2026-10-20T18:02:57.399036+00:00",
+  "current_job_native_exit_code": null,
+  "current_job_ended_UTC": null,
   "response038_classifier_counts_complete_for_this_supplement": true,
   "response_goal_20261018": {
     "document": "docs/RESPONSE_GOAL_20261018.md",
@@ -30272,7 +30455,7 @@
     "terminal_review": "receipts/response046_20261018/wake_20261018_0853_01/TERMINAL_REVIEW.json",
     "terminal_review_sha256": "b42a4ca70a3840cb7e0de42596ea4d728fa7577c59d7454c01ca3478662bfc64"
   },
-  "next_wake_local": null,
+  "next_wake_local": "2026-10-21T02:57:00+08:00",
   "response047": {
     "job_id": "response047_smooth_endpoint_width_20261018",
     "run_id": "response047_smooth_endpoint_width_20261018",
@@ -38542,14 +38725,37 @@
   "pause_reason": null,
   "automatic_restart": false,
   "pending_job_id": null,
-  "followup_status": "DELETED_TERMINAL_REVIEW_ACTIVE",
+  "followup_status": "ACTIVE_SINGLE_MEASURED_WAKE",
   "pause_receipt": "receipts/joint_response_01_20261019/user_pause_20261019/PAUSE_RECEIPT.json",
   "resumed_by_user_notice": true,
   "resume_verified_UTC": "2026-10-19T16:17:28.081783+00:00",
   "server_boot_id_at_resume": "83c9f761-c124-42e1-89b8-5f45f0b3acc4",
   "resume_authorization": "receipts/joint_response_01_20261020/resume_01/RESUME_AUTHORIZATION.json",
-  "execution_state_asof_UTC": "2026-10-20T18:08:08.487975+00:00",
-  "training_pid": null,
-  "supervisor_pid": null,
-  "pending_registered_job_id": null
+  "execution_state_asof_UTC": "2026-10-20T18:47:33.825231+00:00",
+  "training_pid": 24925,
+  "supervisor_pid": 24911,
+  "pending_registered_job_id": null,
+  "global_memory_repair": {
+    "status": "wave_projected_pilot_running",
+    "design": "receipts\\global_memory_repair_20261021\\INTEGRATED_DESIGN.json",
+    "config": "configs\\global_memory_projected_20261021.json",
+    "config_sha256": "a26b600e0b97d2a99efd34f690fe366a9e2afb00c8b92a26ce6c1e39f43faa86",
+    "science_accepted": false,
+    "current_committed_training_updates": 1,
+    "previous_profile_failure": "CPU canonical REAL values compared using CUDA arithmetic before memory construction",
+    "previous_profile_committed_updates": 0,
+    "profile_closure": "receipts\\global_memory_repair_20261021\\profile_fix01\\CLOSURE_RECEIPT.json",
+    "paired_pilot_closure": "receipts\\global_memory_repair_20261021\\pilot_01\\CLOSURE_RECEIPT.json",
+    "paired_pilot_accepted_updates": {
+      "A": 1,
+      "B": 6
+    },
+    "paired_pilot_science_accepted": false,
+    "paired_pilot_total_accepted_updates": 7,
+    "counts_asof_UTC": "2026-10-20T18:47:33.825231+00:00",
+    "remote_root": "/home/rylan/projects/ej276d-n01/global_memory_projected_20261021",
+    "startup_receipt": "receipts\\global_memory_repair_20261021\\projected_01\\STARTUP_SCIENTIFIC_RECEIPT.json",
+    "dispatch_receipt": "receipts\\global_memory_repair_20261021\\projected_01\\DISPATCH_RECEIPT.json",
+    "wake_receipt": "receipts\\global_memory_repair_20261021\\projected_01\\WAKE_RECEIPT.json"
+  }
 }

@@ -1,0 +1,101 @@
+{
+  "schema": "n01/global-memory-wave-projected-pilot/v1",
+  "job_id": "GLOBAL_MEMORY_PROJECTED_PILOT_20261021",
+  "mode": "projected_pilot",
+  "registered_UTC": "2026-10-20T18:46:29.921782+00:00",
+  "authorization": "User: review the attached agent opinion, integrate and proceed.",
+  "frozen_setup_config": "/mnt/MiNas/GAN/research/N01/server_runs/joint_response01_recentered_derivative_diagnostic_20261020/configs/response038_20261017.json",
+  "roles_file": "/mnt/MiNas/GAN/research/N01/server_runs/joint_response01_recentered_derivative_diagnostic_20261020/diagnostic_inputs/REAL_CALIBRATION_ROLES.npz",
+  "candidate_arrays": [
+    "/mnt/MiNas/GAN/research/N01/server_runs/joint_response01_recentered_restoration_solve_fix01_20261020/run_01/seed0_RECENTERED_RESTORATION.npz",
+    "/mnt/MiNas/GAN/research/N01/server_runs/joint_response01_recentered_restoration_solve_fix01_20261020/run_01/seed1_RECENTERED_RESTORATION.npz"
+  ],
+  "parent_chunk": 128,
+  "micro_rows": 256,
+  "hypothesis": "fast",
+  "primary_seed_head": 0,
+  "draws_per_parent": 8,
+  "precision_draws": 8,
+  "precision_relative_limit": 0.05,
+  "bank_seed": 2026102100,
+  "identity_tolerance_V": 1e-07,
+  "memory": {
+    "levels": [
+      16,
+      32,
+      64
+    ],
+    "thresholds": 128,
+    "feature_seed": 2026102107
+  },
+  "learning_rates": {
+    "response": 0.002,
+    "mean": 0.0002
+  },
+  "operation_budget": {
+    "response_rows": 8000000,
+    "optimizer_directions": 12,
+    "committed_optimizer_updates": 12,
+    "max_trial_scales_per_direction": 3
+  },
+  "resources": {
+    "CPU_threads": 4,
+    "GPU_GiB": 4,
+    "RSS_GiB": 12,
+    "internal_seconds": 900,
+    "hard_wall_seconds": 1020,
+    "GPU_free_required_MiB": 6144
+  },
+  "storage": {
+    "remote_root": "/home/rylan/projects/ej276d-n01/global_memory_projected_20261021",
+    "archival_policy": "Archive large terminal outputs to NAS; active runtime stays on compute storage"
+  },
+  "scientific_acceptance": false,
+  "NAS_file_IO_checks": false,
+  "NAS_file_hash_verification": false,
+  "engineering_change": "Replay CPU-canonical REAL on original CPU observation, then transfer observables unchanged to CUDA.",
+  "endpoint_draws": 32,
+  "endpoint_archive": "/mnt/MiNas/GAN/research/N01/server_runs/global_memory_projected_20261021/ENDPOINT_SCALARS.npz",
+  "precision_decision": {
+    "low_draws": 2,
+    "high_draws": 8,
+    "relative_PSD_feature_mean_change": 0.06004446808756991,
+    "denominator": "initial model-vs-REAL PSD memory discrepancy",
+    "low_draws_supported_for_pilot": false
+  },
+  "optimizer": {
+    "direction_attempts_per_arm": 12,
+    "step_scales": [
+      1.0,
+      0.5,
+      0.25
+    ],
+    "stop_consecutive_rejections": 3,
+    "per_step_guards": {
+      "Q_mass": 1.005,
+      "block_wave": 1.0,
+      "block_peak_codes": 1.01
+    },
+    "acceptance": "Same full-source-population two-bank hard loss decreases, guards pass and no flag count increases.",
+    "failed_trial": "Restore parameters; if no trial passes also restore Adam state."
+  },
+  "endpoint_decision": "Fresh two-bank32 primary PSD CDF improves >=10%, Q mass/wave/peak no worse by2%, flags do not increase. This is pilot advancement only, not original scientific acceptance.",
+  "measured_budget_basis": {
+    "first_pilot_native_seconds": 192.82715799200014,
+    "first_pilot_response_rows": 9309600,
+    "first_pilot_B_gradient_seconds_range": [
+      5.7,
+      5.9
+    ],
+    "extra_waveform_gradient_per_microblock": true,
+    "expected_total_seconds": 270,
+    "conservative_completion_seconds": 420,
+    "remaining_work_basis": "One arm,12 possible directions, up to3 hard trials/direction, two fresh32-draw endpoint banks."
+  },
+  "arms": [
+    "B"
+  ],
+  "initialize_from": "original fixed seed0 endpoint and copied original A0 heads, not rejected B endpoint",
+  "projection": "Use exact two-pass independent-bank waveform-block gradient. In the diagonal learning-rate metric, remove positive waveform directional derivative from the Adam displacement. Recompute derivative after domain clipping and use original hard ADC trials.",
+  "motivation": "First paired pilot: B PSD error -9.85%, waveform error +2.48%, ADC-rail flags increased by2 in each independent endpoint bank."
+}

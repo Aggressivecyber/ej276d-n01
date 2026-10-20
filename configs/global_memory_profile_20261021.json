@@ -1,0 +1,55 @@
+{
+  "schema": "n01/global-memory-profile/v1",
+  "job_id": "GLOBAL_MEMORY_PROFILE_20261021",
+  "mode": "profile",
+  "registered_UTC": "2026-10-20T18:28:53.746096+00:00",
+  "authorization": "User: review the attached agent opinion, integrate and proceed.",
+  "frozen_setup_config": "/mnt/MiNas/GAN/research/N01/server_runs/joint_response01_recentered_derivative_diagnostic_20261020/configs/response038_20261017.json",
+  "roles_file": "/mnt/MiNas/GAN/research/N01/server_runs/joint_response01_recentered_derivative_diagnostic_20261020/diagnostic_inputs/REAL_CALIBRATION_ROLES.npz",
+  "candidate_arrays": [
+    "/mnt/MiNas/GAN/research/N01/server_runs/joint_response01_recentered_restoration_solve_fix01_20261020/run_01/seed0_RECENTERED_RESTORATION.npz",
+    "/mnt/MiNas/GAN/research/N01/server_runs/joint_response01_recentered_restoration_solve_fix01_20261020/run_01/seed1_RECENTERED_RESTORATION.npz"
+  ],
+  "parent_chunk": 128,
+  "micro_rows": 256,
+  "hypothesis": "fast",
+  "primary_seed_head": 0,
+  "draws_per_parent": 2,
+  "precision_draws": 8,
+  "precision_relative_limit": 0.05,
+  "bank_seed": 2026102100,
+  "identity_tolerance_V": 1e-07,
+  "memory": {
+    "levels": [
+      16,
+      32,
+      64
+    ],
+    "thresholds": 128,
+    "feature_seed": 2026102107
+  },
+  "learning_rates": {
+    "response": 0.002,
+    "mean": 0.0002
+  },
+  "operation_budget": {
+    "response_rows": 400000,
+    "temporary_Adam_directions": 2,
+    "committed_optimizer_updates": 0
+  },
+  "resources": {
+    "CPU_threads": 4,
+    "GPU_GiB": 4,
+    "RSS_GiB": 12,
+    "internal_seconds": 900,
+    "hard_wall_seconds": 1020,
+    "GPU_free_required_MiB": 6144
+  },
+  "storage": {
+    "remote_root": "/home/rylan/projects/ej276d-n01/global_memory_profile_20261021",
+    "archival_policy": "Archive large terminal outputs to NAS; active runtime stays on compute storage"
+  },
+  "scientific_acceptance": false,
+  "NAS_file_IO_checks": false,
+  "NAS_file_hash_verification": false
+}
