@@ -1,0 +1,156 @@
+{
+  "UTC": "2026-10-20T01:11:52.591946+00:00",
+  "files": {
+    "run_01/PROGRESS.json": {
+      "stage": "REAL_multibank_setup_loaded",
+      "UTC": "2026-10-20T01:11:17.807481+00:00",
+      "execution_counts": {
+        "checkpoint_loads": 6,
+        "TRAIN_archives_decoded": 1,
+        "PCA_archives_decoded": 1,
+        "old_A_calls": 52,
+        "old_A_rows": 6593,
+        "M0_head_calls": 104,
+        "M0_head_rows": 13186
+      }
+    },
+    "control_01/launch.json": {
+      "supervisor_pid": 152355,
+      "child_pid": 152362,
+      "command": [
+        "timeout",
+        "--signal=TERM",
+        "--kill-after=20s",
+        "5700s",
+        "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+        "-B",
+        "/home/rylan/projects/ej276d-n01/joint_response01_original_precision_REAL_pilot_20261020/scripts/run_joint_response01_original_precision_real.py",
+        "--config",
+        "/home/rylan/projects/ej276d-n01/joint_response01_original_precision_REAL_pilot_20261020/configs/joint_response_01_original_precision_REAL_pilot_20261020.json",
+        "--config-sha256",
+        "3272ef3806a6293d004a21859886d74d0de8f52137a4e0ae7c4907e64eed6445",
+        "--out",
+        "/home/rylan/projects/ej276d-n01/joint_response01_original_precision_REAL_pilot_20261020/run_01",
+        "--device",
+        "cuda:0"
+      ],
+      "started_utc": "2026-10-20T01:11:14.351257+00:00"
+    },
+    "control_01/resource_status.json": {
+      "supervisor_pid": 152355,
+      "child_pid": 152362,
+      "rss_bytes": 5139763200,
+      "peak_rss_bytes": 5139763200,
+      "child_tree": [
+        152362,
+        152363
+      ],
+      "utc": "2026-10-20T01:11:52.371194+00:00"
+    }
+  },
+  "processes": [
+    {
+      "pid": 152354,
+      "argv": [
+        "flock",
+        "-n",
+        "/home/rylan/projects/ej276d-n01/.n01_scientific_dispatch.lock",
+        "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+        "-B",
+        "/home/rylan/projects/ej276d-n01/joint_response01_original_precision_REAL_pilot_20261020/scripts/supervise.py",
+        "--output",
+        "/home/rylan/projects/ej276d-n01/joint_response01_original_precision_REAL_pilot_20261020/control_01",
+        "--rss-limit-gib",
+        "12",
+        "--",
+        "timeout",
+        "--signal=TERM",
+        "--kill-after=20s",
+        "5700s",
+        "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+        "-B",
+        "/home/rylan/projects/ej276d-n01/joint_response01_original_precision_REAL_pilot_20261020/scripts/run_joint_response01_original_precision_real.py",
+        "--config",
+        "/home/rylan/projects/ej276d-n01/joint_response01_original_precision_REAL_pilot_20261020/configs/joint_response_01_original_precision_REAL_pilot_20261020.json",
+        "--config-sha256",
+        "3272ef3806a6293d004a21859886d74d0de8f52137a4e0ae7c4907e64eed6445",
+        "--out",
+        "/home/rylan/projects/ej276d-n01/joint_response01_original_precision_REAL_pilot_20261020/run_01",
+        "--device",
+        "cuda:0"
+      ],
+      "start_ticks": "3247414"
+    },
+    {
+      "pid": 152355,
+      "argv": [
+        "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+        "-B",
+        "/home/rylan/projects/ej276d-n01/joint_response01_original_precision_REAL_pilot_20261020/scripts/supervise.py",
+        "--output",
+        "/home/rylan/projects/ej276d-n01/joint_response01_original_precision_REAL_pilot_20261020/control_01",
+        "--rss-limit-gib",
+        "12",
+        "--",
+        "timeout",
+        "--signal=TERM",
+        "--kill-after=20s",
+        "5700s",
+        "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+        "-B",
+        "/home/rylan/projects/ej276d-n01/joint_response01_original_precision_REAL_pilot_20261020/scripts/run_joint_response01_original_precision_real.py",
+        "--config",
+        "/home/rylan/projects/ej276d-n01/joint_response01_original_precision_REAL_pilot_20261020/configs/joint_response_01_original_precision_REAL_pilot_20261020.json",
+        "--config-sha256",
+        "3272ef3806a6293d004a21859886d74d0de8f52137a4e0ae7c4907e64eed6445",
+        "--out",
+        "/home/rylan/projects/ej276d-n01/joint_response01_original_precision_REAL_pilot_20261020/run_01",
+        "--device",
+        "cuda:0"
+      ],
+      "start_ticks": "3247414"
+    },
+    {
+      "pid": 152362,
+      "argv": [
+        "timeout",
+        "--signal=TERM",
+        "--kill-after=20s",
+        "5700s",
+        "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+        "-B",
+        "/home/rylan/projects/ej276d-n01/joint_response01_original_precision_REAL_pilot_20261020/scripts/run_joint_response01_original_precision_real.py",
+        "--config",
+        "/home/rylan/projects/ej276d-n01/joint_response01_original_precision_REAL_pilot_20261020/configs/joint_response_01_original_precision_REAL_pilot_20261020.json",
+        "--config-sha256",
+        "3272ef3806a6293d004a21859886d74d0de8f52137a4e0ae7c4907e64eed6445",
+        "--out",
+        "/home/rylan/projects/ej276d-n01/joint_response01_original_precision_REAL_pilot_20261020/run_01",
+        "--device",
+        "cuda:0"
+      ],
+      "start_ticks": "3247416"
+    },
+    {
+      "pid": 152363,
+      "argv": [
+        "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+        "-B",
+        "/home/rylan/projects/ej276d-n01/joint_response01_original_precision_REAL_pilot_20261020/scripts/run_joint_response01_original_precision_real.py",
+        "--config",
+        "/home/rylan/projects/ej276d-n01/joint_response01_original_precision_REAL_pilot_20261020/configs/joint_response_01_original_precision_REAL_pilot_20261020.json",
+        "--config-sha256",
+        "3272ef3806a6293d004a21859886d74d0de8f52137a4e0ae7c4907e64eed6445",
+        "--out",
+        "/home/rylan/projects/ej276d-n01/joint_response01_original_precision_REAL_pilot_20261020/run_01",
+        "--device",
+        "cuda:0"
+      ],
+      "start_ticks": "3247416"
+    }
+  ],
+  "boot_id": "83c9f761-c124-42e1-89b8-5f45f0b3acc4",
+  "source_files_verified": 819,
+  "config_sha256": "3272ef3806a6293d004a21859886d74d0de8f52137a4e0ae7c4907e64eed6445",
+  "tracks": {}
+}
