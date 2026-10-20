@@ -1,0 +1,34 @@
+{
+  "status": "AUDITED_PREFLIGHT_FAILURE_ZERO_SOLVES",
+  "UTC": "2026-10-20T08:26:55.919507+00:00",
+  "exit_receipt": {
+    "UTC": "2026-10-20T08:24:52.065021+00:00",
+    "exit_code": 1,
+    "elapsed_seconds": 8.369672100059688,
+    "pid": 3708,
+    "config_sha256": "5f28e7fba6a68daba54d3ed45ce69ab19b5c7a5d42216f6d08495b7bc3ec3d74"
+  },
+  "cause": "Incorrect absolute-zero assertion for the frozen noise coordinate. Saved center has tiny nonzero values; protocol freezes its correction, not its value.",
+  "observed_center_noise": {
+    "0": 1.586863287121728e-21,
+    "1": 7.420802711335723e-20
+  },
+  "original_sources": {
+    "E:\\GAN\\research\\N01\\receipts\\joint_response_01_20261020\\recentered_restoration_solve_01\\engineering_fix01\\solve_joint01_recentered_restoration.py": {
+      "sha256": "09c7626e1ead6e3fbedacd1161439c99ebede33219fb95051f97acc3c2d43ab2",
+      "bytes": 6952
+    },
+    "E:\\GAN\\research\\N01\\receipts\\joint_response_01_20261020\\recentered_restoration_solve_01\\engineering_fix01\\audit_joint01_recentered_restoration.py": {
+      "sha256": "26bd3af19ebdd21d49e7986ed539f622be1ed2388b84aad63fa0f878548aa559",
+      "bytes": 7633
+    }
+  },
+  "source_changes": "Only remove two absolute-zero assertions; preserve saved noise coordinate byte-for-byte.",
+  "solver_invocations": 0,
+  "generator_calls": 0,
+  "actual_candidate_evaluations": 0,
+  "parameter_updates": 0,
+  "NAS_output_directory_empty": true,
+  "old_configuration_retained": true,
+  "scientific_acceptance": false
+}

@@ -1,0 +1,51 @@
+{
+  "status": "PASS_EXISTING_PATH_TERMINAL_COLLECTION_AND_PATH_ONLY_AUDIT_ADAPTATION",
+  "UTC": "2026-10-20T08:17:23.581033+00:00",
+  "original_auditor_sha256": "4d0f8c699bff14eab125b90a3d77194e78a488e4c9b7218f64638c40fe84d9fa",
+  "windows_auditor_sha256": "0c4ccd324bc9997d84c44a7db7c105c34162e5b97261e61bb100d5b93b0913de",
+  "path_replacements": [
+    {
+      "before": "NAS/name).read_bytes",
+      "after": "NAS/name.replace('/mnt/MiNas/','Z:/')).read_bytes",
+      "occurrences": 2
+    },
+    {
+      "before": "Path(name).read_bytes",
+      "after": "Path(name.replace('/mnt/MiNas/','Z:/')).read_bytes",
+      "occurrences": 1
+    },
+    {
+      "before": "NAS/p['roles_file']",
+      "after": "NAS/p['roles_file'].replace('/mnt/MiNas/','Z:/')",
+      "occurrences": 1
+    },
+    {
+      "before": "NAS/p['saved_arrays'][seed]",
+      "after": "NAS/p['saved_arrays'][seed].replace('/mnt/MiNas/','Z:/')",
+      "occurrences": 1
+    },
+    {
+      "before": "Path(manifest['prior_NAS_root'])",
+      "after": "Path(manifest['prior_NAS_root'].replace('/mnt/MiNas/','Z:/'))",
+      "occurrences": 2
+    }
+  ],
+  "reverse_replacements_restore_exact_original": true,
+  "numerical_formulas_changed": false,
+  "local_numpy": "2.2.6",
+  "local_scipy": "1.16.3",
+  "sources_verified": 192,
+  "outputs_verified": 25,
+  "native_exit": {
+    "exit_code": 0,
+    "reason": null,
+    "peak_rss_bytes": 3316772864,
+    "started_utc": "2026-10-20T07:30:49.408104+00:00",
+    "ended_utc": "2026-10-20T07:57:59.634403+00:00",
+    "supervisor_pid": 231687,
+    "child_pid": 231735
+  },
+  "previous_SSH_scientific_file_collection": "240 second timeout; stdout and stderr retained; no scientific restart.",
+  "large_payload_copies": false,
+  "storage_changes": false
+}
