@@ -1,0 +1,4571 @@
+{
+  "status": "PASS_SAVED_ORIGINAL_PRECISION_REAL_PILOT_AUDIT",
+  "UTC": "2026-10-20T02:16:19.909419+00:00",
+  "source_files_verified": 819,
+  "local_source_hashes": 750,
+  "source_pins": 23,
+  "outputs_rehashed": 51,
+  "output_bytes": 105638165,
+  "native_exit": {
+    "exit_code": 0,
+    "reason": null,
+    "peak_rss_bytes": 5260341248,
+    "started_utc": "2026-10-20T01:11:14.351257+00:00",
+    "ended_utc": "2026-10-20T02:04:11.018836+00:00",
+    "supervisor_pid": 152355,
+    "child_pid": 152362
+  },
+  "elapsed_seconds": 3174.692856255999,
+  "config_sha256": "3272ef3806a6293d004a21859886d74d0de8f52137a4e0ae7c4907e64eed6445",
+  "result_sha256": "c002c77f300c86c35352c00c14bad8696a9099e1a450d68b245d5e0a26d5c2f0",
+  "execution_counts": {
+    "checkpoint_loads": 6,
+    "TRAIN_archives_decoded": 1,
+    "PCA_archives_decoded": 1,
+    "old_A_calls": 52,
+    "old_A_rows": 6593,
+    "M0_head_calls": 104,
+    "M0_head_rows": 13186,
+    "REAL_observable_replay_calls": 1,
+    "REAL_observable_replay_rows": 21047,
+    "feature_maps_constructed": 5,
+    "new_native_projection_contexts": 5,
+    "REAL_fit_feature_rows": 147456,
+    "allocated_banks": 56,
+    "shape_standard_normal_values": 17039360,
+    "noise005_calls": 52,
+    "noise005_rows": 1605632,
+    "extension_rows": 4816896,
+    "joint_response_calls": 5840,
+    "joint_response_rows": 125960192,
+    "generated_observation_calls": 11376,
+    "generated_observation_rows": 371589120,
+    "native_component_rows": 417595392,
+    "REAL_CHECK_feature_rows": 49152,
+    "finite_difference_columns": 600,
+    "FIT_bank_finite_difference_columns": 1800,
+    "joint_direction_solve_attempts": 20,
+    "joint_direction_solves": 20,
+    "joint_candidate_trials": 20,
+    "secant_matrix_corrections": 8,
+    "REAL_response_updates": 10,
+    "REAL_evaluation_feature_rows": 4198,
+    "native_metric_rows": 493968,
+    "kernel_signal_calls": 2048,
+    "kernel_signal_rows": 2097152
+  },
+  "audit_counts": {
+    "finite_arrays": 776,
+    "role_entries_replayed": 245760,
+    "selection_streams_replayed": 96,
+    "random_bank_seeds_verified": 48,
+    "FD_columns_recomputed": 600,
+    "independent_joint_solves": 20,
+    "secant_corrections_recomputed": 8,
+    "joint_candidates": 20,
+    "risk_views_recomputed": 384,
+    "acceptance_checks_recomputed": 80
+  },
+  "tracks": {
+    "seed0_joint": {
+      "iterations": 3,
+      "accepted_updates": 2,
+      "trials": 7,
+      "parameter_norm": 0.009610230141923958,
+      "coverage": {
+        "source": {
+          "unique": 6465,
+          "visits": 9216,
+          "min_visits": 1,
+          "max_visits": 2
+        },
+        "real": {
+          "unique": 18948,
+          "visits": 36864,
+          "min_visits": 1,
+          "max_visits": 2
+        }
+      },
+      "heldout_excluded": true
+    },
+    "seed0_physical": {
+      "iterations": 3,
+      "accepted_updates": 3,
+      "trials": 3,
+      "parameter_norm": 0.20189079797278423,
+      "coverage": {
+        "source": {
+          "unique": 6465,
+          "visits": 9216,
+          "min_visits": 1,
+          "max_visits": 2
+        },
+        "real": {
+          "unique": 18948,
+          "visits": 36864,
+          "min_visits": 1,
+          "max_visits": 2
+        }
+      },
+      "heldout_excluded": true
+    },
+    "seed1_joint": {
+      "iterations": 3,
+      "accepted_updates": 2,
+      "trials": 7,
+      "parameter_norm": 0.009185849009107227,
+      "coverage": {
+        "source": {
+          "unique": 6465,
+          "visits": 9216,
+          "min_visits": 1,
+          "max_visits": 2
+        },
+        "real": {
+          "unique": 18948,
+          "visits": 36864,
+          "min_visits": 1,
+          "max_visits": 2
+        }
+      },
+      "heldout_excluded": true
+    },
+    "seed1_physical": {
+      "iterations": 3,
+      "accepted_updates": 3,
+      "trials": 3,
+      "parameter_norm": 0.20119989434697114,
+      "coverage": {
+        "source": {
+          "unique": 6465,
+          "visits": 9216,
+          "min_visits": 1,
+          "max_visits": 2
+        },
+        "real": {
+          "unique": 18948,
+          "visits": 36864,
+          "min_visits": 1,
+          "max_visits": 2
+        }
+      },
+      "heldout_excluded": true
+    }
+  },
+  "iteration_details": {
+    "seed0_joint": [
+      {
+        "iteration": 0,
+        "accepted": true,
+        "trials": 2,
+        "selected_trial": 1,
+        "parameter_norm": 0.006250000000037763,
+        "predicted_gains": [
+          8.231188545263194,
+          2.752318072231162
+        ],
+        "actual_gains": [
+          18.8661616588154,
+          5.420350432483019
+        ],
+        "vector_errors": [
+          0.11337121082542381,
+          0.015660101741246435
+        ]
+      },
+      {
+        "iteration": 1,
+        "accepted": true,
+        "trials": 2,
+        "selected_trial": 1,
+        "parameter_norm": 0.009610230141923958,
+        "predicted_gains": [
+          13.570940216675268,
+          4.6978845263280675
+        ],
+        "actual_gains": [
+          13.93401083454495,
+          4.639642196195496
+        ],
+        "vector_errors": [
+          0.06202655917302338,
+          0.018941426880398807
+        ]
+      },
+      {
+        "iteration": 2,
+        "accepted": false,
+        "trials": 3,
+        "selected_trial": null,
+        "parameter_norm": 0.009610230141923958,
+        "predicted_gains": [
+          16.936183945799826,
+          1.9857715206500757,
+          1.0892361180922592
+        ],
+        "actual_gains": [
+          18.318367855951465,
+          2.3381973274491656,
+          1.2638388450293405
+        ],
+        "vector_errors": [
+          0.06460750536913114,
+          0.0157796006754702,
+          0.008645566687563446
+        ]
+      }
+    ],
+    "seed0_physical": [
+      {
+        "iteration": 0,
+        "accepted": true,
+        "trials": 1,
+        "selected_trial": 0,
+        "parameter_norm": 0.19783319160603666,
+        "predicted_gains": [
+          28.794619002947
+        ],
+        "actual_gains": [
+          28.27965899155106
+        ],
+        "vector_errors": [
+          0.00398104703164539
+        ]
+      },
+      {
+        "iteration": 1,
+        "accepted": true,
+        "trials": 1,
+        "selected_trial": 0,
+        "parameter_norm": 0.19962028640033685,
+        "predicted_gains": [
+          21.958736467146764
+        ],
+        "actual_gains": [
+          20.098159772137706
+        ],
+        "vector_errors": [
+          0.0041964952717324
+        ]
+      },
+      {
+        "iteration": 2,
+        "accepted": true,
+        "trials": 1,
+        "selected_trial": 0,
+        "parameter_norm": 0.20189079797278423,
+        "predicted_gains": [
+          27.24031534898495
+        ],
+        "actual_gains": [
+          24.553566841895645
+        ],
+        "vector_errors": [
+          0.004041953870744332
+        ]
+      }
+    ],
+    "seed1_joint": [
+      {
+        "iteration": 0,
+        "accepted": true,
+        "trials": 2,
+        "selected_trial": 1,
+        "parameter_norm": 0.006250000000014734,
+        "predicted_gains": [
+          7.493943649881942,
+          1.872282886443685
+        ],
+        "actual_gains": [
+          16.84605101271518,
+          4.03239569984197
+        ],
+        "vector_errors": [
+          0.10988916386894867,
+          0.013803285636359738
+        ]
+      },
+      {
+        "iteration": 1,
+        "accepted": true,
+        "trials": 2,
+        "selected_trial": 1,
+        "parameter_norm": 0.009185849009107227,
+        "predicted_gains": [
+          12.414367425710367,
+          6.721438394084373
+        ],
+        "actual_gains": [
+          15.847402254792257,
+          6.948830827061727
+        ],
+        "vector_errors": [
+          0.05461997008500692,
+          0.014470785281500928
+        ]
+      },
+      {
+        "iteration": 2,
+        "accepted": false,
+        "trials": 3,
+        "selected_trial": null,
+        "parameter_norm": 0.009185849009107227,
+        "predicted_gains": [
+          15.625553802481221,
+          3.2222560568069696,
+          1.608471424670057
+        ],
+        "actual_gains": [
+          16.409003636202783,
+          4.040335921296446,
+          1.529805402500017
+        ],
+        "vector_errors": [
+          0.05772338089060538,
+          0.01845761288398976,
+          0.005379758152014915
+        ]
+      }
+    ],
+    "seed1_physical": [
+      {
+        "iteration": 0,
+        "accepted": true,
+        "trials": 1,
+        "selected_trial": 0,
+        "parameter_norm": 0.19718226183346352,
+        "predicted_gains": [
+          25.76272701262178
+        ],
+        "actual_gains": [
+          25.457795094118637
+        ],
+        "vector_errors": [
+          0.003254231162782956
+        ]
+      },
+      {
+        "iteration": 1,
+        "accepted": true,
+        "trials": 1,
+        "selected_trial": 0,
+        "parameter_norm": 0.1986994277745555,
+        "predicted_gains": [
+          23.63544061099219
+        ],
+        "actual_gains": [
+          22.315408835939706
+        ],
+        "vector_errors": [
+          0.0034840524856886985
+        ]
+      },
+      {
+        "iteration": 2,
+        "accepted": true,
+        "trials": 1,
+        "selected_trial": 0,
+        "parameter_norm": 0.20119989434697114,
+        "predicted_gains": [
+          25.159563824077622
+        ],
+        "actual_gains": [
+          26.460229553783847
+        ],
+        "vector_errors": [
+          0.0036575210962010384
+        ]
+      }
+    ]
+  },
+  "max_independent_solver_delta_error": 1.973247953923618e-17,
+  "final_gates_recomputed": 192,
+  "final_evidence": {
+    "0": {
+      "failed_gates": [
+        "library0/fast/joint_whitened",
+        "library0/fast/peak_codes",
+        "library0/fast/native_wave",
+        "library0/fast/native_QPSD",
+        "library0/slow/joint_whitened",
+        "library0/slow/peak_codes",
+        "library0/slow/native_wave",
+        "library0/slow/native_QPSD",
+        "library0/common_level/joint_whitened",
+        "library0/common_level/peak_codes",
+        "library0/common_level/native_wave",
+        "library0/common_level/native_QPSD",
+        "library1/fast/joint_whitened",
+        "library1/fast/peak_codes",
+        "library1/fast/native_wave",
+        "library1/fast/native_QPSD",
+        "library1/slow/joint_whitened",
+        "library1/slow/peak_codes",
+        "library1/slow/native_wave",
+        "library1/slow/native_QPSD",
+        "library1/common_level/joint_whitened",
+        "library1/common_level/peak_codes",
+        "library1/common_level/native_wave",
+        "library1/common_level/native_QPSD"
+      ],
+      "ratios_by_model_vs_M0": {
+        "joint": {
+          "joint_joint_whitened": [
+            0.8926335712528929,
+            0.9054331676800548
+          ],
+          "joint_wave": [
+            0.9723487130368385,
+            0.9787408646330137
+          ],
+          "joint_charge_morphology": [
+            0.9892744190981998,
+            1.003162488888586
+          ],
+          "joint_peak_codes": [
+            0.9141604149090736,
+            0.9279837017085261
+          ],
+          "joint_baseline": [
+            1.0,
+            1.0
+          ],
+          "native_wave": [
+            0.9886614063738034,
+            0.9912490884468104
+          ],
+          "native_QPSD": [
+            0.9940007415969877,
+            1.0067637872165214
+          ],
+          "native_noise": [
+            1.0,
+            1.0
+          ]
+        },
+        "physical_initial": {
+          "joint_joint_whitened": [
+            5.105037707891948,
+            5.20981627630208
+          ],
+          "joint_wave": [
+            3.05126228248287,
+            3.4968036624812733
+          ],
+          "joint_charge_morphology": [
+            3.3932445597004204,
+            4.546309808602363
+          ],
+          "joint_peak_codes": [
+            2.9744525128663923,
+            3.0522630234619705
+          ],
+          "joint_baseline": [
+            1.0,
+            1.0
+          ],
+          "native_wave": [
+            2.4950460521935574,
+            2.5264018655902336
+          ],
+          "native_QPSD": [
+            9.009832222592843,
+            9.350377159475068
+          ],
+          "native_noise": [
+            1.0,
+            1.0
+          ]
+        },
+        "physical": {
+          "joint_joint_whitened": [
+            4.787828898870273,
+            4.917046550418124
+          ],
+          "joint_wave": [
+            3.003149524055985,
+            3.479203693480888
+          ],
+          "joint_charge_morphology": [
+            3.3938860598543164,
+            4.548148018371634
+          ],
+          "joint_peak_codes": [
+            2.791513472235022,
+            2.8509455875670904
+          ],
+          "joint_baseline": [
+            1.0,
+            1.0
+          ],
+          "native_wave": [
+            2.4683075462442265,
+            2.4998281677798033
+          ],
+          "native_QPSD": [
+            8.96659837260789,
+            9.30232543380921
+          ],
+          "native_noise": [
+            1.0,
+            1.0
+          ]
+        }
+      }
+    },
+    "1": {
+      "failed_gates": [
+        "library0/fast/joint_whitened",
+        "library0/fast/peak_codes",
+        "library0/fast/native_wave",
+        "library0/fast/native_QPSD",
+        "library0/slow/joint_whitened",
+        "library0/slow/peak_codes",
+        "library0/slow/native_wave",
+        "library0/slow/native_QPSD",
+        "library0/common_level/joint_whitened",
+        "library0/common_level/peak_codes",
+        "library0/common_level/native_wave",
+        "library0/common_level/native_QPSD",
+        "library1/fast/joint_whitened",
+        "library1/fast/peak_codes",
+        "library1/fast/native_wave",
+        "library1/fast/native_QPSD",
+        "library1/slow/joint_whitened",
+        "library1/slow/peak_codes",
+        "library1/slow/native_wave",
+        "library1/slow/native_QPSD",
+        "library1/common_level/joint_whitened",
+        "library1/common_level/peak_codes",
+        "library1/common_level/native_wave",
+        "library1/common_level/native_QPSD"
+      ],
+      "ratios_by_model_vs_M0": {
+        "joint": {
+          "joint_joint_whitened": [
+            0.895099601698673,
+            0.9083404243184924
+          ],
+          "joint_wave": [
+            0.9763773496305166,
+            0.9857186663461074
+          ],
+          "joint_charge_morphology": [
+            0.9746074860645999,
+            0.9879130787996517
+          ],
+          "joint_peak_codes": [
+            0.9225569415260191,
+            0.9276031643718471
+          ],
+          "joint_baseline": [
+            1.0,
+            1.0
+          ],
+          "native_wave": [
+            0.9885930467030272,
+            0.9950057809723702
+          ],
+          "native_QPSD": [
+            0.9968169275027201,
+            1.0047506779460844
+          ],
+          "native_noise": [
+            1.0,
+            1.0
+          ]
+        },
+        "physical_initial": {
+          "joint_joint_whitened": [
+            5.130637253025227,
+            5.203948285640957
+          ],
+          "joint_wave": [
+            3.129072375673088,
+            3.521283815177183
+          ],
+          "joint_charge_morphology": [
+            3.3942727849865393,
+            4.546145765227671
+          ],
+          "joint_peak_codes": [
+            3.013394337188463,
+            3.062366417104923
+          ],
+          "joint_baseline": [
+            1.0,
+            1.0
+          ],
+          "native_wave": [
+            2.4933561571075775,
+            2.5264571498133743
+          ],
+          "native_QPSD": [
+            8.902613746472031,
+            9.410472101141863
+          ],
+          "native_noise": [
+            1.0,
+            1.0
+          ]
+        },
+        "physical": {
+          "joint_joint_whitened": [
+            4.836100403544189,
+            4.899732518672843
+          ],
+          "joint_wave": [
+            3.092938411639581,
+            3.508291104988707
+          ],
+          "joint_charge_morphology": [
+            3.395262601548133,
+            4.5467190556191035
+          ],
+          "joint_peak_codes": [
+            2.8419377390537606,
+            2.890660687776868
+          ],
+          "joint_baseline": [
+            1.0,
+            1.0
+          ],
+          "native_wave": [
+            2.467262209703848,
+            2.4993812407739404
+          ],
+          "native_QPSD": [
+            8.85462968977547,
+            9.356414226083093
+          ],
+          "native_noise": [
+            1.0,
+            1.0
+          ]
+        }
+      }
+    }
+  },
+  "kernel_evidence_recomputed": {
+    "0": {
+      "libraries": {
+        "0": {
+          "M0": {
+            "Q_variance_mean": 3.3980774713352794e-31,
+            "Q_CV_median": 6.511869638283969e-17,
+            "Q_CV_range": [
+              1.4600868326132174e-17,
+              3.5668647641537175e-16
+            ]
+          },
+          "joint": {
+            "Q_variance_mean": 3.4857704724885154e-06,
+            "Q_CV_median": 0.00030867050518330007,
+            "Q_CV_range": [
+              0.0002690612474864047,
+              0.0004619083354836727
+            ],
+            "actual_MC_mean_relative_change": 0.009413027392432681,
+            "covariance_relative_change": 0.01858512382855314,
+            "covariance_trace_ratio": 1.0096678178081548,
+            "Q_variance_ratio": 1.0258066515236855e+25,
+            "wave_variance_ratio": 1.0148359405030456,
+            "covariance_min_eigenvalue": -1.8543378445989312e-19,
+            "Q_variance_zero_parent_count": 0
+          },
+          "physical_initial": {
+            "Q_variance_mean": 0.10944487302665566,
+            "Q_CV_median": 0.03686249559835917,
+            "Q_CV_range": [
+              0.03456732237956176,
+              0.0406832971045986
+            ]
+          },
+          "physical": {
+            "Q_variance_mean": 0.1094937537782118,
+            "Q_CV_median": 0.03768810994679843,
+            "Q_CV_range": [
+              0.03534810452565791,
+              0.041798263880710375
+            ],
+            "actual_MC_mean_relative_change": 0.03520424055481134,
+            "covariance_relative_change": 0.052619306412252105,
+            "covariance_trace_ratio": 1.017085722389047,
+            "Q_variance_ratio": 1.0004466244073784,
+            "wave_variance_ratio": 1.036126404247218,
+            "covariance_min_eigenvalue": -4.9184204507834087e-20,
+            "Q_variance_zero_parent_count": 0
+          }
+        },
+        "1": {
+          "M0": {
+            "Q_variance_mean": 3.8325911761832665e-31,
+            "Q_CV_median": 6.406798123742175e-17,
+            "Q_CV_range": [
+              1.632426705387755e-17,
+              3.7623790338143394e-16
+            ]
+          },
+          "joint": {
+            "Q_variance_mean": 3.433197751408725e-06,
+            "Q_CV_median": 0.00031236392393920744,
+            "Q_CV_range": [
+              0.0002700171083563857,
+              0.0004392980498472009
+            ],
+            "actual_MC_mean_relative_change": 0.009402732095305238,
+            "covariance_relative_change": 0.01876271898447939,
+            "covariance_trace_ratio": 1.0097453330062351,
+            "Q_variance_ratio": 8.957902352704673e+24,
+            "wave_variance_ratio": 1.014889949327518,
+            "covariance_min_eigenvalue": -2.7384795397963666e-19,
+            "Q_variance_zero_parent_count": 0
+          },
+          "physical_initial": {
+            "Q_variance_mean": 0.10924061495466048,
+            "Q_CV_median": 0.03699043881222838,
+            "Q_CV_range": [
+              0.034194755840250224,
+              0.04118044072925823
+            ]
+          },
+          "physical": {
+            "Q_variance_mean": 0.10938603900354724,
+            "Q_CV_median": 0.037841770390138335,
+            "Q_CV_range": [
+              0.03487437862177034,
+              0.04229551718119051
+            ],
+            "actual_MC_mean_relative_change": 0.03522801468912674,
+            "covariance_relative_change": 0.0531097196832105,
+            "covariance_trace_ratio": 1.0170328389616856,
+            "Q_variance_ratio": 1.0013312269337473,
+            "wave_variance_ratio": 1.036081850084586,
+            "covariance_min_eigenvalue": -2.3392204522934646e-19,
+            "Q_variance_zero_parent_count": 0
+          }
+        }
+      },
+      "precision": {
+        "M0": 0.10899904852698175,
+        "joint": 0.10922905994318644,
+        "physical_initial": 0.07595729584916948,
+        "physical": 0.0766948715115075
+      }
+    },
+    "1": {
+      "libraries": {
+        "0": {
+          "M0": {
+            "Q_variance_mean": 3.7676701109977963e-31,
+            "Q_CV_median": 6.490604092962475e-17,
+            "Q_CV_range": [
+              1.6620296913216565e-17,
+              3.469021805863777e-16
+            ]
+          },
+          "joint": {
+            "Q_variance_mean": 9.647455624584137e-06,
+            "Q_CV_median": 0.0005751474392841561,
+            "Q_CV_range": [
+              0.0004726087437589462,
+              0.0006858623681599463
+            ],
+            "actual_MC_mean_relative_change": 0.00846042314015669,
+            "covariance_relative_change": 0.0347885839528474,
+            "covariance_trace_ratio": 1.0124185367003873,
+            "Q_variance_ratio": 2.560589260833452e+25,
+            "wave_variance_ratio": 1.0275826130769226,
+            "covariance_min_eigenvalue": -3.864089735842739e-19,
+            "Q_variance_zero_parent_count": 0
+          },
+          "physical_initial": {
+            "Q_variance_mean": 0.10979845469687863,
+            "Q_CV_median": 0.036897623942285795,
+            "Q_CV_range": [
+              0.03462219438671846,
+              0.04096038709317321
+            ]
+          },
+          "physical": {
+            "Q_variance_mean": 0.10978083018420665,
+            "Q_CV_median": 0.03776356848629263,
+            "Q_CV_range": [
+              0.03549665187823804,
+              0.04208557602850691
+            ],
+            "actual_MC_mean_relative_change": 0.03020066486941352,
+            "covariance_relative_change": 0.04447995207254435,
+            "covariance_trace_ratio": 1.0193138282056387,
+            "Q_variance_ratio": 0.9998394830535581,
+            "wave_variance_ratio": 1.0348761039545737,
+            "covariance_min_eigenvalue": -9.424318289256512e-20,
+            "Q_variance_zero_parent_count": 0
+          }
+        },
+        "1": {
+          "M0": {
+            "Q_variance_mean": 3.8704296751761826e-31,
+            "Q_CV_median": 6.713433637580995e-17,
+            "Q_CV_range": [
+              1.486564548167286e-17,
+              4.0247040828442315e-16
+            ]
+          },
+          "joint": {
+            "Q_variance_mean": 9.528236805529795e-06,
+            "Q_CV_median": 0.0005713450779930525,
+            "Q_CV_range": [
+              0.00048350341167385265,
+              0.000691619402881976
+            ],
+            "actual_MC_mean_relative_change": 0.008472700953982781,
+            "covariance_relative_change": 0.03436658589581358,
+            "covariance_trace_ratio": 1.0123063532576184,
+            "Q_variance_ratio": 2.4618033668564376e+25,
+            "wave_variance_ratio": 1.027396464789247,
+            "covariance_min_eigenvalue": -5.566505012968377e-19,
+            "Q_variance_zero_parent_count": 0
+          },
+          "physical_initial": {
+            "Q_variance_mean": 0.10754501592779792,
+            "Q_CV_median": 0.03678355816087153,
+            "Q_CV_range": [
+              0.034200219043093484,
+              0.04069461824431084
+            ]
+          },
+          "physical": {
+            "Q_variance_mean": 0.10757747856780639,
+            "Q_CV_median": 0.03767975655918455,
+            "Q_CV_range": [
+              0.034974768024691245,
+              0.04172697343382729
+            ],
+            "actual_MC_mean_relative_change": 0.030111325988657265,
+            "covariance_relative_change": 0.044083539016352286,
+            "covariance_trace_ratio": 1.0189553713526338,
+            "Q_variance_ratio": 1.0003018516453637,
+            "wave_variance_ratio": 1.033954618103433,
+            "covariance_min_eigenvalue": -2.3408769425432844e-18,
+            "Q_variance_zero_parent_count": 0
+          }
+        }
+      },
+      "precision": {
+        "M0": 0.052168276680673406,
+        "joint": 0.052008950854306436,
+        "physical_initial": 0.05771319320589377,
+        "physical": 0.058136100879264505
+      }
+    }
+  },
+  "acceptance_checks": [
+    {
+      "track": "seed0_joint",
+      "iteration": 0,
+      "trial": 0,
+      "label": "FIT0",
+      "original_joint_accept": true,
+      "native_pass": false,
+      "trust_pass": true,
+      "macro_pass": true,
+      "initial_anchor_ratios": [
+        [
+          1.0143453381815712,
+          0.983133066014584,
+          1.0
+        ],
+        [
+          1.0198919937000843,
+          0.9846576567997046,
+          1.0
+        ],
+        [
+          1.0220756114187102,
+          0.9848313864919197,
+          1.0
+        ]
+      ],
+      "joint_ratio": 0.8579521808945492,
+      "native_ratios": [
+        [
+          1.0143453381815712,
+          0.983133066014584,
+          1.0
+        ],
+        [
+          1.0198919937000843,
+          0.9846576567997046,
+          1.0
+        ],
+        [
+          1.0220756114187102,
+          0.9848313864919197,
+          1.0
+        ]
+      ],
+      "accepted": false
+    },
+    {
+      "track": "seed0_joint",
+      "iteration": 0,
+      "trial": 0,
+      "label": "FIT1",
+      "original_joint_accept": true,
+      "native_pass": false,
+      "trust_pass": true,
+      "macro_pass": true,
+      "initial_anchor_ratios": [
+        [
+          1.0156153502941034,
+          0.9816344206682112,
+          1.0
+        ],
+        [
+          1.0218539378213174,
+          0.9819893607677702,
+          1.0
+        ],
+        [
+          1.0232815212073059,
+          0.9794523686254717,
+          1.0
+        ]
+      ],
+      "joint_ratio": 0.9196659192956083,
+      "native_ratios": [
+        [
+          1.0156153502941034,
+          0.9816344206682112,
+          1.0
+        ],
+        [
+          1.0218539378213174,
+          0.9819893607677702,
+          1.0
+        ],
+        [
+          1.0232815212073059,
+          0.9794523686254717,
+          1.0
+        ]
+      ],
+      "accepted": false
+    },
+    {
+      "track": "seed0_joint",
+      "iteration": 0,
+      "trial": 0,
+      "label": "FIT2",
+      "original_joint_accept": true,
+      "native_pass": false,
+      "trust_pass": true,
+      "macro_pass": true,
+      "initial_anchor_ratios": [
+        [
+          1.0144140888493756,
+          1.0007710471897204,
+          1.0
+        ],
+        [
+          1.0182607963256556,
+          0.9982952904271613,
+          1.0
+        ],
+        [
+          1.0203827763058542,
+          0.9987062969486877,
+          1.0
+        ]
+      ],
+      "joint_ratio": 0.8664550993120346,
+      "native_ratios": [
+        [
+          1.0144140888493756,
+          1.0007710471897204,
+          1.0
+        ],
+        [
+          1.0182607963256556,
+          0.9982952904271613,
+          1.0
+        ],
+        [
+          1.0203827763058542,
+          0.9987062969486877,
+          1.0
+        ]
+      ],
+      "accepted": false
+    },
+    {
+      "track": "seed0_joint",
+      "iteration": 0,
+      "trial": 0,
+      "label": "CHECK",
+      "original_joint_accept": true,
+      "native_pass": false,
+      "trust_pass": true,
+      "macro_pass": true,
+      "initial_anchor_ratios": [
+        [
+          1.0094218953213334,
+          0.9913400009905232,
+          1.0
+        ],
+        [
+          1.0151659795875552,
+          0.9895970995475031,
+          1.0
+        ],
+        [
+          1.0167017814596786,
+          0.9909082210397494,
+          1.0
+        ]
+      ],
+      "joint_ratio": 0.9225283741395519,
+      "native_ratios": [
+        [
+          1.0094218953213334,
+          0.9913400009905232,
+          1.0
+        ],
+        [
+          1.0151659795875552,
+          0.9895970995475031,
+          1.0
+        ],
+        [
+          1.0167017814596786,
+          0.9909082210397494,
+          1.0
+        ]
+      ],
+      "accepted": false
+    },
+    {
+      "track": "seed0_joint",
+      "iteration": 0,
+      "trial": 1,
+      "label": "FIT0",
+      "original_joint_accept": true,
+      "native_pass": true,
+      "trust_pass": true,
+      "macro_pass": true,
+      "initial_anchor_ratios": [
+        [
+          0.9951696238641723,
+          0.9971877342325368,
+          1.0
+        ],
+        [
+          0.9966997575601675,
+          0.9997794758386952,
+          1.0
+        ],
+        [
+          0.9974428978673117,
+          0.9988876138243864,
+          1.0
+        ]
+      ],
+      "joint_ratio": 0.9563905184519191,
+      "native_ratios": [
+        [
+          0.9951696238641723,
+          0.9971877342325368,
+          1.0
+        ],
+        [
+          0.9966997575601675,
+          0.9997794758386952,
+          1.0
+        ],
+        [
+          0.9974428978673117,
+          0.9988876138243864,
+          1.0
+        ]
+      ],
+      "accepted": true
+    },
+    {
+      "track": "seed0_joint",
+      "iteration": 0,
+      "trial": 1,
+      "label": "FIT1",
+      "original_joint_accept": true,
+      "native_pass": true,
+      "trust_pass": true,
+      "macro_pass": true,
+      "initial_anchor_ratios": [
+        [
+          0.9973106457761786,
+          0.9997371446986822,
+          1.0
+        ],
+        [
+          0.9992834620023904,
+          0.9973576101778218,
+          1.0
+        ],
+        [
+          0.9991691168297814,
+          0.9984074559498236,
+          1.0
+        ]
+      ],
+      "joint_ratio": 0.970432784343192,
+      "native_ratios": [
+        [
+          0.9973106457761786,
+          0.9997371446986822,
+          1.0
+        ],
+        [
+          0.9992834620023904,
+          0.9973576101778218,
+          1.0
+        ],
+        [
+          0.9991691168297814,
+          0.9984074559498236,
+          1.0
+        ]
+      ],
+      "accepted": true
+    },
+    {
+      "track": "seed0_joint",
+      "iteration": 0,
+      "trial": 1,
+      "label": "FIT2",
+      "original_joint_accept": true,
+      "native_pass": true,
+      "trust_pass": true,
+      "macro_pass": true,
+      "initial_anchor_ratios": [
+        [
+          0.9994208331214635,
+          0.9966851687389927,
+          1.0
+        ],
+        [
+          1.0003194208162547,
+          0.9969385777237434,
+          1.0
+        ],
+        [
+          1.000914284170014,
+          0.9954367999219399,
+          1.0
+        ]
+      ],
+      "joint_ratio": 0.9716019202234442,
+      "native_ratios": [
+        [
+          0.9994208331214635,
+          0.9966851687389927,
+          1.0
+        ],
+        [
+          1.0003194208162547,
+          0.9969385777237434,
+          1.0
+        ],
+        [
+          1.000914284170014,
+          0.9954367999219399,
+          1.0
+        ]
+      ],
+      "accepted": true
+    },
+    {
+      "track": "seed0_joint",
+      "iteration": 0,
+      "trial": 1,
+      "label": "CHECK",
+      "original_joint_accept": true,
+      "native_pass": true,
+      "trust_pass": true,
+      "macro_pass": true,
+      "initial_anchor_ratios": [
+        [
+          0.9937187132919969,
+          1.0011120146948944,
+          1.0
+        ],
+        [
+          0.9960063960216748,
+          1.0001638157873924,
+          1.0
+        ],
+        [
+          0.9961912001438094,
+          0.9988470500349208,
+          1.0
+        ]
+      ],
+      "joint_ratio": 0.9695804856467047,
+      "native_ratios": [
+        [
+          0.9937187132919969,
+          1.0011120146948944,
+          1.0
+        ],
+        [
+          0.9960063960216748,
+          1.0001638157873924,
+          1.0
+        ],
+        [
+          0.9961912001438094,
+          0.9988470500349208,
+          1.0
+        ]
+      ],
+      "accepted": true
+    },
+    {
+      "track": "seed0_joint",
+      "iteration": 1,
+      "trial": 0,
+      "label": "FIT0",
+      "original_joint_accept": true,
+      "native_pass": false,
+      "trust_pass": true,
+      "macro_pass": true,
+      "initial_anchor_ratios": [
+        [
+          1.010737698147227,
+          0.9702109082529806,
+          1.0
+        ],
+        [
+          1.0141395831670863,
+          0.964387117981618,
+          1.0
+        ],
+        [
+          1.0151303962040732,
+          0.9728504155380602,
+          1.0
+        ]
+      ],
+      "joint_ratio": 0.8874785655042535,
+      "native_ratios": [
+        [
+          1.0114181414612982,
+          0.9816024382949604,
+          1.0
+        ],
+        [
+          1.013025344008825,
+          0.9779230044154147,
+          1.0
+        ],
+        [
+          1.013425618766429,
+          0.9827485882226917,
+          1.0
+        ]
+      ],
+      "accepted": false
+    },
+    {
+      "track": "seed0_joint",
+      "iteration": 1,
+      "trial": 0,
+      "label": "FIT1",
+      "original_joint_accept": true,
+      "native_pass": true,
+      "trust_pass": true,
+      "macro_pass": true,
+      "initial_anchor_ratios": [
+        [
+          1.002869262550419,
+          0.954724160651622,
+          1.0
+        ],
+        [
+          1.0083902570730288,
+          0.9503271461121675,
+          1.0
+        ],
+        [
+          1.008942096306402,
+          0.9546246335847617,
+          1.0
+        ]
+      ],
+      "joint_ratio": 0.9318589060186665,
+      "native_ratios": [
+        [
+          1.0044741192400946,
+          0.970162644264504,
+          1.0
+        ],
+        [
+          1.007842497477402,
+          0.9661472393776095,
+          1.0
+        ],
+        [
+          1.0085359791138602,
+          0.9708841260287613,
+          1.0
+        ]
+      ],
+      "accepted": true
+    },
+    {
+      "track": "seed0_joint",
+      "iteration": 1,
+      "trial": 0,
+      "label": "FIT2",
+      "original_joint_accept": true,
+      "native_pass": false,
+      "trust_pass": true,
+      "macro_pass": true,
+      "initial_anchor_ratios": [
+        [
+          1.0091909456183525,
+          0.9738827749991483,
+          1.0
+        ],
+        [
+          1.0134081674019455,
+          0.9712625534003614,
+          1.0
+        ],
+        [
+          1.013898632020311,
+          0.9753444706663699,
+          1.0
+        ]
+      ],
+      "joint_ratio": 0.8772079390344834,
+      "native_ratios": [
+        [
+          1.010118268172451,
+          0.9851001917875587,
+          1.0
+        ],
+        [
+          1.0131039225327076,
+          0.9835331123376173,
+          1.0
+        ],
+        [
+          1.0128347238419286,
+          0.988462927507941,
+          1.0
+        ]
+      ],
+      "accepted": false
+    },
+    {
+      "track": "seed0_joint",
+      "iteration": 1,
+      "trial": 0,
+      "label": "CHECK",
+      "original_joint_accept": true,
+      "native_pass": true,
+      "trust_pass": true,
+      "macro_pass": true,
+      "initial_anchor_ratios": [
+        [
+          0.9993359709082268,
+          0.9431984128826368,
+          1.0
+        ],
+        [
+          1.003582815219062,
+          0.9394520456278421,
+          1.0
+        ],
+        [
+          1.0042333634206018,
+          0.9436371972187015,
+          1.0
+        ]
+      ],
+      "joint_ratio": 0.9361333632131534,
+      "native_ratios": [
+        [
+          1.0047448705876463,
+          0.9603795158096674,
+          1.0
+        ],
+        [
+          1.0072192572834726,
+          0.9605863273832717,
+          1.0
+        ],
+        [
+          1.0075925147401426,
+          0.9624982177422915,
+          1.0
+        ]
+      ],
+      "accepted": true
+    },
+    {
+      "track": "seed0_joint",
+      "iteration": 1,
+      "trial": 1,
+      "label": "FIT0",
+      "original_joint_accept": true,
+      "native_pass": true,
+      "trust_pass": true,
+      "macro_pass": true,
+      "initial_anchor_ratios": [
+        [
+          0.9983944937371297,
+          0.9855723156276242,
+          1.0
+        ],
+        [
+          1.0005123742169413,
+          0.9825731928736416,
+          1.0
+        ],
+        [
+          1.0015390328103395,
+          0.9871452394846334,
+          1.0
+        ]
+      ],
+      "joint_ratio": 0.9649276792633088,
+      "native_ratios": [
+        [
+          0.9990666274265273,
+          0.9971442084465082,
+          1.0
+        ],
+        [
+          0.9994131073268785,
+          0.9963643343184448,
+          1.0
+        ],
+        [
+          0.9998570802725771,
+          0.9971888534762323,
+          1.0
+        ]
+      ],
+      "accepted": true
+    },
+    {
+      "track": "seed0_joint",
+      "iteration": 1,
+      "trial": 1,
+      "label": "FIT1",
+      "original_joint_accept": true,
+      "native_pass": true,
+      "trust_pass": true,
+      "macro_pass": true,
+      "initial_anchor_ratios": [
+        [
+          0.9972070172421679,
+          0.9721080050037157,
+          1.0
+        ],
+        [
+          0.9996223234391531,
+          0.9703144719892287,
+          1.0
+        ],
+        [
+          0.9996192746332375,
+          0.9726415350228292,
+          1.0
+        ]
+      ],
+      "joint_ratio": 0.9768346738956472,
+      "native_ratios": [
+        [
+          0.9988028128382384,
+          0.9878275961942835,
+          1.0
+        ],
+        [
+          0.9990793266025357,
+          0.9864672942110048,
+          1.0
+        ],
+        [
+          0.9992169100427314,
+          0.9892078974788634,
+          1.0
+        ]
+      ],
+      "accepted": true
+    },
+    {
+      "track": "seed0_joint",
+      "iteration": 1,
+      "trial": 1,
+      "label": "FIT2",
+      "original_joint_accept": true,
+      "native_pass": true,
+      "trust_pass": true,
+      "macro_pass": true,
+      "initial_anchor_ratios": [
+        [
+          0.9969187111917549,
+          0.9847249103685959,
+          1.0
+        ],
+        [
+          0.9982593310407891,
+          0.9834839243982,
+          1.0
+        ],
+        [
+          0.9985317137139871,
+          0.9837864805055567,
+          1.0
+        ]
+      ],
+      "joint_ratio": 0.9584275441626531,
+      "native_ratios": [
+        [
+          0.9978347570694006,
+          0.9960672094882659,
+          1.0
+        ],
+        [
+          0.9979596341472692,
+          0.9959088834537329,
+          1.0
+        ],
+        [
+          0.9974839304119447,
+          0.997018483017465,
+          1.0
+        ]
+      ],
+      "accepted": true
+    },
+    {
+      "track": "seed0_joint",
+      "iteration": 1,
+      "trial": 1,
+      "label": "CHECK",
+      "original_joint_accept": true,
+      "native_pass": true,
+      "trust_pass": true,
+      "macro_pass": true,
+      "initial_anchor_ratios": [
+        [
+          0.991302158465157,
+          0.966452448769341,
+          1.0
+        ],
+        [
+          0.9931928696725586,
+          0.9656239727875167,
+          1.0
+        ],
+        [
+          0.9935116479746857,
+          0.9673302206044128,
+          1.0
+        ]
+      ],
+      "joint_ratio": 0.9791226349374426,
+      "native_ratios": [
+        [
+          0.9966675751850785,
+          0.9840571422989228,
+          1.0
+        ],
+        [
+          0.996791664186155,
+          0.9873470284832971,
+          1.0
+        ],
+        [
+          0.9968349352551498,
+          0.9866648072418237,
+          1.0
+        ]
+      ],
+      "accepted": true
+    },
+    {
+      "track": "seed0_joint",
+      "iteration": 2,
+      "trial": 0,
+      "label": "FIT0",
+      "original_joint_accept": true,
+      "native_pass": false,
+      "trust_pass": true,
+      "macro_pass": true,
+      "initial_anchor_ratios": [
+        [
+          1.0279572146635059,
+          1.0026088026549258,
+          1.0
+        ],
+        [
+          1.0368210749697608,
+          0.9932448288515859,
+          1.0
+        ],
+        [
+          1.0385854853927137,
+          1.0024115312581021,
+          1.0
+        ]
+      ],
+      "joint_ratio": 0.8721856916883418,
+      "native_ratios": [
+        [
+          1.0366012200155554,
+          0.9920686432709115,
+          1.0
+        ],
+        [
+          1.0435189929869957,
+          0.9875290290830023,
+          1.0
+        ],
+        [
+          1.045959302810072,
+          0.994606642232811,
+          1.0
+        ]
+      ],
+      "accepted": false
+    },
+    {
+      "track": "seed0_joint",
+      "iteration": 2,
+      "trial": 0,
+      "label": "FIT1",
+      "original_joint_accept": true,
+      "native_pass": false,
+      "trust_pass": true,
+      "macro_pass": true,
+      "initial_anchor_ratios": [
+        [
+          1.0387100799143194,
+          0.9853767410587717,
+          1.0
+        ],
+        [
+          1.0488290463717047,
+          0.983411914518939,
+          1.0
+        ],
+        [
+          1.0532522533496593,
+          0.9899508122223304,
+          1.0
+        ]
+      ],
+      "joint_ratio": 0.9186131129630455,
+      "native_ratios": [
+        [
+          1.0474807683990532,
+          0.9893948653706853,
+          1.0
+        ],
+        [
+          1.055125002244195,
+          0.9897319809471075,
+          1.0
+        ],
+        [
+          1.0592071942889294,
+          0.9938999787384937,
+          1.0
+        ]
+      ],
+      "accepted": false
+    },
+    {
+      "track": "seed0_joint",
+      "iteration": 2,
+      "trial": 0,
+      "label": "FIT2",
+      "original_joint_accept": true,
+      "native_pass": false,
+      "trust_pass": true,
+      "macro_pass": true,
+      "initial_anchor_ratios": [
+        [
+          1.0635422770596679,
+          0.9885996032464959,
+          1.0
+        ],
+        [
+          1.0700526895462303,
+          0.9774837480836831,
+          1.0
+        ],
+        [
+          1.0721735406553525,
+          0.9910055309390695,
+          1.0
+        ]
+      ],
+      "joint_ratio": 0.8566061783791588,
+      "native_ratios": [
+        [
+          1.0673026639450833,
+          1.0019872266172762,
+          1.0
+        ],
+        [
+          1.0715882455614394,
+          0.9932338012225542,
+          1.0
+        ],
+        [
+          1.0741077367966176,
+          1.004636759514904,
+          1.0
+        ]
+      ],
+      "accepted": false
+    },
+    {
+      "track": "seed0_joint",
+      "iteration": 2,
+      "trial": 0,
+      "label": "CHECK",
+      "original_joint_accept": true,
+      "native_pass": false,
+      "trust_pass": true,
+      "macro_pass": true,
+      "initial_anchor_ratios": [
+        [
+          1.0300086321791553,
+          0.9758434325323135,
+          1.0
+        ],
+        [
+          1.0382733873546923,
+          0.9642695990671719,
+          1.0
+        ],
+        [
+          1.0421001878800367,
+          0.9783637392055389,
+          1.0
+        ]
+      ],
+      "joint_ratio": 0.9379885478686941,
+      "native_ratios": [
+        [
+          1.0455168921429079,
+          0.9880661912765445,
+          1.0
+        ],
+        [
+          1.0509029668227106,
+          0.9790351184718076,
+          1.0
+        ],
+        [
+          1.0545428221442474,
+          0.9907210731332738,
+          1.0
+        ]
+      ],
+      "accepted": false
+    },
+    {
+      "track": "seed0_joint",
+      "iteration": 2,
+      "trial": 1,
+      "label": "FIT0",
+      "original_joint_accept": true,
+      "native_pass": false,
+      "trust_pass": true,
+      "macro_pass": true,
+      "initial_anchor_ratios": [
+        [
+          0.9956719808156091,
+          1.0104495481132434,
+          1.0
+        ],
+        [
+          0.9997707016050001,
+          1.001476978773568,
+          1.0
+        ],
+        [
+          1.0000991663948775,
+          1.0083231994757993,
+          1.0
+        ]
+      ],
+      "joint_ratio": 0.9799675425253307,
+      "native_ratios": [
+        [
+          1.0040445023644493,
+          0.9998269610599315,
+          1.0
+        ],
+        [
+          1.0062292722851718,
+          0.9957138056693753,
+          1.0
+        ],
+        [
+          1.0071997361178018,
+          1.00047228153628,
+          1.0
+        ]
+      ],
+      "accepted": false
+    },
+    {
+      "track": "seed0_joint",
+      "iteration": 2,
+      "trial": 1,
+      "label": "FIT1",
+      "original_joint_accept": false,
+      "native_pass": false,
+      "trust_pass": true,
+      "macro_pass": true,
+      "initial_anchor_ratios": [
+        [
+          0.9993307411676076,
+          0.989652855397597,
+          1.0
+        ],
+        [
+          1.0047836871309446,
+          0.9892153702405484,
+          1.0
+        ],
+        [
+          1.006142802602053,
+          0.9917275801607602,
+          1.0
+        ]
+      ],
+      "joint_ratio": 0.9901066543840047,
+      "native_ratios": [
+        [
+          1.0077689173184756,
+          0.9936884166534421,
+          1.0
+        ],
+        [
+          1.010815245636555,
+          0.9955727335787218,
+          1.0
+        ],
+        [
+          1.0118313932952245,
+          0.995683834657824,
+          1.0
+        ]
+      ],
+      "accepted": false
+    },
+    {
+      "track": "seed0_joint",
+      "iteration": 2,
+      "trial": 1,
+      "label": "FIT2",
+      "original_joint_accept": true,
+      "native_pass": false,
+      "trust_pass": true,
+      "macro_pass": true,
+      "initial_anchor_ratios": [
+        [
+          1.0113069061933204,
+          0.989716425780763,
+          1.0
+        ],
+        [
+          1.0145382283088422,
+          0.9761634294440635,
+          1.0
+        ],
+        [
+          1.015543232709146,
+          0.989265609423267,
+          1.0
+        ]
+      ],
+      "joint_ratio": 0.9825672057883342,
+      "native_ratios": [
+        [
+          1.0148826034732565,
+          1.0031191731708244,
+          1.0
+        ],
+        [
+          1.0159941194947237,
+          0.9918922084811658,
+          1.0
+        ],
+        [
+          1.017375268035063,
+          1.0028729054708305,
+          1.0
+        ]
+      ],
+      "accepted": false
+    },
+    {
+      "track": "seed0_joint",
+      "iteration": 2,
+      "trial": 1,
+      "label": "CHECK",
+      "original_joint_accept": false,
+      "native_pass": true,
+      "trust_pass": true,
+      "macro_pass": true,
+      "initial_anchor_ratios": [
+        [
+          0.991449893023411,
+          0.9825446871161126,
+          1.0
+        ],
+        [
+          0.9958038829917152,
+          0.9809973776148384,
+          1.0
+        ],
+        [
+          0.9974316537246669,
+          0.9827260281920382,
+          1.0
+        ]
+      ],
+      "joint_ratio": 0.9996825418351085,
+      "native_ratios": [
+        [
+          1.0063775957646124,
+          0.9948513812697862,
+          1.0
+        ],
+        [
+          1.0079168625094195,
+          0.9960190435774294,
+          1.0
+        ],
+        [
+          1.0093409474904516,
+          0.9951384605044896,
+          1.0
+        ]
+      ],
+      "accepted": false
+    },
+    {
+      "track": "seed0_joint",
+      "iteration": 2,
+      "trial": 2,
+      "label": "FIT0",
+      "original_joint_accept": false,
+      "native_pass": true,
+      "trust_pass": true,
+      "macro_pass": true,
+      "initial_anchor_ratios": [
+        [
+          0.9926819365068337,
+          1.009514374175326,
+          1.0
+        ],
+        [
+          0.9960637467746901,
+          1.0072696271720623,
+          1.0
+        ],
+        [
+          0.9958907181937594,
+          1.0071813377955146,
+          1.0
+        ]
+      ],
+      "joint_ratio": 0.9920796728815158,
+      "native_ratios": [
+        [
+          1.0010293150257508,
+          0.9989016183566207,
+          1.0
+        ],
+        [
+          1.0024983703340455,
+          1.0014731192672104,
+          1.0
+        ],
+        [
+          1.0029614084998404,
+          0.999339310519579,
+          1.0
+        ]
+      ],
+      "accepted": false
+    },
+    {
+      "track": "seed0_joint",
+      "iteration": 2,
+      "trial": 2,
+      "label": "FIT1",
+      "original_joint_accept": false,
+      "native_pass": true,
+      "trust_pass": true,
+      "macro_pass": true,
+      "initial_anchor_ratios": [
+        [
+          0.9937573843381874,
+          0.9934924184933199,
+          1.0
+        ],
+        [
+          0.9977224032800652,
+          0.9924833752740726,
+          1.0
+        ],
+        [
+          0.998869276443502,
+          0.9944555323600024,
+          1.0
+        ]
+      ],
+      "joint_ratio": 0.9934600404855385,
+      "native_ratios": [
+        [
+          1.0021485000267472,
+          0.9975436365443575,
+          1.0
+        ],
+        [
+          1.0037115740088667,
+          0.9988617410107268,
+          1.0
+        ],
+        [
+          1.0045167436370022,
+          0.9984226693548124,
+          1.0
+        ]
+      ],
+      "accepted": false
+    },
+    {
+      "track": "seed0_joint",
+      "iteration": 2,
+      "trial": 2,
+      "label": "FIT2",
+      "original_joint_accept": false,
+      "native_pass": true,
+      "trust_pass": true,
+      "macro_pass": true,
+      "initial_anchor_ratios": [
+        [
+          1.0030886155938918,
+          0.9886786009868015,
+          1.0
+        ],
+        [
+          1.0060440578869951,
+          0.9814236242523142,
+          1.0
+        ],
+        [
+          1.0063778371841647,
+          0.9879931708164893,
+          1.0
+        ]
+      ],
+      "joint_ratio": 0.9910206151277774,
+      "native_ratios": [
+        [
+          1.0066352553056832,
+          1.0020672941455837,
+          1.0
+        ],
+        [
+          1.007487759696958,
+          0.9972371600415498,
+          1.0
+        ],
+        [
+          1.0081933381786645,
+          1.0015829645384287,
+          1.0
+        ]
+      ],
+      "accepted": false
+    },
+    {
+      "track": "seed0_joint",
+      "iteration": 2,
+      "trial": 2,
+      "label": "CHECK",
+      "original_joint_accept": false,
+      "native_pass": true,
+      "trust_pass": true,
+      "macro_pass": true,
+      "initial_anchor_ratios": [
+        [
+          0.9876620851292887,
+          0.9855632479972984,
+          1.0
+        ],
+        [
+          0.9913727469102872,
+          0.9824574521287672,
+          1.0
+        ],
+        [
+          0.9919306301356555,
+          0.9861171260185074,
+          1.0
+        ]
+      ],
+      "joint_ratio": 0.9935352274045121,
+      "native_ratios": [
+        [
+          1.0025327569799911,
+          0.9979077506150918,
+          1.0
+        ],
+        [
+          1.003431825994873,
+          0.9975014756961075,
+          1.0
+        ],
+        [
+          1.003774241901386,
+          0.9985723899758207,
+          1.0
+        ]
+      ],
+      "accepted": false
+    },
+    {
+      "track": "seed0_physical",
+      "iteration": 0,
+      "trial": 0,
+      "label": "FIT0",
+      "original_joint_accept": true,
+      "native_pass": true,
+      "trust_pass": true,
+      "macro_pass": true,
+      "initial_anchor_ratios": [
+        [
+          0.993795140216676,
+          0.9975321815213709,
+          1.0
+        ],
+        [
+          0.9942133957710804,
+          0.9973676086705909,
+          1.0
+        ],
+        [
+          0.9940486616807903,
+          0.997564235938426,
+          1.0
+        ]
+      ],
+      "joint_ratio": 0.9850375624517718,
+      "native_ratios": [
+        [
+          0.993795140216676,
+          0.9975321815213709,
+          1.0
+        ],
+        [
+          0.9942133957710804,
+          0.9973676086705909,
+          1.0
+        ],
+        [
+          0.9940486616807903,
+          0.997564235938426,
+          1.0
+        ]
+      ],
+      "accepted": true
+    },
+    {
+      "track": "seed0_physical",
+      "iteration": 0,
+      "trial": 0,
+      "label": "FIT1",
+      "original_joint_accept": true,
+      "native_pass": true,
+      "trust_pass": true,
+      "macro_pass": true,
+      "initial_anchor_ratios": [
+        [
+          0.9953858824590472,
+          0.996957980173168,
+          1.0
+        ],
+        [
+          0.9955252744486623,
+          0.9971702691357829,
+          1.0
+        ],
+        [
+          0.9954409617929603,
+          0.9969556775368557,
+          1.0
+        ]
+      ],
+      "joint_ratio": 0.9813553183970609,
+      "native_ratios": [
+        [
+          0.9953858824590472,
+          0.996957980173168,
+          1.0
+        ],
+        [
+          0.9955252744486623,
+          0.9971702691357829,
+          1.0
+        ],
+        [
+          0.9954409617929603,
+          0.9969556775368557,
+          1.0
+        ]
+      ],
+      "accepted": true
+    },
+    {
+      "track": "seed0_physical",
+      "iteration": 0,
+      "trial": 0,
+      "label": "FIT2",
+      "original_joint_accept": true,
+      "native_pass": true,
+      "trust_pass": true,
+      "macro_pass": true,
+      "initial_anchor_ratios": [
+        [
+          0.9942238475880939,
+          0.9962515063245617,
+          1.0
+        ],
+        [
+          0.9942986135689373,
+          0.9963604366147338,
+          1.0
+        ],
+        [
+          0.9942284393970349,
+          0.9962589345004479,
+          1.0
+        ]
+      ],
+      "joint_ratio": 0.9771126741747912,
+      "native_ratios": [
+        [
+          0.9942238475880939,
+          0.9962515063245617,
+          1.0
+        ],
+        [
+          0.9942986135689373,
+          0.9963604366147338,
+          1.0
+        ],
+        [
+          0.9942284393970349,
+          0.9962589345004479,
+          1.0
+        ]
+      ],
+      "accepted": true
+    },
+    {
+      "track": "seed0_physical",
+      "iteration": 0,
+      "trial": 0,
+      "label": "CHECK",
+      "original_joint_accept": true,
+      "native_pass": true,
+      "trust_pass": true,
+      "macro_pass": true,
+      "initial_anchor_ratios": [
+        [
+          0.994138230255162,
+          0.9977340460311485,
+          1.0
+        ],
+        [
+          0.9943741186299101,
+          0.9978461551384767,
+          1.0
+        ],
+        [
+          0.9943261630031419,
+          0.9978072011431072,
+          1.0
+        ]
+      ],
+      "joint_ratio": 0.9813814412875049,
+      "native_ratios": [
+        [
+          0.994138230255162,
+          0.9977340460311485,
+          1.0
+        ],
+        [
+          0.9943741186299101,
+          0.9978461551384767,
+          1.0
+        ],
+        [
+          0.9943261630031419,
+          0.9978072011431072,
+          1.0
+        ]
+      ],
+      "accepted": true
+    },
+    {
+      "track": "seed0_physical",
+      "iteration": 1,
+      "trial": 0,
+      "label": "FIT0",
+      "original_joint_accept": true,
+      "native_pass": true,
+      "trust_pass": true,
+      "macro_pass": true,
+      "initial_anchor_ratios": [
+        [
+          0.9913279847640037,
+          0.9941986600796758,
+          1.0
+        ],
+        [
+          0.9914348265807253,
+          0.9964246114876106,
+          1.0
+        ],
+        [
+          0.9911603566375998,
+          0.994235113651859,
+          1.0
+        ]
+      ],
+      "joint_ratio": 0.9851603573498804,
+      "native_ratios": [
+        [
+          0.9958067870292788,
+          0.9969433966388087,
+          1.0
+        ],
+        [
+          0.9959544171593445,
+          0.9980506561490583,
+          1.0
+        ],
+        [
+          0.9956708252918052,
+          0.9970211703188889,
+          1.0
+        ]
+      ],
+      "accepted": true
+    },
+    {
+      "track": "seed0_physical",
+      "iteration": 1,
+      "trial": 0,
+      "label": "FIT1",
+      "original_joint_accept": true,
+      "native_pass": true,
+      "trust_pass": true,
+      "macro_pass": true,
+      "initial_anchor_ratios": [
+        [
+          0.9919089131337012,
+          0.9944472152983355,
+          1.0
+        ],
+        [
+          0.9916786722826313,
+          0.9939585243695391,
+          1.0
+        ],
+        [
+          0.9918095468845054,
+          0.9940173367968288,
+          1.0
+        ]
+      ],
+      "joint_ratio": 0.9819899506113959,
+      "native_ratios": [
+        [
+          0.9960946967757601,
+          0.9971177731048035,
+          1.0
+        ],
+        [
+          0.9959543145076114,
+          0.9967816726210899,
+          1.0
+        ],
+        [
+          0.9960202362943453,
+          0.9967285041503698,
+          1.0
+        ]
+      ],
+      "accepted": true
+    },
+    {
+      "track": "seed0_physical",
+      "iteration": 1,
+      "trial": 0,
+      "label": "FIT2",
+      "original_joint_accept": true,
+      "native_pass": true,
+      "trust_pass": true,
+      "macro_pass": true,
+      "initial_anchor_ratios": [
+        [
+          0.9909536247820117,
+          0.9936303991050626,
+          1.0
+        ],
+        [
+          0.9909573884972434,
+          0.9937152619074484,
+          1.0
+        ],
+        [
+          0.9909839720365782,
+          0.9937891643347323,
+          1.0
+        ]
+      ],
+      "joint_ratio": 0.9800369020964621,
+      "native_ratios": [
+        [
+          0.9955809782390669,
+          0.996570175666059,
+          1.0
+        ],
+        [
+          0.9956844069459774,
+          0.9968097541288573,
+          1.0
+        ],
+        [
+          0.9956261567927325,
+          0.9968352518199851,
+          1.0
+        ]
+      ],
+      "accepted": true
+    },
+    {
+      "track": "seed0_physical",
+      "iteration": 1,
+      "trial": 0,
+      "label": "CHECK",
+      "original_joint_accept": true,
+      "native_pass": true,
+      "trust_pass": true,
+      "macro_pass": true,
+      "initial_anchor_ratios": [
+        [
+          0.9894887529094742,
+          0.9954713254735954,
+          1.0
+        ],
+        [
+          0.9897536350252385,
+          0.9953105542823178,
+          1.0
+        ],
+        [
+          0.9896945372868163,
+          0.9955044630154031,
+          1.0
+        ]
+      ],
+      "joint_ratio": 0.9796478098062016,
+      "native_ratios": [
+        [
+          0.9949032055393535,
+          0.9973226790197526,
+          1.0
+        ],
+        [
+          0.9949619313727089,
+          0.9974094532503706,
+          1.0
+        ],
+        [
+          0.9949095801254023,
+          0.9974746670093438,
+          1.0
+        ]
+      ],
+      "accepted": true
+    },
+    {
+      "track": "seed0_physical",
+      "iteration": 2,
+      "trial": 0,
+      "label": "FIT0",
+      "original_joint_accept": true,
+      "native_pass": true,
+      "trust_pass": true,
+      "macro_pass": true,
+      "initial_anchor_ratios": [
+        [
+          0.9860520254043517,
+          0.9917780781372054,
+          1.0
+        ],
+        [
+          0.9861951788124299,
+          0.9913869808380403,
+          1.0
+        ],
+        [
+          0.9862590455958237,
+          0.9917098533682989,
+          1.0
+        ]
+      ],
+      "joint_ratio": 0.98232459653243,
+      "native_ratios": [
+        [
+          0.9952134980017668,
+          0.9972886146135826,
+          1.0
+        ],
+        [
+          0.9950820498841138,
+          0.9970967647601522,
+          1.0
+        ],
+        [
+          0.9951507233978731,
+          0.9970434204589865,
+          1.0
+        ]
+      ],
+      "accepted": true
+    },
+    {
+      "track": "seed0_physical",
+      "iteration": 2,
+      "trial": 0,
+      "label": "FIT1",
+      "original_joint_accept": true,
+      "native_pass": true,
+      "trust_pass": true,
+      "macro_pass": true,
+      "initial_anchor_ratios": [
+        [
+          0.9861417890492102,
+          0.9926349999873622,
+          1.0
+        ],
+        [
+          0.9861713549776091,
+          0.9924069115119477,
+          1.0
+        ],
+        [
+          0.9861052507686683,
+          0.9925239835070634,
+          1.0
+        ]
+      ],
+      "joint_ratio": 0.982257963579707,
+      "native_ratios": [
+        [
+          0.9952510139898382,
+          0.9977659308724214,
+          1.0
+        ],
+        [
+          0.9952162040700926,
+          0.997487001745409,
+          1.0
+        ],
+        [
+          0.995126520669846,
+          0.9974550948490294,
+          1.0
+        ]
+      ],
+      "accepted": true
+    },
+    {
+      "track": "seed0_physical",
+      "iteration": 2,
+      "trial": 0,
+      "label": "FIT2",
+      "original_joint_accept": true,
+      "native_pass": true,
+      "trust_pass": true,
+      "macro_pass": true,
+      "initial_anchor_ratios": [
+        [
+          0.983269533708783,
+          0.9889325813961996,
+          1.0
+        ],
+        [
+          0.9835885109226198,
+          0.9891795626663556,
+          1.0
+        ],
+        [
+          0.9837447216189388,
+          0.9892598039869928,
+          1.0
+        ]
+      ],
+      "joint_ratio": 0.9772950109795449,
+      "native_ratios": [
+        [
+          0.99423825084412,
+          0.9960520437939524,
+          1.0
+        ],
+        [
+          0.9944120967148711,
+          0.9964217260597121,
+          1.0
+        ],
+        [
+          0.9943487365107296,
+          0.9962168254761992,
+          1.0
+        ]
+      ],
+      "accepted": true
+    },
+    {
+      "track": "seed0_physical",
+      "iteration": 2,
+      "trial": 0,
+      "label": "CHECK",
+      "original_joint_accept": true,
+      "native_pass": true,
+      "trust_pass": true,
+      "macro_pass": true,
+      "initial_anchor_ratios": [
+        [
+          0.9820567317664038,
+          0.9929116016841116,
+          1.0
+        ],
+        [
+          0.9822074758496954,
+          0.9928991551393213,
+          1.0
+        ],
+        [
+          0.9821369724928004,
+          0.9926184544178912,
+          1.0
+        ]
+      ],
+      "joint_ratio": 0.9813942172563941,
+      "native_ratios": [
+        [
+          0.9937179321808486,
+          0.9974129019304211,
+          1.0
+        ],
+        [
+          0.9937319208065323,
+          0.9977542563838364,
+          1.0
+        ],
+        [
+          0.9938254208628639,
+          0.9975348353969381,
+          1.0
+        ]
+      ],
+      "accepted": true
+    },
+    {
+      "track": "seed1_joint",
+      "iteration": 0,
+      "trial": 0,
+      "label": "FIT0",
+      "original_joint_accept": true,
+      "native_pass": false,
+      "trust_pass": true,
+      "macro_pass": true,
+      "initial_anchor_ratios": [
+        [
+          1.0074053624579935,
+          0.9788174370904826,
+          1.0
+        ],
+        [
+          1.0154305368226575,
+          0.9772044599430324,
+          1.0
+        ],
+        [
+          1.0165985558262314,
+          0.9802525372629771,
+          1.0
+        ]
+      ],
+      "joint_ratio": 0.8729547456968085,
+      "native_ratios": [
+        [
+          1.0074053624579935,
+          0.9788174370904826,
+          1.0
+        ],
+        [
+          1.0154305368226575,
+          0.9772044599430324,
+          1.0
+        ],
+        [
+          1.0165985558262314,
+          0.9802525372629771,
+          1.0
+        ]
+      ],
+      "accepted": false
+    },
+    {
+      "track": "seed1_joint",
+      "iteration": 0,
+      "trial": 0,
+      "label": "FIT1",
+      "original_joint_accept": true,
+      "native_pass": false,
+      "trust_pass": true,
+      "macro_pass": true,
+      "initial_anchor_ratios": [
+        [
+          1.020248153028745,
+          0.963304074447762,
+          1.0
+        ],
+        [
+          1.0264431827418676,
+          0.9569087894975609,
+          1.0
+        ],
+        [
+          1.0273015265155956,
+          0.9618178824744797,
+          1.0
+        ]
+      ],
+      "joint_ratio": 0.9275182964678618,
+      "native_ratios": [
+        [
+          1.020248153028745,
+          0.963304074447762,
+          1.0
+        ],
+        [
+          1.0264431827418676,
+          0.9569087894975609,
+          1.0
+        ],
+        [
+          1.0273015265155956,
+          0.9618178824744797,
+          1.0
+        ]
+      ],
+      "accepted": false
+    },
+    {
+      "track": "seed1_joint",
+      "iteration": 0,
+      "trial": 0,
+      "label": "FIT2",
+      "original_joint_accept": true,
+      "native_pass": false,
+      "trust_pass": true,
+      "macro_pass": true,
+      "initial_anchor_ratios": [
+        [
+          1.0105704033394678,
+          0.9766243269152656,
+          1.0
+        ],
+        [
+          1.0159070694588879,
+          0.9733031991406881,
+          1.0
+        ],
+        [
+          1.0178585744492428,
+          0.9799554773746709,
+          1.0
+        ]
+      ],
+      "joint_ratio": 0.8612254538796451,
+      "native_ratios": [
+        [
+          1.0105704033394678,
+          0.9766243269152656,
+          1.0
+        ],
+        [
+          1.0159070694588879,
+          0.9733031991406881,
+          1.0
+        ],
+        [
+          1.0178585744492428,
+          0.9799554773746709,
+          1.0
+        ]
+      ],
+      "accepted": false
+    },
+    {
+      "track": "seed1_joint",
+      "iteration": 0,
+      "trial": 0,
+      "label": "CHECK",
+      "original_joint_accept": true,
+      "native_pass": false,
+      "trust_pass": true,
+      "macro_pass": true,
+      "initial_anchor_ratios": [
+        [
+          1.02298856778469,
+          0.9892588785375016,
+          1.0
+        ],
+        [
+          1.0272849035873448,
+          0.991381877351844,
+          1.0
+        ],
+        [
+          1.0292832651759096,
+          0.9912723672556024,
+          1.0
+        ]
+      ],
+      "joint_ratio": 0.9323335264737712,
+      "native_ratios": [
+        [
+          1.02298856778469,
+          0.9892588785375016,
+          1.0
+        ],
+        [
+          1.0272849035873448,
+          0.991381877351844,
+          1.0
+        ],
+        [
+          1.0292832651759096,
+          0.9912723672556024,
+          1.0
+        ]
+      ],
+      "accepted": false
+    },
+    {
+      "track": "seed1_joint",
+      "iteration": 0,
+      "trial": 1,
+      "label": "FIT0",
+      "original_joint_accept": true,
+      "native_pass": true,
+      "trust_pass": true,
+      "macro_pass": true,
+      "initial_anchor_ratios": [
+        [
+          0.9964684821085519,
+          0.9902241139944159,
+          1.0
+        ],
+        [
+          0.9999449114696362,
+          0.9901488602710173,
+          1.0
+        ],
+        [
+          1.0004099481570885,
+          0.9926433222276998,
+          1.0
+        ]
+      ],
+      "joint_ratio": 0.971780985726932,
+      "native_ratios": [
+        [
+          0.9964684821085519,
+          0.9902241139944159,
+          1.0
+        ],
+        [
+          0.9999449114696362,
+          0.9901488602710173,
+          1.0
+        ],
+        [
+          1.0004099481570885,
+          0.9926433222276998,
+          1.0
+        ]
+      ],
+      "accepted": true
+    },
+    {
+      "track": "seed1_joint",
+      "iteration": 0,
+      "trial": 1,
+      "label": "FIT1",
+      "original_joint_accept": true,
+      "native_pass": true,
+      "trust_pass": true,
+      "macro_pass": true,
+      "initial_anchor_ratios": [
+        [
+          0.9998709811284043,
+          0.983073470587006,
+          1.0
+        ],
+        [
+          1.002738632840566,
+          0.9801218357485748,
+          1.0
+        ],
+        [
+          1.0029030120811844,
+          0.9854419084588432,
+          1.0
+        ]
+      ],
+      "joint_ratio": 0.978746462383559,
+      "native_ratios": [
+        [
+          0.9998709811284043,
+          0.983073470587006,
+          1.0
+        ],
+        [
+          1.002738632840566,
+          0.9801218357485748,
+          1.0
+        ],
+        [
+          1.0029030120811844,
+          0.9854419084588432,
+          1.0
+        ]
+      ],
+      "accepted": true
+    },
+    {
+      "track": "seed1_joint",
+      "iteration": 0,
+      "trial": 1,
+      "label": "FIT2",
+      "original_joint_accept": true,
+      "native_pass": true,
+      "trust_pass": true,
+      "macro_pass": true,
+      "initial_anchor_ratios": [
+        [
+          0.9987627156331572,
+          0.9837986032082955,
+          1.0
+        ],
+        [
+          1.0005064251072318,
+          0.9830645848815927,
+          1.0
+        ],
+        [
+          1.0012622408038885,
+          0.9846172139361739,
+          1.0
+        ]
+      ],
+      "joint_ratio": 0.9708676646950695,
+      "native_ratios": [
+        [
+          0.9987627156331572,
+          0.9837986032082955,
+          1.0
+        ],
+        [
+          1.0005064251072318,
+          0.9830645848815927,
+          1.0
+        ],
+        [
+          1.0012622408038885,
+          0.9846172139361739,
+          1.0
+        ]
+      ],
+      "accepted": true
+    },
+    {
+      "track": "seed1_joint",
+      "iteration": 0,
+      "trial": 1,
+      "label": "CHECK",
+      "original_joint_accept": true,
+      "native_pass": true,
+      "trust_pass": true,
+      "macro_pass": true,
+      "initial_anchor_ratios": [
+        [
+          1.0021014966309667,
+          0.9861396461393004,
+          1.0
+        ],
+        [
+          1.0034564305920415,
+          0.9877374959627672,
+          1.0
+        ],
+        [
+          1.0046009865509065,
+          0.988125766557507,
+          1.0
+        ]
+      ],
+      "joint_ratio": 0.9785137059302493,
+      "native_ratios": [
+        [
+          1.0021014966309667,
+          0.9861396461393004,
+          1.0
+        ],
+        [
+          1.0034564305920415,
+          0.9877374959627672,
+          1.0
+        ],
+        [
+          1.0046009865509065,
+          0.988125766557507,
+          1.0
+        ]
+      ],
+      "accepted": true
+    },
+    {
+      "track": "seed1_joint",
+      "iteration": 1,
+      "trial": 0,
+      "label": "FIT0",
+      "original_joint_accept": true,
+      "native_pass": false,
+      "trust_pass": true,
+      "macro_pass": true,
+      "initial_anchor_ratios": [
+        [
+          1.0122962230390546,
+          1.0098798964162283,
+          1.0
+        ],
+        [
+          1.0179077965772,
+          1.0058409556881915,
+          1.0
+        ],
+        [
+          1.0202009315778897,
+          1.0074804391247414,
+          1.0
+        ]
+      ],
+      "joint_ratio": 0.8887255061601876,
+      "native_ratios": [
+        [
+          1.0100199691178595,
+          1.0037640292491217,
+          1.0
+        ],
+        [
+          1.0113850104075253,
+          1.0019200140329547,
+          1.0
+        ],
+        [
+          1.0127970724863025,
+          1.0043280562682708,
+          1.0
+        ]
+      ],
+      "accepted": false
+    },
+    {
+      "track": "seed1_joint",
+      "iteration": 1,
+      "trial": 0,
+      "label": "FIT1",
+      "original_joint_accept": true,
+      "native_pass": false,
+      "trust_pass": true,
+      "macro_pass": true,
+      "initial_anchor_ratios": [
+        [
+          1.007598848573251,
+          0.9869206563943618,
+          1.0
+        ],
+        [
+          1.012958954546565,
+          0.9939446579427736,
+          1.0
+        ],
+        [
+          1.0145923755026818,
+          0.9932803064898933,
+          1.0
+        ]
+      ],
+      "joint_ratio": 0.9218618180696441,
+      "native_ratios": [
+        [
+          1.006480875377012,
+          0.9873515468121156,
+          1.0
+        ],
+        [
+          1.00938693743223,
+          0.9970413620164885,
+          1.0
+        ],
+        [
+          1.0096545119547418,
+          0.9929050371998028,
+          1.0
+        ]
+      ],
+      "accepted": false
+    },
+    {
+      "track": "seed1_joint",
+      "iteration": 1,
+      "trial": 0,
+      "label": "FIT2",
+      "original_joint_accept": true,
+      "native_pass": false,
+      "trust_pass": true,
+      "macro_pass": true,
+      "initial_anchor_ratios": [
+        [
+          1.0117569895004495,
+          0.9912001035749557,
+          1.0
+        ],
+        [
+          1.018676488436369,
+          0.990237446633,
+          1.0
+        ],
+        [
+          1.020156126978889,
+          0.9973165712516189,
+          1.0
+        ]
+      ],
+      "joint_ratio": 0.8693785703381671,
+      "native_ratios": [
+        [
+          1.0090690434095213,
+          0.9993774375893031,
+          1.0
+        ],
+        [
+          1.011783623873359,
+          0.9972493015280347,
+          1.0
+        ],
+        [
+          1.012893342018121,
+          1.0027209493137512,
+          1.0
+        ]
+      ],
+      "accepted": false
+    },
+    {
+      "track": "seed1_joint",
+      "iteration": 1,
+      "trial": 0,
+      "label": "CHECK",
+      "original_joint_accept": true,
+      "native_pass": true,
+      "trust_pass": true,
+      "macro_pass": true,
+      "initial_anchor_ratios": [
+        [
+          0.999149134367773,
+          0.9576794217087782,
+          1.0
+        ],
+        [
+          1.003456711106061,
+          0.955762312600273,
+          1.0
+        ],
+        [
+          1.005176453377721,
+          0.9574004667854169,
+          1.0
+        ]
+      ],
+      "joint_ratio": 0.9085155878999769,
+      "native_ratios": [
+        [
+          1.0007948057328486,
+          0.9707726818078009,
+          1.0
+        ],
+        [
+          1.0025112116690023,
+          0.9699488819066401,
+          1.0
+        ],
+        [
+          1.0031688766983968,
+          0.9718067861605443,
+          1.0
+        ]
+      ],
+      "accepted": true
+    },
+    {
+      "track": "seed1_joint",
+      "iteration": 1,
+      "trial": 1,
+      "label": "FIT0",
+      "original_joint_accept": true,
+      "native_pass": true,
+      "trust_pass": true,
+      "macro_pass": true,
+      "initial_anchor_ratios": [
+        [
+          0.999491611358719,
+          1.0087303603366076,
+          1.0
+        ],
+        [
+          1.0027884521318156,
+          1.0051968930878998,
+          1.0
+        ],
+        [
+          1.0031040294083513,
+          1.0037993889771037,
+          1.0
+        ]
+      ],
+      "joint_ratio": 0.9513806385719198,
+      "native_ratios": [
+        [
+          0.9972441499459649,
+          1.0026214547992862,
+          1.0
+        ],
+        [
+          0.9963625512116443,
+          1.0012784620998454,
+          1.0
+        ],
+        [
+          0.995824246908588,
+          1.0006585240409107,
+          1.0
+        ]
+      ],
+      "accepted": true
+    },
+    {
+      "track": "seed1_joint",
+      "iteration": 1,
+      "trial": 1,
+      "label": "FIT1",
+      "original_joint_accept": true,
+      "native_pass": true,
+      "trust_pass": true,
+      "macro_pass": true,
+      "initial_anchor_ratios": [
+        [
+          0.9969863198535994,
+          0.9941863676039177,
+          1.0
+        ],
+        [
+          0.9988748345179319,
+          0.9964782986926344,
+          1.0
+        ],
+        [
+          0.9996588364451926,
+          0.9972921304235532,
+          1.0
+        ]
+      ],
+      "joint_ratio": 0.9642999364313068,
+      "native_ratios": [
+        [
+          0.9958801217032229,
+          0.9946204302375107,
+          1.0
+        ],
+        [
+          0.9953524825134781,
+          0.9995828965012455,
+          1.0
+        ],
+        [
+          0.994793652112999,
+          0.9969153454341081,
+          1.0
+        ]
+      ],
+      "accepted": true
+    },
+    {
+      "track": "seed1_joint",
+      "iteration": 1,
+      "trial": 1,
+      "label": "FIT2",
+      "original_joint_accept": true,
+      "native_pass": true,
+      "trust_pass": true,
+      "macro_pass": true,
+      "initial_anchor_ratios": [
+        [
+          0.9997614679057433,
+          0.9908624705148413,
+          1.0
+        ],
+        [
+          1.0039863474297397,
+          0.9908047989601957,
+          1.0
+        ],
+        [
+          1.004277785809724,
+          0.9931609514528207,
+          1.0
+        ]
+      ],
+      "joint_ratio": 0.944810590083746,
+      "native_ratios": [
+        [
+          0.9971053904509737,
+          0.9990370190792106,
+          1.0
+        ],
+        [
+          0.9971928835631427,
+          0.9978206712676261,
+          1.0
+        ],
+        [
+          0.9971280433278429,
+          0.9985428105464302,
+          1.0
+        ]
+      ],
+      "accepted": true
+    },
+    {
+      "track": "seed1_joint",
+      "iteration": 1,
+      "trial": 1,
+      "label": "CHECK",
+      "original_joint_accept": true,
+      "native_pass": true,
+      "trust_pass": true,
+      "macro_pass": true,
+      "initial_anchor_ratios": [
+        [
+          0.9924439754131783,
+          0.9701999900967674,
+          1.0
+        ],
+        [
+          0.9943150954782017,
+          0.9690613599839789,
+          1.0
+        ],
+        [
+          0.9946883659566595,
+          0.9698395737442518,
+          1.0
+        ]
+      ],
+      "joint_ratio": 0.9559588597391953,
+      "native_ratios": [
+        [
+          0.9940786028933021,
+          0.9834644296685608,
+          1.0
+        ],
+        [
+          0.9933782096587851,
+          0.9834453296847017,
+          1.0
+        ],
+        [
+          0.9927017364848097,
+          0.9844330684486247,
+          1.0
+        ]
+      ],
+      "accepted": true
+    },
+    {
+      "track": "seed1_joint",
+      "iteration": 2,
+      "trial": 0,
+      "label": "FIT0",
+      "original_joint_accept": true,
+      "native_pass": false,
+      "trust_pass": true,
+      "macro_pass": true,
+      "initial_anchor_ratios": [
+        [
+          1.0127239525713234,
+          1.0144272685423708,
+          1.0
+        ],
+        [
+          1.0176919758335954,
+          1.0049469432195086,
+          1.0
+        ],
+        [
+          1.0201654115418344,
+          1.0101091797361197,
+          1.0
+        ]
+      ],
+      "joint_ratio": 0.8808529109543533,
+      "native_ratios": [
+        [
+          1.016742903475786,
+          0.999319980784424,
+          1.0
+        ],
+        [
+          1.0210485261758768,
+          0.9976164868976387,
+          1.0
+        ],
+        [
+          1.0221955324966703,
+          0.9981124600877522,
+          1.0
+        ]
+      ],
+      "accepted": false
+    },
+    {
+      "track": "seed1_joint",
+      "iteration": 2,
+      "trial": 0,
+      "label": "FIT1",
+      "original_joint_accept": true,
+      "native_pass": false,
+      "trust_pass": true,
+      "macro_pass": true,
+      "initial_anchor_ratios": [
+        [
+          1.024175038099722,
+          0.9500774060303399,
+          1.0
+        ],
+        [
+          1.0323927647221431,
+          0.9521596286745722,
+          1.0
+        ],
+        [
+          1.0336356390975296,
+          0.9507880002703469,
+          1.0
+        ]
+      ],
+      "joint_ratio": 0.9232760250979658,
+      "native_ratios": [
+        [
+          1.0263267326942842,
+          0.9769671176624809,
+          1.0
+        ],
+        [
+          1.0313148005431998,
+          0.9787575216919812,
+          1.0
+        ],
+        [
+          1.032363658003724,
+          0.9775095301961455,
+          1.0
+        ]
+      ],
+      "accepted": false
+    },
+    {
+      "track": "seed1_joint",
+      "iteration": 2,
+      "trial": 0,
+      "label": "FIT2",
+      "original_joint_accept": true,
+      "native_pass": false,
+      "trust_pass": true,
+      "macro_pass": true,
+      "initial_anchor_ratios": [
+        [
+          1.016198679686288,
+          0.9282802557033587,
+          1.0
+        ],
+        [
+          1.020495449112553,
+          0.9152641262260568,
+          1.0
+        ],
+        [
+          1.0217183423641556,
+          0.9242911411730087,
+          1.0
+        ]
+      ],
+      "joint_ratio": 0.8411447622191031,
+      "native_ratios": [
+        [
+          1.0230800433813194,
+          0.9673431806152186,
+          1.0
+        ],
+        [
+          1.0254376335736797,
+          0.9588224756511201,
+          1.0
+        ],
+        [
+          1.026885521193435,
+          0.9638581576764066,
+          1.0
+        ]
+      ],
+      "accepted": false
+    },
+    {
+      "track": "seed1_joint",
+      "iteration": 2,
+      "trial": 0,
+      "label": "CHECK",
+      "original_joint_accept": true,
+      "native_pass": false,
+      "trust_pass": true,
+      "macro_pass": true,
+      "initial_anchor_ratios": [
+        [
+          1.0107774242908885,
+          0.946660797034981,
+          1.0
+        ],
+        [
+          1.0177853028854198,
+          0.9407367276879338,
+          1.0
+        ],
+        [
+          1.0194224870382411,
+          0.9467557626777052,
+          1.0
+        ]
+      ],
+      "joint_ratio": 0.9270045708399378,
+      "native_ratios": [
+        [
+          1.0190867114387099,
+          0.983965028693008,
+          1.0
+        ],
+        [
+          1.0230785459907197,
+          0.9762235324740731,
+          1.0
+        ],
+        [
+          1.0237170083518645,
+          0.9813580799533068,
+          1.0
+        ]
+      ],
+      "accepted": false
+    },
+    {
+      "track": "seed1_joint",
+      "iteration": 2,
+      "trial": 1,
+      "label": "FIT0",
+      "original_joint_accept": true,
+      "native_pass": false,
+      "trust_pass": true,
+      "macro_pass": true,
+      "initial_anchor_ratios": [
+        [
+          0.9958036622990751,
+          1.0142008151243753,
+          1.0
+        ],
+        [
+          0.9982169821137326,
+          1.0079501663655046,
+          1.0
+        ],
+        [
+          0.9998951297701545,
+          1.0115106584793436,
+          1.0
+        ]
+      ],
+      "joint_ratio": 0.9683028642949941,
+      "native_ratios": [
+        [
+          0.9997554657684241,
+          0.9990968998082541,
+          1.0
+        ],
+        [
+          1.0015093000572248,
+          1.0005978034183693,
+          1.0
+        ],
+        [
+          1.0018849130274765,
+          0.999497293949499,
+          1.0
+        ]
+      ],
+      "accepted": false
+    },
+    {
+      "track": "seed1_joint",
+      "iteration": 2,
+      "trial": 1,
+      "label": "FIT1",
+      "original_joint_accept": true,
+      "native_pass": true,
+      "trust_pass": true,
+      "macro_pass": true,
+      "initial_anchor_ratios": [
+        [
+          0.9993052093140691,
+          0.9663499936560829,
+          1.0
+        ],
+        [
+          1.0035338447104978,
+          0.964175870098981,
+          1.0
+        ],
+        [
+          1.0038242646007638,
+          0.9643953342786706,
+          1.0
+        ]
+      ],
+      "joint_ratio": 0.9799244348290087,
+      "native_ratios": [
+        [
+          1.0014046547576803,
+          0.9937002626975335,
+          1.0
+        ],
+        [
+          1.0024860133289535,
+          0.9911094281606249,
+          1.0
+        ],
+        [
+          1.0025889690693612,
+          0.9914992930769522,
+          1.0
+        ]
+      ],
+      "accepted": true
+    },
+    {
+      "track": "seed1_joint",
+      "iteration": 2,
+      "trial": 1,
+      "label": "FIT2",
+      "original_joint_accept": true,
+      "native_pass": true,
+      "trust_pass": true,
+      "macro_pass": true,
+      "initial_anchor_ratios": [
+        [
+          0.9938585711812714,
+          0.9453079504293673,
+          1.0
+        ],
+        [
+          0.9960392843506495,
+          0.9391080936252729,
+          1.0
+        ],
+        [
+          0.9963213362982384,
+          0.9433737340305538,
+          1.0
+        ]
+      ],
+      "joint_ratio": 0.9641623965433499,
+      "native_ratios": [
+        [
+          1.000588654998969,
+          0.9850874170929425,
+          1.0
+        ],
+        [
+          1.0008630294031828,
+          0.9838012016778129,
+          1.0
+        ],
+        [
+          1.001360073788423,
+          0.9837576373706729,
+          1.0
+        ]
+      ],
+      "accepted": true
+    },
+    {
+      "track": "seed1_joint",
+      "iteration": 2,
+      "trial": 1,
+      "label": "CHECK",
+      "original_joint_accept": false,
+      "native_pass": true,
+      "trust_pass": true,
+      "macro_pass": true,
+      "initial_anchor_ratios": [
+        [
+          0.9921354574578658,
+          0.9513397254306766,
+          1.0
+        ],
+        [
+          0.9956397035903933,
+          0.9509073769765402,
+          1.0
+        ],
+        [
+          0.9967314631826593,
+          0.9508675931018303,
+          1.0
+        ]
+      ],
+      "joint_ratio": 0.9956565013121519,
+      "native_ratios": [
+        [
+          1.000291494788573,
+          0.988828335515835,
+          1.0
+        ],
+        [
+          1.0008177730530312,
+          0.9867778426055384,
+          1.0
+        ],
+        [
+          1.0009303940155792,
+          0.985620190805107,
+          1.0
+        ]
+      ],
+      "accepted": false
+    },
+    {
+      "track": "seed1_joint",
+      "iteration": 2,
+      "trial": 2,
+      "label": "FIT0",
+      "original_joint_accept": true,
+      "native_pass": false,
+      "trust_pass": true,
+      "macro_pass": true,
+      "initial_anchor_ratios": [
+        [
+          0.9935134377891308,
+          1.013402190970445,
+          1.0
+        ],
+        [
+          0.9940667599332061,
+          1.007062702197614,
+          1.0
+        ],
+        [
+          0.9950465094434923,
+          1.012265065367129,
+          1.0
+        ]
+      ],
+      "joint_ratio": 0.9876909614586592,
+      "native_ratios": [
+        [
+          0.997456152602245,
+          0.9983101691091607,
+          1.0
+        ],
+        [
+          0.9973453896193363,
+          0.9997168127437949,
+          1.0
+        ],
+        [
+          0.9970266439854041,
+          1.000242741005897,
+          1.0
+        ]
+      ],
+      "accepted": false
+    },
+    {
+      "track": "seed1_joint",
+      "iteration": 2,
+      "trial": 2,
+      "label": "FIT1",
+      "original_joint_accept": false,
+      "native_pass": true,
+      "trust_pass": true,
+      "macro_pass": true,
+      "initial_anchor_ratios": [
+        [
+          0.9947200419827162,
+          0.9701818915941182,
+          1.0
+        ],
+        [
+          0.9978374678443441,
+          0.9693447496321135,
+          1.0
+        ],
+        [
+          0.9971378861479903,
+          0.9679535523125179,
+          1.0
+        ]
+      ],
+      "joint_ratio": 0.9916193517787429,
+      "native_ratios": [
+        [
+          0.9968098544247456,
+          0.9976406135152011,
+          1.0
+        ],
+        [
+          0.9967955842865556,
+          0.9964226966183681,
+          1.0
+        ],
+        [
+          0.9959108188032488,
+          0.9951575134558511,
+          1.0
+        ]
+      ],
+      "accepted": false
+    },
+    {
+      "track": "seed1_joint",
+      "iteration": 2,
+      "trial": 2,
+      "label": "FIT2",
+      "original_joint_accept": true,
+      "native_pass": true,
+      "trust_pass": true,
+      "macro_pass": true,
+      "initial_anchor_ratios": [
+        [
+          0.9904090645564141,
+          0.9540653924585435,
+          1.0
+        ],
+        [
+          0.9913731938427697,
+          0.9485985000120287,
+          1.0
+        ],
+        [
+          0.9902098441853368,
+          0.9514852801873529,
+          1.0
+        ]
+      ],
+      "joint_ratio": 0.9878565254481841,
+      "native_ratios": [
+        [
+          0.9971157894482162,
+          0.9942133806955377,
+          1.0
+        ],
+        [
+          0.9961743413618968,
+          0.9937432661441711,
+          1.0
+        ],
+        [
+          0.9952176737713057,
+          0.9922164222560037,
+          1.0
+        ]
+      ],
+      "accepted": true
+    },
+    {
+      "track": "seed1_joint",
+      "iteration": 2,
+      "trial": 2,
+      "label": "CHECK",
+      "original_joint_accept": false,
+      "native_pass": true,
+      "trust_pass": true,
+      "macro_pass": true,
+      "initial_anchor_ratios": [
+        [
+          0.9904304436436079,
+          0.9565940067031676,
+          1.0
+        ],
+        [
+          0.9924749370840912,
+          0.9574110955296852,
+          1.0
+        ],
+        [
+          0.9923502428536252,
+          0.9579818317374242,
+          1.0
+        ]
+      ],
+      "joint_ratio": 0.9977098776641066,
+      "native_ratios": [
+        [
+          0.9985724645855106,
+          0.9942896676415983,
+          1.0
+        ],
+        [
+          0.9976365473991644,
+          0.993526896738646,
+          1.0
+        ],
+        [
+          0.9965307169187949,
+          0.9929944427959372,
+          1.0
+        ]
+      ],
+      "accepted": false
+    },
+    {
+      "track": "seed1_physical",
+      "iteration": 0,
+      "trial": 0,
+      "label": "FIT0",
+      "original_joint_accept": true,
+      "native_pass": true,
+      "trust_pass": true,
+      "macro_pass": true,
+      "initial_anchor_ratios": [
+        [
+          0.9953998336979114,
+          0.9964802963510364,
+          1.0
+        ],
+        [
+          0.9954111443755107,
+          0.9966798429542018,
+          1.0
+        ],
+        [
+          0.9954537462619921,
+          0.9966389608633404,
+          1.0
+        ]
+      ],
+      "joint_ratio": 0.9842434722078752,
+      "native_ratios": [
+        [
+          0.9953998336979114,
+          0.9964802963510364,
+          1.0
+        ],
+        [
+          0.9954111443755107,
+          0.9966798429542018,
+          1.0
+        ],
+        [
+          0.9954537462619921,
+          0.9966389608633404,
+          1.0
+        ]
+      ],
+      "accepted": true
+    },
+    {
+      "track": "seed1_physical",
+      "iteration": 0,
+      "trial": 0,
+      "label": "FIT1",
+      "original_joint_accept": true,
+      "native_pass": true,
+      "trust_pass": true,
+      "macro_pass": true,
+      "initial_anchor_ratios": [
+        [
+          0.994579373188109,
+          0.9965594916255017,
+          1.0
+        ],
+        [
+          0.9946663222549721,
+          0.9966464094670745,
+          1.0
+        ],
+        [
+          0.9946809890720653,
+          0.9967321845160326,
+          1.0
+        ]
+      ],
+      "joint_ratio": 0.9822889284434749,
+      "native_ratios": [
+        [
+          0.994579373188109,
+          0.9965594916255017,
+          1.0
+        ],
+        [
+          0.9946663222549721,
+          0.9966464094670745,
+          1.0
+        ],
+        [
+          0.9946809890720653,
+          0.9967321845160326,
+          1.0
+        ]
+      ],
+      "accepted": true
+    },
+    {
+      "track": "seed1_physical",
+      "iteration": 0,
+      "trial": 0,
+      "label": "FIT2",
+      "original_joint_accept": true,
+      "native_pass": true,
+      "trust_pass": true,
+      "macro_pass": true,
+      "initial_anchor_ratios": [
+        [
+          0.9947431935743135,
+          0.9957418590109784,
+          1.0
+        ],
+        [
+          0.9951196614262209,
+          0.9959441325503595,
+          1.0
+        ],
+        [
+          0.9950656474062791,
+          0.9958326010320261,
+          1.0
+        ]
+      ],
+      "joint_ratio": 0.9809690156785683,
+      "native_ratios": [
+        [
+          0.9947431935743135,
+          0.9957418590109784,
+          1.0
+        ],
+        [
+          0.9951196614262209,
+          0.9959441325503595,
+          1.0
+        ],
+        [
+          0.9950656474062791,
+          0.9958326010320261,
+          1.0
+        ]
+      ],
+      "accepted": true
+    },
+    {
+      "track": "seed1_physical",
+      "iteration": 0,
+      "trial": 0,
+      "label": "CHECK",
+      "original_joint_accept": true,
+      "native_pass": true,
+      "trust_pass": true,
+      "macro_pass": true,
+      "initial_anchor_ratios": [
+        [
+          0.9937983926689312,
+          0.9967950817579627,
+          1.0
+        ],
+        [
+          0.9938405226119229,
+          0.9965547448017682,
+          1.0
+        ],
+        [
+          0.9937747550450564,
+          0.9966777897779179,
+          1.0
+        ]
+      ],
+      "joint_ratio": 0.982414853385342,
+      "native_ratios": [
+        [
+          0.9937983926689312,
+          0.9967950817579627,
+          1.0
+        ],
+        [
+          0.9938405226119229,
+          0.9965547448017682,
+          1.0
+        ],
+        [
+          0.9937747550450564,
+          0.9966777897779179,
+          1.0
+        ]
+      ],
+      "accepted": true
+    },
+    {
+      "track": "seed1_physical",
+      "iteration": 1,
+      "trial": 0,
+      "label": "FIT0",
+      "original_joint_accept": true,
+      "native_pass": true,
+      "trust_pass": true,
+      "macro_pass": true,
+      "initial_anchor_ratios": [
+        [
+          0.990177284220008,
+          0.9937966939720079,
+          1.0
+        ],
+        [
+          0.9903570875904372,
+          0.9938276647068687,
+          1.0
+        ],
+        [
+          0.9902826072797171,
+          0.9938408921578962,
+          1.0
+        ]
+      ],
+      "joint_ratio": 0.9841906144431319,
+      "native_ratios": [
+        [
+          0.9951971997342864,
+          0.9972922914343644,
+          1.0
+        ],
+        [
+          0.9952865645938133,
+          0.9972598581578968,
+          1.0
+        ],
+        [
+          0.995340752918642,
+          0.9970335295225831,
+          1.0
+        ]
+      ],
+      "accepted": true
+    },
+    {
+      "track": "seed1_physical",
+      "iteration": 1,
+      "trial": 0,
+      "label": "FIT1",
+      "original_joint_accept": true,
+      "native_pass": true,
+      "trust_pass": true,
+      "macro_pass": true,
+      "initial_anchor_ratios": [
+        [
+          0.9909401868755566,
+          0.9943423428419766,
+          1.0
+        ],
+        [
+          0.9910803149888306,
+          0.9941978301484123,
+          1.0
+        ],
+        [
+          0.9909335093054932,
+          0.994328432323438,
+          1.0
+        ]
+      ],
+      "joint_ratio": 0.9822327966059503,
+      "native_ratios": [
+        [
+          0.9956172100034474,
+          0.9974054375317651,
+          1.0
+        ],
+        [
+          0.9956893299451155,
+          0.997190282718166,
+          1.0
+        ],
+        [
+          0.9955964260417967,
+          0.9973582602317136,
+          1.0
+        ]
+      ],
+      "accepted": true
+    },
+    {
+      "track": "seed1_physical",
+      "iteration": 1,
+      "trial": 0,
+      "label": "FIT2",
+      "original_joint_accept": true,
+      "native_pass": true,
+      "trust_pass": true,
+      "macro_pass": true,
+      "initial_anchor_ratios": [
+        [
+          0.9900981164475634,
+          0.9931132382084,
+          1.0
+        ],
+        [
+          0.9903151028630968,
+          0.993330910919574,
+          1.0
+        ],
+        [
+          0.990105746254042,
+          0.9933460241250248,
+          1.0
+        ]
+      ],
+      "joint_ratio": 0.9822170753981176,
+      "native_ratios": [
+        [
+          0.9951946844569934,
+          0.9970391382117074,
+          1.0
+        ],
+        [
+          0.9952639137026165,
+          0.9970416292389058,
+          1.0
+        ],
+        [
+          0.995214840842001,
+          0.9970161347446885,
+          1.0
+        ]
+      ],
+      "accepted": true
+    },
+    {
+      "track": "seed1_physical",
+      "iteration": 1,
+      "trial": 0,
+      "label": "CHECK",
+      "original_joint_accept": true,
+      "native_pass": true,
+      "trust_pass": true,
+      "macro_pass": true,
+      "initial_anchor_ratios": [
+        [
+          0.9885820626504018,
+          0.9942977664204206,
+          1.0
+        ],
+        [
+          0.9887335673490742,
+          0.9941685893798723,
+          1.0
+        ],
+        [
+          0.9886956762094051,
+          0.9943866767138723,
+          1.0
+        ]
+      ],
+      "joint_ratio": 0.9864401133156322,
+      "native_ratios": [
+        [
+          0.9943651154000838,
+          0.9973178807076106,
+          1.0
+        ],
+        [
+          0.9945151264827402,
+          0.997327212729788,
+          1.0
+        ],
+        [
+          0.9945404745064805,
+          0.9975272860740468,
+          1.0
+        ]
+      ],
+      "accepted": true
+    },
+    {
+      "track": "seed1_physical",
+      "iteration": 2,
+      "trial": 0,
+      "label": "FIT0",
+      "original_joint_accept": true,
+      "native_pass": true,
+      "trust_pass": true,
+      "macro_pass": true,
+      "initial_anchor_ratios": [
+        [
+          0.9884909090990328,
+          0.9908713799680481,
+          1.0
+        ],
+        [
+          0.9885887610217692,
+          0.9911681630151511,
+          1.0
+        ],
+        [
+          0.988584609414353,
+          0.991043647656481,
+          1.0
+        ]
+      ],
+      "joint_ratio": 0.9835729129347485,
+      "native_ratios": [
+        [
+          0.9961357787646083,
+          0.9972353801009983,
+          1.0
+        ],
+        [
+          0.9962302734719607,
+          0.9973174248201313,
+          1.0
+        ],
+        [
+          0.996275883406385,
+          0.9972031920915275,
+          1.0
+        ]
+      ],
+      "accepted": true
+    },
+    {
+      "track": "seed1_physical",
+      "iteration": 2,
+      "trial": 0,
+      "label": "FIT1",
+      "original_joint_accept": true,
+      "native_pass": true,
+      "trust_pass": true,
+      "macro_pass": true,
+      "initial_anchor_ratios": [
+        [
+          0.983560528345219,
+          0.9902191587346624,
+          1.0
+        ],
+        [
+          0.9836023263991629,
+          0.9901456384508291,
+          1.0
+        ],
+        [
+          0.9834163882362786,
+          0.9904748098406844,
+          1.0
+        ]
+      ],
+      "joint_ratio": 0.9799810825148274,
+      "native_ratios": [
+        [
+          0.9945316673448796,
+          0.9968733201111313,
+          1.0
+        ],
+        [
+          0.9947423747017772,
+          0.9971358282285627,
+          1.0
+        ],
+        [
+          0.994560381835409,
+          0.9970443655320902,
+          1.0
+        ]
+      ],
+      "accepted": true
+    },
+    {
+      "track": "seed1_physical",
+      "iteration": 2,
+      "trial": 0,
+      "label": "FIT2",
+      "original_joint_accept": true,
+      "native_pass": true,
+      "trust_pass": true,
+      "macro_pass": true,
+      "initial_anchor_ratios": [
+        [
+          0.9860455031829453,
+          0.9900731345010912,
+          1.0
+        ],
+        [
+          0.9858216268882026,
+          0.9898822139164416,
+          1.0
+        ],
+        [
+          0.9857572401956656,
+          0.9901076687980985,
+          1.0
+        ]
+      ],
+      "joint_ratio": 0.9803854519141714,
+      "native_ratios": [
+        [
+          0.9955038543008466,
+          0.9967068464068,
+          1.0
+        ],
+        [
+          0.9951721774281828,
+          0.9965491896372802,
+          1.0
+        ],
+        [
+          0.995309564008596,
+          0.9968413901931269,
+          1.0
+        ]
+      ],
+      "accepted": true
+    },
+    {
+      "track": "seed1_physical",
+      "iteration": 2,
+      "trial": 0,
+      "label": "CHECK",
+      "original_joint_accept": true,
+      "native_pass": true,
+      "trust_pass": true,
+      "macro_pass": true,
+      "initial_anchor_ratios": [
+        [
+          0.9837221773436617,
+          0.9914377341421731,
+          1.0
+        ],
+        [
+          0.9839703284719186,
+          0.9916091621762145,
+          1.0
+        ],
+        [
+          0.9838689186673082,
+          0.9917229516213732,
+          1.0
+        ]
+      ],
+      "joint_ratio": 0.9832600932987025,
+      "native_ratios": [
+        [
+          0.9945769493740032,
+          0.9971519380705806,
+          1.0
+        ],
+        [
+          0.9945784077446477,
+          0.9971742801600999,
+          1.0
+        ],
+        [
+          0.9946378379876615,
+          0.9973433785732438,
+          1.0
+        ]
+      ],
+      "accepted": true
+    }
+  ],
+  "rejection_summary": {
+    "seed0_joint": {
+      "FIT0/native": 4,
+      "FIT1/native": 3,
+      "FIT2/native": 4,
+      "CHECK/native": 2,
+      "FIT1/joint": 2,
+      "CHECK/joint": 2,
+      "FIT0/joint": 1,
+      "FIT2/joint": 1
+    },
+    "seed0_physical": {},
+    "seed1_joint": {
+      "FIT0/native": 5,
+      "FIT1/native": 3,
+      "FIT2/native": 3,
+      "CHECK/native": 2,
+      "CHECK/joint": 2,
+      "FIT1/joint": 1
+    },
+    "seed1_physical": {}
+  },
+  "REAL_calibration_candidate_pass_all": false,
+  "scientific_acceptance": false,
+  "stage5_pending": true,
+  "evidence_limit": "Saved matrix and vector arithmetic, complete solves including any zero directions, reported gate summaries and kernel moments audited. Original trial waveforms, trust RMS/flag extraction and per-draw kernel accumulation are not regenerated. Reporting roles are historically exposed frozen-system evaluation."
+}

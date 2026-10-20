@@ -1,0 +1,47 @@
+from datetime import datetime,timezone
+from pathlib import Path
+import hashlib,json,numpy as np
+from scipy.optimize import minimize
+
+HERE=Path(__file__).resolve().parent;BASE=HERE.parent/'original_precision_REAL_pilot_01';CURVE=HERE.parent/'native_curvature_diagnostic_01'
+reports=[];proposals={};inputs={};radius=.0125;fits=('FIT0','FIT1','FIT2')
+for seed in range(2):
+ data=[]
+ for path in [BASE/f'terminal_01/collected/run_01/seed{seed}_joint_ITER02.npz',CURVE/f'terminal_01/collected/run_01/seed{seed}_CURVATURE.npz']:
+  inputs[str(path.relative_to(HERE.parent))]=hashlib.sha256(path.read_bytes()).hexdigest()
+  with np.load(path,allow_pickle=False) as z:data.append({k:z[k] for k in z.files})
+ a,c=data;theta=a['theta'];r=a['stacked_baseline_residual'];n=a['stacked_baseline_native'];J=a['original_jacobian'];N=a['original_native_jacobian']
+ H=np.maximum((a['FD_plus_native']+a['FD_minus_native']-2*n[:,None])/.004**2,0);H[:,-1]=0
+ measured=c['curvature_anchor']-theta;u0=measured/radius;v=u0/(u0@u0);actual=np.concatenate([c['curvature_anchor_'+l+'_actual_native'] for l in fits])
+ correction=np.maximum(actual-(n+N@measured+.5*H@np.square(measured)),0)/n
+ D=N*radius/n[:,None];C=H*radius**2/n[:,None];anchor=np.concatenate([a[l+'_initial_native'] for l in fits]);cap=np.minimum(n,anchor*np.tile([1.01,1.01,1.10],9))/n-1
+ A=[];b=[]
+ for il,label in enumerate(fits):
+  L=a[label+'_cholesky'];scale=np.sqrt(np.square(L).sum(1))
+  for ih in range(3):
+   sl=slice((3*il+ih)*272,(3*il+ih+1)*272);raw=L@(3*r[sl])/scale;der=(L@(3*J[sl]*radius))/scale[:,None]
+   for ib in range(4):
+    take=slice(56*ib,56*(ib+1));normal=np.sqrt(56*(1.15*np.mean(raw[take]**2)+2/4096));A.append(der[take]/normal);b.append(raw[take]/normal)
+ AA,bb=np.stack(A),np.stack(b);gram=(J*radius).T@(J*radius);G=gram+.02*np.trace(gram)/54*np.eye(54);g=(J*radius).T@r
+ def cons(u):return np.r_[1-np.square(AA@u+bb).sum(1),cap-D@u-.5*C@np.square(u)-correction*(v@u)**2,1-u@u]
+ def jac(u):return np.vstack((-2*np.einsum('kij,ki->kj',AA,AA@u+bb),-D-C*u-2*correction[:,None]*(v@u)*v,-2*u))
+ numerical=np.column_stack([(cons(u0+np.eye(54)[i]*1e-6)-cons(u0-np.eye(54)[i]*1e-6))/(2e-6) for i in range(54)])
+ grad_error=float(np.max(np.abs(numerical-jac(u0))));assert grad_error<1e-7
+ assert (N[2::3,:53]==0).all() and (H[2::3,:53]==0).all() and (correction[2::3]==0).all()
+ assert (N[2::3,53]>0).all() and abs(theta[53])<1e-15
+ keep=np.ones(64,dtype=bool);keep[36+np.arange(2,27,3)]=False
+ solved=minimize(lambda u:(.5*u@G[:53,:53]@u+g[:53]@u)/(r@r),np.zeros(53),jac=lambda u:(G[:53,:53]@u+g[:53])/(r@r),method='SLSQP',bounds=list(zip((a['lower'][:53]-theta[:53])/radius,(a['upper'][:53]-theta[:53])/radius)),constraints={'type':'ineq','fun':lambda u:cons(np.r_[u,0.])[keep],'jac':lambda u:jac(np.r_[u,0.])[keep,:53]},options={'maxiter':200,'ftol':1e-9,'disp':False})
+ solved.x=np.r_[solved.x,0.]
+
+ row=dict(seed=seed,noise_coordinate_fixed_to_current=True,removed_constant_zero_noise_constraints=9,original_full_constraints_checked=True,success=bool(solved.success),message=solved.message,iterations=int(solved.nit),minimum_slack=float(cons(solved.x).min()),analytic_constraint_jacobian_error=grad_error,positive_rank_one_correction_range=[float(correction.min()),float(correction.max())])
+ if solved.success:
+  assert cons(solved.x).min()>-1e-6;u=solved.x;step=u*radius;native=1+D@u+.5*C@np.square(u)+correction*(v@u)**2;rr=(r+J@step).reshape(3,816);oldr=r.reshape(3,816)
+  row.update(predicted_joint_remaining=float(np.sum(rr**2)/np.sum(oldr**2)),predicted_joint_ratios=(np.sum(rr**2,1)/np.sum(oldr**2,1)).tolist(),predicted_native_ratios=native.reshape(3,3,3).tolist(),predicted_anchor_ratios=(native*n/anchor).reshape(3,3,3).tolist(),step_norm=float(np.linalg.norm(step)))
+  proposals[f'seed{seed}_curvature_update']=theta+step
+ reports.append(row)
+np.savez(HERE/'SAVED_REDUCED_CURVATURE_UPDATE_PROPOSALS.npz',**proposals)
+result=dict(status='SAVED_REDUCED_CURVATURE_UPDATE_DIAGNOSIS_COMPLETE',UTC=datetime.now(timezone.utc).isoformat(),inputs=inputs,reports=reports,two_solutions=all(x['success'] for x in reports),
+    proposals_sha256=hashlib.sha256((HERE/'SAVED_REDUCED_CURVATURE_UPDATE_PROPOSALS.npz').read_bytes()).hexdigest(),original_joint_objective_retained=True,
+    new_generator_calls=0,parameter_updates=0,scientific_acceptance=False,evidence_limit='Only original FIT matrices and the first measured curvature candidate FIT vector are used; no native-gain or goal-scaled candidate values, CHECK or FRESH enter this solve. Positive rank-one curvature is not a global upper bound.')
+(HERE/'SAVED_REDUCED_CURVATURE_UPDATE_DIAGNOSIS.json').write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8')
+print(json.dumps([{k:v for k,v in row.items() if k not in ['predicted_native_ratios','predicted_anchor_ratios']} for row in reports],indent=2))

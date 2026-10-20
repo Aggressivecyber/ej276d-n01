@@ -1,6 +1,6 @@
 # JOINT_RESPONSE_01：联合响应与读出校准
 
-> 当前执行状态（2026-10-20）：原生成器32draw局部诊断已完成并独立审核，两头FIT/CHECK/FRESH通过。三轮REAL校准与匹配物理比较已启动，09:15核验45/600差分列，预计10:05:24完成，10:13单次接续。当前1科学作业；REAL响应匹配尚未建立。
+> 当前执行状态（2026-10-20）：三轮REAL校准及五项固定方向诊断已闭合负结果；新四组随机精度诊断已正确启动，当前登记1科学作业、1次苏醒，2026-10-20 12:29（UTC+8）接续。原科学门未通过，阶段5尚未进入。
 
 2026-10-19。依据用户“按照这个推进”及[附件原方案](provenance/joint_response_01_user_plan_20261019/JOINT_PLAN_CN.md)。基线提交 `b05a9ecf99fcee6515499915165caa8653e28fa3`。本方案是前瞻研究设计；039、070、S 和 M6 的原始文件、数值与判定保留。
 
@@ -205,3 +205,59 @@ FIX01在08:53:12进度处完成原9列复现：联合残差/参数逐值相同�
 已前瞻登记并启动[32draw三轮循环校准与匹配物理比较](docs/JOINT_RESPONSE_01_ORIGINAL_PRECISION_REAL_PILOT_20261020.md)，配置SHA256 `3272ef3806a6293d004a21859886d74d0de8f52137a4e0ae7c4907e64eed6445`。每条轨迹三轮9216父访问/36864REAL访问完整覆盖拟合池，不使用报告角色选择终点；全部原最终门和两库同父核保持。819源文件/23输入已冻结，09:15核验原进程、45差分列及RSS峰5,139,763,200字节。
 
 按本次229.877秒/278训练生成调用及余下最多3562调用，加同规格每头30.407秒末端报告与输出余量，[预计10:05:23.908完成](receipts/joint_response_01_20261020/original_precision_REAL_pilot_01/WAIT_ESTIMATE.json)；[10:13单次苏醒已读回核验](receipts/joint_response_01_20261020/original_precision_REAL_pilot_01/AUTOMATION_CREATE_RECEIPT.json)，留456秒余量。内部10:41:14/外部最晚10:46:34预算保持，不自动加轮或重启。终止收集及四轨迹完整复算脚本已准备；独立求解核心对54/46维保存方向核验差<2.26e-17，本次终止数据尚未审核。
+
+## 2026-10-20 10:13接续：三轮完整覆盖校准闭合，最终改善门失败
+
+[终止独立审核](receipts/joint_response_01_20261020/original_precision_REAL_pilot_01/terminal_01/TERMINAL_REVIEW.json)确认exit 0、3174.69秒、819源文件/23锁定输入、51输出105,638,165字节全部哈希通过。600差分列、20联合求解、8割线、80接受检查及192最终门全部复算，独立求解最大参数差1.98e-17。四轨迹均覆盖6465 SOURCE拟合父/18948 REAL行；神经各2次、物理各3次更新。10:13定时已消费删除，当前无活动科学作业。
+
+两神经各24/96最终改善门失败。seed0联合风险剩余0.89263—0.90543、peak0.91416—0.92798、native wave0.98866—0.99125、QPSD0.99400—1.00676；seed1分别0.89510—0.90834、0.92256—0.92760、0.98859—0.99501、0.99682—1.00475。原noise/macro/flag门通过。物理末端native wave约2.47—2.50 M0、QPSD约8.85—9.36 M0，不能将其相对自身起点的改善当作成功响应。
+
+两库同父128×1024的保存均值、协方差和方差已独立重算；仍无REAL条件核真值。大步候选线性native预测通过而实际wave退化，缩步后增益不足；下一项先使用完整保存矩阵定位曲率、固定初值锚及拟合/检查差异，不增加本次轮数或扩大网络。原模型、门限、历史负结果和阶段5待验状态保持。
+
+## 2026-10-20 保存曲率诊断闭合：减少退化，但两头局部门未全过
+
+[保存矩阵诊断](receipts/joint_response_01_20261020/original_precision_REAL_pilot_01/SAVED_CONSTRAINT_DIAGNOSIS.json)确认6个原首神经候选均预测FIT native wave均值下降而实际上升。保持完整联合目标，加入原±0.004差分的正对角native曲率和固定初值锚后，分别固定一个新候选与原线性对照，[原生小试验及独立复算](receipts/joint_response_01_20261020/native_curvature_diagnostic_01/terminal_01/TERMINAL_REVIEW.json)完成：exit0、38.64秒，828源文件/31pins/13输出，40生成调用1,310,720行；2完整候选解、20接受检查、90风险视图通过，零更新。
+
+seed0新候选全部五库通过；seed1 FIT0初值QPSD最大1.010034、新FRESH初值wave最大1.010526，超过1.01，按原门判失败。FRESH联合剩余0.90157/0.87933，不能据此启动训练。对角曲率不是可靠上界，原最终5%native改善仍未得到支持。
+
+[原生共同增益可行性](receipts/joint_response_01_20261020/native_curvature_diagnostic_01/SAVED_NATIVE_GAIN_DIAGNOSIS.json)只使用已保存FIT矩阵，在每个FIT至少1%联合改善的约束下，正对角局部模型预测可同时降低所有wave/QPSD约0.556%/0.652%。加入FIT候选实测正误差的秩一曲率对照中，seed0在原200步求解限额未收敛，未使用其参数；不把它判成物理不可行。下一项仅检验两头均完成的原正对角共同增益方向，原曲率候选作固定对照，新FRESH仅评价，不自动训练。当前无长等待，未设定时。
+
+## 2026-10-20 原生共同增益诊断闭合
+
+[独立审核](receipts/joint_response_01_20261020/native_gain_diagnostic_01/terminal_01/TERMINAL_REVIEW.json)确认837源/40pins/13输出、exit0、38.57秒、40调用及2个完整求解/20接受检查通过，零更新。seed0新候选五库全过；seed1只有CHECK联合剩余0.9922715，超过0.99，按原门失败。两头FRESH联合剩余0.982307/0.982824，native wave最大1.001429/0.996884、QPSD最大0.992584/0.987276。实际native改善与联合守门的冲突保留，不自动训练。
+
+[保存矩阵共同进度诊断](receipts/joint_response_01_20261020/native_gain_diagnostic_01/SAVED_SCIENTIFIC_PROGRESS_DIAGNOSIS.json)使用两条已测FIT方向的非负秩一曲率，并以原joint/peak/native改善比例0.20/0.10/0.05共同求解，两头在200步内得到正进度。下一项前瞻固定两个新方向，仅进行原硬读出与新FRESH比较；所有历史失败、原科学门和阶段5待验状态保持。
+
+## 2026-10-20 共同进度负结果、数值求解与随机流复核
+
+[共同进度独立审核](receipts/joint_response_01_20261020/scientific_progress_diagnostic_01/terminal_01/TERMINAL_REVIEW.json)确认846源/49pins/13输出、exit0、75.18秒、40生成调用、零更新；seed0五库全过，seed1 CHECK joint剩余0.9930517，按原1%门失败。两头FRESH joint剩余0.977546/0.967419；native wave最大1.001134/0.997828，QPSD最大1.007563/0.996013。原科学门尚未通过。
+
+[固定方向新检查](docs/JOINT_RESPONSE_01_CURVATURE_UPDATE_DIAGNOSTIC_20261020.md)回到原联合目标，仅用第一项曲率候选FIT误差加入一次非负秩一修正。原SLSQP seed0未收敛的记录保持。同一凸问题的锥化候选均通过独立原始/对偶与原约束证书；seed1原始AlmostSolved状态保留。只登记固定原生检查，不直接训练。
+
+[随机流复核](receipts/joint_response_01_20261020/scientific_progress_diagnostic_01/RNG_CROSS_STUDY_AUDIT.json)发现前三项相邻诊断跨头重复部分FRESH流，同一头相对自身前次不重复。不能声称跨诊断跨头完全独立；历史负结果和拟合角色范围保持。新检查改用已验证不重叠的202670100000/202670200000流与新投影。
+
+## 2026-10-20 一次混合曲率修正闭合：一个FIT初值锚仍失败
+
+[独立审核](receipts/joint_response_01_20261020/curvature_update_diagnostic_01/terminal_01/TERMINAL_REVIEW.json)确认858源/61pins/13输出，exit0、73.68秒、40生成调用、零更新；原36宏块/27native约束、两头锥问题原始及对偶证书、20接受检查和90风险视图全部复算。seed0五库全过；seed1仅FIT0初值QPSD最大1.010555超过1.01，保持失败。两头新FRESH joint剩余0.966919/0.939009，当前native wave最大0.998519/1.000099、QPSD最大1.005924/0.995357；原最终科学门仍未通过。
+
+本次新FRESH流无前三项跨头复用。下一步只用FIT保存误差检查混合曲率模型，未提交端点、未加校准轮数；当前0作业、0定时。
+
+[第二次FIT曲率修正检查](docs/JOINT_RESPONSE_01_SECOND_CURVATURE_DIAGNOSTIC_20261020.md)已前瞻登记：同一中心的第三个固定曲率候选，两头仅用FIT保存误差得到Solved及数值证书，零更新；本序列不再自动增加第三个修正项。
+
+## 2026-10-20 第二次曲率修正闭合，固定中心序列停止
+
+[独立审核](receipts/joint_response_01_20261020/second_curvature_diagnostic_01/terminal_01/TERMINAL_REVIEW.json)确认869源/72pins/13输出、exit0、75.16秒、40生成调用、零更新。原问题矩阵和两头KKT证书、20接受检查、90风险视图全部复算。seed0只有FRESH初值QPSD最大1.010563失败；seed1只有FIT0初值QPSD最大1.010417失败。两头FRESH joint剩余0.952506/0.929284。原科学门、阈值和前次负结果不变。
+
+原对角曲率、一次混合修正、两次混合修正的固定中心三候选序列已闭合，不追加第三项修正。下一步分析保存初值锚余量、曲率误差与库间表现，未提交候选端点或增加原校准轮数，当前0作业、0定时。
+
+## 2026-10-20 保存局部几何审计及随机估计诊断登记
+
+[保存几何分析](receipts/joint_response_01_20261020/second_curvature_diagnostic_01/SAVED_ANCHOR_AND_GEOMETRY_DIAGNOSIS.json)显示原两头FIT0中心初值QPSD最大1.010624/1.015118，进入本轮时已经超过1.01。seed0后两步在38个低于ridge的方向上分配76%/81%步长平方，方向余弦0.0432而FIT收益几乎相同，追加曲率未稳定解。严格初值不退化+每FIT至少1%joint改善，以及保留已测正预测误差余量的两个局部问题均在seed0不可行，已独立核验对偶证书；没有据此启动新候选，也不推广为真实物理不可行。
+
+[随机精度诊断](docs/JOINT_RESPONSE_01_RANDOM_PRECISION_DIAGNOSTIC_20261020.md)仅比较固定FIT0记录/端点/读出下的IID32与响应潜变量正负成对32，四库×两头，电子学噪声在同组两方案完全共用。864完整差分列、1800生成调用，无新求解/候选/更新；以两头J和native导数离散度至少下降25%且预测误差不增等前瞻门判定。成对方案可能失败，不据通用方差缩减结论直接训练。新内部5400/外部5700秒预算，正确启动后用实测进度估算一次苏醒。
+
+## 2026-10-20 随机精度诊断启动、首组审核及单次接续
+
+[正确启动](receipts/joint_response_01_20261020/random_precision_diagnostic_01/STARTUP_ASSESSMENT.json)确认879源/82pins、原进程身份、旧中心/锚与候选复现。11:35:45（UTC+8）[估时快照](receipts/joint_response_01_20261020/random_precision_diagnostic_01/WAIT_ESTIMATE.json)核验136生成调用、63/864差分列；启动到进度226.325秒，剩余1664调用及10秒落盘按实测预计12:21:36完成，15%剩余时长余量后向上取整至12:29。单次[定时配置回读](receipts/joint_response_01_20261020/random_precision_diagnostic_01/AUTOMATION_CREATE_RECEIPT.json)通过，仅本聊天一项活动苏醒；没有持续查询。
+
+[首组保存算术审核](receipts/joint_response_01_20261020/random_precision_diagnostic_01/AUDITOR_PREFIX_REVIEW.json)通过54列J/N与两固定候选预测。首次本地随机数逐位断言失败记录保留：[差异核验](receipts/joint_response_01_20261020/random_precision_diagnostic_01/AUDITOR_RNG_PLATFORM_DIFFERENCE.json)表明Windows Torch 2.10与原Linux Torch 2.12的262144个正态值中2591个相差1—2 float32 ULP；原环境独立重放全部逐位一致，两端均匀随机数和生成器状态哈希相同。审计改为原环境精确重放全部8组已保存库并核验文件/数组哈希，本地使用原库复算矩阵；不扩大数值容差，不改科学代码、输入、接受门或运行预算。完整终止审核尚未执行。

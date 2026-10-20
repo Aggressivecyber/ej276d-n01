@@ -1,0 +1,706 @@
+{
+  "status": "PASS_SAVED_NATIVE_CURVATURE_DIAGNOSTIC_AUDIT",
+  "UTC": "2026-10-20T02:27:17.397575+00:00",
+  "source_files_verified": 828,
+  "source_pins": 31,
+  "local_source_hashes": 756,
+  "output_files_rehashed": 13,
+  "output_bytes": 6878275,
+  "native_exit": {
+    "exit_code": 0,
+    "reason": null,
+    "peak_rss_bytes": 3343912960,
+    "started_utc": "2026-10-20T02:24:58.078401+00:00",
+    "ended_utc": "2026-10-20T02:25:38.099520+00:00",
+    "supervisor_pid": 165144,
+    "child_pid": 165151
+  },
+  "elapsed_seconds": 38.63698658099747,
+  "config_sha256": "06f920e1f5676fb338f11eb8708c9fb4c5223477d6f038335764c2ad8a3b9ada",
+  "result_sha256": "02a39ed7c042c6764da09ba5b1095c617435b6365c1041f746e120555ee6235c",
+  "audit_counts": {
+    "finite_arrays": 122,
+    "independent_curvature_solves": 2,
+    "role_entries_replayed": 51200,
+    "random_bank_seeds_verified": 10,
+    "acceptance_checks_recomputed": 20,
+    "risk_views_recomputed": 90
+  },
+  "execution_counts": {
+    "checkpoint_loads": 6,
+    "TRAIN_archives_decoded": 1,
+    "PCA_archives_decoded": 1,
+    "old_A_calls": 52,
+    "old_A_rows": 6593,
+    "M0_head_calls": 104,
+    "M0_head_rows": 13186,
+    "REAL_observable_replay_calls": 1,
+    "REAL_observable_replay_rows": 21047,
+    "feature_maps_constructed": 5,
+    "new_native_projection_contexts": 5,
+    "allocated_banks": 10,
+    "shape_standard_normal_values": 2621440,
+    "noise005_calls": 10,
+    "noise005_rows": 327680,
+    "extension_rows": 983040,
+    "REAL_fit_feature_rows": 24576,
+    "joint_response_calls": 40,
+    "joint_response_rows": 1310720,
+    "generated_observation_calls": 120,
+    "generated_observation_rows": 3932160,
+    "native_component_rows": 4423680,
+    "saved_center_replays_verified": 8,
+    "saved_anchor_replays_verified": 8,
+    "fixed_candidate_checks": 20,
+    "saved_linear_candidate_replays_verified": 8,
+    "REAL_CHECK_feature_rows": 16384
+  },
+  "independent_solutions": {
+    "0": {
+      "maximum_parameter_difference": 4.7704895589362195e-18,
+      "minimum_constraint_slack": -7.840719185026046e-10,
+      "predicted_joint_remaining": 0.948383457052954,
+      "predicted_native_ratios": [
+        [
+          [
+            0.9941344675969065,
+            0.997949835711797,
+            1.0
+          ],
+          [
+            0.9954279067323798,
+            0.9962362186192303,
+            1.0
+          ],
+          [
+            0.994968432867679,
+            1.0000000000018756,
+            1.0
+          ]
+        ],
+        [
+          [
+            0.9921228717378071,
+            0.9932719614630302,
+            1.0
+          ],
+          [
+            0.9920615784150534,
+            0.993490401732421,
+            1.0
+          ],
+          [
+            0.9911497488011551,
+            0.9969692202383622,
+            1.0
+          ]
+        ],
+        [
+          [
+            1.0000000000211837,
+            0.9999293597712786,
+            1.0
+          ],
+          [
+            0.9988487030587356,
+            0.9894951108808681,
+            1.0
+          ],
+          [
+            0.9987082141232991,
+            1.0000000000067968,
+            1.0
+          ]
+        ]
+      ]
+    },
+    "1": {
+      "maximum_parameter_difference": 3.7947076036992655e-18,
+      "minimum_constraint_slack": -3.7102521055487614e-10,
+      "predicted_joint_remaining": 0.9240692717173096,
+      "predicted_native_ratios": [
+        [
+          [
+            0.9934232335862186,
+            0.9937795750325344,
+            1.0
+          ],
+          [
+            0.995981508075393,
+            1.0000000000019957,
+            1.0
+          ],
+          [
+            0.9954772924560108,
+            0.9949959920853639,
+            1.0
+          ]
+        ],
+        [
+          [
+            0.9970376366549881,
+            1.000000000001171,
+            1.0
+          ],
+          [
+            1.0000000000076166,
+            0.9993642248277977,
+            1.0
+          ],
+          [
+            1.000000000008635,
+            0.9975472306795876,
+            1.0
+          ]
+        ],
+        [
+          [
+            0.998121863367224,
+            0.9804801982937696,
+            1.0
+          ],
+          [
+            0.9965753665957277,
+            0.9844487563014289,
+            1.0
+          ],
+          [
+            0.9967656854756072,
+            0.9786778096908421,
+            1.0
+          ]
+        ]
+      ]
+    }
+  },
+  "summaries": {
+    "0": {
+      "all_pass": {
+        "linear_control": false,
+        "curvature_anchor": true
+      },
+      "by_model": {
+        "linear_control": {
+          "FIT0": {
+            "seed": 0,
+            "model": "linear_control",
+            "label": "FIT0",
+            "accepted": false,
+            "joint_ratio": 0.8721856916883418,
+            "macro_pass": true,
+            "trust_pass": true,
+            "native_pass": false,
+            "native_ratio_min": [
+              1.0366012200155554,
+              0.9875290290830023,
+              1.0
+            ],
+            "native_ratio_max": [
+              1.045959302810072,
+              0.994606642232811,
+              1.0
+            ],
+            "initial_anchor_ratio_max": [
+              1.0385854853927137,
+              1.0026088026549258,
+              1.0
+            ]
+          },
+          "FIT1": {
+            "seed": 0,
+            "model": "linear_control",
+            "label": "FIT1",
+            "accepted": false,
+            "joint_ratio": 0.9186131129630455,
+            "macro_pass": true,
+            "trust_pass": true,
+            "native_pass": false,
+            "native_ratio_min": [
+              1.0474807683990532,
+              0.9893948653706853,
+              1.0
+            ],
+            "native_ratio_max": [
+              1.0592071942889294,
+              0.9938999787384937,
+              1.0
+            ],
+            "initial_anchor_ratio_max": [
+              1.0532522533496593,
+              0.9899508122223304,
+              1.0
+            ]
+          },
+          "FIT2": {
+            "seed": 0,
+            "model": "linear_control",
+            "label": "FIT2",
+            "accepted": false,
+            "joint_ratio": 0.8566061783791588,
+            "macro_pass": true,
+            "trust_pass": true,
+            "native_pass": false,
+            "native_ratio_min": [
+              1.0673026639450833,
+              0.9932338012225542,
+              1.0
+            ],
+            "native_ratio_max": [
+              1.0741077367966176,
+              1.004636759514904,
+              1.0
+            ],
+            "initial_anchor_ratio_max": [
+              1.0721735406553525,
+              0.9910055309390695,
+              1.0
+            ]
+          },
+          "CHECK": {
+            "seed": 0,
+            "model": "linear_control",
+            "label": "CHECK",
+            "accepted": false,
+            "joint_ratio": 0.9379885478686941,
+            "macro_pass": true,
+            "trust_pass": true,
+            "native_pass": false,
+            "native_ratio_min": [
+              1.0455168921429079,
+              0.9790351184718076,
+              1.0
+            ],
+            "native_ratio_max": [
+              1.0545428221442474,
+              0.9907210731332738,
+              1.0
+            ],
+            "initial_anchor_ratio_max": [
+              1.0421001878800367,
+              0.9783637392055389,
+              1.0
+            ]
+          },
+          "FRESH": {
+            "seed": 0,
+            "model": "linear_control",
+            "label": "FRESH",
+            "accepted": false,
+            "joint_ratio": 0.8069567085606867,
+            "macro_pass": true,
+            "trust_pass": true,
+            "native_pass": false,
+            "native_ratio_min": [
+              1.0545225686839312,
+              0.9779151936550516,
+              1.0
+            ],
+            "native_ratio_max": [
+              1.0639251106672087,
+              0.9815025203999584,
+              1.0
+            ],
+            "initial_anchor_ratio_max": [
+              1.061663528132002,
+              0.9929883962391107,
+              1.0
+            ]
+          }
+        },
+        "curvature_anchor": {
+          "FIT0": {
+            "seed": 0,
+            "model": "curvature_anchor",
+            "label": "FIT0",
+            "accepted": true,
+            "joint_ratio": 0.9398567273397166,
+            "macro_pass": true,
+            "trust_pass": true,
+            "native_pass": true,
+            "native_ratio_min": [
+              0.99661667750746,
+              0.9947206487564523,
+              1.0
+            ],
+            "native_ratio_max": [
+              0.9983480338440589,
+              0.9986316524657975,
+              1.0
+            ],
+            "initial_anchor_ratio_max": [
+              0.991940049582829,
+              1.0079878677080287,
+              1.0
+            ]
+          },
+          "FIT1": {
+            "seed": 0,
+            "model": "curvature_anchor",
+            "label": "FIT1",
+            "accepted": true,
+            "joint_ratio": 0.9593005159064023,
+            "macro_pass": true,
+            "trust_pass": true,
+            "native_pass": true,
+            "native_ratio_min": [
+              0.9973223639063845,
+              0.9879660525862609,
+              1.0
+            ],
+            "native_ratio_max": [
+              0.9986087096000549,
+              0.9907013669949298,
+              1.0
+            ],
+            "initial_anchor_ratio_max": [
+              0.9928805168998498,
+              0.9867649098566377,
+              1.0
+            ]
+          },
+          "FIT2": {
+            "seed": 0,
+            "model": "curvature_anchor",
+            "label": "FIT2",
+            "accepted": true,
+            "joint_ratio": 0.9319691284166064,
+            "macro_pass": true,
+            "trust_pass": true,
+            "native_pass": true,
+            "native_ratio_min": [
+              1.007351844849227,
+              0.9886591617815773,
+              1.0
+            ],
+            "native_ratio_max": [
+              1.0088259790974479,
+              0.9977737585142924,
+              1.0
+            ],
+            "initial_anchor_ratio_max": [
+              1.0073356319705546,
+              0.9844424315937552,
+              1.0
+            ]
+          },
+          "CHECK": {
+            "seed": 0,
+            "model": "curvature_anchor",
+            "label": "CHECK",
+            "accepted": true,
+            "joint_ratio": 0.9597360212304894,
+            "macro_pass": true,
+            "trust_pass": true,
+            "native_pass": true,
+            "native_ratio_min": [
+              1.0016632835502082,
+              0.988774102867432,
+              1.0
+            ],
+            "native_ratio_max": [
+              1.0024019724794961,
+              0.9900907077494696,
+              1.0
+            ],
+            "initial_anchor_ratio_max": [
+              0.9903552700055239,
+              0.9778429049579463,
+              1.0
+            ]
+          },
+          "FRESH": {
+            "seed": 0,
+            "model": "curvature_anchor",
+            "label": "FRESH",
+            "accepted": true,
+            "joint_ratio": 0.9015704353723695,
+            "macro_pass": true,
+            "trust_pass": true,
+            "native_pass": true,
+            "native_ratio_min": [
+              0.9995971793619566,
+              0.9852275044996149,
+              1.0
+            ],
+            "native_ratio_max": [
+              1.0008441597823334,
+              0.986914595095293,
+              1.0
+            ],
+            "initial_anchor_ratio_max": [
+              0.9990840620389878,
+              0.9974417320586029,
+              1.0
+            ]
+          }
+        }
+      }
+    },
+    "1": {
+      "all_pass": {
+        "linear_control": false,
+        "curvature_anchor": false
+      },
+      "by_model": {
+        "linear_control": {
+          "FIT0": {
+            "seed": 1,
+            "model": "linear_control",
+            "label": "FIT0",
+            "accepted": false,
+            "joint_ratio": 0.8808529109543533,
+            "macro_pass": true,
+            "trust_pass": true,
+            "native_pass": false,
+            "native_ratio_min": [
+              1.016742903475786,
+              0.9976164868976387,
+              1.0
+            ],
+            "native_ratio_max": [
+              1.0221955324966703,
+              0.999319980784424,
+              1.0
+            ],
+            "initial_anchor_ratio_max": [
+              1.0201654115418344,
+              1.0144272685423708,
+              1.0
+            ]
+          },
+          "FIT1": {
+            "seed": 1,
+            "model": "linear_control",
+            "label": "FIT1",
+            "accepted": false,
+            "joint_ratio": 0.9232760250979658,
+            "macro_pass": true,
+            "trust_pass": true,
+            "native_pass": false,
+            "native_ratio_min": [
+              1.0263267326942842,
+              0.9769671176624809,
+              1.0
+            ],
+            "native_ratio_max": [
+              1.032363658003724,
+              0.9787575216919812,
+              1.0
+            ],
+            "initial_anchor_ratio_max": [
+              1.0336356390975296,
+              0.9521596286745722,
+              1.0
+            ]
+          },
+          "FIT2": {
+            "seed": 1,
+            "model": "linear_control",
+            "label": "FIT2",
+            "accepted": false,
+            "joint_ratio": 0.8411447622191031,
+            "macro_pass": true,
+            "trust_pass": true,
+            "native_pass": false,
+            "native_ratio_min": [
+              1.0230800433813194,
+              0.9588224756511201,
+              1.0
+            ],
+            "native_ratio_max": [
+              1.026885521193435,
+              0.9673431806152186,
+              1.0
+            ],
+            "initial_anchor_ratio_max": [
+              1.0217183423641556,
+              0.9282802557033587,
+              1.0
+            ]
+          },
+          "CHECK": {
+            "seed": 1,
+            "model": "linear_control",
+            "label": "CHECK",
+            "accepted": false,
+            "joint_ratio": 0.9270045708399378,
+            "macro_pass": true,
+            "trust_pass": true,
+            "native_pass": false,
+            "native_ratio_min": [
+              1.0190867114387099,
+              0.9762235324740731,
+              1.0
+            ],
+            "native_ratio_max": [
+              1.0237170083518645,
+              0.983965028693008,
+              1.0
+            ],
+            "initial_anchor_ratio_max": [
+              1.0194224870382411,
+              0.9467557626777052,
+              1.0
+            ]
+          },
+          "FRESH": {
+            "seed": 1,
+            "model": "linear_control",
+            "label": "FRESH",
+            "accepted": false,
+            "joint_ratio": 0.8375451964205757,
+            "macro_pass": true,
+            "trust_pass": true,
+            "native_pass": false,
+            "native_ratio_min": [
+              1.0351397103361084,
+              0.9899672738576446,
+              1.0
+            ],
+            "native_ratio_max": [
+              1.0397796754679285,
+              0.9949564385463658,
+              1.0
+            ],
+            "initial_anchor_ratio_max": [
+              1.0440888989724,
+              0.9937126303682446,
+              1.0
+            ]
+          }
+        },
+        "curvature_anchor": {
+          "FIT0": {
+            "seed": 1,
+            "model": "curvature_anchor",
+            "label": "FIT0",
+            "accepted": false,
+            "joint_ratio": 0.9157920543335367,
+            "macro_pass": true,
+            "trust_pass": true,
+            "native_pass": false,
+            "native_ratio_min": [
+              0.9981412142985785,
+              0.9940526084622769,
+              1.0
+            ],
+            "native_ratio_max": [
+              0.9985885795646652,
+              0.9954959441304092,
+              1.0
+            ],
+            "initial_anchor_ratio_max": [
+              0.9963873295449156,
+              1.0100336671857124,
+              1.0
+            ]
+          },
+          "FIT1": {
+            "seed": 1,
+            "model": "curvature_anchor",
+            "label": "FIT1",
+            "accepted": true,
+            "joint_ratio": 0.9435541410857747,
+            "macro_pass": true,
+            "trust_pass": true,
+            "native_pass": true,
+            "native_ratio_min": [
+              1.0010620668472519,
+              0.989869214384249,
+              1.0
+            ],
+            "native_ratio_max": [
+              1.0022140292227653,
+              0.9926326898157428,
+              1.0
+            ],
+            "initial_anchor_ratio_max": [
+              1.0032615763175687,
+              0.9654977481022693,
+              1.0
+            ]
+          },
+          "FIT2": {
+            "seed": 1,
+            "model": "curvature_anchor",
+            "label": "FIT2",
+            "accepted": true,
+            "joint_ratio": 0.8923756469803298,
+            "macro_pass": true,
+            "trust_pass": true,
+            "native_pass": true,
+            "native_ratio_min": [
+              1.0001312887891483,
+              0.9773570967247962,
+              1.0
+            ],
+            "native_ratio_max": [
+              1.000933982918114,
+              0.9838694001590641,
+              1.0
+            ],
+            "initial_anchor_ratio_max": [
+              0.9959244360006685,
+              0.9441391190430619,
+              1.0
+            ]
+          },
+          "CHECK": {
+            "seed": 1,
+            "model": "curvature_anchor",
+            "label": "CHECK",
+            "accepted": true,
+            "joint_ratio": 0.9544702708941887,
+            "macro_pass": true,
+            "trust_pass": true,
+            "native_pass": true,
+            "native_ratio_min": [
+              1.0007419308026861,
+              0.9880058357812938,
+              1.0
+            ],
+            "native_ratio_max": [
+              1.0020244236137772,
+              0.9919237789630664,
+              1.0
+            ],
+            "initial_anchor_ratio_max": [
+              0.9968401111360882,
+              0.955198347353205,
+              1.0
+            ]
+          },
+          "FRESH": {
+            "seed": 1,
+            "model": "curvature_anchor",
+            "label": "FRESH",
+            "accepted": false,
+            "joint_ratio": 0.8793265919384032,
+            "macro_pass": true,
+            "trust_pass": true,
+            "native_pass": false,
+            "native_ratio_min": [
+              1.0063554892089588,
+              0.9887530438341217,
+              1.0
+            ],
+            "native_ratio_max": [
+              1.0075901820482178,
+              0.9895969318965778,
+              1.0
+            ],
+            "initial_anchor_ratio_max": [
+              1.0105261907818681,
+              0.988500821103761,
+              1.0
+            ]
+          }
+        }
+      }
+    }
+  },
+  "two_seed_curvature_all_local_pass": false,
+  "scientific_acceptance": false,
+  "committed_parameter_updates": 0,
+  "evidence_limit": "Saved vector arithmetic, full candidate constrained solves and gate summaries audited. Native execution replayed original centers, anchors and linear candidates; complete candidate waveforms and trust extraction were not independently regenerated. FRESH is newly sampled from historically exposed fitting records."
+}

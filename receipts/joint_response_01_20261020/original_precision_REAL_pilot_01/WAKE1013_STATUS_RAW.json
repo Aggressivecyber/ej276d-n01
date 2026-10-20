@@ -1,0 +1,1880 @@
+{
+  "UTC": "2026-10-20T02:13:36.118493+00:00",
+  "files": {
+    "run_01/COMPLETE.json": {
+      "status": "COMPLETE",
+      "result_sha256": "c002c77f300c86c35352c00c14bad8696a9099e1a450d68b245d5e0a26d5c2f0"
+    },
+    "run_01/PROGRESS.json": {
+      "stage": "REAL_same_parent_kernel_control",
+      "UTC": "2026-10-20T02:04:09.655943+00:00",
+      "execution_counts": {
+        "checkpoint_loads": 6,
+        "TRAIN_archives_decoded": 1,
+        "PCA_archives_decoded": 1,
+        "old_A_calls": 52,
+        "old_A_rows": 6593,
+        "M0_head_calls": 104,
+        "M0_head_rows": 13186,
+        "REAL_observable_replay_calls": 1,
+        "REAL_observable_replay_rows": 21047,
+        "feature_maps_constructed": 5,
+        "new_native_projection_contexts": 5,
+        "REAL_fit_feature_rows": 147456,
+        "allocated_banks": 56,
+        "shape_standard_normal_values": 16785408,
+        "noise005_calls": 52,
+        "noise005_rows": 1605632,
+        "extension_rows": 4816896,
+        "joint_response_calls": 5716,
+        "joint_response_rows": 125833216,
+        "generated_observation_calls": 11376,
+        "generated_observation_rows": 371589120,
+        "native_component_rows": 417595392,
+        "REAL_CHECK_feature_rows": 49152,
+        "finite_difference_columns": 600,
+        "FIT_bank_finite_difference_columns": 1800,
+        "joint_direction_solve_attempts": 20,
+        "joint_direction_solves": 20,
+        "joint_candidate_trials": 20,
+        "secant_matrix_corrections": 8,
+        "REAL_response_updates": 10,
+        "REAL_evaluation_feature_rows": 4198,
+        "native_metric_rows": 493968,
+        "kernel_signal_calls": 1924,
+        "kernel_signal_rows": 1970176
+      },
+      "seed": 1,
+      "library": 1,
+      "parents_complete": 97
+    },
+    "run_01/RESULT.json": {
+      "status": "COMPLETE",
+      "REAL_calibration_candidate_pass_all": false,
+      "decisions": {
+        "0": {
+          "pass_all": false,
+          "gates": [
+            {
+              "name": "library0/fast/joint_whitened",
+              "baseline": 0.5924515497041016,
+              "candidate": 0.5364252833455422,
+              "upper": 0.4739612397632813,
+              "pass_gate": false
+            },
+            {
+              "name": "library0/fast/peak_codes",
+              "baseline": 2.1896845262164817,
+              "candidate": 2.0319915522122507,
+              "upper": 1.9707160735948335,
+              "pass_gate": false
+            },
+            {
+              "name": "library0/fast/native_wave",
+              "baseline": 0.21227492647576743,
+              "candidate": 0.21013234735585357,
+              "upper": 0.20166118015197904,
+              "pass_gate": false
+            },
+            {
+              "name": "library0/fast/native_QPSD",
+              "baseline": 0.09894995328990287,
+              "candidate": 0.0984021830666206,
+              "upper": 0.09400245562540772,
+              "pass_gate": false
+            },
+            {
+              "name": "library0/fast/native_noise",
+              "baseline": 0.14818839187245575,
+              "candidate": 0.14818839187245575,
+              "upper": 0.16300723105970133,
+              "pass_gate": true
+            },
+            {
+              "name": "library0/fast/macro_wave",
+              "baseline": 0.03252445844482569,
+              "candidate": 0.031657167603588415,
+              "upper": 0.03602104491430826,
+              "pass_gate": true
+            },
+            {
+              "name": "library0/fast/macro_charge_morphology",
+              "baseline": 0.14066055069579117,
+              "candidate": 0.1393080898339675,
+              "upper": 0.1549707463903703,
+              "pass_gate": true
+            },
+            {
+              "name": "library0/fast/macro_peak_codes",
+              "baseline": 2.1896845262164817,
+              "candidate": 2.0319915522122507,
+              "upper": 2.40889711946313,
+              "pass_gate": true
+            },
+            {
+              "name": "library0/fast/macro_baseline",
+              "baseline": 0.008653067799472709,
+              "candidate": 0.008653067799472709,
+              "upper": 0.00976251520441998,
+              "pass_gate": true
+            },
+            {
+              "name": "library0/fast/flag_peak_at_search_boundary",
+              "baseline": 0,
+              "candidate": 0,
+              "denominator": 8192,
+              "upper": 40.96,
+              "pass_gate": true
+            },
+            {
+              "name": "library0/fast/flag_global_peak_outside_search",
+              "baseline": 0,
+              "candidate": 0,
+              "denominator": 8192,
+              "upper": 40.96,
+              "pass_gate": true
+            },
+            {
+              "name": "library0/fast/flag_Q_nonpositive",
+              "baseline": 0,
+              "candidate": 0,
+              "denominator": 8192,
+              "upper": 40.96,
+              "pass_gate": true
+            },
+            {
+              "name": "library0/fast/flag_PSD_undefined",
+              "baseline": 0,
+              "candidate": 0,
+              "denominator": 8192,
+              "upper": 40.96,
+              "pass_gate": true
+            },
+            {
+              "name": "library0/fast/flag_PSD_guarded",
+              "baseline": 0,
+              "candidate": 0,
+              "denominator": 8192,
+              "upper": 40.96,
+              "pass_gate": true
+            },
+            {
+              "name": "library0/fast/flag_ADC_rail_hit",
+              "baseline": 0,
+              "candidate": 0,
+              "denominator": 8192,
+              "upper": 40.96,
+              "pass_gate": true
+            },
+            {
+              "name": "library0/fast/flag_pre_ADC_out_of_range",
+              "baseline": 0,
+              "candidate": 0,
+              "denominator": 8192,
+              "upper": 40.96,
+              "pass_gate": true
+            },
+            {
+              "name": "library0/slow/joint_whitened",
+              "baseline": 0.5937584047413847,
+              "candidate": 0.5361762551044489,
+              "upper": 0.4750067237931078,
+              "pass_gate": false
+            },
+            {
+              "name": "library0/slow/peak_codes",
+              "baseline": 2.209826188937852,
+              "candidate": 2.0382558572698946,
+              "upper": 1.988843570044067,
+              "pass_gate": false
+            },
+            {
+              "name": "library0/slow/native_wave",
+              "baseline": 0.21407369625124317,
+              "candidate": 0.21200372635596443,
+              "upper": 0.203370011438681,
+              "pass_gate": false
+            },
+            {
+              "name": "library0/slow/native_QPSD",
+              "baseline": 0.09696702627756655,
+              "candidate": 0.09638529603035574,
+              "upper": 0.09211867496368822,
+              "pass_gate": false
+            },
+            {
+              "name": "library0/slow/native_noise",
+              "baseline": 0.14818839187245575,
+              "candidate": 0.14818839187245575,
+              "upper": 0.16300723105970133,
+              "pass_gate": true
+            },
+            {
+              "name": "library0/slow/macro_wave",
+              "baseline": 0.03275556146619626,
+              "candidate": 0.03191443997973065,
+              "upper": 0.03627525823781589,
+              "pass_gate": true
+            },
+            {
+              "name": "library0/slow/macro_charge_morphology",
+              "baseline": 0.15098630030164273,
+              "candidate": 0.15018011457446856,
+              "upper": 0.16632907095680702,
+              "pass_gate": true
+            },
+            {
+              "name": "library0/slow/macro_peak_codes",
+              "baseline": 2.209826188937852,
+              "candidate": 2.0382558572698946,
+              "upper": 2.4310529484566374,
+              "pass_gate": true
+            },
+            {
+              "name": "library0/slow/macro_baseline",
+              "baseline": 0.008653067799472709,
+              "candidate": 0.008653067799472709,
+              "upper": 0.00976251520441998,
+              "pass_gate": true
+            },
+            {
+              "name": "library0/slow/flag_peak_at_search_boundary",
+              "baseline": 0,
+              "candidate": 0,
+              "denominator": 8192,
+              "upper": 40.96,
+              "pass_gate": true
+            },
+            {
+              "name": "library0/slow/flag_global_peak_outside_search",
+              "baseline": 0,
+              "candidate": 0,
+              "denominator": 8192,
+              "upper": 40.96,
+              "pass_gate": true
+            },
+            {
+              "name": "library0/slow/flag_Q_nonpositive",
+              "baseline": 0,
+              "candidate": 0,
+              "denominator": 8192,
+              "upper": 40.96,
+              "pass_gate": true
+            },
+            {
+              "name": "library0/slow/flag_PSD_undefined",
+              "baseline": 0,
+              "candidate": 0,
+              "denominator": 8192,
+              "upper": 40.96,
+              "pass_gate": true
+            },
+            {
+              "name": "library0/slow/flag_PSD_guarded",
+              "baseline": 0,
+              "candidate": 0,
+              "denominator": 8192,
+              "upper": 40.96,
+              "pass_gate": true
+            },
+            {
+              "name": "library0/slow/flag_ADC_rail_hit",
+              "baseline": 0,
+              "candidate": 0,
+              "denominator": 8192,
+              "upper": 40.96,
+              "pass_gate": true
+            },
+            {
+              "name": "library0/slow/flag_pre_ADC_out_of_range",
+              "baseline": 0,
+              "candidate": 0,
+              "denominator": 8192,
+              "upper": 40.96,
+              "pass_gate": true
+            },
+            {
+              "name": "library0/common_level/joint_whitened",
+              "baseline": 0.5910069846913019,
+              "candidate": 0.5343827850580349,
+              "upper": 0.4728055877530415,
+              "pass_gate": false
+            },
+            {
+              "name": "library0/common_level/peak_codes",
+              "baseline": 2.203028612074124,
+              "candidate": 2.036825882272356,
+              "upper": 1.9827257508667118,
+              "pass_gate": false
+            },
+            {
+              "name": "library0/common_level/native_wave",
+              "baseline": 0.21417844829846208,
+              "candidate": 0.21174996590971645,
+              "upper": 0.20346952588353898,
+              "pass_gate": false
+            },
+            {
+              "name": "library0/common_level/native_QPSD",
+              "baseline": 0.10023884339293795,
+              "candidate": 0.09975821152470625,
+              "upper": 0.09522690122329105,
+              "pass_gate": false
+            },
+            {
+              "name": "library0/common_level/native_noise",
+              "baseline": 0.14818839187245575,
+              "candidate": 0.14818839187245575,
+              "upper": 0.16300723105970133,
+              "pass_gate": true
+            },
+            {
+              "name": "library0/common_level/macro_wave",
+              "baseline": 0.0329302217675806,
+              "candidate": 0.03210573512899953,
+              "upper": 0.036467384569338665,
+              "pass_gate": true
+            },
+            {
+              "name": "library0/common_level/macro_charge_morphology",
+              "baseline": 0.11916561883139051,
+              "candidate": 0.11954247877684625,
+              "upper": 0.13132632133952957,
+              "pass_gate": true
+            },
+            {
+              "name": "library0/common_level/macro_peak_codes",
+              "baseline": 2.203028612074124,
+              "candidate": 2.036825882272356,
+              "upper": 2.4235756139065368,
+              "pass_gate": true
+            },
+            {
+              "name": "library0/common_level/macro_baseline",
+              "baseline": 0.008653067799472709,
+              "candidate": 0.008653067799472709,
+              "upper": 0.00976251520441998,
+              "pass_gate": true
+            },
+            {
+              "name": "library0/common_level/flag_peak_at_search_boundary",
+              "baseline": 0,
+              "candidate": 0,
+              "denominator": 8192,
+              "upper": 40.96,
+              "pass_gate": true
+            },
+            {
+              "name": "library0/common_level/flag_global_peak_outside_search",
+              "baseline": 0,
+              "candidate": 0,
+              "denominator": 8192,
+              "upper": 40.96,
+              "pass_gate": true
+            },
+            {
+              "name": "library0/common_level/flag_Q_nonpositive",
+              "baseline": 0,
+              "candidate": 0,
+              "denominator": 8192,
+              "upper": 40.96,
+              "pass_gate": true
+            },
+            {
+              "name": "library0/common_level/flag_PSD_undefined",
+              "baseline": 0,
+              "candidate": 0,
+              "denominator": 8192,
+              "upper": 40.96,
+              "pass_gate": true
+            },
+            {
+              "name": "library0/common_level/flag_PSD_guarded",
+              "baseline": 0,
+              "candidate": 0,
+              "denominator": 8192,
+              "upper": 40.96,
+              "pass_gate": true
+            },
+            {
+              "name": "library0/common_level/flag_ADC_rail_hit",
+              "baseline": 0,
+              "candidate": 0,
+              "denominator": 8192,
+              "upper": 40.96,
+              "pass_gate": true
+            },
+            {
+              "name": "library0/common_level/flag_pre_ADC_out_of_range",
+              "baseline": 0,
+              "candidate": 0,
+              "denominator": 8192,
+              "upper": 40.96,
+              "pass_gate": true
+            },
+            {
+              "name": "library1/fast/joint_whitened",
+              "baseline": 0.6004620048905691,
+              "candidate": 0.5368777779308486,
+              "upper": 0.4803696039124553,
+              "pass_gate": false
+            },
+            {
+              "name": "library1/fast/peak_codes",
+              "baseline": 2.2243674744149304,
+              "candidate": 2.033428693321401,
+              "upper": 2.0019307269734377,
+              "pass_gate": false
+            },
+            {
+              "name": "library1/fast/native_wave",
+              "baseline": 0.2132931416948108,
+              "candidate": 0.21141374522780407,
+              "upper": 0.20262848461007027,
+              "pass_gate": false
+            },
+            {
+              "name": "library1/fast/native_QPSD",
+              "baseline": 0.10149218570645409,
+              "candidate": 0.10189277973577297,
+              "upper": 0.09641757642113138,
+              "pass_gate": false
+            },
+            {
+              "name": "library1/fast/native_noise",
+              "baseline": 0.14609551084526462,
+              "candidate": 0.14609551084526462,
+              "upper": 0.1607050619297911,
+              "pass_gate": true
+            },
+            {
+              "name": "library1/fast/macro_wave",
+              "baseline": 0.03304818008587455,
+              "candidate": 0.03213435537470979,
+              "upper": 0.036597138719462005,
+              "pass_gate": true
+            },
+            {
+              "name": "library1/fast/macro_charge_morphology",
+              "baseline": 0.14022658752227066,
+              "candidate": 0.13872257591321718,
+              "upper": 0.15449338689949774,
+              "pass_gate": true
+            },
+            {
+              "name": "library1/fast/macro_peak_codes",
+              "baseline": 2.2243674744149304,
+              "candidate": 2.033428693321401,
+              "upper": 2.4470483624814237,
+              "pass_gate": true
+            },
+            {
+              "name": "library1/fast/macro_baseline",
+              "baseline": 0.008568758585100311,
+              "candidate": 0.008568758585100311,
+              "upper": 0.009669775068610343,
+              "pass_gate": true
+            },
+            {
+              "name": "library1/fast/flag_peak_at_search_boundary",
+              "baseline": 0,
+              "candidate": 0,
+              "denominator": 8192,
+              "upper": 40.96,
+              "pass_gate": true
+            },
+            {
+              "name": "library1/fast/flag_global_peak_outside_search",
+              "baseline": 0,
+              "candidate": 0,
+              "denominator": 8192,
+              "upper": 40.96,
+              "pass_gate": true
+            },
+            {
+              "name": "library1/fast/flag_Q_nonpositive",
+              "baseline": 0,
+              "candidate": 0,
+              "denominator": 8192,
+              "upper": 40.96,
+              "pass_gate": true
+            },
+            {
+              "name": "library1/fast/flag_PSD_undefined",
+              "baseline": 0,
+              "candidate": 0,
+              "denominator": 8192,
+              "upper": 40.96,
+              "pass_gate": true
+            },
+            {
+              "name": "library1/fast/flag_PSD_guarded",
+              "baseline": 0,
+              "candidate": 0,
+              "denominator": 8192,
+              "upper": 40.96,
+              "pass_gate": true
+            },
+            {
+              "name": "library1/fast/flag_ADC_rail_hit",
+              "baseline": 0,
+              "candidate": 0,
+              "denominator": 8192,
+              "upper": 40.96,
+              "pass_gate": true
+            },
+            {
+              "name": "library1/fast/flag_pre_ADC_out_of_range",
+              "baseline": 0,
+              "candidate": 0,
+              "denominator": 8192,
+              "upper": 40.96,
+              "pass_gate": true
+            },
+            {
+              "name": "library1/slow/joint_whitened",
+              "baseline": 0.5988911515112738,
+              "candidate": 0.535071183880302,
+              "upper": 0.47911292120901905,
+              "pass_gate": false
+            },
+            {
+              "name": "library1/slow/peak_codes",
+              "baseline": 2.222721590159679,
+              "candidate": 2.0336688899881454,
+              "upper": 2.000449431143711,
+              "pass_gate": false
+            },
+            {
+              "name": "library1/slow/native_wave",
+              "baseline": 0.21471767898991012,
+              "candidate": 0.21283870357216325,
+              "upper": 0.2039817950404146,
+              "pass_gate": false
+            },
+            {
+              "name": "library1/slow/native_QPSD",
+              "baseline": 0.09878639912194938,
+              "candidate": 0.0994545693054966,
+              "upper": 0.0938470791658519,
+              "pass_gate": false
+            },
+            {
+              "name": "library1/slow/native_noise",
+              "baseline": 0.14609551084526462,
+              "candidate": 0.14609551084526462,
+              "upper": 0.1607050619297911,
+              "pass_gate": true
+            },
+            {
+              "name": "library1/slow/macro_wave",
+              "baseline": 0.03313713047596595,
+              "candidate": 0.03228060995823485,
+              "upper": 0.036694984148562544,
+              "pass_gate": true
+            },
+            {
+              "name": "library1/slow/macro_charge_morphology",
+              "baseline": 0.15051197665048568,
+              "candidate": 0.15009050366885948,
+              "upper": 0.16580731494053427,
+              "pass_gate": true
+            },
+            {
+              "name": "library1/slow/macro_peak_codes",
+              "baseline": 2.222721590159679,
+              "candidate": 2.0336688899881454,
+              "upper": 2.445237889800647,
+              "pass_gate": true
+            },
+            {
+              "name": "library1/slow/macro_baseline",
+              "baseline": 0.008568758585100311,
+              "candidate": 0.008568758585100311,
+              "upper": 0.009669775068610343,
+              "pass_gate": true
+            },
+            {
+              "name": "library1/slow/flag_peak_at_search_boundary",
+              "baseline": 0,
+              "candidate": 0,
+              "denominator": 8192,
+              "upper": 40.96,
+              "pass_gate": true
+            },
+            {
+              "name": "library1/slow/flag_global_peak_outside_search",
+              "baseline": 0,
+              "candidate": 0,
+              "denominator": 8192,
+              "upper": 40.96,
+              "pass_gate": true
+            },
+            {
+              "name": "library1/slow/flag_Q_nonpositive",
+              "baseline": 0,
+              "candidate": 0,
+              "denominator": 8192,
+              "upper": 40.96,
+              "pass_gate": true
+            },
+            {
+              "name": "library1/slow/flag_PSD_undefined",
+              "baseline": 0,
+              "candidate": 0,
+              "denominator": 8192,
+              "upper": 40.96,
+              "pass_gate": true
+            },
+            {
+              "name": "library1/slow/flag_PSD_guarded",
+              "baseline": 0,
+              "candidate": 0,
+              "denominator": 8192,
+              "upper": 40.96,
+              "pass_gate": true
+            },
+            {
+              "name": "library1/slow/flag_ADC_rail_hit",
+              "baseline": 0,
+              "candidate": 0,
+              "denominator": 8192,
+              "upper": 40.96,
+              "pass_gate": true
+            },
+            {
+              "name": "library1/slow/flag_pre_ADC_out_of_range",
+              "baseline": 0,
+              "candidate": 0,
+              "denominator": 8192,
+              "upper": 40.96,
+              "pass_gate": true
+            },
+            {
+              "name": "library1/common_level/joint_whitened",
+              "baseline": 0.5966072427326755,
+              "candidate": 0.5325516537158097,
+              "upper": 0.4772857941861404,
+              "pass_gate": false
+            },
+            {
+              "name": "library1/common_level/peak_codes",
+              "baseline": 2.2197932264859697,
+              "candidate": 2.0294210470691083,
+              "upper": 1.9978139038373728,
+              "pass_gate": false
+            },
+            {
+              "name": "library1/common_level/native_wave",
+              "baseline": 0.2147720981034263,
+              "candidate": 0.2128086239706762,
+              "upper": 0.20403349319825498,
+              "pass_gate": false
+            },
+            {
+              "name": "library1/common_level/native_QPSD",
+              "baseline": 0.10091900907199002,
+              "candidate": 0.10135836986552796,
+              "upper": 0.09587305861839052,
+              "pass_gate": false
+            },
+            {
+              "name": "library1/common_level/native_noise",
+              "baseline": 0.14609551084526462,
+              "candidate": 0.14609551084526462,
+              "upper": 0.1607050619297911,
+              "pass_gate": true
+            },
+            {
+              "name": "library1/common_level/macro_wave",
+              "baseline": 0.03304241438566505,
+              "candidate": 0.03233996122538814,
+              "upper": 0.03659079644923156,
+              "pass_gate": true
+            },
+            {
+              "name": "library1/common_level/macro_charge_morphology",
+              "baseline": 0.11918239042929016,
+              "candidate": 0.11916131796617671,
+              "upper": 0.13134477009721918,
+              "pass_gate": true
+            },
+            {
+              "name": "library1/common_level/macro_peak_codes",
+              "baseline": 2.2197932264859697,
+              "candidate": 2.0294210470691083,
+              "upper": 2.442016689759567,
+              "pass_gate": true
+            },
+            {
+              "name": "library1/common_level/macro_baseline",
+              "baseline": 0.008568758585100311,
+              "candidate": 0.008568758585100311,
+              "upper": 0.009669775068610343,
+              "pass_gate": true
+            },
+            {
+              "name": "library1/common_level/flag_peak_at_search_boundary",
+              "baseline": 0,
+              "candidate": 0,
+              "denominator": 8192,
+              "upper": 40.96,
+              "pass_gate": true
+            },
+            {
+              "name": "library1/common_level/flag_global_peak_outside_search",
+              "baseline": 0,
+              "candidate": 0,
+              "denominator": 8192,
+              "upper": 40.96,
+              "pass_gate": true
+            },
+            {
+              "name": "library1/common_level/flag_Q_nonpositive",
+              "baseline": 0,
+              "candidate": 0,
+              "denominator": 8192,
+              "upper": 40.96,
+              "pass_gate": true
+            },
+            {
+              "name": "library1/common_level/flag_PSD_undefined",
+              "baseline": 0,
+              "candidate": 0,
+              "denominator": 8192,
+              "upper": 40.96,
+              "pass_gate": true
+            },
+            {
+              "name": "library1/common_level/flag_PSD_guarded",
+              "baseline": 0,
+              "candidate": 0,
+              "denominator": 8192,
+              "upper": 40.96,
+              "pass_gate": true
+            },
+            {
+              "name": "library1/common_level/flag_ADC_rail_hit",
+              "baseline": 0,
+              "candidate": 0,
+              "denominator": 8192,
+              "upper": 40.96,
+              "pass_gate": true
+            },
+            {
+              "name": "library1/common_level/flag_pre_ADC_out_of_range",
+              "baseline": 0,
+              "candidate": 0,
+              "denominator": 8192,
+              "upper": 40.96,
+              "pass_gate": true
+            }
+          ],
+          "final_scientific_acceptance": false,
+          "stage5_required": true
+        },
+        "1": {
+          "pass_all": false,
+          "gates": [
+            {
+              "name": "library0/fast/joint_whitened",
+              "baseline": 0.5918519387421594,
+              "candidate": 0.5376030411707754,
+              "upper": 0.4734815509937275,
+              "pass_gate": false
+            },
+            {
+              "name": "library0/fast/peak_codes",
+              "baseline": 2.1865855803666965,
+              "candidate": 2.0282837035179995,
+              "upper": 1.967927022330027,
+              "pass_gate": false
+            },
+            {
+              "name": "library0/fast/native_wave",
+              "baseline": 0.2138039228358869,
+              "candidate": 0.21136507147338834,
+              "upper": 0.20311372669409253,
+              "pass_gate": false
+            },
+            {
+              "name": "library0/fast/native_QPSD",
+              "baseline": 0.09878431677677213,
+              "candidate": 0.0984698791348774,
+              "upper": 0.09384510093793352,
+              "pass_gate": false
+            },
+            {
+              "name": "library0/fast/native_noise",
+              "baseline": 0.14700703470142715,
+              "candidate": 0.14700703470142715,
+              "upper": 0.1617077381715699,
+              "pass_gate": true
+            },
+            {
+              "name": "library0/fast/macro_wave",
+              "baseline": 0.03271949350194834,
+              "candidate": 0.031958077265792764,
+              "upper": 0.036235583477143174,
+              "pass_gate": true
+            },
+            {
+              "name": "library0/fast/macro_charge_morphology",
+              "baseline": 0.14289216187920414,
+              "candidate": 0.13934829296102333,
+              "upper": 0.15742551869212457,
+              "pass_gate": true
+            },
+            {
+              "name": "library0/fast/macro_peak_codes",
+              "baseline": 2.1865855803666965,
+              "candidate": 2.0282837035179995,
+              "upper": 2.4054882790283663,
+              "pass_gate": true
+            },
+            {
+              "name": "library0/fast/macro_baseline",
+              "baseline": 0.008593101760187767,
+              "candidate": 0.008593101760187767,
+              "upper": 0.009696552561206545,
+              "pass_gate": true
+            },
+            {
+              "name": "library0/fast/flag_peak_at_search_boundary",
+              "baseline": 0,
+              "candidate": 0,
+              "denominator": 8192,
+              "upper": 40.96,
+              "pass_gate": true
+            },
+            {
+              "name": "library0/fast/flag_global_peak_outside_search",
+              "baseline": 0,
+              "candidate": 0,
+              "denominator": 8192,
+              "upper": 40.96,
+              "pass_gate": true
+            },
+            {
+              "name": "library0/fast/flag_Q_nonpositive",
+              "baseline": 0,
+              "candidate": 0,
+              "denominator": 8192,
+              "upper": 40.96,
+              "pass_gate": true
+            },
+            {
+              "name": "library0/fast/flag_PSD_undefined",
+              "baseline": 0,
+              "candidate": 0,
+              "denominator": 8192,
+              "upper": 40.96,
+              "pass_gate": true
+            },
+            {
+              "name": "library0/fast/flag_PSD_guarded",
+              "baseline": 0,
+              "candidate": 0,
+              "denominator": 8192,
+              "upper": 40.96,
+              "pass_gate": true
+            },
+            {
+              "name": "library0/fast/flag_ADC_rail_hit",
+              "baseline": 0,
+              "candidate": 0,
+              "denominator": 8192,
+              "upper": 40.96,
+              "pass_gate": true
+            },
+            {
+              "name": "library0/fast/flag_pre_ADC_out_of_range",
+              "baseline": 0,
+              "candidate": 0,
+              "denominator": 8192,
+              "upper": 40.96,
+              "pass_gate": true
+            },
+            {
+              "name": "library0/slow/joint_whitened",
+              "baseline": 0.5919957452321606,
+              "candidate": 0.5363615631398987,
+              "upper": 0.47359659618572847,
+              "pass_gate": false
+            },
+            {
+              "name": "library0/slow/peak_codes",
+              "baseline": 2.1942399061804054,
+              "candidate": 2.024852377900803,
+              "upper": 1.974815915562365,
+              "pass_gate": false
+            },
+            {
+              "name": "library0/slow/native_wave",
+              "baseline": 0.21503650806759383,
+              "candidate": 0.2128679458980121,
+              "upper": 0.20428468266421412,
+              "pass_gate": false
+            },
+            {
+              "name": "library0/slow/native_QPSD",
+              "baseline": 0.09664558280413846,
+              "candidate": 0.09671022554141429,
+              "upper": 0.09181330366393153,
+              "pass_gate": false
+            },
+            {
+              "name": "library0/slow/native_noise",
+              "baseline": 0.14700703470142715,
+              "candidate": 0.14700703470142715,
+              "upper": 0.1617077381715699,
+              "pass_gate": true
+            },
+            {
+              "name": "library0/slow/macro_wave",
+              "baseline": 0.03299801839907786,
+              "candidate": 0.032301732117955284,
+              "upper": 0.036541960863985645,
+              "pass_gate": true
+            },
+            {
+              "name": "library0/slow/macro_charge_morphology",
+              "baseline": 0.15230846445714558,
+              "candidate": 0.14969852427867392,
+              "upper": 0.16778345152786014,
+              "pass_gate": true
+            },
+            {
+              "name": "library0/slow/macro_peak_codes",
+              "baseline": 2.1942399061804054,
+              "candidate": 2.024852377900803,
+              "upper": 2.4139080374234463,
+              "pass_gate": true
+            },
+            {
+              "name": "library0/slow/macro_baseline",
+              "baseline": 0.008593101760187767,
+              "candidate": 0.008593101760187767,
+              "upper": 0.009696552561206545,
+              "pass_gate": true
+            },
+            {
+              "name": "library0/slow/flag_peak_at_search_boundary",
+              "baseline": 0,
+              "candidate": 0,
+              "denominator": 8192,
+              "upper": 40.96,
+              "pass_gate": true
+            },
+            {
+              "name": "library0/slow/flag_global_peak_outside_search",
+              "baseline": 0,
+              "candidate": 0,
+              "denominator": 8192,
+              "upper": 40.96,
+              "pass_gate": true
+            },
+            {
+              "name": "library0/slow/flag_Q_nonpositive",
+              "baseline": 0,
+              "candidate": 0,
+              "denominator": 8192,
+              "upper": 40.96,
+              "pass_gate": true
+            },
+            {
+              "name": "library0/slow/flag_PSD_undefined",
+              "baseline": 0,
+              "candidate": 0,
+              "denominator": 8192,
+              "upper": 40.96,
+              "pass_gate": true
+            },
+            {
+              "name": "library0/slow/flag_PSD_guarded",
+              "baseline": 0,
+              "candidate": 0,
+              "denominator": 8192,
+              "upper": 40.96,
+              "pass_gate": true
+            },
+            {
+              "name": "library0/slow/flag_ADC_rail_hit",
+              "baseline": 0,
+              "candidate": 0,
+              "denominator": 8192,
+              "upper": 40.96,
+              "pass_gate": true
+            },
+            {
+              "name": "library0/slow/flag_pre_ADC_out_of_range",
+              "baseline": 0,
+              "candidate": 0,
+              "denominator": 8192,
+              "upper": 40.96,
+              "pass_gate": true
+            },
+            {
+              "name": "library0/common_level/joint_whitened",
+              "baseline": 0.589142794719148,
+              "candidate": 0.5341044392514062,
+              "upper": 0.4713142357753184,
+              "pass_gate": false
+            },
+            {
+              "name": "library0/common_level/peak_codes",
+              "baseline": 2.1875911096343414,
+              "candidate": 2.028607661933917,
+              "upper": 1.9688319986709073,
+              "pass_gate": false
+            },
+            {
+              "name": "library0/common_level/native_wave",
+              "baseline": 0.21507408349449952,
+              "candidate": 0.21300007340313884,
+              "upper": 0.20432037931977454,
+              "pass_gate": false
+            },
+            {
+              "name": "library0/common_level/native_QPSD",
+              "baseline": 0.1004254726167314,
+              "candidate": 0.10023101663615502,
+              "upper": 0.09540419898589483,
+              "pass_gate": false
+            },
+            {
+              "name": "library0/common_level/native_noise",
+              "baseline": 0.14700703470142715,
+              "candidate": 0.14700703470142715,
+              "upper": 0.1617077381715699,
+              "pass_gate": true
+            },
+            {
+              "name": "library0/common_level/macro_wave",
+              "baseline": 0.03295361672875058,
+              "candidate": 0.032482995133144794,
+              "upper": 0.03649311902662564,
+              "pass_gate": true
+            },
+            {
+              "name": "library0/common_level/macro_charge_morphology",
+              "baseline": 0.12015866180318005,
+              "candidate": 0.11870631352642572,
+              "upper": 0.13241866860849807,
+              "pass_gate": true
+            },
+            {
+              "name": "library0/common_level/macro_peak_codes",
+              "baseline": 2.1875911096343414,
+              "candidate": 2.028607661933917,
+              "upper": 2.406594361222776,
+              "pass_gate": true
+            },
+            {
+              "name": "library0/common_level/macro_baseline",
+              "baseline": 0.008593101760187767,
+              "candidate": 0.008593101760187767,
+              "upper": 0.009696552561206545,
+              "pass_gate": true
+            },
+            {
+              "name": "library0/common_level/flag_peak_at_search_boundary",
+              "baseline": 0,
+              "candidate": 0,
+              "denominator": 8192,
+              "upper": 40.96,
+              "pass_gate": true
+            },
+            {
+              "name": "library0/common_level/flag_global_peak_outside_search",
+              "baseline": 0,
+              "candidate": 0,
+              "denominator": 8192,
+              "upper": 40.96,
+              "pass_gate": true
+            },
+            {
+              "name": "library0/common_level/flag_Q_nonpositive",
+              "baseline": 0,
+              "candidate": 0,
+              "denominator": 8192,
+              "upper": 40.96,
+              "pass_gate": true
+            },
+            {
+              "name": "library0/common_level/flag_PSD_undefined",
+              "baseline": 0,
+              "candidate": 0,
+              "denominator": 8192,
+              "upper": 40.96,
+              "pass_gate": true
+            },
+            {
+              "name": "library0/common_level/flag_PSD_guarded",
+              "baseline": 0,
+              "candidate": 0,
+              "denominator": 8192,
+              "upper": 40.96,
+              "pass_gate": true
+            },
+            {
+              "name": "library0/common_level/flag_ADC_rail_hit",
+              "baseline": 0,
+              "candidate": 0,
+              "denominator": 8192,
+              "upper": 40.96,
+              "pass_gate": true
+            },
+            {
+              "name": "library0/common_level/flag_pre_ADC_out_of_range",
+              "baseline": 0,
+              "candidate": 0,
+              "denominator": 8192,
+              "upper": 40.96,
+              "pass_gate": true
+            },
+            {
+              "name": "library1/fast/joint_whitened",
+              "baseline": 0.5906463872869412,
+              "candidate": 0.5310064835520796,
+              "upper": 0.472517109829553,
+              "pass_gate": false
+            },
+            {
+              "name": "library1/fast/peak_codes",
+              "baseline": 2.1835609455930833,
+              "candidate": 2.020263999094689,
+              "upper": 1.965204851033775,
+              "pass_gate": false
+            },
+            {
+              "name": "library1/fast/native_wave",
+              "baseline": 0.21281620977373616,
+              "candidate": 0.21164655747957514,
+              "upper": 0.20217539928504935,
+              "pass_gate": false
+            },
+            {
+              "name": "library1/fast/native_QPSD",
+              "baseline": 0.10120739725506339,
+              "candidate": 0.10168820100518362,
+              "upper": 0.09614702739231022,
+              "pass_gate": false
+            },
+            {
+              "name": "library1/fast/native_noise",
+              "baseline": 0.14583763465867058,
+              "candidate": 0.14583763465867058,
+              "upper": 0.16042139812453765,
+              "pass_gate": true
+            },
+            {
+              "name": "library1/fast/macro_wave",
+              "baseline": 0.03265767411952317,
+              "candidate": 0.03210707330094902,
+              "upper": 0.03616758215647549,
+              "pass_gate": true
+            },
+            {
+              "name": "library1/fast/macro_charge_morphology",
+              "baseline": 0.14054833751976445,
+              "candidate": 0.13697946190069651,
+              "upper": 0.15484731189674092,
+              "pass_gate": true
+            },
+            {
+              "name": "library1/fast/macro_peak_codes",
+              "baseline": 2.1835609455930833,
+              "candidate": 2.020263999094689,
+              "upper": 2.4021611807773917,
+              "pass_gate": true
+            },
+            {
+              "name": "library1/fast/macro_baseline",
+              "baseline": 0.008094232982256777,
+              "candidate": 0.008094232982256777,
+              "upper": 0.009147796905482456,
+              "pass_gate": true
+            },
+            {
+              "name": "library1/fast/flag_peak_at_search_boundary",
+              "baseline": 0,
+              "candidate": 0,
+              "denominator": 8192,
+              "upper": 40.96,
+              "pass_gate": true
+            },
+            {
+              "name": "library1/fast/flag_global_peak_outside_search",
+              "baseline": 0,
+              "candidate": 0,
+              "denominator": 8192,
+              "upper": 40.96,
+              "pass_gate": true
+            },
+            {
+              "name": "library1/fast/flag_Q_nonpositive",
+              "baseline": 0,
+              "candidate": 0,
+              "denominator": 8192,
+              "upper": 40.96,
+              "pass_gate": true
+            },
+            {
+              "name": "library1/fast/flag_PSD_undefined",
+              "baseline": 0,
+              "candidate": 0,
+              "denominator": 8192,
+              "upper": 40.96,
+              "pass_gate": true
+            },
+            {
+              "name": "library1/fast/flag_PSD_guarded",
+              "baseline": 0,
+              "candidate": 0,
+              "denominator": 8192,
+              "upper": 40.96,
+              "pass_gate": true
+            },
+            {
+              "name": "library1/fast/flag_ADC_rail_hit",
+              "baseline": 0,
+              "candidate": 0,
+              "denominator": 8192,
+              "upper": 40.96,
+              "pass_gate": true
+            },
+            {
+              "name": "library1/fast/flag_pre_ADC_out_of_range",
+              "baseline": 0,
+              "candidate": 0,
+              "denominator": 8192,
+              "upper": 40.96,
+              "pass_gate": true
+            },
+            {
+              "name": "library1/slow/joint_whitened",
+              "baseline": 0.5892732230598574,
+              "candidate": 0.5286850773462977,
+              "upper": 0.4714185784478859,
+              "pass_gate": false
+            },
+            {
+              "name": "library1/slow/peak_codes",
+              "baseline": 2.1820992833238257,
+              "candidate": 2.021644486589066,
+              "upper": 1.9638893549914431,
+              "pass_gate": false
+            },
+            {
+              "name": "library1/slow/native_wave",
+              "baseline": 0.21469425134305403,
+              "candidate": 0.21331178115757848,
+              "upper": 0.2039595387759013,
+              "pass_gate": false
+            },
+            {
+              "name": "library1/slow/native_QPSD",
+              "baseline": 0.09965567998882686,
+              "candidate": 0.0999937909673782,
+              "upper": 0.09467289598938551,
+              "pass_gate": false
+            },
+            {
+              "name": "library1/slow/native_noise",
+              "baseline": 0.14583763465867058,
+              "candidate": 0.14583763465867058,
+              "upper": 0.16042139812453765,
+              "pass_gate": true
+            },
+            {
+              "name": "library1/slow/macro_wave",
+              "baseline": 0.03309284896940746,
+              "candidate": 0.032311108168473025,
+              "upper": 0.036646274491348205,
+              "pass_gate": true
+            },
+            {
+              "name": "library1/slow/macro_charge_morphology",
+              "baseline": 0.1519047783245624,
+              "candidate": 0.14898382343029196,
+              "upper": 0.16733939678201865,
+              "pass_gate": true
+            },
+            {
+              "name": "library1/slow/macro_peak_codes",
+              "baseline": 2.1820992833238257,
+              "candidate": 2.021644486589066,
+              "upper": 2.4005533522812086,
+              "pass_gate": true
+            },
+            {
+              "name": "library1/slow/macro_baseline",
+              "baseline": 0.008094232982256777,
+              "candidate": 0.008094232982256777,
+              "upper": 0.009147796905482456,
+              "pass_gate": true
+            },
+            {
+              "name": "library1/slow/flag_peak_at_search_boundary",
+              "baseline": 0,
+              "candidate": 0,
+              "denominator": 8192,
+              "upper": 40.96,
+              "pass_gate": true
+            },
+            {
+              "name": "library1/slow/flag_global_peak_outside_search",
+              "baseline": 0,
+              "candidate": 0,
+              "denominator": 8192,
+              "upper": 40.96,
+              "pass_gate": true
+            },
+            {
+              "name": "library1/slow/flag_Q_nonpositive",
+              "baseline": 0,
+              "candidate": 0,
+              "denominator": 8192,
+              "upper": 40.96,
+              "pass_gate": true
+            },
+            {
+              "name": "library1/slow/flag_PSD_undefined",
+              "baseline": 0,
+              "candidate": 0,
+              "denominator": 8192,
+              "upper": 40.96,
+              "pass_gate": true
+            },
+            {
+              "name": "library1/slow/flag_PSD_guarded",
+              "baseline": 0,
+              "candidate": 0,
+              "denominator": 8192,
+              "upper": 40.96,
+              "pass_gate": true
+            },
+            {
+              "name": "library1/slow/flag_ADC_rail_hit",
+              "baseline": 0,
+              "candidate": 0,
+              "denominator": 8192,
+              "upper": 40.96,
+              "pass_gate": true
+            },
+            {
+              "name": "library1/slow/flag_pre_ADC_out_of_range",
+              "baseline": 0,
+              "candidate": 0,
+              "denominator": 8192,
+              "upper": 40.96,
+              "pass_gate": true
+            },
+            {
+              "name": "library1/common_level/joint_whitened",
+              "baseline": 0.5880770038773271,
+              "candidate": 0.5263874919387445,
+              "upper": 0.4704616031018617,
+              "pass_gate": false
+            },
+            {
+              "name": "library1/common_level/peak_codes",
+              "baseline": 2.188660356020909,
+              "candidate": 2.0191638040898976,
+              "upper": 1.969794320418818,
+              "pass_gate": false
+            },
+            {
+              "name": "library1/common_level/native_wave",
+              "baseline": 0.21445492050186385,
+              "candidate": 0.2133838856573246,
+              "upper": 0.20373217447677064,
+              "pass_gate": false
+            },
+            {
+              "name": "library1/common_level/native_QPSD",
+              "baseline": 0.1025878968768495,
+              "candidate": 0.10266046096936914,
+              "upper": 0.09745850203300702,
+              "pass_gate": false
+            },
+            {
+              "name": "library1/common_level/native_noise",
+              "baseline": 0.14583763465867058,
+              "candidate": 0.14583763465867058,
+              "upper": 0.16042139812453765,
+              "pass_gate": true
+            },
+            {
+              "name": "library1/common_level/macro_wave",
+              "baseline": 0.03316362483133519,
+              "candidate": 0.03251564823567893,
+              "upper": 0.03672412793946871,
+              "pass_gate": true
+            },
+            {
+              "name": "library1/common_level/macro_charge_morphology",
+              "baseline": 0.11838043201992159,
+              "candidate": 0.11692328000148029,
+              "upper": 0.13046261584691377,
+              "pass_gate": true
+            },
+            {
+              "name": "library1/common_level/macro_peak_codes",
+              "baseline": 2.188660356020909,
+              "candidate": 2.0191638040898976,
+              "upper": 2.407770532248,
+              "pass_gate": true
+            },
+            {
+              "name": "library1/common_level/macro_baseline",
+              "baseline": 0.008094232982256777,
+              "candidate": 0.008094232982256777,
+              "upper": 0.009147796905482456,
+              "pass_gate": true
+            },
+            {
+              "name": "library1/common_level/flag_peak_at_search_boundary",
+              "baseline": 0,
+              "candidate": 0,
+              "denominator": 8192,
+              "upper": 40.96,
+              "pass_gate": true
+            },
+            {
+              "name": "library1/common_level/flag_global_peak_outside_search",
+              "baseline": 0,
+              "candidate": 0,
+              "denominator": 8192,
+              "upper": 40.96,
+              "pass_gate": true
+            },
+            {
+              "name": "library1/common_level/flag_Q_nonpositive",
+              "baseline": 0,
+              "candidate": 0,
+              "denominator": 8192,
+              "upper": 40.96,
+              "pass_gate": true
+            },
+            {
+              "name": "library1/common_level/flag_PSD_undefined",
+              "baseline": 0,
+              "candidate": 0,
+              "denominator": 8192,
+              "upper": 40.96,
+              "pass_gate": true
+            },
+            {
+              "name": "library1/common_level/flag_PSD_guarded",
+              "baseline": 0,
+              "candidate": 0,
+              "denominator": 8192,
+              "upper": 40.96,
+              "pass_gate": true
+            },
+            {
+              "name": "library1/common_level/flag_ADC_rail_hit",
+              "baseline": 0,
+              "candidate": 0,
+              "denominator": 8192,
+              "upper": 40.96,
+              "pass_gate": true
+            },
+            {
+              "name": "library1/common_level/flag_pre_ADC_out_of_range",
+              "baseline": 0,
+              "candidate": 0,
+              "denominator": 8192,
+              "upper": 40.96,
+              "pass_gate": true
+            }
+          ],
+          "final_scientific_acceptance": false,
+          "stage5_required": true
+        }
+      },
+      "tracks": {
+        "seed0_joint": {
+          "track": "seed0_joint",
+          "accepted_updates": 2,
+          "source_parents_visited": 6465,
+          "allowed_source_parents": 6465,
+          "real_records_visited": 18948,
+          "allowed_real_records": 18948,
+          "source_visit_sum": 9216,
+          "real_visit_sum": 36864
+        },
+        "seed0_physical": {
+          "track": "seed0_physical",
+          "accepted_updates": 3,
+          "source_parents_visited": 6465,
+          "allowed_source_parents": 6465,
+          "real_records_visited": 18948,
+          "allowed_real_records": 18948,
+          "source_visit_sum": 9216,
+          "real_visit_sum": 36864
+        },
+        "seed1_joint": {
+          "track": "seed1_joint",
+          "accepted_updates": 2,
+          "source_parents_visited": 6465,
+          "allowed_source_parents": 6465,
+          "real_records_visited": 18948,
+          "allowed_real_records": 18948,
+          "source_visit_sum": 9216,
+          "real_visit_sum": 36864
+        },
+        "seed1_physical": {
+          "track": "seed1_physical",
+          "accepted_updates": 3,
+          "source_parents_visited": 6465,
+          "allowed_source_parents": 6465,
+          "real_records_visited": 18948,
+          "allowed_real_records": 18948,
+          "source_visit_sum": 9216,
+          "real_visit_sum": 36864
+        }
+      },
+      "native_timing": {
+        "calls": 3776,
+        "seconds": 2698.95534627089
+      },
+      "kernel_controls": {
+        "0": {
+          "comparisons": {
+            "0": {
+              "joint": {
+                "reference": "M0",
+                "actual_MC_mean_relative_change": 0.009413027392432695,
+                "covariance_relative_change": 0.01858512382855315,
+                "covariance_trace_ratio": 1.0096678178081548,
+                "Q_variance_ratio": 1.0258066515236855e+25,
+                "wave_variance_ratio": 1.0148359405030456,
+                "covariance_min_eigenvalue": -1.5365787276945757e-19,
+                "Q_variance_zero_parent_count": 0,
+                "parents": 128,
+                "draws_per_parent": 1024
+              },
+              "physical": {
+                "reference": "physical_initial",
+                "actual_MC_mean_relative_change": 0.03520424055481136,
+                "covariance_relative_change": 0.05261930641225212,
+                "covariance_trace_ratio": 1.017085722389047,
+                "Q_variance_ratio": 1.0004466244073784,
+                "wave_variance_ratio": 1.036126404247218,
+                "covariance_min_eigenvalue": -4.4464669832933977e-20,
+                "Q_variance_zero_parent_count": 0,
+                "parents": 128,
+                "draws_per_parent": 1024
+              }
+            },
+            "1": {
+              "joint": {
+                "reference": "M0",
+                "actual_MC_mean_relative_change": 0.009402732095305236,
+                "covariance_relative_change": 0.018762718984479385,
+                "covariance_trace_ratio": 1.0097453330062351,
+                "Q_variance_ratio": 8.957902352704673e+24,
+                "wave_variance_ratio": 1.014889949327518,
+                "covariance_min_eigenvalue": -3.0826226640611542e-19,
+                "Q_variance_zero_parent_count": 0,
+                "parents": 128,
+                "draws_per_parent": 1024
+              },
+              "physical": {
+                "reference": "physical_initial",
+                "actual_MC_mean_relative_change": 0.03522801468912676,
+                "covariance_relative_change": 0.053109719683210536,
+                "covariance_trace_ratio": 1.0170328389616856,
+                "Q_variance_ratio": 1.0013312269337473,
+                "wave_variance_ratio": 1.036081850084586,
+                "covariance_min_eigenvalue": -2.3050819447434213e-19,
+                "Q_variance_zero_parent_count": 0,
+                "parents": 128,
+                "draws_per_parent": 1024
+              }
+            }
+          },
+          "between_library_covariance_relative_difference": {
+            "M0": 0.10899904852698178,
+            "physical_initial": 0.07595729584916948,
+            "joint": 0.10922905994318655,
+            "physical": 0.0766948715115075
+          },
+          "REAL_conditional_kernel_truth_available": false,
+          "no_gate_or_variance_target_fitted_from_this_control": true,
+          "mean_is_actual_MC_mean": true,
+          "all_parents_retained": true
+        },
+        "1": {
+          "comparisons": {
+            "0": {
+              "joint": {
+                "reference": "M0",
+                "actual_MC_mean_relative_change": 0.008460423140156692,
+                "covariance_relative_change": 0.03478858395284739,
+                "covariance_trace_ratio": 1.0124185367003873,
+                "Q_variance_ratio": 2.560589260833452e+25,
+                "wave_variance_ratio": 1.0275826130769226,
+                "covariance_min_eigenvalue": -3.4271364559138257e-19,
+                "Q_variance_zero_parent_count": 0,
+                "parents": 128,
+                "draws_per_parent": 1024
+              },
+              "physical": {
+                "reference": "physical_initial",
+                "actual_MC_mean_relative_change": 0.030200664869413505,
+                "covariance_relative_change": 0.044479952072544335,
+                "covariance_trace_ratio": 1.0193138282056387,
+                "Q_variance_ratio": 0.9998394830535581,
+                "wave_variance_ratio": 1.0348761039545737,
+                "covariance_min_eigenvalue": -8.499467375513494e-20,
+                "Q_variance_zero_parent_count": 0,
+                "parents": 128,
+                "draws_per_parent": 1024
+              }
+            },
+            "1": {
+              "joint": {
+                "reference": "M0",
+                "actual_MC_mean_relative_change": 0.008472700953982793,
+                "covariance_relative_change": 0.034366585895813546,
+                "covariance_trace_ratio": 1.0123063532576184,
+                "Q_variance_ratio": 2.4618033668564376e+25,
+                "wave_variance_ratio": 1.027396464789247,
+                "covariance_min_eigenvalue": -5.665500034085055e-19,
+                "Q_variance_zero_parent_count": 0,
+                "parents": 128,
+                "draws_per_parent": 1024
+              },
+              "physical": {
+                "reference": "physical_initial",
+                "actual_MC_mean_relative_change": 0.03011132598865726,
+                "covariance_relative_change": 0.04408353901635228,
+                "covariance_trace_ratio": 1.0189553713526338,
+                "Q_variance_ratio": 1.0003018516453637,
+                "wave_variance_ratio": 1.033954618103433,
+                "covariance_min_eigenvalue": -2.5001732031015624e-18,
+                "Q_variance_zero_parent_count": 0,
+                "parents": 128,
+                "draws_per_parent": 1024
+              }
+            }
+          },
+          "between_library_covariance_relative_difference": {
+            "M0": 0.05216827668067335,
+            "physical_initial": 0.05771319320589377,
+            "joint": 0.05200895085430643,
+            "physical": 0.05813610087926451
+          },
+          "REAL_conditional_kernel_truth_available": false,
+          "no_gate_or_variance_target_fitted_from_this_control": true,
+          "mean_is_actual_MC_mean": true,
+          "all_parents_retained": true
+        }
+      },
+      "role_counts": {
+        "source_train_rows": 6465,
+        "source_heldout_rows": 128,
+        "real_train_rows": 18948,
+        "real_heldout_rows": 2099,
+        "real_train_groups": 380,
+        "real_heldout_groups": 42
+      },
+      "validation_scope": "Frozen-system posthoc reporting roles already exposed by prior REAL runs; not full-pipeline unseen validation",
+      "physical_and_neural_solver_and_iteration_budgets_matched": true,
+      "final_all_TRAIN_refit_pending": true,
+      "stage5_validation_pending": true,
+      "scientific_acceptance": false,
+      "population_weights_fitted": 0,
+      "DEV_waveforms_decoded": 0,
+      "next_action": "diagnose_saved_joint_REAL_failure_before_more_training",
+      "config_sha256": "3272ef3806a6293d004a21859886d74d0de8f52137a4e0ae7c4907e64eed6445",
+      "execution_counts": {
+        "checkpoint_loads": 6,
+        "TRAIN_archives_decoded": 1,
+        "PCA_archives_decoded": 1,
+        "old_A_calls": 52,
+        "old_A_rows": 6593,
+        "M0_head_calls": 104,
+        "M0_head_rows": 13186,
+        "REAL_observable_replay_calls": 1,
+        "REAL_observable_replay_rows": 21047,
+        "feature_maps_constructed": 5,
+        "new_native_projection_contexts": 5,
+        "REAL_fit_feature_rows": 147456,
+        "allocated_banks": 56,
+        "shape_standard_normal_values": 17039360,
+        "noise005_calls": 52,
+        "noise005_rows": 1605632,
+        "extension_rows": 4816896,
+        "joint_response_calls": 5840,
+        "joint_response_rows": 125960192,
+        "generated_observation_calls": 11376,
+        "generated_observation_rows": 371589120,
+        "native_component_rows": 417595392,
+        "REAL_CHECK_feature_rows": 49152,
+        "finite_difference_columns": 600,
+        "FIT_bank_finite_difference_columns": 1800,
+        "joint_direction_solve_attempts": 20,
+        "joint_direction_solves": 20,
+        "joint_candidate_trials": 20,
+        "secant_matrix_corrections": 8,
+        "REAL_response_updates": 10,
+        "REAL_evaluation_feature_rows": 4198,
+        "native_metric_rows": 493968,
+        "kernel_signal_calls": 2048,
+        "kernel_signal_rows": 2097152
+      },
+      "elapsed_seconds": 3174.692856255999,
+      "peak_GPU_allocated_bytes": 3366871552,
+      "peak_GPU_reserved_bytes": 4129292288
+    },
+    "control_01/launch.json": {
+      "supervisor_pid": 152355,
+      "child_pid": 152362,
+      "command": [
+        "timeout",
+        "--signal=TERM",
+        "--kill-after=20s",
+        "5700s",
+        "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+        "-B",
+        "/home/rylan/projects/ej276d-n01/joint_response01_original_precision_REAL_pilot_20261020/scripts/run_joint_response01_original_precision_real.py",
+        "--config",
+        "/home/rylan/projects/ej276d-n01/joint_response01_original_precision_REAL_pilot_20261020/configs/joint_response_01_original_precision_REAL_pilot_20261020.json",
+        "--config-sha256",
+        "3272ef3806a6293d004a21859886d74d0de8f52137a4e0ae7c4907e64eed6445",
+        "--out",
+        "/home/rylan/projects/ej276d-n01/joint_response01_original_precision_REAL_pilot_20261020/run_01",
+        "--device",
+        "cuda:0"
+      ],
+      "started_utc": "2026-10-20T01:11:14.351257+00:00"
+    },
+    "control_01/exit_receipt.json": {
+      "exit_code": 0,
+      "reason": null,
+      "peak_rss_bytes": 5260341248,
+      "started_utc": "2026-10-20T01:11:14.351257+00:00",
+      "ended_utc": "2026-10-20T02:04:11.018836+00:00",
+      "supervisor_pid": 152355,
+      "child_pid": 152362
+    },
+    "control_01/resource_status.json": {
+      "supervisor_pid": 152355,
+      "child_pid": 152362,
+      "rss_bytes": 2711367680,
+      "peak_rss_bytes": 5260341248,
+      "child_tree": [
+        152362,
+        152363
+      ],
+      "utc": "2026-10-20T02:04:10.018331+00:00"
+    }
+  },
+  "processes": [],
+  "boot_id": "83c9f761-c124-42e1-89b8-5f45f0b3acc4",
+  "source_files_verified": 819,
+  "config_sha256": "3272ef3806a6293d004a21859886d74d0de8f52137a4e0ae7c4907e64eed6445",
+  "tracks": {
+    "seed0_joint_ITER00": {
+      "FD_columns_completed": 54,
+      "selected_trial": 1,
+      "stop_reason": "first_all_FIT_CHECK_pass",
+      "current_solve": null,
+      "trials_completed": 2,
+      "mtime_UTC": "2026-10-20T01:15:59.118343+00:00"
+    },
+    "seed0_joint_ITER01": {
+      "FD_columns_completed": 54,
+      "selected_trial": 1,
+      "stop_reason": "first_all_FIT_CHECK_pass",
+      "current_solve": null,
+      "trials_completed": 2,
+      "mtime_UTC": "2026-10-20T01:20:39.894931+00:00"
+    },
+    "seed0_joint_ITER02": {
+      "FD_columns_completed": 54,
+      "selected_trial": null,
+      "stop_reason": "trial_budget",
+      "current_solve": null,
+      "trials_completed": 3,
+      "mtime_UTC": "2026-10-20T01:25:24.249691+00:00"
+    },
+    "seed0_physical_ITER00": {
+      "FD_columns_completed": 46,
+      "selected_trial": 0,
+      "stop_reason": "first_all_FIT_CHECK_pass",
+      "current_solve": null,
+      "trials_completed": 1,
+      "mtime_UTC": "2026-10-20T01:29:20.602614+00:00"
+    },
+    "seed0_physical_ITER01": {
+      "FD_columns_completed": 46,
+      "selected_trial": 0,
+      "stop_reason": "first_all_FIT_CHECK_pass",
+      "current_solve": null,
+      "trials_completed": 1,
+      "mtime_UTC": "2026-10-20T01:33:17.047851+00:00"
+    },
+    "seed0_physical_ITER02": {
+      "FD_columns_completed": 46,
+      "selected_trial": 0,
+      "stop_reason": "first_all_FIT_CHECK_pass",
+      "current_solve": null,
+      "trials_completed": 1,
+      "mtime_UTC": "2026-10-20T01:37:13.306263+00:00"
+    },
+    "seed1_joint_ITER00": {
+      "FD_columns_completed": 54,
+      "selected_trial": 1,
+      "stop_reason": "first_all_FIT_CHECK_pass",
+      "current_solve": null,
+      "trials_completed": 2,
+      "mtime_UTC": "2026-10-20T01:42:24.616535+00:00"
+    },
+    "seed1_joint_ITER01": {
+      "FD_columns_completed": 54,
+      "selected_trial": 1,
+      "stop_reason": "first_all_FIT_CHECK_pass",
+      "current_solve": null,
+      "trials_completed": 2,
+      "mtime_UTC": "2026-10-20T01:47:05.685968+00:00"
+    },
+    "seed1_joint_ITER02": {
+      "FD_columns_completed": 54,
+      "selected_trial": null,
+      "stop_reason": "trial_budget",
+      "current_solve": null,
+      "trials_completed": 3,
+      "mtime_UTC": "2026-10-20T01:51:50.229594+00:00"
+    },
+    "seed1_physical_ITER00": {
+      "FD_columns_completed": 46,
+      "selected_trial": 0,
+      "stop_reason": "first_all_FIT_CHECK_pass",
+      "current_solve": null,
+      "trials_completed": 1,
+      "mtime_UTC": "2026-10-20T01:55:46.683962+00:00"
+    },
+    "seed1_physical_ITER01": {
+      "FD_columns_completed": 46,
+      "selected_trial": 0,
+      "stop_reason": "first_all_FIT_CHECK_pass",
+      "current_solve": null,
+      "trials_completed": 1,
+      "mtime_UTC": "2026-10-20T01:59:43.031909+00:00"
+    },
+    "seed1_physical_ITER02": {
+      "FD_columns_completed": 46,
+      "selected_trial": 0,
+      "stop_reason": "first_all_FIT_CHECK_pass",
+      "current_solve": null,
+      "trials_completed": 1,
+      "mtime_UTC": "2026-10-20T02:03:39.418888+00:00"
+    }
+  }
+}

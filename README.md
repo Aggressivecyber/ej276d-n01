@@ -1,15 +1,14 @@
-# N01 当前阶段：原生成器32draw三轮REAL校准运行中
+# N01 当前阶段：阶段4随机精度诊断已启动，12:29单次接续
 
-> 当前执行状态（2026-10-20）：原生成器32draw局部诊断已完成并独立审核，两头FIT/CHECK/FRESH通过。三轮REAL校准与匹配物理比较已启动，09:15核验45/600差分列，预计10:05:24完成，10:13单次接续。当前1科学作业；REAL响应匹配尚未建立。
-[原生成器32draw终止审核](receipts/joint_response_01_20261020/original_draw_precision_fix01/terminal_01/TERMINAL_REVIEW.json)确认108差分列、3完整联合解、3候选及2次FRESH检查通过独立复算，原生565.78秒、零提交更新。两头新候选FRESH joint剩余0.918138/0.967731；native wave最差1.008556 M0，尚未达到最终5%改善门。旧4draw候选在相同32draw检查上也通过，本次只支持继续有界循环方法检验。
+> 当前执行状态（2026-10-20）：三轮REAL校准及五项固定方向诊断已完成并审核，原最终科学门尚未通过。新随机精度诊断已正确启动；当前登记1科学作业、1次苏醒。REAL响应匹配尚未建立，阶段5待验。
 
-[原教师直接恢复已完成并独立复算](receipts/joint_response_01_20261020/c1_original_precision_01/terminal_01/TERMINAL_REVIEW.json)：原生exit 0、约1007.64秒，785源文件／125锁定输入／46输出通过核验。432差分列、8联合方向、20候选、4接受更新；36/36硬门与16/18条件精度门通过。seed1两套2048draw库的条件均值误差5.7628%/5.7221%超过原5%门。该头唯一接受的更新使当次CHECK风险降低8.48%；末端条件均值仍未过门，历史门限和判定保留。
+[原三轮校准](receipts/joint_response_01_20261020/original_precision_REAL_pilot_01/terminal_01/TERMINAL_REVIEW.json)完成600差分列、20联合解及192最终门复算，两神经各24/96改善门失败。五项固定方向检查均零参数提交；[最后一次曲率检查](receipts/joint_response_01_20261020/second_curvature_diagnostic_01/terminal_01/TERMINAL_REVIEW.json)仍有seed0 FRESH、seed1 FIT0初值QPSD的1.010563/1.010417超过1.01。同一中心的三候选曲率序列已经停止。
 
-随后直接完成[冻结端点同库排序检验](receipts/joint_response_01_20261020/c1_objective_alignment_01/terminal_01/TERMINAL_REVIEW.json)，零参数更新，原生93.10秒。两头各四套独立库、全部6465拟合父×32draw，原18特征因子精确复现；796源文件、136锁定输入、12输出与240残差向量独立复算通过。保存完整协方差的分块交叉项，不把相关指标重复当成独立证据。
+[保存几何审计](receipts/joint_response_01_20261020/second_curvature_diagnostic_01/SAVED_ANCHOR_AND_GEOMETRY_DIAGNOSIS.json)发现初值锚余量不足和弱方向敏感性。已按[冻结协议](docs/JOINT_RESPONSE_01_RANDOM_PRECISION_DIAGNOSTIC_20261020.md)比较四组独立随机库、两头的IID32与正负成对潜变量32，组内共享电子学噪声；共864差分列、1800生成调用，只评价固定端点和既有候选，零新求解或更新。
 
-在两头×FIT/CHECK/FINAL×四库的24个配对视图中，原教师目标全部给条件较差的直接拟合端点更低风险；换成同家族C1目标，24个视图全部反转。原教师目标下，差值的U估计为−7.09e−5至−1.80e−4；正对照通过端点的条件均值误差约1.1%—1.2%，本次端点约4.6%／5.7%。这支持插值家族差异在观测目标中被响应参数补偿的解释。四库jackknife仅作描述，未据此改变目标或门限。
+[启动与估时](receipts/joint_response_01_20261020/random_precision_diagnostic_01/WAIT_ESTIMATE.json)于11:35:45（UTC+8）核验879源文件和原进程身份；保存进度为63/864列、136/1800生成调用。按本次实测1.664秒/调用估计12:21:36完成，加15%剩余时间余量并向上取整，已设置**2026-10-20 12:29（UTC+8）单次接续**，见[定时回执](receipts/joint_response_01_20261020/random_precision_diagnostic_01/AUTOMATION_CREATE_RECEIPT.json)。后续进度尚未查询，原5400秒内部上限保持。
 
-当前唯一科学作业是[32draw三轮REAL校准](docs/JOINT_RESPONSE_01_ORIGINAL_PRECISION_REAL_PILOT_20261020.md)，09:11派发。两神经从M0零增量、两物理从原物理初值开始，各3轮，完整覆盖6465拟合父和18948REAL行；匹配数据/随机流，原全部局部及最终门不变。819源文件、23输入及原进程身份核验通过。09:15快照为45/600差分列、尚无候选更新；后续状态待接续。两库硬报告与128×1024同父核无论是否通过均执行，原REAL失败与阶段5未完成状态保持。
+[首组审核](receipts/joint_response_01_20261020/random_precision_diagnostic_01/AUDITOR_PREFIX_REVIEW.json)复算54列差分及两个固定预测。Windows Torch 2.10与Linux Torch 2.12的正态数值最大相差2个float32 ULP；[原环境独立重放](receipts/joint_response_01_20261020/random_precision_diagnostic_01/AUDITOR_RNG_PLATFORM_DIFFERENCE.json)的262144值逐位一致，均匀随机数及生成器状态哈希相同。完整终止审计将以原环境精确重放核验全部8组随机库，科学输入和门限保持原样。
 
 以下保留历史快照；当前状态以本节、三台账及对应回执为准。
 
