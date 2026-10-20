@@ -1,0 +1,177 @@
+{
+  "UTC": "2026-10-19T23:56:01.308908+00:00",
+  "files": {
+    "run_01/PROGRESS.json": {
+      "stage": "precision_pilot_FD",
+      "UTC": "2026-10-19T23:55:51.552075+00:00",
+      "execution_counts": {
+        "checkpoint_loads": 6,
+        "TRAIN_archives_decoded": 1,
+        "PCA_archives_decoded": 1,
+        "old_A_calls": 52,
+        "old_A_rows": 6593,
+        "M0_head_calls": 104,
+        "M0_head_rows": 13186,
+        "allocated_banks": 205,
+        "shape_standard_normal_values": 3361800,
+        "noise005_calls": 205,
+        "noise005_rows": 420225,
+        "extension_rows": 1260675,
+        "joint_response_calls": 2041,
+        "joint_response_rows": 4144065,
+        "generated_observation_calls": 6123,
+        "generated_observation_rows": 12432195,
+        "feature_maps_constructed": 9,
+        "full_fit_parent_banks": 2,
+        "finite_difference_columns": 9,
+        "fullpool_FIT_chunk_columns": 918
+      },
+      "track": "seed0_joint",
+      "iteration": 1,
+      "column": 9,
+      "parameters": 54
+    },
+    "run_01/seed0_FEATURE_REPLAY.json": {
+      "pass_all": true,
+      "factors": 9,
+      "statistics_target": "original_teacher"
+    },
+    "control_01/launch.json": {
+      "supervisor_pid": 137683,
+      "child_pid": 137690,
+      "command": [
+        "timeout",
+        "--signal=TERM",
+        "--kill-after=20s",
+        "1740s",
+        "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+        "-B",
+        "/home/rylan/projects/ej276d-n01/joint_response01_c1_original_precision_20261020/scripts/run_joint_response01_c1_original_precision.py",
+        "--config",
+        "/home/rylan/projects/ej276d-n01/joint_response01_c1_original_precision_20261020/configs/joint_response_01_c1_original_precision_20261020.json",
+        "--config-sha256",
+        "75f5d9b100cf4387f7409d218f753c18dac2ead658618bcd89a28c595fcd79ff",
+        "--out",
+        "/home/rylan/projects/ej276d-n01/joint_response01_c1_original_precision_20261020/run_01",
+        "--device",
+        "cuda:0"
+      ],
+      "started_utc": "2026-10-19T23:55:25.807301+00:00"
+    },
+    "control_01/resource_status.json": {
+      "supervisor_pid": 137683,
+      "child_pid": 137690,
+      "rss_bytes": 4456620032,
+      "peak_rss_bytes": 4456620032,
+      "child_tree": [
+        137690,
+        137691
+      ],
+      "utc": "2026-10-19T23:56:00.827084+00:00"
+    }
+  },
+  "processes": [
+    {
+      "pid": 137682,
+      "argv": [
+        "flock",
+        "-n",
+        "/home/rylan/projects/ej276d-n01/.n01_scientific_dispatch.lock",
+        "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+        "-B",
+        "/home/rylan/projects/ej276d-n01/joint_response01_c1_original_precision_20261020/scripts/supervise.py",
+        "--output",
+        "/home/rylan/projects/ej276d-n01/joint_response01_c1_original_precision_20261020/control_01",
+        "--rss-limit-gib",
+        "12",
+        "--",
+        "timeout",
+        "--signal=TERM",
+        "--kill-after=20s",
+        "1740s",
+        "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+        "-B",
+        "/home/rylan/projects/ej276d-n01/joint_response01_c1_original_precision_20261020/scripts/run_joint_response01_c1_original_precision.py",
+        "--config",
+        "/home/rylan/projects/ej276d-n01/joint_response01_c1_original_precision_20261020/configs/joint_response_01_c1_original_precision_20261020.json",
+        "--config-sha256",
+        "75f5d9b100cf4387f7409d218f753c18dac2ead658618bcd89a28c595fcd79ff",
+        "--out",
+        "/home/rylan/projects/ej276d-n01/joint_response01_c1_original_precision_20261020/run_01",
+        "--device",
+        "cuda:0"
+      ],
+      "start_ticks": "2792559"
+    },
+    {
+      "pid": 137683,
+      "argv": [
+        "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+        "-B",
+        "/home/rylan/projects/ej276d-n01/joint_response01_c1_original_precision_20261020/scripts/supervise.py",
+        "--output",
+        "/home/rylan/projects/ej276d-n01/joint_response01_c1_original_precision_20261020/control_01",
+        "--rss-limit-gib",
+        "12",
+        "--",
+        "timeout",
+        "--signal=TERM",
+        "--kill-after=20s",
+        "1740s",
+        "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+        "-B",
+        "/home/rylan/projects/ej276d-n01/joint_response01_c1_original_precision_20261020/scripts/run_joint_response01_c1_original_precision.py",
+        "--config",
+        "/home/rylan/projects/ej276d-n01/joint_response01_c1_original_precision_20261020/configs/joint_response_01_c1_original_precision_20261020.json",
+        "--config-sha256",
+        "75f5d9b100cf4387f7409d218f753c18dac2ead658618bcd89a28c595fcd79ff",
+        "--out",
+        "/home/rylan/projects/ej276d-n01/joint_response01_c1_original_precision_20261020/run_01",
+        "--device",
+        "cuda:0"
+      ],
+      "start_ticks": "2792560"
+    },
+    {
+      "pid": 137690,
+      "argv": [
+        "timeout",
+        "--signal=TERM",
+        "--kill-after=20s",
+        "1740s",
+        "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+        "-B",
+        "/home/rylan/projects/ej276d-n01/joint_response01_c1_original_precision_20261020/scripts/run_joint_response01_c1_original_precision.py",
+        "--config",
+        "/home/rylan/projects/ej276d-n01/joint_response01_c1_original_precision_20261020/configs/joint_response_01_c1_original_precision_20261020.json",
+        "--config-sha256",
+        "75f5d9b100cf4387f7409d218f753c18dac2ead658618bcd89a28c595fcd79ff",
+        "--out",
+        "/home/rylan/projects/ej276d-n01/joint_response01_c1_original_precision_20261020/run_01",
+        "--device",
+        "cuda:0"
+      ],
+      "start_ticks": "2792562"
+    },
+    {
+      "pid": 137691,
+      "argv": [
+        "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+        "-B",
+        "/home/rylan/projects/ej276d-n01/joint_response01_c1_original_precision_20261020/scripts/run_joint_response01_c1_original_precision.py",
+        "--config",
+        "/home/rylan/projects/ej276d-n01/joint_response01_c1_original_precision_20261020/configs/joint_response_01_c1_original_precision_20261020.json",
+        "--config-sha256",
+        "75f5d9b100cf4387f7409d218f753c18dac2ead658618bcd89a28c595fcd79ff",
+        "--out",
+        "/home/rylan/projects/ej276d-n01/joint_response01_c1_original_precision_20261020/run_01",
+        "--device",
+        "cuda:0"
+      ],
+      "start_ticks": "2792562"
+    }
+  ],
+  "boot_id": "83c9f761-c124-42e1-89b8-5f45f0b3acc4",
+  "source_files_verified": 785,
+  "config_sha256": "75f5d9b100cf4387f7409d218f753c18dac2ead658618bcd89a28c595fcd79ff"
+}
