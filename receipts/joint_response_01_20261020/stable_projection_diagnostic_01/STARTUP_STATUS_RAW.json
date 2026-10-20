@@ -1,0 +1,181 @@
+{
+  "UTC": "2026-10-20T04:49:06.639064+00:00",
+  "files": {
+    "run_01/PROGRESS.json": {
+      "stage": "stable_projection_fixed_candidate_checks",
+      "UTC": "2026-10-20T04:49:06.251938+00:00",
+      "execution_counts": {
+        "checkpoint_loads": 6,
+        "TRAIN_archives_decoded": 1,
+        "PCA_archives_decoded": 1,
+        "old_A_calls": 52,
+        "old_A_rows": 6593,
+        "M0_head_calls": 104,
+        "M0_head_rows": 13186,
+        "REAL_observable_replay_calls": 1,
+        "REAL_observable_replay_rows": 21047,
+        "feature_maps_constructed": 5,
+        "new_native_projection_contexts": 5,
+        "allocated_banks": 5,
+        "shape_standard_normal_values": 1310720,
+        "noise005_calls": 5,
+        "noise005_rows": 163840,
+        "extension_rows": 491520,
+        "REAL_fit_feature_rows": 16384,
+        "joint_response_calls": 20,
+        "joint_response_rows": 655360,
+        "generated_observation_calls": 60,
+        "generated_observation_rows": 1966080,
+        "native_component_rows": 2211840,
+        "saved_center_replays_verified": 5,
+        "saved_anchor_replays_verified": 5,
+        "fixed_candidate_checks": 10,
+        "saved_control_candidate_replays_verified": 5,
+        "REAL_CHECK_feature_rows": 4096
+      },
+      "seed": 0,
+      "role": "IID0",
+      "native_timing": {
+        "calls": 20,
+        "seconds": 14.3396419010096
+      }
+    },
+    "control_01/launch.json": {
+      "supervisor_pid": 193344,
+      "child_pid": 193348,
+      "command": [
+        "timeout",
+        "--signal=TERM",
+        "--kill-after=20s",
+        "480s",
+        "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+        "-B",
+        "/home/rylan/projects/ej276d-n01/joint_response01_stable_projection_diagnostic_20261020/scripts/diagnose_joint01_stable_projection.py",
+        "--config",
+        "/home/rylan/projects/ej276d-n01/joint_response01_stable_projection_diagnostic_20261020/configs/joint_response_01_stable_projection_diagnostic_20261020.json",
+        "--config-sha256",
+        "97a6b4a57d4f890797aa874c2398372b8af1299d60c3ef5012071914aa3e1c9f",
+        "--out",
+        "/home/rylan/projects/ej276d-n01/joint_response01_stable_projection_diagnostic_20261020/run_01",
+        "--device",
+        "cuda:0"
+      ],
+      "started_utc": "2026-10-20T04:48:44.511137+00:00"
+    },
+    "control_01/resource_status.json": {
+      "supervisor_pid": 193344,
+      "child_pid": 193348,
+      "rss_bytes": 3038539776,
+      "peak_rss_bytes": 3340541952,
+      "child_tree": [
+        193348,
+        193350
+      ],
+      "utc": "2026-10-20T04:49:06.521977+00:00"
+    }
+  },
+  "processes": [
+    {
+      "pid": 193343,
+      "argv": [
+        "flock",
+        "-n",
+        "/home/rylan/projects/ej276d-n01/.n01_scientific_dispatch.lock",
+        "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+        "-B",
+        "/home/rylan/projects/ej276d-n01/joint_response01_stable_projection_diagnostic_20261020/scripts/supervise.py",
+        "--output",
+        "/home/rylan/projects/ej276d-n01/joint_response01_stable_projection_diagnostic_20261020/control_01",
+        "--rss-limit-gib",
+        "12",
+        "--",
+        "timeout",
+        "--signal=TERM",
+        "--kill-after=20s",
+        "480s",
+        "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+        "-B",
+        "/home/rylan/projects/ej276d-n01/joint_response01_stable_projection_diagnostic_20261020/scripts/diagnose_joint01_stable_projection.py",
+        "--config",
+        "/home/rylan/projects/ej276d-n01/joint_response01_stable_projection_diagnostic_20261020/configs/joint_response_01_stable_projection_diagnostic_20261020.json",
+        "--config-sha256",
+        "97a6b4a57d4f890797aa874c2398372b8af1299d60c3ef5012071914aa3e1c9f",
+        "--out",
+        "/home/rylan/projects/ej276d-n01/joint_response01_stable_projection_diagnostic_20261020/run_01",
+        "--device",
+        "cuda:0"
+      ],
+      "start_ticks": "4552430"
+    },
+    {
+      "pid": 193344,
+      "argv": [
+        "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+        "-B",
+        "/home/rylan/projects/ej276d-n01/joint_response01_stable_projection_diagnostic_20261020/scripts/supervise.py",
+        "--output",
+        "/home/rylan/projects/ej276d-n01/joint_response01_stable_projection_diagnostic_20261020/control_01",
+        "--rss-limit-gib",
+        "12",
+        "--",
+        "timeout",
+        "--signal=TERM",
+        "--kill-after=20s",
+        "480s",
+        "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+        "-B",
+        "/home/rylan/projects/ej276d-n01/joint_response01_stable_projection_diagnostic_20261020/scripts/diagnose_joint01_stable_projection.py",
+        "--config",
+        "/home/rylan/projects/ej276d-n01/joint_response01_stable_projection_diagnostic_20261020/configs/joint_response_01_stable_projection_diagnostic_20261020.json",
+        "--config-sha256",
+        "97a6b4a57d4f890797aa874c2398372b8af1299d60c3ef5012071914aa3e1c9f",
+        "--out",
+        "/home/rylan/projects/ej276d-n01/joint_response01_stable_projection_diagnostic_20261020/run_01",
+        "--device",
+        "cuda:0"
+      ],
+      "start_ticks": "4552430"
+    },
+    {
+      "pid": 193348,
+      "argv": [
+        "timeout",
+        "--signal=TERM",
+        "--kill-after=20s",
+        "480s",
+        "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+        "-B",
+        "/home/rylan/projects/ej276d-n01/joint_response01_stable_projection_diagnostic_20261020/scripts/diagnose_joint01_stable_projection.py",
+        "--config",
+        "/home/rylan/projects/ej276d-n01/joint_response01_stable_projection_diagnostic_20261020/configs/joint_response_01_stable_projection_diagnostic_20261020.json",
+        "--config-sha256",
+        "97a6b4a57d4f890797aa874c2398372b8af1299d60c3ef5012071914aa3e1c9f",
+        "--out",
+        "/home/rylan/projects/ej276d-n01/joint_response01_stable_projection_diagnostic_20261020/run_01",
+        "--device",
+        "cuda:0"
+      ],
+      "start_ticks": "4552432"
+    },
+    {
+      "pid": 193350,
+      "argv": [
+        "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+        "-B",
+        "/home/rylan/projects/ej276d-n01/joint_response01_stable_projection_diagnostic_20261020/scripts/diagnose_joint01_stable_projection.py",
+        "--config",
+        "/home/rylan/projects/ej276d-n01/joint_response01_stable_projection_diagnostic_20261020/configs/joint_response_01_stable_projection_diagnostic_20261020.json",
+        "--config-sha256",
+        "97a6b4a57d4f890797aa874c2398372b8af1299d60c3ef5012071914aa3e1c9f",
+        "--out",
+        "/home/rylan/projects/ej276d-n01/joint_response01_stable_projection_diagnostic_20261020/run_01",
+        "--device",
+        "cuda:0"
+      ],
+      "start_ticks": "4552432"
+    }
+  ],
+  "boot_id": "83c9f761-c124-42e1-89b8-5f45f0b3acc4",
+  "source_files_verified": 902,
+  "config_sha256": "97a6b4a57d4f890797aa874c2398372b8af1299d60c3ef5012071914aa3e1c9f"
+}

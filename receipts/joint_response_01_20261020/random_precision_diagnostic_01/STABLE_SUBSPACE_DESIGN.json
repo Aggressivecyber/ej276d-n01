@@ -1,0 +1,22 @@
+{
+  "status": "PROSPECTIVE_SAVED_MATRIX_SUBSPACE_CHECK",
+  "UTC": "2026-10-20T04:36:52.375678+00:00",
+  "schemes_used_for_fit": [
+    "IID"
+  ],
+  "replicates": 4,
+  "threshold": 4.0,
+  "definition": "Generalized mean-J signal versus estimated variance of the four-bank mean plus original ridge; keep eigenvalues >=4. This is a descriptive twofold signal-to-root-variance-plus-ridge rule, not a confidence bound.",
+  "noise_coordinate": "Exactly zero as already implied by opposite native-noise slopes and unchanged noise constraints; use first 53 coordinates.",
+  "subspace_orthonormalization": "Euclidean QR of retained generalized eigenvectors.",
+  "objective": "Original three-FIT complete joint objective including all cross-coordinate terms and original ridge, restricted to retained subspace.",
+  "constraints": "Original box, macro, radius .0125, current native nonincrease and fixed initial 1.01/1.10 cap with the same two existing PSD curvature corrections; additionally require each FIT predicted joint <=.99.",
+  "new_curvature_corrections": 0,
+  "new_generator_calls": 0,
+  "new_candidates_at_most": 2,
+  "solver_calls": 2,
+  "solver_seconds_each": 30,
+  "max_iterations_each": 200,
+  "threshold_retuning_or_fallback": false,
+  "execution_rule": "Only independently certified candidates may be considered for a separately registered native diagnostic. No model calls or training in this check."
+}

@@ -1,0 +1,150 @@
+{
+  "UTC": "2026-10-20T04:50:06.322966+00:00",
+  "files": {
+    "run_01/COMPLETE.json": {
+      "status": "COMPLETE",
+      "result_sha256": "6d2348911d038036bc02bb625c9465146fef808b6d00c8da894cd3aac5cb9a17"
+    },
+    "run_01/PROGRESS.json": {
+      "stage": "stable_projection_fixed_candidate_checks",
+      "UTC": "2026-10-20T04:49:52.616773+00:00",
+      "execution_counts": {
+        "checkpoint_loads": 6,
+        "TRAIN_archives_decoded": 1,
+        "PCA_archives_decoded": 1,
+        "old_A_calls": 52,
+        "old_A_rows": 6593,
+        "M0_head_calls": 104,
+        "M0_head_rows": 13186,
+        "REAL_observable_replay_calls": 1,
+        "REAL_observable_replay_rows": 21047,
+        "feature_maps_constructed": 5,
+        "new_native_projection_contexts": 5,
+        "allocated_banks": 18,
+        "shape_standard_normal_values": 4718592,
+        "noise005_calls": 18,
+        "noise005_rows": 589824,
+        "extension_rows": 1769472,
+        "REAL_fit_feature_rows": 57344,
+        "joint_response_calls": 72,
+        "joint_response_rows": 2359296,
+        "generated_observation_calls": 216,
+        "generated_observation_rows": 7077888,
+        "native_component_rows": 7962624,
+        "saved_center_replays_verified": 16,
+        "saved_anchor_replays_verified": 16,
+        "fixed_candidate_checks": 36,
+        "saved_control_candidate_replays_verified": 16,
+        "REAL_CHECK_feature_rows": 16384
+      },
+      "seed": 1,
+      "role": "FRESH",
+      "native_timing": {
+        "calls": 72,
+        "seconds": 51.34347336398059
+      }
+    },
+    "run_01/RESULT.json": {
+      "status": "COMPLETE",
+      "summaries": {
+        "0": {
+          "curvature_update_control": false,
+          "stable_projection": false
+        },
+        "1": {
+          "curvature_update_control": false,
+          "stable_projection": false
+        }
+      },
+      "two_seed_stable_projection_all_local_pass": false,
+      "committed_parameter_updates": 0,
+      "scientific_acceptance": false,
+      "automatic_training": false,
+      "original_final_gates_unchanged": true,
+      "native_timing": {
+        "calls": 72,
+        "seconds": 51.34347336398059
+      },
+      "scope": "Fixed orthogonal projection ablation with paired original one-rank control, eight replayed fitting libraries and one new FRESH per head.",
+      "config_sha256": "97a6b4a57d4f890797aa874c2398372b8af1299d60c3ef5012071914aa3e1c9f",
+      "execution_counts": {
+        "checkpoint_loads": 6,
+        "TRAIN_archives_decoded": 1,
+        "PCA_archives_decoded": 1,
+        "old_A_calls": 52,
+        "old_A_rows": 6593,
+        "M0_head_calls": 104,
+        "M0_head_rows": 13186,
+        "REAL_observable_replay_calls": 1,
+        "REAL_observable_replay_rows": 21047,
+        "feature_maps_constructed": 5,
+        "new_native_projection_contexts": 5,
+        "allocated_banks": 18,
+        "shape_standard_normal_values": 4718592,
+        "noise005_calls": 18,
+        "noise005_rows": 589824,
+        "extension_rows": 1769472,
+        "REAL_fit_feature_rows": 57344,
+        "joint_response_calls": 72,
+        "joint_response_rows": 2359296,
+        "generated_observation_calls": 216,
+        "generated_observation_rows": 7077888,
+        "native_component_rows": 7962624,
+        "saved_center_replays_verified": 16,
+        "saved_anchor_replays_verified": 16,
+        "fixed_candidate_checks": 36,
+        "saved_control_candidate_replays_verified": 16,
+        "REAL_CHECK_feature_rows": 16384
+      },
+      "elapsed_seconds": 67.34277547400416,
+      "peak_GPU_allocated_bytes": 3290345472,
+      "peak_GPU_reserved_bytes": 4129292288
+    },
+    "control_01/launch.json": {
+      "supervisor_pid": 193344,
+      "child_pid": 193348,
+      "command": [
+        "timeout",
+        "--signal=TERM",
+        "--kill-after=20s",
+        "480s",
+        "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+        "-B",
+        "/home/rylan/projects/ej276d-n01/joint_response01_stable_projection_diagnostic_20261020/scripts/diagnose_joint01_stable_projection.py",
+        "--config",
+        "/home/rylan/projects/ej276d-n01/joint_response01_stable_projection_diagnostic_20261020/configs/joint_response_01_stable_projection_diagnostic_20261020.json",
+        "--config-sha256",
+        "97a6b4a57d4f890797aa874c2398372b8af1299d60c3ef5012071914aa3e1c9f",
+        "--out",
+        "/home/rylan/projects/ej276d-n01/joint_response01_stable_projection_diagnostic_20261020/run_01",
+        "--device",
+        "cuda:0"
+      ],
+      "started_utc": "2026-10-20T04:48:44.511137+00:00"
+    },
+    "control_01/exit_receipt.json": {
+      "exit_code": 0,
+      "reason": null,
+      "peak_rss_bytes": 3350904832,
+      "started_utc": "2026-10-20T04:48:44.511137+00:00",
+      "ended_utc": "2026-10-20T04:49:53.546321+00:00",
+      "supervisor_pid": 193344,
+      "child_pid": 193348
+    },
+    "control_01/resource_status.json": {
+      "supervisor_pid": 193344,
+      "child_pid": 193348,
+      "rss_bytes": 3350904832,
+      "peak_rss_bytes": 3350904832,
+      "child_tree": [
+        193348,
+        193350
+      ],
+      "utc": "2026-10-20T04:49:52.545892+00:00"
+    }
+  },
+  "processes": [],
+  "boot_id": "83c9f761-c124-42e1-89b8-5f45f0b3acc4",
+  "source_files_verified": 902,
+  "config_sha256": "97a6b4a57d4f890797aa874c2398372b8af1299d60c3ef5012071914aa3e1c9f"
+}

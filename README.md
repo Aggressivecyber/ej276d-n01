@@ -1,17 +1,16 @@
-# N01 当前阶段：阶段4随机精度诊断已启动，12:29单次接续
+# N01 当前阶段：阶段4新中心导数诊断已启动
 
-> 当前执行状态（2026-10-20）：三轮REAL校准及五项固定方向诊断已完成并审核，原最终科学门尚未通过。新随机精度诊断已正确启动；当前登记1科学作业、1次苏醒。REAL响应匹配尚未建立，阶段5待验。
+> 当前执行状态（2026-10-20 13:22，UTC+8）：1个科学作业，已核验71/742差分列；14:02单次接续。REAL响应匹配尚未建立，阶段5未进入。
 
-[原三轮校准](receipts/joint_response_01_20261020/original_precision_REAL_pilot_01/terminal_01/TERMINAL_REVIEW.json)完成600差分列、20联合解及192最终门复算，两神经各24/96改善门失败。五项固定方向检查均零参数提交；[最后一次曲率检查](receipts/joint_response_01_20261020/second_curvature_diagnostic_01/terminal_01/TERMINAL_REVIEW.json)仍有seed0 FRESH、seed1 FIT0初值QPSD的1.010563/1.010417超过1.01。同一中心的三候选曲率序列已经停止。
+[新诊断协议](docs/JOINT_RESPONSE_01_RECENTERED_DERIVATIVE_DIAGNOSTIC_20261020.md)固定两头原控制候选为新中心，在3个FIT和4个已用IID库重新测53个响应坐标的完整J/N。噪声固定，原模型、loss、硬读出与门限不变；本作业不求新候选、不提交参数。所有新运行输出和缓存直接写入NAS `/mnt/MiNas`。本会话的Windows `Z:`映射后来不可用；已确认服务器NAS目录存在，两个筛查文件的原哈希吻合。终止审核将通过[服务器原位审计入口](receipts/joint_response_01_20261020/recentered_derivative_diagnostic_01/RUN_TERMINAL_AUDIT_REMOTE.py)读取NAS，只返回小JSON。现有数据迁移由另一任务负责。
 
-[保存几何审计](receipts/joint_response_01_20261020/second_curvature_diagnostic_01/SAVED_ANCHOR_AND_GEOMETRY_DIAGNOSIS.json)发现初值锚余量不足和弱方向敏感性。已按[冻结协议](docs/JOINT_RESPONSE_01_RANDOM_PRECISION_DIAGNOSTIC_20261020.md)比较四组独立随机库、两头的IID32与正负成对潜变量32，组内共享电子学噪声；共864差分列、1800生成调用，只评价固定端点和既有候选，零新求解或更新。
+[启动核验](receipts/joint_response_01_20261020/recentered_derivative_diagnostic_01/STARTUP_ASSESSMENT.json)确认185部署文件、进程身份及两组新旧中心重放。13:21:51进度为146/1512生成调用、71/742差分列；该快照之后的运行状态未观察。[实测估时](receipts/joint_response_01_20261020/recentered_derivative_diagnostic_01/WAIT_ESTIMATE.json)为13:56:25完成，加约335秒余量安排[14:02单次接续](receipts/joint_response_01_20261020/recentered_derivative_diagnostic_01/AUTOMATION_CREATE_RECEIPT.json)。内部3600秒、外部3900秒加20秒、4CPU、GPU4GiB、RSS12GiB预算不延长。
 
-[启动与估时](receipts/joint_response_01_20261020/random_precision_diagnostic_01/WAIT_ESTIMATE.json)于11:35:45（UTC+8）核验879源文件和原进程身份；保存进度为63/864列、136/1800生成调用。按本次实测1.664秒/调用估计12:21:36完成，加15%剩余时间余量并向上取整，已设置**2026-10-20 12:29（UTC+8）单次接续**，见[定时回执](receipts/joint_response_01_20261020/random_precision_diagnostic_01/AUTOMATION_CREATE_RECEIPT.json)。后续进度尚未查询，原5400秒内部上限保持。
+[已闭合固定投影诊断](receipts/joint_response_01_20261020/stable_projection_diagnostic_01/terminal_01/TERMINAL_REVIEW.json)67.34秒正常结束，保存数值审核通过但两头局部门失败。投影使两头接受组数从原控制各8/9降至4/9、5/9；joint作用弱的方向仍承载原生保护，不按joint稳定性单独删减，不搜索阈值。原控制各一组QPSD初值比1.010505/1.010555超过原1.01门。
 
-[首组审核](receipts/joint_response_01_20261020/random_precision_diagnostic_01/AUDITOR_PREFIX_REVIEW.json)复算54列差分及两个固定预测。Windows Torch 2.10与Linux Torch 2.12的正态数值最大相差2个float32 ULP；[原环境独立重放](receipts/joint_response_01_20261020/random_precision_diagnostic_01/AUDITOR_RNG_PLATFORM_DIFFERENCE.json)的262144值逐位一致，均匀随机数及生成器状态哈希相同。完整终止审计将以原环境精确重放核验全部8组随机库，科学输入和门限保持原样。
+[新中心可行性筛查](receipts/joint_response_01_20261020/stable_projection_diagnostic_01/RECENTERED_RESTORATION_SCREEN.json)以已测控制输出为截距、旧中心导数为近似，在固定0.003125半径和1.005原生设计余量下两头均局部可行。[独立复核](receipts/joint_response_01_20261020/stable_projection_diagnostic_01/RECENTERED_RESTORATION_SCREEN_AUDIT.json)已重建每头10709行约束并检验KKT，没有新求解。旧导数过时，不能据此执行候选；必须先审核本次新导数，再按已登记设置各头至多一次求解及独立复算约束/KKT，通过后另行登记实际检查。
 
-以下保留历史快照；当前状态以本节、三台账及对应回执为准。
-
+随机精度、同中心曲率和固定投影的历史失败保持。原三轮REAL两神经各24/96最终改善门失败，原5%native改善等科学门不变。代码、配置和汇总证据可公开；波形、逐行身份、NPZ和权重不上传。以下保留历史快照，当前以本节、三台账和对应回执为准。
 
 ---
 

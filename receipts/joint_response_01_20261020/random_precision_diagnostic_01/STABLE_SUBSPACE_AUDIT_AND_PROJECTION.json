@@ -1,0 +1,60 @@
+{
+  "status": "SAVED_SUBSPACE_AUDIT_AND_FIXED_PROJECTION_COMPLETE",
+  "UTC": "2026-10-20T04:40:00.658166+00:00",
+  "checks": [
+    {
+      "seed": 0,
+      "retained_dimension": 6,
+      "certificate": {
+        "status": "INDEPENDENT_DUAL_INFEASIBILITY_CERTIFICATE",
+        "raw_ATz_max": 3.596679273946144e-08,
+        "correction_norm": 2.4570414620372718e-08,
+        "minimum_cone_margin": 0.0009404276382639052,
+        "ATz_max": 4.175784067486643e-13,
+        "b_dot_z": -0.07239951427736456,
+        "changes_to_problem": 0,
+        "raw_solver_record_preserved": true
+      },
+      "projection_definition": "Orthogonal projection of the fixed one-rank control step into the frozen stable subspace; no renormalization or new optimization.",
+      "full_step_norm": 0.012499999917268296,
+      "projected_step_norm": 0.004922211909879349,
+      "removed_step_norm": 0.011490075188872753,
+      "retained_step_squared_fraction": 0.15506029060139623,
+      "parameter_bounds_pass": true,
+      "proposed_as_fixed_ablation_only": true
+    },
+    {
+      "seed": 1,
+      "retained_dimension": 7,
+      "certificate": {
+        "status": "INDEPENDENT_FEASIBLE_KKT_CERTIFICATE",
+        "minimum_primal_cone_margin": 7.394085344003543e-14,
+        "minimum_dual_cone_margin": 1.2174525179180318e-14,
+        "stationarity": 5.119515922302753e-14,
+        "complementarity": 1.6200248493183612e-10
+      },
+      "projection_definition": "Orthogonal projection of the fixed one-rank control step into the frozen stable subspace; no renormalization or new optimization.",
+      "full_step_norm": 0.012499999999999838,
+      "projected_step_norm": 0.010447587830852622,
+      "removed_step_norm": 0.006862791597929823,
+      "retained_step_squared_fraction": 0.6985733854936488,
+      "parameter_bounds_pass": true,
+      "proposed_as_fixed_ablation_only": true
+    }
+  ],
+  "inputs": {
+    "random_precision_diagnostic_01/terminal_01/collected/run_01/seed0_rep0_IID.npz": "6ca14848ccd53e9b5312a49785aaa590cc88569418dcce7cc55a47bc2deabebd",
+    "random_precision_diagnostic_01/terminal_01/collected/run_01/seed0_rep1_IID.npz": "5d05cd7128cdf5046fd6f39dffdfa30632859c534a325a31c86e81388959d15d",
+    "random_precision_diagnostic_01/terminal_01/collected/run_01/seed0_rep2_IID.npz": "2e356b53642f8e83116e6ea3574fc630e700df0eeb421475bcae0acd5210d7e8",
+    "random_precision_diagnostic_01/terminal_01/collected/run_01/seed0_rep3_IID.npz": "6ae2d74a34c64ead35628a2dbe4639dcb05efe3d16f92b72f34efce33396a858",
+    "random_precision_diagnostic_01/terminal_01/collected/run_01/seed1_rep0_IID.npz": "80c9bfd8358a574cf2e50663252f3a8828b16a4272a85c9c4c46926ba1b4f6e6",
+    "random_precision_diagnostic_01/terminal_01/collected/run_01/seed1_rep1_IID.npz": "6a0f57c998b5b23e2ff3c9e16613611eb140aa63012a0be5ca491dbb7f773ab5",
+    "random_precision_diagnostic_01/terminal_01/collected/run_01/seed1_rep2_IID.npz": "e9e9d0ac1e5308777a0cc830fd8c5c97441cb3710f79a041a53103ca581ec8b4",
+    "random_precision_diagnostic_01/terminal_01/collected/run_01/seed1_rep3_IID.npz": "804d69a6beed5f8e32a9297c091109911aae39983303f0ef941fe8b8bc915f10"
+  },
+  "proposal_sha256": "1a7cbfadb943bff8f6083516fc2b7b9509f3c5ba757237ccda617e9db026fe0f",
+  "new_generator_calls": 0,
+  "parameter_updates": 0,
+  "scientific_acceptance": false,
+  "scope": "Seed0 infeasibility is confined to the frozen projected convex approximation. Both orthogonal projections are separate fixed ablation probes, not solver-feasible proposals or accepted response endpoints. Native execution requires a new prospective registered job."
+}
