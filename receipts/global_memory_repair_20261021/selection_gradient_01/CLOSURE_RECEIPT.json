@@ -1,0 +1,102 @@
+{
+  "status": "COMPLETE_NO_FEASIBLE_TESTED_DIRECTION_NO_TRAINING",
+  "UTC": "2026-10-20T19:25:17.470753+00:00",
+  "native_exit_code": 0,
+  "new_optimizer_updates": 0,
+  "weights_restored": true,
+  "execution_counts": {
+    "checkpoint_loads": 6,
+    "TRAIN_archives_decoded": 1,
+    "PCA_archives_decoded": 1,
+    "old_A_calls": 52,
+    "old_A_rows": 6593,
+    "M0_head_calls": 104,
+    "M0_head_rows": 13186,
+    "REAL_memory_rows": 18948,
+    "allocated_banks": 204,
+    "shape_standard_normal_values": 1655040,
+    "noise005_calls": 204,
+    "noise005_rows": 206880,
+    "extension_rows": 620640,
+    "response_calls": 2842,
+    "response_rows": 724080,
+    "hard_observation_rows": 724080,
+    "repair_checkpoint_loads": 1,
+    "memory_checkpoint_loads": 1,
+    "STE_rows": 103440,
+    "wave_gradient_microblocks": 406,
+    "positive_wave_gradient_microblocks": 406,
+    "backward_microblocks": 406,
+    "temporary_Adam_directions": 1
+  },
+  "decisions": [
+    {
+      "direction": "cross_risk_tangent",
+      "passes_all_native_guards": false,
+      "failed_checks": [
+        "block_wave",
+        "flags"
+      ],
+      "changes_percent": {
+        "Q_mass": -1.7137646214481994,
+        "PSD_CDF": -4.5740391485142755,
+        "Q_tail_CDF": -3.3034926437516376,
+        "native_joint": -10.214167021645725,
+        "block_wave": 0.2486733092503579,
+        "block_charge_morphology": 1.6588776938895267,
+        "block_peak_codes": -10.49216965692058,
+        "block_baseline": 1.1324274851176597e-12,
+        "block_joint": -7.025712594812061
+      },
+      "denominator": "Same saved checkpoint on original direction2 TRAIN random banks; not fresh endpoint."
+    },
+    {
+      "direction": "aligned_positive_tangent",
+      "passes_all_native_guards": false,
+      "failed_checks": [
+        "block_wave",
+        "flags"
+      ],
+      "changes_percent": {
+        "Q_mass": -1.7133582297225836,
+        "PSD_CDF": -4.572648878034613,
+        "Q_tail_CDF": -3.3020264017385004,
+        "native_joint": -10.209206354101962,
+        "block_wave": 0.2496093617813555,
+        "block_charge_morphology": 1.6612603351823907,
+        "block_peak_codes": -10.488985957848563,
+        "block_baseline": -8.43769498715119e-13,
+        "block_joint": -7.018204164762976
+      },
+      "denominator": "Same saved checkpoint on original direction2 TRAIN random banks; not fresh endpoint."
+    },
+    {
+      "direction": "positive_wave_descent",
+      "passes_all_native_guards": false,
+      "failed_checks": [
+        "Q_mass"
+      ],
+      "changes_percent": {
+        "Q_mass": 2.5024238451824,
+        "PSD_CDF": 0.20895507829199467,
+        "Q_tail_CDF": 1.6139808233980535,
+        "native_joint": -5.296270037564543,
+        "block_wave": -0.06908076101305172,
+        "block_charge_morphology": -7.555460192412,
+        "block_peak_codes": -6.96436322562114,
+        "block_baseline": -5.10702591327572e-13,
+        "block_joint": -2.642187021190512
+      },
+      "denominator": "Same saved checkpoint on original direction2 TRAIN random banks; not fresh endpoint."
+    }
+  ],
+  "conclusion": "Peak-selection correction restores a small native waveform descent for one tested direction, but Q guard fails. Tangents fail waveform and ADC flags. No tested direction qualifies for further training.",
+  "scientific_acceptance": false,
+  "response_match_established": false,
+  "no_temperature_search": true,
+  "no_step_budget_expansion": true,
+  "endpoint_thresholds_unchanged": true,
+  "automatic_training_continuation": false,
+  "NAS_file_IO_checks": false,
+  "NAS_file_hash_verification": false
+}

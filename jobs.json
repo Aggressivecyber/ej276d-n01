@@ -1,7 +1,7 @@
 {
   "experiment_id": "N01",
-  "updated_UTC": "2026-10-20T19:22:18.593672+00:00",
-  "active_scientific_jobs": 1,
+  "updated_UTC": "2026-10-20T19:25:17.470753+00:00",
+  "active_scientific_jobs": 0,
   "jobs": [
     {
       "job_id": "N01_RUN_001_20261012",
@@ -24973,7 +24973,7 @@
     },
     {
       "job_id": "GLOBAL_MEMORY_SELECTION_GRADIENT_PROBE_20261021",
-      "status": "running_memory_and_checkpoint_verified",
+      "status": "completed_selection_probe_no_feasible_tested_direction",
       "registered_UTC": "2026-10-20T19:19:22.216580+00:00",
       "config": "configs\\global_memory_selection_gradient_20261021.json",
       "config_sha256": "cb278c02ed762ee48b30e53dfab6016a6c4a3e665c4b5c1dff811dc67d67e964",
@@ -25018,18 +25018,44 @@
         "repair_checkpoint_loads": 1,
         "memory_checkpoint_loads": 1
       },
-      "counts_asof_UTC": "2026-10-20T19:19:49.924095+00:00"
+      "counts_asof_UTC": "2026-10-20T19:19:49.924095+00:00",
+      "native_exit_code": 0,
+      "actual_execution_counts": {
+        "checkpoint_loads": 6,
+        "TRAIN_archives_decoded": 1,
+        "PCA_archives_decoded": 1,
+        "old_A_calls": 52,
+        "old_A_rows": 6593,
+        "M0_head_calls": 104,
+        "M0_head_rows": 13186,
+        "REAL_memory_rows": 18948,
+        "allocated_banks": 204,
+        "shape_standard_normal_values": 1655040,
+        "noise005_calls": 204,
+        "noise005_rows": 206880,
+        "extension_rows": 620640,
+        "response_calls": 2842,
+        "response_rows": 724080,
+        "hard_observation_rows": 724080,
+        "repair_checkpoint_loads": 1,
+        "memory_checkpoint_loads": 1,
+        "STE_rows": 103440,
+        "wave_gradient_microblocks": 406,
+        "positive_wave_gradient_microblocks": 406,
+        "backward_microblocks": 406,
+        "temporary_Adam_directions": 1
+      },
+      "ended_UTC": "2026-10-20T19:21:06.012924+00:00",
+      "closure": "receipts\\global_memory_repair_20261021\\selection_gradient_01\\CLOSURE_RECEIPT.json"
     }
   ],
   "user_requested_pause": false,
   "resume_requires_user_server_started_notice": false,
   "followup": {
-    "status": "ACTIVE",
+    "status": "DELETED",
     "automation_id": "n01-psd",
-    "kind": "heartbeat",
-    "count": 1,
-    "next_wake_local": "2026-10-21T03:23:00+08:00",
-    "basis": "receipts\\global_memory_repair_20261021\\selection_gradient_01\\WAKE_RECEIPT.json"
+    "next_wake_local": null,
+    "receipt": "receipts\\global_memory_repair_20261021\\selection_gradient_01\\AUTOMATION_CLOSED.json"
   },
   "scientific_status": "response_match_not_established",
   "active_scientific_jobs_status_basis": "Job146 native exit0 and no remaining owned scientific process at terminal collection; original interrupted job145 is not restarted.",
@@ -25048,9 +25074,9 @@
     "weights_promoted": false,
     "scientific_acceptance": false
   },
-  "followup_automation_id": "n01-psd",
-  "followup_automation_status": "ACTIVE",
-  "followup_next_run_local": "2026-10-21T03:23:00+08:00",
+  "followup_automation_id": null,
+  "followup_automation_status": "DELETED",
+  "followup_next_run_local": null,
   "followup_receipt": "receipts/joint_response_01_20261020/recentered_derivative_diagnostic_01/WAKE1402_AUTOMATION_CONSUMED.json",
   "followup_receipt_sha256": "69f7935579ff5a4db2ff2ab3338bdc179265759812d29c1a305649c06949c563",
   "followup_last_delivered_UTC": "2026-10-19T22:43:10.010Z",
@@ -25077,9 +25103,9 @@
     "bytes": 83119,
     "sha256": "b24f3bb1e5644fc8db29b2db1b3b82b05a8793248b7c99af81b23fb4dc3d1e24"
   },
-  "status": "GLOBAL_MEMORY_REPAIR_selection_gradient_probe_running",
-  "current_action": "One backward-only peak-selection sensitivity probe running; no new training authorized within this job.",
-  "next_action": "Collect native direction results at measured03:23 wake; continue only with hard-readout-supported next step.",
+  "status": "GLOBAL_MEMORY_REPAIR_bounded_direction_route_closed_not_accepted",
+  "current_action": "Endpoint recovered and three no-update diagnoses completed; all tested selection-aware directions fail joint native guards.",
+  "next_action": "Design-only next step: one jointly constrained native feasible direction; no new training registered.",
   "latest_user_review_direction": {
     "path": "receipts/review_017_20261016/ACCEPTED_NEXT_ACTIONS.json",
     "bytes": 3271,
@@ -25087,7 +25113,7 @@
   },
   "pending_run_id": null,
   "latest_run_id": "GLOBAL_MEMORY_SELECTION_GRADIENT_PROBE_20261021",
-  "active_run_id": "global_memory_selection_gradient_20261021",
+  "active_run_id": null,
   "current_stage": "4_global_memory_mean_repair",
   "wp4_018_result": {
     "path": "receipts/wp4_018_20261016/FINAL_RESULT_RECEIPT.json",
@@ -29062,7 +29088,7 @@
     },
     "closure_registered_UTC": "2026-10-17T19:08:19.506304+00:00"
   },
-  "active_job_id": "GLOBAL_MEMORY_SELECTION_GRADIENT_PROBE_20261021",
+  "active_job_id": null,
   "current_arm": null,
   "response038_classifier_optimizer_steps": 6600,
   "response038_classifier_AD_queries": 6600,
@@ -29083,8 +29109,8 @@
     "classifiers_completed": 33
   },
   "response038_classifier_counts_last_verified_UTC": "2026-10-17T18:47:39.322960+00:00",
-  "current_job_native_exit_code": null,
-  "current_job_ended_UTC": null,
+  "current_job_native_exit_code": 0,
+  "current_job_ended_UTC": "2026-10-20T19:21:06.012924+00:00",
   "response038_classifier_counts_complete_for_this_supplement": true,
   "response_goal_20261018": {
     "document": "docs/RESPONSE_GOAL_20261018.md",
@@ -30686,7 +30712,7 @@
     "terminal_review": "receipts/response046_20261018/wake_20261018_0853_01/TERMINAL_REVIEW.json",
     "terminal_review_sha256": "b42a4ca70a3840cb7e0de42596ea4d728fa7577c59d7454c01ca3478662bfc64"
   },
-  "next_wake_local": "2026-10-21T03:23:00+08:00",
+  "next_wake_local": null,
   "response047": {
     "job_id": "response047_smooth_endpoint_width_20261018",
     "run_id": "response047_smooth_endpoint_width_20261018",
@@ -38956,18 +38982,18 @@
   "pause_reason": null,
   "automatic_restart": false,
   "pending_job_id": null,
-  "followup_status": "ACTIVE_SINGLE_MEASURED_WAKE",
+  "followup_status": "DELETED_NO_WAITING_WORK",
   "pause_receipt": "receipts/joint_response_01_20261019/user_pause_20261019/PAUSE_RECEIPT.json",
   "resumed_by_user_notice": true,
   "resume_verified_UTC": "2026-10-19T16:17:28.081783+00:00",
   "server_boot_id_at_resume": "83c9f761-c124-42e1-89b8-5f45f0b3acc4",
   "resume_authorization": "receipts/joint_response_01_20261020/resume_01/RESUME_AUTHORIZATION.json",
-  "execution_state_asof_UTC": "2026-10-20T19:20:36.624907+00:00",
-  "training_pid": 32132,
-  "supervisor_pid": 32124,
+  "execution_state_asof_UTC": "2026-10-20T19:25:17.470753+00:00",
+  "training_pid": null,
+  "supervisor_pid": null,
   "pending_registered_job_id": null,
   "global_memory_repair": {
-    "status": "selection_gradient_probe_running",
+    "status": "bounded_direction_route_closed_not_accepted",
     "design": "receipts\\global_memory_repair_20261021\\INTEGRATED_DESIGN.json",
     "config": "configs\\global_memory_selection_gradient_20261021.json",
     "config_sha256": "cb278c02ed762ee48b30e53dfab6016a6c4a3e665c4b5c1dff811dc67d67e964",
@@ -38983,7 +39009,7 @@
     },
     "paired_pilot_science_accepted": false,
     "paired_pilot_total_accepted_updates": 7,
-    "counts_asof_UTC": "2026-10-20T19:19:49.924095+00:00",
+    "counts_asof_UTC": "2026-10-20T19:21:06.012924+00:00",
     "remote_root": "/home/rylan/projects/ej276d-n01/global_memory_selection_gradient_20261021",
     "startup_receipt": "receipts\\global_memory_repair_20261021\\selection_gradient_01\\STARTUP_SCIENTIFIC_RECEIPT.json",
     "dispatch_receipt": "receipts\\global_memory_repair_20261021\\selection_gradient_01\\DISPATCH_RECEIPT.json",
@@ -39006,6 +39032,35 @@
     },
     "guard_diagnostic_closure": "receipts\\global_memory_repair_20261021\\guard_diagnostic_01\\CLOSURE_RECEIPT.json",
     "readout_diagnostic_closure": "receipts\\global_memory_repair_20261021\\readout_diagnostic_01\\CLOSURE_RECEIPT.json",
-    "total_accepted_updates_across_pilots": 8
+    "total_accepted_updates_across_pilots": 8,
+    "selection_gradient_closure": "receipts\\global_memory_repair_20261021\\selection_gradient_01\\CLOSURE_RECEIPT.json",
+    "next_step_design": "receipts\\global_memory_repair_20261021\\NEXT_STEP_DESIGN.json",
+    "current_native_execution_counts": {
+      "checkpoint_loads": 6,
+      "TRAIN_archives_decoded": 1,
+      "PCA_archives_decoded": 1,
+      "old_A_calls": 52,
+      "old_A_rows": 6593,
+      "M0_head_calls": 104,
+      "M0_head_rows": 13186,
+      "REAL_memory_rows": 18948,
+      "allocated_banks": 204,
+      "shape_standard_normal_values": 1655040,
+      "noise005_calls": 204,
+      "noise005_rows": 206880,
+      "extension_rows": 620640,
+      "response_calls": 2842,
+      "response_rows": 724080,
+      "hard_observation_rows": 724080,
+      "repair_checkpoint_loads": 1,
+      "memory_checkpoint_loads": 1,
+      "STE_rows": 103440,
+      "wave_gradient_microblocks": 406,
+      "positive_wave_gradient_microblocks": 406,
+      "backward_microblocks": 406,
+      "temporary_Adam_directions": 1
+    },
+    "active_scientific_jobs": 0,
+    "automatic_training_continuation": false
   }
 }
