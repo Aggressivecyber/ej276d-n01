@@ -1,0 +1,60 @@
+{
+  "session": {
+    "stage": "N01_PRIVATE_NAS_SESSION_READY",
+    "UTC": "2026-10-20T07:15:41.871546+00:00",
+    "global_mount_namespace": "mnt:[4026531832]",
+    "private_mount_namespace": "mnt:[4026533228]",
+    "mount": {
+      "filesystems": [
+        {
+          "source": "systemd-1",
+          "fstype": "autofs",
+          "propagation": "private",
+          "options": "rw,relatime,fd=110,pgrp=1,timeout=0,minproto=5,maxproto=5,direct,pipe_ino=1011390"
+        },
+        {
+          "source": "//192.168.31.38/\u6211\u7684\u6587\u6863-1430134245",
+          "fstype": "cifs",
+          "propagation": "private",
+          "options": "rw,nosuid,nodev,relatime,vers=3.1.1,sec=none,cache=strict,upcall_target=app,uid=1000,forceuid,gid=1000,forcegid,addr=192.168.31.38,file_mode=0600,dir_mode=0700,iocharset=utf8,soft,nounix,serverino,mapposix,reparse=nfs,nativesocket,symlink=native,rsize=4194304,wsize=4194304,bsize=1048576,echo_interval=60,actimeo=1,closetimeo=1"
+        },
+        {
+          "source": "//192.168.31.38/\u6211\u7684\u6587\u6863-1430134245",
+          "fstype": "cifs",
+          "propagation": "private",
+          "options": "rw,nosuid,nodev,relatime,vers=3.1.1,sec=none,cache=strict,upcall_target=app,uid=1000,forceuid,gid=1000,forcegid,addr=192.168.31.38,file_mode=0600,dir_mode=0700,iocharset=utf8,soft,nounix,serverino,mapposix,reparse=nfs,nativesocket,symlink=native,rsize=4194304,wsize=4194304,bsize=1048576,echo_interval=60,nosharesock,actimeo=1,closetimeo=1"
+        }
+      ]
+    },
+    "UID": 1000,
+    "elapsed_seconds": 1.7932939150050515,
+    "persistent_global_mount_modified": false,
+    "data_migration_performed": false
+  },
+  "read_probe": {
+    "status": "PASS_PRIVATE_NAS_SESSION_READ_PROBE",
+    "UTC": "2026-10-20T07:15:48.962468+00:00",
+    "files": [
+      {
+        "name": "scripts/complete_joint01_recentered_derivatives.py",
+        "bytes": 11832,
+        "sha256": "2089396adcfbb0f46352f6153b40eb28a5d0524a105f1a6bb7b40414c5e9bc99",
+        "elapsed_seconds": 0.9300129109979025
+      },
+      {
+        "name": "/mnt/MiNas/GAN/research/N01/server_runs/joint_response01_recentered_derivative_diagnostic_20261020/src/n01/joint01_model.py",
+        "bytes": 4543,
+        "sha256": "b9e11ea99abb738af7a396728ba17e40d3c548c2d8638eea1e37a881534497e6",
+        "elapsed_seconds": 0.5659314859949518
+      },
+      {
+        "name": "/mnt/MiNas/GAN/research/N01/server_runs/joint_response01_recentered_derivative_diagnostic_20261020/diagnostic_inputs/RECENTERED_seed0_STABLE_PROJECTION.npz",
+        "bytes": 5906682,
+        "sha256": "4f2049b48193b0c7435e49ff0edc18a09dc6ab4d24368bed5dba0341ba23d59e",
+        "elapsed_seconds": 5.5937666070021805
+      }
+    ],
+    "elapsed_seconds": 8.884219544001098,
+    "new_scientific_calls": 0
+  }
+}

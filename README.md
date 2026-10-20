@@ -1,16 +1,16 @@
-# N01 当前阶段：阶段4新中心导数诊断已启动
+# N01 当前阶段：固定导数补全已正确启动
 
-> 当前执行状态（2026-10-20 13:22，UTC+8）：1个科学作业，已核验71/742差分列；14:02单次接续。REAL响应匹配尚未建立，阶段5未进入。
+> 最后核验状态（2026-10-20 15:40，UTC+8）：新增27/424差分、56/864生成调用，旧318列只读复用；1个科学作业。单次苏醒为今天16:07。之后进度未轮询。阶段4科学验收未过，阶段5未进入。
 
-[新诊断协议](docs/JOINT_RESPONSE_01_RECENTERED_DERIVATIVE_DIAGNOSTIC_20261020.md)固定两头原控制候选为新中心，在3个FIT和4个已用IID库重新测53个响应坐标的完整J/N。噪声固定，原模型、loss、硬读出与门限不变；本作业不求新候选、不提交参数。所有新运行输出和缓存直接写入NAS `/mnt/MiNas`。本会话的Windows `Z:`映射后来不可用；已确认服务器NAS目录存在，两个筛查文件的原哈希吻合。终止审核将通过[服务器原位审计入口](receipts/joint_response_01_20261020/recentered_derivative_diagnostic_01/RUN_TERMINAL_AUDIT_REMOTE.py)读取NAS，只返回小JSON。现有数据迁移由另一任务负责。
+原job141因NAS写入中断，保存6库318列已独立审核；9列执行未落盘、415列未执行。原失败、原预算及未知退出码保留。[固定补全](docs/JOINT_RESPONSE_01_RECENTERED_DERIVATIVE_COMPLETION_20261020.md)只新增8库424列、864生成；两次累计751实际列、742唯一列、1532生成，重复9列和20生成明确记账。
 
-[启动核验](receipts/joint_response_01_20261020/recentered_derivative_diagnostic_01/STARTUP_ASSESSMENT.json)确认185部署文件、进程身份及两组新旧中心重放。13:21:51进度为146/1512生成调用、71/742差分列；该快照之后的运行状态未观察。[实测估时](receipts/joint_response_01_20261020/recentered_derivative_diagnostic_01/WAIT_ESTIMATE.json)为13:56:25完成，加约335秒余量安排[14:02单次接续](receipts/joint_response_01_20261020/recentered_derivative_diagnostic_01/AUTOMATION_CREATE_RECEIPT.json)。内部3600秒、外部3900秒加20秒、4CPU、GPU4GiB、RSS12GiB预算不延长。
+[启动审核](receipts/joint_response_01_20261020/recentered_derivative_completion_01/STARTUP_ASSESSMENT.json)已核验192源/191pins、12前缀、boot/PID/启动时刻、实际生成与导数进度及资源。新增1库、噪声32768行、REAL拟合4096行，旧/新中心重放、初值锚复用和控制各1；峰RSS3004895232字节。无求解、候选、参数提交、CHECK/DEV或分类器。
 
-[已闭合固定投影诊断](receipts/joint_response_01_20261020/stable_projection_diagnostic_01/terminal_01/TERMINAL_REVIEW.json)67.34秒正常结束，保存数值审核通过但两头局部门失败。投影使两头接受组数从原控制各8/9降至4/9、5/9；joint作用弱的方向仍承载原生保护，不按joint稳定性单独删减，不搜索阈值。原控制各一组QPSD初值比1.010505/1.010555超过原1.01门。
+[独立NAS连接](receipts/joint_response_01_20261020/recentered_derivative_completion_01/PRIVATE_NAS_SESSION_POLICY.json)在N01自己的挂载命名空间使用同一NAS目录，保留原输入哈希、模型、loss、硬读出和科学预算；全局挂载与另一任务的迁移未改。共享访问及工程校验失败回执保留。新科学输出、缓存和临时数组直接写NAS。
 
-[新中心可行性筛查](receipts/joint_response_01_20261020/stable_projection_diagnostic_01/RECENTERED_RESTORATION_SCREEN.json)以已测控制输出为截距、旧中心导数为近似，在固定0.003125半径和1.005原生设计余量下两头均局部可行。[独立复核](receipts/joint_response_01_20261020/stable_projection_diagnostic_01/RECENTERED_RESTORATION_SCREEN_AUDIT.json)已重建每头10709行约束并检验KKT，没有新求解。旧导数过时，不能据此执行候选；必须先审核本次新导数，再按已登记设置各头至多一次求解及独立复算约束/KKT，通过后另行登记实际检查。
+[单次苏醒估算](receipts/joint_response_01_20261020/recentered_derivative_completion_01/WAIT_ESTIMATE.json)：原生距离单独计时84.090秒/56调用，余808调用、397列；该计时不含生成、特征和NAS I/O。以原外层16:05:49 TERM/16:06:09 KILL设定加回执余量向上取整至16:07核收，原1800/2100秒预算不延长。完整终止与合并742列审计尚未执行；其通过后才进入已登记的每头一次恢复可行性求解，局部解不当作实际候选或科学成功。
 
-随机精度、同中心曲率和固定投影的历史失败保持。原三轮REAL两神经各24/96最终改善门失败，原5%native改善等科学门不变。代码、配置和汇总证据可公开；波形、逐行身份、NPZ和权重不上传。以下保留历史快照，当前以本节、三台账和对应回执为准。
+私有波形、逐行身份、NPZ和权重不上传。以下保留历史快照，当前以本节、三台账及回执为准。
 
 ---
 
@@ -430,3 +430,6 @@ N01 根目录为 `E:\GAN\research\N01`。模型权重、逐事件输出、数据
 [FIX01正确启动](receipts/joint_response_01_20261019/secant_trust_fix01/STARTUP_ASSESSMENT.json)已确认：650份部署文件及原生导入、派发前逐文件核验通过；10:53:36 UTC派发时GPU可用11605MiB，无其他N01进程。10:53:43.620431 UTC科学PID213483/start_ticks6899668，首个端点精确复现，3次候选检查完成，正在第4次方向尝试，零更新。该时刻健康运行；现已结束，完整终止审核见下文。
 
 FIX01已[正常完成并独立核验](receipts/joint_response_01_20261019/wake_20261019_1059_01/TERMINAL_REVIEW.json)：exit0、13.46秒，650源码/12输出哈希，163数组、30720角色行、24矩阵/24预测向量、10次割线校正、93风险视图及25接受判定通过。12次求解均成功，零更新；seed0八个主支路候选均拒绝，seed1第二候选通过FIT/CHECK但FRESH失败。seed0当前端点在FIT/CHECK的wave相对M0最高1.01567/1.01526，原方向只约束相对当前非增，未表达所需M0恢复量；seed1的FRESH joint比值0.93105，但QPSD相对当前1.01109/1.01284及slow wave相对M01.010235触发原拒绝门。新的批次与投影同时改变，不能仅据该结果断言是哪一种随机性造成失败。下一有界方法检查拟从原M0零增量起点建立三拟合批联合矩阵与多native投影约束，保留新CHECK/FRESH和原门，仍不提交训练。
+
+
+存储部署在执行前修订为[轻量布局](docs/JOINT_RESPONSE_01_RECENTERED_DERIVATIVE_COMPLETION_THIN_20261020.md)：原190份完整复制部署未启动科学计算，部分副本保留；新布局只写7份新增文本、只读复用185份锁定源文件和输入。424列补全、318列复用、计数、资源与科学设置均保持，原配置与清单留存。

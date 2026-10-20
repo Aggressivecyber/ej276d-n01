@@ -1,0 +1,21 @@
+继续 E:/GAN/research/N01 的 JOINT_RESPONSE_01 五阶段。先完成所有现在可执行的工作；仅遇到长计算或必须等待时，按实测进度、剩余工作及原预算估计完成时刻，加余量安排本聊天一次苏醒，不用固定周期。醒来确认本次单次定时已消费并删除残留；没有等待不保留定时。全部由当前主助手独立完成，不用子代理。一次一个 N01 科学作业，不自动重启、延长预算、覆盖失败或改变科学门。
+
+本次接续为 2026-10-20 16:07（UTC+8）。先读 AGENTS.md、JOINT_RESPONSE_01_PLAN.md、PROGRAM.json、MASTER_EXECUTION_PLAN.json、jobs.json，以及 docs/JOINT_RESPONSE_01_RECENTERED_DERIVATIVE_COMPLETION_20261020.md 和同名前缀的 THIN 文档。本次 job142 为 JOINT_RESPONSE_01_RECENTERED_DERIVATIVE_COMPLETION_20261020；配置 configs/joint_response_01_recentered_derivative_completion_thin_20261020.json，SHA256 e5727dcb8356a2212a6d1c05fe0e2ad471dab60661c4c97f69ffb8c355c10ce1。小回执在 receipts/joint_response_01_20261020/recentered_derivative_completion_01；远端 rylan@100.82.231.102:/mnt/MiNas/GAN/research/N01/server_runs/joint_response01_recentered_derivative_completion_thin_20261020。所有新科学数据、运行输出、缓存、临时数组留 NAS；不在本地或计算盘新建大文件备份，不处理另一任务负责的既有数据迁移。
+
+job141 保持 NAS 写入中断的失败记录，原预算不改；185部署源与20输出、6完整库318列、132有限数组、30720角色身份、36风险视图及6控制门已独立审核。原程序报告327列，其中9列未落盘、415列未执行；原退出回执缺失，退出码未知。job142 仅新增 seed0/IID3 与 seed1 的 FIT0/FIT1/FIT2/IID0/IID1/IID2/IID3，8库424列，旧6库318列只读复用。所有随机库已被使用，不声称新独立验证。两头各53响应坐标、噪声固定0、±0.004差分，完整新 J/N 交叉项；模型、loss、原硬读出、角色和原中心/控制均不变。无新曲率、求解、候选、参数提交、CHECK/DEV、AD或分类器。
+
+精确新增预算：424差分、864生成28311552行、2592观察84934656行、native95551488行；8库、8次noise005共262144行、786432扩展行、2097152高斯数；8旧中心/8新中心重放、8初值锚复用、8控制判定，另记6库318保存列复用。6检查点、TRAIN/PCA各1、A0 52/6593、M0 104/13186、REAL观察1/21047、joint/native图各3、REAL拟合32768行。两次累计751实际差分、742唯一列、1532生成50200576行、4596观察150601728行、native169426944行；9重复列和20重复生成费用保留。其余重复设置费用见配置 cumulative_accounting。4CPU、GPU4GiB、RSS12GiB，内部1800秒、外部2100秒加20秒、输出64MiB；不加预算。
+
+NAS共享和 Windows Z: 已恢复，但服务器全局 CIFS 会话慢。全局挂载仍被迁移任务使用，未改动或重挂，也未给迁移进程发信号。N01 使用 PRIVATE_NAS_SESSION_BOOTSTRAP.py 通过 sudo unshare --mount --propagation private 和 nosharesock 建立只属于该进程的同一 NAS 路径连接，挂载后降回 rylan UID1000。该文件 SHA256 afdb8cb067b6f5dd6d4c9eefa9f4675e547192823bc8e2bfced433e1cad33c82。已验证全局命名空间 mnt:[4026531832] 仍只有原两层挂载。独立连接约70.061秒核验192源/191pins和12前缀，原位导入与GPU检查另80.436秒通过；此前工程校验超时均保留，科学预算未扩。不要使用旧全局 CIFS 直接审计，也不要修改全局挂载或推进迁移。
+
+07:30:41.956614 UTC 派发；boot83c9f761-c124-42e1-89b8-5f45f0b3acc4，dispatcher231686 ticks5524169，supervisor231687 ticks5524177，timeout231735/science231736 ticks5524922；监督器启动07:30:49.408104 UTC。启动前无其他N01进程，GPU空闲11609MiB。07:36:42.312246 UTC 状态重新核验192源及4进程。随后07:40:37.445381 UTC 在科学进程自身命名空间只读验证，进度07:40:36.597847为 seed0/IID3 第27列，新增27/424差分、56/864生成1835008行、168观察5505024行、native6193152行；1库、noise32768行、高斯262144、扩展98304、REAL拟合4096，旧/新中心重放及锚复用和控制各1，旧6库318列已复用。无FAILED/COMPLETE/exit，峰RSS3004895232字节，0求解/候选/更新。正确原生启动审核通过；之后进度未知，不要当作持续监控。
+
+实测 native_values 单独计时84.090031562秒/56=1.501607706秒/调用，余808生成、397列。仅原生距离部分投影为16:00:49.896874；该计时不含生成、特征及NAS I/O，完整完成时刻未独立测定。规划余量15%加30秒给出16:04:21附近，但仍受未测开销影响。原外层TERM设定16:05:49.408104、KILL设定16:06:09.408104；以较晚的预算边界加30秒回执余量向上取整为16:07一次苏醒，实际退出仍需核验。见 STARTUP_ASSESSMENT.json 和 WAIT_ESTIMATE.json。
+
+醒来先运行本地 COLLECT_PRIVATE_STATUS.py --out <本回执目录>/terminal_01/REMOTE_TERMINAL_VERIFICATION.json；使用 C:/Users/10629/AppData/Local/Programs/Python/Python313/python.exe -B。包装已自动使用独立NAS连接，返回192源核验、boot/PID/ticks、PROGRESS/RESULT/COMPLETE/FAILED/exit及终止输出哈希，只保存小JSON。若已有同名终止回执先读它，不覆盖历史。须确认原四进程及新N01进程状态，终止退出0、COMPLETE且无FAILED才能直接运行 RUN_TERMINAL_AUDIT_REMOTE.py。该审计在 NAS 原位读取旧318+新424列，复算两头七库的742唯一 J/N列、全部中心重放、角色、14控制门、84风险视图、源/输出哈希、精确新增及累计计数和资源；仅哈希I/O并行4，数值公式不改。审计子进程上限240秒、SSH300秒，依据本次NAS读耗时登记，科学预算不延长；准备和AST通过，终止审计尚未执行。完整波形/RMS未独立重生成。异常或预算终止先保全全部可得前缀与未知区间，不自动重启。若仍运行，按实际进度和原预算重新估计必要等待，只安排一次苏醒。
+
+只有合并终止审计通过，才按 stable_projection_diagnostic_01/RECENTERED_RESTORATION_SCREEN_DESIGN.json 已登记 prospective_restoration：先登记实际新矩阵哈希、计数资源，再每头至多一次 Clarabel 可行性求解，53响应坐标、噪声0、半径0.003125、目标最小欧氏修正范数，native<=1.005*min(旧中心,初值)，7库joint<=0.99旧中心、macro<=1.15旧中心+2/4096；使用新控制为截距和新J/N、旧中心作门参照，保留全部交叉项。maxiter100/time30秒、feas/gap1e-10，不搜索阈值/半径，不测新曲率。随后独立重算全部约束与KKT；两头都可行才另行登记固定实际候选检查，原实际1.01门不改。局部可行性不是实际候选成功或参数提交。新求解代码尚未编写，旧筛查代码和审核可作为公式参照；不要把旧导数筛查通过当新矩阵结果。
+
+历史 job139 随机精度和 job140 固定弱方向投影均闭合为两头局部门失败；原控制两头各8/9库通过，投影4/9和5/9，失败原生wave/QPSD。旧导数下两个恢复筛查KKT通过，仅是过时局部模型可行；原两神经三轮REAL各24/96最终改善门失败，原5%native改善科学门、教师36硬+18精度门通过及C1失败均保留。阶段4科学验收未过，阶段5未进入。A0/M0/005 全TRAIN暴露，只称冻结系统后验研究评估；新核、输入干预、人口敏感性、C2ST和全流程验证仍待阶段5。
+
+继续更新三台账与文档，把代码/配置/汇总证据同步原 GitHub https://github.com/Aggressivecyber/ej276d-n01.git 并核验远端树与关键原文；私有波形、逐行身份、NPZ和权重不上传。无变化或无行动时保持安静，仅在实质进展、完成、失败或需要用户操作时通知。

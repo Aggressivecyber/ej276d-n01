@@ -1,0 +1,51 @@
+{
+  "status": "PASS_LAUNCH_IDENTITIES_MEASURED_PROGRESS_PENDING",
+  "UTC": "2026-10-20T07:36:23.548259+00:00",
+  "snapshot_UTC": "2026-10-20T07:33:52.627448+00:00",
+  "source_files_verified": 192,
+  "config_sha256": "e5727dcb8356a2212a6d1c05fe0e2ad471dab60661c4c97f69ffb8c355c10ce1",
+  "boot_id": "83c9f761-c124-42e1-89b8-5f45f0b3acc4",
+  "PID_start_ticks": {
+    "231686": "5524169",
+    "231687": "5524177",
+    "231735": "5524922",
+    "231736": "5524922"
+  },
+  "launch": {
+    "supervisor_pid": 231687,
+    "child_pid": 231735,
+    "command": [
+      "timeout",
+      "--signal=TERM",
+      "--kill-after=20s",
+      "2100s",
+      "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+      "-B",
+      "/mnt/MiNas/GAN/research/N01/server_runs/joint_response01_recentered_derivative_completion_thin_20261020/scripts/complete_joint01_recentered_derivatives.py",
+      "--config",
+      "/mnt/MiNas/GAN/research/N01/server_runs/joint_response01_recentered_derivative_completion_thin_20261020/configs/joint_response_01_recentered_derivative_completion_thin_20261020.json",
+      "--config-sha256",
+      "e5727dcb8356a2212a6d1c05fe0e2ad471dab60661c4c97f69ffb8c355c10ce1",
+      "--out",
+      "/mnt/MiNas/GAN/research/N01/server_runs/joint_response01_recentered_derivative_completion_thin_20261020/run_01",
+      "--device",
+      "cuda:0"
+    ],
+    "started_utc": "2026-10-20T07:30:49.408104+00:00"
+  },
+  "resource": {
+    "supervisor_pid": 231687,
+    "child_pid": 231735,
+    "rss_bytes": 547512320,
+    "peak_rss_bytes": 547512320,
+    "child_tree": [
+      231735,
+      231736
+    ],
+    "utc": "2026-10-20T07:33:47.871443+00:00"
+  },
+  "progress_present": false,
+  "correct_scientific_progress_claimed": false,
+  "single_wake_scheduled": false,
+  "scientific_acceptance": false
+}

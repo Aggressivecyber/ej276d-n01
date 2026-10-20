@@ -1,0 +1,32 @@
+{
+  "stage": "N01_PRIVATE_NAS_SESSION_READY",
+  "UTC": "2026-10-20T07:36:42.302392+00:00",
+  "global_mount_namespace": "mnt:[4026531832]",
+  "private_mount_namespace": "mnt:[4026533229]",
+  "mount": {
+    "filesystems": [
+      {
+        "source": "systemd-1",
+        "fstype": "autofs",
+        "propagation": "private",
+        "options": "rw,relatime,fd=110,pgrp=1,timeout=0,minproto=5,maxproto=5,direct,pipe_ino=1011390"
+      },
+      {
+        "source": "//192.168.31.38/\u6211\u7684\u6587\u6863-1430134245",
+        "fstype": "cifs",
+        "propagation": "private",
+        "options": "rw,nosuid,nodev,relatime,vers=3.1.1,sec=none,cache=strict,upcall_target=app,uid=1000,forceuid,gid=1000,forcegid,addr=192.168.31.38,file_mode=0600,dir_mode=0700,iocharset=utf8,soft,nounix,serverino,mapposix,reparse=nfs,nativesocket,symlink=native,rsize=4194304,wsize=4194304,bsize=1048576,echo_interval=60,actimeo=1,closetimeo=1"
+      },
+      {
+        "source": "//192.168.31.38/\u6211\u7684\u6587\u6863-1430134245",
+        "fstype": "cifs",
+        "propagation": "private",
+        "options": "rw,nosuid,nodev,relatime,vers=3.1.1,sec=none,cache=strict,upcall_target=app,uid=1000,forceuid,gid=1000,forcegid,addr=192.168.31.38,file_mode=0600,dir_mode=0700,iocharset=utf8,soft,nounix,serverino,mapposix,reparse=nfs,nativesocket,symlink=native,rsize=4194304,wsize=4194304,bsize=1048576,echo_interval=60,nosharesock,actimeo=1,closetimeo=1"
+      }
+    ]
+  },
+  "UID": 1000,
+  "elapsed_seconds": 1.8209543079938157,
+  "persistent_global_mount_modified": false,
+  "data_migration_performed": false
+}

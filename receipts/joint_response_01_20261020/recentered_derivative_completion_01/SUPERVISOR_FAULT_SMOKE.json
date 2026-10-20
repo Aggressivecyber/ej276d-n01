@@ -1,0 +1,13 @@
+{
+  "status": "PASS_SUPERVISOR_IO_FAILURE_STOPS_OWNED_CHILD",
+  "UTC": "2026-10-20T06:17:59.591172+00:00",
+  "script_sha256": "3fc2e82ee20cc1c957ccc806ef696476456a1fbc79e2c0f16118e61523df6a1a",
+  "supervisor_exit_code": 1,
+  "owned_child_pid": 214550,
+  "owned_child_absent_after_failure": true,
+  "injected_error": "resource_status.tmp is a directory",
+  "elapsed_seconds": 4.1786987830055295,
+  "new_scientific_calls": 0,
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"/mnt/MiNas/GAN/research/N01/receipts/joint_response_01_20261020/recentered_derivative_completion_01/SUPERVISOR_UNDER_TEST.py\", line 92, in <module>\n    main()\n  File \"/mnt/MiNas/GAN/research/N01/receipts/joint_response_01_20261020/recentered_derivative_completion_01/SUPERVISOR_UNDER_TEST.py\", line 66, in main\n    write(out/'resource_status.json',receipt)\n  File \"/mnt/MiNas/GAN/research/N01/receipts/joint_response_01_20261020/recentered_derivative_completion_01/SUPERVISOR_UNDER_TEST.py\", line 15, in write\n    tmp.write_text(json.dumps(value,indent=2)+'\\n',encoding='utf8')\n  File \"/usr/lib/python3.12/pathlib.py\", line 1049, in write_text\n    with self.open(mode='w', encoding=encoding, errors=errors, newline=newline) as f:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.12/pathlib.py\", line 1015, in open\n    return io.open(self, mode, buffering, encoding, errors, newline)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nIsADirectoryError: [Errno 21] Is a directory: '/mnt/MiNas/GAN/research/N01/receipts/joint_response_01_20261020/recentered_derivative_completion_01/supervisor_io_fault_smoke_01/resource_status.tmp'\n"
+}
