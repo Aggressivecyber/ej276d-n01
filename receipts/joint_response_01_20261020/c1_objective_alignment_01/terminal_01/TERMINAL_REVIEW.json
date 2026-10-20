@@ -1,0 +1,840 @@
+{
+  "status": "PASS_SAVED_OBJECTIVE_ALIGNMENT_AUDIT",
+  "UTC": "2026-10-20T00:23:10.773853+00:00",
+  "source_files_verified": 796,
+  "local_source_files_rehashed": 730,
+  "remote_only_source_files": 66,
+  "pinned_inputs": 136,
+  "output_files_rehashed": 12,
+  "archive_verified": true,
+  "native_exit": {
+    "exit_code": 0,
+    "reason": null,
+    "peak_rss_bytes": 4466429952,
+    "started_utc": "2026-10-20T00:21:07.853276+00:00",
+    "ended_utc": "2026-10-20T00:22:40.949555+00:00",
+    "supervisor_pid": 142465,
+    "child_pid": 142472
+  },
+  "independent_parent_permutation_replays": 16,
+  "feature_factors_exact": 18,
+  "independent_stream_seeds": 4896,
+  "residual_vectors_recomputed": 240,
+  "summary_views_recomputed": 60,
+  "max_residual_error": 9.80118763926896e-17,
+  "max_summary_error": 1.6263032587282567e-19,
+  "max_cross_block_identity_error": 1.6263032587282567e-19,
+  "execution_counts": {
+    "checkpoint_loads": 6,
+    "TRAIN_archives_decoded": 1,
+    "PCA_archives_decoded": 1,
+    "old_A_calls": 52,
+    "old_A_rows": 6593,
+    "M0_head_calls": 104,
+    "M0_head_rows": 13186,
+    "allocated_banks": 1634,
+    "shape_standard_normal_values": 26584080,
+    "noise005_calls": 1634,
+    "noise005_rows": 3323010,
+    "extension_rows": 9969030,
+    "joint_response_calls": 5714,
+    "joint_response_rows": 11598210,
+    "generated_observation_calls": 17142,
+    "generated_observation_rows": 34794630,
+    "feature_maps_constructed": 18,
+    "full_fit_parent_banks": 16,
+    "fixed_endpoint_evaluations": 40,
+    "target_family_evaluations": 16,
+    "independent_bank_pairs": 8
+  },
+  "reports": {
+    "seed0/original/FIT": {
+      "original_oracle": {
+        "U_risk": -5.344745411620104e-09,
+        "pooled_MC": 1.0097890038439308e-06,
+        "jackknife_SE": 1.7347982314566916e-07
+      },
+      "C1_known_truth": {
+        "U_risk": 0.0002634755269114817,
+        "pooled_MC": 1.042342562727234e-06,
+        "jackknife_SE": 8.35162691062836e-07
+      },
+      "C1_original_initial": {
+        "U_risk": 9.559000001565158e-05,
+        "pooled_MC": 1.015676817129549e-06,
+        "jackknife_SE": 8.547987918442908e-07
+      },
+      "C1_positive_endpoint": {
+        "U_risk": 0.00027129024785150493,
+        "pooled_MC": 1.0019572575972374e-06,
+        "jackknife_SE": 9.57583131568693e-07
+      },
+      "C1_original_endpoint": {
+        "U_risk": 9.15538613388155e-05,
+        "pooled_MC": 1.00983130762228e-06,
+        "jackknife_SE": 8.969345654379389e-07
+      }
+    },
+    "seed0/matched_C1/FIT": {
+      "original_oracle": {
+        "U_risk": 0.0002580016472407991,
+        "pooled_MC": 1.031330673928216e-06,
+        "jackknife_SE": 1.4034809528558702e-06
+      },
+      "C1_known_truth": {
+        "U_risk": 7.46987070658434e-08,
+        "pooled_MC": 1.0672235342196223e-06,
+        "jackknife_SE": 1.1572202012040285e-07
+      },
+      "C1_original_initial": {
+        "U_risk": 0.00017776132805841788,
+        "pooled_MC": 1.0597823457170865e-06,
+        "jackknife_SE": 1.0695364528342806e-06
+      },
+      "C1_positive_endpoint": {
+        "U_risk": 1.7176000320774626e-06,
+        "pooled_MC": 1.0482318921453462e-06,
+        "jackknife_SE": 1.2298599738442196e-07
+      },
+      "C1_original_endpoint": {
+        "U_risk": 0.00016910193704250637,
+        "pooled_MC": 1.0755068584817104e-06,
+        "jackknife_SE": 1.0272459350136321e-06
+      }
+    },
+    "seed0/original/CHECK": {
+      "original_oracle": {
+        "U_risk": 5.954993767167149e-08,
+        "pooled_MC": 1.1955390310790795e-06,
+        "jackknife_SE": 1.941278126500372e-07
+      },
+      "C1_known_truth": {
+        "U_risk": 0.0001918658953003168,
+        "pooled_MC": 1.244672688917568e-06,
+        "jackknife_SE": 2.5732349738643775e-06
+      },
+      "C1_original_initial": {
+        "U_risk": 0.00012316381549532914,
+        "pooled_MC": 1.194973766023101e-06,
+        "jackknife_SE": 1.6417249259416177e-06
+      },
+      "C1_positive_endpoint": {
+        "U_risk": 0.0001894413773963346,
+        "pooled_MC": 1.1577569891385544e-06,
+        "jackknife_SE": 1.4256596669824898e-06
+      },
+      "C1_original_endpoint": {
+        "U_risk": 0.00011852372893151509,
+        "pooled_MC": 1.1737334870469757e-06,
+        "jackknife_SE": 1.941559499135232e-06
+      }
+    },
+    "seed0/matched_C1/CHECK": {
+      "original_oracle": {
+        "U_risk": 0.00019947283162906034,
+        "pooled_MC": 1.238238289123587e-06,
+        "jackknife_SE": 3.5884848906434398e-06
+      },
+      "C1_known_truth": {
+        "U_risk": -8.892685080120572e-08,
+        "pooled_MC": 1.2920200343650565e-06,
+        "jackknife_SE": 2.3499239735785528e-07
+      },
+      "C1_original_initial": {
+        "U_risk": 0.0001816648301413377,
+        "pooled_MC": 1.2366348560026762e-06,
+        "jackknife_SE": 2.701453331283742e-06
+      },
+      "C1_positive_endpoint": {
+        "U_risk": 3.515459029839627e-06,
+        "pooled_MC": 1.1940265954022076e-06,
+        "jackknife_SE": 2.451456417518164e-07
+      },
+      "C1_original_endpoint": {
+        "U_risk": 0.00017080579859860673,
+        "pooled_MC": 1.2391541702117863e-06,
+        "jackknife_SE": 2.067970625545466e-06
+      }
+    },
+    "seed0/original/FINAL": {
+      "original_oracle": {
+        "U_risk": 2.8391164060108367e-07,
+        "pooled_MC": 1.0588540719707068e-06,
+        "jackknife_SE": 3.9094396824309695e-07
+      },
+      "C1_known_truth": {
+        "U_risk": 0.0002973544243862777,
+        "pooled_MC": 1.1510057976905062e-06,
+        "jackknife_SE": 2.6021085017640206e-06
+      },
+      "C1_original_initial": {
+        "U_risk": 0.00020752523594362362,
+        "pooled_MC": 1.1318234983831605e-06,
+        "jackknife_SE": 1.90316900768363e-06
+      },
+      "C1_positive_endpoint": {
+        "U_risk": 0.00030349727941148875,
+        "pooled_MC": 1.1151935667066998e-06,
+        "jackknife_SE": 2.73546305672024e-06
+      },
+      "C1_original_endpoint": {
+        "U_risk": 0.000207939615365136,
+        "pooled_MC": 1.1057313706736294e-06,
+        "jackknife_SE": 2.3707239426462097e-06
+      }
+    },
+    "seed0/matched_C1/FINAL": {
+      "original_oracle": {
+        "U_risk": 0.00030058597681867117,
+        "pooled_MC": 1.0479158829591852e-06,
+        "jackknife_SE": 2.2996768021086253e-06
+      },
+      "C1_known_truth": {
+        "U_risk": 1.779911795336832e-07,
+        "pooled_MC": 1.1509492094735407e-06,
+        "jackknife_SE": 2.5428103758892753e-07
+      },
+      "C1_original_initial": {
+        "U_risk": 0.00018708619586216575,
+        "pooled_MC": 1.112989935537112e-06,
+        "jackknife_SE": 1.3129409994583254e-06
+      },
+      "C1_positive_endpoint": {
+        "U_risk": 3.85471517451975e-06,
+        "pooled_MC": 1.0848481631208564e-06,
+        "jackknife_SE": 1.6155601539272203e-07
+      },
+      "C1_original_endpoint": {
+        "U_risk": 0.0001750718816474183,
+        "pooled_MC": 1.1032966778657206e-06,
+        "jackknife_SE": 2.7703458490605557e-07
+      }
+    },
+    "seed1/original/FIT": {
+      "original_oracle": {
+        "U_risk": 1.8736454058655127e-07,
+        "pooled_MC": 1.1268866105256853e-06,
+        "jackknife_SE": 3.12183464001009e-07
+      },
+      "C1_known_truth": {
+        "U_risk": 0.00026214688996266416,
+        "pooled_MC": 1.1680095848360924e-06,
+        "jackknife_SE": 3.8696731557083445e-06
+      },
+      "C1_original_initial": {
+        "U_risk": 0.00010683078817811581,
+        "pooled_MC": 1.0438419828227495e-06,
+        "jackknife_SE": 8.054136623500284e-07
+      },
+      "C1_positive_endpoint": {
+        "U_risk": 0.00026525638733843076,
+        "pooled_MC": 1.1007833305826297e-06,
+        "jackknife_SE": 1.6839773364498578e-06
+      },
+      "C1_original_endpoint": {
+        "U_risk": 9.937690481086452e-05,
+        "pooled_MC": 1.096159222305697e-06,
+        "jackknife_SE": 7.742053788609701e-07
+      }
+    },
+    "seed1/matched_C1/FIT": {
+      "original_oracle": {
+        "U_risk": 0.00026460256537948944,
+        "pooled_MC": 1.1931477984982462e-06,
+        "jackknife_SE": 4.7039336063589125e-06
+      },
+      "C1_known_truth": {
+        "U_risk": 2.5555510908135035e-07,
+        "pooled_MC": 1.2502187942770445e-06,
+        "jackknife_SE": 3.1012851074073993e-07
+      },
+      "C1_original_initial": {
+        "U_risk": 0.00016599476621720742,
+        "pooled_MC": 1.0695329968446498e-06,
+        "jackknife_SE": 2.456179754140139e-06
+      },
+      "C1_positive_endpoint": {
+        "U_risk": 2.8198668007934528e-06,
+        "pooled_MC": 1.1365816836298658e-06,
+        "jackknife_SE": 4.3762028259368914e-07
+      },
+      "C1_original_endpoint": {
+        "U_risk": 0.00016234076272608118,
+        "pooled_MC": 1.1411912120653294e-06,
+        "jackknife_SE": 3.4699026691325575e-06
+      }
+    },
+    "seed1/original/CHECK": {
+      "original_oracle": {
+        "U_risk": 2.6030810671915225e-07,
+        "pooled_MC": 1.1950185590965957e-06,
+        "jackknife_SE": 3.7399634154602936e-07
+      },
+      "C1_known_truth": {
+        "U_risk": 0.00019455307686011875,
+        "pooled_MC": 1.1879640576301295e-06,
+        "jackknife_SE": 2.7135987612747595e-06
+      },
+      "C1_original_initial": {
+        "U_risk": 0.00012845668182490303,
+        "pooled_MC": 1.1757889410903243e-06,
+        "jackknife_SE": 1.0638652746713862e-06
+      },
+      "C1_positive_endpoint": {
+        "U_risk": 0.00019139573624787787,
+        "pooled_MC": 1.201510755351802e-06,
+        "jackknife_SE": 3.2368754363997357e-06
+      },
+      "C1_original_endpoint": {
+        "U_risk": 0.00011653172734646653,
+        "pooled_MC": 1.183600233329266e-06,
+        "jackknife_SE": 2.718441439923485e-06
+      }
+    },
+    "seed1/matched_C1/CHECK": {
+      "original_oracle": {
+        "U_risk": 0.00018737138379476908,
+        "pooled_MC": 1.2130063112700587e-06,
+        "jackknife_SE": 2.854846054030493e-06
+      },
+      "C1_known_truth": {
+        "U_risk": 3.043972420196412e-07,
+        "pooled_MC": 1.228141859338885e-06,
+        "jackknife_SE": 4.0064956779189655e-07
+      },
+      "C1_original_initial": {
+        "U_risk": 0.0001718455564425312,
+        "pooled_MC": 1.2143251413944279e-06,
+        "jackknife_SE": 1.674538085535955e-06
+      },
+      "C1_positive_endpoint": {
+        "U_risk": 7.0990592790617535e-06,
+        "pooled_MC": 1.2619190942910907e-06,
+        "jackknife_SE": 8.784898290489501e-07
+      },
+      "C1_original_endpoint": {
+        "U_risk": 0.00014930818778985177,
+        "pooled_MC": 1.2541167434247843e-06,
+        "jackknife_SE": 1.2313724155673236e-06
+      }
+    },
+    "seed1/original/FINAL": {
+      "original_oracle": {
+        "U_risk": -1.5885622378607187e-08,
+        "pooled_MC": 1.0697924132104225e-06,
+        "jackknife_SE": 3.4007288211720805e-07
+      },
+      "C1_known_truth": {
+        "U_risk": 0.00027987969070410054,
+        "pooled_MC": 1.151030207707067e-06,
+        "jackknife_SE": 1.535697275996068e-06
+      },
+      "C1_original_initial": {
+        "U_risk": 0.0002257959288295356,
+        "pooled_MC": 1.1945259464411287e-06,
+        "jackknife_SE": 9.53013705596731e-07
+      },
+      "C1_positive_endpoint": {
+        "U_risk": 0.000291178824721582,
+        "pooled_MC": 1.1528902752530543e-06,
+        "jackknife_SE": 3.3186914772869235e-06
+      },
+      "C1_original_endpoint": {
+        "U_risk": 0.00019984048248348314,
+        "pooled_MC": 1.0978995736637206e-06,
+        "jackknife_SE": 2.0248042930923582e-06
+      }
+    },
+    "seed1/matched_C1/FINAL": {
+      "original_oracle": {
+        "U_risk": 0.0002809366555814479,
+        "pooled_MC": 1.1094992338268886e-06,
+        "jackknife_SE": 2.3752430834564227e-06
+      },
+      "C1_known_truth": {
+        "U_risk": -9.290844936640073e-08,
+        "pooled_MC": 1.2183209166946883e-06,
+        "jackknife_SE": 3.1223999701822326e-07
+      },
+      "C1_original_initial": {
+        "U_risk": 0.00019945508541132262,
+        "pooled_MC": 1.2063359434797788e-06,
+        "jackknife_SE": 1.6539324335840698e-06
+      },
+      "C1_positive_endpoint": {
+        "U_risk": 7.2238254680410665e-06,
+        "pooled_MC": 1.2107173921238397e-06,
+        "jackknife_SE": 5.87870826399322e-07
+      },
+      "C1_original_endpoint": {
+        "U_risk": 0.00016686493950638932,
+        "pooled_MC": 1.141586042907742e-06,
+        "jackknife_SE": 1.586637451605977e-06
+      }
+    }
+  },
+  "paired_rankings": {
+    "seed0/original/FIT": {
+      "original_minus_positive": {
+        "U_difference": -0.00017973638651268942,
+        "paired_jackknife_SE": 1.435710245787826e-06,
+        "same_bank_risk_differences": [
+          -0.0001820647700754813,
+          -0.00018096985414597393,
+          -0.0001791497328748579,
+          -0.0001766352041540439
+        ],
+        "all_four_banks_negative": true,
+        "all_four_banks_positive": false
+      },
+      "original_minus_initial": {
+        "U_difference": -4.036138676836087e-06,
+        "paired_jackknife_SE": 7.320699946397163e-07,
+        "same_bank_risk_differences": [
+          -6.178676645761483e-06,
+          -4.210706315282915e-06,
+          -2.0002666546392952e-06,
+          -3.848433243777003e-06
+        ],
+        "all_four_banks_negative": true,
+        "all_four_banks_positive": false
+      },
+      "known_C1_minus_oracle": {
+        "U_difference": 0.00026348087165689333,
+        "paired_jackknife_SE": 7.147083701630325e-07,
+        "same_bank_risk_differences": [
+          0.0002649622768071978,
+          0.0002634076998125802,
+          0.00026186799762160153,
+          0.0002642063693283268
+        ],
+        "all_four_banks_negative": false,
+        "all_four_banks_positive": true
+      }
+    },
+    "seed0/matched_C1/FIT": {
+      "original_minus_positive": {
+        "U_difference": 0.0001673843370104289,
+        "paired_jackknife_SE": 1.0125126545537245e-06,
+        "same_bank_risk_differences": [
+          0.00016782078182707804,
+          0.00016776031571206931,
+          0.00016547022254456966,
+          0.00016892242741938039
+        ],
+        "all_four_banks_negative": false,
+        "all_four_banks_positive": true
+      },
+      "original_minus_initial": {
+        "U_difference": -8.659391015911516e-06,
+        "paired_jackknife_SE": 4.411735873284724e-07,
+        "same_bank_risk_differences": [
+          -8.262903113495158e-06,
+          -1.0040996139516745e-05,
+          -7.4974728768909915e-06,
+          -8.584599729509175e-06
+        ],
+        "all_four_banks_negative": true,
+        "all_four_banks_positive": false
+      },
+      "known_C1_minus_oracle": {
+        "U_difference": -0.00025792694853373323,
+        "paired_jackknife_SE": 1.4806132732235424e-06,
+        "same_bank_risk_differences": [
+          -0.00025420755928068096,
+          -0.00025818285907153096,
+          -0.0002576016731814764,
+          -0.00026114141683658245
+        ],
+        "all_four_banks_negative": true,
+        "all_four_banks_positive": false
+      }
+    },
+    "seed0/original/CHECK": {
+      "original_minus_positive": {
+        "U_difference": -7.091764846481952e-05,
+        "paired_jackknife_SE": 1.7346657898417769e-06,
+        "same_bank_risk_differences": [
+          -7.369692065820472e-05,
+          -6.673446387240193e-05,
+          -7.299157824407108e-05,
+          -6.999200711806569e-05
+        ],
+        "all_four_banks_negative": true,
+        "all_four_banks_positive": false
+      },
+      "original_minus_initial": {
+        "U_difference": -4.640086563814056e-06,
+        "paired_jackknife_SE": 1.168191857628188e-06,
+        "same_bank_risk_differences": [
+          -7.346053531166215e-06,
+          -2.2404692119728294e-06,
+          -4.956462574877882e-06,
+          -4.357205400857319e-06
+        ],
+        "all_four_banks_negative": true,
+        "all_four_banks_positive": false
+      },
+      "known_C1_minus_oracle": {
+        "U_difference": 0.00019180634536264513,
+        "paired_jackknife_SE": 2.642483095170719e-06,
+        "same_bank_risk_differences": [
+          0.0001973459465346071,
+          0.00019139540051502034,
+          0.00018529064736888252,
+          0.00019397952555748647
+        ],
+        "all_four_banks_negative": false,
+        "all_four_banks_positive": true
+      }
+    },
+    "seed0/matched_C1/CHECK": {
+      "original_minus_positive": {
+        "U_difference": 0.0001672903395687671,
+        "paired_jackknife_SE": 2.2415629234711804e-06,
+        "same_bank_risk_differences": [
+          0.00016129581121296816,
+          0.0001673900647946199,
+          0.00017230345255968732,
+          0.00016889407090474632
+        ],
+        "all_four_banks_negative": false,
+        "all_four_banks_positive": true
+      },
+      "original_minus_initial": {
+        "U_difference": -1.0859031542730964e-05,
+        "paired_jackknife_SE": 6.831264813222406e-07,
+        "same_bank_risk_differences": [
+          -9.286410127895626e-06,
+          -1.2404386156496304e-05,
+          -1.068655848501595e-05,
+          -1.1018462374170183e-05
+        ],
+        "all_four_banks_negative": true,
+        "all_four_banks_positive": false
+      },
+      "known_C1_minus_oracle": {
+        "U_difference": -0.00019956175847986156,
+        "paired_jackknife_SE": 3.4714014191530255e-06,
+        "same_bank_risk_differences": [
+          -0.00019024598644442597,
+          -0.00020089184005043522,
+          -0.0002066476692442324,
+          -0.00019960103025648914
+        ],
+        "all_four_banks_negative": true,
+        "all_four_banks_positive": false
+      }
+    },
+    "seed0/original/FINAL": {
+      "original_minus_positive": {
+        "U_difference": -9.555766404635276e-05,
+        "paired_jackknife_SE": 2.4983097053760494e-06,
+        "same_bank_risk_differences": [
+          -0.00010074996816667812,
+          -9.480241364276834e-05,
+          -8.914057091212352e-05,
+          -9.768909860037025e-05
+        ],
+        "all_four_banks_negative": true,
+        "all_four_banks_positive": false
+      },
+      "original_minus_initial": {
+        "U_difference": 4.143794215123698e-07,
+        "paired_jackknife_SE": 1.7071679754287712e-06,
+        "same_bank_risk_differences": [
+          -4.661909475058105e-06,
+          2.035497027438768e-06,
+          4.020595954117007e-06,
+          -1.5413986380059374e-07
+        ],
+        "all_four_banks_negative": false,
+        "all_four_banks_positive": false
+      },
+      "known_C1_minus_oracle": {
+        "U_difference": 0.0002970705127456766,
+        "paired_jackknife_SE": 2.8851458036061257e-06,
+        "same_bank_risk_differences": [
+          0.0002932692176224488,
+          0.0002920717893724322,
+          0.00030048047579970367,
+          0.00030393499579963866
+        ],
+        "all_four_banks_negative": false,
+        "all_four_banks_positive": true
+      }
+    },
+    "seed0/matched_C1/FINAL": {
+      "original_minus_positive": {
+        "U_difference": 0.00017121716647289855,
+        "paired_jackknife_SE": 3.196830031142158e-07,
+        "same_bank_risk_differences": [
+          0.00017198317666397675,
+          0.00017109643974171288,
+          0.00017071835229827499,
+          0.00017136587342354734
+        ],
+        "all_four_banks_negative": false,
+        "all_four_banks_positive": true
+      },
+      "original_minus_initial": {
+        "U_difference": -1.2014314214747453e-05,
+        "paired_jackknife_SE": 1.2714852868115196e-06,
+        "same_bank_risk_differences": [
+          -1.2691513771216845e-05,
+          -1.226036762899297e-05,
+          -1.4612391867960392e-05,
+          -8.648075713561901e-06
+        ],
+        "all_four_banks_negative": true,
+        "all_four_banks_positive": false
+      },
+      "known_C1_minus_oracle": {
+        "U_difference": -0.00030040798563913746,
+        "paired_jackknife_SE": 2.0692755571730327e-06,
+        "same_bank_risk_differences": [
+          -0.00030044943958539526,
+          -0.00030507343685266895,
+          -0.000299480791707647,
+          -0.00029497974118660873
+        ],
+        "all_four_banks_negative": true,
+        "all_four_banks_positive": false
+      }
+    },
+    "seed1/original/FIT": {
+      "original_minus_positive": {
+        "U_difference": -0.00016587948252756626,
+        "paired_jackknife_SE": 1.0646539937196693e-06,
+        "same_bank_risk_differences": [
+          -0.000163850276743328,
+          -0.0001690632807158086,
+          -0.00016574245533470546,
+          -0.0001649359030488538
+        ],
+        "all_four_banks_negative": true,
+        "all_four_banks_positive": false
+      },
+      "original_minus_initial": {
+        "U_difference": -7.453883367251294e-06,
+        "paired_jackknife_SE": 8.438188780369562e-07,
+        "same_bank_risk_differences": [
+          -8.472400920051738e-06,
+          -5.521162435141594e-06,
+          -6.771363909063575e-06,
+          -8.213530373021188e-06
+        ],
+        "all_four_banks_negative": true,
+        "all_four_banks_positive": false
+      },
+      "known_C1_minus_oracle": {
+        "U_difference": 0.0002619595254220776,
+        "paired_jackknife_SE": 3.79889640442697e-06,
+        "same_bank_risk_differences": [
+          0.00025849929740329446,
+          0.0002599333411894088,
+          0.00027341532937415723,
+          0.00025664810131041644
+        ],
+        "all_four_banks_negative": false,
+        "all_four_banks_positive": true
+      }
+    },
+    "seed1/matched_C1/FIT": {
+      "original_minus_positive": {
+        "U_difference": 0.00015952089592528772,
+        "paired_jackknife_SE": 3.6186326737991284e-06,
+        "same_bank_risk_differences": [
+          0.00016151855861558826,
+          0.00015365646751510156,
+          0.00015411461501115743,
+          0.0001688676950142711
+        ],
+        "all_four_banks_negative": false,
+        "all_four_banks_positive": true
+      },
+      "original_minus_initial": {
+        "U_difference": -3.654003491126241e-06,
+        "paired_jackknife_SE": 1.0335615317039922e-06,
+        "same_bank_risk_differences": [
+          -2.0772056493359534e-06,
+          -6.020372996761705e-06,
+          -4.349147583654833e-06,
+          -1.0227562912214802e-06
+        ],
+        "all_four_banks_negative": true,
+        "all_four_banks_positive": false
+      },
+      "known_C1_minus_oracle": {
+        "U_difference": -0.00026434701027040807,
+        "paired_jackknife_SE": 4.670059994580652e-06,
+        "same_bank_risk_differences": [
+          -0.00026934698203129467,
+          -0.0002610493441507955,
+          -0.0002522765193395166,
+          -0.00027380205962756495
+        ],
+        "all_four_banks_negative": true,
+        "all_four_banks_positive": false
+      }
+    },
+    "seed1/original/CHECK": {
+      "original_minus_positive": {
+        "U_difference": -7.486400890141134e-05,
+        "paired_jackknife_SE": 2.1543175095779036e-06,
+        "same_bank_risk_differences": [
+          -7.398846139769965e-05,
+          -7.993580352138883e-05,
+          -6.839466853964673e-05,
+          -7.742367049927072e-05
+        ],
+        "all_four_banks_negative": true,
+        "all_four_banks_positive": false
+      },
+      "original_minus_initial": {
+        "U_difference": -1.1924954478436504e-05,
+        "paired_jackknife_SE": 1.7535919468054598e-06,
+        "same_bank_risk_differences": [
+          -1.3994752691353285e-05,
+          -8.816055822440425e-06,
+          -9.24900427380171e-06,
+          -1.5515024450327562e-05
+        ],
+        "all_four_banks_negative": true,
+        "all_four_banks_positive": false
+      },
+      "known_C1_minus_oracle": {
+        "U_difference": 0.0001942927687533996,
+        "paired_jackknife_SE": 2.432687812279139e-06,
+        "same_bank_risk_differences": [
+          0.00019047833903061855,
+          0.00019880807768174667,
+          0.00019797477190961754,
+          0.00018979701436815224
+        ],
+        "all_four_banks_negative": false,
+        "all_four_banks_positive": true
+      }
+    },
+    "seed1/matched_C1/CHECK": {
+      "original_minus_positive": {
+        "U_difference": 0.00014220912851079003,
+        "paired_jackknife_SE": 1.4183148051843134e-06,
+        "same_bank_risk_differences": [
+          0.00014444417119446255,
+          0.00014001489822291566,
+          0.00013984254046307785,
+          0.00014441006654884302
+        ],
+        "all_four_banks_negative": false,
+        "all_four_banks_positive": true
+      },
+      "original_minus_initial": {
+        "U_difference": -2.253736865267942e-05,
+        "paired_jackknife_SE": 7.335685629995361e-07,
+        "same_bank_risk_differences": [
+          -2.404026831927879e-05,
+          -2.330896732097491e-05,
+          -2.1403856431221512e-05,
+          -2.0759716906756828e-05
+        ],
+        "all_four_banks_negative": true,
+        "all_four_banks_positive": false
+      },
+      "known_C1_minus_oracle": {
+        "U_difference": -0.00018706698655274943,
+        "paired_jackknife_SE": 3.128196162795276e-06,
+        "same_bank_risk_differences": [
+          -0.00019044013129255997,
+          -0.00017992769572224698,
+          -0.00018384282807312882,
+          -0.00019381512235396083
+        ],
+        "all_four_banks_negative": true,
+        "all_four_banks_positive": false
+      }
+    },
+    "seed1/original/FINAL": {
+      "original_minus_positive": {
+        "U_difference": -9.133834223809886e-05,
+        "paired_jackknife_SE": 1.6356131120060654e-06,
+        "same_bank_risk_differences": [
+          -9.233710903114978e-05,
+          -9.136950882245208e-05,
+          -9.564711657309116e-05,
+          -8.68794857511315e-05
+        ],
+        "all_four_banks_negative": true,
+        "all_four_banks_positive": false
+      },
+      "original_minus_initial": {
+        "U_difference": -2.5955446346052463e-05,
+        "paired_jackknife_SE": 1.2827537957110948e-06,
+        "same_bank_risk_differences": [
+          -2.837104654281213e-05,
+          -2.3840581977359088e-05,
+          -2.477766643112911e-05,
+          -2.8378512397348094e-05
+        ],
+        "all_four_banks_negative": true,
+        "all_four_banks_positive": false
+      },
+      "known_C1_minus_oracle": {
+        "U_difference": 0.00027989557632647916,
+        "paired_jackknife_SE": 1.750065931244506e-06,
+        "same_bank_risk_differences": [
+          0.00027703645203965927,
+          0.00028369517169792496,
+          0.00028266044535801225,
+          0.0002774900409222666
+        ],
+        "all_four_banks_negative": false,
+        "all_four_banks_positive": true
+      }
+    },
+    "seed1/matched_C1/FINAL": {
+      "original_minus_positive": {
+        "U_difference": 0.00015964111403834826,
+        "paired_jackknife_SE": 1.932293804423587e-06,
+        "same_bank_risk_differences": [
+          0.0001609182039000342,
+          0.00016022798816808938,
+          0.00015291642382577207,
+          0.0001633957386720399
+        ],
+        "all_four_banks_negative": false,
+        "all_four_banks_positive": true
+      },
+      "original_minus_initial": {
+        "U_difference": -3.25901459049333e-05,
+        "paired_jackknife_SE": 1.036635769541173e-06,
+        "same_bank_risk_differences": [
+          -3.0280258141631187e-05,
+          -3.567523435450755e-05,
+          -3.301267613697596e-05,
+          -3.24284133957711e-05
+        ],
+        "all_four_banks_negative": true,
+        "all_four_banks_positive": false
+      },
+      "known_C1_minus_oracle": {
+        "U_difference": -0.00028102956403081426,
+        "paired_jackknife_SE": 2.174813917099652e-06,
+        "same_bank_risk_differences": [
+          -0.0002830084753259189,
+          -0.00027437227696524175,
+          -0.00028088859285848455,
+          -0.0002841077640477272
+        ],
+        "all_four_banks_negative": true,
+        "all_four_banks_positive": false
+      }
+    }
+  },
+  "raw_generator_replay": false,
+  "four_bank_jackknife_descriptive_only": true,
+  "negative_U_estimates_retained": true,
+  "parameter_updates": 0,
+  "scientific_acceptance": false,
+  "elapsed_seconds": 0.49990960001014173
+}

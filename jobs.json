@@ -1,6 +1,6 @@
 {
   "experiment_id": "N01",
-  "updated_UTC": "2026-10-20T00:00:35.426038+00:00",
+  "updated_UTC": "2026-10-20T00:56:33.655669+00:00",
   "active_scientific_jobs": 1,
   "jobs": [
     {
@@ -22247,7 +22247,7 @@
     },
     {
       "job_id": "JOINT_RESPONSE_01_C1_ORIGINAL_PRECISION_20261020",
-      "status": "running_first_joint_update_verified",
+      "status": "completed_audited_scientific_failure",
       "registered_UTC": "2026-10-19T23:54:58.608024+00:00",
       "config": "configs/joint_response_01_c1_original_precision_20261020.json",
       "config_sha256": "75f5d9b100cf4387f7409d218f753c18dac2ead658618bcd89a28c595fcd79ff",
@@ -22407,19 +22407,577 @@
       "native_self_peak_RSS_bytes": 6536024064,
       "last_verified_supervisor_peak_RSS_bytes": 6532050944,
       "followup_local": "2026-10-20T08:15:00+08:00",
-      "followup_automation_id": "n01"
+      "followup_automation_id": "n01",
+      "completed_UTC": "2026-10-20T00:12:13.442934+00:00",
+      "native_exit": {
+        "exit_code": 0,
+        "reason": null,
+        "peak_rss_bytes": 6676271104,
+        "started_utc": "2026-10-19T23:55:25.807301+00:00",
+        "ended_utc": "2026-10-20T00:12:13.442934+00:00",
+        "supervisor_pid": 137683,
+        "child_pid": 137690
+      },
+      "terminal_review": "receipts/joint_response_01_20261020/c1_original_precision_01/terminal_01/TERMINAL_REVIEW.json",
+      "execution_counts": {
+        "checkpoint_loads": 6,
+        "TRAIN_archives_decoded": 1,
+        "PCA_archives_decoded": 1,
+        "old_A_calls": 52,
+        "old_A_rows": 6593,
+        "M0_head_calls": 104,
+        "M0_head_rows": 13186,
+        "allocated_banks": 3278,
+        "shape_standard_normal_values": 61977616,
+        "noise005_calls": 3274,
+        "noise005_rows": 6698626,
+        "extension_rows": 20095878,
+        "joint_response_calls": 95002,
+        "joint_response_rows": 192922882,
+        "generated_observation_calls": 280350,
+        "generated_observation_rows": 568938246,
+        "feature_maps_constructed": 18,
+        "full_fit_parent_banks": 32,
+        "finite_difference_columns": 432,
+        "fullpool_FIT_chunk_columns": 44064,
+        "joint_direction_solves": 8,
+        "joint_candidate_trials": 20,
+        "teacher_accepted_joint_updates": 4,
+        "conditional_signal_rows": 98304,
+        "native_metric_rows": 589824
+      },
+      "original_recovery_pass": false,
+      "failed_gates": [
+        {
+          "target_family": "original",
+          "name": "seed1/library0/conditional_mean_relative_RMS",
+          "value": 0.05762801487401367,
+          "upper": 0.05,
+          "pass_gate": false
+        },
+        {
+          "target_family": "original",
+          "name": "seed1/library1/conditional_mean_relative_RMS",
+          "value": 0.05722099877071832,
+          "upper": 0.05,
+          "pass_gate": false
+        }
+      ]
+    },
+    {
+      "job_id": "JOINT_RESPONSE_01_C1_OBJECTIVE_ALIGNMENT_20261020",
+      "status": "completed_independently_audited_zero_updates",
+      "registered_UTC": "2026-10-20T00:20:34.394615+00:00",
+      "config": "configs/joint_response_01_c1_objective_alignment_20261020.json",
+      "config_sha256": "578a1145aaae8574c302c69093628ab71d7b8bf7b320e71c648494e0c55bbb92",
+      "host": "rylan@100.82.231.102",
+      "remote_root": "/home/rylan/projects/ej276d-n01/joint_response01_c1_objective_alignment_20261020",
+      "resources": {
+        "CPU_threads": 4,
+        "GPU_GiB": 2.75,
+        "RSS_GiB": 12,
+        "internal_seconds": 300,
+        "hard_wall_seconds": 420,
+        "output_MiB": 32,
+        "automatic_restart": false,
+        "GPU_free_required_MiB": 3840
+      },
+      "operation_budget": {
+        "checkpoint_loads": 6,
+        "TRAIN_archives_decoded": 1,
+        "PCA_archives_decoded": 1,
+        "DEV_waveforms_decoded": 0,
+        "old_A_calls": 52,
+        "old_A_rows": 6593,
+        "M0_head_calls": 104,
+        "M0_head_rows": 13186,
+        "allocated_banks": 1634,
+        "shape_standard_normal_values": 26584080,
+        "noise005_calls": 1634,
+        "noise005_rows": 3323010,
+        "extension_rows": 9969030,
+        "joint_response_calls": 5714,
+        "joint_response_rows": 11598210,
+        "generated_observation_calls": 17142,
+        "generated_observation_rows": 34794630,
+        "finite_difference_columns": 0,
+        "fullpool_FIT_chunk_columns": 0,
+        "joint_direction_solves": 0,
+        "joint_candidate_trials": 0,
+        "teacher_accepted_joint_updates": 0,
+        "conditional_signal_rows": 0,
+        "native_metric_rows": 0,
+        "feature_maps_constructed": 18,
+        "full_fit_parent_banks": 16,
+        "fixed_endpoint_evaluations": 40,
+        "target_family_evaluations": 16,
+        "independent_bank_pairs": 8,
+        "REAL_response_updates": 0,
+        "AD_queries": 0,
+        "classifier_fits": 0
+      },
+      "parameter_updates": 0,
+      "original_cross_family_failure_preserved": true,
+      "automatic_REAL_promotion": false,
+      "scientific_acceptance": false,
+      "dispatch": {
+        "schema": "n01/joint-response01-c1-objective-alignment-dispatch/v1",
+        "UTC": "2026-10-20T00:21:07.833029+00:00",
+        "dispatcher_pid": 142464,
+        "dispatcher_start_ticks": "2946764",
+        "boot_id": "83c9f761-c124-42e1-89b8-5f45f0b3acc4",
+        "remote_root": "/home/rylan/projects/ej276d-n01/joint_response01_c1_objective_alignment_20261020",
+        "command": [
+          "taskset",
+          "-c",
+          "0,1,2,3",
+          "flock",
+          "-n",
+          "/home/rylan/projects/ej276d-n01/.n01_scientific_dispatch.lock",
+          "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+          "-B",
+          "/home/rylan/projects/ej276d-n01/joint_response01_c1_objective_alignment_20261020/scripts/supervise.py",
+          "--output",
+          "/home/rylan/projects/ej276d-n01/joint_response01_c1_objective_alignment_20261020/control_01",
+          "--rss-limit-gib",
+          "12",
+          "--",
+          "timeout",
+          "--signal=TERM",
+          "--kill-after=20s",
+          "420s",
+          "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+          "-B",
+          "/home/rylan/projects/ej276d-n01/joint_response01_c1_objective_alignment_20261020/scripts/diagnose_joint01_c1_objective_alignment.py",
+          "--config",
+          "/home/rylan/projects/ej276d-n01/joint_response01_c1_objective_alignment_20261020/configs/joint_response_01_c1_objective_alignment_20261020.json",
+          "--config-sha256",
+          "578a1145aaae8574c302c69093628ab71d7b8bf7b320e71c648494e0c55bbb92",
+          "--out",
+          "/home/rylan/projects/ej276d-n01/joint_response01_c1_objective_alignment_20261020/run_01",
+          "--device",
+          "cuda:0"
+        ],
+        "environment_overrides": {
+          "PYTHONDONTWRITEBYTECODE": "1",
+          "PYTHONPATH": "/home/rylan/projects/ej276d-n01/joint_response01_c1_objective_alignment_20261020/src:/home/rylan/projects/ej276d-n01/joint_response01_c1_objective_alignment_20261020/scripts",
+          "TMPDIR": "/home/rylan/projects/ej276d-n01/joint_response01_c1_objective_alignment_20261020/cache",
+          "TEMP": "/home/rylan/projects/ej276d-n01/joint_response01_c1_objective_alignment_20261020/cache",
+          "TMP": "/home/rylan/projects/ej276d-n01/joint_response01_c1_objective_alignment_20261020/cache",
+          "XDG_CACHE_HOME": "/home/rylan/projects/ej276d-n01/joint_response01_c1_objective_alignment_20261020/cache",
+          "TORCH_HOME": "/home/rylan/projects/ej276d-n01/joint_response01_c1_objective_alignment_20261020/cache/torch",
+          "TORCH_EXTENSIONS_DIR": "/home/rylan/projects/ej276d-n01/joint_response01_c1_objective_alignment_20261020/cache/extensions",
+          "MPLCONFIGDIR": "/home/rylan/projects/ej276d-n01/joint_response01_c1_objective_alignment_20261020/cache/mpl",
+          "CUDA_CACHE_PATH": "/home/rylan/projects/ej276d-n01/joint_response01_c1_objective_alignment_20261020/cache/cuda",
+          "OMP_NUM_THREADS": "4",
+          "OPENBLAS_NUM_THREADS": "4",
+          "MKL_NUM_THREADS": "4",
+          "NUMEXPR_NUM_THREADS": "4",
+          "CUBLAS_WORKSPACE_CONFIG": ":4096:8"
+        },
+        "config_sha256": "578a1145aaae8574c302c69093628ab71d7b8bf7b320e71c648494e0c55bbb92",
+        "GPU_snapshot": "NVIDIA GeForce RTX 5070, 12227, 170, 11603, 0",
+        "GPU_free_MiB": 11603,
+        "memory": {
+          "MemTotal": 66953080832,
+          "MemAvailable": 62225801216
+        },
+        "disk_free_bytes": 26348150784,
+        "CPU_affinity": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "project_processes_before_dispatch": [],
+        "project_lock_verified_free": true,
+        "automatic_restart": false,
+        "science_result_yet": false
+      },
+      "training_pid": 142473,
+      "science_start_ticks": "2946766",
+      "supervisor_pid": 142465,
+      "startup_assessment": "receipts/joint_response_01_20261020/c1_objective_alignment_01/STARTUP_ASSESSMENT.json",
+      "status_asof_UTC": "2026-10-20T00:22:33.870821+00:00",
+      "completed_UTC": "2026-10-20T00:22:40.949555+00:00",
+      "native_exit": {
+        "exit_code": 0,
+        "reason": null,
+        "peak_rss_bytes": 4466429952,
+        "started_utc": "2026-10-20T00:21:07.853276+00:00",
+        "ended_utc": "2026-10-20T00:22:40.949555+00:00",
+        "supervisor_pid": 142465,
+        "child_pid": 142472
+      },
+      "terminal_review": "receipts/joint_response_01_20261020/c1_objective_alignment_01/terminal_01/TERMINAL_REVIEW.json",
+      "execution_counts": {
+        "checkpoint_loads": 6,
+        "TRAIN_archives_decoded": 1,
+        "PCA_archives_decoded": 1,
+        "old_A_calls": 52,
+        "old_A_rows": 6593,
+        "M0_head_calls": 104,
+        "M0_head_rows": 13186,
+        "allocated_banks": 1634,
+        "shape_standard_normal_values": 26584080,
+        "noise005_calls": 1634,
+        "noise005_rows": 3323010,
+        "extension_rows": 9969030,
+        "joint_response_calls": 5714,
+        "joint_response_rows": 11598210,
+        "generated_observation_calls": 17142,
+        "generated_observation_rows": 34794630,
+        "feature_maps_constructed": 18,
+        "full_fit_parent_banks": 16,
+        "fixed_endpoint_evaluations": 40,
+        "target_family_evaluations": 16,
+        "independent_bank_pairs": 8
+      },
+      "objective_ranking_contradicts_conditional_quality_under_original_target": true
+    },
+    {
+      "job_id": "JOINT_RESPONSE_01_ORIGINAL_DRAW_PRECISION_20261020",
+      "status": "stopped_runtime_feasibility_prefix_audited",
+      "registered_UTC": "2026-10-20T00:34:31.470863+00:00",
+      "config": "configs/joint_response_01_original_draw_precision_20261020.json",
+      "config_sha256": "c3b72d59de88a990c77d4438951d51fd9ff2f7279fca0ead4e925aea0fa0e011",
+      "host": "rylan@100.82.231.102",
+      "remote_root": "/home/rylan/projects/ej276d-n01/joint_response01_original_draw_precision_20261020",
+      "resources": {
+        "CPU_threads": 4,
+        "GPU_GiB": 4,
+        "RSS_GiB": 12,
+        "internal_seconds": 5400,
+        "hard_wall_seconds": 5700,
+        "output_MiB": 128,
+        "automatic_restart": false,
+        "GPU_free_required_MiB": 6144
+      },
+      "operation_budget": {
+        "checkpoint_loads": 6,
+        "TRAIN_archives_decoded": 1,
+        "PCA_archives_decoded": 1,
+        "old_A_calls": 52,
+        "old_A_rows": 6593,
+        "M0_head_calls": 106,
+        "M0_head_rows": 13442,
+        "REAL_observable_replay_calls": 1,
+        "REAL_observable_replay_rows": 21047,
+        "feature_maps_constructed": 5,
+        "new_native_projection_contexts": 5,
+        "REAL_fit_feature_rows": 24576,
+        "REAL_CHECK_feature_rows": 16384,
+        "allocated_banks": 20,
+        "shape_standard_normal_values": 2623488,
+        "noise005_calls": 20,
+        "noise005_rows": 327680,
+        "extension_rows": 983040,
+        "joint_response_calls": 700,
+        "joint_response_rows": 22585600,
+        "generated_observation_calls": 2094,
+        "generated_observation_rows": 67756032,
+        "native_component_rows": 76333056,
+        "M0_zero_signal_replays_verified": 2,
+        "M0_zero_signal_rows_verified": 256,
+        "joint_direction_solve_attempts": 6,
+        "joint_direction_solves": 6,
+        "joint_candidate_trials": 6,
+        "secant_matrix_corrections": 4,
+        "FRESH_candidate_checks": 2,
+        "finite_difference_columns": 108,
+        "FIT_bank_finite_difference_columns": 324,
+        "REAL_response_updates": 0,
+        "native_metric_rows": 0,
+        "DEV_waveforms_decoded": 0,
+        "AD_queries": 0,
+        "classifier_fits": 0,
+        "low_draw_center_replays_verified": 10,
+        "nested_banks_verified": 10,
+        "frozen_low_candidate_checks": 4
+      },
+      "parameter_updates": 0,
+      "automatic_training": false,
+      "scientific_acceptance": false,
+      "started_UTC": "2026-10-20T00:35:15.116886+00:00",
+      "science_pid": null,
+      "supervisor_pid": null,
+      "dispatcher_pid": 145178,
+      "boot_id": "83c9f761-c124-42e1-89b8-5f45f0b3acc4",
+      "execution_counts_last_verified": {
+        "checkpoint_loads": 6,
+        "TRAIN_archives_decoded": 1,
+        "PCA_archives_decoded": 1,
+        "old_A_calls": 52,
+        "old_A_rows": 6593,
+        "M0_head_calls": 106,
+        "M0_head_rows": 13442,
+        "shape_standard_normal_values": 1312768,
+        "joint_response_calls": 12,
+        "joint_response_rows": 184576,
+        "M0_zero_signal_replays_verified": 2,
+        "M0_zero_signal_rows_verified": 256,
+        "REAL_observable_replay_calls": 1,
+        "REAL_observable_replay_rows": 21047,
+        "feature_maps_constructed": 5,
+        "new_native_projection_contexts": 5,
+        "REAL_fit_feature_rows": 12288,
+        "allocated_banks": 10,
+        "noise005_calls": 10,
+        "noise005_rows": 163840,
+        "extension_rows": 491520,
+        "generated_observation_calls": 30,
+        "generated_observation_rows": 552960,
+        "native_component_rows": 675840,
+        "low_draw_center_replays_verified": 5,
+        "nested_banks_verified": 5,
+        "REAL_CHECK_feature_rows": 8192
+      },
+      "status_asof_UTC": "2026-10-20T00:38:41.987830+00:00",
+      "progress_asof_UTC": "2026-10-20T00:36:12.314953+00:00",
+      "native_exit_code": -15,
+      "ended_UTC": "2026-10-20T00:47:35.455596+00:00",
+      "complete_FD_columns_saved": 9,
+      "actual_execution_intervals": {
+        "checkpoint_loads": {
+          "lower": 6,
+          "upper": 6
+        },
+        "TRAIN_archives_decoded": {
+          "lower": 1,
+          "upper": 1
+        },
+        "PCA_archives_decoded": {
+          "lower": 1,
+          "upper": 1
+        },
+        "old_A_calls": {
+          "lower": 52,
+          "upper": 52
+        },
+        "old_A_rows": {
+          "lower": 6593,
+          "upper": 6593
+        },
+        "M0_head_calls": {
+          "lower": 106,
+          "upper": 106
+        },
+        "M0_head_rows": {
+          "lower": 13442,
+          "upper": 13442
+        },
+        "shape_standard_normal_values": {
+          "lower": 1312768,
+          "upper": 1312768
+        },
+        "joint_response_calls": {
+          "lower": 66,
+          "upper": 120
+        },
+        "joint_response_rows": {
+          "lower": 1954048,
+          "upper": 3723520
+        },
+        "M0_zero_signal_replays_verified": {
+          "lower": 2,
+          "upper": 2
+        },
+        "M0_zero_signal_rows_verified": {
+          "lower": 256,
+          "upper": 256
+        },
+        "REAL_observable_replay_calls": {
+          "lower": 1,
+          "upper": 1
+        },
+        "REAL_observable_replay_rows": {
+          "lower": 21047,
+          "upper": 21047
+        },
+        "feature_maps_constructed": {
+          "lower": 5,
+          "upper": 5
+        },
+        "new_native_projection_contexts": {
+          "lower": 5,
+          "upper": 5
+        },
+        "REAL_fit_feature_rows": {
+          "lower": 12288,
+          "upper": 12288
+        },
+        "allocated_banks": {
+          "lower": 10,
+          "upper": 10
+        },
+        "noise005_calls": {
+          "lower": 10,
+          "upper": 10
+        },
+        "noise005_rows": {
+          "lower": 163840,
+          "upper": 163840
+        },
+        "extension_rows": {
+          "lower": 491520,
+          "upper": 491520
+        },
+        "generated_observation_calls": {
+          "lower": 192,
+          "upper": 354
+        },
+        "generated_observation_rows": {
+          "lower": 5861376,
+          "upper": 11169792
+        },
+        "native_component_rows": {
+          "lower": 6647808,
+          "upper": 12619776
+        },
+        "low_draw_center_replays_verified": {
+          "lower": 5,
+          "upper": 5
+        },
+        "nested_banks_verified": {
+          "lower": 5,
+          "upper": 5
+        },
+        "REAL_CHECK_feature_rows": {
+          "lower": 8192,
+          "upper": 8192
+        },
+        "finite_difference_columns": {
+          "lower": 9,
+          "upper": 18
+        },
+        "FIT_bank_finite_difference_columns": {
+          "lower": 27,
+          "upper": 54
+        }
+      },
+      "terminal_review": "receipts/joint_response_01_20261020/original_draw_precision_01/terminal_01/TERMINAL_REVIEW.json",
+      "scientific_failure_not_assessed": true
+    },
+    {
+      "job_id": "JOINT_RESPONSE_01_ORIGINAL_DRAW_PRECISION_FIX01_20261020",
+      "status": "running_confirmed_prefix_replay_pass",
+      "registered_UTC": "2026-10-20T00:51:12.841248+00:00",
+      "config": "configs/joint_response_01_original_draw_precision_fix01_20261020.json",
+      "config_sha256": "678ebea3414d04da937e334c33957e67cc843496ff9ef01e1f8ead886442d386",
+      "host": "rylan@100.82.231.102",
+      "remote_root": "/home/rylan/projects/ej276d-n01/joint_response01_original_draw_precision_fix01_20261020",
+      "resources": {
+        "CPU_threads": 4,
+        "GPU_GiB": 4,
+        "RSS_GiB": 12,
+        "internal_seconds": 5400,
+        "hard_wall_seconds": 5700,
+        "output_MiB": 128,
+        "automatic_restart": false,
+        "GPU_free_required_MiB": 6144
+      },
+      "operation_budget": {
+        "checkpoint_loads": 6,
+        "TRAIN_archives_decoded": 1,
+        "PCA_archives_decoded": 1,
+        "old_A_calls": 52,
+        "old_A_rows": 6593,
+        "M0_head_calls": 106,
+        "M0_head_rows": 13442,
+        "REAL_observable_replay_calls": 1,
+        "REAL_observable_replay_rows": 21047,
+        "feature_maps_constructed": 5,
+        "new_native_projection_contexts": 5,
+        "REAL_fit_feature_rows": 24576,
+        "REAL_CHECK_feature_rows": 16384,
+        "allocated_banks": 20,
+        "shape_standard_normal_values": 2623488,
+        "noise005_calls": 20,
+        "noise005_rows": 327680,
+        "extension_rows": 983040,
+        "joint_response_calls": 700,
+        "joint_response_rows": 22585600,
+        "generated_observation_calls": 2094,
+        "generated_observation_rows": 67756032,
+        "native_component_rows": 76333056,
+        "M0_zero_signal_replays_verified": 2,
+        "M0_zero_signal_rows_verified": 256,
+        "joint_direction_solve_attempts": 6,
+        "joint_direction_solves": 6,
+        "joint_candidate_trials": 6,
+        "secant_matrix_corrections": 4,
+        "FRESH_candidate_checks": 2,
+        "finite_difference_columns": 108,
+        "FIT_bank_finite_difference_columns": 324,
+        "REAL_response_updates": 0,
+        "native_metric_rows": 0,
+        "DEV_waveforms_decoded": 0,
+        "AD_queries": 0,
+        "classifier_fits": 0,
+        "low_draw_center_replays_verified": 10,
+        "nested_banks_verified": 10,
+        "frozen_low_candidate_checks": 4,
+        "same_32draw_centers_verified": 5,
+        "predecessor_FD_columns_verified": 9
+      },
+      "parameter_updates": 0,
+      "automatic_training": false,
+      "original_job_not_restarted": true,
+      "scientific_acceptance": false,
+      "started_UTC": "2026-10-20T00:52:17.186212+00:00",
+      "science_pid": 148622,
+      "supervisor_pid": 148613,
+      "dispatcher_pid": 148612,
+      "boot_id": "83c9f761-c124-42e1-89b8-5f45f0b3acc4",
+      "execution_counts_last_verified": {
+        "checkpoint_loads": 6,
+        "TRAIN_archives_decoded": 1,
+        "PCA_archives_decoded": 1,
+        "old_A_calls": 52,
+        "old_A_rows": 6593,
+        "M0_head_calls": 106,
+        "M0_head_rows": 13442,
+        "shape_standard_normal_values": 1312768,
+        "joint_response_calls": 66,
+        "joint_response_rows": 1954048,
+        "M0_zero_signal_replays_verified": 2,
+        "M0_zero_signal_rows_verified": 256,
+        "REAL_observable_replay_calls": 1,
+        "REAL_observable_replay_rows": 21047,
+        "feature_maps_constructed": 5,
+        "new_native_projection_contexts": 5,
+        "REAL_fit_feature_rows": 12288,
+        "allocated_banks": 10,
+        "noise005_calls": 10,
+        "noise005_rows": 163840,
+        "extension_rows": 491520,
+        "generated_observation_calls": 192,
+        "generated_observation_rows": 5861376,
+        "native_component_rows": 6647808,
+        "low_draw_center_replays_verified": 5,
+        "nested_banks_verified": 5,
+        "same_32draw_centers_verified": 5,
+        "REAL_CHECK_feature_rows": 8192,
+        "finite_difference_columns": 9,
+        "FIT_bank_finite_difference_columns": 27,
+        "predecessor_FD_columns_verified": 9
+      },
+      "status_asof_UTC": "2026-10-20T00:53:49.081433+00:00",
+      "progress_asof_UTC": "2026-10-20T00:53:12.041091+00:00",
+      "estimated_finish_local": "2026-10-20T09:02:15.664730+08:00"
     }
   ],
   "user_requested_pause": false,
   "resume_requires_user_server_started_notice": false,
   "followup": {
-    "status": "ACTIVE",
     "kind": "heartbeat",
     "automation_id": "n01",
     "count": 1,
-    "next_wake_local": "2026-10-20T08:15:00+08:00",
-    "estimate_receipt": "receipts/joint_response_01_20261020/c1_original_precision_01/WAIT_ESTIMATE.json",
-    "verification_receipt": "receipts/joint_response_01_20261020/c1_original_precision_01/AUTOMATION_CREATE_RECEIPT.json"
+    "next_wake_local": "2026-10-20T09:04:00+08:00",
+    "next_wake_UTC": "2026-10-20T01:04:00+00:00",
+    "basis": "receipts/joint_response_01_20261020/original_draw_precision_fix01/WAIT_ESTIMATE.json",
+    "delete_on_wake": true,
+    "status": "ACTIVE"
   },
   "scientific_status": "response_match_not_established",
   "active_scientific_jobs_status_basis": "Completion exited 0 and no matching process at 2026-10-19T19:35:31.356265+00:00",
@@ -22440,7 +22998,7 @@
   },
   "followup_automation_id": "n01",
   "followup_automation_status": "DELETED_CONSUMED",
-  "followup_next_run_local": "2026-10-20T08:15:00+08:00",
+  "followup_next_run_local": "2026-10-20T09:04:00+08:00",
   "followup_receipt": "receipts/joint_response_01_20261020/c1_draw_precision_01/AUTOMATION_CREATE_RECEIPT.json",
   "followup_receipt_sha256": "41076bf528fc4fb500e1dd7c595ad5d0831be0cd3b29266ef49c25659641d716",
   "followup_last_delivered_UTC": "2026-10-19T22:43:10.010Z",
@@ -22467,18 +23025,18 @@
     "bytes": 83119,
     "sha256": "b24f3bb1e5644fc8db29b2db1b3b82b05a8793248b7c99af81b23fb4dc3d1e24"
   },
-  "status": "JOINT_RESPONSE_01_C1_original_precision_running_single_wake",
-  "current_action": "Positive control independently passed all original gates. Direct original-teacher recovery first iteration completed with one accepted update from two candidates.",
-  "next_action": "At 08:15 consume one wake, verify terminal identity and audit direct original-teacher recovery. Continue ready work; synthetic recovery does not establish REAL acceptance.",
+  "status": "JOINT_RESPONSE_01_original_draw_precision_fix01_running",
+  "current_action": "Same 32-draw centers and first nine FD columns replayed; exact native W1 repair runs the bounded diagnostic.",
+  "next_action": "At the measured one-time wake, collect terminal outputs and audit full joint/native directions; no scientific updates.",
   "latest_user_review_direction": {
     "path": "receipts/review_017_20261016/ACCEPTED_NEXT_ACTIONS.json",
     "bytes": 3271,
     "sha256": "8c1fe73b73b7376a3299e6c43f8493a41f2cd45a5e1a2d33a82c961ab22642c2"
   },
   "pending_run_id": null,
-  "latest_run_id": "JOINT_RESPONSE_01_MULTIBANK_REAL_PILOT_20261020",
-  "active_run_id": "JOINT_RESPONSE_01_C1_ORIGINAL_PRECISION_20261020",
-  "current_stage": "3_C1_original_precision_confirmation",
+  "latest_run_id": "JOINT_RESPONSE_01_ORIGINAL_DRAW_PRECISION_FIX01_20261020",
+  "active_run_id": "JOINT_RESPONSE_01_ORIGINAL_DRAW_PRECISION_FIX01_20261020",
+  "current_stage": "4_original_generator_draw_precision_fix01",
   "wp4_018_result": {
     "path": "receipts/wp4_018_20261016/FINAL_RESULT_RECEIPT.json",
     "bytes": 6437,
@@ -22627,7 +23185,7 @@
       "sha256": "08ef80ae1e9262bbcb2c5a95862df4b721f6ca3e1c8bd8ff5cfd3bcae8f2f62e"
     }
   },
-  "last_verified_UTC": "2026-10-19T23:09:03.055267+00:00",
+  "last_verified_UTC": "2026-10-20T00:53:49.081433+00:00",
   "wp4_019_G_updates": 2000,
   "wp4_019_AD_queries": 2000,
   "cumulative_training_updates": 199722,
@@ -23388,7 +23946,7 @@
     "sha256": "ca77059c1c38c1acee6d02923302248fbef4e1b8aa72623333517719ef5c3463"
   },
   "current_work_package": "3_C1_frozen_estimator_resolution",
-  "active_work_package": "3_C1_original_precision_confirmation",
+  "active_work_package": "4_original_generator_draw_precision_fix01",
   "wp3_024_execution": {
     "status": "native0_closed_independent_saved_summary_readback_complete_three_finite_witnesses",
     "run_id": "wp3_024_20261016",
@@ -24013,7 +24571,7 @@
       "sha256": "f13d09a8120de685c980e0d52f782c212cb3d4ea41d7da7f77cbfbd21621128e"
     }
   },
-  "followup_scheduled_local": "2026-10-20T08:15:00+08:00",
+  "followup_scheduled_local": "2026-10-20T09:04:00+08:00",
   "followup_last_consumed_local": "2026-10-20T06:43:37.802479+08:00",
   "wp3_025_G_updates": 0,
   "wp3_025_AD_queries": 0,
@@ -26452,7 +27010,7 @@
     },
     "closure_registered_UTC": "2026-10-17T19:08:19.506304+00:00"
   },
-  "active_job_id": "JOINT_RESPONSE_01_C1_ORIGINAL_PRECISION_20261020",
+  "active_job_id": "JOINT_RESPONSE_01_ORIGINAL_DRAW_PRECISION_FIX01_20261020",
   "current_arm": null,
   "response038_classifier_optimizer_steps": 6600,
   "response038_classifier_AD_queries": 6600,
@@ -28076,7 +28634,7 @@
     "terminal_review": "receipts/response046_20261018/wake_20261018_0853_01/TERMINAL_REVIEW.json",
     "terminal_review_sha256": "b42a4ca70a3840cb7e0de42596ea4d728fa7577c59d7454c01ca3478662bfc64"
   },
-  "next_wake_local": "2026-10-20T08:15:00+08:00",
+  "next_wake_local": "2026-10-20T09:04:00+08:00",
   "response047": {
     "job_id": "response047_smooth_endpoint_width_20261018",
     "run_id": "response047_smooth_endpoint_width_20261018",
@@ -35376,7 +35934,7 @@
     "c1_original_precision_config": "configs/joint_response_01_c1_original_precision_20261020.json",
     "c1_original_precision_config_sha256": "75f5d9b100cf4387f7409d218f753c18dac2ead658618bcd89a28c595fcd79ff",
     "c1_original_precision_started": true,
-    "c1_original_precision_status": "running_first_joint_update_verified",
+    "c1_original_precision_status": "completed_audited_scientific_failure",
     "c1_original_precision_startup_assessment": "receipts/joint_response_01_20261020/c1_original_precision_01/STARTUP_ASSESSMENT.json",
     "c1_precision_pilot_terminal_review": "receipts/joint_response_01_20261020/c1_precision_pilot_01/terminal_01/TERMINAL_REVIEW.json",
     "c1_original_precision_execution_counts_last_verified": {
@@ -35407,20 +35965,295 @@
     "c1_original_precision_status_asof_UTC": "2026-10-19T23:57:41.465536+00:00",
     "c1_original_precision_estimated_finish_local": "2026-10-20T08:12:31.317122+08:00",
     "c1_original_precision_scientific_acceptance": false,
-    "c1_original_precision_automatic_REAL_promotion": false
+    "c1_original_precision_automatic_REAL_promotion": false,
+    "c1_original_precision_terminal_review": "receipts/joint_response_01_20261020/c1_original_precision_01/terminal_01/TERMINAL_REVIEW.json",
+    "c1_original_precision_original_recovery_pass": false,
+    "c1_original_precision_actual_counts": {
+      "checkpoint_loads": 6,
+      "TRAIN_archives_decoded": 1,
+      "PCA_archives_decoded": 1,
+      "old_A_calls": 52,
+      "old_A_rows": 6593,
+      "M0_head_calls": 104,
+      "M0_head_rows": 13186,
+      "allocated_banks": 3278,
+      "shape_standard_normal_values": 61977616,
+      "noise005_calls": 3274,
+      "noise005_rows": 6698626,
+      "extension_rows": 20095878,
+      "joint_response_calls": 95002,
+      "joint_response_rows": 192922882,
+      "generated_observation_calls": 280350,
+      "generated_observation_rows": 568938246,
+      "feature_maps_constructed": 18,
+      "full_fit_parent_banks": 32,
+      "finite_difference_columns": 432,
+      "fullpool_FIT_chunk_columns": 44064,
+      "joint_direction_solves": 8,
+      "joint_candidate_trials": 20,
+      "teacher_accepted_joint_updates": 4,
+      "conditional_signal_rows": 98304,
+      "native_metric_rows": 589824
+    },
+    "c1_original_precision_failed_gates": [
+      {
+        "target_family": "original",
+        "name": "seed1/library0/conditional_mean_relative_RMS",
+        "value": 0.05762801487401367,
+        "upper": 0.05,
+        "pass_gate": false
+      },
+      {
+        "target_family": "original",
+        "name": "seed1/library1/conditional_mean_relative_RMS",
+        "value": 0.05722099877071832,
+        "upper": 0.05,
+        "pass_gate": false
+      }
+    ],
+    "c1_objective_alignment_config": "configs/joint_response_01_c1_objective_alignment_20261020.json",
+    "c1_objective_alignment_config_sha256": "578a1145aaae8574c302c69093628ab71d7b8bf7b320e71c648494e0c55bbb92",
+    "c1_objective_alignment_started": true,
+    "c1_objective_alignment_status": "completed_independently_audited_zero_updates",
+    "c1_objective_alignment_terminal_review": "receipts/joint_response_01_20261020/c1_objective_alignment_01/terminal_01/TERMINAL_REVIEW.json",
+    "c1_objective_alignment_actual_counts": {
+      "checkpoint_loads": 6,
+      "TRAIN_archives_decoded": 1,
+      "PCA_archives_decoded": 1,
+      "old_A_calls": 52,
+      "old_A_rows": 6593,
+      "M0_head_calls": 104,
+      "M0_head_rows": 13186,
+      "allocated_banks": 1634,
+      "shape_standard_normal_values": 26584080,
+      "noise005_calls": 1634,
+      "noise005_rows": 3323010,
+      "extension_rows": 9969030,
+      "joint_response_calls": 5714,
+      "joint_response_rows": 11598210,
+      "generated_observation_calls": 17142,
+      "generated_observation_rows": 34794630,
+      "feature_maps_constructed": 18,
+      "full_fit_parent_banks": 16,
+      "fixed_endpoint_evaluations": 40,
+      "target_family_evaluations": 16,
+      "independent_bank_pairs": 8
+    },
+    "c1_original_target_prefers_poorer_conditional_endpoint_all_24_views": true,
+    "c1_matched_target_reverses_ranking_all_24_views": true,
+    "original_draw_precision_config": "configs/joint_response_01_original_draw_precision_20261020.json",
+    "original_draw_precision_config_sha256": "c3b72d59de88a990c77d4438951d51fd9ff2f7279fca0ead4e925aea0fa0e011",
+    "original_draw_precision_started": true,
+    "original_draw_precision_status": "stopped_runtime_feasibility_prefix_audited",
+    "original_draw_precision_startup_assessment": "receipts/joint_response_01_20261020/original_draw_precision_01/STARTUP_ASSESSMENT.json",
+    "original_draw_precision_execution_counts_last_verified": {
+      "checkpoint_loads": 6,
+      "TRAIN_archives_decoded": 1,
+      "PCA_archives_decoded": 1,
+      "old_A_calls": 52,
+      "old_A_rows": 6593,
+      "M0_head_calls": 106,
+      "M0_head_rows": 13442,
+      "shape_standard_normal_values": 1312768,
+      "joint_response_calls": 12,
+      "joint_response_rows": 184576,
+      "M0_zero_signal_replays_verified": 2,
+      "M0_zero_signal_rows_verified": 256,
+      "REAL_observable_replay_calls": 1,
+      "REAL_observable_replay_rows": 21047,
+      "feature_maps_constructed": 5,
+      "new_native_projection_contexts": 5,
+      "REAL_fit_feature_rows": 12288,
+      "allocated_banks": 10,
+      "noise005_calls": 10,
+      "noise005_rows": 163840,
+      "extension_rows": 491520,
+      "generated_observation_calls": 30,
+      "generated_observation_rows": 552960,
+      "native_component_rows": 675840,
+      "low_draw_center_replays_verified": 5,
+      "nested_banks_verified": 5,
+      "REAL_CHECK_feature_rows": 8192
+    },
+    "original_draw_precision_status_asof_UTC": "2026-10-20T00:38:41.987830+00:00",
+    "original_draw_precision_terminal_review": "receipts/joint_response_01_20261020/original_draw_precision_01/terminal_01/TERMINAL_REVIEW.json",
+    "original_draw_precision_actual_execution_intervals": {
+      "checkpoint_loads": {
+        "lower": 6,
+        "upper": 6
+      },
+      "TRAIN_archives_decoded": {
+        "lower": 1,
+        "upper": 1
+      },
+      "PCA_archives_decoded": {
+        "lower": 1,
+        "upper": 1
+      },
+      "old_A_calls": {
+        "lower": 52,
+        "upper": 52
+      },
+      "old_A_rows": {
+        "lower": 6593,
+        "upper": 6593
+      },
+      "M0_head_calls": {
+        "lower": 106,
+        "upper": 106
+      },
+      "M0_head_rows": {
+        "lower": 13442,
+        "upper": 13442
+      },
+      "shape_standard_normal_values": {
+        "lower": 1312768,
+        "upper": 1312768
+      },
+      "joint_response_calls": {
+        "lower": 66,
+        "upper": 120
+      },
+      "joint_response_rows": {
+        "lower": 1954048,
+        "upper": 3723520
+      },
+      "M0_zero_signal_replays_verified": {
+        "lower": 2,
+        "upper": 2
+      },
+      "M0_zero_signal_rows_verified": {
+        "lower": 256,
+        "upper": 256
+      },
+      "REAL_observable_replay_calls": {
+        "lower": 1,
+        "upper": 1
+      },
+      "REAL_observable_replay_rows": {
+        "lower": 21047,
+        "upper": 21047
+      },
+      "feature_maps_constructed": {
+        "lower": 5,
+        "upper": 5
+      },
+      "new_native_projection_contexts": {
+        "lower": 5,
+        "upper": 5
+      },
+      "REAL_fit_feature_rows": {
+        "lower": 12288,
+        "upper": 12288
+      },
+      "allocated_banks": {
+        "lower": 10,
+        "upper": 10
+      },
+      "noise005_calls": {
+        "lower": 10,
+        "upper": 10
+      },
+      "noise005_rows": {
+        "lower": 163840,
+        "upper": 163840
+      },
+      "extension_rows": {
+        "lower": 491520,
+        "upper": 491520
+      },
+      "generated_observation_calls": {
+        "lower": 192,
+        "upper": 354
+      },
+      "generated_observation_rows": {
+        "lower": 5861376,
+        "upper": 11169792
+      },
+      "native_component_rows": {
+        "lower": 6647808,
+        "upper": 12619776
+      },
+      "low_draw_center_replays_verified": {
+        "lower": 5,
+        "upper": 5
+      },
+      "nested_banks_verified": {
+        "lower": 5,
+        "upper": 5
+      },
+      "REAL_CHECK_feature_rows": {
+        "lower": 8192,
+        "upper": 8192
+      },
+      "finite_difference_columns": {
+        "lower": 9,
+        "upper": 18
+      },
+      "FIT_bank_finite_difference_columns": {
+        "lower": 27,
+        "upper": 54
+      }
+    },
+    "original_draw_precision_fix01_config": "configs/joint_response_01_original_draw_precision_fix01_20261020.json",
+    "original_draw_precision_fix01_config_sha256": "678ebea3414d04da937e334c33957e67cc843496ff9ef01e1f8ead886442d386",
+    "original_draw_precision_fix01_status": "running_confirmed_prefix_replay_pass",
+    "original_draw_precision_fix01_started": true,
+    "original_draw_precision_fix01_startup_assessment": "receipts/joint_response_01_20261020/original_draw_precision_fix01/STARTUP_ASSESSMENT.json",
+    "original_draw_precision_fix01_execution_counts_last_verified": {
+      "checkpoint_loads": 6,
+      "TRAIN_archives_decoded": 1,
+      "PCA_archives_decoded": 1,
+      "old_A_calls": 52,
+      "old_A_rows": 6593,
+      "M0_head_calls": 106,
+      "M0_head_rows": 13442,
+      "shape_standard_normal_values": 1312768,
+      "joint_response_calls": 66,
+      "joint_response_rows": 1954048,
+      "M0_zero_signal_replays_verified": 2,
+      "M0_zero_signal_rows_verified": 256,
+      "REAL_observable_replay_calls": 1,
+      "REAL_observable_replay_rows": 21047,
+      "feature_maps_constructed": 5,
+      "new_native_projection_contexts": 5,
+      "REAL_fit_feature_rows": 12288,
+      "allocated_banks": 10,
+      "noise005_calls": 10,
+      "noise005_rows": 163840,
+      "extension_rows": 491520,
+      "generated_observation_calls": 192,
+      "generated_observation_rows": 5861376,
+      "native_component_rows": 6647808,
+      "low_draw_center_replays_verified": 5,
+      "nested_banks_verified": 5,
+      "same_32draw_centers_verified": 5,
+      "REAL_CHECK_feature_rows": 8192,
+      "finite_difference_columns": 9,
+      "FIT_bank_finite_difference_columns": 27,
+      "predecessor_FD_columns_verified": 9
+    },
+    "original_draw_precision_fix01_status_asof_UTC": "2026-10-20T00:53:49.081433+00:00",
+    "original_draw_precision_fix01_prefix_replay": {
+      "columns": 9,
+      "centers": 5,
+      "joint_and_parameter_arrays_exact": true,
+      "max_native_absolute_difference": 8.326672684688674e-17
+    },
+    "original_draw_precision_fix01_estimated_finish_local": "2026-10-20T09:02:15.664730+08:00"
   },
   "current_goal_document": "JOINT_RESPONSE_01_PLAN.md",
   "pending_next_run_id": null,
   "pause_reason": null,
   "automatic_restart": false,
   "pending_job_id": null,
-  "followup_status": "ACTIVE_SINGLE_WAKE",
+  "followup_status": "SINGLE_MEASURED_WAIT",
   "pause_receipt": "receipts/joint_response_01_20261019/user_pause_20261019/PAUSE_RECEIPT.json",
   "resumed_by_user_notice": true,
   "resume_verified_UTC": "2026-10-19T16:17:28.081783+00:00",
   "server_boot_id_at_resume": "83c9f761-c124-42e1-89b8-5f45f0b3acc4",
   "resume_authorization": "receipts/joint_response_01_20261020/resume_01/RESUME_AUTHORIZATION.json",
-  "execution_state_asof_UTC": "2026-10-19T23:57:41.465536+00:00",
-  "training_pid": 137691,
-  "supervisor_pid": 137683
+  "execution_state_asof_UTC": "2026-10-20T00:53:49.081433+00:00",
+  "training_pid": 148622,
+  "supervisor_pid": 148613
 }

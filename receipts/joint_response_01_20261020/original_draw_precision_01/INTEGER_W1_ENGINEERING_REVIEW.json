@@ -1,0 +1,109 @@
+{
+  "status": "PASS_EXACT_8_TO_1_W1_LOCAL_ENGINEERING",
+  "cases": [
+    {
+      "shape": [
+        32,
+        4,
+        1
+      ],
+      "tied": false,
+      "old": 1.307097216225237,
+      "new": 1.3070972162252372,
+      "scipy": 1.3070972162252368,
+      "old_seconds": 0.0510130999609828,
+      "new_seconds": 0.0009867999469861388,
+      "absolute_difference": 2.220446049250313e-16
+    },
+    {
+      "shape": [
+        504,
+        63,
+        9
+      ],
+      "tied": false,
+      "old": 0.30598276938032865,
+      "new": 0.3059827693803332,
+      "scipy": 0.30598276938033325,
+      "old_seconds": 0.005358199938200414,
+      "new_seconds": 0.0010024000657722354,
+      "absolute_difference": 4.551914400963142e-15
+    },
+    {
+      "shape": [
+        512,
+        64,
+        3
+      ],
+      "tied": true,
+      "old": 0.21875,
+      "new": 0.21875,
+      "scipy": 0.21875,
+      "old_seconds": 0.0009327000007033348,
+      "new_seconds": 0.00024349999148398638,
+      "absolute_difference": 0.0
+    },
+    {
+      "shape": [
+        32768,
+        4096,
+        32
+      ],
+      "tied": false,
+      "old": 0.20057808131947005,
+      "new": 0.20057808131947008,
+      "scipy": 0.20057808131947005,
+      "old_seconds": 0.21357290004380047,
+      "new_seconds": 0.08315930003300309,
+      "absolute_difference": 2.7755575615628914e-17
+    },
+    {
+      "shape": [
+        128,
+        128,
+        5
+      ],
+      "tied": false,
+      "old": 0.2605033488937053,
+      "new": 0.2605033488937053,
+      "scipy": 0.26050334889370524,
+      "old_seconds": 0.0021400999976322055,
+      "new_seconds": 0.00022080005146563053,
+      "absolute_difference": 0.0
+    },
+    {
+      "shape": [
+        129,
+        63,
+        3
+      ],
+      "tied": false,
+      "old": 0.5895775180198942,
+      "new": 0.5895775180198942,
+      "scipy": 0.5895775180198896,
+      "old_seconds": 0.00047910003922879696,
+      "new_seconds": 0.00027199997566640377,
+      "absolute_difference": 0.0
+    }
+  ],
+  "weight_checks": [
+    {
+      "trainable": false,
+      "values_exact": true,
+      "gradient_exact": false
+    },
+    {
+      "trainable": true,
+      "values_exact": true,
+      "gradient_exact": true
+    }
+  ],
+  "one_dimensional_value_pass": true,
+  "device": "CPU",
+  "threads": 4,
+  "new_generator_calls": 0,
+  "scientific_updates": 0,
+  "original_loss_source_sha256": "6932772c4b00fa62383b5ca356f26d0cf81271be531888b474ae6146fa25f3d8",
+  "optimized_operator_sha256": "bebc482cd519c5e3e96c757b727ebed5e6fa0477315b179831296697adca05e0",
+  "note": "Sorting the uniform 8:1 empirical measures pairs eight consecutive x order statistics with each y order statistic; input populations and conditional support counts are untouched. GPU native-readout equivalence remains to be checked."
+}
