@@ -1,0 +1,323 @@
+{
+  "UTC": "2026-10-20T20:40:59.121604+00:00",
+  "boot_id": "27872225-1e36-4b9b-be8e-95126377b406",
+  "control_01/launch.json": {
+    "supervisor_pid": 47968,
+    "child_pid": 47975,
+    "command": [
+      "timeout",
+      "--signal=TERM",
+      "--kill-after=20s",
+      "360s",
+      "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+      "-B",
+      "/home/rylan/projects/ej276d-n01/global_memory_parent_audit_20261021/scripts/evaluate_global_memory01.py",
+      "--config",
+      "/home/rylan/projects/ej276d-n01/global_memory_parent_audit_20261021/configs/global_memory_parent_audit_20261021.json",
+      "--config-sha256",
+      "0fdcf5612704a265e35a68d6016c1dad91ad347152797642c066baed9e547bbb",
+      "--out",
+      "/home/rylan/projects/ej276d-n01/global_memory_parent_audit_20261021/run_01",
+      "--device",
+      "cuda:0"
+    ],
+    "started_utc": "2026-10-20T20:39:59.010869+00:00"
+  },
+  "control_01/resource_status.json": {
+    "supervisor_pid": 47968,
+    "child_pid": 47975,
+    "rss_bytes": 2477330432,
+    "peak_rss_bytes": 2618855424,
+    "child_tree": [
+      47975,
+      47976
+    ],
+    "utc": "2026-10-20T20:40:22.023704+00:00"
+  },
+  "control_01/exit_receipt.json": {
+    "exit_code": 0,
+    "reason": null,
+    "peak_rss_bytes": 2618855424,
+    "started_utc": "2026-10-20T20:39:59.010869+00:00",
+    "ended_utc": "2026-10-20T20:40:23.024157+00:00",
+    "supervisor_pid": 47968,
+    "child_pid": 47975
+  },
+  "control_01/console.log": "",
+  "run_01/BINDINGS.json": {
+    "populations": {
+      "FIT": {
+        "source": 6465,
+        "REAL": 18948
+      },
+      "REPORT": {
+        "source": 128,
+        "REAL": 2099
+      }
+    },
+    "inherited_updates": 1,
+    "candidate_new_training_updates": 9,
+    "evaluation_optimizer_updates": 0,
+    "seed_head": 0,
+    "hypotheses": [
+      "fast"
+    ],
+    "memory_fit_rows": 18948,
+    "memory_report_rows": 0,
+    "REPORT_is_same_acquisition_not_future_acquisition": true,
+    "inference_ID_input": false
+  },
+  "run_01/INITIAL.json": null,
+  "run_01/PROGRESS.json": {
+    "stage": "fixed_candidate_bank_complete",
+    "UTC": "2026-10-20T20:40:21.977645+00:00",
+    "execution_counts": {
+      "checkpoint_loads": 6,
+      "TRAIN_archives_decoded": 1,
+      "PCA_archives_decoded": 1,
+      "old_A_calls": 52,
+      "old_A_rows": 6593,
+      "M0_head_calls": 104,
+      "M0_head_rows": 13186,
+      "memory_checkpoint_loads": 1,
+      "repair_checkpoint_loads": 1,
+      "allocated_banks": 104,
+      "shape_standard_normal_values": 3375616,
+      "noise005_calls": 104,
+      "noise005_rows": 421952,
+      "extension_rows": 1265856,
+      "response_rows": 843904,
+      "response_calls": 3300,
+      "hard_observation_rows": 843904
+    },
+    "role": "REPORT",
+    "bank": 1
+  },
+  "run_01/RESULT.json": {
+    "status": "COMPLETE",
+    "elapsed_seconds": 22.270777409999937,
+    "execution_counts": {
+      "checkpoint_loads": 6,
+      "TRAIN_archives_decoded": 1,
+      "PCA_archives_decoded": 1,
+      "old_A_calls": 52,
+      "old_A_rows": 6593,
+      "M0_head_calls": 104,
+      "M0_head_rows": 13186,
+      "memory_checkpoint_loads": 1,
+      "repair_checkpoint_loads": 1,
+      "allocated_banks": 104,
+      "shape_standard_normal_values": 3375616,
+      "noise005_calls": 104,
+      "noise005_rows": 421952,
+      "extension_rows": 1265856,
+      "response_rows": 843904,
+      "response_calls": 3300,
+      "hard_observation_rows": 843904
+    },
+    "config_sha256": "0fdcf5612704a265e35a68d6016c1dad91ad347152797642c066baed9e547bbb",
+    "peak_GPU_reserved_bytes": 2455764992,
+    "committed_optimizer_updates": 0,
+    "NAS_file_IO_checks": false,
+    "NAS_file_hash_verification": false,
+    "scientific_acceptance": false
+  },
+  "run_01/EVALUATION_RESULT.json": {
+    "results": {
+      "FIT": {
+        "fast": {
+          "metrics": {
+            "initial": {
+              "Q_mass": 0.98607127249564,
+              "PSD_CDF": 0.9970204626318376,
+              "Q_tail_CDF": 0.9931580843451514,
+              "undefined_mass": 0.0,
+              "native_joint": 1.0045440383259285,
+              "block_wave": 0.03685842828696715,
+              "block_charge_morphology": 0.30981582635143706,
+              "block_peak_codes": 2.4359138162501566,
+              "block_baseline": 0.0036364883617382784,
+              "block_joint": 0.7001240546973971
+            },
+            "B": {
+              "Q_mass": 0.9565633011533575,
+              "PSD_CDF": 0.8886767111284897,
+              "Q_tail_CDF": 0.9158193328671107,
+              "undefined_mass": 0.0,
+              "native_joint": 0.752737147038778,
+              "block_wave": 0.03627382712462458,
+              "block_charge_morphology": 0.2881272945522068,
+              "block_peak_codes": 1.8147891490149681,
+              "block_baseline": 0.0036364883617383565,
+              "block_joint": 0.5716701489635558
+            }
+          },
+          "flags": {
+            "initial": [
+              {
+                "peak_at_search_boundary": 0,
+                "global_peak_outside_search": 0,
+                "Q_nonpositive": 0,
+                "PSD_undefined": 0,
+                "PSD_guarded": 0,
+                "ADC_rail_hit": 4,
+                "pre_ADC_out_of_range": 4
+              },
+              {
+                "peak_at_search_boundary": 0,
+                "global_peak_outside_search": 0,
+                "Q_nonpositive": 0,
+                "PSD_undefined": 0,
+                "PSD_guarded": 0,
+                "ADC_rail_hit": 6,
+                "pre_ADC_out_of_range": 6
+              }
+            ],
+            "B": [
+              {
+                "peak_at_search_boundary": 0,
+                "global_peak_outside_search": 0,
+                "Q_nonpositive": 0,
+                "PSD_undefined": 0,
+                "PSD_guarded": 0,
+                "ADC_rail_hit": 4,
+                "pre_ADC_out_of_range": 4
+              },
+              {
+                "peak_at_search_boundary": 0,
+                "global_peak_outside_search": 0,
+                "Q_nonpositive": 0,
+                "PSD_undefined": 0,
+                "PSD_guarded": 0,
+                "ADC_rail_hit": 5,
+                "pre_ADC_out_of_range": 5
+              }
+            ]
+          },
+          "changes_percent": {
+            "Q_mass": -2.992478552549349,
+            "PSD_CDF": -10.866753047109246,
+            "Q_tail_CDF": -7.787154200031987,
+            "native_joint": -25.066784698338008,
+            "block_wave": -1.5860718688031405,
+            "block_charge_morphology": -7.000459613263277,
+            "block_peak_codes": -25.498630661381405,
+            "block_baseline": 2.1538326677728037e-12,
+            "block_joint": -18.347306434052
+          },
+          "unchanged_pilot_checks": {
+            "PSD_CDF_at_least_10pct_improvement": true,
+            "Q_mass_not_worse_2pct": true,
+            "wave_not_worse_2pct": true,
+            "peak_codes_not_worse_2pct": true,
+            "flags_not_increased": true
+          },
+          "passes_consistency_check": true
+        }
+      },
+      "REPORT": {
+        "fast": {
+          "metrics": {
+            "initial": {
+              "Q_mass": 19.934163398212903,
+              "PSD_CDF": 6.846530630635576,
+              "Q_tail_CDF": 11.488829433865,
+              "undefined_mass": 0.0,
+              "native_joint": 1.216855112042139,
+              "block_wave": 0.03428452420501404,
+              "block_charge_morphology": 0.3182086108811562,
+              "block_peak_codes": 2.687295427093752,
+              "block_baseline": 0.004755417182859856,
+              "block_joint": 0.7479124052959604
+            },
+            "B": {
+              "Q_mass": 20.066395156815993,
+              "PSD_CDF": 6.36246715264978,
+              "Q_tail_CDF": 11.114575837783091,
+              "undefined_mass": 0.0,
+              "native_joint": 0.9896741355202754,
+              "block_wave": 0.036298150795827856,
+              "block_charge_morphology": 0.2979312768549428,
+              "block_peak_codes": 2.0584880663692444,
+              "block_baseline": 0.0047554171828598476,
+              "block_joint": 0.6273552779156326
+            }
+          },
+          "flags": {
+            "initial": [
+              {
+                "peak_at_search_boundary": 0,
+                "global_peak_outside_search": 0,
+                "Q_nonpositive": 0,
+                "PSD_undefined": 0,
+                "PSD_guarded": 0,
+                "ADC_rail_hit": 0,
+                "pre_ADC_out_of_range": 0
+              },
+              {
+                "peak_at_search_boundary": 0,
+                "global_peak_outside_search": 0,
+                "Q_nonpositive": 0,
+                "PSD_undefined": 0,
+                "PSD_guarded": 0,
+                "ADC_rail_hit": 0,
+                "pre_ADC_out_of_range": 0
+              }
+            ],
+            "B": [
+              {
+                "peak_at_search_boundary": 0,
+                "global_peak_outside_search": 0,
+                "Q_nonpositive": 0,
+                "PSD_undefined": 0,
+                "PSD_guarded": 0,
+                "ADC_rail_hit": 0,
+                "pre_ADC_out_of_range": 0
+              },
+              {
+                "peak_at_search_boundary": 0,
+                "global_peak_outside_search": 0,
+                "Q_nonpositive": 0,
+                "PSD_undefined": 0,
+                "PSD_guarded": 0,
+                "ADC_rail_hit": 0,
+                "pre_ADC_out_of_range": 0
+              }
+            ]
+          },
+          "changes_percent": {
+            "Q_mass": 0.6633424034988344,
+            "PSD_CDF": -7.070201012755273,
+            "Q_tail_CDF": -3.2575433227230444,
+            "native_joint": -18.66951737093877,
+            "block_wave": 5.873281422173937,
+            "block_charge_morphology": -6.3723398213716305,
+            "block_peak_codes": -23.399264345288163,
+            "block_baseline": -1.7763568394002505e-13,
+            "block_joint": -16.1191506554329
+          },
+          "unchanged_pilot_checks": {
+            "PSD_CDF_at_least_10pct_improvement": false,
+            "Q_mass_not_worse_2pct": true,
+            "wave_not_worse_2pct": false,
+            "peak_codes_not_worse_2pct": true,
+            "flags_not_increased": true
+          },
+          "passes_consistency_check": false
+        }
+      }
+    },
+    "all_role_hypothesis_checks_pass": false,
+    "evaluation_optimizer_updates": 0,
+    "frozen_candidate_unchanged": true,
+    "report_rows_added_to_training_memory": 0,
+    "scope": "Fixed seed0 candidate, two registered random banks, same-acquisition FIT/REPORT and 1 noise hypotheses. Not independent acquisition or physical-energy truth.",
+    "scientific_acceptance": false
+  },
+  "run_01/TRAINING_RESULT.json": null,
+  "run_01/FAILED.json": null,
+  "run_01/COMPLETE.json": {
+    "status": "COMPLETE"
+  },
+  "run_01/TRAINING_STEPS.jsonl": null
+}

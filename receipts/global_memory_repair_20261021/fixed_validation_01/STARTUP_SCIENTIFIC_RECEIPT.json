@@ -1,0 +1,61 @@
+{
+  "UTC": "2026-10-20T20:34:38.179736+00:00",
+  "boot_id": "27872225-1e36-4b9b-be8e-95126377b406",
+  "control_01/launch.json": {
+    "supervisor_pid": 46627,
+    "child_pid": 46634,
+    "command": [
+      "timeout",
+      "--signal=TERM",
+      "--kill-after=20s",
+      "360s",
+      "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+      "-B",
+      "/home/rylan/projects/ej276d-n01/global_memory_fixed_validation_20261021/scripts/evaluate_global_memory01.py",
+      "--config",
+      "/home/rylan/projects/ej276d-n01/global_memory_fixed_validation_20261021/configs/global_memory_fixed_validation_20261021.json",
+      "--config-sha256",
+      "4b81e788d70e7fe291f378e90327ed3ac569003316ee4bf61f56570120c567d8",
+      "--out",
+      "/home/rylan/projects/ej276d-n01/global_memory_fixed_validation_20261021/run_01",
+      "--device",
+      "cuda:0"
+    ],
+    "started_utc": "2026-10-20T20:34:20.928064+00:00"
+  },
+  "control_01/resource_status.json": {
+    "supervisor_pid": 46627,
+    "child_pid": 46634,
+    "rss_bytes": 729862144,
+    "peak_rss_bytes": 729862144,
+    "child_tree": [
+      46634,
+      46635
+    ],
+    "utc": "2026-10-20T20:34:22.929281+00:00"
+  },
+  "control_01/exit_receipt.json": {
+    "exit_code": 1,
+    "reason": null,
+    "peak_rss_bytes": 729862144,
+    "started_utc": "2026-10-20T20:34:20.928064+00:00",
+    "ended_utc": "2026-10-20T20:34:23.929722+00:00",
+    "supervisor_pid": 46627,
+    "child_pid": 46634
+  },
+  "control_01/console.log": "Traceback (most recent call last):\n  File \"/home/rylan/projects/ej276d-n01/global_memory_fixed_validation_20261021/scripts/evaluate_global_memory01.py\", line 176, in <module>\n    main()\n  File \"/home/rylan/projects/ej276d-n01/global_memory_fixed_validation_20261021/scripts/evaluate_global_memory01.py\", line 58, in main\n    setup = load_joint_setup(p, device, counts)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/rylan/projects/ej276d-n01/global_memory_fixed_validation_20261021/scripts/run_joint_response01.py\", line 35, in load_joint_setup\n    setup = load_setup(original, device, counts)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/rylan/projects/ej276d-n01/global_memory_fixed_validation_20261021/scripts/run_response038.py\", line 407, in load_setup\n    reference = load_reference028(verified_path028(p['reference028']))\n                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/dist-packages/torch/utils/_contextlib.py\", line 124, in decorate_context\n    return func(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/rylan/projects/ej276d-n01/global_memory_fixed_validation_20261021/src/n01/inference028.py\", line 197, in load_reference028\n    response.extension = FrozenObservedNoise008(noise005).eval().requires_grad_(False)\n                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/rylan/projects/ej276d-n01/global_memory_fixed_validation_20261021/src/n01/observation008.py\", line 282, in __init__\n    self._frozen_versions = {name: value._version for name, value in self._named_state()}\n                                   ^^^^^^^^^^^^^^\nRuntimeError: Inference tensors do not track version counter.\n",
+  "run_01/BINDINGS.json": null,
+  "run_01/INITIAL.json": null,
+  "run_01/PROGRESS.json": null,
+  "run_01/RESULT.json": null,
+  "run_01/EVALUATION_RESULT.json": null,
+  "run_01/TRAINING_RESULT.json": null,
+  "run_01/FAILED.json": {
+    "error_type": "RuntimeError",
+    "error": "Inference tensors do not track version counter.",
+    "execution_counts": {},
+    "elapsed_seconds": 1.2243041559995618
+  },
+  "run_01/COMPLETE.json": null,
+  "run_01/TRAINING_STEPS.jsonl": null
+}

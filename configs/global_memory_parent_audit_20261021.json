@@ -1,0 +1,89 @@
+{
+  "frozen_setup_config": "/mnt/MiNas/GAN/research/N01/server_runs/joint_response01_recentered_derivative_diagnostic_20261020/configs/response038_20261017.json",
+  "roles_file": "/mnt/MiNas/GAN/research/N01/server_runs/joint_response01_recentered_derivative_diagnostic_20261020/diagnostic_inputs/REAL_CALIBRATION_ROLES.npz",
+  "candidate_arrays": [
+    "/mnt/MiNas/GAN/research/N01/server_runs/joint_response01_recentered_restoration_solve_fix01_20261020/run_01/seed0_RECENTERED_RESTORATION.npz",
+    "/mnt/MiNas/GAN/research/N01/server_runs/joint_response01_recentered_restoration_solve_fix01_20261020/run_01/seed1_RECENTERED_RESTORATION.npz"
+  ],
+  "parent_chunk": 128,
+  "micro_rows": 256,
+  "memory": {
+    "levels": [
+      16,
+      32,
+      64
+    ],
+    "thresholds": 128,
+    "feature_seed": 2026102107
+  },
+  "schema": "n01/global-memory-parent-population-audit/v1",
+  "job_id": "GLOBAL_MEMORY_PARENT_AUDIT_20261021",
+  "registered_UTC": "2026-10-20T20:39:57.096819+00:00",
+  "authorization": "Continue user-authorized PSD repair; validate frozen successful pilot before any promotion.",
+  "frozen_candidate": "/home/rylan/projects/ej276d-n01/global_memory_joint_local_20261021/run_01/B_CURRENT.pt",
+  "frozen_memory": "/home/rylan/projects/ej276d-n01/global_memory_joint_local_20261021/run_01/TRAIN_DISTRIBUTION_MEMORY.pt",
+  "draws_per_parent": 32,
+  "evaluation_seed": 2126102100,
+  "hypotheses": [
+    "fast"
+  ],
+  "roles": {
+    "FIT": {
+      "source_parents": 6465,
+      "REAL_rows": 18948
+    },
+    "REPORT": {
+      "source_parents": 128,
+      "REAL_rows": 2099
+    }
+  },
+  "memory_rule": "Only original REAL FIT constructs the feature map; reuse saved FIT objective weights. REPORT contributes an evaluation target only, with memory target and candidate asserted unchanged.",
+  "evidence_scope": "Same-acquisition historically designated report role, not a new acquisition or claim of future prediction. Original fixed row membership; no resplit or reweighting.",
+  "success_rule": "Reconstruct exact per-parent56-dimensional wave feature means, reproduce prior fast role aggregates; then characterize128-parent FIT subsets. No model promotion or new hypothesis testing claim.",
+  "operation_budget": {
+    "response_rows": 843904,
+    "hard_observation_rows": 843904,
+    "committed_optimizer_updates": 0,
+    "optimizer_directions": 0,
+    "derivation": "(6465+128)*32*2 banks*2 models=843904 signal and fast-observation rows. Save parent means, not waveforms."
+  },
+  "resources": {
+    "CPU_threads": 4,
+    "GPU_GiB": 4,
+    "RSS_GiB": 12,
+    "internal_seconds": 300,
+    "hard_wall_seconds": 360,
+    "GPU_free_required_MiB": 6144
+  },
+  "storage": {
+    "remote_root": "/home/rylan/projects/ej276d-n01/global_memory_parent_audit_20261021",
+    "outputs": "Active per-parent wave feature means and small analysis reports; no raw waveform outputs or backup copies."
+  },
+  "measured_budget_basis": {
+    "prior_three_hypothesis_seconds": 34.4842403549992,
+    "expected_seconds": 25,
+    "conservative_seconds": 60,
+    "basis": "Same843904 signals as34.48s job160, one readout hypothesis instead of3 plus per-parent accumulation."
+  },
+  "stop_rule": "One registered replay and2000 CPU subset summaries, no optimizer, no new architectures or additional training steps.",
+  "original_endpoint_thresholds_unchanged": true,
+  "report_training_rows": 0,
+  "seed_head": 0,
+  "scientific_acceptance": false,
+  "NAS_file_IO_checks": false,
+  "NAS_file_hash_verification": false,
+  "operational_correction": "Use the existing native no_grad loading/evaluation context. Candidate weights and all metric/random/row settings unchanged.",
+  "prior_failed_job": "GLOBAL_MEMORY_FIXED_VALIDATION_20261021",
+  "prior_failed_response_rows": 0,
+  "parent_wave_audit": true,
+  "purpose": "Separate finite128-parent population variability from systematic source-dependent waveform correction effects, using frozen weights.",
+  "analysis": {
+    "seed": 2026102161,
+    "subset_parents": 128,
+    "finite_population_subsets": 2000,
+    "sampling": "Uniform without replacement within each subset of the6465 FIT parents; subsets overlap. Empirical reference distribution, not formal p-value for the fixed REPORT selection.",
+    "reference": "Frozen FIT map and fixed REAL REPORT wave reference; also compare original FIXED REPORT128 parents.",
+    "Q_groups": "Eight FIT-only quantile groups of SOURCE Q; diagnose macro-vs-conditional cancellation without physical truth pairing.",
+    "draws": "Same two32-draw banks as job160; this is a per-parent replay, not independent statistical evidence."
+  }
+}

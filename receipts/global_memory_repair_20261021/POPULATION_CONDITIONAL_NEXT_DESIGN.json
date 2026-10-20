@@ -1,0 +1,27 @@
+{
+  "status": "DESIGN_ONLY_NOT_REGISTERED_OR_RUNNING",
+  "UTC": "2026-10-20T20:42:50.349835+00:00",
+  "evidence": [
+    "9 new updates passed TRAIN hard joint guards; independent random-bank pilot improved PSD11.14%.",
+    "All3 FIT noise hypotheses pass; fixed REPORT wave risks increase5.76%-6.50%.",
+    "Changing REAL reference does not reverse the source-population effect.",
+    "20.15% of2000 FIT128-parent subsets exceed2% wave degradation; macro-loss improvement does not protect every population."
+  ],
+  "minimum_next_change": "Add TRAIN-only joint local-Q/wave-feature memory to the existing16/32/64 soft-Q partitions; retain full-population objective and native hard observation.",
+  "purpose": "Constrain conditional waveform response instead of relying solely on an aggregate waveform guard whose group contributions can cancel.",
+  "next_bounded_check": "First validate one conditional-wave-aware direction against the existing Q/PSD/peak/ADC guards and fixed FIT-only population summaries; register exact calls before any forward.",
+  "prohibitions": [
+    "No additional steps appended to job158.",
+    "No parameter or architecture sweep.",
+    "REPORT rows never enter training, normalization, gradients or acceptance tuning.",
+    "No event IDs, chronological memory claims, physical-energy calibration claims, or declaration that247 parameters are incapable."
+  ],
+  "preserved": [
+    "All6465 SOURCE FIT parents and18948 REAL FIT rows.",
+    "Existing immutable roles and source physics.",
+    "Frozen original ADC/argmax/crop and endpoint thresholds.",
+    "Report full-Q coverage and sparse cells."
+  ],
+  "unresolved": "Stable conditional-shape improvement and future-acquisition transfer remain unestablished.",
+  "scientific_acceptance": false
+}
