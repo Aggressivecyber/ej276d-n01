@@ -4,7 +4,7 @@
   "created_UTC": "2026-10-12T00:07:21.307456+08:00",
   "created_local_Asia_Singapore": "2026-10-12T00:07:21.307456+08:00",
   "root": "E:\\GAN\\research\\N01",
-  "status": "JOINT_RESPONSE_01_fixed_restoration14_passed_exposed_library_diagnostic",
+  "status": "JOINT_RESPONSE_01_PSD_rejected_A0_mean_energy_mapping_origin_localized",
   "scientific_status": "response_match_not_established",
   "protocol_parent": null,
   "inherits_R79": false,
@@ -17,7 +17,7 @@
   "next_action": "Directly dispatch approved job146 without NAS file validation; confirm scientific startup, finish short steps and schedule one measured wake only if long computation remains.",
   "application_goal_created": false,
   "legacy_results_modified": false,
-  "updated_UTC": "2026-10-20T17:44:26.149697+00:00",
+  "updated_UTC": "2026-10-20T18:08:08.487975+00:00",
   "current_arm": null,
   "current_stage": "4_fixed_restoration_exposed_library_diagnostic_complete",
   "last_verified_UTC": "2026-10-20T04:50:15.002029+00:00",
@@ -4474,7 +4474,7 @@
     "bytes": 6413,
     "sha256": "ec6fc5ce3a2ce1be0e024f8a82794670f19e29eff6ebb4db3083bba1e013c7cb"
   },
-  "current_action": "Authorized8-library completion and combined14 original-gate arithmetic audit complete. Stage4 scientific acceptance is not established; no further candidate or experiment registered.",
+  "current_action": "PSD mismatch traced to frozenA0 mean energy-shape mapping before noise/ADC. Global energy-conditioned mean relearning and historical replay design prepared; no new training started.",
   "latest_user_review_direction": {
     "path": "receipts/review_017_20261016/ACCEPTED_NEXT_ACTIONS.json",
     "bytes": 3271,
@@ -8549,7 +8549,7 @@
   },
   "response038_classifier_counts_last_verified_UTC": "2026-10-17T18:47:39.322960+00:00",
   "current_job_native_exit_code": 0,
-  "current_job_ended_UTC": "2026-10-20T17:41:59.284402+00:00",
+  "current_job_ended_UTC": "2026-10-20T18:02:57.399036+00:00",
   "response038_classifier_counts_complete_for_this_supplement": true,
   "response_goal_20261018": {
     "document": "docs/RESPONSE_GOAL_20261018.md",
@@ -16250,7 +16250,7 @@
   },
   "joint_response_01": {
     "task": "JOINT_RESPONSE_01",
-    "status": "fixed_restoration14_passed_exposed_library_diagnostic",
+    "status": "overall_PSD_rejected_A0_origin_localized_relearning_design_proposed",
     "plan": "JOINT_RESPONSE_01_PLAN.md",
     "user_attachment": "provenance/joint_response_01_user_plan_20261019/INPUT_RECEIPT.json",
     "base_commit": "b05a9ecf99fcee6515499915165caa8653e28fa3",
@@ -18449,7 +18449,17 @@
       42,
       45
     ],
-    "recentered_fixed_candidate_committed_parameter_updates": 0
+    "recentered_fixed_candidate_committed_parameter_updates": 0,
+    "full_energy_PSD_status": "completed_user_rejected_distribution",
+    "full_energy_PSD_config": "configs/joint_response_01_full_energy_psd_20261021.json",
+    "full_energy_PSD_registration": "receipts/joint_response_01_20261021/full_energy_psd_01/REGISTRATION_RECEIPT.json",
+    "full_energy_PSD_dispatch": "receipts/joint_response_01_20261021/full_energy_psd_01/DISPATCH_RECEIPT.json",
+    "full_energy_PSD_closure": "receipts/joint_response_01_20261021/full_energy_psd_01/CLOSURE_RECEIPT.json",
+    "full_energy_PSD_image": "deliverables/joint_response01_full_energy_psd_20261021/LATEST_FULL_ENERGY_PSD_LINEAR.png",
+    "energy_trend_origin_status": "complete_A0_stripes_without_ADC_noise_latents",
+    "energy_trend_origin_audit": "receipts/joint_response_01_20261021/energy_trend_origin_01/ORIGIN_ARRAY_AUDIT.json",
+    "energy_trend_relearning_design": "receipts/joint_response_01_20261021/energy_trend_origin_01/IMPROVEMENT_DESIGN.json",
+    "energy_trend_relearning_status": "proposed_not_implemented_or_trained"
   },
   "current_goal_document": "JOINT_RESPONSE_01_PLAN.md",
   "pending_next_run_id": null,
@@ -18457,6 +18467,6 @@
   "followup_status": "DELETED_TERMINAL_REVIEW_ACTIVE",
   "pause_receipt": "receipts/joint_response_01_20261019/user_pause_20261019/PAUSE_RECEIPT.json",
   "resume_authorization": "receipts/joint_response_01_20261020/resume_01/RESUME_AUTHORIZATION.json",
-  "execution_state_asof_UTC": "2026-10-20T17:44:26.149697+00:00",
+  "execution_state_asof_UTC": "2026-10-20T18:08:08.487975+00:00",
   "pending_registered_job_id": null
 }

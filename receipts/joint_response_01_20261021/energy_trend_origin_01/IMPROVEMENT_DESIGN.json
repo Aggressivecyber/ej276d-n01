@@ -1,0 +1,77 @@
+{
+  "status": "PROPOSED_NOT_IMPLEMENTED_OR_TRAINED",
+  "UTC": "2026-10-20T18:08:08.487975+00:00",
+  "title": "N01 global energy-shape trend relearning and historical replay",
+  "verified_findings": {
+    "frozen_A0_contains_PSD_oscillations_without_ADC_noise_or_latents": true,
+    "current_fixed_candidates_inherit_A0_structure": true,
+    "dominant_source_template_rows": 6301,
+    "source_train_rows": 6465,
+    "dominant_source_template_PSD_values": [
+      0.207919414,
+      0.312575162
+    ],
+    "A0_internal_layer_origin": "Not individually ablated",
+    "existing_UNet_has_FiLM_and_logQ_logAmplitude": true,
+    "current_joint_calibrator_has_53_response_coordinates_and_fixed_bases": true
+  },
+  "model_changes": [
+    "Reuse existing1D U-Net and FiLM; make mean conditioning, decoder and mean head trainable for a separately registered run; preserve originalA0 as comparison, not immutable signal path.",
+    "Retain monotone charge branch. Add a smooth low-dimensional log-source-Q trend representation to condition tail/width/rise and the trainable waveform path; penalize artificial energy oscillations with fixed shape input.",
+    "Train energy-and-shape-dependent stochastic response covariance/basis after useful mean trend recovery. Keep response variation separate from electronics."
+  ],
+  "features": {
+    "retain": [
+      "raw SOURCE waveform and its normalized full shape",
+      "log(source Q), log(source peak amplitude)",
+      "learned shape embedding and explicit tail fraction/rise/FWHM summaries"
+    ],
+    "physics_if_verified": [
+      "deposited energy and component fractions",
+      "interaction/position metadata only if actually available and physically valid"
+    ],
+    "acquisition_if_measured": [
+      "gain/bias/temperature/sampling configuration",
+      "measured noise context"
+    ],
+    "not_neural_inputs": [
+      "row IDs",
+      "filenames",
+      "batch or acquisition sequence IDs",
+      "REAL pseudo particle labels"
+    ]
+  },
+  "losses": [
+    "Existing full-waveform and joint hard-observable objectives.",
+    "Additional soft output-Q conditional distribution loss for PSD, rise, width and charge-shape relationships, covering all energy regions.",
+    "Conditional mean/quantile/width trend losses; full conditional distribution remains required for multimodal PSD.",
+    "Smooth energy variation regularization; no blanket monotonic PSD assumption.",
+    "Keep original physical and noise protections and scientific acceptance; local old algorithm radius is not a scientific physical threshold."
+  ],
+  "population_contract": "No event pairing or physical-energy equality is created from equal numerical SOURCE/REAL Q. No source-population reweighting to hide shape errors. Energy-stratified auxiliary losses retain separate original-population reports.",
+  "memory": {
+    "long_term": "Persist trained weights, energy trend parameters and normalization statistics.",
+    "replay": "Replay actual historical TRAIN SOURCE and REAL observations, with energy/shape/condition coverage; current mistaken model output is not a teacher.",
+    "current_scale": "Current TRAIN-role data are small enough to retain all6,465 source parents and18,948 REAL rows; later bound the replay store by coverage-aware sampling with sampling weights recorded.",
+    "future": "New acquisition groups remain forward tests before updates; update with mixed historical/new data and report retention separately.",
+    "sequence": "Current events are independent; do not introduce chronological dependence between unrelated pulses.",
+    "storage": "Frequently read training/replay data stay on local or compute storage; large archival versions go toNAS."
+  },
+  "validation": [
+    "Keep original source-parent and REAL-group holdouts; do not create artificial missing energy ranges.",
+    "Evaluate per-output-Q conditional PSD distributions, both bands if present, full-waveform/noise/flags, and original scientific success gates.",
+    "Sweep amplitude continuously for fixed source shapes as an engineering trend diagnostic; verify branch continuity and excessive curvature without forcing PSD monotonicity.",
+    "Use new acquisition groups to establish future-data performance; covered-range interpolation and out-of-range extrapolation are reported separately."
+  ],
+  "execution_order": [
+    "Close current53-parameter fixed-restoration route as insufficient for overall PSD matching.",
+    "Implement one energy-conditioned mean-relearning configuration, freeze its data roles, objective, budget and stop rules before running.",
+    "Continue to conditional stochastic training only when mean trends and physical protections improve.",
+    "Use retained historical data in every later update; perform no hyperparameter sweep."
+  ],
+  "new_training_started": false,
+  "references": [
+    "https://arxiv.org/abs/1709.07871",
+    "https://papers.neurips.cc/paper_files/paper/2019/hash/fa7cdfad1a5aaf8370ebeda47a1ff1c3-Abstract.html"
+  ]
+}

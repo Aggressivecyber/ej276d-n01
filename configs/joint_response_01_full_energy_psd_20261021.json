@@ -1,0 +1,80 @@
+{
+  "schema": "n01/fixed-candidate-full-energy-PSD-visualization/v1",
+  "job_id": "JOINT_RESPONSE_01_FULL_ENERGY_PSD_20261021",
+  "registered_UTC": "2026-10-20T17:51:12.484323+00:00",
+  "authorization": "User requested a full-energy PSD image of the latest candidate.",
+  "frozen_setup_config": "/mnt/MiNas/GAN/research/N01/server_runs/joint_response01_recentered_derivative_diagnostic_20261020/configs/response038_20261017.json",
+  "roles_file": "/mnt/MiNas/GAN/research/N01/server_runs/joint_response01_recentered_derivative_diagnostic_20261020/diagnostic_inputs/REAL_CALIBRATION_ROLES.npz",
+  "candidate_arrays": [
+    "/mnt/MiNas/GAN/research/N01/server_runs/joint_response01_recentered_restoration_solve_fix01_20261020/run_01/seed0_RECENTERED_RESTORATION.npz",
+    "/mnt/MiNas/GAN/research/N01/server_runs/joint_response01_recentered_restoration_solve_fix01_20261020/run_01/seed1_RECENTERED_RESTORATION.npz"
+  ],
+  "source_train_parents": 6465,
+  "source_heldout_not_plotted": 128,
+  "real_train_rows": 18948,
+  "real_heldout_not_plotted": 2099,
+  "draws_per_parent": 32,
+  "parent_chunk": 128,
+  "chunk_bank_seed_base": 202610210100,
+  "hypotheses": [
+    "fast",
+    "slow",
+    "common_level"
+  ],
+  "population": "Census of all existing calibration TRAIN-role SOURCE parents and REAL rows; no energy cut, no population fit or balancing.",
+  "plot": {
+    "horizontal": "Observed Q in V ns; uncalibrated energy proxy",
+    "vertical": "PSD_raw=tail/Q from original ADC, baseline, peak and crop; undefined Q=0 recorded separately.",
+    "tail_window": "window256 samples46:256",
+    "full_finite_extent": true,
+    "not_scientific_acceptance": true
+  },
+  "resources": {
+    "CPU_threads": 4,
+    "GPU_GiB": 4,
+    "RSS_GiB": 12,
+    "internal_seconds": 600,
+    "hard_wall_seconds": 900,
+    "output_MiB": 64,
+    "GPU_free_required_MiB": 6144
+  },
+  "operation_budget": {
+    "checkpoint_loads": 6,
+    "TRAIN_archives_decoded": 1,
+    "PCA_archives_decoded": 1,
+    "old_A_calls": 52,
+    "old_A_rows": 6593,
+    "M0_head_calls": 104,
+    "M0_head_rows": 13186,
+    "REAL_observable_replay_calls": 1,
+    "REAL_observable_replay_rows": 21047,
+    "allocated_banks": 51,
+    "shape_standard_normal_values": 1655040,
+    "noise005_calls": 51,
+    "noise005_rows": 206880,
+    "extension_rows": 620640,
+    "joint_response_calls": 102,
+    "joint_response_rows": 413760,
+    "generated_observation_calls": 306,
+    "generated_observation_rows": 1241280,
+    "fixed_candidates_loaded": 2,
+    "real_rows_plotted": 18948,
+    "source_parents_plotted": 6465,
+    "finite_difference_columns": 0,
+    "joint_direction_solves": 0,
+    "REAL_response_updates": 0,
+    "DEV_waveforms_decoded": 0,
+    "AD_queries": 0,
+    "classifier_fits": 0
+  },
+  "storage": {
+    "remote_root": "/mnt/MiNas/GAN/research/N01/server_runs/joint_response01_full_energy_psd_20261021",
+    "windows_root": "Z:/GAN/research/N01/server_runs/joint_response01_full_energy_psd_20261021",
+    "large_local_or_compute_disk_backups": false
+  },
+  "NAS_file_IO_checks": false,
+  "NAS_file_hash_verification": false,
+  "automatic_restart": false,
+  "automatic_training": false,
+  "scientific_acceptance": false
+}

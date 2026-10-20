@@ -348,3 +348,5 @@ Windows盘符映射缺失后，服务器上的NAS目录与两份筛查NPZ哈希�
 [成本账目](receipts/joint_response_01_20261021/recentered_candidate_remaining8_01/COST_ACCOUNTING.json)分开保留六检查点及TRAIN/PCA、A0/M0等缓存重建；共42次唯一生成，累计实际调用为42–45次，含旧段0–3次未落盘不确定量，不能写成精确42次。新增候选、求解和参数提交均零。[闭合回执](receipts/joint_response_01_20261021/recentered_candidate_remaining8_01/CLOSURE_RECEIPT.json)记录完整状态。NAS文件巡检及文件哈希核验保持关闭，仅读取计算所需输入和结果。
 
 十四库均已暴露并参与局部恢复约束，结果证明该固定恢复步在这些库上满足原数值门；阶段4最终科学验收仍未建立，阶段5未进入。完整波形/native距离/RMS提取未另行独立重生成。当前0运行作业，无等待计算，无定时；不追加候选或放宽门限。
+
+2026-10-21：按用户要求生成[全能区PSD图](deliverables/joint_response01_full_energy_psd_20261021/LATEST_FULL_ENERGY_PSD_LINEAR.png)，全部6,465个训练源父事件×32抽样/头、三噪声假设及18,948条实测参照，保留原留出集。整体PSD形态差距被用户拒绝，原14库局部守门通过记录不变。无训练[逐段定位](receipts/joint_response_01_20261021/energy_trend_origin_01/ORIGIN_ARRAY_AUDIT.json)确认冻结A0在零潜变量、无电子学、无ADC时已有振荡，当前候选继承该结构；A0内部具体层尚未消融。原U-Net已包含FiLM和logQ/log幅度条件，后续应重学均值能量趋势及条件随机展宽，补能区条件分布目标与历史TRAIN回放，详见[改进设计](receipts/joint_response_01_20261021/energy_trend_origin_01/IMPROVEMENT_DESIGN.json)。新训练未启动，当前无运行或等待定时。

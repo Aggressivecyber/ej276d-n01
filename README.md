@@ -431,3 +431,5 @@ FIX01已[正常完成并独立核验](receipts/joint_response_01_20261019/wake_2
 存储部署在执行前修订为[轻量布局](docs/JOINT_RESPONSE_01_RECENTERED_DERIVATIVE_COMPLETION_THIN_20261020.md)：原190份完整复制部署未启动科学计算，部分副本保留；新布局只写7份新增文本、只读复用185份锁定源文件和输入。424列补全、318列复用、计数、资源与科学设置均保持，原配置与清单留存。
 
 2026-10-21：[固定候选补全已闭合](receipts/joint_response_01_20261021/recentered_candidate_remaining8_01/CLOSURE_RECEIPT.json)。复用旧6库、新增8库24次生成，两头合计14库全部通过原局部数值门；重启缓存和旧在途0–3次调用单列，累计实际42–45次。阶段4科学验收仍未建立，零参数提交；当前无运行作业或等待定时。NAS文件巡检与哈希核验保持关闭。
+
+2026-10-21：按用户要求生成[全能区PSD图](deliverables/joint_response01_full_energy_psd_20261021/LATEST_FULL_ENERGY_PSD_LINEAR.png)，全部6,465个训练源父事件×32抽样/头、三噪声假设及18,948条实测参照，保留原留出集。整体PSD形态差距被用户拒绝，原14库局部守门通过记录不变。无训练[逐段定位](receipts/joint_response_01_20261021/energy_trend_origin_01/ORIGIN_ARRAY_AUDIT.json)确认冻结A0在零潜变量、无电子学、无ADC时已有振荡，当前候选继承该结构；A0内部具体层尚未消融。原U-Net已包含FiLM和logQ/log幅度条件，后续应重学均值能量趋势及条件随机展宽，补能区条件分布目标与历史TRAIN回放，详见[改进设计](receipts/joint_response_01_20261021/energy_trend_origin_01/IMPROVEMENT_DESIGN.json)。新训练未启动，当前无运行或等待定时。
