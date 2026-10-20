@@ -19,7 +19,8 @@ import run_response038
 run_response038.verified_path028 = inference028.verified_path028
 from n01.data import write_json
 from n01.global_memory01 import (GlobalDistributionMemory01, MeanHeadRepair01,
-                                 GlobalRepairResponse01, add_peak_selection_gradient)
+                                 GlobalRepairResponse01, add_peak_selection_gradient,
+                                 adc_margin_risk, joint_secant_weights)
 from n01.observation008 import observe_existing_carrier, observe_generated_carrier, crop_indices_torch
 from run_joint_response01 import load_joint_setup, random_bank, progress_file
 
@@ -90,21 +91,25 @@ def main():
 
     def bank_mean(model, bank, *, collect=False):
         total, flags, records = torch.zeros_like(memory.target), Counter(), []
+        rail_risk = 0.
         count = sum(len(b['rows']) for b in bank)
         for b in bank:
             for start in range(0, len(b['rows']), p['micro_rows']):
                 obs = observed(model, b, slice(start, start + p['micro_rows']))
                 total += memory.sums(obs)
                 flags.update({k: int(v.sum()) for k, v in obs['flags'].items()})
+                if p['mode'] == 'joint_secant_pilot':
+                    rail_risk += float(adc_margin_risk(obs['pre_adc_carrier']).sum())
                 if collect:
                     records.append({k: obs[k].detach().cpu().numpy()
                                     for k in ('Q', 'tail', 'PSD_raw', 'peak_index')})
         arrays = {k: np.concatenate([r[k] for r in records]) for k in records[0]} if collect else None
-        return total / count, dict(flags), arrays
+        return total / count, dict(flags), arrays, rail_risk / count
 
     def pair_means(model, paired):
         with torch.no_grad():
             results = [bank_mean(model, b) for b in paired]
+        model.adc_margin_risks = [r[3] for r in results]
         return [r[0] for r in results], [r[1] for r in results]
 
     def gradient(model, paired):
@@ -113,8 +118,8 @@ def main():
         model.zero_grad(set_to_none=True)
         means, flags = pair_means(model, paired)
         coefficients = memory.coefficients(*means)
-        project_wave = p['mode'] in ('projected_pilot', 'guard_diagnostic')
-        diagnose_guard = p['mode'] == 'guard_diagnostic'
+        project_wave = p['mode'] in ('projected_pilot', 'guard_diagnostic', 'joint_secant_pilot')
+        diagnose_guard = p['mode'] in ('guard_diagnostic', 'joint_secant_pilot')
         parameters = [v for v in model.parameters() if v.requires_grad]
         if project_wave:
             wave_coefficients = memory.wave_coefficients(*means)
@@ -224,7 +229,7 @@ def main():
             initial_losses = numbers(initial)
             write_json(args.out / 'INITIAL.json', dict(losses=initial_losses, flags=flags,
                 objective_normalization=memory.normalization))
-            if p['mode'] in ('projected_pilot', 'endpoint_replay', 'guard_diagnostic', 'readout_diagnostic'):
+            if p['mode'] in ('projected_pilot', 'endpoint_replay', 'guard_diagnostic', 'readout_diagnostic', 'joint_secant_pilot'):
                 models = {'B': models['B']}
 
         if p['mode'] == 'profile':
@@ -275,7 +280,7 @@ def main():
                     denominator='initial model-vs-REAL PSD memory discrepancy',
                     low_draws_supported_for_pilot=relative <= p['precision_relative_limit'])
             write_json(args.out / 'PROFILE.json', profile)
-        elif p['mode'] in ('endpoint_replay', 'guard_diagnostic', 'readout_diagnostic'):
+        elif p['mode'] in ('endpoint_replay', 'guard_diagnostic', 'readout_diagnostic', 'joint_secant_pilot'):
             # Load the fixed state. Endpoint replay constructs no optimizer.
             saved = torch.load(p['replay_checkpoint'], map_location=device, weights_only=False)
             counts['repair_checkpoint_loads'] += 1
@@ -422,6 +427,163 @@ def main():
                     weights_restored=True, report_rows_used=0, scientific_acceptance=False,
                     interpretation='Fixed-peak variants are causal diagnostics only; original hard readout and acceptance remain unchanged.'))
                 setup['references'][0].assert_frozen_unchanged(deep=True)
+            elif p['mode'] == 'joint_secant_pilot':
+                model = models['B']
+                named = [(k, v) for k, v in model.named_parameters() if v.requires_grad]
+                sizes = [p['learning_rates']['response'] if k == 'theta'
+                         else p['learning_rates']['mean'] for k, _ in named]
+                optimizer = torch.optim.Adam([
+                    {'params': [model.theta], 'lr': p['learning_rates']['response']},
+                    {'params': [v for k, v in named if k != 'theta'], 'lr': p['learning_rates']['mean']}])
+                optimizer.load_state_dict(saved['optimizer'])
+                seed_direction = torch.load(p['direction_file'], map_location=device, weights_only=False)
+                counts['diagnostic_direction_loads'] += 1
+                assert [k for k, _ in named] == seed_direction['names']
+                assert all(torch.equal(model.state_dict()[k], v) for k, v in seed_direction['before'].items())
+                steps, rejected_streak = [], 0
+                radius = p.get('initial_secant_radius', 1.)
+                for iteration in range(p['optimizer']['direction_attempts_per_arm']):
+                    del paired
+                    paired = banks(p['draws_per_parent'], p['bank_seed'] + (iteration + 2) * 1000000)
+                    before = copy.deepcopy(model.state_dict())
+                    opt_before = copy.deepcopy(optimizer.state_dict())
+                    if iteration == 0:
+                        means, old_flags = pair_means(model, paired)
+                        elapsed = 0.
+                        for (_, value), grad in zip(named, seed_direction['objective_gradient']):
+                            value.grad = grad.clone()
+                        directions = {k: seed_direction['directions'][k] for k in
+                                      ('aligned_positive_tangent', 'positive_wave_descent')}
+                    else:
+                        means, old_flags, elapsed = gradient(model, paired)
+                    previous, guard_previous = numbers(means), positive_metrics(means)
+                    old_rail_risks = model.adc_margin_risks.copy()
+                    optimizer.step()
+                    counts['optimizer_directions'] += 1
+                    with torch.no_grad():
+                        model.theta.clamp_(-1., 1.)
+                    if iteration > 0:
+                        delta = [model.state_dict()[k] - before[k] for k, _ in named]
+                        grads = model.positive_wave_gradient
+                        derivative = sum((g * d).double().sum() for g, d in zip(grads, delta))
+                        denominator = sum((s * g).double().square().sum() for s, g in zip(sizes, grads))
+                        correction = max(float(derivative), 0.) / float(denominator)
+                        norm = sum((d / s).double().square().sum() for d, s in zip(delta, sizes)).sqrt()
+                        directions = dict(
+                            aligned_positive_tangent=[d - correction * s * s * g
+                                                      for d, s, g in zip(delta, sizes, grads)],
+                            positive_wave_descent=[-norm / denominator.sqrt() * s * s * g
+                                                   for s, g in zip(sizes, grads)])
+                    model.load_state_dict(before)
+                    if p.get('ADC_descent_basis', False):
+                        # These gradients use continuous pre-ADC carriers, not a
+                        # surrogate for rounded flags. Each bank gets its own direction.
+                        reference_norm = sum((d / s).double().square().sum() for d, s in
+                            zip(directions['positive_wave_descent'], sizes)).sqrt()
+                        for bank_index, bank in enumerate(paired):
+                            adc_gradient = [torch.zeros_like(v) for _, v in named]
+                            count = sum(len(b['rows']) for b in bank)
+                            for b in bank:
+                                for start in range(0, len(b['rows']), p['micro_rows']):
+                                    obs = observed(model, b, slice(start, start + p['micro_rows']))
+                                    risk = adc_margin_risk(obs['pre_adc_carrier']).sum() / count
+                                    grads = torch.autograd.grad(risk, [v for _, v in named])
+                                    for g, value in zip(adc_gradient, grads):
+                                        g.add_(value)
+                                    counts['continuous_ADC_backward_microblocks'] += 1
+                            grad_norm = sum((s * g).double().square().sum() for s, g in zip(sizes, adc_gradient)).sqrt()
+                            # Interior banks have exactly zero hinge loss and gradient.
+                            if float(grad_norm) > 0.:
+                                directions[f'ADC_bank{bank_index}_descent'] = [
+                                    -reference_norm / grad_norm * s * s * g for s, g in zip(sizes, adc_gradient)]
+                    probes, actual_directions = [], []
+                    for label, delta in directions.items():
+                        state = copy.deepcopy(before)
+                        for (k, _), d in zip(named, delta):
+                            state[k] = before[k] + radius * d
+                        state['theta'].clamp_(-1., 1.)
+                        actual_directions.append([state[k] - before[k] for k, _ in named])
+                        model.load_state_dict(state)
+                        probe_means, probe_flags = pair_means(model, paired)
+                        probes.append(dict(direction=label, losses=numbers(probe_means),
+                            positive_metrics=positive_metrics(probe_means), flags=probe_flags,
+                            ADC_margin_risk=model.adc_margin_risks.copy()))
+                        counts['native_secant_probes'] += 1
+                    model.load_state_dict(before)
+                    guards = p['optimizer']['per_step_guards']
+                    constraint_names = [*guards, 'PSD_CDF', 'ADC_margin_bank0', 'ADC_margin_bank1']
+                    changes = [[v['positive_metrics'][k] - guard_previous[k] for v in probes]
+                               for k in (*guards, 'PSD_CDF')]
+                    allowances = [(factor - 1.) * guard_previous[k] for k, factor in guards.items()] + [0.]
+                    for b in range(2):
+                        changes.append([v['ADC_margin_risk'][b] - old_rail_risks[b] for v in probes])
+                        allowances.append(0.)
+                    objective_changes = np.array([sum(v['losses'].values()) - sum(previous.values()) for v in probes])
+                    weights = joint_secant_weights(objective_changes, changes, allowances)
+                    predicted_change = float(objective_changes @ weights)
+                    torch.save(dict(before=before, directions=actual_directions, names=[k for k, _ in named],
+                                    coefficients=weights, source='native_full_population_secants'),
+                               args.out / f'DIRECTION_{iteration + 1:02d}.pt')
+                    passed, trials = False, []
+                    if predicted_change < 0.:
+                        for scale in p['optimizer']['step_scales']:
+                            state = copy.deepcopy(before)
+                            for j, (k, _) in enumerate(named):
+                                state[k] = before[k] + scale * sum(float(w) * d[j]
+                                                                   for w, d in zip(weights, actual_directions))
+                            state['theta'].clamp_(-1., 1.)
+                            model.load_state_dict(state)
+                            trial_means, flags = pair_means(model, paired)
+                            losses, metrics = numbers(trial_means), positive_metrics(trial_means)
+                            checks = {k: metrics[k] <= factor * guard_previous[k] for k, factor in guards.items()}
+                            checks.update(PSD_CDF_decreased=metrics['PSD_CDF'] < guard_previous['PSD_CDF'],
+                                global_objective_decreased=sum(losses.values()) < sum(previous.values()),
+                                flags_not_increased=all(flags[b][k] <= old_flags[b][k]
+                                                        for b in range(2) for k in old_flags[b]),
+                                ADC_margin_not_worse=all(model.adc_margin_risks[b] <= old_rail_risks[b] for b in range(2)))
+                            passed = all(checks.values())
+                            trials.append(dict(scale=scale, losses=losses, positive_metrics=metrics,
+                                flags=flags, ADC_margin_risk=model.adc_margin_risks.copy(), checks=checks, accepted=passed))
+                            counts['joint_hard_trials'] += 1
+                            if passed:
+                                accepted['B'] += 1
+                                counts['committed_optimizer_updates'] += 1
+                                rejected_streak = 0
+                                break
+                    if not passed:
+                        model.load_state_dict(before)
+                        optimizer.load_state_dict(opt_before)
+                        rejected_streak += 1
+                    next_radius = radius
+                    if p.get('adaptive_secant_radius', False):
+                        if passed:
+                            ratio = (sum(losses.values()) - sum(previous.values())) / (scale * predicted_change)
+                            next_radius = min(1., radius * scale * (2. if ratio >= .75 else 1.))
+                        else:
+                            next_radius = radius * p['optimizer']['step_scales'][-1]
+                    record = dict(iteration=iteration + 1, arm='B', gradient_seconds=elapsed,
+                        reused_saved_gradient=iteration == 0, secant_radius=radius, next_secant_radius=next_radius,
+                        previous_losses=previous,
+                        previous_metrics=guard_previous, previous_flags=old_flags,
+                        previous_ADC_margin_risk=old_rail_risks, probes=probes,
+                        constraint_names=constraint_names, constraint_changes=changes,
+                        constraint_allowances=allowances, coefficients=weights.tolist(),
+                        predicted_objective_change=predicted_change, trials=trials,
+                        accepted=passed, accepted_updates=accepted['B'],
+                        new_committed_updates=counts['committed_optimizer_updates'])
+                    radius = next_radius
+                    steps.append(record)
+                    with (args.out / 'TRAINING_STEPS.jsonl').open('a', encoding='utf8') as stream:
+                        stream.write(json.dumps(record) + '\n')
+                    torch.save(dict(model=model.state_dict(), optimizer=optimizer.state_dict(),
+                        accepted_updates=accepted['B'], inherited_accepted_updates=saved['accepted_updates'],
+                        new_committed_updates=counts['committed_optimizer_updates'], direction_iteration=iteration + 1,
+                        parent_checkpoint=p['replay_checkpoint']), args.out / 'B_CURRENT.pt')
+                    progress_file(args.out, counts, 'joint_secant_direction_complete', iteration=iteration + 1,
+                        accepted_updates=dict(accepted), rejected_streak=rejected_streak,
+                        elapsed_seconds=time.monotonic() - started)
+                    if (iteration == 0 and not passed) or rejected_streak >= p['optimizer']['stop_consecutive_rejections']:
+                        break
         else:
             assert p['mode'] in ('pilot', 'projected_pilot')
             accepted = Counter()
@@ -521,11 +683,11 @@ def main():
                                   elapsed_seconds=time.monotonic() - started)
                 if all(rejected_streak[k] >= p['optimizer']['stop_consecutive_rejections'] for k in models):
                     break
-        if p['mode'] in ('pilot', 'projected_pilot', 'endpoint_replay'):
+        if p['mode'] in ('pilot', 'projected_pilot', 'endpoint_replay', 'joint_secant_pilot'):
             del paired
             # Fresh independent random banks are not used to choose settings or
             # the endpoint. 32 draws reproduce the requested full-Q figure scale.
-            endpoint_banks = banks(p['endpoint_draws'], p['bank_seed'] + 50000000, cpu=True)
+            endpoint_banks = banks(p['endpoint_draws'], p.get('endpoint_seed', p['bank_seed'] + 50000000), cpu=True)
             reference = GlobalRepairResponse01(setup['joint_models'][0], theta)
             arrays = dict(source_parent_rows=parent_array, real_rows=real_rows)
             for key in ('Q', 'tail', 'PSD_raw'):
@@ -535,7 +697,7 @@ def main():
                 for name, model in dict(initial=reference, **models).items():
                     values, fcounts = [], []
                     for bank_index, bank in enumerate(endpoint_banks):
-                        avg, flag, scalar = bank_mean(model, bank, collect=True)
+                        avg, flag, scalar, _ = bank_mean(model, bank, collect=True)
                         values.append(avg)
                         fcounts.append(flag)
                         arrays.update({f'{name}_bank{bank_index}_{k}': v for k, v in scalar.items()})
@@ -557,6 +719,7 @@ def main():
             # Preserve small endpoint metrics even if the later array write fails.
             write_json(args.out / 'TRAINING_RESULT.json', dict(
                 mode=p['mode'], accepted_updates={k: accepted[k] for k in models},
+                new_committed_optimizer_updates=counts['committed_optimizer_updates'],
                 direction_records=len(steps), endpoint=endpoint,
                 endpoint_arrays=str(archive_path), seed_head=0, hypothesis=p['hypothesis'],
                 independent_final_random_banks=True, report_role_rows_used=0,

@@ -1,0 +1,114 @@
+{
+  "frozen_setup_config": "/mnt/MiNas/GAN/research/N01/server_runs/joint_response01_recentered_derivative_diagnostic_20261020/configs/response038_20261017.json",
+  "roles_file": "/mnt/MiNas/GAN/research/N01/server_runs/joint_response01_recentered_derivative_diagnostic_20261020/diagnostic_inputs/REAL_CALIBRATION_ROLES.npz",
+  "candidate_arrays": [
+    "/mnt/MiNas/GAN/research/N01/server_runs/joint_response01_recentered_restoration_solve_fix01_20261020/run_01/seed0_RECENTERED_RESTORATION.npz",
+    "/mnt/MiNas/GAN/research/N01/server_runs/joint_response01_recentered_restoration_solve_fix01_20261020/run_01/seed1_RECENTERED_RESTORATION.npz"
+  ],
+  "parent_chunk": 128,
+  "micro_rows": 256,
+  "hypothesis": "fast",
+  "primary_seed_head": 0,
+  "draws_per_parent": 8,
+  "bank_seed": 2026102100,
+  "identity_tolerance_V": 1e-07,
+  "memory": {
+    "levels": [
+      16,
+      32,
+      64
+    ],
+    "thresholds": 128,
+    "feature_seed": 2026102107
+  },
+  "learning_rates": {
+    "response": 0.002,
+    "mean": 0.0002
+  },
+  "optimizer": {
+    "direction_attempts_per_arm": 12,
+    "step_scales": [
+      1.0,
+      0.5,
+      0.25
+    ],
+    "stop_consecutive_rejections": 3,
+    "per_step_guards": {
+      "Q_mass": 1.005,
+      "block_wave": 1.0,
+      "block_peak_codes": 1.01
+    },
+    "acceptance": "Original Q/wave/peak and all hard flags pass; additionally PSD and global objective decrease and continuous ADC margin risk does not increase.",
+    "failed_trial": "Restore parameters; if no trial passes also restore Adam state."
+  },
+  "replay_checkpoint": "/home/rylan/projects/ej276d-n01/global_memory_projected_20261021/run_01/B_CURRENT.pt",
+  "replay_memory": "/home/rylan/projects/ej276d-n01/global_memory_projected_20261021/run_01/TRAIN_DISTRIBUTION_MEMORY.pt",
+  "replay_steps": "/home/rylan/projects/ej276d-n01/global_memory_projected_20261021/run_01/TRAINING_STEPS.jsonl",
+  "replay_accepted_updates": 1,
+  "replay_direction_iteration": 4,
+  "peak_selection_gradient": true,
+  "gradient_rule": "Hard ADC/argmax/crop values remain bitwise exact. Add derivative of softmax over32 search codes at one-ADC-code temperature, times detached candidate windows. Existing selected-value derivative retained once.",
+  "temperature_codes": 1.0,
+  "temperature_search": false,
+  "endpoint_draws": 32,
+  "endpoint_decision": "Fresh two-bank32 primary PSD CDF improves >=10%, Q mass/wave/peak no worse by2%, flags do not increase. This is pilot advancement only, not original scientific acceptance.",
+  "schema": "n01/global-memory-joint-secant-pilot/v1",
+  "job_id": "GLOBAL_MEMORY_JOINT_SECANT_PILOT_20261021",
+  "mode": "joint_secant_pilot",
+  "registered_UTC": "2026-10-20T20:17:03.301428+00:00",
+  "authorization": "2026-10-21 user: 启动下一步 推进新训练",
+  "direction_file": "/home/rylan/projects/ej276d-n01/global_memory_selection_gradient_20261021/run_01/DIRECTION_DIAGNOSTIC.pt",
+  "endpoint_seed": 2086102100,
+  "endpoint_archive": "/home/rylan/projects/ej276d-n01/global_memory_joint_secant_20261021/run_01/ENDPOINT_SCALARS.npz",
+  "operation_budget": {
+    "response_rows": 9516480,
+    "optimizer_directions": 12,
+    "committed_optimizer_updates": 12,
+    "native_secant_probes": 24,
+    "joint_hard_trials": 36,
+    "new_gradient_pairs": 11,
+    "first_step_saved_gradient_replays": 1,
+    "derivation": "103440 normalization + 6*103440 first direction + 11*7*103440 subsequent directions + 8*103440 endpoint =9516480."
+  },
+  "resources": {
+    "CPU_threads": 4,
+    "GPU_GiB": 4,
+    "RSS_GiB": 12,
+    "internal_seconds": 1200,
+    "hard_wall_seconds": 1320,
+    "GPU_free_required_MiB": 6144
+  },
+  "storage": {
+    "remote_root": "/home/rylan/projects/ej276d-n01/global_memory_joint_secant_20261021",
+    "archival_policy": "Active compute checkpoint and endpoint scalars needed for immediate analysis; no NAS probes or duplicate large backups."
+  },
+  "initialize_from": "One previously committed B update. First direction reuses job156 saved gradients and two direction tensors; later directions recompute gradients at current weights.",
+  "joint_rule": {
+    "basis": [
+      "aligned_positive_tangent",
+      "positive_wave_descent"
+    ],
+    "secants": "Evaluate each full basis displacement on the same complete two TRAIN random banks, with native ADC and argmax. Domain clipping included before secants.",
+    "solver": "Linear program in convex hull of zero and both actual probe displacements: weights>=0, sum<=1. Minimize native secant of original global cross-bank objective.",
+    "constraints": "Q_mass <=+0.5%, waveform <=0%, peak_codes <=+1%; PSD_CDF and each-bank continuous ADC margin risk nonincreasing.",
+    "ADC_margin": "Mean per-row squared positive rail proximity in ADC codes; margin starts one code inside both physical rails, using actual pre-ADC min/max over384 samples.",
+    "validation": "Hard evaluate combination at scales1,.5,.25; commit only if original guards, all flag counts, continuous rail risk, strict PSD improvement and strict total objective decrease pass.",
+    "optimizer": "Adam moment update is retained only when the jointly selected step commits. Rejected weights and moments are restored.",
+    "limitation": "Native secants are local approximations, not guarantees across peak jumps; hard evaluation is decisive."
+  },
+  "stop_rule": "If first joint feasibility step fails, stop training immediately. Otherwise at most12 total directions, or stop after3 consecutive rejections. No budget extension or threshold relaxation.",
+  "endpoint_streams_used_for_selection": false,
+  "endpoint_thresholds_unchanged": true,
+  "report_role_rows_used_for_training": 0,
+  "representation_changes": false,
+  "scientific_acceptance": false,
+  "NAS_file_IO_checks": false,
+  "NAS_file_hash_verification": false,
+  "measured_budget_basis": {
+    "prior_724080_rows_seconds": 94.07759003600007,
+    "prior_gradient_seconds": 28.1345016690002,
+    "expected_seconds": 850,
+    "conservative_seconds": 1100,
+    "basis": "Maximum12 directions, two native secant probes and up to3 validations each, plus fresh32-draw endpoint; revise wake from measured first-direction time."
+  }
+}

@@ -2,10 +2,14 @@
 import json
 from pathlib import Path
 import argparse
+import numpy as np
 import torch
 
 from n01.global_memory01 import (GlobalDistributionMemory01, MeanHeadRepair01,
-                                 GlobalRepairResponse01, add_peak_selection_gradient)
+                                 GlobalRepairResponse01, add_peak_selection_gradient,
+                                 adc_margin_risk, joint_secant_weights)
+from n01.losses008 import ADC_STEP
+from n01.model import ADC_MIN, ADC_MAX
 from n01.joint01_model import JointResponse01, response_cache
 from n01.model008 import N01Response008
 from n01.observation008 import observe_generated_carrier
@@ -74,6 +78,29 @@ selection_gradient = torch.autograd.grad(selection['tail'].sum(), probe)[0]
 assert torch.isfinite(selection_gradient).all()
 assert (selection_gradient - native_gradient).abs().max() > 0
 
+# Neither endpoint obeys the Q/wave/rail constraints, but their mixture can.
+secant_changes = np.array([[-.10, .20], [.02, -.08], [-.10, .01], [.01, -.10]])
+allowances = np.array([.005, 0., 0., 0.])
+objective = np.array([-.20, -.01])
+mix = joint_secant_weights(objective, secant_changes, allowances)
+assert (mix > 0).all() and mix.sum() <= 1. + 1e-10
+assert (secant_changes @ mix <= allowances + 1e-10).all()
+assert objective @ mix < 0.
+assert (secant_changes[:, 0] > allowances).any() and (secant_changes[:, 1] > allowances).any()
+no_step = joint_secant_weights([-1., -2.], [[1., 2.]], [0.])
+assert np.array_equal(no_step, np.zeros(2))
+rail = torch.zeros(3, 384, dtype=torch.float64)
+rail[0, 120] = ADC_MAX - 2 * ADC_STEP
+rail[1, 120] = ADC_MAX - .5 * ADC_STEP
+rail[2, 120] = ADC_MAX + ADC_STEP
+rail.requires_grad_()
+risk = adc_margin_risk(rail)
+assert torch.allclose(risk, torch.tensor([0., .25, 4.], dtype=torch.float64), atol=1e-10)
+assert not bool(observe_generated_carrier(rail, q_floor=.001)['flags']['pre_ADC_out_of_range'][1])
+assert bool(observe_generated_carrier(rail, q_floor=.001)['flags']['pre_ADC_out_of_range'][2])
+risk.sum().backward()
+assert rail.grad[1, 120] > 0 and rail.grad[2, 120] > rail.grad[1, 120]
+
 base = N01Response008(dict(q_ref=3., a_ref=.1, log_q_min=-4., log_q_max=5.), 'deterministic').eval()
 base.requires_grad_(False)
 captured = []
@@ -112,6 +139,8 @@ result = dict(status='PASS_SYNTHETIC_SEMANTICS', gradient_max_abs_error=gradient
               fixed_transform_peak_identity_max_V=fixed_peak_identity,
               selection_surrogate_hard_values_bitwise_equal=True,
               selection_surrogate_adds_finite_peak_sensitivity=True,
+              joint_secant_mixture_feasible=True, joint_secant_no_descent_returns_zero=True,
+              ADC_margin_penalty_precedes_actual_out_of_range=True,
               mean_identity_max_V=identity_error, batch_order_max_V=batch_error,
               undefined_Q_rows_retained=4, original_parameters_frozen=True,
               mean_head_and_time_head_receive_gradients=True,

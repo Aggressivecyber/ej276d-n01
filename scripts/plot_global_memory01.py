@@ -33,6 +33,8 @@ titles = {'REAL': 'REAL · 合法 FIT', 'initial': '修复前 · 固定端点',
           'A': 'A · 全域目标 + 53 参数', 'B': 'B · 全域目标 + 末端头（247 参数）'}
 if 'A' not in labels:
     titles['B'] = 'B · 全域目标 + 波形方向约束'
+if result['mode'] == 'joint_secant_pilot':
+    titles['B'] = 'B · 联合 Q / 波形 / ADC 约束'
 audit = dict(populations=rows, actual_Q_range=list(map(float, qrange)),
              actual_PSD_range=list(map(float, prange)), hypothesis='fast', seed_head=0,
              draws_per_parent=32, inference_bank='independent endpoint bank0',

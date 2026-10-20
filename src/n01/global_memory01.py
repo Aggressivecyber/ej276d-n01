@@ -7,13 +7,37 @@ from __future__ import annotations
 
 import copy
 import math
+import numpy as np
 import torch
 from torch import nn
 
 from .joint01_features import JointFeatureMap01, observable_blocks
 from .joint01_model import JointResponse01
 from .losses008 import ADC_STEP
+from .model import ADC_MIN, ADC_MAX
 from .model008 import canonical_charge008, relative_time_warp008
+
+
+def adc_margin_risk(pre_adc):
+    """Per-row squared rail proximity, in codes, with one-code interior margin."""
+    upper = ((pre_adc.amax(1) - ADC_MAX + ADC_STEP) / ADC_STEP).relu()
+    lower = ((ADC_MIN + ADC_STEP - pre_adc.amin(1)) / ADC_STEP).relu()
+    return upper.square() + lower.square()
+
+
+def joint_secant_weights(objective_changes, constraint_changes, allowances):
+    """Best linearized step in the convex hull of zero and native probe steps."""
+    from scipy.optimize import linprog
+    c = np.asarray(objective_changes, dtype=np.float64)
+    a = np.asarray(constraint_changes, dtype=np.float64)
+    b = np.asarray(allowances, dtype=np.float64)
+    scale = np.maximum(np.maximum(np.abs(a).max(axis=1), np.abs(b)), 1e-12)
+    result = linprog(c / max(np.abs(c).max(), 1e-12),
+        A_ub=np.vstack((a / scale[:, None], np.ones(len(c)))),
+        b_ub=np.r_[b / scale, 1.], bounds=(0., 1.), method='highs')
+    if not result.success:
+        raise RuntimeError('Joint secant solve failed: ' + result.message)
+    return result.x
 
 
 def add_peak_selection_gradient(obs):
