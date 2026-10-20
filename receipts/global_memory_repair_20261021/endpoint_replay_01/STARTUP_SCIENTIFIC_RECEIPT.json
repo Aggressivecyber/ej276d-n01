@@ -1,0 +1,80 @@
+{
+  "run_01/PROGRESS.json": {
+    "stage": "saved_endpoint_loaded_without_optimizer",
+    "UTC": "2026-10-20T19:03:22.824312+00:00",
+    "execution_counts": {
+      "checkpoint_loads": 6,
+      "TRAIN_archives_decoded": 1,
+      "PCA_archives_decoded": 1,
+      "old_A_calls": 52,
+      "old_A_rows": 6593,
+      "M0_head_calls": 104,
+      "M0_head_rows": 13186,
+      "REAL_memory_rows": 18948,
+      "allocated_banks": 102,
+      "shape_standard_normal_values": 827520,
+      "noise005_calls": 102,
+      "noise005_rows": 103440,
+      "extension_rows": 310320,
+      "response_calls": 406,
+      "response_rows": 103440,
+      "hard_observation_rows": 103440,
+      "repair_checkpoint_loads": 1,
+      "memory_checkpoint_loads": 1
+    }
+  },
+  "run_01/BINDINGS.json": {
+    "source_fit_rows": 6465,
+    "real_fit_rows": 18948,
+    "report_rows_used_for_memory": 0,
+    "q_floor": 0.0005319378913383611,
+    "copied_mean_identity_max_V": 1.1102230246251565e-16,
+    "hypothesis": "fast",
+    "seed_head": 0,
+    "trainable_parameters": {
+      "A": 53,
+      "B": 247
+    },
+    "NAS_file_IO_checks": false,
+    "NAS_file_hash_verification": false
+  },
+  "run_01/FAILED.json": null,
+  "run_01/TRAINING_RESULT.json": null,
+  "run_01/RESULT.json": null,
+  "control_01/launch.json": {
+    "supervisor_pid": 28331,
+    "child_pid": 28338,
+    "command": [
+      "timeout",
+      "--signal=TERM",
+      "--kill-after=20s",
+      "300s",
+      "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+      "-B",
+      "/home/rylan/projects/ej276d-n01/global_memory_endpoint_replay_20261021/scripts/run_global_memory01.py",
+      "--config",
+      "/home/rylan/projects/ej276d-n01/global_memory_endpoint_replay_20261021/configs/global_memory_endpoint_replay_20261021.json",
+      "--config-sha256",
+      "88e48d5d95116839dbdd18d11d87f978d7044219bb99c3e31c3f495af804f20f",
+      "--out",
+      "/home/rylan/projects/ej276d-n01/global_memory_endpoint_replay_20261021/run_01",
+      "--device",
+      "cuda:0"
+    ],
+    "started_utc": "2026-10-20T19:03:02.807840+00:00"
+  },
+  "control_01/resource_status.json": {
+    "supervisor_pid": 28331,
+    "child_pid": 28338,
+    "rss_bytes": 4045996032,
+    "peak_rss_bytes": 4045996032,
+    "child_tree": [
+      28338,
+      28339
+    ],
+    "utc": "2026-10-20T19:03:35.830519+00:00"
+  },
+  "control_01/exit_receipt.json": null,
+  "boot_id": "27872225-1e36-4b9b-be8e-95126377b406",
+  "console": ""
+}

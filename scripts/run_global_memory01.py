@@ -18,8 +18,9 @@ inference028.verified_path028 = lambda record: Path(record['path'])
 import run_response038
 run_response038.verified_path028 = inference028.verified_path028
 from n01.data import write_json
-from n01.global_memory01 import GlobalDistributionMemory01, MeanHeadRepair01, GlobalRepairResponse01
-from n01.observation008 import observe_existing_carrier, observe_generated_carrier
+from n01.global_memory01 import (GlobalDistributionMemory01, MeanHeadRepair01,
+                                 GlobalRepairResponse01, add_peak_selection_gradient)
+from n01.observation008 import observe_existing_carrier, observe_generated_carrier, crop_indices_torch
 from run_joint_response01 import load_joint_setup, random_bank, progress_file
 
 
@@ -38,6 +39,8 @@ def main():
     device = torch.device(args.device)
     torch.cuda.set_per_process_memory_fraction(
         p['resources']['GPU_GiB'] * 1024**3 / torch.cuda.get_device_properties(device).total_memory, device)
+    fixed_readout = False
+    fixed_transform_peak = None
 
     def check_budget(rows=0):
         if time.monotonic() - started > p['resources']['internal_seconds']:
@@ -50,12 +53,24 @@ def main():
         check_budget(len(rows))
         counts['response_calls'] += 1
         counts['response_rows'] += len(rows)
-        signal = model(rows, z)
+        signal = model(rows, z) if fixed_transform_peak is None else model(rows, z, fixed_peak=fixed_transform_peak)
         counts['hard_observation_rows'] += len(rows)
         if grad:
             counts['STE_rows'] += len(rows)
         obs = observe_generated_carrier(signal + model.noise_scale() * bank['noise'][selection].to(device),
                                         ste=grad, q_floor=q_floor, return_carrier=True)
+        if grad and p.get('peak_selection_gradient', False):
+            obs = add_peak_selection_gradient(obs)
+        if fixed_readout:
+            peaks = bank['fixed_readout_peak'][selection].to(device)
+            window = (obs['carrier_adc'] - obs['baseline_mean_V'][:, None]).gather(1, crop_indices_torch(peaks))
+            q, tail = window.sum(1), window[:, 46:].sum(1)
+            safe_q = torch.where(q != 0, q, torch.ones_like(q))
+            protected = torch.where(q < 0, -torch.full_like(q, q_floor), torch.full_like(q, q_floor))
+            obs.update(window_V=window, waveform256=window, Q=q, tail=tail, peak_index=peaks,
+                PSD_raw=torch.where(q != 0, tail / safe_q, torch.full_like(q, float('nan'))),
+                PSD=tail / torch.where(q.abs() < q_floor, protected, q))
+            obs['flags'].update(Q_nonpositive=q <= 0, PSD_undefined=q == 0, PSD_guarded=q.abs() < q_floor)
         return obs
 
     def banks(draws, seed, *, cpu=False):
@@ -98,12 +113,16 @@ def main():
         model.zero_grad(set_to_none=True)
         means, flags = pair_means(model, paired)
         coefficients = memory.coefficients(*means)
-        project_wave = p['mode'] == 'projected_pilot'
+        project_wave = p['mode'] in ('projected_pilot', 'guard_diagnostic')
+        diagnose_guard = p['mode'] == 'guard_diagnostic'
         parameters = [v for v in model.parameters() if v.requires_grad]
         if project_wave:
             wave_coefficients = memory.wave_coefficients(*means)
             accumulated = [torch.zeros_like(v) for v in parameters]
             wave_gradient = [torch.zeros_like(v) for v in parameters]
+            if diagnose_guard:
+                positive_coefficients = memory.positive_wave_coefficients(*means)
+                positive_gradient = [torch.zeros_like(v) for v in parameters]
         for bank_index, (bank, coefficient) in enumerate(zip(paired, coefficients)):
             count = sum(len(b['rows']) for b in bank)
             for b in bank:
@@ -113,11 +132,17 @@ def main():
                     loss = (coefficient * features).sum()
                     if project_wave:
                         g = torch.autograd.grad(loss, parameters, retain_graph=True)
-                        w = torch.autograd.grad((wave_coefficients[bank_index] * features).sum(), parameters)
+                        w = torch.autograd.grad((wave_coefficients[bank_index] * features).sum(),
+                                                parameters, retain_graph=diagnose_guard)
                         for accumulator, wave_accumulator, gv, wv in zip(accumulated, wave_gradient, g, w):
                             accumulator.add_(gv)
                             wave_accumulator.add_(wv)
                         counts['wave_gradient_microblocks'] += 1
+                        if diagnose_guard:
+                            pg = torch.autograd.grad((positive_coefficients[bank_index] * features).sum(), parameters)
+                            for accumulator, gv in zip(positive_gradient, pg):
+                                accumulator.add_(gv)
+                            counts['positive_wave_gradient_microblocks'] += 1
                     else:
                         loss.backward()
                     counts['backward_microblocks'] += 1
@@ -125,6 +150,8 @@ def main():
             for value, grad in zip(parameters, accumulated):
                 value.grad = grad
             model.wave_gradient = wave_gradient
+            if diagnose_guard:
+                model.positive_wave_gradient = positive_gradient
         torch.cuda.synchronize()
         return means, flags, time.monotonic() - stamp
 
@@ -197,7 +224,7 @@ def main():
             initial_losses = numbers(initial)
             write_json(args.out / 'INITIAL.json', dict(losses=initial_losses, flags=flags,
                 objective_normalization=memory.normalization))
-            if p['mode'] == 'projected_pilot':
+            if p['mode'] in ('projected_pilot', 'endpoint_replay', 'guard_diagnostic', 'readout_diagnostic'):
                 models = {'B': models['B']}
 
         if p['mode'] == 'profile':
@@ -248,6 +275,153 @@ def main():
                     denominator='initial model-vs-REAL PSD memory discrepancy',
                     low_draws_supported_for_pilot=relative <= p['precision_relative_limit'])
             write_json(args.out / 'PROFILE.json', profile)
+        elif p['mode'] in ('endpoint_replay', 'guard_diagnostic', 'readout_diagnostic'):
+            # Load the fixed state. Endpoint replay constructs no optimizer.
+            saved = torch.load(p['replay_checkpoint'], map_location=device, weights_only=False)
+            counts['repair_checkpoint_loads'] += 1
+            assert saved['accepted_updates'] == p['replay_accepted_updates']
+            assert saved['direction_iteration'] == p['replay_direction_iteration']
+            models['B'].load_state_dict(saved['model'], strict=True)
+            saved_memory = torch.load(p['replay_memory'], map_location=device, weights_only=False)
+            counts['memory_checkpoint_loads'] += 1
+            assert torch.equal(memory.target, saved_memory['target'])
+            assert torch.equal(memory.weights, saved_memory['weights'])
+            accepted = Counter(B=saved['accepted_updates'])
+            steps = [json.loads(line) for line in Path(p['replay_steps']).read_text().splitlines()]
+            assert len(steps) == saved['direction_iteration']
+            progress_file(args.out, counts, 'saved_endpoint_loaded_without_optimizer')
+            if p['mode'] == 'guard_diagnostic':
+                del paired
+                paired = banks(p['draws_per_parent'], p['bank_seed'] + 2000000)
+                model = models['B']
+                means, old_flags, elapsed = gradient(model, paired)
+                previous, guard_previous = numbers(means), positive_metrics(means)
+                assert max(abs(guard_previous[k] - steps[1]['previous_metrics'][k])
+                           for k in guard_previous) < 1e-8
+                before = copy.deepcopy(model.state_dict())
+                named = [(k, v) for k, v in model.named_parameters() if v.requires_grad]
+                sizes = [p['learning_rates']['response'] if k == 'theta'
+                         else p['learning_rates']['mean'] for k, _ in named]
+                optimizer = torch.optim.Adam([
+                    {'params': [model.theta], 'lr': p['learning_rates']['response']},
+                    {'params': [v for k, v in named if k != 'theta'], 'lr': p['learning_rates']['mean']}])
+                optimizer.load_state_dict(saved['optimizer'])
+                optimizer.step()
+                counts['temporary_Adam_directions'] += 1
+                with torch.no_grad():
+                    model.theta.clamp_(-1., 1.)
+                proposal = copy.deepcopy(model.state_dict())
+                displacement = [proposal[k] - before[k] for k, _ in named]
+                directions = {}
+                cross_label = 'cross_risk_tangent' if p.get('peak_selection_gradient', False) else 'original_cross_tangent'
+                for label, grads in ((cross_label, model.wave_gradient),
+                                     ('aligned_positive_tangent', model.positive_wave_gradient)):
+                    derivative = sum((g * d).double().sum() for g, d in zip(grads, displacement))
+                    denominator = sum((s * g).double().square().sum() for s, g in zip(sizes, grads))
+                    correction = max(float(derivative), 0.) / float(denominator)
+                    directions[label] = [d - correction * s * s * g
+                                         for d, s, g in zip(displacement, sizes, grads)]
+                norm = sum((d / s).double().square().sum() for d, s in zip(displacement, sizes)).sqrt()
+                wave_norm = sum((s * g).double().square().sum()
+                                for s, g in zip(sizes, model.positive_wave_gradient)).sqrt()
+                directions['positive_wave_descent'] = [-norm / wave_norm * s * s * g
+                                                       for s, g in zip(sizes, model.positive_wave_gradient)]
+                torch.save(dict(before=before, directions=directions,
+                    names=[k for k, _ in named], objective_gradient=[v.grad for _, v in named],
+                    cross_wave_gradient=model.wave_gradient, positive_wave_gradient=model.positive_wave_gradient),
+                    args.out / 'DIRECTION_DIAGNOSTIC.pt')
+                model.load_state_dict(before)
+                with torch.no_grad():
+                    base_results = [bank_mean(model, b, collect=True) for b in paired]
+                trials = []
+                for label, delta in directions.items():
+                    state = copy.deepcopy(before)
+                    for (k, _), d in zip(named, delta):
+                        state[k] = before[k] + d
+                    state['theta'].clamp_(-1., 1.)
+                    actual_delta = [state[k] - before[k] for k, _ in named]
+                    model.load_state_dict(state)
+                    with torch.no_grad():
+                        results = [bank_mean(model, b, collect=True) for b in paired]
+                    losses = numbers([r[0] for r in results])
+                    metrics = positive_metrics([r[0] for r in results])
+                    guards = {k: metrics[k] <= factor * guard_previous[k]
+                              for k, factor in p['optimizer']['per_step_guards'].items()}
+                    flags = [r[1] for r in results]
+                    flags_pass = all(flags[b][k] <= old_flags[b][k] for b in range(2) for k in old_flags[b])
+                    record = dict(direction=label, losses=losses, positive_metrics=metrics,
+                        wave_derivative_cross=float(sum((g * d).double().sum()
+                            for g, d in zip(model.wave_gradient, actual_delta))),
+                        wave_derivative_positive=float(sum((g * d).double().sum()
+                            for g, d in zip(model.positive_wave_gradient, actual_delta))),
+                        hard_wave_change=metrics['block_wave'] - guard_previous['block_wave'],
+                        guards=guards, flags=flags, flags_pass=flags_pass,
+                        objective_decreased=sum(losses.values()) < sum(previous.values()),
+                        peak_changes_by_bank=[int(np.count_nonzero(r[2]['peak_index'] != b[2]['peak_index']))
+                                              for r, b in zip(results, base_results)])
+                    trials.append(record)
+                    progress_file(args.out, counts, 'guard_diagnostic_trial_complete', direction=label)
+                if not p.get('peak_selection_gradient', False):
+                    assert abs(trials[0]['positive_metrics']['block_wave'] -
+                               steps[1]['trials'][0]['positive_metrics']['block_wave']) < 1e-8
+                model.load_state_dict(before)
+                write_json(args.out / 'GUARD_DIAGNOSTIC.json', dict(
+                    replayed_original_rejection=not p.get('peak_selection_gradient', False),
+                    peak_selection_gradient=p.get('peak_selection_gradient', False),
+                    original_hard_baseline_reproduced=True, gradient_seconds=elapsed,
+                    before_losses=previous, before_metrics=guard_previous, before_flags=old_flags, trials=trials,
+                    committed_optimizer_updates=0, weights_restored=True, report_rows_used=0,
+                    representation='Same247 parameters; frozen decoder/FiLM and M0 bases, original mean terminal heads.',
+                    scientific_acceptance=False))
+                setup['references'][0].assert_frozen_unchanged(deep=True)
+            elif p['mode'] == 'readout_diagnostic':
+                del paired
+                paired = banks(p['draws_per_parent'], p['bank_seed'] + 2000000)
+                model = models['B']
+                direction = torch.load(p['direction_file'], map_location=device, weights_only=False)
+                counts['diagnostic_direction_loads'] += 1
+                before = copy.deepcopy(model.state_dict())
+                assert all(torch.equal(before[k], direction['before'][k]) for k in before)
+                with torch.no_grad():
+                    base_results = [bank_mean(model, b, collect=True) for b in paired]
+                    transform_peaks = torch.cat([model.mean(rows)[:, 112:144].argmax(1).double() + 112.
+                        for rows in torch.arange(len(source), device=device).split(p['micro_rows'])])
+                counts['diagnostic_mean_rows'] += len(source)
+                for bank, base_result in zip(paired, base_results):
+                    offset = 0
+                    for b in bank:
+                        b['fixed_readout_peak'] = torch.from_numpy(
+                            base_result[2]['peak_index'][offset:offset + len(b['rows'])]).to(device)
+                        offset += len(b['rows'])
+                base_metrics = positive_metrics([r[0] for r in base_results])
+                proposed = copy.deepcopy(before)
+                for name, delta in zip(direction['names'], direction['directions']['positive_wave_descent']):
+                    proposed[name] = before[name] + delta
+                proposed['theta'].clamp_(-1., 1.)
+                model.load_state_dict(proposed)
+                trials = []
+                for label in ('native', 'fixed_readout_peak', 'fixed_readout_and_transform_peaks'):
+                    fixed_readout = label != 'native'
+                    fixed_transform_peak = transform_peaks if label == 'fixed_readout_and_transform_peaks' else None
+                    with torch.no_grad():
+                        values = [bank_mean(model, b, collect=True) for b in paired]
+                    metrics = positive_metrics([r[0] for r in values])
+                    trials.append(dict(observation=label, positive_metrics=metrics,
+                        wave_change=metrics['block_wave'] - base_metrics['block_wave'],
+                        wave_change_percent=100 * (metrics['block_wave'] / base_metrics['block_wave'] - 1),
+                        diagnostic_only=True, admissible_endpoint=label == 'native'))
+                    progress_file(args.out, counts, 'fixed_peak_diagnostic_complete', observation=label)
+                original = json.loads(Path(p['original_guard_diagnostic']).read_bytes())
+                assert abs(trials[0]['positive_metrics']['block_wave'] -
+                           original['trials'][2]['positive_metrics']['block_wave']) < 1e-8
+                fixed_readout, fixed_transform_peak = False, None
+                model.load_state_dict(before)
+                write_json(args.out / 'READOUT_DIAGNOSTIC.json', dict(
+                    replayed_native_trial=True, direction='saved_positive_wave_descent',
+                    before_metrics=base_metrics, trials=trials, committed_optimizer_updates=0,
+                    weights_restored=True, report_rows_used=0, scientific_acceptance=False,
+                    interpretation='Fixed-peak variants are causal diagnostics only; original hard readout and acceptance remain unchanged.'))
+                setup['references'][0].assert_frozen_unchanged(deep=True)
         else:
             assert p['mode'] in ('pilot', 'projected_pilot')
             accepted = Counter()
@@ -347,6 +521,7 @@ def main():
                                   elapsed_seconds=time.monotonic() - started)
                 if all(rejected_streak[k] >= p['optimizer']['stop_consecutive_rejections'] for k in models):
                     break
+        if p['mode'] in ('pilot', 'projected_pilot', 'endpoint_replay'):
             del paired
             # Fresh independent random banks are not used to choose settings or
             # the endpoint. 32 draws reproduce the requested full-Q figure scale.
@@ -379,14 +554,15 @@ def main():
                                            for b in range(2) for k in endpoint['initial']['flags'][b]))
                 endpoint[name]['passes_bounded_pilot'] = all(endpoint[name]['pilot_checks'].values())
             archive_path = Path(p['endpoint_archive'])
-            archive_path.parent.mkdir(parents=True, exist_ok=True)
-            np.savez(archive_path, **arrays)
+            # Preserve small endpoint metrics even if the later array write fails.
             write_json(args.out / 'TRAINING_RESULT.json', dict(
                 mode=p['mode'], accepted_updates={k: accepted[k] for k in models},
                 direction_records=len(steps), endpoint=endpoint,
                 endpoint_arrays=str(archive_path), seed_head=0, hypothesis=p['hypothesis'],
                 independent_final_random_banks=True, report_role_rows_used=0,
                 scientific_acceptance=False, historical_sources_modified=False))
+            archive_path.parent.mkdir(parents=True, exist_ok=True)
+            np.savez(archive_path, **arrays)
             # Original frozen baseline is still the same control object.
             setup['references'][0].assert_frozen_unchanged(deep=True)
         check_budget()

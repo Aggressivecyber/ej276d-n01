@@ -4,7 +4,8 @@ from pathlib import Path
 import argparse
 import torch
 
-from n01.global_memory01 import GlobalDistributionMemory01, MeanHeadRepair01, GlobalRepairResponse01
+from n01.global_memory01 import (GlobalDistributionMemory01, MeanHeadRepair01,
+                                 GlobalRepairResponse01, add_peak_selection_gradient)
 from n01.joint01_model import JointResponse01, response_cache
 from n01.model008 import N01Response008
 from n01.observation008 import observe_generated_carrier
@@ -50,13 +51,28 @@ variance = memory.joint.cholesky.square().sum(1)
 wave_loss = (ra[ws] * rb[ws] / variance[ws]).mean()
 direct_wave = torch.autograd.grad(wave_loss, wave_parameter, retain_graph=True)[0]
 wc_a, wc_b = memory.wave_coefficients(wa, wb)
-coefficient_wave = torch.autograd.grad((wc_a * wa + wc_b * wb).sum(), wave_parameter)[0]
+coefficient_wave = torch.autograd.grad((wc_a * wa + wc_b * wb).sum(), wave_parameter, retain_graph=True)[0]
 wave_gradient_error = float((direct_wave - coefficient_wave).abs().max())
 assert wave_gradient_error < 1e-10
+positive_wave_loss = (((ra[ws] + rb[ws]) / 2).square() / variance[ws]).mean()
+direct_positive_wave = torch.autograd.grad(positive_wave_loss, wave_parameter, retain_graph=True)[0]
+pc_a, pc_b = memory.positive_wave_coefficients(wa, wb)
+coefficient_positive_wave = torch.autograd.grad((pc_a * wa + pc_b * wb).sum(), wave_parameter)[0]
+positive_wave_gradient_error = float((direct_positive_wave - coefficient_positive_wave).abs().max())
+assert positive_wave_gradient_error < 1e-10
 low = observe_generated_carrier(torch.zeros(4, 384, dtype=torch.float64),
                                 q_floor=.001, return_carrier=True)
 assert bool(torch.isfinite(memory.sums(low)).all())
 assert float(memory.sums(low)[memory.sections['undefined_mass']][1]) == 4
+probe = (carrier + electronics).detach().requires_grad_()
+hard = observe_generated_carrier(probe, ste=True, q_floor=.001, return_carrier=True)
+native_values = {key: hard[key].detach().clone() for key in ('window_V', 'Q', 'tail', 'PSD', 'PSD_raw')}
+native_gradient = torch.autograd.grad(hard['tail'].sum(), probe, retain_graph=True)[0]
+selection = add_peak_selection_gradient(hard)
+assert all(torch.equal(selection[key], value) for key, value in native_values.items())
+selection_gradient = torch.autograd.grad(selection['tail'].sum(), probe)[0]
+assert torch.isfinite(selection_gradient).all()
+assert (selection_gradient - native_gradient).abs().max() > 0
 
 base = N01Response008(dict(q_ref=3., a_ref=.1, log_q_min=-4., log_q_max=5.), 'deterministic').eval()
 base.requires_grad_(False)
@@ -80,6 +96,9 @@ theta[-1] = 0
 model = GlobalRepairResponse01(JointResponse01(cache), theta, head)
 z = torch.randn(12, 8)
 signal = model(rows, z)
+fixed_peak = model.mean(rows)[:, 112:144].argmax(1).double() + 112.
+fixed_peak_identity = float((model(rows, z, fixed_peak=fixed_peak) - signal).detach().abs().max())
+assert fixed_peak_identity == 0
 order = torch.randperm(12)
 batch_error = float((model(rows[order], z[order]) - signal[order]).detach().abs().max())
 assert batch_error < 1e-10
@@ -89,6 +108,10 @@ assert model.mean.mean_time[-1].weight.grad.abs().max() > 0
 assert all(p.grad is None and not p.requires_grad for p in base.parameters())
 result = dict(status='PASS_SYNTHETIC_SEMANTICS', gradient_max_abs_error=gradient_error,
               wave_coefficient_gradient_max_abs_error=wave_gradient_error,
+              positive_wave_coefficient_gradient_max_abs_error=positive_wave_gradient_error,
+              fixed_transform_peak_identity_max_V=fixed_peak_identity,
+              selection_surrogate_hard_values_bitwise_equal=True,
+              selection_surrogate_adds_finite_peak_sensitivity=True,
               mean_identity_max_V=identity_error, batch_order_max_V=batch_error,
               undefined_Q_rows_retained=4, original_parameters_frozen=True,
               mean_head_and_time_head_receive_gradients=True,

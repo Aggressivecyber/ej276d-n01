@@ -1,0 +1,120 @@
+{
+  "schema": "n01/global-memory-fixed-peak-causal-diagnostic/v1",
+  "job_id": "GLOBAL_MEMORY_READOUT_DIAGNOSTIC_20261021",
+  "mode": "readout_diagnostic",
+  "registered_UTC": "2026-10-20T19:13:44.464083+00:00",
+  "authorization": "User: review the attached agent opinion, integrate and proceed.",
+  "frozen_setup_config": "/mnt/MiNas/GAN/research/N01/server_runs/joint_response01_recentered_derivative_diagnostic_20261020/configs/response038_20261017.json",
+  "roles_file": "/mnt/MiNas/GAN/research/N01/server_runs/joint_response01_recentered_derivative_diagnostic_20261020/diagnostic_inputs/REAL_CALIBRATION_ROLES.npz",
+  "candidate_arrays": [
+    "/mnt/MiNas/GAN/research/N01/server_runs/joint_response01_recentered_restoration_solve_fix01_20261020/run_01/seed0_RECENTERED_RESTORATION.npz",
+    "/mnt/MiNas/GAN/research/N01/server_runs/joint_response01_recentered_restoration_solve_fix01_20261020/run_01/seed1_RECENTERED_RESTORATION.npz"
+  ],
+  "parent_chunk": 128,
+  "micro_rows": 256,
+  "hypothesis": "fast",
+  "primary_seed_head": 0,
+  "draws_per_parent": 8,
+  "precision_draws": 8,
+  "precision_relative_limit": 0.05,
+  "bank_seed": 2026102100,
+  "identity_tolerance_V": 1e-07,
+  "memory": {
+    "levels": [
+      16,
+      32,
+      64
+    ],
+    "thresholds": 128,
+    "feature_seed": 2026102107
+  },
+  "learning_rates": {
+    "response": 0.002,
+    "mean": 0.0002
+  },
+  "operation_budget": {
+    "response_rows": 517200,
+    "optimizer_directions": 0,
+    "committed_optimizer_updates": 0,
+    "gradient_evaluations": 0,
+    "readout_comparisons": 3
+  },
+  "resources": {
+    "CPU_threads": 4,
+    "GPU_GiB": 4,
+    "RSS_GiB": 12,
+    "internal_seconds": 180,
+    "hard_wall_seconds": 240,
+    "GPU_free_required_MiB": 6144
+  },
+  "storage": {
+    "remote_root": "/home/rylan/projects/ej276d-n01/global_memory_readout_diagnostic_20261021",
+    "archival_policy": "Small diagnostic outputs remain active on compute storage."
+  },
+  "scientific_acceptance": false,
+  "NAS_file_IO_checks": false,
+  "NAS_file_hash_verification": false,
+  "engineering_change": "Replay CPU-canonical REAL on original CPU observation, then transfer observables unchanged to CUDA.",
+  "endpoint_draws": 32,
+  "precision_decision": {
+    "low_draws": 2,
+    "high_draws": 8,
+    "relative_PSD_feature_mean_change": 0.06004446808756991,
+    "denominator": "initial model-vs-REAL PSD memory discrepancy",
+    "low_draws_supported_for_pilot": false
+  },
+  "optimizer": {
+    "direction_attempts_per_arm": 12,
+    "step_scales": [
+      1.0,
+      0.5,
+      0.25
+    ],
+    "stop_consecutive_rejections": 3,
+    "per_step_guards": {
+      "Q_mass": 1.005,
+      "block_wave": 1.0,
+      "block_peak_codes": 1.01
+    },
+    "acceptance": "Same full-source-population two-bank hard loss decreases, guards pass and no flag count increases.",
+    "failed_trial": "Restore parameters; if no trial passes also restore Adam state."
+  },
+  "endpoint_decision": "Fresh two-bank32 primary PSD CDF improves >=10%, Q mass/wave/peak no worse by2%, flags do not increase. This is pilot advancement only, not original scientific acceptance.",
+  "measured_budget_basis": {
+    "expected_seconds": 70,
+    "conservative_seconds": 110,
+    "basis": "Previous724080-row diagnostic took94s including27.6s gradient; now517200 rows with no gradient."
+  },
+  "arms": [
+    "B"
+  ],
+  "initialize_from": "Saved B endpoint after one accepted update; optimizer state is not loaded or used.",
+  "projection": "Use exact two-pass independent-bank waveform-block gradient. In the diagonal learning-rate metric, remove positive waveform directional derivative from the Adam displacement. Recompute derivative after domain clipping and use original hard ADC trials.",
+  "motivation": "First paired pilot: B PSD error -9.85%, waveform error +2.48%, ADC-rail flags increased by2 in each independent endpoint bank.",
+  "replay_checkpoint": "/home/rylan/projects/ej276d-n01/global_memory_projected_20261021/run_01/B_CURRENT.pt",
+  "replay_memory": "/home/rylan/projects/ej276d-n01/global_memory_projected_20261021/run_01/TRAIN_DISTRIBUTION_MEMORY.pt",
+  "replay_steps": "/home/rylan/projects/ej276d-n01/global_memory_projected_20261021/run_01/TRAINING_STEPS.jsonl",
+  "replay_accepted_updates": 1,
+  "replay_direction_iteration": 4,
+  "recovery_cost_accounting": "Separate repeat of original setup, normalization and fixed endpoint; zero new optimizer updates.",
+  "archive_failure_handling": "Operational results and arrays remain in active compute storage for analysis; no NAS probe or repair.",
+  "diagnostic_bank_seed": 2028102100,
+  "diagnostic_scope": "Three readout variants of one previously saved direction and fixed TRAIN random banks. No new gradient or optimizer.",
+  "hypotheses": [
+    "Hard readout argmax/crop jumps",
+    "Internal mean-dependent transformation-anchor jumps",
+    "Remaining finite-step nonlinearity/ADC if fixed peaks still disagree"
+  ],
+  "probes": [
+    "native",
+    "fixed_readout_peak",
+    "fixed_readout_and_transform_peaks"
+  ],
+  "probe_scale": "Exactly the saved full positive-wave-descent displacement; no scale changes.",
+  "stop_rule": "Exactly three causal readout comparisons. Fixed-peak outputs cannot be accepted as scientific candidates.",
+  "success_criterion": "Reproduce native trial, measure how each fixed-peak intervention changes the waveform metric.",
+  "representation_changes": false,
+  "endpoint_streams_used": false,
+  "direction_file": "/home/rylan/projects/ej276d-n01/global_memory_guard_diagnostic_20261021/run_01/DIRECTION_DIAGNOSTIC.pt",
+  "original_guard_diagnostic": "/home/rylan/projects/ej276d-n01/global_memory_guard_diagnostic_20261021/run_01/GUARD_DIAGNOSTIC.json"
+}

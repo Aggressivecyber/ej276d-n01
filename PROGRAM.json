@@ -4,7 +4,7 @@
   "created_UTC": "2026-10-12T00:07:21.307456+08:00",
   "created_local_Asia_Singapore": "2026-10-12T00:07:21.307456+08:00",
   "root": "E:\\GAN\\research\\N01",
-  "status": "GLOBAL_MEMORY_REPAIR_wave_projected_pilot_running",
+  "status": "GLOBAL_MEMORY_REPAIR_selection_gradient_probe_running",
   "scientific_status": "response_match_not_established",
   "protocol_parent": null,
   "inherits_R79": false,
@@ -14,10 +14,10 @@
   "data_references": "DATA_REFERENCES.json",
   "active_scientific_jobs": 1,
   "new_training_updates": 199669,
-  "next_action": "At measured02:57 wake collect endpoint, render full-Q PSD, evaluate all gates and continue bounded evidence-led work.",
+  "next_action": "Collect native direction results at measured03:23 wake; continue only with hard-readout-supported next step.",
   "application_goal_created": false,
   "legacy_results_modified": false,
-  "updated_UTC": "2026-10-20T18:49:37.620495+00:00",
+  "updated_UTC": "2026-10-20T19:22:18.593672+00:00",
   "current_arm": null,
   "current_stage": "4_global_memory_mean_repair",
   "last_verified_UTC": "2026-10-20T04:50:15.002029+00:00",
@@ -25,7 +25,7 @@
   "start_receipt": "receipts/run_001_20261012/START_RECEIPT.json",
   "implementation": "src/n01",
   "training_host": "rylan@100.82.231.102",
-  "training_pid": 24925,
+  "training_pid": 32132,
   "implementation_commit": "8607b4344fee0c0f18197b13d7acc7a029dbcc63",
   "review_added_training_updates": 0,
   "completed_arms": [
@@ -57,7 +57,7 @@
     "negative_control_interval_contains_half"
   ],
   "latest_repair": "repair_002_20261012",
-  "latest_run_id": "GLOBAL_MEMORY_PROJECTED_PILOT_20261021",
+  "latest_run_id": "GLOBAL_MEMORY_SELECTION_GRADIENT_PROBE_20261021",
   "run_id_role": "original_run_001_historical_fields",
   "original_run_training_updates": 77000,
   "repair_classifier_evaluation_updates": 1200,
@@ -289,7 +289,7 @@
   "shape010_start_verification": "receipts/shape010_20261014/START_NATIVE_VERIFICATION.json",
   "shape010_source_manifest": "SHAPE010_SOURCE_MANIFEST.json",
   "shape010_independent_review": "receipts/shape010_20261014/independent_01/FROZEN_PRELAUNCH_REVIEW.json",
-  "followup_next_run_local": "2026-10-21T02:57:00+08:00",
+  "followup_next_run_local": "2026-10-21T03:23:00+08:00",
   "shape010_native_exit_code": 0,
   "shape010_training_and_TRAIN_evaluation_complete": true,
   "shape010_ended_UTC": "2026-10-14T07:31:34.503691+00:00",
@@ -598,8 +598,8 @@
     "automation_id": "n01-psd",
     "kind": "heartbeat",
     "count": 1,
-    "next_wake_local": "2026-10-21T02:57:00+08:00",
-    "basis": "receipts\\global_memory_repair_20261021\\projected_01\\WAKE_RECEIPT.json"
+    "next_wake_local": "2026-10-21T03:23:00+08:00",
+    "basis": "receipts\\global_memory_repair_20261021\\selection_gradient_01\\WAKE_RECEIPT.json"
   },
   "runtime_repair": {
     "failed_attempt": 1,
@@ -4418,7 +4418,7 @@
     }
   },
   "wp3_completed": true,
-  "active_run_id": "global_memory_projected_20261021",
+  "active_run_id": "global_memory_selection_gradient_20261021",
   "wp4_017_local_delivery": {
     "document": {
       "path": "receipts/wp4_017_20261015/LOCAL_DELIVERY.md",
@@ -4463,7 +4463,7 @@
     "scientific_status": "response_match_not_established"
   },
   "wp4_017_native_run_executed": true,
-  "supervisor_pid": 24911,
+  "supervisor_pid": 32124,
   "wp4_017_support_array_readback_complete": true,
   "wp4_017_result": {
     "path": "receipts/wp4_017_20261015/FINAL_RESULT_RECEIPT.json",
@@ -4475,7 +4475,7 @@
     "bytes": 6413,
     "sha256": "ec6fc5ce3a2ce1be0e024f8a82794670f19e29eff6ebb4db3083bba1e013c7cb"
   },
-  "current_action": "Same247-parameter waveform-projected pilot running; first native hard-checked update accepted.",
+  "current_action": "One backward-only peak-selection sensitivity probe running; no new training authorized within this job.",
   "latest_user_review_direction": {
     "path": "receipts/review_017_20261016/ACCEPTED_NEXT_ACTIONS.json",
     "bytes": 3271,
@@ -8529,7 +8529,7 @@
     },
     "closure_registered_UTC": "2026-10-17T19:08:19.506304+00:00"
   },
-  "active_job_id": "GLOBAL_MEMORY_PROJECTED_PILOT_20261021",
+  "active_job_id": "GLOBAL_MEMORY_SELECTION_GRADIENT_PROBE_20261021",
   "response038_classifier_optimizer_steps": 6600,
   "response038_classifier_AD_queries": 6600,
   "response038_classifiers_completed": 33,
@@ -10152,7 +10152,7 @@
     "terminal_review": "receipts/response046_20261018/wake_20261018_0853_01/TERMINAL_REVIEW.json",
     "terminal_review_sha256": "b42a4ca70a3840cb7e0de42596ea4d728fa7577c59d7454c01ca3478662bfc64"
   },
-  "next_wake_local": "2026-10-21T02:57:00+08:00",
+  "next_wake_local": "2026-10-21T03:23:00+08:00",
   "response047": {
     "job_id": "response047_smooth_endpoint_width_20261018",
     "run_id": "response047_smooth_endpoint_width_20261018",
@@ -18468,15 +18468,15 @@
   "followup_status": "ACTIVE_SINGLE_MEASURED_WAKE",
   "pause_receipt": "receipts/joint_response_01_20261019/user_pause_20261019/PAUSE_RECEIPT.json",
   "resume_authorization": "receipts/joint_response_01_20261020/resume_01/RESUME_AUTHORIZATION.json",
-  "execution_state_asof_UTC": "2026-10-20T18:47:33.825231+00:00",
+  "execution_state_asof_UTC": "2026-10-20T19:20:36.624907+00:00",
   "pending_registered_job_id": null,
   "global_memory_repair": {
-    "status": "wave_projected_pilot_running",
+    "status": "selection_gradient_probe_running",
     "design": "receipts\\global_memory_repair_20261021\\INTEGRATED_DESIGN.json",
-    "config": "configs\\global_memory_projected_20261021.json",
-    "config_sha256": "a26b600e0b97d2a99efd34f690fe366a9e2afb00c8b92a26ce6c1e39f43faa86",
+    "config": "configs\\global_memory_selection_gradient_20261021.json",
+    "config_sha256": "cb278c02ed762ee48b30e53dfab6016a6c4a3e665c4b5c1dff811dc67d67e964",
     "science_accepted": false,
-    "current_committed_training_updates": 1,
+    "current_committed_training_updates": 0,
     "previous_profile_failure": "CPU canonical REAL values compared using CUDA arithmetic before memory construction",
     "previous_profile_committed_updates": 0,
     "profile_closure": "receipts\\global_memory_repair_20261021\\profile_fix01\\CLOSURE_RECEIPT.json",
@@ -18487,10 +18487,29 @@
     },
     "paired_pilot_science_accepted": false,
     "paired_pilot_total_accepted_updates": 7,
-    "counts_asof_UTC": "2026-10-20T18:47:33.825231+00:00",
-    "remote_root": "/home/rylan/projects/ej276d-n01/global_memory_projected_20261021",
-    "startup_receipt": "receipts\\global_memory_repair_20261021\\projected_01\\STARTUP_SCIENTIFIC_RECEIPT.json",
-    "dispatch_receipt": "receipts\\global_memory_repair_20261021\\projected_01\\DISPATCH_RECEIPT.json",
-    "wake_receipt": "receipts\\global_memory_repair_20261021\\projected_01\\WAKE_RECEIPT.json"
+    "counts_asof_UTC": "2026-10-20T19:19:49.924095+00:00",
+    "remote_root": "/home/rylan/projects/ej276d-n01/global_memory_selection_gradient_20261021",
+    "startup_receipt": "receipts\\global_memory_repair_20261021\\selection_gradient_01\\STARTUP_SCIENTIFIC_RECEIPT.json",
+    "dispatch_receipt": "receipts\\global_memory_repair_20261021\\selection_gradient_01\\DISPATCH_RECEIPT.json",
+    "wake_receipt": "receipts\\global_memory_repair_20261021\\selection_gradient_01\\WAKE_RECEIPT.json",
+    "projected_pilot_closure": "receipts\\global_memory_repair_20261021\\projected_01\\CLOSURE_RECEIPT.json",
+    "projected_pilot_accepted_updates": 1,
+    "projected_pilot_native_exit_code": 1,
+    "endpoint_replay_closure": "receipts\\global_memory_repair_20261021\\endpoint_replay_01\\CLOSURE_RECEIPT.json",
+    "projected_pilot_science_accepted": false,
+    "projected_metric_changes_percent": {
+      "Q_mass": -1.409876168245583,
+      "PSD_CDF": -4.997305326570434,
+      "Q_tail_CDF": -3.688380463962293,
+      "native_joint": -7.13986782235091,
+      "block_wave": -0.6726675246313985,
+      "block_charge_morphology": -9.54501053783341,
+      "block_peak_codes": -6.754777822249514,
+      "block_baseline": -4.3298697960381105e-13,
+      "block_joint": -4.966835374624501
+    },
+    "guard_diagnostic_closure": "receipts\\global_memory_repair_20261021\\guard_diagnostic_01\\CLOSURE_RECEIPT.json",
+    "readout_diagnostic_closure": "receipts\\global_memory_repair_20261021\\readout_diagnostic_01\\CLOSURE_RECEIPT.json",
+    "total_accepted_updates_across_pilots": 8
   }
 }

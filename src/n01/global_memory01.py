@@ -12,7 +12,33 @@ from torch import nn
 
 from .joint01_features import JointFeatureMap01, observable_blocks
 from .joint01_model import JointResponse01
+from .losses008 import ADC_STEP
 from .model008 import canonical_charge008, relative_time_warp008
+
+
+def add_peak_selection_gradient(obs):
+    """Keep hard values exact; add a one-ADC-code soft peak-selection derivative.
+
+    Candidate windows are detached, so the existing selected-value derivative
+    is not counted twice. This approximates selection sensitivity only.
+    """
+    adc = obs['carrier_adc']
+    probability = (adc[:, 112:144] / ADC_STEP).softmax(1)
+    indices = torch.arange(112, 144, device=adc.device)[:, None] - 16 + torch.arange(256, device=adc.device)
+    centered = (adc - obs['baseline_mean_V'][:, None]).detach()
+    windows = centered[:, indices]
+    expected = (probability[:, :, None] * windows).sum(1)
+    correction = expected - expected.detach()
+    obs['window_V'] = obs['waveform256'] = obs['window_V'] + correction
+    obs['Q'] = obs['Q'] + correction.sum(1)
+    obs['tail'] = obs['tail'] + correction[:, 46:].sum(1)
+    q, tail = obs['Q'], obs['tail']
+    safe = torch.where(q != 0, q, torch.ones_like(q))
+    obs['PSD_raw'] = torch.where(q != 0, tail / safe, torch.full_like(q, float('nan')))
+    floor = obs['q_floor']
+    protected = torch.where(q < 0, -torch.full_like(q, floor), torch.full_like(q, floor))
+    obs['PSD'] = tail / torch.where(q.abs() < floor, protected, q)
+    return obs
 
 
 class GlobalDistributionMemory01:
@@ -113,6 +139,17 @@ class GlobalDistributionMemory01:
             self.weights[selection] /= denominator
             self.normalization[name] = denominator
 
+    def positive_wave_coefficients(self, a, b):
+        """Derivative of the actual guard: squared error of the two-bank mean."""
+        native = self.sections['native_joint']
+        wave = self.joint.block_slices['wave']
+        lower = self.joint.cholesky
+        variance = lower.square().sum(1)[wave]
+        raw = lower @ ((a + b) / 2 - self.target)[native]
+        coefficient = torch.zeros_like(self.target)
+        coefficient[native] = lower[wave].T @ (raw[wave] / variance / len(variance))
+        return coefficient.detach(), coefficient.detach()
+
     def export(self):
         return dict(q_floor=self.q_floor, q_ref=self.q_ref.cpu(), tail_ref=self.tail_ref.cpu(),
                     levels=self.levels, thresholds=[v.cpu() for v in self.thresholds],
@@ -164,14 +201,15 @@ class GlobalRepairResponse01(nn.Module):
         self.noise_coordinate = theta[-1:].detach().clone()
         self.original, self.mean = original, mean_head
 
-    def forward(self, rows, z):
+    def forward(self, rows, z, *, fixed_peak=None):
         theta = torch.cat((self.theta, self.noise_coordinate))
         if self.mean is None:
             return self.original(theta, rows, z)
         mean = self.mean(rows)
         cache = dict(A=mean, B=self.original.cache['B'][rows],
                      condition=self.original.cache['condition'][rows],
-                     peak=mean[:, 112:144].argmax(1).double() + 112.)
+                     peak=mean[:, 112:144].argmax(1).double() + 112.
+                     if fixed_peak is None else fixed_peak[rows])
         current = JointResponse01(cache)
         return current(theta, torch.arange(len(rows), device=rows.device), z)
 
