@@ -24,7 +24,10 @@ if args.latest:
     latest = json.loads(args.latest.read_bytes())
     if 'inherited' in latest['models']:
         series['上一轮 B · 联合约束'] = latest['models']['inherited']['64']
-        series['本轮 B · 条件波形记忆'] = latest['models']['B']['64']
+        label = '本轮 B · 条件波形记忆'
+        if latest['native_pilot_result']['mode'] == 'mean_trend_repair':
+            label = f"本轮 B · 趋势约束（{latest['native_pilot_result']['new_committed_optimizer_updates']} 更新）"
+        series[label] = latest['models']['B']['64']
     else:
         series['本轮 B · 联合约束'] = latest['models']['B']['64']
 initial = series['修复前']['cells']

@@ -1,0 +1,60 @@
+{
+  "UTC": "2026-10-21T17:55:47.696595+00:00",
+  "boot_id": "f4955496-53cb-4009-bf24-b93fb8a105a5",
+  "control_01/launch.json": {
+    "supervisor_pid": 7322,
+    "child_pid": 7329,
+    "command": [
+      "timeout",
+      "--signal=TERM",
+      "--kill-after=20s",
+      "960s",
+      "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+      "-B",
+      "/home/rylan/projects/ej276d-n01/mean_trend_local_20261021/scripts/run_mean_trend01.py",
+      "--config",
+      "/home/rylan/projects/ej276d-n01/mean_trend_local_20261021/configs/mean_trend_local_20261021.json",
+      "--config-sha256",
+      "9aeffdaa9cffea5dfdf26b3c7d2be0ba7809980ab873bd4c3a1f0e84bfaf3c9e",
+      "--out",
+      "/home/rylan/projects/ej276d-n01/mean_trend_local_20261021/run_01",
+      "--device",
+      "cuda:0"
+    ],
+    "started_utc": "2026-10-21T17:54:56.698596+00:00"
+  },
+  "control_01/resource_status.json": {
+    "supervisor_pid": 7322,
+    "child_pid": 7329,
+    "rss_bytes": 721584128,
+    "peak_rss_bytes": 721584128,
+    "child_tree": [
+      7329,
+      7330
+    ],
+    "utc": "2026-10-21T17:55:08.704416+00:00"
+  },
+  "control_01/exit_receipt.json": {
+    "exit_code": 1,
+    "reason": null,
+    "peak_rss_bytes": 721584128,
+    "started_utc": "2026-10-21T17:54:56.698596+00:00",
+    "ended_utc": "2026-10-21T17:55:09.704786+00:00",
+    "supervisor_pid": 7322,
+    "child_pid": 7329
+  },
+  "control_01/console.log": "Traceback (most recent call last):\n  File \"/home/rylan/projects/ej276d-n01/mean_trend_local_20261021/scripts/run_mean_trend01.py\", line 158, in <module>\n    setup = load_joint_setup(p, device, counts)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/rylan/projects/ej276d-n01/mean_trend_local_20261021/scripts/run_joint_response01.py\", line 34, in load_joint_setup\n    original = json.loads((ROOT / p['frozen_setup_config']).read_text(encoding='utf8'))\n                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.12/pathlib.py\", line 1029, in read_text\n    with self.open(mode='r', encoding=encoding, errors=errors) as f:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.12/pathlib.py\", line 1015, in open\n    return io.open(self, mode, buffering, encoding, errors, newline)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nOSError: [Errno 19] No such device: '/mnt/MiNas/GAN/research/N01/server_runs/joint_response01_recentered_derivative_diagnostic_20261020/configs/response038_20261017.json'\n",
+  "run_01/BINDINGS.json": null,
+  "run_01/PROGRESS.json": null,
+  "run_01/RESULT.json": null,
+  "run_01/FAILED.json": {
+    "error_type": "OSError",
+    "error": "[Errno 19] No such device: '/mnt/MiNas/GAN/research/N01/server_runs/joint_response01_recentered_derivative_diagnostic_20261020/configs/response038_20261017.json'",
+    "execution_counts": {},
+    "elapsed_seconds": 7.552931835999999,
+    "automatic_restart": false
+  },
+  "run_01/COMPLETE.json": null,
+  "run_01/TRAINING_RESULT.json": null,
+  "run_01/TRAINING_STEPS.jsonl": null
+}

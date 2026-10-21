@@ -40,7 +40,8 @@ if result['mode'] == 'joint_secant_pilot':
 if 'inherited' in labels:
     titles.update(inherited='上一轮 B · 累计 10 次更新', B='条件波形记忆 · 本轮端点')
 if result['mode'] == 'mean_trend_repair':
-    titles['B'] = 'Q 条件路径解冻 + 波形趋势约束'
+    titles['B'] = ('条件路径解冻 + 波形趋势约束\n'
+                   f"本轮端点 · 新增 {result['new_committed_optimizer_updates']} 次更新")
 audit = dict(populations=rows, actual_Q_range=list(map(float, qrange)),
              actual_PSD_range=list(map(float, prange)), hypothesis='fast', seed_head=0,
              draws_per_parent=32, inference_bank='independent endpoint bank0',
