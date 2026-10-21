@@ -1,0 +1,88 @@
+{
+  "frozen_setup_config": "/mnt/MiNas/GAN/research/N01/server_runs/joint_response01_recentered_derivative_diagnostic_20261020/configs/response038_20261017.json",
+  "roles_file": "/mnt/MiNas/GAN/research/N01/server_runs/joint_response01_recentered_derivative_diagnostic_20261020/diagnostic_inputs/REAL_CALIBRATION_ROLES.npz",
+  "candidate_arrays": [
+    "/mnt/MiNas/GAN/research/N01/server_runs/joint_response01_recentered_restoration_solve_fix01_20261020/run_01/seed0_RECENTERED_RESTORATION.npz",
+    "/mnt/MiNas/GAN/research/N01/server_runs/joint_response01_recentered_restoration_solve_fix01_20261020/run_01/seed1_RECENTERED_RESTORATION.npz"
+  ],
+  "schema": "n01/frozen-comb-component-diagnostic/v1",
+  "job_id": "N01_COMB_COMPONENT_DIAGNOSTIC_20261021",
+  "registered_UTC": "2026-10-21T07:24:27.166493+00:00",
+  "authorization": "2026-10-21 user: 你先去调查那个波浪是怎来的",
+  "frozen_candidate": "/home/rylan/projects/ej276d-n01/global_memory_joint_local_20261021/run_01/B_CURRENT.pt",
+  "parent_chunk": 128,
+  "bank_seed": 2026102157,
+  "stages": [
+    "SOURCE",
+    "filter_only",
+    "time_only",
+    "residual_no_time",
+    "A0",
+    "A0_fixed_residual_condition",
+    "A0_fixed_time_condition",
+    "current_mean",
+    "current_z0",
+    "current_random",
+    "current_plus_noise"
+  ],
+  "modes": [
+    "clean_dynamic",
+    "clean_fixed126",
+    "ADC_dynamic"
+  ],
+  "attribution_contract": {
+    "evidence": "Job148 localized oscillation before electronics and ADC to frozenA0; its internal mean components were not ablated.",
+    "formula": "A0 = qbar*(W+R)/canonical_Q(W+R), W=warped filtered unit-peak SOURCE times onset gate, R=.20*tanh(mean_head(decoded))*gate.",
+    "component_controls": "Remove neural residual; remove learned time warp; hold residual conditioning at logQ=logAmplitude=0; hold time conditioning at the same reference. Keep all source shapes, roles and qbar.",
+    "fixed_window": "Only a parallel diagnostic:126 peak =>110:366 integration and156:366 tail. Original dynamic readout remains displayed.",
+    "scalar_scaling": "Positive scalar qbar/canonical_Q does not change clean PSD; report exact fixed-window W/R decomposition and charge signs.",
+    "source_groups": "Reuse previously declared source PSD centers0.207919414 and0.312575162 with tolerance1e-6; all other164 rows retained in full-population plots. Check full normalized shape dispersion within these groups.",
+    "trend_summaries": "128 equal-count source-Q ordered slices per dominant group, median PSD and its total variation; descriptive resolution declared before results, not tuned to REPORT.",
+    "stochastic_scope": "One fixed random draw per parent, plus matched fast electronic noise; used for chain visualization only, not uncertainty estimates.",
+    "success": "Exact A0 reconstruction; immutable weights; identify whether fixed-window oscillation survives the component controls. No response acceptance or training claim."
+  },
+  "operation_budget": {
+    "checkpoint_loads": 6,
+    "TRAIN_archives_decoded": 1,
+    "PCA_archives_decoded": 1,
+    "old_A_calls": 52,
+    "old_A_rows": 6593,
+    "M0_head_calls": 104,
+    "M0_head_rows": 13186,
+    "repair_checkpoint_loads": 1,
+    "fixed_condition_UNet_calls": 51,
+    "fixed_condition_UNet_rows": 6465,
+    "current_mean_rows": 6465,
+    "current_response_calls": 102,
+    "current_response_rows": 12930,
+    "noise005_calls": 51,
+    "noise005_rows": 6465,
+    "extension_rows": 19395,
+    "observation_rows": 213345
+  },
+  "resources": {
+    "CPU_threads": 4,
+    "GPU_GiB": 4,
+    "RSS_GiB": 12,
+    "internal_seconds": 300,
+    "hard_wall_seconds": 420,
+    "GPU_free_required_MiB": 6144,
+    "output_MiB": 64
+  },
+  "storage": {
+    "remote_root": "/home/rylan/projects/ej276d-n01/comb_components_20261021",
+    "policy": "Active diagnostic arrays on server; temporary E analysis copy removed after plots. No large duplicate backup."
+  },
+  "optimizer_updates": 0,
+  "new_trained_candidates": 0,
+  "report_rows_used": 0,
+  "NAS_file_IO_checks": false,
+  "NAS_file_hash_verification": false,
+  "stop_rule": "One frozen full-population pass; no optimizer, finite-difference scan, tuning or automatic restart.",
+  "measured_budget_basis": {
+    "prior_job148_seconds": 12.4481,
+    "expected_seconds": 60,
+    "conservative_seconds": 120,
+    "note": "Extra fixed-condition U-Net and current response/noise stages; current shared-GPU time must be measured."
+  }
+}
