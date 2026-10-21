@@ -1,0 +1,36 @@
+{
+  "job_id": "N01_CHARGE_SPLINE01_20261022",
+  "status": "REGISTERED_BEFORE_SCIENTIFIC_FORWARD",
+  "registered_UTC": "2026-10-21T20:31:59.801691+00:00",
+  "config": "configs/charge_spline01_20261022.json",
+  "config_sha256": "5e047be015cea3cceba3580fa5d5a81447e39a7ad5fccfc842b024c335a3061a",
+  "resources": {
+    "CPU_threads": 4,
+    "GPU_GiB": 4,
+    "RSS_GiB": 12,
+    "internal_seconds": 900,
+    "hard_wall_seconds": 960,
+    "GPU_free_required_MiB": 6144,
+    "output_MiB": 256
+  },
+  "operation_budget": {
+    "response_rows": 6930480,
+    "conditioned_mean_rows": 360000,
+    "reference_mean_rows": 13186,
+    "mean_adjoint_rows": 155160,
+    "optimizer_updates": 24,
+    "derivation": "3 initial pairs*103440 +24 steps*2 pairs*103440 +4 final arms*413760 =6930480 response rows. One exact6465-parent adjoint replay per step; candidate mean calls <=360000, inherited reference13186."
+  },
+  "code_sha256": {
+    "src/n01/charge_spline01.py": "ae0f50e0d7229798860f7a0120e5b9a8dfb4790e2760a5d5fbf389706735decf",
+    "scripts/run_charge_spline01.py": "b62169efc0922f433db4e1fb51984b6f5f8933a90b339687c4149b62da541b50",
+    "scripts/check_charge_spline01.py": "d4df8b12d1b45dc3c1af4f0d0c691d13dd8489f02f611ec1f4b6ecd0f3e60f9d"
+  },
+  "scientific_acceptance": false,
+  "dispatched": false,
+  "job_number": 169,
+  "UTC": "2026-10-21T20:31:59.801691+00:00",
+  "first168_jobs_unchanged": true,
+  "synthetic_checks_pass": true,
+  "REPORT_training_rows": 0
+}

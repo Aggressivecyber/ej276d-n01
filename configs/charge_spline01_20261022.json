@@ -1,0 +1,109 @@
+{
+  "frozen_setup_config": "/mnt/MiNas/GAN/research/N01/server_runs/joint_response01_recentered_derivative_diagnostic_20261020/configs/response038_20261017.json",
+  "roles_file": "/mnt/MiNas/GAN/research/N01/server_runs/joint_response01_recentered_derivative_diagnostic_20261020/diagnostic_inputs/REAL_CALIBRATION_ROLES.npz",
+  "candidate_arrays": [
+    "/mnt/MiNas/GAN/research/N01/server_runs/joint_response01_recentered_restoration_solve_fix01_20261020/run_01/seed0_RECENTERED_RESTORATION.npz",
+    "/mnt/MiNas/GAN/research/N01/server_runs/joint_response01_recentered_restoration_solve_fix01_20261020/run_01/seed1_RECENTERED_RESTORATION.npz"
+  ],
+  "memory": {
+    "levels": [
+      16,
+      32,
+      64
+    ],
+    "thresholds": 128,
+    "feature_seed": 2026102107,
+    "conditional_wave_min_count": 56
+  },
+  "replay_checkpoint": "/home/rylan/projects/ej276d-n01/global_memory_joint_local_20261021/run_01/B_CURRENT.pt",
+  "replay_memory": "/home/rylan/projects/ej276d-n01/global_memory_joint_local_20261021/run_01/TRAIN_DISTRIBUTION_MEMORY.pt",
+  "replay_accepted_updates": 10,
+  "bank_seed": 2026102100,
+  "hypothesis": "fast",
+  "parent_chunk": 128,
+  "micro_rows": 256,
+  "mean_chunk": 64,
+  "draws_per_parent": 8,
+  "endpoint_draws": 32,
+  "trend_points": 128,
+  "schema": "n01/charge-spline-mean-repair/v1",
+  "job_id": "N01_CHARGE_SPLINE01_20261022",
+  "registered_UTC": "2026-10-21T20:31:59.801691+00:00",
+  "authorization": "2026-10-22 user: 推进; repair the diagnosed inappropriate Q/amplitude response, preserve existing scientific goal.",
+  "steps": 24,
+  "training_seed": 2246102200,
+  "endpoint_seed": 2266102200,
+  "anchor_identity_tolerance_V": 1e-07,
+  "learning_rates": {
+    "response": 0.002,
+    "mean": 0.0002
+  },
+  "trend_weight": 1.0,
+  "constraint_weight": 10.0,
+  "adc_weight": 1.0,
+  "architecture": {
+    "parameters": 1019,
+    "mean_parameters": 966,
+    "response_parameters": 53,
+    "spline_degree": 3,
+    "spline_heads": 6,
+    "spline_knots": "Clamped cubic with two interior knots at one-third and two-thirds of the SOURCE FIT logQ range; bounds frozen from FIT. Cubic extrapolation outside FIT is explicit, with no clipping or row dropping.",
+    "mean": "Freeze the old U-Net and set only its residual-branch logQ/logAmplitude inputs to zero. Preserve continuous normalized SOURCE features and detector condition. Frozen inherited one-channel mean head plus zero-initialized six-channel convolution increments, combined using logQ B-splines before tanh. Retain inherited frozen time map and canonical qbar.",
+    "frozen": "Original baseline and stochastic M0 waveform bases, all U-Net and FiLM parameters, inherited anchor head, mean time and charge maps, electronics noise coordinate.",
+    "unfrozen": "Six spline coefficient convolutions and existing53 joint response coordinates, including24 deterministic,21 shared stochastic and8 M0 scale coefficients.",
+    "initialization": "Exactly the diagnosed fixed-condition mean, verified on CPU and GPU; deliberately different from the inherited oscillatory mean. Original and inherited comparison arms retained.",
+    "inputs": "Waveform shape and logQ are physical features; IDs only address caches and never enter the network."
+  },
+  "trend_contract": {
+    "grid": "Two previously declared dominant FIT normalized-shape prototypes,128 logQ points each, full384 canonical-charge-normalized waveform curvature.",
+    "normalization": "Recompute inherited curvature once. Use inherited mean evaluated with original128-parent microbatches for excess reference. Never normalize by the near-flat anchored candidate.",
+    "objective": "Equal mean of the two curvature ratios, weight1.0. No PSD flattening or monotonicity target.",
+    "population": "All6465 SOURCE FIT parents and18948 REAL FIT rows retained, including164 outside the two diagnostic prototype groups."
+  },
+  "optimizer_contract": {
+    "method": "Exactly24 Adam updates; no native secant hull and no every-cell-per-step nonincrease gate.",
+    "objective": "Sum of frozen-scale independent-bank distribution-memory losses plus full-wave trend ratio; plus10*(sum squared positive relative exceedances for Q_mass/global_wave/peak/Q_wave + mean squared positive exceedance over92 supported Q-wave cells); plus mean two-bank ADC margin risk in squared codes.",
+    "limits": "Fixed once from original/inherited initial FIT banks: Q_mass/global_wave/peak1.02*original, Q_wave1.00*inherited, each supported cell1.02*inherited. No compounded step allowance.",
+    "differentiation": "Exact streamed parent adjoints; hard observation values with existing ADC and peak-selection STE. Nonfinite gradients or invalid canonical shape fail immediately.",
+    "interpretation": "All24 updates are candidate training, not accepted physical responses. Intermediate statistical constraint violations are recorded and penalized. Only fixed final independent-bank endpoint can pass.",
+    "selection": "No best-step selection, no learning-rate/seed/penalty sweep, no automatic budget extension."
+  },
+  "endpoint_contract": {
+    "existing": "Fresh two-bank32: >=10% PSD improvement vs original, Q/wave/peak <=+2%, flags not increased; Q-wave improves vs inherited and all supported cells <=+2%.",
+    "added": "Both full-wave curvature risks and128 equal-count fixed-window median-PSD excess variations <=50% of inherited values; at least1 actual update.",
+    "scope": "FIT pilot only. Fixed REPORT evaluation only after pilot gates; REPORT never trains or selects settings. No physical response acceptance from FIT alone."
+  },
+  "operation_budget": {
+    "response_rows": 6930480,
+    "conditioned_mean_rows": 360000,
+    "reference_mean_rows": 13186,
+    "mean_adjoint_rows": 155160,
+    "optimizer_updates": 24,
+    "derivation": "3 initial pairs*103440 +24 steps*2 pairs*103440 +4 final arms*413760 =6930480 response rows. One exact6465-parent adjoint replay per step; candidate mean calls <=360000, inherited reference13186."
+  },
+  "resources": {
+    "CPU_threads": 4,
+    "GPU_GiB": 4,
+    "RSS_GiB": 12,
+    "internal_seconds": 900,
+    "hard_wall_seconds": 960,
+    "GPU_free_required_MiB": 6144,
+    "output_MiB": 256
+  },
+  "storage": {
+    "remote_root": "/home/rylan/projects/ej276d-n01/charge_spline01_20261022",
+    "policy": "Active outputs on server compute storage; no NAS testing/hashing, no archived large-file local/server duplicates."
+  },
+  "scientific_acceptance": false,
+  "report_rows_used_for_training": 0,
+  "NAS_file_IO_checks": false,
+  "NAS_file_hash_verification": false,
+  "evidence": {
+    "causal_diagnostic": "comb_components_01 fixed residual conditions removed oscillation",
+    "supersedes_draft": "All92-gradient projection design is deferred in favor of the user-directed architectural correction.",
+    "prior_job168": "Closed:0 updates and unchanged endpoint; its budget and outcome remain immutable.",
+    "synthetic_CPU": "SEMANTIC_V2_cpu.json",
+    "synthetic_GPU": "SEMANTIC_V2_cuda0.json"
+  },
+  "wake_rule": "Confirm native FIT binding and at least first actual update, estimate remaining runtime from measured step times and final endpoint cost, then one current-chat wake with margin. No fixed-interval polling."
+}

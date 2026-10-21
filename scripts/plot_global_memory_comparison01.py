@@ -8,20 +8,25 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--first', type=Path, required=True)
-parser.add_argument('--second', type=Path, required=True)
+parser.add_argument('--first', type=Path)
+parser.add_argument('--second', type=Path)
 parser.add_argument('--latest', type=Path)
 parser.add_argument('--out', type=Path, required=True)
 args = parser.parse_args()
-first, second = [json.loads(p.read_bytes()) for p in (args.first, args.second)]
-series = {
-    '修复前': first['models']['initial']['64'],
-    '第一轮 A': first['models']['A']['64'],
-    '第一轮 B': first['models']['B']['64'],
-    '第二轮 B · 波形方向约束': second['models']['B']['64'],
-}
-if args.latest:
-    latest = json.loads(args.latest.read_bytes())
+latest = json.loads(args.latest.read_bytes()) if args.latest else None
+if latest and latest['native_pilot_result']['mode'] == 'charge_spline_mean_repair':
+    series = {label: latest['models'][key]['64'] for key, label in
+              [('initial', '修复前'), ('inherited', '继承模型'),
+               ('anchored', '固定条件起点'), ('B', '样条候选 · 固定终点')]}
+else:
+    first, second = [json.loads(p.read_bytes()) for p in (args.first, args.second)]
+    series = {
+        '修复前': first['models']['initial']['64'],
+        '第一轮 A': first['models']['A']['64'],
+        '第一轮 B': first['models']['B']['64'],
+        '第二轮 B · 波形方向约束': second['models']['B']['64'],
+    }
+if latest and latest['native_pilot_result']['mode'] != 'charge_spline_mean_repair':
     if 'inherited' in latest['models']:
         series['上一轮 B · 联合约束'] = latest['models']['inherited']['64']
         label = '本轮 B · 条件波形记忆'

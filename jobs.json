@@ -1,6 +1,6 @@
 {
   "experiment_id": "N01",
-  "updated_UTC": "2026-10-21T19:47:08.829523+00:00",
+  "updated_UTC": "2026-10-21T20:44:00.971930+00:00",
   "active_scientific_jobs": 0,
   "jobs": [
     {
@@ -25761,18 +25761,88 @@
       },
       "committed_optimizer_updates": 0,
       "closure": "receipts/global_memory_repair_20261021/mean_trend_local_recovery01/CLOSURE_RECEIPT.json"
+    },
+    {
+      "job_id": "N01_CHARGE_SPLINE01_20261022",
+      "status": "completed_wave_suppressed_joint_acceptance_failed",
+      "registered_UTC": "2026-10-21T20:31:59.801691+00:00",
+      "config": "configs/charge_spline01_20261022.json",
+      "config_sha256": "5e047be015cea3cceba3580fa5d5a81447e39a7ad5fccfc842b024c335a3061a",
+      "resources": {
+        "CPU_threads": 4,
+        "GPU_GiB": 4,
+        "RSS_GiB": 12,
+        "internal_seconds": 900,
+        "hard_wall_seconds": 960,
+        "GPU_free_required_MiB": 6144,
+        "output_MiB": 256
+      },
+      "operation_budget": {
+        "response_rows": 6930480,
+        "conditioned_mean_rows": 360000,
+        "reference_mean_rows": 13186,
+        "mean_adjoint_rows": 155160,
+        "optimizer_updates": 24,
+        "derivation": "3 initial pairs*103440 +24 steps*2 pairs*103440 +4 final arms*413760 =6930480 response rows. One exact6465-parent adjoint replay per step; candidate mean calls <=360000, inherited reference13186."
+      },
+      "code_sha256": {
+        "src/n01/charge_spline01.py": "ae0f50e0d7229798860f7a0120e5b9a8dfb4790e2760a5d5fbf389706735decf",
+        "scripts/run_charge_spline01.py": "b62169efc0922f433db4e1fb51984b6f5f8933a90b339687c4149b62da541b50",
+        "scripts/check_charge_spline01.py": "d4df8b12d1b45dc3c1af4f0d0c691d13dd8489f02f611ec1f4b6ecd0f3e60f9d"
+      },
+      "scientific_acceptance": false,
+      "dispatched": true,
+      "started_UTC": "2026-10-21T20:32:40.943060+00:00",
+      "boot_id": "f4955496-53cb-4009-bf24-b93fb8a105a5",
+      "training_pid": null,
+      "supervisor_pid": 143431,
+      "startup_receipt": "receipts/global_memory_repair_20261021/charge_spline01/STARTUP_SCIENTIFIC_RECEIPT.json",
+      "dispatch_receipt": "receipts/global_memory_repair_20261021/charge_spline01/DISPATCH_RECEIPT.json",
+      "wake_receipt": "receipts/global_memory_repair_20261021/charge_spline01/WAKE_RECEIPT.json",
+      "verified_optimizer_updates": 1,
+      "update_count_scope": "first completed step, not continuous monitoring",
+      "science_accepted": false,
+      "native_exit_code": 0,
+      "ended_UTC": "2026-10-21T20:35:59.088376+00:00",
+      "actual_execution_counts": {
+        "checkpoint_loads": 6,
+        "TRAIN_archives_decoded": 1,
+        "PCA_archives_decoded": 1,
+        "old_A_calls": 52,
+        "old_A_rows": 6593,
+        "M0_head_calls": 104,
+        "M0_head_rows": 13186,
+        "REAL_memory_rows": 18948,
+        "repair_checkpoint_loads": 1,
+        "reference_mean_rows": 13186,
+        "allocated_banks": 2652,
+        "shape_standard_normal_values": 23998080,
+        "noise005_calls": 2652,
+        "noise005_rows": 2999760,
+        "extension_rows": 8999280,
+        "response_rows": 6930480,
+        "response_calls": 27178,
+        "memory_checkpoint_loads": 1,
+        "STE_rows": 2482560,
+        "adjoint_microblocks": 9744,
+        "mean_adjoint_rows": 155160,
+        "conditioned_mean_rows": 342836,
+        "optimizer_updates": 24
+      },
+      "optimizer_updates": 24,
+      "closure": "receipts/global_memory_repair_20261021/charge_spline01/CLOSURE_RECEIPT.json"
     }
   ],
   "user_requested_pause": false,
   "resume_requires_user_server_started_notice": false,
   "followup": {
     "status": "DELETED",
-    "automation_id": "n01-psd",
+    "automation_id": "n01",
     "next_wake_local": null,
-    "receipt": "receipts/global_memory_repair_20261021/joint_local_01/AUTOMATION_CLOSED.json"
+    "receipt": "receipts/global_memory_repair_20261021/charge_spline01/WAKE_RECEIPT.json"
   },
   "scientific_status": "response_match_not_established",
-  "active_scientific_jobs_status_basis": "Job146 native exit0 and no remaining owned scientific process at terminal collection; original interrupted job145 is not restarted.",
+  "active_scientific_jobs_status_basis": "Job169 native exit0; owned supervisor exit receipt confirms completion.",
   "wp2_readback_prepare_failure": {
     "path": "receipts\\wp2_014_20261015\\readback_registration_01\\ROOT_PREPARE_FAILURE_RECEIPT.json",
     "sha256": "6f89dedd516cd5612295060b074fa84625364774a6a8c5c74b5172608f2b83f5",
@@ -25794,7 +25864,7 @@
   "followup_receipt": "receipts/joint_response_01_20261020/recentered_derivative_diagnostic_01/WAKE1402_AUTOMATION_CONSUMED.json",
   "followup_receipt_sha256": "69f7935579ff5a4db2ff2ab3338bdc179265759812d29c1a305649c06949c563",
   "followup_last_delivered_UTC": "2026-10-19T22:43:10.010Z",
-  "current_followup_status": "DELETED_TERMINAL_REVIEW_ACTIVE",
+  "current_followup_status": "DELETED_NO_WAITING_WORK",
   "agent_model_policy": "User2026-10-18: current root alone; no Sol or subagents",
   "latest_subagent_model_preference": "GPT-6.1-Sol Max",
   "previous_agent_model_policy": {
@@ -25817,16 +25887,16 @@
     "bytes": 83119,
     "sha256": "b24f3bb1e5644fc8db29b2db1b3b82b05a8793248b7c99af81b23fb4dc3d1e24"
   },
-  "status": "N01_MEAN_TREND_local_recovery_complete_no_feasible_update",
-  "current_action": "Bounded job168 complete; native solver returned only zero feasible combination, no accepted update, endpoint unchanged.",
-  "next_action": "Next design prepared, not registered: construct a single parameter-space feasible direction using gradients of all92 supported conditional-wave cells together with the existing global, trend and ADC constraints; validate any resulting direction with original hard readout before accepting. No more hand-added probes or automatic extension ofjob168; preserve the unchanged endpoint gates.",
+  "status": "N01_CHARGE_SPLINE_complete_joint_fail",
+  "current_action": "Job169 closed:24 actual updates; comb excess down88.6%/97.9%, but6 joint gates fail including ADC and distribution matching.",
+  "next_action": "Prospective bounded convergence follow-up from the actual24-step candidate. Architecture unchanged; endpoint unchanged; no reinterpretation or extension of closed job169. Need preregistration before any new model call.",
   "latest_user_review_direction": {
     "path": "receipts/review_017_20261016/ACCEPTED_NEXT_ACTIONS.json",
     "bytes": 3271,
     "sha256": "8c1fe73b73b7376a3299e6c43f8493a41f2cd45a5e1a2d33a82c961ab22642c2"
   },
   "pending_run_id": null,
-  "latest_run_id": "GLOBAL_MEMORY_JOINT_LOCAL_PILOT_20261021",
+  "latest_run_id": "N01_CHARGE_SPLINE01_20261022",
   "active_run_id": null,
   "current_stage": "4_global_memory_mean_repair",
   "wp4_018_result": {
@@ -39836,5 +39906,6 @@
     "mean_trend_local_recovery_closure": "receipts/global_memory_repair_20261021/mean_trend_local_recovery01/CLOSURE_RECEIPT.json",
     "latest_direction_analysis": "receipts/global_memory_repair_20261021/mean_trend_local_recovery01/DIRECTION_ANALYSIS.json",
     "latest_mean_trend_figures": "deliverables/global_memory_repair_20261021/mean_trend_local_recovery01"
-  }
+  },
+  "pending_next_job": null
 }

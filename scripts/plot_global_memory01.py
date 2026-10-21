@@ -21,6 +21,8 @@ result = json.loads(args.result.read_bytes())
 labels = list(result['endpoint'])
 if 'inherited' in labels:
     labels = ['initial', 'inherited', 'B']
+if result['mode'] == 'charge_spline_mean_repair':
+    labels = ['initial', 'inherited', 'anchored', 'B']
 groups = {'REAL': (data['real_Q'], data['real_PSD_raw'])}
 for label in labels:
     groups[label] = (data[f'{label}_bank0_Q'], data[f'{label}_bank0_PSD_raw'])
@@ -42,6 +44,10 @@ if 'inherited' in labels:
 if result['mode'] == 'mean_trend_repair':
     titles['B'] = ('条件路径解冻 + 波形趋势约束\n'
                    f"本轮端点 · 新增 {result['new_committed_optimizer_updates']} 次更新")
+if result['mode'] == 'charge_spline_mean_repair':
+    verdict = '联合验收通过' if result['endpoint']['B']['passes_bounded_pilot'] else '联合验收未通过'
+    titles.update(anchored='固定条件起点 · 未训练',
+                  B=f"样条均值支路 · {result['optimizer_updates']} 次更新\n{verdict}")
 audit = dict(populations=rows, actual_Q_range=list(map(float, qrange)),
              actual_PSD_range=list(map(float, prange)), hypothesis='fast', seed_head=0,
              draws_per_parent=32, inference_bank='independent endpoint bank0',
