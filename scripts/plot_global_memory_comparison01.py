@@ -14,10 +14,12 @@ parser.add_argument('--latest', type=Path)
 parser.add_argument('--out', type=Path, required=True)
 args = parser.parse_args()
 latest = json.loads(args.latest.read_bytes()) if args.latest else None
-if latest and latest['native_pilot_result']['mode'] == 'charge_spline_mean_repair':
-    series = {label: latest['models'][key]['64'] for key, label in
-              [('initial', '修复前'), ('inherited', '继承模型'),
-               ('anchored', '固定条件起点'), ('B', '样条候选 · 固定终点')]}
+if latest and latest['native_pilot_result']['mode'].startswith('charge_spline'):
+    entries = [('initial', '修复前'), ('inherited', '继承模型'), ('anchored', '固定条件起点')]
+    if latest['native_pilot_result']['mode'] == 'charge_spline_restoration':
+        entries.append(('stage_start', '上一阶段 · 24步候选'))
+    entries.append(('B', '样条候选 · 固定终点'))
+    series = {label: latest['models'][key]['64'] for key, label in entries}
 else:
     first, second = [json.loads(p.read_bytes()) for p in (args.first, args.second)]
     series = {
@@ -26,7 +28,7 @@ else:
         '第一轮 B': first['models']['B']['64'],
         '第二轮 B · 波形方向约束': second['models']['B']['64'],
     }
-if latest and latest['native_pilot_result']['mode'] != 'charge_spline_mean_repair':
+if latest and not latest['native_pilot_result']['mode'].startswith('charge_spline'):
     if 'inherited' in latest['models']:
         series['上一轮 B · 联合约束'] = latest['models']['inherited']['64']
         label = '本轮 B · 条件波形记忆'
@@ -66,8 +68,11 @@ for ax in axes:
 axes[0].legend(ncol=4, fontsize=11, loc='upper right')
 axes[1].legend(ncol=5, fontsize=10, loc='upper right')
 fig.suptitle('全域记忆修复 · 细分 Q 区间对比', fontsize=19)
-fig.supxlabel('空心点：REAL 少于 30 行或 SOURCE 少于 30 个父事件；缺失区间留空，不计作零误差。'
-              '\n32 次响应/父事件；报告为 TRAIN 分布描述，未作显著性检验。', fontsize=11)
+caption = ('空心点：REAL 少于 30 行或 SOURCE 少于 30 个父事件；缺失区间留空，不计作零误差。'
+           '\n32 次响应/父事件；报告为 TRAIN 分布描述，未作显著性检验。')
+if latest and latest['native_pilot_result'].get('independent_final_random_banks') is False:
+    caption += '\n终点 seed 与第21步训练重合，不是独立随机复核。'
+fig.supxlabel(caption, fontsize=11)
 args.out.mkdir(parents=True, exist_ok=True)
 for suffix in ('png', 'svg'):
     path = args.out / f'CONDITIONAL_PSD_64_COMPARISON.{suffix}'

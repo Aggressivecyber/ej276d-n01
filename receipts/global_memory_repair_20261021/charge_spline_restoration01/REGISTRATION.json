@@ -1,0 +1,38 @@
+{
+  "job_id": "N01_CHARGE_SPLINE_RESTORATION01_20261022",
+  "status": "REGISTERED_BEFORE_SCIENTIFIC_FORWARD",
+  "registered_UTC": "2026-10-21T20:51:16.993108+00:00",
+  "config": "configs/charge_spline_restoration01_20261022.json",
+  "config_sha256": "75c20c8f0f84fb260bf77687cacf7f10ea02aadd295ffe316af43765382ab074",
+  "resources": {
+    "CPU_threads": 4,
+    "GPU_GiB": 4,
+    "RSS_GiB": 12,
+    "internal_seconds": 1200,
+    "hard_wall_seconds": 1260,
+    "GPU_free_required_MiB": 6144,
+    "output_MiB": 256
+  },
+  "operation_budget": {
+    "response_rows": 28859760,
+    "conditioned_mean_rows": 1750000,
+    "reference_mean_rows": 13186,
+    "mean_adjoint_rows": 827520,
+    "optimizer_updates": 128,
+    "derivation": "3 initial pairs*103440 +128 steps*2 pairs*103440 +5 final arms*413760 =28859760. Candidate mean rows1720645 expected, bound1750000."
+  },
+  "code_sha256": {
+    "src/n01/charge_spline01.py": "ae0f50e0d7229798860f7a0120e5b9a8dfb4790e2760a5d5fbf389706735decf",
+    "scripts/run_charge_spline_restoration01.py": "8ae112a21311d2a4351b2914848939ca9e001bc3bbd8b8f60ca3d03935d97ba6"
+  },
+  "initialization_checkpoint": "/home/rylan/projects/ej276d-n01/charge_spline01_20261022/run_01/B_CURRENT.pt",
+  "inherited_candidate_updates": 24,
+  "dispatched": false,
+  "scientific_acceptance": false,
+  "job_number": 170,
+  "first169_jobs_unchanged": true,
+  "semantic_model_unchanged_from_passing_CPU_GPU_checks": true,
+  "endpoint_seed_intersections": 0,
+  "prior_seed_collision_disclosed": true,
+  "new_scientific_calls": 0
+}

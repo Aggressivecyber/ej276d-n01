@@ -23,6 +23,8 @@ if 'inherited' in labels:
     labels = ['initial', 'inherited', 'B']
 if result['mode'] == 'charge_spline_mean_repair':
     labels = ['initial', 'inherited', 'anchored', 'B']
+if result['mode'] == 'charge_spline_restoration':
+    labels = ['initial', 'inherited', 'anchored', 'stage_start', 'B']
 groups = {'REAL': (data['real_Q'], data['real_PSD_raw'])}
 for label in labels:
     groups[label] = (data[f'{label}_bank0_Q'], data[f'{label}_bank0_PSD_raw'])
@@ -44,13 +46,17 @@ if 'inherited' in labels:
 if result['mode'] == 'mean_trend_repair':
     titles['B'] = ('条件路径解冻 + 波形趋势约束\n'
                    f"本轮端点 · 新增 {result['new_committed_optimizer_updates']} 次更新")
-if result['mode'] == 'charge_spline_mean_repair':
-    verdict = '联合验收通过' if result['endpoint']['B']['passes_bounded_pilot'] else '联合验收未通过'
+if result['mode'].startswith('charge_spline'):
+    verdict = 'FIT联合门通过' if result['endpoint']['B']['passes_bounded_pilot'] else 'FIT联合门未通过'
     titles.update(anchored='固定条件起点 · 未训练',
                   B=f"样条均值支路 · {result['optimizer_updates']} 次更新\n{verdict}")
+    if result['mode'] == 'charge_spline_restoration':
+        titles.update(stage_start=f"上一阶段 · {result['inherited_candidate_updates']} 步候选",
+                      B=f"恢复阶段 · 累计 {result['cumulative_optimizer_updates']} 次更新\n{verdict}")
+independent = result.get('independent_final_random_banks')
 audit = dict(populations=rows, actual_Q_range=list(map(float, qrange)),
              actual_PSD_range=list(map(float, prange)), hypothesis='fast', seed_head=0,
-             draws_per_parent=32, inference_bank='independent endpoint bank0',
+             draws_per_parent=32, inference_bank='endpoint bank0', independent_from_training_banks=independent,
              full_population_weights_preserved=True, physical_energy_calibration=False)
 for mode, yrange in (('LINEAR', (-.25, .55)), ('FULL_RANGE', prange)):
     qedges = np.linspace(*qrange, 281)
@@ -66,8 +72,12 @@ for mode, yrange in (('LINEAR', (-.25, .55)), ('FULL_RANGE', prange)):
         if mode == 'FULL_RANGE':
             assert outside[key]['plotted'] + outside[key]['undefined'] == len(q)
     norm = LogNorm(vmin=1 / max(rows.values()), vmax=max(h.max() for h in histograms.values()))
-    fig, axes = plt.subplots(1, len(groups), figsize=(4.875 * len(groups), 6.2), sharex=True, sharey=True,
-                             layout='constrained')
+    if len(groups) == 6:
+        fig, axes = plt.subplots(2, 3, figsize=(18, 10), sharex=True, sharey=True, layout='constrained')
+        axes = axes.ravel()
+    else:
+        fig, axes = plt.subplots(1, len(groups), figsize=(4.875 * len(groups), 6.2), sharex=True, sharey=True,
+                                 layout='constrained')
     for ax, (key, h) in zip(axes, histograms.items()):
         image = ax.pcolormesh(qedges, pedges, np.ma.masked_equal(h.T, 0),
                              norm=norm, cmap='viridis', rasterized=True)
@@ -84,8 +94,11 @@ for mode, yrange in (('LINEAR', (-.25, .55)), ('FULL_RANGE', prange)):
     axes[0].set_ylabel('PSD = tail / Q')
     fig.colorbar(image, ax=axes, shrink=.86, label='每格人口概率（统一归一）')
     fig.suptitle('全 Q 范围 PSD 修复小试验 · 同一参考电子学假设 fast', fontsize=18)
-    fig.supxlabel('32 次独立响应/父事件；Q 未作物理能量标定。'
-                  '图中未剔除任何 Q 区间；主视图的 PSD 视窗外记录另见 FULL_RANGE 图。', fontsize=11)
+    caption = ('32 次随机响应/父事件；Q 未作物理能量标定。'
+               '图中未剔除任何 Q 区间；主视图的 PSD 视窗外记录另见 FULL_RANGE 图。')
+    if independent is False:
+        caption += '\n终点 seed 与第21步训练重合；本图属于候选描述，不是独立随机复核。'
+    fig.supxlabel(caption, fontsize=11)
     for suffix in ('png', 'svg'):
         path = args.out / f'GLOBAL_MEMORY_PSD_{mode}.{suffix}'
         fig.savefig(path, dpi=150)

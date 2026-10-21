@@ -1,7 +1,7 @@
 {
   "experiment_id": "N01",
-  "updated_UTC": "2026-10-21T20:44:00.971930+00:00",
-  "active_scientific_jobs": 0,
+  "updated_UTC": "2026-10-21T20:55:58.185681+00:00",
+  "active_scientific_jobs": 1,
   "jobs": [
     {
       "job_id": "N01_RUN_001_20261012",
@@ -25831,18 +25831,85 @@
       },
       "optimizer_updates": 24,
       "closure": "receipts/global_memory_repair_20261021/charge_spline01/CLOSURE_RECEIPT.json"
+    },
+    {
+      "job_id": "N01_CHARGE_SPLINE_RESTORATION01_20261022",
+      "status": "running_native_resume_and_updates_verified",
+      "registered_UTC": "2026-10-21T20:51:16.993108+00:00",
+      "config": "configs/charge_spline_restoration01_20261022.json",
+      "config_sha256": "75c20c8f0f84fb260bf77687cacf7f10ea02aadd295ffe316af43765382ab074",
+      "resources": {
+        "CPU_threads": 4,
+        "GPU_GiB": 4,
+        "RSS_GiB": 12,
+        "internal_seconds": 1200,
+        "hard_wall_seconds": 1260,
+        "GPU_free_required_MiB": 6144,
+        "output_MiB": 256
+      },
+      "operation_budget": {
+        "response_rows": 28859760,
+        "conditioned_mean_rows": 1750000,
+        "reference_mean_rows": 13186,
+        "mean_adjoint_rows": 827520,
+        "optimizer_updates": 128,
+        "derivation": "3 initial pairs*103440 +128 steps*2 pairs*103440 +5 final arms*413760 =28859760. Candidate mean rows1720645 expected, bound1750000."
+      },
+      "code_sha256": {
+        "src/n01/charge_spline01.py": "ae0f50e0d7229798860f7a0120e5b9a8dfb4790e2760a5d5fbf389706735decf",
+        "scripts/run_charge_spline_restoration01.py": "8ae112a21311d2a4351b2914848939ca9e001bc3bbd8b8f60ca3d03935d97ba6"
+      },
+      "initialization_checkpoint": "/home/rylan/projects/ej276d-n01/charge_spline01_20261022/run_01/B_CURRENT.pt",
+      "inherited_candidate_updates": 24,
+      "dispatched": true,
+      "scientific_acceptance": false,
+      "started_UTC": "2026-10-21T20:52:38.007530+00:00",
+      "boot_id": "f4955496-53cb-4009-bf24-b93fb8a105a5",
+      "training_pid": 149015,
+      "verified_stage_optimizer_updates": 12,
+      "verified_cumulative_candidate_updates": 36,
+      "counts_asof_UTC": "2026-10-21T20:54:07.515288+00:00",
+      "last_verified_counts": {
+        "checkpoint_loads": 6,
+        "TRAIN_archives_decoded": 1,
+        "PCA_archives_decoded": 1,
+        "old_A_calls": 52,
+        "old_A_rows": 6593,
+        "M0_head_calls": 104,
+        "M0_head_rows": 13186,
+        "REAL_memory_rows": 18948,
+        "repair_checkpoint_loads": 1,
+        "reference_mean_rows": 13186,
+        "candidate_checkpoint_loads": 1,
+        "allocated_banks": 1326,
+        "shape_standard_normal_values": 10757760,
+        "noise005_calls": 1326,
+        "noise005_rows": 1344720,
+        "extension_rows": 4034160,
+        "response_rows": 2792880,
+        "response_calls": 10962,
+        "memory_checkpoint_loads": 1,
+        "STE_rows": 1241280,
+        "adjoint_microblocks": 4872,
+        "mean_adjoint_rows": 77580,
+        "conditioned_mean_rows": 171418,
+        "optimizer_updates": 12
+      },
+      "startup_receipt": "receipts/global_memory_repair_20261021/charge_spline_restoration01/STARTUP_SCIENTIFIC_RECEIPT.json",
+      "dispatch_receipt": "receipts/global_memory_repair_20261021/charge_spline_restoration01/DISPATCH_RECEIPT.json",
+      "wake_receipt": "receipts/global_memory_repair_20261021/charge_spline_restoration01/WAKE_RECEIPT.json"
     }
   ],
   "user_requested_pause": false,
   "resume_requires_user_server_started_notice": false,
   "followup": {
-    "status": "DELETED",
+    "status": "ACTIVE",
     "automation_id": "n01",
-    "next_wake_local": null,
-    "receipt": "receipts/global_memory_repair_20261021/charge_spline01/WAKE_RECEIPT.json"
+    "next_wake_local": "2026-10-22T05:10:00+08:00",
+    "receipt": "receipts/global_memory_repair_20261021/charge_spline_restoration01/WAKE_RECEIPT.json"
   },
   "scientific_status": "response_match_not_established",
-  "active_scientific_jobs_status_basis": "Job169 native exit0; owned supervisor exit receipt confirms completion.",
+  "active_scientific_jobs_status_basis": "Job170 supervisor process tree and native scientific updates verified at20:54:08 UTC.",
   "wp2_readback_prepare_failure": {
     "path": "receipts\\wp2_014_20261015\\readback_registration_01\\ROOT_PREPARE_FAILURE_RECEIPT.json",
     "sha256": "6f89dedd516cd5612295060b074fa84625364774a6a8c5c74b5172608f2b83f5",
@@ -25858,13 +25925,13 @@
     "weights_promoted": false,
     "scientific_acceptance": false
   },
-  "followup_automation_id": null,
-  "followup_automation_status": "DELETED",
-  "followup_next_run_local": null,
-  "followup_receipt": "receipts/joint_response_01_20261020/recentered_derivative_diagnostic_01/WAKE1402_AUTOMATION_CONSUMED.json",
-  "followup_receipt_sha256": "69f7935579ff5a4db2ff2ab3338bdc179265759812d29c1a305649c06949c563",
+  "followup_automation_id": "n01",
+  "followup_automation_status": "ACTIVE",
+  "followup_next_run_local": "2026-10-22T05:10:00+08:00",
+  "followup_receipt": "receipts/global_memory_repair_20261021/charge_spline_restoration01/WAKE_RECEIPT.json",
+  "followup_receipt_sha256": "deab2e159f9c1f8766331191d8edc0d8fe2495f24f4233eca718ea475b2b67c9",
   "followup_last_delivered_UTC": "2026-10-19T22:43:10.010Z",
-  "current_followup_status": "DELETED_NO_WAITING_WORK",
+  "current_followup_status": "SINGLE_ESTIMATED_WAKE_ACTIVE",
   "agent_model_policy": "User2026-10-18: current root alone; no Sol or subagents",
   "latest_subagent_model_preference": "GPT-6.1-Sol Max",
   "previous_agent_model_policy": {
@@ -25887,17 +25954,17 @@
     "bytes": 83119,
     "sha256": "b24f3bb1e5644fc8db29b2db1b3b82b05a8793248b7c99af81b23fb4dc3d1e24"
   },
-  "status": "N01_CHARGE_SPLINE_complete_joint_fail",
-  "current_action": "Job169 closed:24 actual updates; comb excess down88.6%/97.9%, but6 joint gates fail including ADC and distribution matching.",
-  "next_action": "Prospective bounded convergence follow-up from the actual24-step candidate. Architecture unchanged; endpoint unchanged; no reinterpretation or extension of closed job169. Need preregistration before any new model call.",
+  "status": "N01_CHARGE_SPLINE_restoration_running",
+  "current_action": "Job170 running; exact24-step checkpoint and Adam state restored,12 new updates verified at20:54:07 UTC,36 cumulative candidate updates. Scientific acceptance not established.",
+  "next_action": "At the estimated05:10 single wake collect fixed128-step restoration and five-arm independent endpoint; re-evaluate exact24-step stage_start, render/verify figures, and apply unchanged FIT gates before any REPORT evaluation. Then continue the next evidence-backed necessary work.",
   "latest_user_review_direction": {
     "path": "receipts/review_017_20261016/ACCEPTED_NEXT_ACTIONS.json",
     "bytes": 3271,
     "sha256": "8c1fe73b73b7376a3299e6c43f8493a41f2cd45a5e1a2d33a82c961ab22642c2"
   },
   "pending_run_id": null,
-  "latest_run_id": "N01_CHARGE_SPLINE01_20261022",
-  "active_run_id": null,
+  "latest_run_id": "N01_CHARGE_SPLINE_RESTORATION01_20261022",
+  "active_run_id": "N01_CHARGE_SPLINE_RESTORATION01_20261022",
   "current_stage": "4_global_memory_mean_repair",
   "wp4_018_result": {
     "path": "receipts/wp4_018_20261016/FINAL_RESULT_RECEIPT.json",
@@ -39773,7 +39840,7 @@
   "server_boot_id_at_resume": "83c9f761-c124-42e1-89b8-5f45f0b3acc4",
   "resume_authorization": "receipts/joint_response_01_20261020/resume_01/RESUME_AUTHORIZATION.json",
   "execution_state_asof_UTC": "2026-10-21T19:32:28.313887+00:00",
-  "training_pid": null,
+  "training_pid": 149015,
   "supervisor_pid": null,
   "pending_registered_job_id": null,
   "global_memory_repair": {

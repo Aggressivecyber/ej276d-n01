@@ -1,0 +1,127 @@
+{
+  "frozen_setup_config": "/mnt/MiNas/GAN/research/N01/server_runs/joint_response01_recentered_derivative_diagnostic_20261020/configs/response038_20261017.json",
+  "roles_file": "/mnt/MiNas/GAN/research/N01/server_runs/joint_response01_recentered_derivative_diagnostic_20261020/diagnostic_inputs/REAL_CALIBRATION_ROLES.npz",
+  "candidate_arrays": [
+    "/mnt/MiNas/GAN/research/N01/server_runs/joint_response01_recentered_restoration_solve_fix01_20261020/run_01/seed0_RECENTERED_RESTORATION.npz",
+    "/mnt/MiNas/GAN/research/N01/server_runs/joint_response01_recentered_restoration_solve_fix01_20261020/run_01/seed1_RECENTERED_RESTORATION.npz"
+  ],
+  "memory": {
+    "levels": [
+      16,
+      32,
+      64
+    ],
+    "thresholds": 128,
+    "feature_seed": 2026102107,
+    "conditional_wave_min_count": 56
+  },
+  "replay_checkpoint": "/home/rylan/projects/ej276d-n01/global_memory_joint_local_20261021/run_01/B_CURRENT.pt",
+  "replay_memory": "/home/rylan/projects/ej276d-n01/global_memory_joint_local_20261021/run_01/TRAIN_DISTRIBUTION_MEMORY.pt",
+  "replay_accepted_updates": 10,
+  "bank_seed": 2026102100,
+  "hypothesis": "fast",
+  "parent_chunk": 128,
+  "micro_rows": 256,
+  "mean_chunk": 64,
+  "draws_per_parent": 8,
+  "endpoint_draws": 32,
+  "trend_points": 128,
+  "schema": "n01/charge-spline-restoration/v1",
+  "job_id": "N01_CHARGE_SPLINE_RESTORATION01_20261022",
+  "registered_UTC": "2026-10-21T20:51:16.993108+00:00",
+  "authorization": "2026-10-22 user requested continued repair. Separate prospective restoration stage after closed24-step pilot; its failure and budget are unchanged.",
+  "steps": 128,
+  "training_seed": 2406102200,
+  "endpoint_seed": 2706102200,
+  "anchor_identity_tolerance_V": 1e-07,
+  "learning_rates": {
+    "response": 0.002,
+    "mean": 0.0002
+  },
+  "trend_weight": 1.0,
+  "constraint_weight": 10.0,
+  "adc_weight": 1.0,
+  "architecture": {
+    "parameters": 1019,
+    "mean_parameters": 966,
+    "response_parameters": 53,
+    "spline_degree": 3,
+    "spline_heads": 6,
+    "spline_knots": "Clamped cubic with two interior knots at one-third and two-thirds of the SOURCE FIT logQ range; bounds frozen from FIT. Cubic extrapolation outside FIT is explicit, with no clipping or row dropping.",
+    "mean": "Freeze the old U-Net and set only its residual-branch logQ/logAmplitude inputs to zero. Preserve continuous normalized SOURCE features and detector condition. Frozen inherited one-channel mean head plus zero-initialized six-channel convolution increments, combined using logQ B-splines before tanh. Retain inherited frozen time map and canonical qbar.",
+    "frozen": "Original baseline and stochastic M0 waveform bases, all U-Net and FiLM parameters, inherited anchor head, mean time and charge maps, electronics noise coordinate.",
+    "unfrozen": "Six spline coefficient convolutions and existing53 joint response coordinates, including24 deterministic,21 shared stochastic and8 M0 scale coefficients.",
+    "initialization": "Exactly the diagnosed fixed-condition mean, verified on CPU and GPU; deliberately different from the inherited oscillatory mean. Original and inherited comparison arms retained.",
+    "inputs": "Waveform shape and logQ are physical features; IDs only address caches and never enter the network."
+  },
+  "trend_contract": {
+    "grid": "Two previously declared dominant FIT normalized-shape prototypes,128 logQ points each, full384 canonical-charge-normalized waveform curvature.",
+    "normalization": "Recompute inherited curvature once. Use inherited mean evaluated with original128-parent microbatches for excess reference. Never normalize by the near-flat anchored candidate.",
+    "objective": "Equal mean of the two curvature ratios, weight1.0. No PSD flattening or monotonicity target.",
+    "population": "All6465 SOURCE FIT parents and18948 REAL FIT rows retained, including164 outside the two diagnostic prototype groups."
+  },
+  "optimizer_contract": {
+    "method": "Load exact24-step spline candidate and its Adam state; exactly128 additional candidate updates, then one fixed final endpoint. Architecture, rates and loss weights unchanged.",
+    "objective": "Sum of frozen-scale independent-bank distribution-memory losses plus full-wave trend ratio; plus10*(sum squared positive relative exceedances for Q_mass/global_wave/peak/Q_wave + mean squared positive exceedance over92 supported Q-wave cells); plus mean two-bank ADC margin risk in squared codes.",
+    "limits": "Fixed once from original/inherited initial FIT banks: Q_mass/global_wave/peak1.02*original, Q_wave1.00*inherited, each supported cell1.02*inherited. No compounded step allowance.",
+    "differentiation": "Exact streamed parent adjoints; hard observation values with existing ADC and peak-selection STE. Nonfinite gradients or invalid canonical shape fail immediately.",
+    "interpretation": "All24 updates are candidate training, not accepted physical responses. Intermediate statistical constraint violations are recorded and penalized. Only fixed final independent-bank endpoint can pass.",
+    "selection": "No best-step or hyperparameter selection. At most128 stage updates; no automatic extension of this stage. Fail on nonfinite gradients, invalid canonical charge or budget exhaustion."
+  },
+  "endpoint_contract": {
+    "existing": "Five same-bank32 arms: original, inherited10-update reference, untrained anchored mean, exact24-step stage_start, and fixed new endpoint. Original joint gates unchanged; fresh endpoint seed checked disjoint from both spline training stages and normalization banks.",
+    "added": "Both full-wave curvature risks and128 equal-count fixed-window median-PSD excess variations <=50% of inherited values; at least1 actual update.",
+    "scope": "FIT pilot only. Fixed REPORT evaluation only after pilot gates; REPORT never trains or selects settings. No physical response acceptance from FIT alone."
+  },
+  "operation_budget": {
+    "response_rows": 28859760,
+    "conditioned_mean_rows": 1750000,
+    "reference_mean_rows": 13186,
+    "mean_adjoint_rows": 827520,
+    "optimizer_updates": 128,
+    "derivation": "3 initial pairs*103440 +128 steps*2 pairs*103440 +5 final arms*413760 =28859760. Candidate mean rows1720645 expected, bound1750000."
+  },
+  "resources": {
+    "CPU_threads": 4,
+    "GPU_GiB": 4,
+    "RSS_GiB": 12,
+    "internal_seconds": 1200,
+    "hard_wall_seconds": 1260,
+    "GPU_free_required_MiB": 6144,
+    "output_MiB": 256
+  },
+  "storage": {
+    "remote_root": "/home/rylan/projects/ej276d-n01/charge_spline_restoration01_20261022",
+    "policy": "Active outputs on server compute storage; no NAS testing/hashing, no archived large-file local/server duplicates."
+  },
+  "scientific_acceptance": false,
+  "report_rows_used_for_training": 0,
+  "NAS_file_IO_checks": false,
+  "NAS_file_hash_verification": false,
+  "evidence": {
+    "predecessor_job": 169,
+    "predecessor_native_updates": 24,
+    "predecessor_elapsed_seconds": 196.47561106099965,
+    "predecessor_mean_gradient_seconds": 6.089166663083309,
+    "comb_excess_reduction_percent": [
+      88.57742992108952,
+      97.89722486800392
+    ],
+    "ADC_margin_relative_to_untrained_anchor": 0.0814370900776034,
+    "last12_log_ADC_slope_per_step": -0.10179631871232268,
+    "selection_reason": "Mean branch is smooth, but global matching and ADC fail. Last updates still reduce the ADC-dominated objective without plateau. This stage tests finite convergence from the actual candidate, rather than repeating its zero initialization.",
+    "forecast_limit": "The local decay fit only motivates a bounded restoration budget; it is not a predicted acceptance guarantee.",
+    "seed_correction": "Previous endpoint seed collided with training step21. Preserve raw results and re-evaluate exact24-step weights at this new nonoverlapping endpoint."
+  },
+  "wake_rule": "Confirm native FIT binding and at least first actual update, estimate remaining runtime from measured step times and final endpoint cost, then one current-chat wake with margin. No fixed-interval polling.",
+  "predecessor_training_seed": 2246102200,
+  "inherited_candidate_updates": 24,
+  "initialization_checkpoint": "/home/rylan/projects/ej276d-n01/charge_spline01_20261022/run_01/B_CURRENT.pt",
+  "measured_budget_basis": {
+    "prior_mean_gradient_seconds": 6.089166663083309,
+    "bank_checkpoint_overhead_seconds_per_step": 0.5,
+    "estimated_training_seconds": 843.4133328746635,
+    "estimated_setup_and_five_arm_endpoint_seconds": 55,
+    "wake_rule": "Use actual first-stage progress and measured timings plus margin; one wake only."
+  }
+}
