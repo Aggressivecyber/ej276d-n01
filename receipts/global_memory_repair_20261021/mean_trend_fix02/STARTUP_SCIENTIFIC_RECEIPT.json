@@ -1,0 +1,114 @@
+{
+  "status": "NATIVE_DATA_AND_ZERO_START_IDENTITY_PASSED_FIRST_DIRECTION_RUNNING",
+  "UTC": "2026-10-21T08:17:27.784353+00:00",
+  "job_number": 166,
+  "boot_id": "27872225-1e36-4b9b-be8e-95126377b406",
+  "launch": {
+    "supervisor_pid": 178370,
+    "child_pid": 178377,
+    "command": [
+      "timeout",
+      "--signal=TERM",
+      "--kill-after=20s",
+      "5460s",
+      "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+      "-B",
+      "/home/rylan/projects/ej276d-n01/mean_trend_repair_fix02_20261021/scripts/run_mean_trend01.py",
+      "--config",
+      "/home/rylan/projects/ej276d-n01/mean_trend_repair_fix02_20261021/configs/mean_trend_repair_fix02_20261021.json",
+      "--config-sha256",
+      "c16f293e06cf5447c12d5967ac2f792e063df8d3f971729acc8197272ad0c586",
+      "--out",
+      "/home/rylan/projects/ej276d-n01/mean_trend_repair_fix02_20261021/run_01",
+      "--device",
+      "cuda:0"
+    ],
+    "started_utc": "2026-10-21T08:14:23.287441+00:00"
+  },
+  "bindings": {
+    "source_FIT": 6465,
+    "REAL_FIT": 18948,
+    "REPORT_training_rows": 0,
+    "inherited_mean_identity_max_V": 0.0,
+    "inherited_updates": 10,
+    "trainable_parameters": 273174,
+    "trainable_names": [
+      "theta",
+      "mean.mean_head.weight",
+      "mean.mean_head.bias",
+      "mean.unet.condition.0.weight",
+      "mean.unet.condition.0.bias",
+      "mean.unet.condition.2.weight",
+      "mean.unet.condition.2.bias",
+      "mean.unet.encoder.0.film.weight",
+      "mean.unet.encoder.0.film.bias",
+      "mean.unet.encoder.1.film.weight",
+      "mean.unet.encoder.1.film.bias",
+      "mean.unet.encoder.2.film.weight",
+      "mean.unet.encoder.2.film.bias",
+      "mean.unet.encoder.3.film.weight",
+      "mean.unet.encoder.3.film.bias",
+      "mean.unet.encoder.4.film.weight",
+      "mean.unet.encoder.4.film.bias",
+      "mean.unet.bottleneck.0.film.weight",
+      "mean.unet.bottleneck.0.film.bias",
+      "mean.unet.bottleneck.1.film.weight",
+      "mean.unet.bottleneck.1.film.bias",
+      "mean.unet.bottleneck.2.film.weight",
+      "mean.unet.bottleneck.2.film.bias",
+      "mean.unet.decoder.0.film.weight",
+      "mean.unet.decoder.0.film.bias",
+      "mean.unet.decoder.1.film.weight",
+      "mean.unet.decoder.1.film.bias",
+      "mean.unet.decoder.2.film.weight",
+      "mean.unet.decoder.2.film.bias",
+      "mean.unet.decoder.3.film.weight",
+      "mean.unet.decoder.3.film.bias"
+    ],
+    "trend_reference": [
+      0.6789846477850116,
+      3.317896699903652
+    ],
+    "source_groups": [
+      1913,
+      4388
+    ],
+    "fixed_window_excess_reference": [
+      0.47619976919793133,
+      2.4051273379125435
+    ],
+    "fixed_memory_prefix_equal": true,
+    "NAS_file_IO_checks": false,
+    "NAS_file_hash_verification": false
+  },
+  "progress": {
+    "stage": "mean_condition_path_and_TRAIN_memory_ready",
+    "UTC": "2026-10-21T08:14:47.014637+00:00",
+    "execution_counts": {
+      "checkpoint_loads": 6,
+      "TRAIN_archives_decoded": 1,
+      "PCA_archives_decoded": 1,
+      "old_A_calls": 52,
+      "old_A_rows": 6593,
+      "M0_head_calls": 104,
+      "M0_head_rows": 13186,
+      "REAL_memory_rows": 18948,
+      "repair_checkpoint_loads": 1,
+      "allocated_banks": 102,
+      "shape_standard_normal_values": 827520,
+      "noise005_calls": 102,
+      "noise005_rows": 103440,
+      "extension_rows": 310320,
+      "response_rows": 103440,
+      "response_calls": 406,
+      "memory_checkpoint_loads": 1
+    },
+    "elapsed_seconds": 22.992714635001903
+  },
+  "optimizer_updates_confirmed_at_progress": 0,
+  "scientific_acceptance": false,
+  "engineering_failures_preserved": [
+    164,
+    165
+  ]
+}

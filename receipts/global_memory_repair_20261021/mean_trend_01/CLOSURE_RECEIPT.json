@@ -1,0 +1,19 @@
+{
+  "status": "ENGINEERING_FAILURE_BEFORE_MEMORY_AND_OPTIMIZER",
+  "UTC": "2026-10-21T07:58:17.161431+00:00",
+  "native_exit_code": 1,
+  "actual_execution_counts": {
+    "checkpoint_loads": 6,
+    "TRAIN_archives_decoded": 1,
+    "PCA_archives_decoded": 1,
+    "old_A_calls": 52,
+    "old_A_rows": 6593,
+    "M0_head_calls": 104,
+    "M0_head_rows": 13186
+  },
+  "optimizer_updates": 0,
+  "cause": "Nested REAL observation flags stayed on CPU while other observables moved to CUDA.",
+  "fix": "Explicitly transfer the existing flags dictionary to the same device, as in run_global_memory01.py.",
+  "scientific_parameters_changed": false,
+  "scientific_acceptance": false
+}

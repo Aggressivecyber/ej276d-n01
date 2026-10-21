@@ -1,0 +1,54 @@
+{
+  "status": "ENGINEERING_FAILURE_AT_INITIAL_IDENTITY_BEFORE_OPTIMIZER",
+  "UTC": "2026-10-21T08:14:21.288642+00:00",
+  "native_exit_code": 1,
+  "actual_execution_counts": {
+    "checkpoint_loads": 6,
+    "TRAIN_archives_decoded": 1,
+    "PCA_archives_decoded": 1,
+    "old_A_calls": 52,
+    "old_A_rows": 6593,
+    "M0_head_calls": 104,
+    "M0_head_rows": 13186,
+    "REAL_memory_rows": 18948,
+    "repair_checkpoint_loads": 1
+  },
+  "optimizer_updates": 0,
+  "cause": "Recomputed conditioned U-Net differs numerically from frozen cached decoding despite identical inputs;64-row max discrepancy0.000586622V and128-row0.000177189V.",
+  "fix": "Zero-start function difference M_inherited+qbar*(U_train-U_initial), evaluated with the same parent microbatches. GPU synthetic identity0 and adjoint error8.94e-8; original baseline unchanged.",
+  "scientific_parameters_changed": false,
+  "scientific_acceptance": false,
+  "identity_diagnostic": {
+    "64": {
+      "max_abs_V": 0.0005866220888759016,
+      "RMS_V": 5.507645699302089e-06
+    },
+    "128": {
+      "max_abs_V": 0.00017718850539227837,
+      "RMS_V": 8.000173364150957e-07
+    },
+    "inputs": {
+      "features_max": 0.0,
+      "scalars_max": 0.0,
+      "cached_decoded_max": 0.0036774277687072754
+    },
+    "replayed_original_scalars": {
+      "max_abs_V": 6.795800195035645e-06
+    },
+    "execution_counts": {
+      "checkpoint_loads": 6,
+      "TRAIN_archives_decoded": 1,
+      "PCA_archives_decoded": 1,
+      "old_A_calls": 52,
+      "old_A_rows": 6593,
+      "M0_head_calls": 104,
+      "M0_head_rows": 13186,
+      "repair_checkpoint_loads": 1
+    },
+    "conditioned_mean_rows": 13058,
+    "extra_baseline_rows": 128,
+    "optimizer_updates": 0,
+    "NAS_file_IO_checks": false,
+    "NAS_file_hash_verification": false
+  }
+}
