@@ -1,0 +1,148 @@
+{
+  "status": "COMPLETE_REGISTERED_NATIVE_DIRECTION_SET_HAS_ONLY_ZERO_FEASIBLE_COMBINATION",
+  "UTC": "2026-10-21T19:45:02.679061+00:00",
+  "job_number": 168,
+  "job_id": "N01_MEAN_TREND_LOCAL_RECOVERY01_20261022",
+  "native_exit_code": 0,
+  "started_UTC": "2026-10-21T19:31:08.269727+00:00",
+  "ended_UTC": "2026-10-21T19:32:28.313887+00:00",
+  "elapsed_seconds": 78.17516966600033,
+  "actual_execution_counts": {
+    "checkpoint_loads": 6,
+    "TRAIN_archives_decoded": 1,
+    "PCA_archives_decoded": 1,
+    "old_A_calls": 52,
+    "old_A_rows": 6593,
+    "M0_head_calls": 104,
+    "M0_head_rows": 13186,
+    "REAL_memory_rows": 18948,
+    "repair_checkpoint_loads": 1,
+    "allocated_banks": 306,
+    "shape_standard_normal_values": 4965120,
+    "noise005_calls": 306,
+    "noise005_rows": 620640,
+    "extension_rows": 1861920,
+    "response_rows": 2586000,
+    "response_calls": 10132,
+    "memory_checkpoint_loads": 1,
+    "STE_rows": 103440,
+    "adjoint_microblocks": 406,
+    "mean_adjoint_rows": 64650,
+    "conditioned_mean_rows": 100303,
+    "optimizer_directions": 1,
+    "native_secant_probes": 10
+  },
+  "optimizer_directions": 1,
+  "native_secant_probes": 10,
+  "joint_hard_trials": 0,
+  "committed_optimizer_updates": 0,
+  "inherited_updates": 10,
+  "zero_ADC0_gradient_omitted_from_probe_set": true,
+  "peak_rss_bytes": 4916588544,
+  "peak_GPU_reserved_bytes": 2755657728,
+  "all_registered_budgets_respected": true,
+  "endpoint_equals_inherited": true,
+  "endpoint_array_equality": {
+    "Q": true,
+    "PSD_raw": true
+  },
+  "failed_checks": [
+    "new_update",
+    "Q_wave_improves",
+    "curvature_each_halved",
+    "comb_excess_each_halved"
+  ],
+  "trend_relative": [
+    1.0,
+    1.0
+  ],
+  "fixed_window_excess": [
+    0.47619976919793133,
+    2.4051273379125435
+  ],
+  "fixed_window_excess_reference": [
+    0.47619976919793133,
+    2.4051273379125435
+  ],
+  "scientific_acceptance": false,
+  "REPORT_evaluation_started": false,
+  "report_rows_used_for_training": 0,
+  "finite_direction_certificate": {
+    "ADC0_baseline": 0.0,
+    "ADC0_allowance": 0.0,
+    "positive_ADC0_directions_forced_to_zero": [
+      "Q_wave",
+      "Q_wave_L16_04",
+      "Q_wave_L64_26"
+    ],
+    "remaining_directions_all_increase_cell": "Q_wave_L64_05",
+    "remaining_smallest_cell_increase": 0.000498615107154432,
+    "columns": [
+      {
+        "direction": "Adam_objective",
+        "ADC0_change": 0.0,
+        "Q_wave_L64_05_change": 0.0008343821688631681
+      },
+      {
+        "direction": "wave",
+        "ADC0_change": 0.0,
+        "Q_wave_L64_05_change": 0.01483651442518269
+      },
+      {
+        "direction": "Q_wave",
+        "ADC0_change": 0.003276169250267502,
+        "Q_wave_L64_05_change": 0.01805292477619358
+      },
+      {
+        "direction": "trend",
+        "ADC0_change": 0.0,
+        "Q_wave_L64_05_change": 0.000498615107154432
+      },
+      {
+        "direction": "Q_wave_L16_04",
+        "ADC0_change": 0.00032844366375130434,
+        "Q_wave_L64_05_change": -0.012140617416283306
+      },
+      {
+        "direction": "Q_wave_L64_26",
+        "ADC0_change": 0.2769710562615475,
+        "Q_wave_L64_05_change": 0.012981966948874157
+      },
+      {
+        "direction": "Q_wave_L16_13",
+        "ADC0_change": 0.0,
+        "Q_wave_L64_05_change": 0.004727605728822137
+      },
+      {
+        "direction": "Q_wave_L32_24",
+        "ADC0_change": 0.0,
+        "Q_wave_L64_05_change": 0.0029003582528430716
+      },
+      {
+        "direction": "Q_wave_L16_12",
+        "ADC0_change": 0.0,
+        "Q_wave_L64_05_change": 0.004933601055866932
+      },
+      {
+        "direction": "ADC1",
+        "ADC0_change": 0.0,
+        "Q_wave_L64_05_change": 0.0006668441014971993
+      }
+    ],
+    "proof": "Nonnegative weights with zero ADC0 allowance force every strictly positive ADC0 column weight to0. All remaining columns strictly increase Q_wave_L64_05, whose allowance is0; hence every remaining weight is0."
+  },
+  "figures": "deliverables/global_memory_repair_20261021/mean_trend_local_recovery01",
+  "visual_QA": "receipts/global_memory_repair_20261021/mean_trend_local_recovery01/VISUAL_QA.json",
+  "current_scientific_jobs": 0,
+  "followup_automation_deleted": true,
+  "automatic_budget_extension": false,
+  "next_action": "Next design prepared, not registered: construct a single parameter-space feasible direction using gradients of all92 supported conditional-wave cells together with the existing global, trend and ADC constraints; validate any resulting direction with original hard readout before accepting. No more hand-added probes or automatic extension ofjob168; preserve the unchanged endpoint gates.",
+  "inference_limit": "This certificate applies to the10 measured directions at radius0.05, not every possible model update.",
+  "NAS_file_IO_checks": false,
+  "NAS_file_hash_verification": false,
+  "saved_matrix_ADC0_counterfactual_maximum_weight": 0,
+  "ADC0_alone_not_sufficient_explanation": true,
+  "next_design_registered": false,
+  "next_design_executed": false,
+  "additional_analysis_model_calls": 0
+}
