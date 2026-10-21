@@ -1,0 +1,137 @@
+{
+  "frozen_setup_config": "/mnt/MiNas/GAN/research/N01/server_runs/joint_response01_recentered_derivative_diagnostic_20261020/configs/response038_20261017.json",
+  "roles_file": "/mnt/MiNas/GAN/research/N01/server_runs/joint_response01_recentered_derivative_diagnostic_20261020/diagnostic_inputs/REAL_CALIBRATION_ROLES.npz",
+  "candidate_arrays": [
+    "/mnt/MiNas/GAN/research/N01/server_runs/joint_response01_recentered_restoration_solve_fix01_20261020/run_01/seed0_RECENTERED_RESTORATION.npz",
+    "/mnt/MiNas/GAN/research/N01/server_runs/joint_response01_recentered_restoration_solve_fix01_20261020/run_01/seed1_RECENTERED_RESTORATION.npz"
+  ],
+  "parent_chunk": 128,
+  "micro_rows": 256,
+  "hypothesis": "fast",
+  "primary_seed_head": 0,
+  "draws_per_parent": 8,
+  "bank_seed": 2026102100,
+  "identity_tolerance_V": 1e-07,
+  "memory": {
+    "levels": [
+      16,
+      32,
+      64
+    ],
+    "thresholds": 128,
+    "feature_seed": 2026102107,
+    "conditional_wave_min_count": 56
+  },
+  "learning_rates": {
+    "response": 0.002,
+    "mean": 0.0002
+  },
+  "optimizer": {
+    "direction_attempts_per_arm": 1,
+    "step_scales": [
+      1.0,
+      0.5,
+      0.25
+    ],
+    "stop_consecutive_rejections": 1,
+    "per_step_guards": {
+      "Q_mass": 1.005,
+      "block_wave": 1.0,
+      "block_peak_codes": 1.01
+    },
+    "acceptance": "Existing Q/wave/peak/PSD/ADC guards plus nonincrease of every supported conditional-wave cell and strict total Q-wave risk improvement.",
+    "failed_trial": "Restore parameters; if no trial passes also restore Adam state."
+  },
+  "replay_checkpoint": "/home/rylan/projects/ej276d-n01/global_memory_joint_local_20261021/run_01/B_CURRENT.pt",
+  "replay_memory": "/home/rylan/projects/ej276d-n01/global_memory_joint_local_20261021/run_01/TRAIN_DISTRIBUTION_MEMORY.pt",
+  "replay_steps": "/home/rylan/projects/ej276d-n01/global_memory_joint_local_20261021/run_01/TRAINING_STEPS.jsonl",
+  "replay_accepted_updates": 10,
+  "replay_direction_iteration": 12,
+  "peak_selection_gradient": true,
+  "gradient_rule": "Hard ADC/argmax/crop values remain bitwise exact. Add derivative of softmax over32 search codes at one-ADC-code temperature, times detached candidate windows. Existing selected-value derivative retained once.",
+  "temperature_codes": 1.0,
+  "temperature_search": false,
+  "endpoint_draws": 32,
+  "endpoint_decision": "Fresh two-bank32 primary PSD CDF improves >=10%, Q mass/wave/peak no worse by2%, flags do not increase. This is pilot advancement only, not original scientific acceptance.",
+  "schema": "n01/global-memory-conditional-wave-probe/v1",
+  "job_id": "GLOBAL_MEMORY_CONDITIONAL_WAVE_PROBE_20261021",
+  "mode": "joint_secant_pilot",
+  "registered_UTC": "2026-10-21T07:05:45.754444+00:00",
+  "authorization": "2026-10-21 user accepted the explained conditional waveform memory and one bounded direction check.",
+  "endpoint_seed": 2136102100,
+  "endpoint_archive": "/home/rylan/projects/ej276d-n01/global_memory_conditional_wave_20261021/run_01/ENDPOINT_SCALARS.npz",
+  "operation_budget": {
+    "response_rows": 2482560,
+    "optimizer_directions": 1,
+    "committed_optimizer_updates": 1,
+    "native_secant_probes": 5,
+    "joint_hard_trials": 3,
+    "continuous_ADC_gradient_pairs": 1,
+    "new_global_gradient_pairs": 1,
+    "derivation": "103440 rows per two-bank8 pair:1 original normalization +2 gradient passes +1 ADC-gradient pass +5 probes +3 trials +12 endpoint pairs(original,inherited,new; two-bank32) =24*103440."
+  },
+  "resources": {
+    "CPU_threads": 4,
+    "GPU_GiB": 4,
+    "RSS_GiB": 12,
+    "internal_seconds": 600,
+    "hard_wall_seconds": 660,
+    "GPU_free_required_MiB": 6144
+  },
+  "storage": {
+    "remote_root": "/home/rylan/projects/ej276d-n01/global_memory_conditional_wave_20261021",
+    "archival_policy": "Active compute checkpoint and endpoint scalars needed for immediate analysis; no NAS probes or duplicate large backups."
+  },
+  "initialize_from": "Frozen job158 B with10 cumulative accepted updates; new Adam moments and new conditional objective gradients.",
+  "joint_rule": {
+    "basis": [
+      "aligned_positive_tangent",
+      "positive_wave_descent",
+      "conditional_wave_descent",
+      "ADC_bank0_descent",
+      "ADC_bank1_descent"
+    ],
+    "secants": "Single radius0.05 from existing local method; measured native probes. No radius sweep.",
+    "solver": "Same linear program in convex hull of zero and at most5 native directions; append supported-cell nonincrease constraints.",
+    "constraints": "Q_mass <=+0.5%, waveform <=0%, peak_codes <=+1%; PSD_CDF and each-bank continuous ADC margin risk nonincreasing.",
+    "ADC_margin": "Mean per-row squared positive rail proximity in ADC codes; margin starts one code inside both physical rails, using actual pre-ADC min/max over384 samples.",
+    "validation": "Hard evaluate combination at scales1,.5,.25; commit only if original guards, all flag counts, continuous rail risk, strict PSD improvement and strict total objective decrease pass.",
+    "optimizer": "Reset Adam moments because objective changed; retain moments only if the single combined update commits.",
+    "limitation": "Native secants are local approximations, not guarantees across peak jumps; hard evaluation is decisive.",
+    "ADC_directions": "Exact gradient of continuous pre-ADC margin risk for each TRAIN bank separately, mapped through original diagonal lr-squared metric and normalized to wave-direction metric norm. Omit exactly-zero hinge gradients.",
+    "trust_region": "No adaptation: one registered direction.",
+    "why": "Saved population audit found opposing global wave contributions. This probe tests explicit local-Q waveform supervision and guards."
+  },
+  "stop_rule": "Exactly one direction attempt, at most5 native basis probes and3 combined hard trials; at most1 committed update. Stop regardless of result; no appended steps or sweep.",
+  "endpoint_streams_used_for_selection": false,
+  "endpoint_thresholds_unchanged": true,
+  "report_role_rows_used_for_training": 0,
+  "representation_changes": false,
+  "scientific_acceptance": false,
+  "NAS_file_IO_checks": false,
+  "NAS_file_hash_verification": false,
+  "measured_budget_basis": {
+    "prior_job": 158,
+    "prior_rows": 9930240,
+    "prior_seconds": 256.295,
+    "expected_seconds": 90,
+    "conservative_seconds": 150,
+    "basis": "At most2.483M rows with one extra waveform backward and conditional moments; reestimate from actual launch progress."
+  },
+  "initial_secant_radius": 0.05,
+  "adaptive_secant_radius": false,
+  "ADC_descent_basis": true,
+  "direction_seed": 2126102100,
+  "conditional_wave_contract": {
+    "features": "Existing56 waveform features from raw256, amplitude-normalized256 and normalized first differences; standardized by fixed REAL FIT global feature mean and variance.",
+    "target": "m_k = mean_REAL[a_k(Q) * standardized_wave_features]. Old16/32/64 soft-Q partitions and all18948 REAL FIT rows.",
+    "objective": "Sum over levels and all cells of ||m_generated-m_REAL||^2/(3*56*max(REAL_mass,56/18948)); independent-bank cross product for training.",
+    "normalization": "Append one block normalized once from original A0 under the original TRAIN normalization banks. Old target/weights prefix must remain bitwise identical.",
+    "cell_guard": "Mean squared joint moment residual divided by max(REAL_mass,56/18948)^2; every supported cell nonincreasing within the fixed direction banks.",
+    "supported": "Both REAL soft mass*18948 and effective sample count (sum weights)^2/sum(weights^2) >=56, the feature count. This is a declared engineering support rule, not a statistical confidence bound.",
+    "sparse": "All cells and all rows remain in objective; mass denominator capped below at56/18948. Unsupported cells reported without individual hard constraints.",
+    "final_check": "On independent two-bank32: unchanged original pilot gates; Q-wave strictly improves vs inherited B and every supported cell <=1.02 times inherited risk. At least one committed update required.",
+    "limitations": "Joint distribution control in observed Q, not eventwise SOURCE-REAL pairing, source-population invariance, calibrated energy, temporal memory, or future-acquisition validation.",
+    "report_rows_used": 0
+  }
+}

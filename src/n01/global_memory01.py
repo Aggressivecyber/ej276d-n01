@@ -69,7 +69,7 @@ class GlobalDistributionMemory01:
     """Joint local-Q masses/CDFs; all population rows retain their weight."""
 
     def __init__(self, real, *, q_floor, levels=(16, 32, 64), thresholds=128,
-                 feature_seed=2026102107):
+                 feature_seed=2026102107, conditional_wave_min_count=None):
         self.q_floor = float(q_floor)
         self.levels = tuple(levels)
         self.threshold_count = thresholds
@@ -87,6 +87,19 @@ class GlobalDistributionMemory01:
             self.thresholds.append(torch.linspace(*bounds, thresholds,
                                                  device=u.device, dtype=u.dtype))
         self.joint = JointFeatureMap01(observable_blocks(real), seed=feature_seed)
+        self.conditional_wave_min_count = conditional_wave_min_count
+        if conditional_wave_min_count is not None:
+            wave = self.joint.block_slices['wave']
+            self.wave_center = self.joint.training_mean[wave].detach()
+            self.wave_scale = self.joint.cholesky.square().sum(1)[wave].sqrt().detach()
+            local = [(-.5 * ((u[:, None] - c) / (c[1] - c[0])).square()).softmax(1)
+                     for c in self.centers]
+            self.wave_mass = torch.cat([a.mean(0) for a in local]).detach()
+            self.wave_count = self.wave_mass * len(u)
+            self.wave_effective_count = torch.cat([a.sum(0).square() / a.square().sum(0) for a in local]).detach()
+            self.wave_denominator = self.wave_mass.clamp_min(conditional_wave_min_count / len(u))
+            self.wave_supported = (self.wave_count >= conditional_wave_min_count) & (self.wave_effective_count >= conditional_wave_min_count)
+            self.wave_cell_names = [f'Q_wave_L{k}_{j:02d}' for k in levels for j in range(k)]
         self.sections, pieces, at = {}, [], 0
         for name, lengths, weights in (
             ('Q_mass', list(levels), [k / len(levels) for k in levels]),
@@ -101,6 +114,9 @@ class GlobalDistributionMemory01:
             for length, weight in zip(lengths, weights):
                 pieces.append(u.new_full((length,), weight))
             at += sum(lengths)
+        if conditional_wave_min_count is not None:
+            self.sections['Q_wave'] = slice(at, at + sum(levels) * 56)
+            pieces.append((1. / (len(levels) * 56 * self.wave_denominator))[:, None].expand(-1, 56).flatten())
         self.weights = torch.cat(pieces)
         self.target = self.mean(real).detach()
         self.normalization = {name: 1. for name in self.sections}
@@ -127,6 +143,9 @@ class GlobalDistributionMemory01:
         # Linear whitening permits exact streaming sums and cross-bank gradients.
         features = self.joint.features(observable_blocks(obs))
         parts.append(self.joint.whiten(features.sum(0)))
+        if self.conditional_wave_min_count is not None:
+            wave = (features[:, self.joint.block_slices['wave']] - self.wave_center) / self.wave_scale
+            parts.extend((a.T @ wave).flatten() for a in local)
         return torch.cat(parts)
 
     def mean(self, obs):
@@ -174,8 +193,28 @@ class GlobalDistributionMemory01:
         coefficient[native] = lower[wave].T @ (raw[wave] / variance / len(variance))
         return coefficient.detach(), coefficient.detach()
 
+    def conditional_wave_coefficients(self, a, b):
+        """Two-bank-mean Q-wave risk derivative, with fixed TRAIN scales."""
+        coefficient = torch.zeros_like(self.target)
+        s = self.sections['Q_wave']
+        coefficient[s] = self.weights[s] * ((a + b) / 2 - self.target)[s]
+        return coefficient.detach(), coefficient.detach()
+
+    def conditional_wave_risks(self, a, b):
+        """Joint moment errors scaled by fixed REAL mass; no generated-mass division."""
+        residual = ((a + b) / 2 - self.target)[self.sections['Q_wave']].reshape(-1, 56)
+        return (residual / self.wave_denominator[:, None]).square().mean(1)
+
+    def conditional_wave_summary(self):
+        return dict(min_count=self.conditional_wave_min_count, names=self.wave_cell_names,
+                    REAL_soft_count=self.wave_count.cpu().tolist(),
+                    REAL_effective_count=self.wave_effective_count.cpu().tolist(),
+                    supported=self.wave_supported.cpu().tolist(),
+                    denominator=self.wave_denominator.cpu().tolist(),
+                    all_cells_in_objective=True, report_rows_used=0)
+
     def export(self):
-        return dict(q_floor=self.q_floor, q_ref=self.q_ref.cpu(), tail_ref=self.tail_ref.cpu(),
+        result = dict(q_floor=self.q_floor, q_ref=self.q_ref.cpu(), tail_ref=self.tail_ref.cpu(),
                     levels=self.levels, thresholds=[v.cpu() for v in self.thresholds],
                     centers=[v.cpu() for v in self.centers], target=self.target.cpu(),
                     weights=self.weights.cpu(), normalization=self.normalization,
@@ -183,6 +222,10 @@ class GlobalDistributionMemory01:
                     joint_scale={k: v.cpu() for k, v in self.joint.scale.items()},
                     joint_projections={k: v.cpu() for k, v in self.joint.projections.items()},
                     joint_cholesky=self.joint.cholesky.cpu())
+        if self.conditional_wave_min_count is not None:
+            result.update(conditional_wave=self.conditional_wave_summary(),
+                          wave_center=self.wave_center.cpu(), wave_scale=self.wave_scale.cpu())
+        return result
 
 
 class MeanHeadRepair01(nn.Module):

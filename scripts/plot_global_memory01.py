@@ -19,6 +19,8 @@ with np.load(args.arrays, allow_pickle=False) as archive:
     data = {key: archive[key].copy() for key in archive.files}
 result = json.loads(args.result.read_bytes())
 labels = list(result['endpoint'])
+if 'inherited' in labels:
+    labels = ['initial', 'inherited', 'B']
 groups = {'REAL': (data['real_Q'], data['real_PSD_raw'])}
 for label in labels:
     groups[label] = (data[f'{label}_bank0_Q'], data[f'{label}_bank0_PSD_raw'])
@@ -35,6 +37,8 @@ if 'A' not in labels:
     titles['B'] = 'B · 全域目标 + 波形方向约束'
 if result['mode'] == 'joint_secant_pilot':
     titles['B'] = 'B · 联合 Q / 波形 / ADC 约束'
+if 'inherited' in labels:
+    titles.update(inherited='上一轮 B · 累计 10 次更新', B='条件波形记忆 · 本轮端点')
 audit = dict(populations=rows, actual_Q_range=list(map(float, qrange)),
              actual_PSD_range=list(map(float, prange)), hypothesis='fast', seed_head=0,
              draws_per_parent=32, inference_bank='independent endpoint bank0',

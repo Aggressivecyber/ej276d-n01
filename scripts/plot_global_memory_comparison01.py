@@ -22,14 +22,18 @@ series = {
 }
 if args.latest:
     latest = json.loads(args.latest.read_bytes())
-    series['本轮 B · 联合约束'] = latest['models']['B']['64']
+    if 'inherited' in latest['models']:
+        series['上一轮 B · 联合约束'] = latest['models']['inherited']['64']
+        series['本轮 B · 条件波形记忆'] = latest['models']['B']['64']
+    else:
+        series['本轮 B · 联合约束'] = latest['models']['B']['64']
 initial = series['修复前']['cells']
 centers = np.array([(c['Q_left'] + c['Q_right']) / 2 for c in initial])
 assert all([c['Q_left'] for c in entry['cells']] == [c['Q_left'] for c in initial]
            for entry in series.values())
 plt.rcParams.update({'font.family': ['Microsoft YaHei', 'DejaVu Sans'], 'font.size': 12})
 fig, axes = plt.subplots(3, 1, figsize=(14, 10), sharex=True, layout='constrained')
-colors = ['#686868', '#4575b4', '#d55e00', '#009e73', '#8e44ad']
+colors = ['#686868', '#4575b4', '#d55e00', '#009e73', '#8e44ad', '#c68d00']
 axes[1].plot(centers, np.array([c['real_rows'] for c in initial]) / 18948,
              color='black', lw=2, label='REAL · 合法 FIT')
 for (name, entry), color in zip(series.items(), colors):

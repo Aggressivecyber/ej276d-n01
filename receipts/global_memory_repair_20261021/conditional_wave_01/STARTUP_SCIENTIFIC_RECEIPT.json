@@ -1,0 +1,70 @@
+{
+  "status": "STARTED_WITH_REAL_DATA_AND_SAVED_MODEL",
+  "UTC": "2026-10-21T07:07:08.669566+00:00",
+  "job_number": 162,
+  "boot_id": "27872225-1e36-4b9b-be8e-95126377b406",
+  "launch": {
+    "supervisor_pid": 164593,
+    "child_pid": 164600,
+    "command": [
+      "timeout",
+      "--signal=TERM",
+      "--kill-after=20s",
+      "660s",
+      "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+      "-B",
+      "/home/rylan/projects/ej276d-n01/global_memory_conditional_wave_20261021/scripts/run_global_memory01.py",
+      "--config",
+      "/home/rylan/projects/ej276d-n01/global_memory_conditional_wave_20261021/configs/global_memory_conditional_wave_20261021.json",
+      "--config-sha256",
+      "aedbec2f2eb0f673c5e441aeae9f7ea1d8125730cfef1c7df73639cb12d041c7",
+      "--out",
+      "/home/rylan/projects/ej276d-n01/global_memory_conditional_wave_20261021/run_01",
+      "--device",
+      "cuda:0"
+    ],
+    "started_utc": "2026-10-21T07:06:08.783788+00:00"
+  },
+  "bindings": {
+    "source_fit_rows": 6465,
+    "real_fit_rows": 18948,
+    "report_rows_used_for_memory": 0,
+    "q_floor": 0.0005319378913383611,
+    "copied_mean_identity_max_V": 1.1102230246251565e-16,
+    "hypothesis": "fast",
+    "seed_head": 0,
+    "trainable_parameters": {
+      "A": 53,
+      "B": 247
+    },
+    "NAS_file_IO_checks": false,
+    "NAS_file_hash_verification": false
+  },
+  "progress": {
+    "stage": "saved_endpoint_loaded_without_optimizer",
+    "UTC": "2026-10-21T07:06:32.605875+00:00",
+    "execution_counts": {
+      "checkpoint_loads": 6,
+      "TRAIN_archives_decoded": 1,
+      "PCA_archives_decoded": 1,
+      "old_A_calls": 52,
+      "old_A_rows": 6593,
+      "M0_head_calls": 104,
+      "M0_head_rows": 13186,
+      "REAL_memory_rows": 18948,
+      "allocated_banks": 102,
+      "shape_standard_normal_values": 827520,
+      "noise005_calls": 102,
+      "noise005_rows": 103440,
+      "extension_rows": 310320,
+      "response_calls": 406,
+      "response_rows": 103440,
+      "hard_observation_rows": 103440,
+      "repair_checkpoint_loads": 1,
+      "memory_checkpoint_loads": 1
+    }
+  },
+  "inherited_updates": 10,
+  "new_committed_updates": 0,
+  "scientific_acceptance": false
+}

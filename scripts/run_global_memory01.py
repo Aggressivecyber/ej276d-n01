@@ -33,6 +33,7 @@ def main():
     parser.add_argument('--device', default='cuda:0')
     args = parser.parse_args()
     p = json.loads(args.config.read_bytes())
+    conditional_wave = p['memory'].get('conditional_wave_min_count') is not None
     args.out.mkdir(parents=True, exist_ok=False)
     counts, started = Counter(), time.monotonic()
     torch.set_num_threads(p['resources']['CPU_threads'])
@@ -128,6 +129,9 @@ def main():
             if diagnose_guard:
                 positive_coefficients = memory.positive_wave_coefficients(*means)
                 positive_gradient = [torch.zeros_like(v) for v in parameters]
+                if conditional_wave:
+                    local_coefficients = memory.conditional_wave_coefficients(*means)
+                    local_gradient = [torch.zeros_like(v) for v in parameters]
         for bank_index, (bank, coefficient) in enumerate(zip(paired, coefficients)):
             count = sum(len(b['rows']) for b in bank)
             for b in bank:
@@ -144,10 +148,16 @@ def main():
                             wave_accumulator.add_(wv)
                         counts['wave_gradient_microblocks'] += 1
                         if diagnose_guard:
-                            pg = torch.autograd.grad((positive_coefficients[bank_index] * features).sum(), parameters)
+                            pg = torch.autograd.grad((positive_coefficients[bank_index] * features).sum(), parameters,
+                                                     retain_graph=conditional_wave)
                             for accumulator, gv in zip(positive_gradient, pg):
                                 accumulator.add_(gv)
                             counts['positive_wave_gradient_microblocks'] += 1
+                            if conditional_wave:
+                                cg = torch.autograd.grad((local_coefficients[bank_index] * features).sum(), parameters)
+                                for accumulator, gv in zip(local_gradient, cg):
+                                    accumulator.add_(gv)
+                                counts['conditional_wave_gradient_microblocks'] += 1
                     else:
                         loss.backward()
                     counts['backward_microblocks'] += 1
@@ -157,6 +167,8 @@ def main():
             model.wave_gradient = wave_gradient
             if diagnose_guard:
                 model.positive_wave_gradient = positive_gradient
+                if conditional_wave:
+                    model.conditional_wave_gradient = local_gradient
         torch.cuda.synchronize()
         return means, flags, time.monotonic() - stamp
 
@@ -171,6 +183,8 @@ def main():
         variance = memory.joint.cholesky.square().sum(1)
         for name, selected in memory.joint.block_slices.items():
             result['block_' + name] = float((raw[selected].square() / variance[selected]).mean())
+        if conditional_wave:
+            result.update(zip(memory.wave_cell_names, memory.conditional_wave_risks(*means).tolist()))
         return result
 
     try:
@@ -196,6 +210,8 @@ def main():
             real['flags'] = {k: v.to(device) for k, v in real_cpu['flags'].items()}
             counts['REAL_memory_rows'] = len(real_rows)
             memory = GlobalDistributionMemory01(real, q_floor=q_floor, **p['memory'])
+            if conditional_wave:
+                write_json(args.out / 'CONDITIONAL_WAVE_MEMORY.json', memory.conditional_wave_summary())
             encoding, baseline = setup['encoding'], setup['baseline']
             source = encoding['source']
             centered = source - source[:, :100].mean(1, keepdim=True)
@@ -289,8 +305,9 @@ def main():
             models['B'].load_state_dict(saved['model'], strict=True)
             saved_memory = torch.load(p['replay_memory'], map_location=device, weights_only=False)
             counts['memory_checkpoint_loads'] += 1
-            assert torch.equal(memory.target, saved_memory['target'])
-            assert torch.equal(memory.weights, saved_memory['weights'])
+            prefix = len(saved_memory['target'])
+            assert torch.equal(memory.target[:prefix], saved_memory['target'])
+            assert torch.equal(memory.weights[:prefix], saved_memory['weights'])
             accepted = Counter(B=saved['accepted_updates'])
             steps = [json.loads(line) for line in Path(p['replay_steps']).read_text().splitlines()]
             assert len(steps) == saved['direction_iteration']
@@ -435,19 +452,20 @@ def main():
                 optimizer = torch.optim.Adam([
                     {'params': [model.theta], 'lr': p['learning_rates']['response']},
                     {'params': [v for k, v in named if k != 'theta'], 'lr': p['learning_rates']['mean']}])
-                optimizer.load_state_dict(saved['optimizer'])
-                seed_direction = torch.load(p['direction_file'], map_location=device, weights_only=False)
-                counts['diagnostic_direction_loads'] += 1
-                assert [k for k, _ in named] == seed_direction['names']
-                assert all(torch.equal(model.state_dict()[k], v) for k, v in seed_direction['before'].items())
+                if not conditional_wave:
+                    optimizer.load_state_dict(saved['optimizer'])
+                    seed_direction = torch.load(p['direction_file'], map_location=device, weights_only=False)
+                    counts['diagnostic_direction_loads'] += 1
+                    assert [k for k, _ in named] == seed_direction['names']
+                    assert all(torch.equal(model.state_dict()[k], v) for k, v in seed_direction['before'].items())
                 steps, rejected_streak = [], 0
                 radius = p.get('initial_secant_radius', 1.)
                 for iteration in range(p['optimizer']['direction_attempts_per_arm']):
                     del paired
-                    paired = banks(p['draws_per_parent'], p['bank_seed'] + (iteration + 2) * 1000000)
+                    paired = banks(p['draws_per_parent'], p.get('direction_seed', p['bank_seed']) + (iteration + 2) * 1000000)
                     before = copy.deepcopy(model.state_dict())
                     opt_before = copy.deepcopy(optimizer.state_dict())
-                    if iteration == 0:
+                    if iteration == 0 and not conditional_wave:
                         means, old_flags = pair_means(model, paired)
                         elapsed = 0.
                         for (_, value), grad in zip(named, seed_direction['objective_gradient']):
@@ -462,7 +480,7 @@ def main():
                     counts['optimizer_directions'] += 1
                     with torch.no_grad():
                         model.theta.clamp_(-1., 1.)
-                    if iteration > 0:
+                    if iteration > 0 or conditional_wave:
                         delta = [model.state_dict()[k] - before[k] for k, _ in named]
                         grads = model.positive_wave_gradient
                         derivative = sum((g * d).double().sum() for g, d in zip(grads, delta))
@@ -474,6 +492,12 @@ def main():
                                                       for d, s, g in zip(delta, sizes, grads)],
                             positive_wave_descent=[-norm / denominator.sqrt() * s * s * g
                                                    for s, g in zip(sizes, grads)])
+                        if conditional_wave:
+                            grads = model.conditional_wave_gradient
+                            conditional_norm = sum((s * g).double().square().sum() for s, g in zip(sizes, grads)).sqrt()
+                            if float(conditional_norm) > 0.:
+                                directions['conditional_wave_descent'] = [
+                                    -norm / conditional_norm * s * s * g for s, g in zip(sizes, grads)]
                     model.load_state_dict(before)
                     if p.get('ADC_descent_basis', False):
                         # These gradients use continuous pre-ADC carriers, not a
@@ -510,7 +534,11 @@ def main():
                             ADC_margin_risk=model.adc_margin_risks.copy()))
                         counts['native_secant_probes'] += 1
                     model.load_state_dict(before)
-                    guards = p['optimizer']['per_step_guards']
+                    guards = dict(p['optimizer']['per_step_guards'])
+                    if conditional_wave:
+                        guards.update({name: 1. for name, supported in
+                                       zip(memory.wave_cell_names, memory.wave_supported.tolist()) if supported})
+                        guards['Q_wave'] = 1.
                     constraint_names = [*guards, 'PSD_CDF', 'ADC_margin_bank0', 'ADC_margin_bank1']
                     changes = [[v['positive_metrics'][k] - guard_previous[k] for v in probes]
                                for k in (*guards, 'PSD_CDF')]
@@ -541,6 +569,8 @@ def main():
                                 flags_not_increased=all(flags[b][k] <= old_flags[b][k]
                                                         for b in range(2) for k in old_flags[b]),
                                 ADC_margin_not_worse=all(model.adc_margin_risks[b] <= old_rail_risks[b] for b in range(2)))
+                            if conditional_wave:
+                                checks['Q_wave_decreased'] = metrics['Q_wave'] < guard_previous['Q_wave']
                             passed = all(checks.values())
                             trials.append(dict(scale=scale, losses=losses, positive_metrics=metrics,
                                 flags=flags, ADC_margin_risk=model.adc_margin_risks.copy(), checks=checks, accepted=passed))
@@ -562,7 +592,9 @@ def main():
                         else:
                             next_radius = radius * p['optimizer']['step_scales'][-1]
                     record = dict(iteration=iteration + 1, arm='B', gradient_seconds=elapsed,
-                        reused_saved_gradient=iteration == 0, secant_radius=radius, next_secant_radius=next_radius,
+                        reused_saved_gradient=iteration == 0 and not conditional_wave,
+                        optimizer_moments_reset_for_new_objective=conditional_wave,
+                        secant_radius=radius, next_secant_radius=next_radius,
                         previous_losses=previous,
                         previous_metrics=guard_previous, previous_flags=old_flags,
                         previous_ADC_margin_risk=old_rail_risks, probes=probes,
@@ -694,7 +726,12 @@ def main():
                 arrays['real_' + key] = real[key].cpu().numpy()
             endpoint = {}
             with torch.no_grad():
-                for name, model in dict(initial=reference, **models).items():
+                endpoint_models = dict(initial=reference, **models)
+                if conditional_wave:
+                    inherited = copy.deepcopy(models['B'])
+                    inherited.load_state_dict(saved['model'], strict=True)
+                    endpoint_models['inherited'] = inherited
+                for name, model in endpoint_models.items():
                     values, fcounts = [], []
                     for bank_index, bank in enumerate(endpoint_banks):
                         avg, flag, scalar, _ = bank_mean(model, bank, collect=True)
@@ -715,6 +752,15 @@ def main():
                     flags_not_increased=all(endpoint[name]['flags'][b][k] <= endpoint['initial']['flags'][b][k]
                                            for b in range(2) for k in endpoint['initial']['flags'][b]))
                 endpoint[name]['passes_bounded_pilot'] = all(endpoint[name]['pilot_checks'].values())
+                if conditional_wave:
+                    prior_metrics = endpoint['inherited']['positive_metrics']
+                    endpoint[name]['conditional_checks'] = dict(
+                        Q_wave_improved_vs_inherited=metrics['Q_wave'] < prior_metrics['Q_wave'],
+                        supported_cells_not_worse_2pct=all(metrics[k] <= 1.02 * prior_metrics[k]
+                            for k, supported in zip(memory.wave_cell_names, memory.wave_supported.tolist()) if supported))
+                    endpoint[name]['passes_conditional_probe'] = (endpoint[name]['passes_bounded_pilot']
+                        and counts['committed_optimizer_updates'] == 1
+                        and all(endpoint[name]['conditional_checks'].values()))
             archive_path = Path(p['endpoint_archive'])
             # Preserve small endpoint metrics even if the later array write fails.
             write_json(args.out / 'TRAINING_RESULT.json', dict(

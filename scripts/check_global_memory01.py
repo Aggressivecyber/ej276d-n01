@@ -64,6 +64,41 @@ pc_a, pc_b = memory.positive_wave_coefficients(wa, wb)
 coefficient_positive_wave = torch.autograd.grad((pc_a * wa + pc_b * wb).sum(), wave_parameter)[0]
 positive_wave_gradient_error = float((direct_positive_wave - coefficient_positive_wave).abs().max())
 assert positive_wave_gradient_error < 1e-10
+old_memory = memory
+memory = GlobalDistributionMemory01(real, q_floor=.001, levels=(4, 8, 16), thresholds=32,
+                                    conditional_wave_min_count=8)
+prefix = len(old_memory.target)
+assert torch.equal(memory.target[:prefix], old_memory.target)
+assert torch.equal(memory.weights[:prefix], old_memory.weights)
+snapshot = memory.target.clone()
+parameter = a.detach().clone().requires_grad_()
+ma, mb = [feature(parameter, slice(None), z) / 96 for z in (za, zb)]
+direct_local = torch.autograd.grad(sum(memory.losses(ma, mb).values()), parameter, retain_graph=True)[0]
+coefficient_local = memory.conditional_wave_coefficients(ma, mb)
+selection = memory.sections['Q_wave']
+positive_local = (memory.weights[selection] * (((ma + mb) / 2 - memory.target)[selection]).square()).sum()
+direct_positive_local = torch.autograd.grad(positive_local, parameter, retain_graph=True)[0]
+from_coefficients = torch.autograd.grad((coefficient_local[0] * ma + coefficient_local[1] * mb).sum(), parameter)[0]
+conditional_coefficient_error = float((direct_positive_local - from_coefficients).abs().max())
+assert conditional_coefficient_error < 1e-10
+stream = parameter.detach().clone().requires_grad_()
+ca, cb = memory.coefficients(ma.detach(), mb.detach())
+for coeff, z in ((ca, za), (cb, zb)):
+    for start in range(0, 96, 19):
+        (coeff * feature(stream, slice(start, start + 19), z) / 96).sum().backward()
+conditional_stream_error = float((direct_local - stream.grad).abs().max())
+assert conditional_stream_error < 2e-7
+# Reassign Q while preserving every waveform. Global wave features stay the
+# same; joint Q-wave memory must detect the changed association.
+swapped = dict(real, Q=real['Q'].flip(0))
+swapped_mean = memory.mean(swapped)
+raw_delta = memory.joint.cholesky @ (swapped_mean - memory.target)[memory.sections['native_joint']]
+assert float(raw_delta[:56].abs().max()) < 1e-12
+assert float((swapped_mean - memory.target)[selection].abs().max()) > 1e-3
+assert torch.equal(memory.target, snapshot)
+assert bool(memory.wave_supported.any())
+assert bool(torch.isfinite(memory.conditional_wave_risks(ma.detach(), mb.detach())).all())
+memory = old_memory
 low = observe_generated_carrier(torch.zeros(4, 384, dtype=torch.float64),
                                 q_floor=.001, return_carrier=True)
 assert bool(torch.isfinite(memory.sums(low)).all())
@@ -134,6 +169,11 @@ assert model.mean.mean_head.weight.grad.abs().max() > 0
 assert model.mean.mean_time[-1].weight.grad.abs().max() > 0
 assert all(p.grad is None and not p.requires_grad for p in base.parameters())
 result = dict(status='PASS_SYNTHETIC_SEMANTICS', gradient_max_abs_error=gradient_error,
+              conditional_wave_stream_gradient_max_abs_error=conditional_stream_error,
+              conditional_wave_coefficient_max_abs_error=conditional_coefficient_error,
+              existing_memory_prefix_bitwise_unchanged=True,
+              Q_wave_association_detected_with_global_wave_unchanged=True,
+              conditional_target_frozen_after_generated_observations=True,
               wave_coefficient_gradient_max_abs_error=wave_gradient_error,
               positive_wave_coefficient_gradient_max_abs_error=positive_wave_gradient_error,
               fixed_transform_peak_identity_max_V=fixed_peak_identity,
