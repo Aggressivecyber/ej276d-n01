@@ -1,7 +1,7 @@
 {
   "experiment_id": "N01",
-  "updated_UTC": "2026-10-21T21:31:39.255589+00:00",
-  "active_scientific_jobs": 1,
+  "updated_UTC": "2026-10-21T21:50:43.463746+00:00",
+  "active_scientific_jobs": null,
   "jobs": [
     {
       "job_id": "N01_RUN_001_20261012",
@@ -25996,7 +25996,7 @@
     },
     {
       "job_id": "N01_CHARGE_SPLINE_COMMON_DESCENT01_20261022",
-      "status": "running_native_four_updates_verified",
+      "status": "remote_unreachable_terminal_collection_pending",
       "registered_UTC": "2026-10-21T21:29:12.387684+00:00",
       "config": "configs/charge_spline_common_descent01_20261022.json",
       "config_sha256": "a76639406d3b9cd359d01c849d41b4071d84b775e68a9a4d31016cfe5998fef0",
@@ -26067,7 +26067,11 @@
         "optimizer_updates": 4
       },
       "startup_receipt": "receipts/global_memory_repair_20261021/charge_spline_common_descent01/startup/STARTUP_SCIENTIFIC_RECEIPT.json",
-      "wake_receipt": "receipts/global_memory_repair_20261021/charge_spline_common_descent01/WAKE_RECEIPT.json"
+      "wake_receipt": "receipts/global_memory_repair_20261021/charge_spline_common_descent01/WAKE_RECEIPT.json",
+      "remote_process_state": "unknown",
+      "terminal_result_available": false,
+      "connectivity_receipt": "receipts/global_memory_repair_20261021/charge_spline_common_descent01/CONNECTIVITY_RECEIPT.json",
+      "last_connectivity_check_UTC": "2026-10-21T21:50:43.463746+00:00"
     }
   ],
   "user_requested_pause": false,
@@ -26095,9 +26099,9 @@
     "weights_promoted": false,
     "scientific_acceptance": false
   },
-  "followup_automation_id": "n01",
-  "followup_automation_status": "ACTIVE",
-  "followup_next_run_local": "2026-10-22T05:44:00+08:00",
+  "followup_automation_id": null,
+  "followup_automation_status": "DELETED",
+  "followup_next_run_local": null,
   "followup_receipt": "receipts/global_memory_repair_20261021/charge_spline_common_descent01/WAKE_RECEIPT.json",
   "followup_receipt_sha256": "deab2e159f9c1f8766331191d8edc0d8fe2495f24f4233eca718ea475b2b67c9",
   "followup_last_delivered_UTC": "2026-10-19T22:43:10.010Z",
@@ -26124,9 +26128,9 @@
     "bytes": 83119,
     "sha256": "b24f3bb1e5644fc8db29b2db1b3b82b05a8793248b7c99af81b23fb4dc3d1e24"
   },
-  "status": "N01_CHARGE_SPLINE_common_descent_running",
+  "status": "N01_CHARGE_SPLINE_remote_unreachable_result_pending",
   "current_action": "Job170 running; exact24-step checkpoint and Adam state restored,12 new updates verified at20:54:07 UTC,36 cumulative candidate updates. Scientific acceptance not established.",
-  "next_action": "At estimated05:44 single wake collect fixed common-descent terminal result, compare five independent endpoint arms, render and apply unchanged FIT gates before REPORT. Continue evidence-backed work; stop this stage on its first failed finite step.",
+  "next_action": "After server connectivity is restored, first re-identify boot and processes and collect the existing job172 terminal artifacts. Do not dispatch another science job, restart or extend this stage before reconciling its result. Preserve original FIT gates and REPORT boundary.",
   "latest_user_review_direction": {
     "path": "receipts/review_017_20261016/ACCEPTED_NEXT_ACTIONS.json",
     "bytes": 3271,
@@ -40003,18 +40007,18 @@
   "pause_reason": null,
   "automatic_restart": false,
   "pending_job_id": null,
-  "followup_status": "SINGLE_ESTIMATED_WAKE_ACTIVE",
+  "followup_status": "NO_TIMER_RECOVERY_ETA_UNKNOWN",
   "pause_receipt": "receipts/joint_response_01_20261019/user_pause_20261019/PAUSE_RECEIPT.json",
   "resumed_by_user_notice": true,
   "resume_verified_UTC": "2026-10-19T16:17:28.081783+00:00",
   "server_boot_id_at_resume": "83c9f761-c124-42e1-89b8-5f45f0b3acc4",
   "resume_authorization": "receipts/joint_response_01_20261020/resume_01/RESUME_AUTHORIZATION.json",
-  "execution_state_asof_UTC": "2026-10-21T21:31:39.255589+00:00",
-  "training_pid": 157610,
-  "supervisor_pid": 157606,
+  "execution_state_asof_UTC": "2026-10-21T21:50:43.463746+00:00",
+  "training_pid": null,
+  "supervisor_pid": null,
   "pending_registered_job_id": null,
   "global_memory_repair": {
-    "status": "charge_spline_common_descent_running",
+    "status": "charge_spline_remote_unreachable_result_pending",
     "design": "receipts\\global_memory_repair_20261021\\INTEGRATED_DESIGN.json",
     "config": "configs/charge_spline_common_descent01_20261022.json",
     "config_sha256": "a76639406d3b9cd359d01c849d41b4071d84b775e68a9a4d31016cfe5998fef0",
@@ -40085,7 +40089,7 @@
       "native_step_probes": 4,
       "optimizer_updates": 4
     },
-    "active_scientific_jobs": 1,
+    "active_scientific_jobs": null,
     "automatic_training_continuation": false,
     "continuation_rule": "If first joint feasibility step fails, stop training immediately. Otherwise at most12 total directions, or stop after3 consecutive rejections. No budget extension or threshold relaxation.",
     "joint_secant_closure": "receipts\\global_memory_repair_20261021\\joint_secant_01\\CLOSURE_RECEIPT.json",
@@ -40128,7 +40132,7 @@
     "mean_trend_first_direction_accepted": false,
     "mean_trend_closure": "receipts/global_memory_repair_20261021/mean_trend_fix02/CLOSURE_RECEIPT.json",
     "deployment_pending_receipt": "receipts/global_memory_repair_20261021/mean_trend_local_01/DEPLOYMENT_PENDING_RECEIPT.json",
-    "connectivity_receipt": "receipts/global_memory_repair_20261021/mean_trend_local_01/HOST_RECOVERY_RECEIPT.json",
+    "connectivity_receipt": "receipts/global_memory_repair_20261021/charge_spline_common_descent01/CONNECTIVITY_RECEIPT.json",
     "network_last_observed_UTC": "2026-10-21T17:53:36Z",
     "server_recovery_time": "SSH recovered after reboot; NAS input access unavailable",
     "current_boot_id": "f4955496-53cb-4009-bf24-b93fb8a105a5",
@@ -40151,9 +40155,19 @@
     "charge_spline_step_diagnostic_closure": "receipts/global_memory_repair_20261021/charge_spline_step_diagnostic01/CLOSURE_RECEIPT.json",
     "current_stage_inherited_candidate_updates": 152,
     "historical_joint_local_bounded_pilot_passed": true,
-    "current_endpoint_available": false
+    "current_endpoint_available": false,
+    "unclosed_scientific_jobs": 1,
+    "remote_process_state": "unknown",
+    "terminal_result_available": false,
+    "most_recent_verified_training_updates": 4
   },
   "pending_next_job": null,
   "charge_spline_restoration_closure": "receipts/global_memory_repair_20261021/charge_spline_restoration01/CLOSURE_RECEIPT.json",
-  "charge_spline_step_diagnostic_closure": "receipts/global_memory_repair_20261021/charge_spline_step_diagnostic01/CLOSURE_RECEIPT.json"
+  "charge_spline_step_diagnostic_closure": "receipts/global_memory_repair_20261021/charge_spline_step_diagnostic01/CLOSURE_RECEIPT.json",
+  "unclosed_scientific_jobs": 1,
+  "remote_process_state": "unknown",
+  "last_verified_training_pid": 157610,
+  "last_verified_supervisor_pid": 157606,
+  "last_verified_training_UTC": "2026-10-21T21:31:38.369764+00:00",
+  "connectivity_receipt": "receipts/global_memory_repair_20261021/charge_spline_common_descent01/CONNECTIVITY_RECEIPT.json"
 }
