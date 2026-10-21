@@ -1,0 +1,83 @@
+{
+  "status": "COMPLETE_THREE_NATIVE_DIRECTIONS_REJECTED",
+  "UTC": "2026-10-21T08:43:36.320578+00:00",
+  "native_exit_code": 0,
+  "elapsed_seconds": 609.0373380230012,
+  "actual_execution_counts": {
+    "checkpoint_loads": 6,
+    "TRAIN_archives_decoded": 1,
+    "PCA_archives_decoded": 1,
+    "old_A_calls": 52,
+    "old_A_rows": 6593,
+    "M0_head_calls": 104,
+    "M0_head_rows": 13186,
+    "REAL_memory_rows": 18948,
+    "repair_checkpoint_loads": 1,
+    "allocated_banks": 510,
+    "shape_standard_normal_values": 6620160,
+    "noise005_calls": 510,
+    "noise005_rows": 827520,
+    "extension_rows": 2482560,
+    "response_rows": 4241040,
+    "response_calls": 16628,
+    "memory_checkpoint_loads": 1,
+    "STE_rows": 310320,
+    "adjoint_microblocks": 1218,
+    "mean_adjoint_rows": 135765,
+    "conditioned_mean_rows": 207327,
+    "optimizer_directions": 3,
+    "native_secant_probes": 22
+  },
+  "committed_optimizer_updates": 0,
+  "inherited_checkpoint_updates": 10,
+  "endpoint_equals_inherited": true,
+  "scientific_acceptance": false,
+  "failed_checks": [
+    "new_update",
+    "Q_wave_improves",
+    "curvature_each_halved",
+    "comb_excess_each_halved"
+  ],
+  "cause": "Every measured direction worsens at least one common high-Q conditional-wave cell, so each native cone contains only zero.",
+  "blocking_duals": [
+    {
+      "iteration": 1,
+      "maximum_feasible_weight": 0.0,
+      "elapsed_seconds": 162.44779974200355,
+      "gradient_seconds": 45.31846229299845,
+      "blocking_duals": [
+        {
+          "name": "Q_wave_L16_13",
+          "dual": -5164.975237900042
+        }
+      ]
+    },
+    {
+      "iteration": 2,
+      "maximum_feasible_weight": 0.0,
+      "elapsed_seconds": 315.3084637350039,
+      "gradient_seconds": 45.70005789100105,
+      "blocking_duals": [
+        {
+          "name": "Q_wave_L32_24",
+          "dual": -107.17607253023375
+        }
+      ]
+    },
+    {
+      "iteration": 3,
+      "maximum_feasible_weight": 0.0,
+      "elapsed_seconds": 456.4659508200057,
+      "gradient_seconds": 45.728339915003744,
+      "blocking_duals": [
+        {
+          "name": "Q_wave_L16_12",
+          "dual": -564.1269467894359
+        }
+      ]
+    }
+  ],
+  "next_step": "One newly registered local direction, adding only3 actually blocking cell gradients and restoring the previously used0.05 native probe radius. No extension of closed job166.",
+  "followup_deleted_no_waiting_work": true,
+  "figures_pending": true
+}

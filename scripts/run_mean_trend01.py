@@ -243,7 +243,7 @@ try:
         for label, direction in directions.items():
             state = copy.deepcopy(before)
             for (key, _), d in zip(named, direction):
-                state[key] = before[key] + d
+                state[key] = before[key] + p.get('secant_radius', 1.) * d
             state['theta'].clamp_(-1., 1.)
             actual.append([state[k] - before[k] for k, _ in named])
             model.load_state_dict(state)

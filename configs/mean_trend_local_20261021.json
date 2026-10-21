@@ -1,0 +1,132 @@
+{
+  "frozen_setup_config": "/mnt/MiNas/GAN/research/N01/server_runs/joint_response01_recentered_derivative_diagnostic_20261020/configs/response038_20261017.json",
+  "roles_file": "/mnt/MiNas/GAN/research/N01/server_runs/joint_response01_recentered_derivative_diagnostic_20261020/diagnostic_inputs/REAL_CALIBRATION_ROLES.npz",
+  "candidate_arrays": [
+    "/mnt/MiNas/GAN/research/N01/server_runs/joint_response01_recentered_restoration_solve_fix01_20261020/run_01/seed0_RECENTERED_RESTORATION.npz",
+    "/mnt/MiNas/GAN/research/N01/server_runs/joint_response01_recentered_restoration_solve_fix01_20261020/run_01/seed1_RECENTERED_RESTORATION.npz"
+  ],
+  "memory": {
+    "levels": [
+      16,
+      32,
+      64
+    ],
+    "thresholds": 128,
+    "feature_seed": 2026102107,
+    "conditional_wave_min_count": 56
+  },
+  "replay_checkpoint": "/home/rylan/projects/ej276d-n01/global_memory_joint_local_20261021/run_01/B_CURRENT.pt",
+  "replay_memory": "/home/rylan/projects/ej276d-n01/global_memory_joint_local_20261021/run_01/TRAIN_DISTRIBUTION_MEMORY.pt",
+  "replay_accepted_updates": 10,
+  "bank_seed": 2026102100,
+  "hypothesis": "fast",
+  "parent_chunk": 128,
+  "micro_rows": 256,
+  "identity_tolerance_V": 1e-07,
+  "schema": "n01/conditioned-mean-trend-repair/v1",
+  "job_id": "N01_MEAN_TREND_LOCAL_20261021",
+  "registered_UTC": "2026-10-21T08:43:36.320578+00:00",
+  "authorization": "2026-10-21 user: 去修复",
+  "mean_chunk": 64,
+  "draws_per_parent": 8,
+  "endpoint_draws": 32,
+  "direction_seed": 2146102100,
+  "endpoint_seed": 2166102100,
+  "directions": 1,
+  "stop_consecutive_rejections": 1,
+  "step_scales": [
+    1.0,
+    0.5,
+    0.25
+  ],
+  "trend_points": 128,
+  "active_cells": [
+    "Q_wave_L16_04",
+    "Q_wave_L64_26",
+    "Q_wave_L16_13",
+    "Q_wave_L32_24",
+    "Q_wave_L16_12"
+  ],
+  "learning_rates": {
+    "response": 0.002,
+    "mean": 0.0002,
+    "conditioning": 0.0001
+  },
+  "architecture": {
+    "unfrozen": "Copied U-Net condition MLP and all FiLM affine layers plus copied terminal mean convolution.",
+    "frozen": "Original models; copied nonconditioning convolutions, group norms, mean time map, charge map, stochastic M0 bases and electronics.",
+    "parameters": 273174,
+    "original_mean_identity_required": true,
+    "source_input": "Full normalized waveform, source logQ and log amplitude, original detector condition. No event IDs as inputs.",
+    "zero_start_function": "Zero-start function difference M_inherited+qbar*(U_train-U_initial), evaluated with the same parent microbatches. GPU synthetic identity0 and adjoint error8.94e-8; original baseline unchanged."
+  },
+  "trend_contract": {
+    "grid": "Two FIT shape prototypes from prior declared source-PSD groups;128 evenly spaced logQ coordinates within each group support.",
+    "features": "Mean normalized SOURCE features and filtered shapes; log amplitude follows same physical amplitude rescaling as logQ.",
+    "loss": "Mean squared second derivative of canonical-charge-normalized full384 mean waveform in logQ, each group normalized once by its inherited value; equal group weights.",
+    "objective_weight": 1.0,
+    "coverage": "All6465 FIT parents and all18948 REAL FIT rows remain in distribution supervision. Prototype trend covers6301 dominant-template rows; other164 retained.",
+    "purpose": "Suppress diagnosed cross-Q oscillation while conditional waveform memory protects actual shape; no monotonicity law imposed."
+  },
+  "optimizer_contract": {
+    "method": "Adam plus wave/Q-wave/trend,5 evidence-derived conditional cells, and2 ADC gradients; at most11 native probes.",
+    "exact_adjoint": "Cache one mean per FIT parent; sum all draw adjoints, then replay U-Net per parent chunk. Synthetic equality tested.",
+    "constraints": "Existing supported92 conditional-wave cells and Q-wave nonincrease, global wave nonincrease, Q+0.5%, peak+1%, PSD nonincrease, both trend risks nonincrease and both ADC risks nonincrease.",
+    "commit": "Hard original ADC/readout; every constraint and flag count passes, with strict PSD, Q-wave, objective and both trend reductions.",
+    "stop": "Exactly1 direction, at most11 native probes at radius0.05 and3 hard combination scales; no sweep, no extension."
+  },
+  "endpoint_contract": {
+    "existing": "Fresh two-bank32: >=10% PSD improvement vs original, Q/wave/peak <=+2%, flags not increased; Q-wave improves vs inherited and all supported cells <=+2%.",
+    "added": "Both full-wave curvature risks and128 equal-count fixed-window median-PSD excess variations <=50% of inherited values; at least1 actual update.",
+    "scope": "FIT pilot only. Fixed REPORT evaluation only after pilot gates; REPORT never trains or selects settings. No physical response acceptance from FIT alone."
+  },
+  "operation_budget": {
+    "response_rows": 2999760,
+    "conditioned_mean_rows": 150000,
+    "optimizer_directions": 1,
+    "committed_optimizer_updates": 1,
+    "native_secant_probes": 11,
+    "joint_hard_trials": 3,
+    "mean_adjoint_rows": 64650,
+    "derivation": "Initial1 pair + gradient2 pairs +11 probes +3 trials =17*103440;3 independent endpoint models add1241280."
+  },
+  "resources": {
+    "CPU_threads": 4,
+    "GPU_GiB": 4,
+    "RSS_GiB": 12,
+    "internal_seconds": 900,
+    "hard_wall_seconds": 960,
+    "GPU_free_required_MiB": 6144,
+    "output_MiB": 128
+  },
+  "storage": {
+    "remote_root": "/home/rylan/projects/ej276d-n01/mean_trend_local_20261021",
+    "policy": "Active training weights/arrays on compute storage; no duplicate large backups or NAS checks."
+  },
+  "scientific_acceptance": false,
+  "report_rows_used_for_training": 0,
+  "NAS_file_IO_checks": false,
+  "NAS_file_hash_verification": false,
+  "measured_budget_basis": {
+    "prior_gradient_seconds": 45.7,
+    "prior_adjoint_directions": 7,
+    "this_adjoint_directions": 10,
+    "estimated_gradient_seconds": 66,
+    "mean_native_probe_seconds": 13,
+    "max_probes": 11,
+    "endpoint_seconds": 152,
+    "expected_seconds": 425,
+    "wake_rule": "Confirm actual native startup, use measured first-stage timing plus remaining workload and margin."
+  },
+  "secant_radius": 0.05,
+  "evidence": {
+    "parent_job": 166,
+    "failed_direction_count": 3,
+    "accepted_updates": 0,
+    "same_TRAIN_direction_bank": true,
+    "native_linear_cone_zero": true,
+    "missing_directions": "Positive native changes in L16_13, L32_24 and L16_12 certify the finite cones were blocked.",
+    "local_radius_reason": "At unit probe radius even Q-wave descent increased its own hard risk and PSD rose8x-22x for several directions; use previously implemented0.05 local radius once, without a radius sweep.",
+    "budget_rule": "Exactly1 new direction and at most11 probes/3 hard trials; no automatic additional directions regardless of result."
+  }
+}
