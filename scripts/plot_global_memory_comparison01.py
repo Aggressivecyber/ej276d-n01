@@ -16,8 +16,8 @@ args = parser.parse_args()
 latest = json.loads(args.latest.read_bytes()) if args.latest else None
 if latest and latest['native_pilot_result']['mode'].startswith('charge_spline'):
     entries = [('initial', '修复前'), ('inherited', '继承模型'), ('anchored', '固定条件起点')]
-    if latest['native_pilot_result']['mode'] == 'charge_spline_restoration':
-        entries.append(('stage_start', '上一阶段 · 24步候选'))
+    if latest['native_pilot_result']['mode'] in ('charge_spline_restoration', 'charge_spline_common_descent'):
+        entries.append(('stage_start', f"上一阶段 · {latest['native_pilot_result']['inherited_candidate_updates']}步候选"))
     entries.append(('B', '样条候选 · 固定终点'))
     series = {label: latest['models'][key]['64'] for key, label in entries}
 else:

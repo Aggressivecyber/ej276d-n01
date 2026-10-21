@@ -23,7 +23,7 @@ if 'inherited' in labels:
     labels = ['initial', 'inherited', 'B']
 if result['mode'] == 'charge_spline_mean_repair':
     labels = ['initial', 'inherited', 'anchored', 'B']
-if result['mode'] == 'charge_spline_restoration':
+if result['mode'] in ('charge_spline_restoration', 'charge_spline_common_descent'):
     labels = ['initial', 'inherited', 'anchored', 'stage_start', 'B']
 groups = {'REAL': (data['real_Q'], data['real_PSD_raw'])}
 for label in labels:
@@ -50,9 +50,11 @@ if result['mode'].startswith('charge_spline'):
     verdict = 'FIT联合门通过' if result['endpoint']['B']['passes_bounded_pilot'] else 'FIT联合门未通过'
     titles.update(anchored='固定条件起点 · 未训练',
                   B=f"样条均值支路 · {result['optimizer_updates']} 次更新\n{verdict}")
-    if result['mode'] == 'charge_spline_restoration':
+    if result['mode'] in ('charge_spline_restoration', 'charge_spline_common_descent'):
         titles.update(stage_start=f"上一阶段 · {result['inherited_candidate_updates']} 步候选",
                       B=f"恢复阶段 · 累计 {result['cumulative_optimizer_updates']} 次更新\n{verdict}")
+        if result['mode'] == 'charge_spline_common_descent':
+            titles['B'] = f"共同下降阶段 · 累计 {result['cumulative_optimizer_updates']} 次更新\n{verdict}"
 independent = result.get('independent_final_random_banks')
 audit = dict(populations=rows, actual_Q_range=list(map(float, qrange)),
              actual_PSD_range=list(map(float, prange)), hypothesis='fast', seed_head=0,

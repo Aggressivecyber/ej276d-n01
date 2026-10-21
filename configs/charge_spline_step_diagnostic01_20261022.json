@@ -1,0 +1,110 @@
+{
+  "frozen_setup_config": "/mnt/MiNas/GAN/research/N01/server_runs/joint_response01_recentered_derivative_diagnostic_20261020/configs/response038_20261017.json",
+  "roles_file": "/mnt/MiNas/GAN/research/N01/server_runs/joint_response01_recentered_derivative_diagnostic_20261020/diagnostic_inputs/REAL_CALIBRATION_ROLES.npz",
+  "candidate_arrays": [
+    "/mnt/MiNas/GAN/research/N01/server_runs/joint_response01_recentered_restoration_solve_fix01_20261020/run_01/seed0_RECENTERED_RESTORATION.npz",
+    "/mnt/MiNas/GAN/research/N01/server_runs/joint_response01_recentered_restoration_solve_fix01_20261020/run_01/seed1_RECENTERED_RESTORATION.npz"
+  ],
+  "memory": {
+    "levels": [
+      16,
+      32,
+      64
+    ],
+    "thresholds": 128,
+    "feature_seed": 2026102107,
+    "conditional_wave_min_count": 56
+  },
+  "replay_checkpoint": "/home/rylan/projects/ej276d-n01/global_memory_joint_local_20261021/run_01/B_CURRENT.pt",
+  "replay_memory": "/home/rylan/projects/ej276d-n01/global_memory_joint_local_20261021/run_01/TRAIN_DISTRIBUTION_MEMORY.pt",
+  "replay_accepted_updates": 10,
+  "bank_seed": 2026102100,
+  "hypothesis": "fast",
+  "parent_chunk": 128,
+  "micro_rows": 256,
+  "mean_chunk": 64,
+  "draws_per_parent": 8,
+  "trend_points": 128,
+  "anchor_identity_tolerance_V": 1e-07,
+  "learning_rates": {
+    "response": 0.002,
+    "mean": 0.0002
+  },
+  "trend_weight": 1.0,
+  "constraint_weight": 10.0,
+  "adc_weight": 1.0,
+  "architecture": {
+    "parameters": 1019,
+    "mean_parameters": 966,
+    "response_parameters": 53,
+    "spline_degree": 3,
+    "spline_heads": 6,
+    "spline_knots": "Clamped cubic with two interior knots at one-third and two-thirds of the SOURCE FIT logQ range; bounds frozen from FIT. Cubic extrapolation outside FIT is explicit, with no clipping or row dropping.",
+    "mean": "Freeze the old U-Net and set only its residual-branch logQ/logAmplitude inputs to zero. Preserve continuous normalized SOURCE features and detector condition. Frozen inherited one-channel mean head plus zero-initialized six-channel convolution increments, combined using logQ B-splines before tanh. Retain inherited frozen time map and canonical qbar.",
+    "frozen": "Original baseline and stochastic M0 waveform bases, all U-Net and FiLM parameters, inherited anchor head, mean time and charge maps, electronics noise coordinate.",
+    "unfrozen": "Six spline coefficient convolutions and existing53 joint response coordinates, including24 deterministic,21 shared stochastic and8 M0 scale coefficients.",
+    "initialization": "Exactly the diagnosed fixed-condition mean, verified on CPU and GPU; deliberately different from the inherited oscillatory mean. Original and inherited comparison arms retained.",
+    "inputs": "Waveform shape and logQ are physical features; IDs only address caches and never enter the network."
+  },
+  "schema": "n01/charge-spline-step-diagnostic/v1",
+  "job_id": "N01_CHARGE_SPLINE_STEP_DIAGNOSTIC01_20261022",
+  "registered_UTC": "2026-10-21T21:19:27.750006+00:00",
+  "initialization_checkpoint": "/home/rylan/projects/ej276d-n01/charge_spline_restoration01_20261022/run_01/B_CURRENT.pt",
+  "inherited_candidate_updates": 152,
+  "diagnostic_seed": 2806102200,
+  "diagnostic_proposals": [
+    "saved_adam",
+    "reset_adam",
+    "reset_mean_only",
+    "reset_response_only"
+  ],
+  "diagnostic_contract": {
+    "question": "Separate current loss-gradient conflict from historical Adam scaling at the fixed152-update candidate.",
+    "population": "All6465 SOURCE FIT and18948 REAL FIT, two common banks with8 draws per parent. REPORT0.",
+    "components": [
+      "distribution",
+      "PSD_CDF_component_only",
+      "global_penalty",
+      "local_penalty",
+      "ADC",
+      "trend"
+    ],
+    "probes": "Four separate temporary one-step proposals from exactly the same fixed endpoint and common gradient. Preserve registered learning rates, Adam betas/epsilon and parameter bounds. No cumulative fitting, no chosen checkpoint, no acceptance claim.",
+    "decision": "Report component norms/cosines, predicted directional changes, actual hard-observation objective and all existing metrics/flags. An optimizer reset is only supported if it improves the hard objective and current active errors without introducing abnormal readout; otherwise inspect the responsible component/block. No automatic training continuation.",
+    "success": "All finite gradients, four predetermined proposals completed, complete population and counters, in-memory state restored. This is diagnostic completion, not FIT or scientific acceptance.",
+    "stop": "No nonfinite gradient, no nonpositive canonical charge, no budget extension, no hyperparameter sweep. Failure recorded immediately."
+  },
+  "operation_budget": {
+    "response_rows": 930960,
+    "conditioned_mean_rows": 100000,
+    "reference_mean_rows": 13186,
+    "mean_adjoint_rows": 32325,
+    "adjoint_loss_rows": 517200,
+    "optimizer_updates": 4
+  },
+  "resources": {
+    "CPU_threads": 4,
+    "GPU_GiB": 4,
+    "RSS_GiB": 12,
+    "internal_seconds": 180,
+    "hard_wall_seconds": 240,
+    "GPU_free_required_MiB": 6144,
+    "output_MiB": 64
+  },
+  "storage": {
+    "remote_root": "/home/rylan/projects/ej276d-n01/charge_spline_step_diagnostic01_20261022",
+    "policy": "Only active server compute outputs. No NAS tests, hashes, scans or migration."
+  },
+  "committed_training_updates": 0,
+  "scientific_acceptance": false,
+  "report_rows_used_for_training": 0,
+  "NAS_file_IO_checks": false,
+  "NAS_file_hash_verification": false,
+  "evidence": {
+    "job170_failed_gates": 6,
+    "ADC_risk_last32_log_slope": -0.016583078755295442,
+    "Adam_state_steps": 152,
+    "parameter_bound_hits": 0,
+    "motivation": "Q_mass error increased63.48% while ADC and PSD decreased. A further fixed-budget extension cannot distinguish objective tradeoff and stale preconditioning."
+  }
+}

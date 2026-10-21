@@ -1,0 +1,121 @@
+{
+  "status": "COMPLETE_OPTIMIZER_SCALING_AND_GRADIENT_CONFLICT_CONFIRMED",
+  "UTC": "2026-10-21T21:25:15.149921+00:00",
+  "job_number": 171,
+  "job_id": "N01_CHARGE_SPLINE_STEP_DIAGNOSTIC01_20261022",
+  "native_exit_code": 0,
+  "ended_UTC": "2026-10-21T21:20:42.614495+00:00",
+  "elapsed_seconds": 30.18466545800038,
+  "actual_execution_counts": {
+    "checkpoint_loads": 6,
+    "TRAIN_archives_decoded": 1,
+    "PCA_archives_decoded": 1,
+    "old_A_calls": 52,
+    "old_A_rows": 6593,
+    "M0_head_calls": 104,
+    "M0_head_rows": 13186,
+    "REAL_memory_rows": 18948,
+    "repair_checkpoint_loads": 1,
+    "reference_mean_rows": 13186,
+    "candidate_checkpoint_loads": 1,
+    "allocated_banks": 204,
+    "shape_standard_normal_values": 1655040,
+    "noise005_calls": 204,
+    "noise005_rows": 206880,
+    "extension_rows": 620640,
+    "response_rows": 930960,
+    "response_calls": 3654,
+    "memory_checkpoint_loads": 1,
+    "STE_rows": 103440,
+    "adjoint_loss_rows": 517200,
+    "adjoint_microblocks": 406,
+    "mean_adjoint_rows": 32325,
+    "conditioned_mean_rows": 53256,
+    "optimizer_updates": 4
+  },
+  "all_operation_budgets_respected": true,
+  "committed_training_updates": 0,
+  "temporary_optimizer_proposals": 4,
+  "comparisons": {
+    "saved_adam": {
+      "objective_change_percent": -1.1412651754715508,
+      "metric_change_percent": {
+        "Q_mass": -0.011250724838318682,
+        "PSD_CDF": -0.23293169334204222,
+        "Q_wave": -0.2077802804928086,
+        "block_wave": -0.24956310455325204,
+        "block_peak_codes": -0.20237829479290426
+      },
+      "ADC_risk_change_percent": -1.4699716061763013,
+      "delta_norms": {
+        "all": 0.0012707089844946511,
+        "deterministic": 0.00010501995673070805,
+        "shared_L": 0.0006817176472182333,
+        "M0_scale": 0.00058258811591808,
+        "spline_head": 0.0008941612095287773
+      }
+    },
+    "reset_adam": {
+      "objective_change_percent": -30.610444985823705,
+      "metric_change_percent": {
+        "Q_mass": 3.4622875735797143,
+        "PSD_CDF": -4.4356469897810165,
+        "Q_wave": -5.52153376323572,
+        "block_wave": 0.06600563176468732,
+        "block_peak_codes": 17.207872479053044
+      },
+      "ADC_risk_change_percent": -42.14331578808067,
+      "delta_norms": {
+        "all": 0.01583161149645924,
+        "deterministic": 0.009797958969489139,
+        "shared_L": 0.009165151045387693,
+        "M0_scale": 0.005656850629206806,
+        "spline_head": 0.006216105684518176
+      }
+    },
+    "reset_mean_only": {
+      "objective_change_percent": -22.5656272214071,
+      "metric_change_percent": {
+        "Q_mass": 0.6919085298287442,
+        "PSD_CDF": -3.486992877810402,
+        "Q_wave": -3.304484807265551,
+        "block_wave": 2.4924969841880973,
+        "block_peak_codes": 18.51857217704278
+      },
+      "ADC_risk_change_percent": -30.059573883466996,
+      "delta_norms": {
+        "all": 0.006216105684518176,
+        "deterministic": 0.0,
+        "shared_L": 0.0,
+        "M0_scale": 0.0,
+        "spline_head": 0.006216105684518176
+      }
+    },
+    "reset_response_only": {
+      "objective_change_percent": -10.909526867355257,
+      "metric_change_percent": {
+        "Q_mass": 2.8227304691755384,
+        "PSD_CDF": -0.9749901261004501,
+        "Q_wave": -2.4263963338993166,
+        "block_wave": -1.9919988323330196,
+        "block_peak_codes": -0.3370866412351736
+      },
+      "ADC_risk_change_percent": -15.908621136493828,
+      "delta_norms": {
+        "all": 0.014560218154056665,
+        "deterministic": 0.009797958969489139,
+        "shared_L": 0.009165151045387693,
+        "M0_scale": 0.005656850629206806,
+        "spline_head": 0.0
+      }
+    }
+  },
+  "ADC_gradient_norm_over_distribution": 180.44700611018456,
+  "deterministic_ADC_vs_global_penalty_cosine": -0.7550149060554233,
+  "simple_Adam_reset_supported": false,
+  "reason": "Reset proposals lower total loss but increase already-failed Q_mass; mean/full resets also worsen wave error. Total-loss decrease is not joint feasibility.",
+  "checkpoint_sha256_before_and_after": "7daebdc5bc38d5d91ed157ea2f6a063ad53a8a2523c3a0ea22633b9bf22a92be",
+  "REPORT_rows": 0,
+  "scientific_acceptance": false,
+  "next_action": "Register a bounded common-descent step solver using separate current gradients and complete hard-readout guards. Preserve original endpoint gates and the full population."
+}
