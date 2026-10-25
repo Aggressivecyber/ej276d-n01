@@ -1,0 +1,132 @@
+{
+  "UTC": "2026-10-25T03:47:05.800181+00:00",
+  "status": "PLOTTED_FROZEN_PSD_DISTRIBUTIONS",
+  "source_job": 252,
+  "hypothesis": "fast",
+  "definition": "PSD=sum(window_V[:,46:256])/sum(window_V[:,0:256]); original signed q_floor protection retained",
+  "q_floor": 0.0005319378913383611,
+  "population": "All18948 REAL FIT; same6465 SOURCE FIT parents with2banks*8draws,103440 rows per model; no row removal or new draws",
+  "kde_bandwidth": 0.009224664627898189,
+  "bandwidth_rule": ".9*min(REAL sample std,REAL IQR/1.34)*n_REAL**(-1/5); identical absolute bandwidth for all curves",
+  "main_xrange": [
+    -0.12,
+    0.5
+  ],
+  "full_range_CDF": "PSD_FULL_RANGE_CDF.png",
+  "rows_excluded_from_metrics_or_normalization": 0,
+  "summary": {
+    "REAL": {
+      "rows": 18948,
+      "mean": 0.19772572428879506,
+      "std": 0.07348873160971288,
+      "min": -1.1690988344546691,
+      "max": 0.4510485979036604,
+      "q05": 0.08551210952314628,
+      "median": 0.20456394906111164,
+      "q95": 0.30581931648186117,
+      "guarded_rows": 0,
+      "nonpositive_Q_rows": 0,
+      "flags": {
+        "peak_at_search_boundary": 0,
+        "global_peak_outside_search": 0,
+        "Q_nonpositive": 0,
+        "PSD_undefined": 0,
+        "PSD_guarded": 0,
+        "ADC_rail_hit": 0
+      },
+      "outside_main_xrange": 15,
+      "outside_main_xrange_percent": 0.07916402786573781
+    },
+    "M0": {
+      "rows": 103440,
+      "mean": 0.2006560646691325,
+      "std": 0.071510534085324,
+      "min": -0.1137785750041691,
+      "max": 0.48690442037807036,
+      "q05": 0.0857417304535825,
+      "median": 0.20464490847719835,
+      "q95": 0.308735756514294,
+      "guarded_rows": 0,
+      "nonpositive_Q_rows": 0,
+      "flags": {
+        "peak_at_search_boundary": 0,
+        "global_peak_outside_search": 0,
+        "Q_nonpositive": 0,
+        "PSD_undefined": 0,
+        "PSD_guarded": 0,
+        "ADC_rail_hit": 4,
+        "pre_ADC_out_of_range": 4
+      },
+      "outside_main_xrange": 0,
+      "outside_main_xrange_percent": 0.0
+    },
+    "endpoint252": {
+      "rows": 103440,
+      "mean": 0.20014274049954733,
+      "std": 0.0712892542324889,
+      "min": -0.11189518230523623,
+      "max": 0.48611036715886025,
+      "q05": 0.08557524810097031,
+      "median": 0.2039131871972009,
+      "q95": 0.3080291064115778,
+      "guarded_rows": 0,
+      "nonpositive_Q_rows": 0,
+      "flags": {
+        "peak_at_search_boundary": 0,
+        "global_peak_outside_search": 0,
+        "Q_nonpositive": 0,
+        "PSD_undefined": 0,
+        "PSD_guarded": 0,
+        "ADC_rail_hit": 4,
+        "pre_ADC_out_of_range": 4
+      },
+      "outside_main_xrange": 0,
+      "outside_main_xrange_percent": 0.0
+    }
+  },
+  "marginal_metrics": {
+    "M0": {
+      "marginal_PSD_W1": 0.003413991482234171,
+      "marginal_PSD_KS_distance": 0.03145868874492014
+    },
+    "endpoint252": {
+      "marginal_PSD_W1": 0.0031725512470423597,
+      "marginal_PSD_KS_distance": 0.029325453910494792
+    }
+  },
+  "metric_scope": "Unconditional one-dimensional PSD distances, distinct from the original joint/conditional QPSD objective; no significance inference from repeated parent draws.",
+  "input_pins": {
+    "REAL": {
+      "path": "E:\\GAN\\research\\N01\\receipts\\global_memory_repair_20261021\\full_population_hard_readout01\\terminal\\run_01\\REAL_HARD_READOUT.npz",
+      "bytes": 9290343,
+      "sha256": "05eca96883dbb43a967899830fdacbb0ce6255075f0b0e0206c67bf30e5e6082"
+    },
+    "M0": {
+      "path": "E:\\GAN\\research\\N01\\receipts\\global_memory_repair_20261021\\full_population_hard_readout01\\terminal\\run_01\\HARD_READOUT_fast__original.npz",
+      "bytes": 48735892,
+      "sha256": "bc0595b1d011c9d275c91c06802a5739435addfc7ce0a4d0d93d22796013463e"
+    },
+    "endpoint252": {
+      "path": "E:\\GAN\\research\\N01\\receipts\\finite_native_goal01_recovery01_20261025\\wake_20261025_0627\\terminal\\P1\\FIT_POINT_HARD_READOUT.npz",
+      "bytes": 45653283,
+      "sha256": "bc9cc33468705175684a8ddc3511e8cd9ad703796b6dae2b6450f3819076a986"
+    },
+    "point": {
+      "path": "E:\\GAN\\research\\N01\\receipts\\finite_native_goal01_recovery01_20261025\\wake_20261025_0627\\terminal\\P1\\FINITE_NATIVE_POINT.npz",
+      "bytes": 56062,
+      "sha256": "aaff8941a80697813dcb917bd13c531a137b8f00e268dfb9497cbd792ec1156c"
+    },
+    "state": {
+      "path": "E:\\GAN\\research\\N01\\receipts\\global_memory_repair_20261021\\full_population_hard_readout01\\terminal\\run_01\\HARD_METRIC_STATE.npz",
+      "bytes": 454256,
+      "sha256": "7b6bb98df3c404af93f08d8abd7e0246d6d715c5dad7415356d57e6426978f63"
+    }
+  },
+  "parameter_fits": 0,
+  "candidate_selections": 0,
+  "new_model_calls": 0,
+  "new_random_draws": 0,
+  "scientific_acceptance": false,
+  "restricted_average_response_acceptance": false,
+  "NAS_access": false
+}

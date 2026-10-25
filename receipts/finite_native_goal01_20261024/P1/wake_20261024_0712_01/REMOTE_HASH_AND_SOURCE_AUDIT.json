@@ -1,0 +1,97 @@
+{
+  "UTC": "2026-10-23T23:14:12.534880+00:00",
+  "frozen_source_count": 473,
+  "frozen_source_mismatches": [],
+  "original_reference_values": {
+    "wave": 0.15009812561260472,
+    "QPSD": 0.050408367003778376,
+    "noise": 0.123886959892435,
+    "Q_Vns": 0.039858853656451684,
+    "front_Vns": 0.08513311720896008,
+    "tail_Vns": 0.018566246887201356,
+    "PSD_raw": 0.0034139914822380276,
+    "PSD_guarded": 0.0034139914822380276,
+    "peak_voltage_V": 0.036212950919633405,
+    "rise10_90_ns": 1.598947803023644,
+    "FWHM_ns": 2.444108645360533,
+    "baseline_mean_V": 0.000015343098300930586,
+    "baseline_RMS_V": 0.000018810817868698477,
+    "Q_nonpositive_rate": 0,
+    "PSD_undefined_rate": 0,
+    "PSD_guarded_rate": 0,
+    "rise_undefined_rate": 0.009386814909727294,
+    "FWHM_undefined_rate": 0.00021110407430863416,
+    "temporal_nonpositive_peak_rate": 0,
+    "rise_prepeak_censored_rate": 0.009386814909727294,
+    "FWHM_prepeak_censored_rate": 0.00021110407430863416,
+    "FWHM_postpeak_censored_rate": 0
+  },
+  "source_native_reference": {
+    "path": "/home/rylan/projects/ej276d-n01/wd_paired_20261023/cases/seed_4306102200_zero/native/NATIVE_CANDIDATE_RESULT.json",
+    "bytes": 236541,
+    "sha256": "d529bec98df22837e4ab21f51d322968a2d2ae0f4a3877b78f7c4508c3ba54c4"
+  },
+  "remote_terminal_files": [
+    {
+      "path": "P1/FAILED.json",
+      "bytes": 700,
+      "sha256": "abad3a353a5cc7cc7a520d6913c59247edda6a49e7ad066f6d720390bc749845"
+    },
+    {
+      "path": "P1/FIT_STARTED.json",
+      "bytes": 508,
+      "sha256": "c46966f402951c0bb3a240f89fd1ed4c45a5a75f914f98960e4c6e4a3703c147"
+    },
+    {
+      "path": "P1/P0_RUNTIME_REPLAY.json",
+      "bytes": 385,
+      "sha256": "dd8a48be38d950340b80523af70a4c4120de9de85470f469bc8e36ee947d0cb3"
+    },
+    {
+      "path": "P1/POINTS.jsonl",
+      "bytes": 2705895,
+      "sha256": "984051360764c90007970ef8096ed690e262353d37c4e89827abfe7e8cf9e423"
+    },
+    {
+      "path": "P1/PROGRESS.json",
+      "bytes": 910,
+      "sha256": "20c8bbb731d4dcdf30fe8a9815aed98a9f4111069ea92b4380a236350a5262da"
+    },
+    {
+      "path": "P1/START.json",
+      "bytes": 713,
+      "sha256": "ea50cc57a890f9cc2b4b8703bdd12ae8b69a09ff4488455a9a8d2989ffa17c19"
+    },
+    {
+      "path": "control_P1/console.log",
+      "bytes": 3615,
+      "sha256": "d4b603f7567471c67578c81f21dd48dcbf07a47fd696d154ba66b224064107bd"
+    },
+    {
+      "path": "control_P1/exit_receipt.json",
+      "bytes": 224,
+      "sha256": "33aa164689f8126c543ece787932d8317610db57e73112e7da3b3741b83d0667"
+    },
+    {
+      "path": "control_P1/launch.json",
+      "bytes": 720,
+      "sha256": "483058f1fa25a44259ac8a9a037c87b34d5ed3d467263fadc3a9819e279c01f2"
+    },
+    {
+      "path": "control_P1/resource_status.json",
+      "bytes": 200,
+      "sha256": "cec0010a75f6e39b8a1b120019edf8bf167c47690c474550109ca5862dccf3ac"
+    },
+    {
+      "path": "control_P1/run.lock",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "N01_project_processes": [],
+  "solver_actual_merit_source": {
+    "path": "/home/rylan/projects/ej276d-n01/finite_native_goal01_20261024/solver_runtime/scipy/_lib/cobyqa/framework.py",
+    "lines_465_478": "465:        -------\n466:        float\n467:            Value of the merit function at `x`.\n468:        \"\"\"\n469:        if fun_val is None or cub_val is None or ceq_val is None:\n470:            fun_val, cub_val, ceq_val = self._pb(x, self.penalty)\n471:        m_val = fun_val\n472:        if self._penalty > 0.0:\n473:            c_val = self._pb.violation(x, cub_val=cub_val, ceq_val=ceq_val)\n474:            if np.count_nonzero(c_val):\n475:                m_val += self._penalty * np.linalg.norm(c_val)\n476:        return m_val\n477:\n478:    def get_constraint_linearizations(self, x):",
+    "lines_968_987": "968:        tol = (\n969:            10.0\n970:            * EPS\n971:            * max(self.models.n, self.models.npt)\n972:            * max(abs(m_best), 1.0)\n973:        )\n974:        for k in range(self.models.npt):\n975:            if k != self.best_index:\n976:                x_val = self.models.interpolation.point(k)\n977:                m_val = self.merit(\n978:                    x_val,\n979:                    self.models.fun_val[k],\n980:                    self.models.cub_val[k, :],\n981:                    self.models.ceq_val[k, :],\n982:                )\n983:                r_val = self._pb.maxcv(\n984:                    x_val,\n985:                    self.models.cub_val[k, :],\n986:                    self.models.ceq_val[k, :],\n987:                )"
+  }
+}

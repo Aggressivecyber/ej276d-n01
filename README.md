@@ -1,3 +1,165 @@
+# 当前结果：252完整结束，受限目标未达2%门槛
+
+252原生退出0，求解器耗尽768次评价预算并返回唯一端点，另完成最终完整重放。完整wave改善 **1.766860%**，距2%差 **0.233140个百分点**；QPSD改善0.200064%，实际最大均值RMS变化0.289882%。保存的18风险、14异常通过。关闭为`CLOSED_NO_FEASIBLE_FINITE_NATIVE_GAIN`；P2原模型/036验收和P3新库均未进入，端点不采用，受限及完整科学验收均为false。
+
+独立NumPy完整8776/26CDF与最终值最大差1.02e-11；18风险算术、14异常、原FIT角色、前缀和实际均值RMS复算吻合。此步骤只读保存数组，无新模型生成/拟合/选择。768试探点均未达2%，494点保存FIT约束通过；端点signed L1=1而RMS/QPSD有余量，投影SWD仅改善1.618589%，坐标改善2.210470%，短滞后改善1.807127%。固定预算未建立收敛，不能宣称全局不可行。
+
+本系列248/250/251/252累计4次已启动拟合、1次求解器端点选择、至少220,844,400条缓存观察，所有工程中断及未落盘未知成本保留。当前N01科学作业和保存数组复算均0，GPU已释放，本聊天单次定时n01已删除，无后续等待。按已登记停止规则关闭本次尝试，不自动追加拟合或降低2%。
+
+[完整关闭报告](deliverables/finite_native_goal01_252_20261025/REPORT.md) · [轨迹图](deliverables/finite_native_goal01_252_20261025/FIT_TRACE.png) · [768点数据](deliverables/finite_native_goal01_252_20261025/ALL_768_SEARCH_TRIALS.csv) · [关闭回执](receipts/finite_native_goal01_recovery01_20261025/wake_20261025_0627/CLOSURE_RECEIPT.json)。
+
+[完整数值结果包](deliverables/finite_native_goal01_252_20261025/N01_252_FULL_NUMERICAL_RESULT.zip)已重开并核对所有成员；[结果包回执](deliverables/finite_native_goal01_252_20261025/PACKAGE_RECEIPT.json)。
+
+2026-10-25新增保存结果的[PSD分布曲线](deliverables/finite_native_goal01_252_20261025/psd_distribution/PSD_DISTRIBUTION.png)，比较REAL、M0与252返回端点；附[全范围ECDF](deliverables/finite_native_goal01_252_20261025/psd_distribution/PSD_FULL_RANGE_CDF.png)、矢量图及数值数据，新增拟合/选择/模型生成均0。
+
+[GitHub发布范围与入口](docs/FINITE_NATIVE_GOAL_GITHUB_20261025.md)：源码、配置、图表和小型数值回执已按本次结果整理；原始数组及完整ZIP包保留在本地活动目录。
+
+![PSD分布：REAL、M0与252返回端点](deliverables/finite_native_goal01_252_20261025/psd_distribution/PSD_DISTRIBUTION.png)
+
+以下为历史快照。
+
+---
+
+# 当前执行：服务器恢复后，252单次有界拟合已启动
+
+2026-10-25 02:25（UTC+8）核验科学PID18525、boot与start ticks及冻结配置：3个完整点完成，第4点硬观察完成并进行CDF；目标调用4=不同点4，约束调用3=缓存命中3，首点完整数值精确复现247。源码与251最终版本逐字节一致，原zero暖启动、人口、163维域、主干和54响应坐标、优化选项及门槛保持。当前1个N01科学进程，GPU由该进程使用。
+
+252先登记后执行，本系列累计已启动科学拟合4次。原248/250/251三次中断、至少141,299,040条缓存硬观察成本均保留；251无返回端点且最终墙钟未知。不得从历史试探点择优。
+
+最多768搜索点加1次唯一返回端点重放，内部4小时。按实测最大15.473秒/点、剩余766点、25%余量及120秒，保守预计超过原硬限，因此本聊天单次接续安排在监督硬限与退出宽限之后：**2026-10-25 06:27（UTC+8）**，预算没有延长，不固定轮询。
+
+只有唯一返回端点正常退出、完整hard wave至少改善2%、QPSD不增加、18风险/14异常及实际均值RMS不超过1%均通过，才登记一次P2原模型/独立8776及26列CDF验收；然后执行预登记两个新库的P3。绑定252的P2模板已静态准备，尚未登记/执行。若252正常结束仍不通过，关闭本有界尝试并完成诊断，不追加拟合或降低门槛。受限目标及完整响应科学验收当前均未建立。
+
+[恢复计划](docs/FINITE_NATIVE_GOAL01_RECOVERY01_20261025.md) · [252启动核验](receipts/finite_native_goal01_recovery01_20261025/STARTUP_VERIFICATION.json) · [等待估计](receipts/finite_native_goal01_recovery01_20261025/WAIT_ESTIMATE.json) · [单次定时回执](receipts/finite_native_goal01_recovery01_20261025/AUTOMATION_RECEIPT.json) · [251中断闭合](receipts/finite_native_goal01_fix02_20261024/server_recovery_20261025_0218/CLOSURE_RECEIPT.json)。
+
+以下为历史快照。
+
+---
+
+# 当前执行：252已登记，准备单次恢复拟合
+
+按用户“服务器启动了 继续推进”指令，251已作为主机重启中断关闭并完整保留成本；新252单独登记。源码与251最终版本逐字节一致，原暖启动、人口、163维域、优化选项、768搜索点加1次返回端点重放、4小时预算及2%门槛保持。492份固定输入与源码已核对。当前尚未调度，科学拟合累计仍为3次；实际启动252后增至4次。
+
+[恢复计划](docs/FINITE_NATIVE_GOAL01_RECOVERY01_20261025.md) · [登记回执](receipts/finite_native_goal01_recovery01_20261025/REGISTRATION_RECEIPT.json)。
+
+以下为历史快照。
+
+---
+
+# 当前状态：251因服务器重启中断，已核收并保留成本
+
+2026-10-25 02:20（UTC+8），收到“服务器启动了 继续推进”后恢复SSH。服务器boot已变更，251原科学进程及监督进程消失；没有退出回执、RESULT、COMPLETE或优化器返回端点。关闭为`CLOSED_INCOMPLETE_HOST_REBOOT_NO_SOLVER_ENDPOINT`，属于实施中断，不能判断科学不可行。
+
+已核收580个完整点、第581点完整硬观察及部分CDF：1次拟合、0次端点选择，持久化记录至少60,098,640条缓存硬观察。最终墙钟与未落盘成本未知。492份固定输入/源码均一致，9份现场文件已逐字节核收；GPU当前无计算进程。248/250/251累计3次拟合及至少141,299,040条硬观察成本保留。
+
+按本次用户继续推进指令，下一步先登记一次独立恢复尝试，代码、原zero暖启动、768点及4小时预算和2%门槛保持；不从旧试探点挑选起点。P2/P3只接受新求解器正常返回且通过原门槛的唯一端点。
+
+[251闭合回执](receipts/finite_native_goal01_fix02_20261024/server_recovery_20261025_0218/CLOSURE_RECEIPT.json) · [580点完整诊断](receipts/finite_native_goal01_fix02_20261024/server_recovery_20261025_0218/ALL_580_TRIAL_METRICS.csv)。
+
+以下为历史快照。
+
+---
+
+# 当前状态：251结果待核收，服务器连接不可用
+
+2026-10-24 15:44（UTC+8）接续时，100.82.231.102:22连接超时。本机Tailscale处于Running且在线；目标rylan-GTi15节点报告Offline，LastSeen为2026-10-24 14:00（UTC+8）。已有同SSH主机键的其他地址未能建立认证SSH会话，没有确认可用的替代入口。这些证据不能判定服务器电源状态或251计算是否完成。
+
+**251的退出码、最终端点、当前计数和GPU占用均未核实。** 最近科学进度核验仍为11:42:48：4个完整点完成，第5个点硬观察完成并进行CDF，拟合已启动1次、当时端点选择0。当前远端活动作业数及端点选择数记为unknown/null，不把最后已观察计数当成最终结果。此前248/250的工程中断及本系列3次已启动拟合的成本保留。
+
+没有重启或重复派发251，没有进入P2/P3，也没有宣称GPU已释放或达到受限目标。当前需恢复该服务器的Tailscale/SSH可达性，再核收原作业的RESULT/COMPLETE/FAILED和监督退出回执。服务器恢复后按原2%及保护门槛继续；不根据失联推断科学失败。
+
+[连接审计](receipts/finite_native_goal01_fix02_20261024/connection_loss_20261024_1544/NETWORK_ASSESSMENT.json) · [本次核收状态回执](receipts/finite_native_goal01_fix02_20261024/connection_loss_20261024_1544/ASSESSMENT_RECEIPT.json) · [最后科学启动核验](receipts/finite_native_goal01_fix02_20261024/STARTUP_VERIFICATION.json)。本次定时已删除，服务器恢复时间未知，因此没有设置固定间隔重试。
+
+以下为历史快照。
+
+---
+
+# 当前执行：两处接口问题已修正，251有界拟合已启动
+
+2026-10-24，Asia/Singapore。用户追问“那怎么办呢”后，已按持续推进授权落实 [修正接续计划](docs/FINITE_NATIVE_GOAL01_FIX01_20261024.md)。原2%改善、QPSD不增加及原保护门槛保持，当前受限目标仍未达到。
+
+两处修正分别是：在SciPy违约度计算中复用已算约束；将首点P0复核循环的变量key改为metric_name，避免覆盖缓存键。此前signed-zero解释已被复查否定；最终代码不取整、不改变参数数值。249已完成一个固定真实点的ADC/裁窗/18风险/14异常/完整CDF核验；随后直接提取真实拟合脚本的评价函数，验证原163维暖启动重复评价只算一次、受限软件求解正常返回。测试替身未执行真实模型，不计科学拟合。
+
+250在启动复核时主动中止：16个完整点、17个硬观察点和1次已启动拟合全部保留。当前251是本有限硬目标系列第3次已启动拟合（248、250工程中断各1次，251当前1次），端点选择均尚为0；其他历史研究计数另存。只使用原zero暖启动，不从失败试探点挑选起点。
+
+11:42:48（UTC+8）核实科学PID120774及固定配置：4个完整点完成、第5点进行中；不同点5=目标调用5，约束调用4=缓存命中4，首点复现原P0。最多768个搜索点加1次独立返回端点重放，内部硬限4小时。原骨干、54响应坐标、人口和观察合同保持。
+
+[固定真实点核验](receipts/finite_native_goal01_fix01_20261024/P0/CLOSURE_RECEIPT.json) · [真实评价函数软件核验](receipts/finite_native_goal01_fix02_20261024/INTERFACE_PREFLIGHT_FIX02.json) · [251启动核验](receipts/finite_native_goal01_fix02_20261024/STARTUP_VERIFICATION.json) · [250中止闭合](receipts/finite_native_goal01_fix01_20261024/P1/CLOSURE_RECEIPT.json)。
+
+根据本次实测约16.6秒/点、剩余预算和监督硬期限，已设置本聊天 **2026-10-24 15:44（UTC+8）单次接续**，不延长计算预算。届时核收结果并继续合法下一步：251唯一返回端点通过实际2%及保护约束才登记P2原模型/独立CDF验收，再进入P3新随机库确认。P2模板仅静态准备，未执行。[等待估计](receipts/finite_native_goal01_fix02_20261024/WAIT_ESTIMATE.json) · [定时回执](receipts/finite_native_goal01_fix02_20261024/AUTOMATION_RECEIPT.json)。
+
+科学状态仍为`response_match_not_established`，`restricted_average_response_acceptance=false`。248及此前失败、源码和原始计数保留。
+
+以下为历史快照。
+
+---
+
+# 当前结果：248 实施未完整结束，受限目标尚未达到
+
+2026-10-24，Asia/Singapore。已核收 248 的全部 768 个完整实际评价点、原生退出 1 和冻结源码。约束接口重建出浮点末位不同的点，耗尽共享评价预算后触发保护；优化器未返回最终端点。当前关闭状态为 `CLOSED_INCOMPLETE_DISTINCT_POINT_BUDGET_BEFORE_SOLVER_RETURN`，保留 1 次参数拟合、0 次端点选择和 79441920 条缓存硬观察成本。
+
+全部点均未达到 wave 改善 2% 的入口；满足保存的 FIT 约束记录的点中最大改善为 **1.748274575%**，距入口 0.251725425 个百分点。该极值仅作完整诊断，没有选作端点。P2 原生／独立保护验收和 P3 新随机库确认均未进入，科学状态仍为 `response_match_not_established`，`restricted_average_response_acceptance=false`。
+
+[完整核收报告](deliverables/finite_native_goal01_248_20261024/REPORT.md) · [全部768点指标](deliverables/finite_native_goal01_248_20261024/ALL_768_TRIAL_METRICS.csv) · [轨迹图](deliverables/finite_native_goal01_248_20261024/FIT_TRACE.png) · [审计结果](deliverables/finite_native_goal01_248_20261024/TRACE_AUDIT.json) · [闭合回执](receipts/finite_native_goal01_20261024/P1/wake_20261024_0712_01/CLOSURE_RECEIPT.json)。
+
+已定位缓存与约束接口问题，并保存通过合成语义／预算终止验证的最小补丁；补丁未安装，未重启科学拟合。当前 N01 科学作业 0，GPU 已释放，本聊天定时已删除，无等待事项。原 242/243/244 的失败和 245/246 的工程失败继续保留。
+
+以下为历史快照。
+
+---
+
+# 当前执行：受限平均响应目标，直接拟合实际硬读出/CDF
+
+2026-10-24，Asia/Singapore。已按用户“制定计划、持续推进”的授权执行 [受限目标计划](docs/RESTRICTED_GOAL_EXECUTION_20261024.md)。成功标准固定为：同一采集与合法 SOURCE FIT 人口，完整 wave 距离相对 M0 改善至少 2%，QPSD 不增加，18 项原风险、14 项原异常及 036 正容差保护通过；固定端点还须通过新随机库的 fast/slow/common_level 配对重复确认。
+
+P0 工程核验 247 已通过：206880 次硬观察的 ADC、前缀、裁窗和异常逐项一致，完整原生 CDF 最大误差 4.15e-14，风险误差 0。P1 作业 248 已正确启动，固定原骨干、54 个响应坐标与人口，只拟合 163 维均值修正系数；最多 768 个不同试探点和一次最终回放，内部硬限四小时。03:17:44（UTC+8）核实真实科学 PID26302：34 个完整点已完成，第 35 个正在计算；已计 1 次参数拟合、0 次端点选择，尚无通过或采用模型。
+
+[P0 闭合回执](receipts/finite_native_goal01_20261024/P0_fix02/CLOSURE_RECEIPT.json) · [P1 启动核验](receipts/finite_native_goal01_20261024/P1/STARTUP_VERIFICATION.json) · [本次进度快照](receipts/finite_native_goal01_20261024/P1/WAIT_SNAPSHOT.json)。
+
+P2 原模型读出与独立 CDF 验收脚本已备好，仅完成静态检查，尚未登记或执行。只有 P1 唯一返回端点通过实际目标及约束，才进行 P2；P2 全部通过才登记两个新随机库并进入 P3。均不追加拟合、种子或强度择优。原 242/243/244 的失败及 245/246 的工程失败保持原记录。
+
+已按实测单点耗时、剩余预算和监督退出硬期限，设置本聊天 **2026-10-24 07:12（UTC+8）单次接续**。醒来处理结果并继续合法下一步，不持续轮询。见 [等待估计](receipts/finite_native_goal01_20261024/P1/WAIT_ESTIMATE.json)、[定时回执](receipts/finite_native_goal01_20261024/P1/AUTOMATION_RECEIPT.json) 和 [P2 准备回执](receipts/finite_native_goal01_20261024/P2_PREPARATION.json)。
+
+科学状态仍为 `response_match_not_established`，`restricted_average_response_acceptance=false`。受限平均响应目标与完整科学响应验收分别记录；当前尚未达到目标。
+
+以下为历史快照。
+
+---
+
+# 当前决定：六组失败已核收，当前校准路线关闭
+
+2026-10-24，Asia/Singapore。服务器重启后已恢复；242及243在重启前均已完成关闭，没有待恢复的N01进程。本次244已保存数据分析原生退出0，六组全部核收，耗时4.074秒，新增拟合/候选/训练/模型生成均为0。
+
+完整wave的一阶预测改善4.816%—6.249%，实际仅0.425%—1.235%；有限映射损失1.009—2.447个百分点，目标余项再损失1.731—4.341个百分点。两个种子中目标余项约占预测高估72%及75%，逐采样电压CDF分组在六组均变差。仅修正裁窗或继续调权重衰减不能覆盖当前已观察的误差来源。
+
+[本次完整报告](deliverables/saved_failure_audit_20261024/REPORT.md) · [恒等分解图](deliverables/saved_failure_audit_20261024/FAILURE_DECOMPOSITION.png) · [CDF分组贡献](deliverables/saved_failure_audit_20261024/CDF_GROUP_CONTRIBUTIONS.png) · [决定](deliverables/saved_failure_audit_20261024/DECISION.json) · [闭合回执](receipts/saved_failure_audit_20261024/CLOSURE_RECEIPT.json)。
+
+科学状态仍为`response_match_not_established`，当前计算0、GPU未占用、无长等待和新定时。当前一阶代理校准路线保持关闭。后续明确问题是直接优化实际有限硬读出/CDF目标；新方法的实现、单次成本与有界拟合方案尚未验证或登记。原242/243及全部失败和计数保留。
+
+以下为历史快照。
+
+---
+
+# 当前结果：有界验证已闭合，尚无采用模型
+
+2026-10-23。原242的完整wave改善0.78825%，未达到2%入口，A分支已按协议关闭，B/C未启动。另行授权的243固定权重衰减研究也已完成：三对种子、六组、3672次更新和30个原生阶段全部完成，六组独立核验通过；原风险/异常/正容差保护全部通过，wave改善范围0.425126%—1.234647%，原生入口0/6通过。
+
+权重衰减相对同种子零衰减的wave距离平均额外改善0.005653个百分点，未改变原验收结论。全部三对及失败均保留，未选最佳种子或采用端点；科学状态保持 `response_match_not_established`。当前科学作业0，GPU已释放，原生自动接续已删除，不再自动追加训练或诊断链。
+
+[完整报告](deliverables/wd_paired_243_20261023/REPORT.md) · [三对数据](deliverables/wd_paired_243_20261023/PAIRED_COMPARISON_FINAL.json) · [六组CSV](deliverables/wd_paired_243_20261023/ALL_CASES.csv) · [结果图](deliverables/wd_paired_243_20261023/PAIRED_WEIGHT_DECAY_RESULT.png) · [闭合回执](receipts/wd_paired_243_20261023/CLOSURE_RECEIPT.json)。交付包含18项部署源码/配置的精确LF快照；活动数据与权重保持原路径引用。
+
+以下为历史快照。
+
+---
+
+# 当前执行：有明确出口的收敛验证
+
+2026-10-23。用户已授权按 [收敛验证计划](CONVERGENCE_VALIDATION_20261023.md) 继续。当前唯一候选为固定 242：原配置已部署但未启动，科学作业 0；服务器 GPU 被其他作业使用，低于原 6144 MiB 空闲启动要求。先执行 A 原生入口；通过才进入 B 新随机库确认和 C 最终比较；任一科学关口失败即关闭当前校准分支，不追加候选或调参链。科学状态仍为 `response_match_not_established`。
+
+已设置本聊天 **2026-10-23 19:09（UTC+8）单次接续**，届时核对共享 GPU 资源并推进固定 242。时间来自占用作业的实测速度、剩余预算及 20% 余量，见 [WAIT_ESTIMATE.json](receipts/convergence_validation_20261023/entry_01/WAIT_ESTIMATE.json) 和 [自动化回执](receipts/convergence_validation_20261023/entry_01/AUTOMATION_RECEIPT.json)。下方内容保留为历史快照；最新状态以本计划、三份台账和执行回执为准。
+
+---
+
 # N01 当前阶段：服务器重启后核收六库，接续预算待明确
 
 > 2026-10-21 01:33（UTC+8）：服务器可达，boot已改变，无原进程。145号作业保存6/14库、18次生成调用；6库独立数值复算全部通过。原生退出码、最后在途调用和剩余墙钟预算未知。0运行科学作业、0定时。阶段4科学验收未过，阶段5未进入。
